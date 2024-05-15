@@ -1,0 +1,21 @@
+@tailwindcss base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Super'; 
+    src: url('/fonts/Super-Creamy.woff') format('woff'); 
+}
+
+@font-face {
+    font-family: 'Story'; 
+    src: url('/fonts/Info-Story.woff') format('woff'); 
+}
+  
+header{
+    font-family: 'Super', sans-serif;
+}
+
+body{
+    font-family: 'Story', sans-serif;
+}
