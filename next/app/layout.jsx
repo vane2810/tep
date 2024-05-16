@@ -1,5 +1,7 @@
 import Navbar from '../components/navbar'
-import '../styles/globals.css'; 
+import '../styles/globals.css';
+import Navbar from '../components/footer' 
+import Footer from '../components/footer';
 
 export const metadata ={
   title: "TechEduPlanet - Home"
@@ -10,7 +12,7 @@ export default function RootLayout({ children }) {
       <body>
         <header><Navbar/></header>
         <div>{children}</div>
-        <footer></footer>
+        <footer><Footer/></footer>
       </body>
     </html>
   )
