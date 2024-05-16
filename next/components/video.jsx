@@ -1,8 +1,6 @@
 import React from "react";
 import Styles from "../styles/globals.css";
-import { Container } from "postcss";
 import Link from 'next/link';
-import { headers } from "next/headers";
 
 const containerStyle = {
     position: 'relative',
@@ -43,13 +41,13 @@ export default function Video() {
             </video>
             {/* Aquí están los botones */}
             <div style={buttonContainerStyle} className="flex justify-center items-center">
-                <Link href="/nivel1">
+                <Link href="/niveles/nivel1">
                     <img src="/img/page/tierran1.png" alt="Nivel 1" className="boton" style={button}/>
                 </Link>
-                <Link href="/nivel2">
+                <Link href="/niveles/nivel2">
                     <img src="/img/page/marten2.png" alt="Nivel 2" className="boton" style={button}/>
                 </Link>
-                <Link href="/nivel3">
+                <Link href="/niveles/nivel3">
                     <img src="/img/page/jupitern3.png" alt="Nivel 3" className="boton" style={button}/>
                 </Link>
             </div>
