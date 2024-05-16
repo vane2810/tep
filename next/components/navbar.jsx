@@ -1,21 +1,37 @@
+"use client";
 import Link from "next/link";
-import styles from "../styles/navbar.css";
+import React, { useState } from "react";
+import Sidebar from "./Sidebar";
+import styles from "../styles/globals.css";
 
 export default function Navbar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <nav className="flex justify-between items-center p-4$ custom-bg-color  text-white">
+    <nav className="flex justify-between items-center p-6 celeste text-black sticky top-0 left-0 right-0 z-10">
       {/* Logo y nombre */}
       <div className="flex items-center">
-          <Link href="/" className="flex items-center">
-            <img src="img/page/logoTEP.png" alt="Logo de la aplicación" className="w-8 h-8 mr-2" />
+        <Link href="/" className="flex items-center">
+          <img src="/img/page/logoTEP.png" alt="Logo de la aplicación" className="h-20 w-auto mr-10 ml-10" />
         </Link>
-        <span className="text-lg font-semibold">TechEduPlanet</span>
+        <span className="text-3xl super">TechEduPlanet</span>
       </div>
-      
-      {/* Botón de inicio de sesión */}
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Iniciar sesión
-      </button>
+
+      {/* Botón de iniciar sesión y registrarse */}
+      <div>
+        <Link href="/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
+        <Link href="/register" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrarse</Link>
+      </div>
+
+      {/*Abrir barra*/}
+      <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h- w-8 cursor-pointer"  onClick={toggleSidebar}/>
+
+      {/* Barra lateral */}
+      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
     </nav>
   );
 }

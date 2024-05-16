@@ -1,4 +1,4 @@
-@tailwindcss base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -11,11 +11,27 @@
     font-family: 'Story'; 
     src: url('/fonts/Info-Story.woff') format('woff'); 
 }
+
+.celeste {
+    background-color: #85C1E9;
+}
+.rosado {
+    background-color: #ED1566;
+}
+.amarillo {
+    background-color: #FFF65A;
+}
+.verde {
+    background-color: #46C334;
+}
+.morado {
+    background-color: #A74DB5;
+}
   
-header{
+.super {
     font-family: 'Super', sans-serif;
 }
 
-body{
+.story {
     font-family: 'Story', sans-serif;
 }
