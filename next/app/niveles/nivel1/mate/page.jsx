@@ -1,6 +1,7 @@
 import React from "react";
 import Link from 'next/link';
 
+
 // Definición del componente SeparadorRosa directamente en el mismo archivo
 const SeparadorRosa = () => (
   <div className="separadorRosa"></div>
@@ -20,14 +21,35 @@ const buttonStyle = {
   height: 'auto',
 };
 
+const headerStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginTop: '20px',
+  marginBottom: '20px',
+};
+
+const imageStyle = {
+  height: '250px',
+  width: 'auto',
+  marginRight: '350px',
+  marginLeft: '10px',
+};
+
+const textStyle = {
+  fontSize: '2rem',
+  fontWeight: 'bold',
+};
+
 export default function MatematicaPage() {
   return (
     <>
-      <SeparadorRosa/>
-      <div className="flex justify-center items-center mt-10 mb-10">
-        <img src="/img/page/starly.png" alt="Animated Image" className="h-40 w-auto mr-10 ml-10" />
+      <SeparadorRosa />
+      <div style={headerStyle}>
+        <img src="/img/niveles/mate/donkeysaludo.png" alt="Animated Image" style={imageStyle} />
+        <span style={textStyle}>Matemática</span>
       </div>
-      <SeparadorRosa/>
+      <SeparadorRosa />
       <div style={buttonContainerStyle} className="buttonContainer">
         <div className="button">
           <img src="/img/niveles/mate/cabeza.png" alt="cabeza" style={buttonStyle} />
@@ -48,4 +70,5 @@ export default function MatematicaPage() {
     </>
   );
 }
+
 
