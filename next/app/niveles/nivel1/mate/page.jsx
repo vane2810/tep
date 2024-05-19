@@ -1,6 +1,6 @@
 import React from "react";
 import Link from 'next/link';
-import Styles from "../styles/globals.css";
+import styles from "../styles/globals.css";
 
 const buttonContainerStyle = {
   position: 'absolute',
