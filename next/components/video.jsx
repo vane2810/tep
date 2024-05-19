@@ -39,7 +39,7 @@ export default function Video() {
             <video autoPlay loop muted style={videoStyle}>
                 <source src="/img/page/galaxia.mp4" type="video/mp4" />
             </video>
-            {/* Aquí están los botones */}
+            {/* Botones */}
             <div style={buttonContainerStyle} className="flex justify-center items-center">
                 <Link href="/niveles/nivel1">
                     <img src="/img/page/tierran1.png" alt="Nivel 1" className="boton" style={button}/>
