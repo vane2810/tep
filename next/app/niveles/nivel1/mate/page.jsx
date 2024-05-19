@@ -32,14 +32,14 @@ const headerStyle = {
 const imageStyle = {
   height: '250px',
   width: 'auto',
-  marginRight: '350px',
+  marginRight: '360px',
   marginLeft: '10px',
 };
 
-const textStyle = {
-  fontSize: '2rem',
-  fontWeight: 'bold',
-
+const paragraphStyle = {
+  color: 'black', // Cambia el color del texto a azul
+  fontFamily: 'Super', // Cambia la fuente del texto
+  fontSize: '76px',
 };
 
 export default function MatematicaPage() {
@@ -48,7 +48,7 @@ export default function MatematicaPage() {
       <SeparadorRosa />
       <div style={headerStyle}>
         <img src="/img/niveles/mate/donkeysaludo.png" alt="Animated Image" style={imageStyle} />
-        <span style={textStyle}>Matemática</span>
+        <p style={paragraphStyle}>MATEMATICA</p>
       </div>
       <SeparadorRosa />
       <div style={buttonContainerStyle} className="buttonContainer">
