@@ -28,24 +28,22 @@ export default function MatematicaPage() {
         <img src="/img/page/starly.png" alt="Animated Image" className="h-40 w-auto mr-10 ml-10" />
       </div>
       <SeparadorRosa/>
-
       <div style={buttonContainerStyle} className="buttonContainer">
         <div className="button">
-          <img src="/img/page/tierran1.png" alt="cabeza" style={buttonStyle} />
+          <img src="/img/niveles/mate/cabeza.png" alt="cabeza" style={buttonStyle} />
         </div>
         <Link href="/nivel1/mate/opeba">
-          <img src="/img/page/ob.png" alt="Opebacs" style={buttonStyle} className="button" />
+          <img src="/img/niveles/mate/ob.png" alt="Opebacs" style={buttonStyle} className="button" />
         </Link>
         <Link href="/nivel1/mate/nudeyfra">
-          <img src="/img/page/NDYF.png" alt="Numdeyfra" style={buttonStyle} className="button" />
+          <img src="/img/niveles/mate/NDYF.png" alt="Numdeyfra" style={buttonStyle} className="button" />
         </Link>
         <Link href="/nivel1/mate/geo">
-          <img src="/img/page/geo.png" alt="Geog" style={buttonStyle} className="button" />
+          <img src="/img/niveles/mate/geo.png" alt="Geog" style={buttonStyle} className="button" />
         </Link>
         <Link href="/nivel1/mate/resodepro">
-          <img src="/img/page/rdp.png" alt="Resodepro" style={buttonStyle} className="button" />
+          <img src="/img/niveles/mate/rdp.png" alt="Resodepro" style={buttonStyle} className="button" />
         </Link>
-        <SeparadorRosa/>
       </div>
     </>
   );
