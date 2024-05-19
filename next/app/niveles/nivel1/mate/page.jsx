@@ -39,6 +39,7 @@ const imageStyle = {
 const textStyle = {
   fontSize: '2rem',
   fontWeight: 'bold',
+
 };
 
 export default function MatematicaPage() {
