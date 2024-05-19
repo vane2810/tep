@@ -48,7 +48,7 @@ export default function MatematicaPage() {
           <img src="/img/page/NDYF.png" alt="Numdeyfra" style={buttonStyle} className="button" />
         </Link>
         <Link href="/nivel1/mate/geo">
-          <img src="/img/page/geo.png" alt="Geo" style={buttonStyle} className="button" />
+          <img src="/img/page/geo.png" alt="Geog" style={buttonStyle} className="button" />
         </Link>
         <Link href="/nivel1/mate/resodepro">
           <img src="/img/page/rdp.png" alt="Resodepro" style={buttonStyle} className="button" />
