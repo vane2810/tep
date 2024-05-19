@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('puntuaciones', function (Blueprint $table) {
+        Schema::create('historiales', function (Blueprint $table) {
             $table->id();
-            $table->integer('puntuacion');
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('juego_id')->references('id')->on('juegoss');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('juego_id');
+            $table->string('fecha_hora');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('puntuaciones');
+        Schema::dropIfExists('historiales');
     }
 };

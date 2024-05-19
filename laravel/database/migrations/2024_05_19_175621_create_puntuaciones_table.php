@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('juegos', function (Blueprint $table) {
+        Schema::create('puntuaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('categoria');
-            $table->string('ruta');
-            $table->foreign('puntos_id')->references('id')->on('puntuaciones');
-            $table->foreign('nivel_id')->references('id')->on('niveles');
+            $table->integer('puntuacion');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('juegos');
+        Schema::dropIfExists('puntuaciones');
     }
 };

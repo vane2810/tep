@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,17 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('favoritos', function (Blueprint $table) {
-
-            $table->foreign('user_id');
+        Schema::create('favoritos', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('juego_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-
-            $table->unsignedBigInteger('user_id')->after('id');
-            $table->unsignedBigInteger('juego_id')->after('user_id');
-
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('juego_id')->references('id')->on('juegos')->onDelete('cascade');
         });
     }
 
@@ -37,3 +30,4 @@ return new class extends Migration
         Schema::dropIfExists('favoritos');
     }
 };
+

@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perfil_usuarios', function (Blueprint $table) {
+        Schema::create('juegos', function (Blueprint $table) {
             $table->id();
-            $table->foreign('puntos_id')->references('id')->on('puntuaciones');
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('nivel_id')->references('id')->on('niveles');
-            $table->foreign('juego_id')->references('id')->on('juegos');
+            $table->string('categoria');
+            $table->string('ruta');
+            $table->unsignedBigInteger('puntos_id');
+            $table->unsignedBigInteger('nivel_id');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perfil_usuarios');
+        Schema::dropIfExists('juegos');
     }
 };
