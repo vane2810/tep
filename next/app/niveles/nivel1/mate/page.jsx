@@ -1,16 +1,17 @@
 import React from "react";
 import Link from 'next/link';
-import styles from "../styles/globals.css";
 
+// Definición del componente SeparadorRosa directamente en el mismo archivo
+const SeparadorRosa = () => (
+  <div className="separadorRosa"></div>
+);
+
+// Estilos para los botones definidos en el mismo archivo
 const buttonContainerStyle = {
-  position: 'absolute',
-  top: '48%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  zIndex: 1,
   display: 'flex',
   justifyContent: 'center',
   gap: '10px',
+  marginTop: '20px',
 };
 
 const buttonStyle = {
@@ -22,20 +23,11 @@ const buttonStyle = {
 export default function MatematicaPage() {
   return (
     <>
-      <section>
       <SeparadorRosa/>
       <div className="flex justify-center items-center mt-10 mb-10">
         <img src="/img/page/starly.png" alt="Animated Image" className="h-40 w-auto mr-10 ml-10" />
       </div>
       <SeparadorRosa/>
-      <div>
-        <NoSSR/>
-      </div>
-      <SeparadorRosa/>
-      <div className="flex justify-center items-center mt-10 mb-10">
-        <img src="/img/page/starly.png" alt="Animated Image" className="h-40 w-auto mr-10 ml-10" />
-      </div>
-      </section>
 
       <div style={buttonContainerStyle} className="buttonContainer">
         <div className="button">
@@ -53,6 +45,7 @@ export default function MatematicaPage() {
         <Link href="/nivel1/mate/resodepro">
           <img src="/img/page/rdp.png" alt="Resodepro" style={buttonStyle} className="button" />
         </Link>
+        <SeparadorRosa/>
       </div>
     </>
   );

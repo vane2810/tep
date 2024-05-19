@@ -35,3 +35,9 @@
 .story {
     font-family: 'Story', sans-serif;
 }
+
+.SeparadorRosa {
+    height: 2px;
+    background-color: #ED1566;
+    margin: 20px 0;
+}
