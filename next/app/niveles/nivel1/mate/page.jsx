@@ -21,7 +21,7 @@ export default function MatematicaPage() {
           <div className="flex-auto w-60 h-auto">
             <img src="/img/niveles/mate/cabeza.png" alt="cabeza" className="w-full h-auto" />
           </div>
-          <Link href="/nivel1/mate/opebasic/page">
+          <Link href="/niveles/nivel1/mate/operaciones_basicas">
             <img src="/img/niveles/mate/ob.png" alt="Opebacs" className="flex-auto w-64 h-auto" />
           </Link>
           <Link href="/nivel1/mate/nudeyfra">
