@@ -1,6 +1,8 @@
 import React from "react";
 import Styles from "../styles/globals.css";
 
+// Lineas separadoras por color
+
 export function SeparadorRosa() {
     return (
         <div className="w-50 h-3 rosado"></div>
@@ -33,6 +35,6 @@ export function SeparadorMorado() {
 
 export function SeparadorAzul() {
     return (
-        <div className="w-50 h-3 bg-blue-500"></div>
+        <div className="w-50 h-3 azul"></div>
     );
 }

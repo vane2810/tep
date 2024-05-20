@@ -10,4 +10,4 @@ Route::get('/', function () {
 
 Route::apiResource('api', 'ApiController');
 
-Route::post('register', [AuthController::class, 'register']);
+Route::post('/register', 'AuthController@register');

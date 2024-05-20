@@ -27,7 +27,7 @@ export default function Navbar() {
         <Link href="/register" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrarse</Link>
       </div>
 
-      {/*Abrir barra*/}
+      {/*Icono abrir barra*/}
       <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h- w-8 cursor-pointer"  onClick={toggleSidebar}/>
 
       {/* Barra lateral */}

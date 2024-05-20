@@ -2,6 +2,7 @@ import React from "react";
 import Styles from "../styles/globals.css";
 import Link from 'next/link';
 
+// Contenedor del video
 const containerStyle = {
     position: 'relative',
     width: '100%',
@@ -10,12 +11,14 @@ const containerStyle = {
     overflow: 'hidden',
 };
 
+// Estilo del video
 const videoStyle = {
     width: '100%', 
     height: '450px', 
     objectFit: 'cover', 
 };
 
+// Estilos contenedor de los botones
 const buttonContainerStyle = {
     position: 'absolute',
     top: '50%',
@@ -26,6 +29,7 @@ const buttonContainerStyle = {
     gap: '20px', 
 };
 
+// Estilos botones
 const button = {
     width: '400px', 
     height: 'auto',
