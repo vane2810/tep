@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('puntuacion');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+           
         });
     }
 

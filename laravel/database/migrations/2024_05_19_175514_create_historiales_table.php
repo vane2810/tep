@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('juego_id');
             $table->string('fecha_hora');
             $table->timestamps();
+
+            
         });
     }
 

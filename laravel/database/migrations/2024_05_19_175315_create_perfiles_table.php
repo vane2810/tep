@@ -18,6 +18,8 @@
                 $table->unsignedBigInteger('nivel_id');
                 $table->unsignedBigInteger('juego_id');
                 $table->timestamps();
+
+               
             });
         }
 
