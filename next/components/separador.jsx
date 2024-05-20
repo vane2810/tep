@@ -30,3 +30,9 @@ export function SeparadorMorado() {
         <div className="w-50 h-3 morado"></div>
     );
 }
+
+export function SeparadorAzul() {
+    return (
+        <div className="w-50 h-3 bg-blue-500"></div>
+    );
+}
