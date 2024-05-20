@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('juegos', function (Blueprint $table) {
 
-            $table->foreign('puntos_id')->references('id')->on('puntos')->onDelete('cascade');
+            $table->foreign('puntos_id')->references('id')->on('puntuaciones')->onDelete('cascade');
             $table->foreign('nivel_id')->references('id')->on('niveles')->onDelete('cascade');
         });
     }
