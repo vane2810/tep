@@ -19,7 +19,7 @@ export default function MatematicaPage() {
       <section>
         <div className="flex justify-center gap-2.5 mt-5">
           <div className="flex-auto w-60 h-auto">
-            <img src="/img/niveles/mate/cabeza.png" alt="cabez" className="w-full h-auto" />
+            <img src="/img/niveles/mate/cabeza.png" alt="cabeza" className="w-80 h-70" />
           </div>
           <Link href="/niveles/nivel1/mate/operaciones_basicas">
             <img src="/img/niveles/mate/ob.png" alt="Opebacs" className="flex-auto w-64 h-auto" />

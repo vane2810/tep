@@ -5,7 +5,7 @@ import Carousel from "../components/carousel";
 import { SeparadorRosa } from "../components/separador";
 import dynamic from 'next/dynamic'
 
-{/*Importación del componente video / como usuario*/}
+{/*Importación del componente video / como cliente*/}
 const NoSSR = dynamic(() => import('../components/video'), { ssr: false })
  
 
