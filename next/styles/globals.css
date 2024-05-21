@@ -18,6 +18,10 @@
 .rosado {
     background-color: #ED1566;
 }
+
+.rojo {
+    background-color:darkred;
+}
 .amarillo {
     background-color: #FFF65A;
 }
@@ -31,6 +35,9 @@
     background-color: rgb(59 130 246);;
 }
   
+.anaranjado{
+    background-color: rgb(237, 151, 38);
+}
 .super {
     font-family: 'Super', sans-serif;
 }
