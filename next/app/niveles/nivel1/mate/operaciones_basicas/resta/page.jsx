@@ -77,7 +77,7 @@ export default function RestaPage(){
           <section className="my-10 px-4">
             <div className="flex items-center">
               <div className="flex-1 text-center">
-                <h2 className="text-2xl font-semibold">Paso 7</h2>
+                <h2 className="text-2xl font-semibold">Paso 6</h2>
                 <p className="mt-2 text-black text-center">Finalmente restamos la columna de las centenas.  Teniendo en cuenta que el cinco fue transformado en cuatro hacemos la pregunta: ¿cuánto le falta al 1 para llegar a 4 ?  Como la respuesta es 3 , ponemos ese resultado en la casilla de las unidades de la solución.  Obtenemos: 540-196= 344</p>
               </div>
               <img src="/img/niveles/mate/paso6resta.png" alt="División" className="h-32 w-auto ml-4" />
