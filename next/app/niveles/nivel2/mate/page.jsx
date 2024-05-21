@@ -24,13 +24,13 @@ export default function MatematicaPage() {
           <Link href="/niveles/nivel2/mate/operaciones_basicas">
             <img src="/img/niveles/mate/ob.png" alt="Opebacs" className="flex-auto w-64 h-auto" />
           </Link>
-          <Link href="/nivel2/mate/nudeyfra">
+          <Link href="/nivel1/mate/nudeyfra">
             <img src="/img/niveles/mate/NDYF.png" alt="Numdeyfra" className="flex-auto w-64 h-auto" />
           </Link>
-          <Link href="/nivel2/mate/geo">
+          <Link href="/nivel1/mate/geo">
             <img src="/img/niveles/mate/geo.png" alt="Geog" className="flex-auto w-64 h-auto" />
           </Link>
-          <Link href="/nivel2/mate/resodepro">
+          <Link href="/nivel1/mate/resodepro">
             <img src="/img/niveles/mate/rdp.png" alt="Resodepro" className="flex-auto w-64 h-auto" />
           </Link>
         </div>

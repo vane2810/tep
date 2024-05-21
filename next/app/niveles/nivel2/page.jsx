@@ -22,16 +22,16 @@ export default function MateriasPage() {
   return (
     <main>
       <div style={buttonContainerStyle} className="flex justify-center items-center">
-        <Link href="/niveles/nivel1/mate">
+        <Link href="/niveles/nivel2/mate">
           <img src="/img/niveles/mate/matematica.png" alt="Matematica" style={buttonStyle} />
         </Link>
-        <Link href="/niveles/nivel1/lenguaje">
+        <Link href="/niveles/nivel2/lenguaje">
           <img src="/img/niveles/lenguaje/lenguaje.png" alt="Sociales" style={buttonStyle} />
         </Link>
-        <Link href="/niveles/nivel1/ingles">
+        <Link href="/niveles/nivel2/ingles">
          <img src="/img/niveles/ingles/ingles.png" alt="Lenguaje" style={buttonStyle} />
         </Link>
-        <Link href="/niveles/nivel1/sociales">
+        <Link href="/niveles/nivel2/sociales">
          <img src="/img/niveles/sociales/sociales.png" alt="Ingles" style={buttonStyle} />
         </Link>
       </div>
