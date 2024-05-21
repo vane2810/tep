@@ -24,9 +24,9 @@ export default function MultiplicacionPage(){
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 1</h2>
-                <p className="mt-2 text-black text-center">Multiplicar el multiplicador de la derecha con los numeros del multiplicando, el 4 se multiplica primero por 2 luego por el 0 y por ultimo el 1.</p>
+                <p className="mt-2 text-black text-center">Coloca las cifras a que la cifra mayor vaya a la parte de arriba y la cifra más menor vaya debajo que es ese será el multiplicando.</p>
               </div>
-              <img src="/img/niveles/mate/paso1multiplicacion.png" alt="Suma" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso1multin3.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
         </section>
     
@@ -35,10 +35,10 @@ export default function MultiplicacionPage(){
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 2</h2>
-                <p className="mt-2 text-black text-center">Se multiplica el segundo multiplicador que es el 1 y se multiplicara por el 2 primero, luego 0 y por ultimo el 1. </p>
+                <p className="mt-2 text-black text-center">Multiplicar el multiplicador de la derecha con los números del multiplicando, el 3 se multiplica primero por 7 luego por el 5, 0, 8 y por último el 3. </p>
                 
               </div>
-              <img src="/img/niveles/mate/paso2multiplicacion.png" alt="Resta" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso2multin3.png" alt="Resta" className="h-32 w-auto ml-4" />
             </div>
           </section>
     
@@ -47,9 +47,9 @@ export default function MultiplicacionPage(){
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 3</h2>
-                <p className="mt-2 text-black text-center">Se suma los resultados para obtener el producto</p>
+                <p className="mt-2 text-black text-center">Se multiplica el segundo multiplicador que es el 4 y se multiplicara por el 7 primero, luego por el 5, 0, 8 y por último el 3.</p>
               </div>
-              <img src="/img/niveles/mate/paso3multiplicacion.png" alt="Multiplicación" className="h-32 w-auto ml-5" />
+              <img src="/img/niveles/mate/paso3multin3.png" alt="Multiplicación" className="h-32 w-auto ml-5" />
             </div>
           </section>
     
@@ -58,9 +58,20 @@ export default function MultiplicacionPage(){
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 4</h2>
-                <p className="mt-2 text-black text-center">El producto es 1,428.</p>
+                <p className="mt-2 text-black text-center">Se multiplica el tercer multiplicador que es el 1 y se multiplicara por el 7 primero, luego por el 5, 0, 8 y por último el 3.</p>
               </div>
-              <img src="/img/niveles/mate/paso4multiplicacion.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso4multin3.png" alt="División" className="h-32 w-auto ml-4" />
+            </div>
+          </section>
+
+          {/* Paso 5*/}
+          <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Paso 5</h2>
+                <p className="mt-2 text-black text-center">Se suma los resultados para obtener el producto. El producto es: 5,412,151.</p>
+              </div>
+              <img src="/img/niveles/mate/paso5multin3.png" alt="División" className="h-32 w-auto ml-4" />
             </div>
           </section>
         </main>
