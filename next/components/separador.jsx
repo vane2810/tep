@@ -38,3 +38,15 @@ export function SeparadorAzul() {
         <div className="w-50 h-3 azul"></div>
     );
 }
+
+export function SeparadorAnaranjado() {
+    return (
+        <div className="w-50 h-3 anaranjado"></div>
+    );
+}
+
+export function SeparadorRojo() {
+    return (
+        <div className="w-50 h-3 rojo"></div>
+    );
+}

@@ -17,8 +17,8 @@ export default function MatematicaPage() {
 
       {/* Gusano*/}
       <section>
-        <div className="flex justify-center gap-2.5 mt-5">
-          <div className="flex-auto w-60 h-auto">
+        <div className="flex justify-center gap-x-2.5 mt-5">
+          <div className="flex-auto w-50 h-auto">
             <img src="/img/niveles/mate/cabeza.png" alt="cabeza" className="w-80 h-70" />
           </div>
           <Link href="/niveles/nivel1/mate/operaciones_basicas">
