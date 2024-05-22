@@ -17,8 +17,19 @@ export default function SumaPage(){
               </div>
             </div>
             <SeparadorVerde />
+
         </section>
-    
+          {/*terminos*/}
+        <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Terminos de la suma</h2>
+                <p className="mt-2 text-black text-center">Sumando, sumando y total</p>
+              </div>
+              <img src="/img/niveles/mate/terminossuma.png" alt="Suma" className="h-32 w-auto ml-4" />
+            </div>
+        </section>
+
           {/*paso 1*/}
         <section className="my-10 px-4">
             <div className="flex items-center">

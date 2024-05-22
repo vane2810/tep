@@ -18,8 +18,19 @@ export default function SumaPage(){
             </div>
             <SeparadorVerde />
         </section>
+
+        {/*terminos*/}
+        <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Terminos de la suma</h2>
+                <p className="mt-2 text-black text-center">Sumando, sumando y total</p>
+              </div>
+              <img src="/img/niveles/mate/terminossuma.png" alt="Suma" className="h-32 w-auto ml-4" />
+            </div>
+        </section>
     
-          {/* Suma */}
+          {/*paso 1*/}
         <section className="my-10 px-4">
             <div className="flex items-center">
               <div className="flex-1 text-center">
@@ -30,7 +41,7 @@ export default function SumaPage(){
             </div>
         </section>
     
-          {/* Resta */}
+          {/*paso 2*/}
           <section className="my-10 px-4">
             <div className="flex items-center">
               <div className="flex-1 text-center">
@@ -38,39 +49,40 @@ export default function SumaPage(){
                 <p className="mt-2 text-black text-wrap">Ahora sumamos los dígitos que están en una misma columna, empezamos por las unidades: 4 + 3 = 7 Ponemos este resultado en la casilla de las unidades de la respuesta, que estará ubicada bajo una línea horizontal.</p>
                 
               </div>
-              <img src="/img/niveles/mate/paso2suma.png" alt="Resta" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso2suma.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
     
-          {/* Multiplicación */}
+          {/*paso 3*/}
           <section className="my-10 px-4">
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 3</h2>
                 <p className="mt-2 text-black text-wrap">Seguimos con las decenas:  1 + 2 = 3  ubicamos esta suma en el lugar de las decenas de la respuesta.</p>
               </div>
-              <img src="/img/niveles/mate/paso3suma.png" alt="Multiplicación" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso3suma.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
     
-          {/* División */}
+          {/*paso 4*/}
           <section className="my-10 px-4">
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 4</h2>
                 <p className="mt-2 text-black text-center">Finalmente operamos , poniendo ese números en la casilla reservada para las centenas de la respuesta final.</p>
               </div>
-              <img src="/img/niveles/mate/paso4suma.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso4suma.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
 
+          {/*paso 5*/}
           <section className="my-10 px-4">
             <div className="flex items-center">
               <div className="flex-1 text-center">
                 <h2 className="text-2xl font-semibold">Paso 5</h2>
                 <p className="mt-2 text-black text-center">Obtenemos el resultado</p>
               </div>
-              <img src="/img/niveles/mate/resulsuma.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/resulsuma.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
         </main>

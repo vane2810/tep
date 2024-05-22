@@ -18,7 +18,18 @@ export default function SumaPage(){
             </div>
             <SeparadorVerde />
         </section>
-    
+           
+          {/*terminos*/}
+        <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Terminos de la suma</h2>
+                <p className="mt-2 text-black text-center">Sumando, sumando y total</p>
+              </div>
+              <img src="/img/niveles/mate/terminossuma.png" alt="Suma" className="h-32 w-auto ml-4" />
+            </div>
+        </section>
+        
           {/*paso 1*/}
         <section className="my-10 px-4">
             <div className="flex items-center">
@@ -38,7 +49,7 @@ export default function SumaPage(){
                 <p className="mt-2 text-black text-wrap">Ahora sumamos los dígitos que están en una misma columna, empezamos por las unidades: 6 + 2 = 8 y las decenas 2 + 6 = 8. Ponemos los resultados en casilla de las unidades de la respuesta y en de las decenas, que estará ubicada bajo una línea horizontal. Así como lo muestra la imagen.</p>
                 
               </div>
-              <img src="/img/niveles/mate/paso2suman2.png" alt="Resta" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso2suman2.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
     
@@ -49,7 +60,7 @@ export default function SumaPage(){
                 <h2 className="text-2xl font-semibold">Paso 3</h2>
                 <p className="mt-2 text-black text-wrap">Seguimos con las centenas:  4 + 3 = 7 ubicamos esta suma en el lugar de las centenas de la respuesta. Ahora el de las unidades de millar: 3 + 5 = 8 así que ahora ubicamos en el lugar de las unidades de millar en la parte de la respuesta como lo hacemos en la imagen.</p>
               </div>
-              <img src="/img/niveles/mate/paso3suman2.png" alt="Multiplicación" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso3suman2.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
     
@@ -60,7 +71,7 @@ export default function SumaPage(){
                 <h2 className="text-2xl font-semibold">Paso 4</h2>
                 <p className="mt-2 text-black text-center">Finalmente operamos 2 + 1 = 3, poniendo ese número en la casilla reservada para las decenas de millar para obtener nuestro resultado final.</p>
               </div>
-              <img src="/img/niveles/mate/paso4suman2.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso4suman2.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
         </main>

@@ -18,7 +18,18 @@ export default function RestaPage(){
             </div>
             <SeparadorAmarillo/>
         </section>
-    
+
+          {/*terminos*/}
+        <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Terminos de la resta</h2>
+                <p className="mt-2 text-black text-center">Minuendo, sustraendo y diferencia.</p>
+              </div>
+              <img src="/img/niveles/mate/terminosresta.png" alt="Suma" className="h-32 w-auto ml-4" />
+            </div>
+        </section>
+
           {/*Paso 1*/}
         <section className="my-10 px-4">
             <div className="flex items-center">
