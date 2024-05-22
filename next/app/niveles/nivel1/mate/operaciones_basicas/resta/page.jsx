@@ -18,7 +18,18 @@ export default function RestaPage(){
             </div>
             <SeparadorAmarillo/>
         </section>
-    
+           
+          {/*terminos*/}
+        <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Terminos de la resta</h2>
+                <p className="mt-2 text-black text-center">Minuendo, sustraendo y diferencia.</p>
+              </div>
+              <img src="/img/niveles/mate/terminosresta.png" alt="resta" className="h-32 w-auto ml-4" />
+            </div>
+        </section>
+
           {/*Paso 1*/}
         <section className="my-10 px-4">
             <div className="flex items-center">
@@ -26,7 +37,7 @@ export default function RestaPage(){
                 <h2 className="text-2xl font-semibold">Paso 1</h2>
                 <p className="mt-2 text-black text-center">Ubicamos los números uno debajo del otro haciendo que los valores posicionales correspondientes coincidan, así como se muestra en la imagen.</p>
               </div>
-              <img src="/img/niveles/mate/paso1resta.png" alt="Suma" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso1resta.png" alt="resta" className="h-32 w-auto ml-4" />
             </div>
         </section>
     
@@ -49,7 +60,7 @@ export default function RestaPage(){
                 <h2 className="text-2xl font-semibold">Paso 3</h2>
                 <p className="mt-2 text-black text-center">Con los nuevos números realizamos la resta de la casilla de las unidades, nos volvemos a preguntar: ¿cuánto le falta al 6  para llegar a  10? Como la respuesta es 4 , ponemos ese número en la casilla de las unidades de la respuesta.</p>
               </div>
-              <img src="/img/niveles/mate/paso3resta.png" alt="Multiplicación" className="h-32 w-auto ml-5" />
+              <img src="/img/niveles/mate/paso3resta.png" alt="resta" className="h-32 w-auto ml-5" />
             </div>
           </section>
     
@@ -60,7 +71,7 @@ export default function RestaPage(){
                 <h2 className="text-2xl font-semibold">Paso 4</h2>
                 <p className="mt-2 text-black text-center">Podemos ahora seguir con la columna de las decenas.  Recordando que el cuatro fue transformado en tres nos preguntamos: ¿cuánto le falta al 9 para llegar a 3 ?. Nuevamente la pregunta carece de sentido ya que tres es menor que nueve,   Para solucionar este problema el 3  debe pedir prestado a la siguiente cifra de la izquierda, el cinco 5. Al prestar una unidad, el cinco queda convertido en 4 ; mientras que al recibirla, el 3  queda convertido en 13.</p>
               </div>
-              <img src="/img/niveles/mate/paso4resta.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso4resta.png" alt="resta" className="h-32 w-auto ml-4" />
             </div>
           </section>
           {/* Paso 5*/}
@@ -70,7 +81,7 @@ export default function RestaPage(){
                 <h2 className="text-2xl font-semibold">Paso 5</h2>
                 <p className="mt-2 text-black text-center">Realizamos la resta de las decenas con  los números resultantes: ahora nos preguntamos: ¿cuánto le falta al 9  para llegar a  13? Como la respuesta es cuatro, ese es el número que debe ser puesto en la casilla de las decenas de la respuesta:</p>
               </div>
-              <img src="/img/niveles/mate/paso5resta.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso5resta.png" alt="resta" className="h-32 w-auto ml-4" />
             </div>
           </section>
           {/* Paso 6*/}
@@ -80,7 +91,7 @@ export default function RestaPage(){
                 <h2 className="text-2xl font-semibold">Paso 6</h2>
                 <p className="mt-2 text-black text-center">Finalmente restamos la columna de las centenas.  Teniendo en cuenta que el cinco fue transformado en cuatro hacemos la pregunta: ¿cuánto le falta al 1 para llegar a 4 ?  Como la respuesta es 3 , ponemos ese resultado en la casilla de las unidades de la solución.  Obtenemos: 540-196= 344</p>
               </div>
-              <img src="/img/niveles/mate/paso6resta.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso6resta.png" alt="resta" className="h-32 w-auto ml-4" />
             </div>
           </section>
         </main>

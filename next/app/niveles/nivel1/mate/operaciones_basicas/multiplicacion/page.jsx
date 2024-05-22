@@ -18,7 +18,18 @@ export default function MultiplicacionPage(){
             </div>
             <SeparadorAnaranjado/>
         </section>
-    
+          
+           {/*terminos*/}
+        <section className="my-10 px-4">
+            <div className="flex items-center">
+              <div className="flex-1 text-center">
+                <h2 className="text-2xl font-semibold">Terminos de la multiplicación</h2>
+                <p className="mt-2 text-black text-center">Multiplicando, multiplicador, producto o total.</p>
+              </div>
+              <img src="/img/niveles/mate/terminosmultiplicacion.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
+            </div>
+        </section>
+
           {/*Paso 1*/}
         <section className="my-10 px-4">
             <div className="flex items-center">
@@ -26,7 +37,7 @@ export default function MultiplicacionPage(){
                 <h2 className="text-2xl font-semibold">Paso 1</h2>
                 <p className="mt-2 text-black text-center">Multiplicar el multiplicador de la derecha con los numeros del multiplicando, el 4 se multiplica primero por 2 luego por el 0 y por ultimo el 1.</p>
               </div>
-              <img src="/img/niveles/mate/paso1multiplicacion.png" alt="Suma" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso1multiplicacion.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
             </div>
         </section>
     
@@ -38,7 +49,7 @@ export default function MultiplicacionPage(){
                 <p className="mt-2 text-black text-center">Se multiplica el segundo multiplicador que es el 1 y se multiplicara por el 2 primero, luego 0 y por ultimo el 1. </p>
                 
               </div>
-              <img src="/img/niveles/mate/paso2multiplicacion.png" alt="Resta" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso2multiplicacion.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
             </div>
           </section>
     
@@ -60,7 +71,7 @@ export default function MultiplicacionPage(){
                 <h2 className="text-2xl font-semibold">Paso 4</h2>
                 <p className="mt-2 text-black text-center">El producto es 1,428.</p>
               </div>
-              <img src="/img/niveles/mate/paso4multiplicacion.png" alt="División" className="h-32 w-auto ml-4" />
+              <img src="/img/niveles/mate/paso4multiplicacion.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
             </div>
           </section>
         </main>
