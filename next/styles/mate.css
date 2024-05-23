@@ -1,0 +1,17 @@
+
+.buttonContainer {
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+  
+.boton {
+    flex: 1 0 auto;
+    width: 250px;
+    height: auto;
+}
+  
