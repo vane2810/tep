@@ -12,7 +12,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Enviar los datos al servidor
     try {
       const response = await axios.post('http://localhost:3001/api/auth/register', {
@@ -24,9 +24,16 @@ const Register = () => {
       console.log(response.data); // Maneja la respuesta del backend según sea necesario
       alert('¡Cuenta creada con éxito!');
     } catch (error) {
-      setError(error.response.data.errors);
+      if (error.response && error.response.status === 400) {
+        // Si el correo electrónico ya está registrado, mostrar un mensaje de error
+        setError([{ msg: 'Este correo electrónico ya está registrado.' }]);
+      } else {
+        // Si hay un error diferente, mostrar el mensaje de error del servidor
+        setError(error.response.data.errors);
+      }
     }
   };
+  
 
   return (
     <div>
