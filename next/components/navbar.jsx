@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import styles from "../styles/globals.css";
 
-export default function Navbar() {
+export default function Navbar({ userType }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -21,13 +21,20 @@ export default function Navbar() {
         <span className="text-3xl super">TechEduPlanet</span>
       </div>
 
-      {/* Botón de iniciar sesión y registrarse */}
-      <div>
-        <Link href="/adm/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
-        <Link href="/adm/registro" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrarse</Link>
-      </div>
+      {/* Botón de inicio de sesión y registro (solo para invitados) */}
+      {userType === "guest" && (
+        <div>
+          <Link href="/adm/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
+          <Link href="/adm/registro" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrarse</Link>
+        </div>
+      )}
 
-      {/*Icono abrir barra*/}
+      {/* Nombre del estudiante (solo para estudiantes) */}
+      {userType === "student" && (
+        <div className="text-xl font-bold">{/* Aquí muestra el nombre del estudiante */}</div>
+      )}
+
+      {/* Icono para abrir la barra lateral */}
       <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h- w-8 cursor-pointer"  onClick={toggleSidebar}/>
 
       {/* Barra lateral */}
