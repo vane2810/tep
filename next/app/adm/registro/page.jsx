@@ -1,4 +1,3 @@
-// pages/registro.jsx
 "use client";
 
 import { useState } from 'react';
@@ -13,6 +12,8 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Enviar los datos al servidor
     try {
       const response = await axios.post('http://localhost:3001/api/auth/register', {
         name,
@@ -21,6 +22,7 @@ const Register = () => {
         password_confirmation: passwordConfirmation,
       });
       console.log(response.data); // Maneja la respuesta del backend según sea necesario
+      alert('¡Cuenta creada con éxito!');
     } catch (error) {
       setError(error.response.data.errors);
     }
@@ -45,6 +47,7 @@ const Register = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             required
           />
         </div>
