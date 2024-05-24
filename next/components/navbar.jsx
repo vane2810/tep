@@ -1,14 +1,22 @@
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import Sidebar from "./Sidebar";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Sidebar from './Sidebar';
 import styles from "../styles/globals.css";
 
-export default function Navbar({ userType }) {
+const Navbar = ({ router, userType }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleLogout = () => {
+    // Limpiar el localStorage u otros datos de autenticación
+    localStorage.removeItem('user');
+
+    // Redirigir al usuario a la página de inicio de sesión
+    router.push('/');
   };
 
   return (
@@ -29,16 +37,21 @@ export default function Navbar({ userType }) {
         </div>
       )}
 
-      {/* Nombre del estudiante (solo para estudiantes) */}
+      {/* Botón de cerrar sesión (solo para estudiantes autenticados) */}
       {userType === "student" && (
-        <div className="text-xl font-bold">{/* Aquí muestra el nombre del estudiante */}</div>
+        <div className="flex items-center">
+          <div className="text-xl font-bold mr-4">{/* Aquí muestra el nombre del estudiante */}</div>
+          <button onClick={handleLogout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Cerrar sesión</button>
+        </div>
       )}
 
       {/* Icono para abrir la barra lateral */}
-      <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h- w-8 cursor-pointer"  onClick={toggleSidebar}/>
+      <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h- w-8 cursor-pointer" onClick={toggleSidebar} />
 
       {/* Barra lateral */}
       <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
     </nav>
   );
-}
+};
+
+export default Navbar;

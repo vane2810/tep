@@ -1,4 +1,3 @@
-// routes/auth.js
 const express = require('express');
 const router = express.Router();
 const { User } = require('../models');
@@ -24,30 +23,41 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Ruta de inicio de sesión
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-  
-    try {
-      // Verificar si el usuario existe en la base de datos
-      const user = await User.findOne({ where: { email } });
-      if (!user) {
-        return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
-      }
-  
-      // Verificar si la contraseña es correcta
-      const passwordMatch = await bcrypt.compare(password, user.password);
-      if (!passwordMatch) {
-        return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
-      }
-  
-      // Aquí podrías generar un token de autenticación y enviarlo como respuesta
-      // O simplemente enviar un mensaje de éxito si prefieres manejar la sesión de otra manera
-      res.status(200).json({ message: 'Inicio de sesión exitoso', user });
-    } catch (error) {
-      res.status(500).json({ error: 'Error interno del servidor' });
+  const { email, password } = req.body;
+
+  try {
+    // Verificar si el usuario existe en la base de datos
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
     }
+
+    // Verificar si la contraseña es correcta
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
+    }
+
+    // Aquí podrías generar un token de autenticación y enviarlo como respuesta
+    // O simplemente enviar un mensaje de éxito si prefieres manejar la sesión de otra manera
+    res.status(200).json({ message: 'Inicio de sesión exitoso', user });
+  } catch (error) {
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
 });
 
+// Ruta de cierre de sesión
+const logout = (req, res) => {
+  // Implementa la lógica para eliminar el token de autenticación
+  // y cualquier otro dato de sesión almacenado en el backend.
+  // Por ejemplo, si estás usando tokens JWT, puedes invalidar el token aquí.
   
-  
-module.exports = router;
+  res.status(200).json({ message: 'Sesión cerrada exitosamente.' });
+};
+
+module.exports = {
+  logout,
+  router
+};
