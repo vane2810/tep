@@ -11,7 +11,7 @@ export default function Sidebar({ isOpen, onClose }) {
       </div>
       {/* Lista de elementos */}
       <ul className="px-4">
-        <li className="py-2"><Link href="/">Home</Link></li>
+        <li className="py-2"><Link href="/">Inicio</Link></li>
         <li className="py-2"><Link href="/niveles/nivel1">Nivel 1</Link></li>
         <li className="py-2"><Link href="/niveles/nivel2">Nivel 2</Link></li>
         <li className="py-2"><Link href="/niveles/nivel3">Nivel 3</Link></li>
