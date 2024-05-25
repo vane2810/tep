@@ -1,15 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Importa el middleware cors
-const { sequelize } = require('./models'); // Asegúrate de que la ruta sea correcta
+const cors = require('cors'); 
+const { sequelize } = require('./models');
 const authRoutes = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors()); // Usa el middleware cors para permitir solicitudes desde cualquier origen
+app.use(cors()); 
 app.use(bodyParser.json());
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes); // Ruta autenticación
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');
@@ -21,5 +21,5 @@ sequelize.sync().then(() => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
 }).catch(err => {
-  console.error('Unable to connect to the database:', err);
+  console.error('Error al conectarse a la base de datos:', err);
 });

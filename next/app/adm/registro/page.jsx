@@ -1,3 +1,5 @@
+//Registro
+
 "use client";
 
 import { useState } from 'react';
@@ -21,11 +23,11 @@ const Register = () => {
         password,
         password_confirmation: passwordConfirmation,
       });
-      console.log(response.data); // Maneja la respuesta del backend según sea necesario
+      console.log(response.data); // Maneja la respuesta del backend 
       alert('¡Cuenta creada con éxito!');
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        // Si el correo electrónico ya está registrado, mostrar un mensaje de error
+        // Mensaje en caso del que correo ya exista
         setError([{ msg: 'Este correo electrónico ya está registrado.' }]);
       } else {
         // Si hay un error diferente, mostrar el mensaje de error del servidor
@@ -34,7 +36,7 @@ const Register = () => {
     }
   };
   
-
+ // Formulario
   return (
     <div>
       <h1>Register</h1>
@@ -76,6 +78,8 @@ const Register = () => {
             required
           />
         </div>
+       
+
         <button type="submit">Register</button>
         {error && <div>{error.map(err => <p key={err.msg}>{err.msg}</p>)}</div>}
       </form>

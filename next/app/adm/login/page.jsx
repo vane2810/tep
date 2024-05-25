@@ -1,4 +1,4 @@
-// pages/login.jsx
+// Login
 
 "use client";
 
@@ -13,20 +13,21 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      //Solicitud al backend
       const response = await axios.post('http://localhost:3001/api/auth/login', {
         email,
         password,
       });
-      console.log(response.data); // Maneja la respuesta del backend según sea necesario
+      console.log(response.data); // Respuesta del backend
       alert('¡Inicio de sesión exitoso!');
-      // Redirigir al usuario a la página de inicio
+      // Llamar a handleLogin para actualizar el estado de autenticación
       window.location.href = '/';
     } catch (error) {
       setError(error.response.data.error);
     }
   };
   
-  
+  // Formulario
   return (
     <div>
       <h1>Iniciar sesión</h1>

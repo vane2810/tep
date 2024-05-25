@@ -1,3 +1,5 @@
+// Inicio Nivel 1
+
 import React from "react";
 import Link from 'next/link';
 
@@ -18,7 +20,7 @@ const buttonStyle = {
   height: 'auto',
 };
 
-export default function MateriasPage() {
+export default function Nivel1() {
   return (
     <main>
       <div style={buttonContainerStyle} className="flex justify-center items-center">

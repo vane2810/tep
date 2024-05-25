@@ -1,6 +1,8 @@
+// Rutas de autenticación
+
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models');
+const { User,Role } = require('../models');
 const bcrypt = require('bcrypt');
 
 // Ruta de registro de usuario
@@ -16,13 +18,21 @@ router.post('/register', async (req, res) => {
 
     // Si el correo electrónico no está registrado, crea un nuevo usuario
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ name, email, password: hashedPassword });
+    // Crear el usuario y asignar automáticamente el rol de estudiante (id 1)
+    const user = await User.create({ 
+      name, 
+      email, 
+      password: hashedPassword,
+      roleId: 1,
+    });
     res.status(201).json({ message: 'Usuario registrado correctamente', user });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 });
 
+    
+ 
 // Ruta de inicio de sesión
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
@@ -40,8 +50,15 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
     }
 
-    // Aquí podrías generar un token de autenticación y enviarlo como respuesta
-    // O simplemente enviar un mensaje de éxito si prefieres manejar la sesión de otra manera
+    // Asignamos el rol de estudiante al usuario
+    try {
+    await assignRole(user.id, 'estudiante');
+    } catch (error) {
+    res.status(500).json({ error: 'Error al asignar el rol de estudiante' });
+    }
+
+
+    // Mensaje de confirmación
     res.status(200).json({ message: 'Inicio de sesión exitoso', user });
   } catch (error) {
     res.status(500).json({ error: 'Error interno del servidor' });
@@ -49,15 +66,9 @@ router.post('/login', async (req, res) => {
 });
 
 // Ruta de cierre de sesión
-const logout = (req, res) => {
-  // Implementa la lógica para eliminar el token de autenticación
-  // y cualquier otro dato de sesión almacenado en el backend.
-  // Por ejemplo, si estás usando tokens JWT, puedes invalidar el token aquí.
+router.get('/logout',(req, res) => {
   
   res.status(200).json({ message: 'Sesión cerrada exitosamente.' });
-};
+});
 
-module.exports = {
-  logout,
-  router
-};
+module.exports = router;

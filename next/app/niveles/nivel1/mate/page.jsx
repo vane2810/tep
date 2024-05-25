@@ -1,3 +1,5 @@
+// Inicio Matemáticas
+
 import React from "react";
 import Link from 'next/link';
 import { SeparadorRosa } from "@/components/separador";

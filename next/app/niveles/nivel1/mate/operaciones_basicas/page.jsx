@@ -1,3 +1,5 @@
+// Inicio Operaciones Básicas
+
 import React from "react";
 import Link from 'next/link';
 import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul } from "@/components/separador";
