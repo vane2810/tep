@@ -6,7 +6,7 @@ import axios from 'axios';
 const containerStyle = {
   display: 'flex',
   flexDirection: 'row',
-  height: '100vh', // Para que ocupe toda la altura de la ventana
+  height: '100vh',
 };
 
 const loginContainerStyle = {
@@ -16,16 +16,16 @@ const loginContainerStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   padding: '30px',
-  backgroundColor: '#FADBD8', // Color de fondo de la mitad izquierda
-  border: 'none', // Eliminamos el borde para evitar la línea divisoria
-  boxShadow: 'none', // Eliminamos la sombra para evitar bordes visibles
+  backgroundColor: '#FADBD8',
+  border: 'none',
+  boxShadow: 'none', 
 };
 
 const imgBaseStyle = {
   width: '130px',
   height: '120px',
   marginBottom: '50px',
-  animation: 'tumble 3s infinite', // Aplicamos la animación de balanceo
+  animation: 'tumble 3s infinite',
 };
 
 const titleStyle = {
@@ -52,7 +52,7 @@ const labelStyle = {
 const inputStyle = {
   width: '100%',
   height: '40px',
-  padding: '10px',
+  padding: '20px',
   fontSize: '16px',
   border: '1px solid #ccc',
   borderRadius: '10px',
@@ -65,7 +65,7 @@ const inputFocusStyle = {
 };
 
 const btnLoginStyle = {
-  width: '80%', // Hacemos el botón más pequeño
+  width: '90%', // Hacemos el botón más pequeño
   height: '40px', // Hacemos el botón más pequeño
   padding: '10px',
   fontSize: '16px', // Reducimos el tamaño de la fuente
@@ -76,7 +76,7 @@ const btnLoginStyle = {
   cursor: 'pointer',
   fontFamily: "'Comic Sans MS', cursive, sans-serif",
   transition: 'background-color 0.3s, transform 0.3s',
-  margin: '10px 0', // Añadimos margen para separación
+  margin: '10px 0',
 };
 
 const btnLoginHoverStyle = {
@@ -98,7 +98,7 @@ const rightContainerStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   paddingRight: '40px',
-  backgroundColor: '#FADBD8', // Color de fondo de la mitad derecha igual al de la izquierda
+  backgroundColor: '#FADBD8',
 };
 
 const imageStyle = {
