@@ -3,22 +3,29 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const loginContainerStyle = {
+const containerStyle = {
   display: 'flex',
-  flexDirection: 'row', // Cambiamos el flexDirection a 'row'
+  flexDirection: 'row',
+  height: '100vh', // Para que ocupe toda la altura de la ventana
+};
+
+const loginContainerStyle = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
   alignItems: 'center',
   padding: '30px',
-  backgroundColor: '#FFCCBC',
-  border: '2px solid #ffcc80',
-  borderRadius: '15px',
-  boxShadow: '0 0 15px rgba(0, 0, 0, 0.1)',
-  animation: 'fadeIn 1s ease-in-out',
+  backgroundColor: '#FADBD8', // Color de fondo de la mitad izquierda
+  border: 'none', // Eliminamos el borde para evitar la línea divisoria
+  boxShadow: 'none', // Eliminamos la sombra para evitar bordes visibles
 };
 
 const imgBaseStyle = {
   width: '130px',
   height: '120px',
-  marginBottom: '20px',
+  marginBottom: '50px',
+  animation: 'tumble 3s infinite', // Aplicamos la animación de balanceo
 };
 
 const titleStyle = {
@@ -26,6 +33,7 @@ const titleStyle = {
   color: '#333',
   marginBottom: '20px',
   fontFamily: "'Comic Sans MS', cursive, sans-serif",
+  textAlign: 'center',
 };
 
 const inputGroupStyle = {
@@ -57,10 +65,10 @@ const inputFocusStyle = {
 };
 
 const btnLoginStyle = {
-  width: '100%',
-  height: '50px',
+  width: '80%', // Hacemos el botón más pequeño
+  height: '40px', // Hacemos el botón más pequeño
   padding: '10px',
-  fontSize: '18px',
+  fontSize: '16px', // Reducimos el tamaño de la fuente
   color: '#fff',
   backgroundColor: '#F4D03F',
   border: 'none',
@@ -68,6 +76,7 @@ const btnLoginStyle = {
   cursor: 'pointer',
   fontFamily: "'Comic Sans MS', cursive, sans-serif",
   transition: 'background-color 0.3s, transform 0.3s',
+  margin: '10px 0', // Añadimos margen para separación
 };
 
 const btnLoginHoverStyle = {
@@ -80,15 +89,21 @@ const errorMessageStyle = {
   fontSize: '14px',
   marginTop: '10px',
   fontFamily: "'Comic Sans MS', cursive, sans-serif",
+  textAlign: 'center',
 };
 
-const linkStyle = {
-  textDecoration: 'none',
-  color: '#42a5f5',
+const rightContainerStyle = {
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  paddingRight: '40px',
+  backgroundColor: '#FADBD8', // Color de fondo de la mitad derecha igual al de la izquierda
 };
 
-const linkHoverStyle = {
-  color: '#1e88e5',
+const imageStyle = {
+  width: '100%',
+  height: 'auto',
 };
 
 const styles = `
@@ -109,6 +124,13 @@ const styles = `
       transform: translateX(0);
       opacity: 1;
     }
+  }
+  @keyframes tumble {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
   }
 `;
 
@@ -135,15 +157,15 @@ const Login = () => {
   };
 
   return (
-    <div style={loginContainerStyle}>
+    <div style={containerStyle}>
       <style>{styles}</style>
-      <div style={{ flex: 1 }}>
+      <div style={loginContainerStyle}>
         <img
           src="/img/page/starly.png"
           alt="Logo"
           style={{
             ...imgBaseStyle,
-            animation: 'flyIn 1s ease-out',
+            animation: 'flyIn 1s ease-out, tumble 3s infinite', // Aplicamos ambas animaciones
           }}
         />
         <h1 style={titleStyle}>Iniciar sesión</h1>
@@ -183,11 +205,11 @@ const Login = () => {
           {error && <div style={errorMessageStyle}>{error}</div>}
         </form>
       </div>
-      <div style={{ flex: 1, textAlign: 'right', paddingRight: '40px' }}>
+      <div style={rightContainerStyle}>
         <img
           src="/img/page/login.jpg" // Ruta de la imagen final
           alt="Imagen final"
-          style={{ width: '120%', height: 'auto' }}
+          style={imageStyle}
         />
       </div>
     </div>
@@ -195,4 +217,3 @@ const Login = () => {
 };
 
 export default Login;
-
