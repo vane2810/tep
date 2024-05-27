@@ -13,11 +13,8 @@ const Navbar = ({ userRole }) => {
   };
 
   useEffect(() => {
-    // Aquí puedes implementar la lógica para obtener el usuario actual si es necesario
-    // Por ejemplo, puedes obtenerlo desde tu sistema de autenticación
-    // Simulando un usuario autenticado para demostración
     if (userRole === 'estudiante') {
-      setUser({ name: 'John Doe' });
+      setUser({ name });
     } else {
       setUser(null);
     }
@@ -33,7 +30,7 @@ const Navbar = ({ userRole }) => {
         <span className="text-3xl super">TechEduPlanet</span>
       </div>
 
-      {/* Botones de inicio de sesión y registro (solo para invitados) */}
+      {/* Botones de inicio de sesión y registro (sólo para invitados) */}
       {!user && (
         <div>
           <Link href="/adm/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
@@ -41,7 +38,7 @@ const Navbar = ({ userRole }) => {
         </div>
       )}
 
-      {/* Botón de cerrar sesión (solo para estudiantes autenticados) */}
+      {/* Botón de cerrar sesión (sólo para estudiantes autenticados) */}
       {user && userRole === 'estudiante' && (
         <div className="flex items-center">
           <div className="text-xl font-bold mr-4">{user.name}</div>
