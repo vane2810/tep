@@ -1,90 +1,68 @@
-//Registro
-
 "use client";
+import React, { useState } from 'react';
 
-import { useState } from 'react';
-import axios from 'axios';
+export default function Register() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
-const Register = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [error, setError] = useState(null);
+
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Enviar los datos al servidor
+    if (formData.password !== formData.confirmPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/register', {
-        name,
-        email,
-        password,
-        password_confirmation: passwordConfirmation,
+      const res = await fetch('http://localhost:3001/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      console.log(response.data); // Maneja la respuesta del backend 
-      alert('¡Cuenta creada con éxito!');
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        // Mensaje en caso del que correo ya exista
-        setError([{ msg: 'Este correo electrónico ya está registrado.' }]);
+      const data = await res.json();
+      if (res.ok) {
+        alert('Usuario registrado correctamente');
+        
       } else {
-        // Si hay un error diferente, mostrar el mensaje de error del servidor
-        setError(error.response.data.errors);
+        alert(data.error);
       }
+    } catch (error) {
+      alert('Error al registrar el usuario');
     }
   };
-  
- // Formulario
+
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-            required
-          />
-        </div>
-       
-
-        <button type="submit">Register</button>
-        {error && <div>{error.map(err => <p key={err.msg}>{err.msg}</p>)}</div>}
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Nombre</label>
+        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+      </div>
+      <div>
+        <label>Contraseña</label>
+        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+      </div>
+      <div>
+        <label>Confirmar Contraseña</label>
+        <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+      </div>
+      <button type="submit">Registrar</button>
+    </form>
   );
-};
-
-export default Register;
+}

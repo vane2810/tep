@@ -1,50 +1,31 @@
 // AuthContext.js
-import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+"use client";
+// AuthContext.js
+import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+export const AuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      setAuthenticated(true);
-    }
-  }, []);
-
-  const login = async (email, password) => {
-    try {
-      const response = await axios.post('/api/login', { email, password });
-      const token = response.data.token;
-      localStorage.setItem('token', token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      setAuthenticated(true);
-      setUser(response.data.user);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleLogin = (role) => {
+    setIsAuthenticated(true);
+    setUserRole(role);
   };
 
-  const logout = async () => {
-    try {
-      await axios.get('/api/logout');
-      localStorage.removeItem('token');
-      setAuthenticated(false);
-      setUser(null);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setUserRole(null);
   };
 
   return (
-    <AuthContext.Provider value={{ authenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, userRole, handleLogin, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export { AuthProvider, AuthContext };
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

@@ -1,28 +1,34 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
 import Sidebar from './Sidebar';
-import styles from "../styles/globals.css";
 
-const Navbar = ({ userRole }) => {
+// Resto del código...
+
+const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const [userRoleId, setUserRoleId] = useState(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   useEffect(() => {
-    if (userRole === 'estudiante') {
-      setUser({ name });
-    } else {
-      setUser(null);
+    const storedRoleId = localStorage.getItem('roleId');
+    if (storedRoleId) {
+      setUserRoleId(parseInt(storedRoleId));
     }
-  }, [userRole]);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('roleId');
+    setUserRoleId(null);
+    // Aquí puedes agregar la lógica para redirigir a la página de inicio o a donde sea necesario
+  };
 
   return (
     <nav className="flex justify-between items-center p-6 celeste text-black sticky top-0 left-0 right-0 z-10">
-      {/* Logo y nombre */}
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
           <img src="/img/page/logoTEP.png" alt="Logo de la aplicación" className="h-20 w-auto mr-10 ml-10" />
@@ -30,19 +36,18 @@ const Navbar = ({ userRole }) => {
         <span className="text-3xl super">TechEduPlanet</span>
       </div>
 
-      {/* Botones de inicio de sesión y registro (sólo para invitados) */}
-      {!user && (
+      {/* Condición para mostrar botones según el estado de autenticación */}
+      {!userRoleId && (
         <div>
           <Link href="/adm/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
           <Link href="/adm/registro" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrarse</Link>
         </div>
       )}
 
-      {/* Botón de cerrar sesión (sólo para estudiantes autenticados) */}
-      {user && userRole === 'estudiante' && (
+      {userRoleId === 1 && (
         <div className="flex items-center">
-          <div className="text-xl font-bold mr-4">{user.name}</div>
-          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Cerrar sesión</button>
+          <div className="text-xl font-bold mr-4">Usuario Estudiante</div>
+          <button onClick={handleLogout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Cerrar sesión</button>
         </div>
       )}
 

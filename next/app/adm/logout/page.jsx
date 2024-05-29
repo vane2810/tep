@@ -1,33 +1,25 @@
 "use client";
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 
 export default function Logout() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const logout = async () => {
-      try {
-        // Hacer una solicitud al backend para cerrar la sesión
-        await fetch('/api/auth/logout', { method: 'POST' });
-
-        // Limpiar el localStorage u otros datos de autenticación
-        localStorage.removeItem('user');
-
-        // Redirigir al usuario a la página de inicio de sesión
-        router.push('/');
-      } catch (error) {
-        console.error('Error al cerrar sesión:', error);
-        // Podrías mostrar un mensaje de error al usuario aquí
+  const handleLogout = async () => {
+    try {
+      const res = await fetch('http://localhost:3001/api/auth/logout', {
+        method: 'POST',
+      });
+      if (res.ok) {
+        alert('Sesión cerrada exitosamente');
+        // Aquí podrías realizar cualquier otra acción después de cerrar sesión, como redireccionar a la página de inicio
+      } else {
+        const data = await res.json();
+        alert(data.error || 'Error al cerrar sesión');
       }
-    };
-
-    logout();
-  }, []);
+    } catch (error) {
+      alert('Error al cerrar sesión');
+    }
+  };
 
   return (
-    <div>
-      <p>Cerrando sesión...</p>
-    </div>
+    <button onClick={handleLogout}>Cerrar sesión</button>
   );
 }
