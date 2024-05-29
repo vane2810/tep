@@ -1,12 +1,12 @@
-// Juego 1 - Suma - Nivel 1
+// Juego 1 - Multiplicación - Nivel 1
 
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
 
-const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/suma/game1'), { ssr: false });
+const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/multiplicacion/game1'), { ssr: false });
 
-const SumGamePage1 = () => {
+const MulGamePage2 = () => {
   return (
     <main>
       <div className="mb-8">
@@ -18,4 +18,4 @@ const SumGamePage1 = () => {
   );
 };
 
-export default SumGamePage1;
+export default MulGamePage2;
