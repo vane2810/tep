@@ -35,7 +35,7 @@ const Game2 = () => {
     let correctAnswer;
 
     function preload() {
-      this.load.image('background', '/img/games/mate/ob/galaxy.jpg');
+      this.load.image('background', '/img/games/mate/ob/fondogame2.jpg');
       this.load.image('arrow', '/img/games/mate/ob/flechitajuego.png'); // Cambia esto a la ruta correcta de tu imagen de flecha
     }
 
@@ -86,8 +86,8 @@ const Game2 = () => {
       optionText.setOrigin(0.5);
 
       this.physics.world.enable([optionBox, optionText]);
-      optionBox.body.setVelocityY(2); // Velocidad más lenta
-      optionText.body.setVelocityY(2);
+      optionBox.body.setVelocityY(1); // Velocidad más lenta
+      optionText.body.setVelocityY(1);
 
       optionBox.setInteractive();
       optionBox.on('pointerdown', () => checkAnswer.call(this, answer, correctAnswer));
