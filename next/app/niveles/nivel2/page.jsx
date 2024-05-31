@@ -2,6 +2,8 @@
 
 import React from "react";
 import Link from 'next/link';
+import { SeparadorRosa } from "@/components/separador";
+
 
 const buttonContainerStyle = {
   position: 'absolute',
@@ -23,6 +25,7 @@ const buttonStyle = {
 export default function Nivel2() {
   return (
     <main>
+      <SeparadorRosa/>
       <div style={buttonContainerStyle} className="flex justify-center items-center">
         <Link href="/niveles/nivel2/mate">
           <img src="/img/niveles/mate/matematica.png" alt="Matematica" style={buttonStyle} />
