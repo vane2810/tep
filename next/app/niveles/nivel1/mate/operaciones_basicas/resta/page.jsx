@@ -94,6 +94,7 @@ export default function RestaPage(){
               <img src="/img/niveles/mate/paso6resta.png" alt="resta" className="h-32 w-auto ml-4" />
             </div>
           </section>
+          <Link href="/niveles/nivel1/mate/operaciones_basicas/resta/juegos">Juegos</Link>
         </main>
       );
 }

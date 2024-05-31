@@ -4,7 +4,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
 
-const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/suma/game2'), { ssr: false });
+const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/suma/game1'), { ssr: false });
 
 const SumGamePage2 = () => {
   return (

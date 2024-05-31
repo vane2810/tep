@@ -74,6 +74,7 @@ export default function MultiplicacionPage(){
               <img src="/img/niveles/mate/paso4multiplicacion.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
             </div>
           </section>
+          <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion/juegos">Juegos</Link>
         </main>
     );
 }

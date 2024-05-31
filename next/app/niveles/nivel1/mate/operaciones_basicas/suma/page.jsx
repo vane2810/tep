@@ -85,6 +85,7 @@ export default function SumaPage(){
               <img src="/img/niveles/mate/resulsuma.png" alt="Suma" className="h-32 w-auto ml-4" />
             </div>
           </section>
+          <Link href="/niveles/nivel1/mate/operaciones_basicas/suma/juegos">Juegos</Link>
         </main>
       );
     }

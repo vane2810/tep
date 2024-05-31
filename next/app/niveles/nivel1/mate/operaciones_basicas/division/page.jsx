@@ -63,6 +63,7 @@ export default function DivisionPage(){
               <img src="/img/niveles/mate/paso3division.png" alt="División" className="h-32 w-auto ml-4" />
             </div>
           </section>
+          <Link href="/niveles/nivel1/mate/operaciones_basicas/division/juegos">Juegos</Link>
         </main>
     );
 }
