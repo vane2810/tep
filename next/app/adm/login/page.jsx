@@ -28,7 +28,6 @@ export default function Login() {
       const data = await res.json();
       if (res.ok) {
         alert('Inicio de sesión exitoso');
-        // Aquí podrías guardar el token de sesión en localStorage o en un estado global
         
       } else {
         alert(data.error);

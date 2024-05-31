@@ -18,6 +18,7 @@ export default function Sidebar({ isOpen, onClose }) {
         <li className="py-2"><Link href="#">Progreso</Link></li>
         <li className="py-2"><Link href="#">Favoritos</Link></li>
         <li className="py-2"><Link href="#">Historial</Link></li>
+        <li className="py-2"><Link href="#">Cerrar Sesión</Link></li>
       </ul>
     </div>
   );
