@@ -1,27 +1,21 @@
 // RootLayout.jsx
 import React from 'react';
-import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import { AuthProvider } from '../context/AuthContext';
+import Navbar from '../components/navbar';
 
 export const metadata = {
   title: "TechEduPlanet"
 }
 
-const RootLayout = ({ children }) => {
+
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <AuthProvider>
-          <header>
-            <Navbar />
-          </header>
-          <div>{children}</div>
-          <footer><Footer/></footer>
-        </AuthProvider>
+        <header><Navbar/></header>
+        {children}
+        <footer><Footer/></footer>
       </body>
     </html>
-  );
+  )
 }
-
-export default RootLayout;

@@ -15,7 +15,7 @@ export default function HomePage(){
   return (
     
       <main>
-      <SeparadorRosa/>
+        <SeparadorRosa/>
       {/* Bienvenida de Starly*/}
       <div className="flex justify-center items-center mt-10 mb-10">
         <img src="/img/page/starly.png" alt="Animated Image" className="h-40 w-auto mr-10 ml-10" />

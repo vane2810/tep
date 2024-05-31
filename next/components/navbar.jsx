@@ -1,10 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Link from 'next/link';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
-// Resto del código...
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
