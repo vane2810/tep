@@ -15,8 +15,7 @@ export default function MatematicaPage() {
         <SeparadorRosa />
       </section>
 
-      {/* Gusano*/}
-      {/* Botones */}
+      {/* Temas*/}
       <section>
         <div className="flex justify-between gap-x-1 mt-5 mx-2.5">
           <Link href="/niveles/nivel2/mate/operaciones_basicas">
