@@ -13,7 +13,7 @@ const ResGamePage1 = () => {
         <h1 className="mb-4">Juego de Sumas</h1>
         <Game1 />
       </div>
-      <SeparadorRosa />
+      <SeparadorRosa /> 
     </main>
   );
 };
