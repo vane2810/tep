@@ -15,23 +15,20 @@ export default function MatematicaPage() {
         <SeparadorRosa />
       </section>
 
-      {/* Gusano*/}
+      {/* Temas*/}
       <section>
-        <div className="flex justify-center gap-x-2.5 mt-5">
-          <div className="flex-auto w-50 h-auto">
-            <img src="/img/niveles/mate/cabeza.png" alt="cabeza" className="w-80 h-70" />
-          </div>
-          <Link href="/niveles/nivel3/mate/operaciones_basicas">
-            <img src="/img/niveles/mate/ob.png" alt="Opebacs" className="flex-auto w-64 h-auto" />
+        <div className="flex justify-between gap-x-1 mt-5 mx-2.5">
+          <Link href="/niveles/nivel2/mate/operaciones_basicas">
+            <img src="/img/niveles/mate/opebasicas.png" alt="Opebacs" className="w-65 h-64" />
           </Link>
           <Link href="/nivel1/mate/nudeyfra">
-            <img src="/img/niveles/mate/NDYF.png" alt="Numdeyfra" className="flex-auto w-64 h-auto" />
+            <img src="/img/niveles/mate/Numerosdyf.png" alt="Numdecyfra" className="w-65 h-64" />
           </Link>
           <Link href="/nivel1/mate/geo">
-            <img src="/img/niveles/mate/geo.png" alt="Geog" className="flex-auto w-64 h-auto" />
+            <img src="/img/niveles/mate/geometri.png" alt="Geog" className="w-65 h-64" />
           </Link>
           <Link href="/nivel1/mate/resodepro">
-            <img src="/img/niveles/mate/rdp.png" alt="Resodepro" className="flex-auto w-64 h-auto" />
+            <img src="/img/niveles/mate/resoluciondp.png" alt="Resodepro" className="w-65 h-64" />
           </Link>
         </div>
       </section>

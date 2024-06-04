@@ -33,7 +33,7 @@ const Game3 = () => {
     let answerOptions;
 
     function preload() {
-      this.load.image('background', '/img/games/mate/ob/fondogame3.jpg');
+      this.load.image('background', '/img/games/mate/ob/fondogame2.jpg');
       this.load.image('arrow', '/img/games/mate/ob/respuestagame3.png'); // Asegúrate de usar la ruta correcta
     }
 
