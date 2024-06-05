@@ -1,12 +1,13 @@
+// Login
 "use client";
 import React, { useState } from 'react';
+import '@/styles/login.css';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
 
   const handleChange = (e) => {
     setFormData({
@@ -28,7 +29,6 @@ export default function Login() {
       const data = await res.json();
       if (res.ok) {
         alert('Inicio de sesión exitoso');
-        
       } else {
         alert(data.error);
       }
@@ -38,16 +38,47 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+    <div className="container">
+      <div className="login-container">
+        <h1 className="title">Inicio de sesión</h1>
+        <img
+          src="/img/page/starly.png"
+          alt="Logo"
+          className="img-base"
+        />
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="label">Correo electrónico:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+          </div>
+          <div>
+            <label className="label">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+          </div>
+          <button type="submit" className="btn-login">Iniciar sesión</button>
+        </form>
+        <hr className="separator" />
+        <div className="signup-link">
+          <p>¿No tienes una cuenta? <a href="/adm/registro">Regístrate</a></p>
+        </div>
       </div>
-      <div>
-        <label>Contraseña</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+      <div className="right-container">
+        <img src="/img/page/login.jpg" alt="Imagen final" className="image"/>
       </div>
-      <button type="submit">Iniciar sesión</button>
-    </form>
+    </div>
   );
 }

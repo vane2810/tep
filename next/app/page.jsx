@@ -8,6 +8,41 @@ import dynamic from 'next/dynamic';
 
 const NoSSR = dynamic(() => import('../components/video'), { ssr: false });
 
+
+export default function HomePage() {
+  return (
+    <main>
+      <style>{styles}</style>
+      <SeparadorRosa />
+      {/* Bienvenida de Starly */}
+      <div className="flex justify-center items-center mt-10 mb-10">
+        <img
+          src="/img/page/starlysaludo.png"
+          alt="Animated Image"
+          className="h-56 w-auto mr-15 ml-15 animate-tumble"
+        />
+      </div>
+      <SeparadorRosa />
+      <div>
+        {/* Botones (Planetas) */}
+        <NoSSR />
+      </div>
+      <SeparadorRosa />
+      {/* Starly */}
+      <div className="flex justify-center items-center mt-10 mb-10">
+        <img
+          src="/img/page/starly.png"
+          alt="Animated Image"
+          className="h-40 w-auto mr-10 ml-10"
+        />
+        {/* Carrusel (falta) */}
+        <Carousel />
+      </div>
+      <SeparadorRosa />
+    </main>
+  );
+}
+
 const styles = `
   @keyframes fadeIn {
     from {
@@ -47,37 +82,3 @@ const styles = `
     animation: tumble 2s ease-in-out infinite;
   }
 `;
-
-export default function HomePage() {
-  return (
-    <main>
-      <style>{styles}</style>
-      <SeparadorRosa />
-      {/* Bienvenida de Starly */}
-      <div className="flex justify-center items-center mt-10 mb-10">
-        <img
-          src="/img/page/starlysaludo.png"
-          alt="Animated Image"
-          className="h-56 w-auto mr-15 ml-15 animate-tumble"
-        />
-      </div>
-      <SeparadorRosa />
-      <div>
-        {/* Botones (Planetas) */}
-        <NoSSR />
-      </div>
-      <SeparadorRosa />
-      {/* Starly */}
-      <div className="flex justify-center items-center mt-10 mb-10">
-        <img
-          src="/img/page/starly.png"
-          alt="Animated Image"
-          className="h-40 w-auto mr-10 ml-10"
-        />
-        {/* Carrusel (falta) */}
-        <Carousel />
-      </div>
-      <SeparadorRosa />
-    </main>
-  );
-}

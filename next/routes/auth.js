@@ -9,8 +9,16 @@ const jwt = require('jsonwebtoken');
 router.post('/register', async (req, res) => {
   const { name, email, password, confirmPassword, roleId } = req.body;
 
+  const validateName = (name) => {
+    const regex = /^[a-zA-Z\s]+$/;
+    return regex.test(name);
+  };
+
   if (!name || !email || !password || !confirmPassword) {
     return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+  }
+  if (!validateName(name)) {
+    return res.status(400).json({ error: 'El nombre solo puede contener letras.' });
   }
   if (password !== confirmPassword) {
     return res.status(400).json({ error: 'Las contraseñas no coinciden' });
