@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import RegistroModal from '@/components/modals/registroModal';
+import '@/styles/registro.css';
 
 export default function Register() {
   const [formData, setFormData] = useState({
