@@ -1,134 +1,213 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import Phaser from 'phaser';
+import { useState, useEffect } from 'react';
+import Head from 'next/head';
+
+const questions = [
+  {
+    question: "¿Cuál es el planeta más cercano al sol?",
+    options: ["Mercurio", "Venus", "Tierra", "Marte"],
+    answer: "Mercurio",
+    image: "/assets/mercury.png"
+  },
+  {
+    question: "¿Cuál es el planeta más grande del sistema solar?",
+    options: ["Júpiter", "Saturno", "Urano", "Neptuno"],
+    answer: "Júpiter",
+    image: "/assets/jupiter.png"
+  }
+];
 
 const Home = () => {
-  const gameContainer = useRef(null);
+  const [showGame, setShowGame] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
+  const [showRanking, setShowRanking] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
-  useEffect(() => {
-    const config = {
-      type: Phaser.AUTO,
-      width: 800,
-      height: 600,
-      parent: gameContainer.current,
-      physics: {
-        default: 'arcade',
-        arcade: {
-          gravity: { y: 0 },
-          debug: true // Activar el modo de depuración para ver colisiones
-        }
-      },
-      scene: {
-        preload: preload,
-        create: create,
-        update: update
-      }
-    };
+  const handlePlay = () => {
+    setShowInstructions(false);
+    setShowRanking(false);
+    setShowResult(false);
+    setShowGame(true);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+  };
 
-    const game = new Phaser.Game(config);
+  const handleRanking = () => {
+    setShowInstructions(false);
+    setShowGame(false);
+    setShowResult(false);
+    setShowRanking(true);
+  };
 
-    function preload() {
-      this.load.image('space', '/assets/space.png'); // Fondo del espacio
+  const handleInstructions = () => {
+    setShowGame(false);
+    setShowRanking(false);
+    setShowResult(false);
+    setShowInstructions(true);
+  };
+
+  const handleAnswerClick = (option) => {
+    if (option === questions[currentQuestionIndex].answer) {
+      setScore(score + 1);
     }
-
-    function create() {
-      // Fondo del espacio
-      this.add.image(400, 300, 'space');
-
-      // Crear la nave espacial
-      this.ship = this.add.graphics();
-      this.ship.fillStyle(0xff0000, 1);
-      this.ship.fillTriangle(0, -15, -10, 15, 10, 15);
-      const shipTexture = this.ship.generateTexture('ship', 20, 30);
-      this.ship.destroy();
-      this.ship = this.physics.add.sprite(400, 300, 'ship');
-      this.ship.setCollideWorldBounds(true);
-
-      // Crear estrellas
-      this.stars = this.physics.add.group({
-        key: 'star',
-        repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }
-      });
-
-      this.stars.children.iterate((child) => {
-        child.y = Phaser.Math.Between(50, 550);
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
-        // Dibujar estrella
-        child.setTexture(this.add.graphics().fillStyle(0xffff00, 1).fillCircle(10, 10, 10).generateTexture('star', 20, 20));
-      });
-
-      // Hacer que la nave colisione con las estrellas
-      this.physics.add.overlap(this.ship, this.stars, collectStar, null, this);
-
-      // Crear controles de teclado
-      this.cursors = this.input.keyboard.createCursorKeys();
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      setShowResult(true);
+      setShowGame(false);
     }
-
-    function update() {
-      if (this.cursors.left.isDown) {
-        this.ship.setVelocityX(-200);
-      } else if (this.cursors.right.isDown) {
-        this.ship.setVelocityX(200);
-      } else {
-        this.ship.setVelocityX(0);
-      }
-
-      if (this.cursors.up.isDown) {
-        this.ship.setVelocityY(-200);
-      } else if (this.cursors.down.isDown) {
-        this.ship.setVelocityY(200);
-      } else {
-        this.ship.setVelocityY(0);
-      }
-    }
-
-    function collectStar(ship, star) {
-      star.disableBody(true, true);
-    }
-
-    return () => {
-      game.destroy(true);
-    };
-  }, []);
+  };
 
   return (
-    <div>
+    <div className="container">
+      <Head>
+        <title>Aventura Espacial</title>
+      </Head>
+      <img src="/assets/logo.png" alt="Logo" className="logo" />
+      <img src="/assets/background.png" alt="Background" className="background" />
+      <div className="content">
+        <img src="/assets/pocoyo.png" alt="Pocoyo" className="character" />
+        <div className="buttons">
+          <button onClick={handlePlay}>Play</button>
+          <button onClick={handleRanking}>Ranking</button>
+          <button onClick={handleInstructions}>Instrucciones</button>
+        </div>
+        {showGame && (
+          <div className="game">
+            <h2>{questions[currentQuestionIndex].question}</h2>
+            <img src={questions[currentQuestionIndex].image} alt="question" />
+            <div className="options">
+              {questions[currentQuestionIndex].options.map((option, index) => (
+                <button key={index} onClick={() => handleAnswerClick(option)}>
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        {showResult && (
+          <div className="result">
+            <h2>Resultado</h2>
+            <p>Tu puntuación es: {score} de {questions.length}</p>
+          </div>
+        )}
+        {showInstructions && (
+          <div className="instructions">
+            <h2>Instrucciones</h2>
+            <p>Responde a las preguntas sobre el espacio y elige la opción correcta.</p>
+          </div>
+        )}
+        {showRanking && (
+          <div className="ranking">
+            <h2>Ranking</h2>
+            <p>En desarrollo...</p>
+          </div>
+        )}
+      </div>
       <style jsx global>{`
-        body {
+        body, html {
           margin: 0;
           padding: 0;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          font-family: 'Arial', sans-serif;
         }
 
         .container {
-          min-height: 100vh;
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: #000;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .logo {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 10;
+          width: 100px;
+        }
+
+        .background {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .content {
+          position: relative;
+          text-align: center;
+          z-index: 1;
+        }
+
+        .character {
+          display: block;
+          margin: 0 auto 20px auto;
+          width: 150px;
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .buttons button {
+          font-size: 1.5rem;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          background-color: #89C540;
           color: #fff;
         }
 
-        h1 {
-          margin: 0;
-          font-size: 4rem;
+        .buttons button:hover {
+          background-color: #76A830;
         }
 
-        .game-container {
-          width: 800px;
-          height: 600px;
+        .game, .instructions, .ranking, .result {
+          margin: 20px;
+        }
+
+        .game img {
+          width: 200px;
+          height: auto;
+          margin: 20px 0;
+        }
+
+        .options {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .options button {
+          font-size: 1.2rem;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          background-color: #007BFF;
+          color: #fff;
+        }
+
+        .options button:hover {
+          background-color: #0056b3;
         }
       `}</style>
-      <div className="container">
-        <h1>Aventura Espacial</h1>
-        <div ref={gameContainer} className="game-container" />
-      </div>
     </div>
   );
 };
 
 export default Home;
+
+
