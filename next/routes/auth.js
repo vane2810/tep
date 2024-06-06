@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ where: { email }, include: Role });
     if (!user) {
-      return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
+      return res.status(400).json({ error: 'El correo electrónico no está registrado' });
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
@@ -68,7 +68,6 @@ router.post('/login', async (req, res) => {
 
 
 
-
 // Ruta para cerrar sesión
 router.post('/logout', (req, res) => { // Cambié GET a POST para mayor seguridad
   // Eliminar la sesión del usuario
@@ -83,5 +82,6 @@ router.post('/logout', (req, res) => { // Cambié GET a POST para mayor segurida
     }
   });
 });
+
 
 module.exports = router;

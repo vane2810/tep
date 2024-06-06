@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import RegistroModal from '@/components/modals/registroModal';
-import '@/styles/registro.css';
+import '@/styles/adm/registro.css';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -16,8 +16,8 @@ export default function Register() {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-  const [isError, setIsError] = useState(false); // Nuevo estado para indicar si hay un error
-
+  const [isError, setIsError] = useState(false);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({

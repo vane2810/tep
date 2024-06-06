@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/styles/modalRegistro.css';
+import '@/styles/modals/modalRegistro.css';
 import Link from 'next/link';
 
 export default function RegistroModal({ onClose, message, isError }) {

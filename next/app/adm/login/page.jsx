@@ -1,13 +1,18 @@
-// Login
 "use client";
 import React, { useState } from 'react';
-import '@/styles/login.css';
+import '@/styles/adm/login.css';
+import LoginModal from '@/components/modals/LoginModal';
+import Link from 'next/link';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+
+  const [modalMessage, setModalMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -28,13 +33,25 @@ export default function Login() {
       });
       const data = await res.json();
       if (res.ok) {
-        alert('Inicio de sesión exitoso');
+        setModalMessage('Inicio de sesión exitoso');
+        setModalType('success');
+        setShowModal(true);
       } else {
-        alert(data.error);
+        setModalMessage(data.error);
+        setModalType('error');
+        setShowModal(true);
       }
     } catch (error) {
-      alert('Error al iniciar sesión');
+      setModalMessage('Error al iniciar sesión');
+      setModalType('error');
+      setShowModal(true);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setModalMessage('');
+    setModalType('');
   };
 
   return (
@@ -73,12 +90,14 @@ export default function Login() {
         </form>
         <hr className="separator" />
         <div className="signup-link">
-          <p>¿No tienes una cuenta? <a href="/adm/registro">Regístrate</a></p>
+          <p>¿No tienes una cuenta? <Link href="/adm/registro">Regístrate</Link></p>
+          <p><Link href="/adm/forgot_password">¿Olvidaste tu contraseña?</Link></p>
         </div>
       </div>
       <div className="right-container">
         <img src="/img/page/login.jpg" alt="Imagen final" className="image"/>
       </div>
+      <LoginModal show={showModal} message={modalMessage} type={modalType} onClose={closeModal} />
     </div>
   );
 }
