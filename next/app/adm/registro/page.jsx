@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import RegistroModal from '@/components/modals/registroModal';
+import RegistroModal from '@/components/modals/adm/registroModal';
 import '@/styles/adm/registro.css';
 
 export default function Register() {

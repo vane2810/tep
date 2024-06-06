@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import '@/styles/adm/login.css';
-import LoginModal from '@/components/modals/LoginModal';
+import LoginModal from '@/components/modals/adm/LoginModal';
 import Link from 'next/link';
 
 export default function Login() {
@@ -91,7 +91,6 @@ export default function Login() {
         <hr className="separator" />
         <div className="signup-link">
           <p>¿No tienes una cuenta? <Link href="/adm/registro">Regístrate</Link></p>
-          <p><Link href="/adm/forgot_password">¿Olvidaste tu contraseña?</Link></p>
         </div>
       </div>
       <div className="right-container">
