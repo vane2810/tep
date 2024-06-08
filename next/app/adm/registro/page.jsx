@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import RegistroModal from '@/components/modals/adm/registroModal';
-import '@/styles/adm/registro.css';
+import Link from 'next/link';
+import '@/styles/adm/registro.css'; // Import the CSS file
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ export default function Register() {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [isError, setIsError] = useState(false);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -80,7 +80,6 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (nameError || emailError || passwordError || confirmPasswordError) {
-      // Si hay algún error de validación, no se envía el formulario
       return;
     }
     try {
@@ -94,50 +93,90 @@ export default function Register() {
       const data = await res.json();
       if (res.ok) {
         setModalMessage('Usuario registrado correctamente');
-        setShowModal(true);
+        setIsError(false);
       } else {
-        // Si hay un error en la respuesta del servidor, se muestra en el modal
         setModalMessage(data.error || 'Error al registrar el usuario');
-        setShowModal(true);
-        setIsError(true); // Indicar que hay un error
+        setIsError(true);
       }
-    } catch (error) {
-      // Si hay un error al conectar con el servidor, se muestra en el modal
-      setModalMessage('Error al conectar con el servidor');
       setShowModal(true);
-      setIsError(true); // Indicar que hay un error
+    } catch (error) {
+      setModalMessage('Error al conectar con el servidor');
+      setIsError(true);
+      setShowModal(true);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-          {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
+    <div className="container">
+      <div className="left-container">
+        <img src="/img/page/registro.png" alt="Imagen de registro" className="image" />
+      </div>
+      <div className="right-container">
+        <h1 className="title">Registro</h1>
+        <img src="/img/page/starly.png" alt="Logo" className="img-base" />
+        <form onSubmit={handleSubmit} className="form">
+          <div>
+            <label className="label">Nombre:</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+            {nameError && <p className="error">{nameError}</p>}
+          </div>
+          <div>
+            <label className="label">Correo electrónico:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+            {emailError && <p className="error">{emailError}</p>}
+          </div>
+          <div>
+            <label className="label">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+            {passwordError && <p className="error">{passwordError}</p>}
+          </div>
+          <div>
+            <label className="label">Confirmar contraseña:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              className="input"
+            />
+            {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
+          </div>
+          <button type="submit" className="btn-register">Registrarme</button>
+        </form>
+        <hr className="separator" />
+        <div className="login-link">
+          <p>¿Ya tienes una cuenta? <Link href="/adm/login">Inicia sesión</Link></p>
         </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-          {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
-        </div>
-        <div>
-          <label>Contraseña</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-          {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
-        </div>
-        <div>
-          <label>Confirmar Contraseña</label>
-          <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
-          {confirmPasswordError && <p style={{ color: 'red' }}>{confirmPasswordError}</p>}
-        </div>
-        <button type="submit">Registrar</button>
-      </form>
+      </div>
       {showModal && (
-        <RegistroModal onClose={() => setShowModal(false)} message={modalMessage} isError={isError}>
-          <button onClick={() => setShowModal(false)}>Cerrar</button>
-        </RegistroModal>
+        <RegistroModal
+          show={showModal}
+          message={modalMessage}
+          isError={isError}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </div>
   );
