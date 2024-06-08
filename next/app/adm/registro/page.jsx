@@ -3,12 +3,9 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-<<<<<<< HEAD
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
-=======
-import '@/styles/adm/registro.css';
->>>>>>> a3518b03931968cef2b44c66c89e4c258fed83ed
+
 
 export default function Register() {
   const [formData, setFormData] = useState({

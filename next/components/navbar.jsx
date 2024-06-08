@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Sidebar from './sidebar';
 
-
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [userRoleId, setUserRoleId] = useState(null);
@@ -29,28 +28,31 @@ const Navbar = () => {
     <nav className="flex justify-between items-center p-6 celeste text-black sticky top-0 left-0 right-0 z-10">
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
-          <img src="/img/page/logoTEP.png" alt="Logo de la aplicación" className="h-20 w-auto mr-10 ml-10" />
+          <img src="/img/page/logoTEP.png" alt="Logo de la aplicación" className="h-20 w-auto mr-4 sm:mr-10 ml-4 sm:ml-10" />
         </Link>
-        <span className="text-3xl super">TechEduPlanet</span>
+        <Link href='/' className="text-3xl super hidden sm:block">TechEduPlanet</Link>
       </div>
 
-      {/* Condición para mostrar botones según el estado de autenticación */}
-      {!userRoleId && (
-        <div>
-          <Link href="/adm/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
-          <Link href="/adm/registro" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Registrarse</Link>
-        </div>
-      )}
+      <div className="flex items-center">
+        {/* Botones de inicio de sesión y registro */}
+        {!userRoleId && (
+          <div className="hidden sm:block">
+            <Link href="/adm/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Iniciar sesión</Link>
+            <Link href="/adm/registro" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-20 rounded">Registrarse</Link>
+          </div>
+        )}
 
-      {userRoleId === 1 && (
-        <div className="flex items-center">
-          <div className="text-xl font-bold mr-4">Usuario Estudiante</div>
-          <button onClick={handleLogout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Cerrar sesión</button>
-        </div>
-      )}
+        {/* Nombre de usuario y botón de cierre de sesión */}
+        {userRoleId === 1 && (
+          <div className="hidden sm:flex items-center mr-4">
+            <div className="text-xl font-bold mr-2">Usuario Estudiante</div>
+            <button onClick={handleLogout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 mr-4 px-4 rounded">Cerrar sesión</button>
+          </div>
+        )}
 
-      {/* Icono para abrir la barra lateral */}
-      <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h-8 w-8 cursor-pointer" onClick={toggleSidebar} />
+        {/* Icono para abrir la barra lateral */}
+        <img src="/img/page/linea.png" alt="Abrir barra lateral" className="h-10 w-10 cursor-pointer mr-4" onClick={toggleSidebar} />
+      </div>
 
       {/* Barra lateral */}
       <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
