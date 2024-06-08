@@ -20,10 +20,12 @@ export default function HomePage() {
           alt="Starly"
           className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
         />
-        <Typewriter
-          text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura"
-          speed={40}
-        />
+        <div className="font-story font-bold">
+          <Typewriter
+            text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura"
+            speed={50}
+          />
+        </div>
       </div>
       
       <SeparadorRosa />
@@ -49,3 +51,4 @@ export default function HomePage() {
     </main>
   );
 }
+
