@@ -1,13 +1,10 @@
+// Juego 1 - Suma - Mate - Nivel 1
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Phaser from 'phaser';
 
-const Game1 = () => {
-  const [questionCount, setQuestionCount] = useState(0);
-  const [score, setScore] = useState(0);
-  const [feedback, setFeedback] = useState('');
-
+const Game1 = ({ updateScore, updateQuestionCount, questionCount }) => {
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
@@ -103,42 +100,25 @@ const Game1 = () => {
 
     function checkAnswer(selectedAnswer, correctAnswer) {
       if (parseInt(selectedAnswer) === correctAnswer) {
-        setFeedback('¡Respuesta Correcta!');
-        setScore(prevScore => prevScore + 1); // Incrementa la puntuación
+        updateScore(score => score + 1); // Incrementa la puntuación externamente
+        updateQuestionCount(count => count + 1); // Incrementa el contador de preguntas
       } else {
-        setFeedback('Respuesta Incorrecta. ¡Inténtalo de nuevo!');
+        updateQuestionCount(count => count + 1); // Incrementa el contador de preguntas para avanzar
       }
 
       if (questionCount < 9) {
-        setQuestionCount(prevCount => prevCount + 1);
         createNewQuestion.call(this);
-      } else {
-        setTimeout(() => {
-          setFeedback('Fin del juego. Has respondido 10 preguntas.');
-        }, 1000);
       }
     }
 
     return () => {
       game.destroy(true);
     };
-  }, [questionCount]);
-
-  useEffect(() => {
-    const feedbackBox = document.getElementById('feedback-box');
-    if (feedbackBox) {
-      feedbackBox.textContent = feedback;
-    }
-  }, [feedback]);
+  }, [questionCount, updateScore, updateQuestionCount]);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
-      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}>
-        <h1 style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '20px', left: '20px' }}>Juego de Sumas</h1>
-        <p style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '50px', left: '20px' }}>Pregunta {questionCount + 1}/10</p>
-        <p style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '80px', left: '20px' }}>Puntuación: {score}</p>
-        <p id="feedback-box" style={{ background:'#ffffff' , color: '#000000', position: 'absolute', top: '110px', left: '20px' }}>{feedback}</p>
-      </div>
+      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}></div>
     </div>
   );
 };

@@ -14,12 +14,12 @@ export default function HomePage() {
       <SeparadorRosa />
       {/* Bienvenida de Starly */}
       <div className="flex justify-center items-center mt-10 mb-10">
-        <Typewriter text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura" speed={100} />
         <img
-          src="/img/page/starlysaludo.png"
-          alt="Animated Image"
-          className="h-56 w-auto mr-15 ml-15 animate-tumble"
+          src="/img/page/starly.png"
+          alt="Starly"
+          className="h-40 w-auto mr-10 ml-10  animate-tumble"
         />
+        <Typewriter text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura" speed={40} />
       </div>
       <SeparadorRosa />
       <div>
