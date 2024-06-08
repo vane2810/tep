@@ -12,30 +12,39 @@ export default function HomePage() {
   return (
     <main>
       <SeparadorRosa />
+      
       {/* Bienvenida de Starly */}
-      <div className="flex justify-center items-center mt-10 mb-10">
+      <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
         <img
           src="/img/page/starly.png"
           alt="Starly"
-          className="h-40 w-auto mr-10 ml-10  animate-tumble"
+          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
         />
-        <Typewriter text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura" speed={40} />
+        <Typewriter
+          text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura"
+          speed={40}
+        />
       </div>
+      
       <SeparadorRosa />
-      <div>
+      
+      <div className="flex justify-center">
         {/* Botones (Planetas) */}
         <NoSSR />
       </div>
+      
       <SeparadorRosa />
+      
       {/* Starly */}
-      <div className="flex justify-center items-center mt-10 mb-10">
+      <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
         <img
           src="/img/page/starly.png"
           alt="Animated Image"
-          className="h-40 w-auto mr-10 ml-10 animate-flyIn"
+          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-flyIn"
         />
         <Carousel />
       </div>
+      
       <SeparadorRosa />
     </main>
   );

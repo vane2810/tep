@@ -1,7 +1,10 @@
+// REGISTRO
+
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import '@/styles/adm/registro.css'; // Import the CSS file
+import '@/styles/globals.css';
+import '@/styles/animacion.css';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -107,67 +110,70 @@ export default function Register() {
   };
 
   return (
-    <div className="container">
-      <div className="left-container">
-        <img src="/img/page/registro.png" alt="Imagen de registro" className="image" />
+    <div className="flex bg-pink-100">
+      <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
+        <img src="/img/page/registro.png" alt="Imagen final" className="max-w-full h-auto object-contain" />
       </div>
-      <div className="right-container">
-        <h1 className="title">Registro</h1>
-        <img src="/img/page/starly.png" alt="Logo" className="img-base" />
-        <form onSubmit={handleSubmit} className="form">
-          <div>
-            <label className="label">Nombre:</label>
+      <div className="flex flex-col justify-center items-center w-full lg:w-1/2 p-20 shadow-none">
+        <h1 className="text-3xl font-bold mb-4 story">Registro</h1>
+        <img src="/img/page/starly.png" alt="Logo" className="h-32 w-32 mb-10 animate-float" />
+        <form onSubmit={handleSubmit} className="w-full max-w-md">
+          <div className="mb-6">
+            <label className="text-xl font-bold mb-2 story">Nombre:</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="input"
+              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
             />
-            {nameError && <p className="error">{nameError}</p>}
+            {nameError && <p className="text-red-500">{nameError}</p>}
           </div>
-          <div>
-            <label className="label">Correo electrónico:</label>
+          <div className="mb-6">
+            <label className="text-xl font-bold mb-2 story">Correo electrónico:</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="input"
+              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
             />
-            {emailError && <p className="error">{emailError}</p>}
+            {emailError && <p className="text-red-500">{emailError}</p>}
           </div>
-          <div>
-            <label className="label">Contraseña:</label>
+          <div className="mb-6">
+            <label className="text-xl font-bold mb-2 story">Contraseña:</label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
-              className="input"
+              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
             />
-            {passwordError && <p className="error">{passwordError}</p>}
+            {passwordError && <p className="text-red-500">{passwordError}</p>}
           </div>
-          <div>
-            <label className="label">Confirmar contraseña:</label>
+          <div className="mb-6">
+            <label className="text-xl font-bold mb-2 story">Confirmar contraseña:</label>
             <input
               type="password"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              className="input"
+              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
             />
-            {confirmPasswordError && <p className="error">{confirmPasswordError}</p>}
+            {confirmPasswordError && <p className="text-red-500">{confirmPasswordError}</p>}
           </div>
-          <button type="submit" className="btn-register">Registrarme</button>
+          <button type="submit" className="w-full h-12 px-10 text-xl bg-yellow-300 rounded-md font-bold 
+            transition duration-300 ease-in-out hover:bg-yellow-500 flex justify-center items-center story">
+            Registrarme
+          </button>
         </form>
-        <hr className="separator" />
-        <div className="login-link">
-          <p>¿Ya tienes una cuenta? <Link href="/adm/login">Inicia sesión</Link></p>
+        <hr className="w-full border-0 border-t border-black my-8" />
+        <div className="text-lg story">
+          <p>¿Ya tienes una cuenta? <Link href="/adm/login" className="text-blue-500 hover:text-blue-700">Inicia sesión</Link></p>
         </div>
       </div>
       {showModal && (
@@ -180,4 +186,5 @@ export default function Register() {
       )}
     </div>
   );
+
 }
