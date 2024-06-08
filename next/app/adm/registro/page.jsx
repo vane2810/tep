@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import '@/styles/adm/registro.css'; // Import the CSS file
+import '@/styles/adm/registro.css';
 
 export default function Register() {
   const [formData, setFormData] = useState({

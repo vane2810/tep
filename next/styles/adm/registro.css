@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  height: 100vh; /* Para que ocupe toda la altura de la ventana */
+  height: 120vh; /* Para que ocupe toda la altura de la ventana */
 }
 
 .left-container,
