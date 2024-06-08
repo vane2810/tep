@@ -16,6 +16,7 @@
     background-color: #fadbd8;
     border: none;
     box-shadow: none;
+    font-family: 'Story', sans-serif;
 }
 
 .img-base {
@@ -62,6 +63,7 @@
     display: flex; /* Añadido */
     justify-content: center; /* Añadido */
     align-items: center; /* Añadido */
+    font-family: 'Story', sans-serif;
 }
 
 .btn-login:hover {
@@ -114,6 +116,7 @@
     margin-top: 10px;
     font-size: 16px;
     text-align: center;
+    font-family: 'Story', sans-serif;
 }
 
 .signup-link a {
