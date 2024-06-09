@@ -1,213 +1,177 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import Phaser from 'phaser';
 
-const questions = [
-  {
-    question: "¿Cuál es el planeta más cercano al sol?",
-    options: ["Mercurio", "Venus", "Tierra", "Marte"],
-    answer: "Mercurio",
-    image: "/assets/mercury.png"
-  },
-  {
-    question: "¿Cuál es el planeta más grande del sistema solar?",
-    options: ["Júpiter", "Saturno", "Urano", "Neptuno"],
-    answer: "Júpiter",
-    image: "/assets/jupiter.png"
-  }
-];
+const Game4 = ({ updateScore = (f) => f, updateQuestionCount = (f) => f, questionCount = 0 }) => {
+  const [questions] = useState([
+    { image: 'mercury', options: ['Mercurio', 'Venus', 'Tierra', 'Marte'], correct: 'Mercurio' },
+    { image: 'venus', options: ['Júpiter', 'Venus', 'Saturno', 'Urano'], correct: 'Venus' },
+    { image: 'earth', options: ['Marte', 'Venus', 'Tierra', 'Neptuno'], correct: 'Tierra' },
+    { image: 'mars', options: ['Saturno', 'Marte', 'Mercurio', 'Júpiter'], correct: 'Marte' },
+    { image: 'jupiter', options: ['Saturno', 'Júpiter', 'Urano', 'Neptuno'], correct: 'Júpiter' },
+    { image: 'saturn', options: ['Urano', 'Neptuno', 'Saturno', 'Venus'], correct: 'Saturno' },
+    { image: 'uranus', options: ['Tierra', 'Urano', 'Marte', 'Júpiter'], correct: 'Urano' },
+    { image: 'neptune', options: ['Neptuno', 'Venus', 'Mercurio', 'Saturno'], correct: 'Neptuno' },
+    { image: 'sun', options: ['Sol', 'Luna', 'Estrella', 'Cometa'], correct: 'Sol' },
+    { image: 'moon', options: ['Planeta', 'Satélite', 'Estrella', 'Luna'], correct: 'Luna' }
+  ]);
 
-const Home = () => {
-  const [showGame, setShowGame] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
-  const [showRanking, setShowRanking] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+  useEffect(() => {
+    const config = {
+      type: Phaser.AUTO,
+      width: 680,
+      height: 600,
+      parent: 'game-container',
+      scene: {
+        preload: preload,
+        create: createScene
+      }
+    };
 
-  const handlePlay = () => {
-    setShowInstructions(false);
-    setShowRanking(false);
-    setShowResult(false);
-    setShowGame(true);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-  };
+    const game = new Phaser.Game(config);
 
-  const handleRanking = () => {
-    setShowInstructions(false);
-    setShowGame(false);
-    setShowResult(false);
-    setShowRanking(true);
-  };
-
-  const handleInstructions = () => {
-    setShowGame(false);
-    setShowRanking(false);
-    setShowResult(false);
-    setShowInstructions(true);
-  };
-
-  const handleAnswerClick = (option) => {
-    if (option === questions[currentQuestionIndex].answer) {
-      setScore(score + 1);
+    function preload() {
+      this.load.image('background', '/img/games/mate/ob/fondoji1.png');
+      this.load.image('mercury', '/img/games/mate/ob/mercurio.png');
+      this.load.image('venus', '/img/games/mate/ob/venus.png');
+      this.load.image('earth', '/img/games/mate/ob/tierra.png');
+      this.load.image('mars', '/img/games/mate/ob/marte.png');
+      this.load.image('jupiter', '/img/games/mate/ob/jupiter.png');
+      this.load.image('saturn', '/img/games/mate/ob/saturno.png');
+      this.load.image('uranus', '/img/games/mate/ob/urano.png');
+      this.load.image('neptune', '/img/games/mate/obe/neptuno.png');
+      this.load.image('sun', '/img/games/mate/ob/sol.png');
+      this.load.image('moon', '/img/games/mate/ob/luna.png');
+      this.load.image('next', '/img/games/mate/ob/flechitajuego.png'); // Imagen de la flecha
     }
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setShowResult(true);
-      setShowGame(false);
+
+    function createScene() {
+      const background = this.add.image(340, 300, 'background');
+      background.setDisplaySize(680, 600);
+      background.setAlpha(0.8);
+
+      createNewQuestion.call(this);
     }
-  };
+
+    function createNewQuestion() {
+      if (questionCount >= questions.length) {
+        this.add.text(340, 300, '¡Juego terminado!', { fontSize: '32px', fill: '#ffffff' }).setOrigin(0.5);
+        return;
+      }
+
+      const currentQuestion = questions[questionCount];
+
+      this.questionText && this.questionText.destroy();
+      this.planetImage && this.planetImage.destroy();
+      this.option1 && this.option1.destroy();
+      this.option2 && this.option2.destroy();
+      this.option3 && this.option3.destroy();
+      this.option4 && this.option4.destroy();
+      this.optionBox1 && this.optionBox1.destroy();
+      this.optionBox2 && this.optionBox2.destroy();
+      this.optionBox3 && this.optionBox3.destroy();
+      this.optionBox4 && this.optionBox4.destroy();
+      this.scoreText && this.scoreText.destroy();
+      this.nextButton && this.nextButton.destroy();
+
+      this.planetImage = this.add.image(340, 150, currentQuestion.image);
+      this.planetImage.setDisplaySize(200, 200);
+
+      this.questionText = this.add.text(340, 50, `Pregunta ${questionCount + 1}`, { fontSize: '24px', fill: '#ffffff' });
+      this.questionText.setOrigin(0.5);
+
+      this.scoreText = this.add.text(50, 50, `Puntuación: ${updateScore}`, { fontSize: '20px', fill: '#ffffff' });
+
+      this.optionBox1 = this.add.rectangle(200, 400, 100, 50, 0x76ADD0);
+      this.option1 = this.add.text(200, 400, currentQuestion.options[0], { fontSize: '24px', fill: '#ffffff' });
+      this.option1.setOrigin(0.5);
+      this.option1.setInteractive();
+      this.option1.on('pointerdown', () => checkAnswer.call(this, currentQuestion.options[0], currentQuestion.correct));
+      this.option1.on('pointerover', () => {
+        this.optionBox1.setScale(1.05);
+        this.optionBox1.setFillStyle(0xAD76D0);
+      });
+      this.option1.on('pointerout', () => {
+        this.optionBox1.setScale(1);
+        this.optionBox1.setFillStyle(0x76ADD0);
+      });
+
+      this.optionBox2 = this.add.rectangle(340, 400, 100, 50, 0x76ADD0);
+      this.option2 = this.add.text(340, 400, currentQuestion.options[1], { fontSize: '24px', fill: '#ffffff' });
+      this.option2.setOrigin(0.5);
+      this.option2.setInteractive();
+      this.option2.on('pointerdown', () => checkAnswer.call(this, currentQuestion.options[1], currentQuestion.correct));
+      this.option2.on('pointerover', () => {
+        this.optionBox2.setScale(1.05);
+        this.optionBox2.setFillStyle(0xAD76D0);
+      });
+      this.option2.on('pointerout', () => {
+        this.optionBox2.setScale(1);
+        this.optionBox2.setFillStyle(0x76ADD0);
+      });
+
+      this.optionBox3 = this.add.rectangle(480, 400, 100, 50, 0x76ADD0);
+      this.option3 = this.add.text(480, 400, currentQuestion.options[2], { fontSize: '24px', fill: '#ffffff' });
+      this.option3.setOrigin(0.5);
+      this.option3.setInteractive();
+      this.option3.on('pointerdown', () => checkAnswer.call(this, currentQuestion.options[2], currentQuestion.correct));
+      this.option3.on('pointerover', () => {
+        this.optionBox3.setScale(1.05);
+        this.optionBox3.setFillStyle(0xAD76D0);
+      });
+      this.option3.on('pointerout', () => {
+        this.optionBox3.setScale(1);
+        this.optionBox3.setFillStyle(0x76ADD0);
+      });
+
+      this.optionBox4 = this.add.rectangle(340, 500, 100, 50, 0x76ADD0);
+      this.option4 = this.add.text(340, 500, currentQuestion.options[3], { fontSize: '24px', fill: '#ffffff' });
+      this.option4.setOrigin(0.5);
+      this.option4.setInteractive();
+      this.option4.on('pointerdown', () => checkAnswer.call(this, currentQuestion.options[3], currentQuestion.correct));
+      this.option4.on('pointerover', () => {
+        this.optionBox4.setScale(1.05);
+        this.optionBox4.setFillStyle(0xAD76D0);
+      });
+      this.option4.on('pointerout', () => {
+        this.optionBox4.setScale(1);
+        this.optionBox4.setFillStyle(0x76ADD0);
+      });
+
+      this.nextButton = this.add.image(640, 550, 'next');
+      this.nextButton.setInteractive();
+      this.nextButton.on('pointerdown', () => nextQuestion.call(this));
+    }
+
+    function checkAnswer(selectedAnswer, correctAnswer) {
+      if (selectedAnswer === correctAnswer) {
+        updateScore(score => score + 1);
+      }
+      updateQuestionCount(count => count + 1);
+      this.nextButton.setVisible(true);
+    }
+
+    function nextQuestion() {
+      this.nextButton.setVisible(false);
+      if (questionCount < 9) {
+        createNewQuestion.call(this);
+      } else {
+        this.add.text(340, 300, '¡Juego terminado!', { fontSize: '32px', fill: '#ffffff' }).setOrigin(0.5);
+      }
+    }
+
+    return () => {
+      game.destroy(true);
+    };
+  }, [questionCount, updateScore, updateQuestionCount, questions]);
 
   return (
-    <div className="container">
-      <Head>
-        <title>Aventura Espacial</title>
-      </Head>
-      <img src="/assets/logo.png" alt="Logo" className="logo" />
-      <img src="/assets/background.png" alt="Background" className="background" />
-      <div className="content">
-        <img src="/assets/pocoyo.png" alt="Pocoyo" className="character" />
-        <div className="buttons">
-          <button onClick={handlePlay}>Play</button>
-          <button onClick={handleRanking}>Ranking</button>
-          <button onClick={handleInstructions}>Instrucciones</button>
-        </div>
-        {showGame && (
-          <div className="game">
-            <h2>{questions[currentQuestionIndex].question}</h2>
-            <img src={questions[currentQuestionIndex].image} alt="question" />
-            <div className="options">
-              {questions[currentQuestionIndex].options.map((option, index) => (
-                <button key={index} onClick={() => handleAnswerClick(option)}>
-                  {option}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-        {showResult && (
-          <div className="result">
-            <h2>Resultado</h2>
-            <p>Tu puntuación es: {score} de {questions.length}</p>
-          </div>
-        )}
-        {showInstructions && (
-          <div className="instructions">
-            <h2>Instrucciones</h2>
-            <p>Responde a las preguntas sobre el espacio y elige la opción correcta.</p>
-          </div>
-        )}
-        {showRanking && (
-          <div className="ranking">
-            <h2>Ranking</h2>
-            <p>En desarrollo...</p>
-          </div>
-        )}
-      </div>
-      <style jsx global>{`
-        body, html {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          font-family: 'Arial', sans-serif;
-        }
-
-        .container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .logo {
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          z-index: 10;
-          width: 100px;
-        }
-
-        .background {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .content {
-          position: relative;
-          text-align: center;
-          z-index: 1;
-        }
-
-        .character {
-          display: block;
-          margin: 0 auto 20px auto;
-          width: 150px;
-        }
-
-        .buttons {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .buttons button {
-          font-size: 1.5rem;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          background-color: #89C540;
-          color: #fff;
-        }
-
-        .buttons button:hover {
-          background-color: #76A830;
-        }
-
-        .game, .instructions, .ranking, .result {
-          margin: 20px;
-        }
-
-        .game img {
-          width: 200px;
-          height: auto;
-          margin: 20px 0;
-        }
-
-        .options {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .options button {
-          font-size: 1.2rem;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          background-color: #007BFF;
-          color: #fff;
-        }
-
-        .options button:hover {
-          background-color: #0056b3;
-        }
-      `}</style>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
+      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}></div>
     </div>
   );
 };
 
-export default Home;
-
+export default Game4;
 
