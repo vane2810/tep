@@ -1,4 +1,4 @@
-
+"use client";
 import React from "react";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ export default function Sidebar({ isOpen, onClose }) {
         <img
           src="/img/page/logoTEP.png"
           alt="Logo"
-          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
+          className="h-20 w-auto mb-6 md:mb-0 md:h-30 md:mr-10 md:ml-10 animate-tumble"
           style={{ animationDuration: '3s', animationIterationCount: 'infinite' }}
         />
       </div>
