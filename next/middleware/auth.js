@@ -6,7 +6,7 @@ const authenticateToken = (req, res, next) => {
 
   const token = authHeader.split(' ')[1];
   try {
-    const decoded = jwt.verify(token, 'your_jwt_secret');
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
@@ -14,13 +14,4 @@ const authenticateToken = (req, res, next) => {
   }
 };
 
-const authorizeRole = (roles) => {
-  return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({ error: 'No tienes permisos para acceder a esta ruta' });
-    }
-    next();
-  };
-};
-
-module.exports = { authenticateToken, authorizeRole };
+module.exports = authenticateToken;

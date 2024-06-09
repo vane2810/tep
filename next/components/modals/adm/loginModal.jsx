@@ -26,5 +26,3 @@ const LoginModal = ({ show, message, type, onClose }) => {
 };
 
 export default LoginModal;
-
-

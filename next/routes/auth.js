@@ -6,6 +6,7 @@ const { User, Role } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+
 router.post('/register', async (req, res) => {
   const { name, email, password, confirmPassword, roleId } = req.body;
 
@@ -68,20 +69,19 @@ router.post('/login', async (req, res) => {
 
 
 
-// Ruta para cerrar sesión
-router.post('/logout', (req, res) => { // Cambié GET a POST para mayor seguridad
-  // Eliminar la sesión del usuario
+router.post('/logout', (req, res) => {
+  // Limpiar la sesión del usuario (si estás utilizando sesiones)
   req.session.destroy((err) => {
     if (err) {
       console.error(err);
       res.status(500).json({ message: 'Error al cerrar sesión' });
     } else {
-      // Eliminar la cookie de sesión
-      res.clearCookie('session_id');
+      // Devolver una respuesta exitosa
       res.status(200).json({ message: 'Sesión cerrada exitosamente.' });
     }
   });
 });
+
 
 
 module.exports = router;

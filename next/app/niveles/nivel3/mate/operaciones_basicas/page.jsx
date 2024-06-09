@@ -10,8 +10,14 @@ export default function MatematicaPage() {
       {/* Bienvenida de Donkey */}
       <section>
         <SeparadorAzul />
-        <div className="bg-purple-200 py-8">
-          <div className="flex flex-col items-center justify-center mt-4 mb-5 text-center">
+        <div className="bg-purple-200 py-4">
+          {/* Volver */}
+          <div className="mt-6 ml-10 inline-block">
+            <Link href="/niveles/nivel3/mate">
+              <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+            </Link>
+          </div>
+          <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
               <img src="/img/niveles/mate/figuritamate1.png" alt="Animated Image" className="h-64 w-auto mr-4" />
               <p className="text-black super text-[40px] max-w-lg">

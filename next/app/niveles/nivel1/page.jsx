@@ -1,12 +1,18 @@
 import React from "react";
 import Link from 'next/link';
-import { SeparadorRosa } from "@/components/separador";
 
 export default function Nivel1() {
   return (
     <main>
-      <SeparadorRosa/>
-      <div className="flex justify-center items-center mt-10">
+      {/* Volver */}
+      <div className="mt-6 ml-10 inline-block">
+        <Link href="/">
+          <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+        </Link>
+      </div>
+
+      {/* Botones*/}
+      <div className="flex justify-center items-center mb-10">
         <Link href="/niveles/nivel1/mate">
           <img src="/img/niveles/mate/matematica.png" alt="Matematica" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
         </Link>

@@ -6,7 +6,6 @@ import '@/styles/globals.css';
 import '@/styles/animacion.css';
 import LoginModal from '@/components/modals/adm/LoginModal';
 import Link from 'next/link';
-import { useAuth } from '@/context/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -14,7 +13,6 @@ export default function Login() {
     password: '',
   });
 
-  const { login } = useAuth();
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
@@ -38,7 +36,7 @@ export default function Login() {
       });
       const data = await res.json();
       if (res.ok) {
-        login();
+        localStorage.setItem('token', data.token);
         setModalMessage('Inicio de sesión exitoso');
         setModalType('success');
         setShowModal(true);

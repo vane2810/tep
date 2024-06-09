@@ -2,7 +2,7 @@
 import React from 'react';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
-import { AuthProvider } from '@/context/AuthContext';
+import { SessionProvider } from '@/context/session';
 
 export const metadata = {
   title: "TechEduPlanet"
@@ -10,7 +10,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <AuthProvider>
+    <SessionProvider>
       <html lang="en">
         <body>
           <header><Navbar/></header>
@@ -18,7 +18,7 @@ const RootLayout = ({ children }) => {
           <footer><Footer/></footer>
         </body>
       </html>
-    </AuthProvider>
+    </SessionProvider>
   );
 };
 
