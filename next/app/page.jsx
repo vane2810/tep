@@ -11,9 +11,13 @@ const NoSSR = dynamic(() => import('../components/video'), { ssr: false });
 export default function HomePage() {
 
   return (
+<<<<<<< HEAD
 
 
     <main>
+=======
+   <main>
+>>>>>>> 8cad405b52177aca181026acacc43bfffbbf2f68
       <SeparadorRosa />
 
       {/* Bienvenida de Starly */}

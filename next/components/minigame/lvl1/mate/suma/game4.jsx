@@ -1,213 +1,148 @@
 "use client";
+import React, { useEffect, useState } from 'react';
+import Phaser from 'phaser';
 
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+const Game4 = ({ updateScore = (f) => f, updateQuestionCount = (f) => f, questionCount = 0 }) => {
+  useEffect(() => {
+    const config = {
+      type: Phaser.AUTO,
+      width: 680,
+      height: 600,
+      parent: 'game-container',
+      scene: {
+        preload: preload,
+        create: createScene
+      }
+    };
 
-const questions = [
-  {
-    question: "¿Cuál es el planeta más cercano al sol?",
-    options: ["Mercurio", "Venus", "Tierra", "Marte"],
-    answer: "Mercurio",
-    image: "/assets/mercury.png"
-  },
-  {
-    question: "¿Cuál es el planeta más grande del sistema solar?",
-    options: ["Júpiter", "Saturno", "Urano", "Neptuno"],
-    answer: "Júpiter",
-    image: "/assets/jupiter.png"
-  }
-];
+    const game = new Phaser.Game(config);
 
-const Home = () => {
-  const [showGame, setShowGame] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
-  const [showRanking, setShowRanking] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-
-  const handlePlay = () => {
-    setShowInstructions(false);
-    setShowRanking(false);
-    setShowResult(false);
-    setShowGame(true);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-  };
-
-  const handleRanking = () => {
-    setShowInstructions(false);
-    setShowGame(false);
-    setShowResult(false);
-    setShowRanking(true);
-  };
-
-  const handleInstructions = () => {
-    setShowGame(false);
-    setShowRanking(false);
-    setShowResult(false);
-    setShowInstructions(true);
-  };
-
-  const handleAnswerClick = (option) => {
-    if (option === questions[currentQuestionIndex].answer) {
-      setScore(score + 1);
+    function preload() {
+      this.load.image('fondo', '/img/games/mate/ob/fondoji1.png');
+      this.load.image('mercurio', '/img/games/mate/ob/mercurio.png');
+      this.load.image('venus', '/img/games/mate/ob/venus.png');
+      this.load.image('tierra', '/img/games/mate/ob/tierra.png');
+      this.load.image('marte', '/img/games/mate/ob/marte.png');
+      this.load.image('jupiter', '/img/games/mate/ob/jupiter.png');
+      this.load.image('saturno', '/img/games/mate/ob/saturno.png');
+      this.load.image('urano', '/img/games/mate/ob/urano.png');
+      this.load.image('neptuno', '/img/games/mate/ob/neptuno.png');
+      this.load.image('sol', '/img/games/mate/ob/sol.png');
+      this.load.image('luna', '/img/games/mate/ob/luna.png');
+      this.load.image('flechita', '/img/games/mate/ob/flechitajuego.png');
     }
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setShowResult(true);
-      setShowGame(false);
+
+    function createScene() {
+      const background = this.add.image(340, 300, 'fondo');
+      background.setDisplaySize(680, 600);
+      background.setAlpha(0.8);
+
+      createNewQuestion.call(this);
     }
-  };
+
+    function createNewQuestion() {
+      if (questionCount >= questions.length) {
+        this.add.text(340, 300, '¡Juego terminado!', { fontSize: '32px', fill: '#ffffff' }).setOrigin(0.5);
+        return;
+      }
+
+      const currentQuestion = questions[questionCount];
+
+      this.questionText && this.questionText.destroy();
+      this.planetImage && this.planetImage.destroy();
+      this.option1 && this.option1.destroy();
+      this.option2 && this.option2.destroy();
+      this.option3 && this.option3.destroy();
+      this.option4 && this.option4.destroy();
+      this.optionBox1 && this.optionBox1.destroy();
+      this.optionBox2 && this.optionBox2.destroy();
+      this.optionBox3 && this.optionBox3.destroy();
+      this.optionBox4 && this.optionBox4.destroy();
+      this.scoreText && this.scoreText.destroy();
+      this.nextButton && this.nextButton.destroy();
+      this.feedbackText && this.feedbackText.destroy();
+
+      this.planetImage = this.add.image(340, 250, currentQuestion.image);
+      this.planetImage.setDisplaySize(200, 200);
+
+      this.questionText = this.add.text(340, 50, `¡Conoces este planeta! ¿Cuál es?`, { fontSize: '24px', fill: '#ffffff' });
+      this.questionText.setOrigin(0.5);
+
+      const options = Phaser.Math.RND.shuffle(currentQuestion.options);
+
+      for (let i = 0; i < options.length; i++) {
+        const optionBox = this.add.rectangle(200 + i * 140, 450, 100, 50, 0x76ADD0);
+        const optionText = this.add.text(200 + i * 140, 450, options[i], { fontSize: '24px', fill: '#ffffff' });
+        optionText.setOrigin(0.5);
+        optionText.setInteractive();
+        optionText.on('pointerdown', () => checkAnswer.call(this, options[i], currentQuestion.correct));
+        optionText.on('pointerover', () => {
+          optionBox.setScale(1.05);
+          optionBox.setFillStyle(0xAD76D0);
+        });
+        optionText.on('pointerout', () => {
+          optionBox.setScale(1);
+          optionBox.setFillStyle(0x76ADD0);
+        });
+      }
+
+      this.nextButton = this.add.image(640, 550, 'flechita');
+      this.nextButton.setDisplaySize(50, 50);
+      this.nextButton.setVisible(false);
+      this.nextButton.setInteractive();
+      this.nextButton.on('pointerdown', () => {
+        changePlanetImage.call(this);
+        nextQuestion.call(this);
+      });
+    }
+
+    function changePlanetImage() {
+      this.planetImage.setTexture(Phaser.Math.RND.pick(['mercurio', 'venus', 'tierra', 'marte', 'jupiter', 'saturno', 'urano', 'neptuno', 'sol', 'luna']));
+    }
+
+    function checkAnswer(selectedAnswer, correctAnswer) {
+      this.feedbackText && this.feedbackText.destroy();
+      if (selectedAnswer === correctAnswer) {
+        this.feedbackText = this.add.text(340, 350, '¡Es correcta!', { fontSize: '24px', fill: '#00ff00' }).setOrigin(0.5);
+        updateScore(score => score + 1);
+      } else {
+        this.feedbackText = this.add.text(340, 350, '¡Es incorrecta!', { fontSize: '24px', fill: '#ff0000' }).setOrigin(0.5);
+      }
+      this.nextButton.setVisible(true);
+    }
+
+    function nextQuestion() {
+      this.feedbackText && this.feedbackText.destroy();
+      this.nextButton.setVisible(false);
+      updateQuestionCount(count => count + 1);
+      createNewQuestion.call(this);
+    }
+
+    return () => {
+      game.destroy(true);
+    };
+  }, [questionCount, updateScore, updateQuestionCount]);
+
+  const [questions] = useState([
+    { image: 'mercurio', options: ['Mercurio', 'Venus', 'Tierra', 'Marte'], correct: 'Mercurio' },
+    { image: 'venus', options: ['Júpiter', 'Venus', 'Saturno', 'Urano'], correct: 'Venus' },
+    { image: 'tierra', options: ['Marte', 'Venus', 'Tierra', 'Neptuno'], correct: 'Tierra' },
+    { image: 'marte', options: ['Saturno', 'Marte', 'Mercurio', 'Júpiter'], correct: 'Marte' },
+    { image: 'jupiter', options: ['Saturno', 'Júpiter', 'Urano', 'Neptuno'], correct: 'Júpiter' },
+    { image: 'saturno', options: ['Urano', 'Neptuno', 'Saturno', 'Tierra'], correct: 'Saturno' },
+    { image: 'urano', options: ['Urano', 'Neptuno', 'Tierra', 'Marte'], correct: 'Urano' },
+    { image: 'neptuno', options: ['Urano', 'Neptuno', 'Venus', 'Marte'], correct: 'Neptuno' },
+    { image: 'sol', options: ['Saturno', 'Sol', 'Mercurio', 'Júpiter'], correct: 'Sol' },
+    { image: 'luna', options: ['Tierra', 'Luna', 'Venus', 'Marte'], correct: 'Luna' },
+  ]);
 
   return (
-    <div className="container">
-      <Head>
-        <title>Aventura Espacial</title>
-      </Head>
-      <img src="/assets/logo.png" alt="Logo" className="logo" />
-      <img src="/assets/background.png" alt="Background" className="background" />
-      <div className="content">
-        <img src="/assets/pocoyo.png" alt="Pocoyo" className="character" />
-        <div className="buttons">
-          <button onClick={handlePlay}>Play</button>
-          <button onClick={handleRanking}>Ranking</button>
-          <button onClick={handleInstructions}>Instrucciones</button>
-        </div>
-        {showGame && (
-          <div className="game">
-            <h2>{questions[currentQuestionIndex].question}</h2>
-            <img src={questions[currentQuestionIndex].image} alt="question" />
-            <div className="options">
-              {questions[currentQuestionIndex].options.map((option, index) => (
-                <button key={index} onClick={() => handleAnswerClick(option)}>
-                  {option}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-        {showResult && (
-          <div className="result">
-            <h2>Resultado</h2>
-            <p>Tu puntuación es: {score} de {questions.length}</p>
-          </div>
-        )}
-        {showInstructions && (
-          <div className="instructions">
-            <h2>Instrucciones</h2>
-            <p>Responde a las preguntas sobre el espacio y elige la opción correcta.</p>
-          </div>
-        )}
-        {showRanking && (
-          <div className="ranking">
-            <h2>Ranking</h2>
-            <p>En desarrollo...</p>
-          </div>
-        )}
-      </div>
-      <style jsx global>{`
-        body, html {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          font-family: 'Arial', sans-serif;
-        }
-
-        .container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .logo {
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          z-index: 10;
-          width: 100px;
-        }
-
-        .background {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .content {
-          position: relative;
-          text-align: center;
-          z-index: 1;
-        }
-
-        .character {
-          display: block;
-          margin: 0 auto 20px auto;
-          width: 150px;
-        }
-
-        .buttons {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .buttons button {
-          font-size: 1.5rem;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          background-color: #89C540;
-          color: #fff;
-        }
-
-        .buttons button:hover {
-          background-color: #76A830;
-        }
-
-        .game, .instructions, .ranking, .result {
-          margin: 20px;
-        }
-
-        .game img {
-          width: 200px;
-          height: auto;
-          margin: 20px 0;
-        }
-
-        .options {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .options button {
-          font-size: 1.2rem;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          background-color: #007BFF;
-          color: #fff;
-        }
-
-        .options button:hover {
-          background-color: #0056b3;
-        }
-      `}</style>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
+      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}></div>
     </div>
   );
 };
 
-export default Home;
+export default Game4;
 
 
