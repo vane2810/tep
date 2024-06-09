@@ -1,148 +1,177 @@
-"use client";
-import React, { useEffect, useState } from 'react';
+"use client"
+import React, { useState, useEffect } from 'react';
 import Phaser from 'phaser';
 
-const Game4 = ({ updateScore = (f) => f, updateQuestionCount = (f) => f, questionCount = 0 }) => {
+const planetImages = [
+  '/img/games/mate/ob/mercurio.png',
+  '/img/games/mate/ob/venus.png',
+  '/img/games/mate/ob/tierra.png',
+  '/img/games/mate/ob/marte.png',
+  '/img/games/mate/ob/jupiter.png',
+  '/img/games/mate/ob/saturno.png',
+  '/img/games/mate/ob/urano.png',
+  '/img/games/mate/ob/neptuno.png',
+];
+
+const MemoryGame = () => {
+  const [game, setGame] = useState(null);
+  const [matches, setMatches] = useState(0);
+  const [isGameFinished, setIsGameFinished] = useState(false);
+  const [instructionsVisible, setInstructionsVisible] = useState(false);
+
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
-      width: 680,
+      parent: 'memory-game', 
+      width: 700,
       height: 600,
-      parent: 'game-container',
       scene: {
         preload: preload,
-        create: createScene
-      }
+        create: create,
+      },
     };
 
-    const game = new Phaser.Game(config);
+    const phaserGame = new Phaser.Game(config);
+
+    setGame(phaserGame);
 
     function preload() {
-      this.load.image('fondo', '/img/games/mate/ob/fondoji1.png');
-      this.load.image('mercurio', '/img/games/mate/ob/mercurio.png');
-      this.load.image('venus', '/img/games/mate/ob/venus.png');
-      this.load.image('tierra', '/img/games/mate/ob/tierra.png');
-      this.load.image('marte', '/img/games/mate/ob/marte.png');
-      this.load.image('jupiter', '/img/games/mate/ob/jupiter.png');
-      this.load.image('saturno', '/img/games/mate/ob/saturno.png');
-      this.load.image('urano', '/img/games/mate/ob/urano.png');
-      this.load.image('neptuno', '/img/games/mate/ob/neptuno.png');
-      this.load.image('sol', '/img/games/mate/ob/sol.png');
-      this.load.image('luna', '/img/games/mate/ob/luna.png');
-      this.load.image('flechita', '/img/games/mate/ob/flechitajuego.png');
-    }
+      planetImages.forEach((image, index) => {
+        this.load.image(`planet-${index}`, image);
+      });
+      this.load.image('card-back', '/img/games/mate/ob/card-back.png');
+      this.load.image('congrats', '/img/games/mate/ob/congrats.png');
+      this.load.image('background', '/img/games/mate/ob/background.png'); // Carga la imagen de fondo
 
-    function createScene() {
-      const background = this.add.image(340, 300, 'fondo');
-      background.setDisplaySize(680, 600);
-      background.setAlpha(0.8);
-
-      createNewQuestion.call(this);
-    }
-
-    function createNewQuestion() {
-      if (questionCount >= questions.length) {
-        this.add.text(340, 300, '¡Juego terminado!', { fontSize: '32px', fill: '#ffffff' }).setOrigin(0.5);
-        return;
-      }
-
-      const currentQuestion = questions[questionCount];
-
-      this.questionText && this.questionText.destroy();
-      this.planetImage && this.planetImage.destroy();
-      this.option1 && this.option1.destroy();
-      this.option2 && this.option2.destroy();
-      this.option3 && this.option3.destroy();
-      this.option4 && this.option4.destroy();
-      this.optionBox1 && this.optionBox1.destroy();
-      this.optionBox2 && this.optionBox2.destroy();
-      this.optionBox3 && this.optionBox3.destroy();
-      this.optionBox4 && this.optionBox4.destroy();
-      this.scoreText && this.scoreText.destroy();
-      this.nextButton && this.nextButton.destroy();
-      this.feedbackText && this.feedbackText.destroy();
-
-      this.planetImage = this.add.image(340, 250, currentQuestion.image);
-      this.planetImage.setDisplaySize(200, 200);
-
-      this.questionText = this.add.text(340, 50, `¡Conoces este planeta! ¿Cuál es?`, { fontSize: '24px', fill: '#ffffff' });
-      this.questionText.setOrigin(0.5);
-
-      const options = Phaser.Math.RND.shuffle(currentQuestion.options);
-
-      for (let i = 0; i < options.length; i++) {
-        const optionBox = this.add.rectangle(200 + i * 140, 450, 100, 50, 0x76ADD0);
-        const optionText = this.add.text(200 + i * 140, 450, options[i], { fontSize: '24px', fill: '#ffffff' });
-        optionText.setOrigin(0.5);
-        optionText.setInteractive();
-        optionText.on('pointerdown', () => checkAnswer.call(this, options[i], currentQuestion.correct));
-        optionText.on('pointerover', () => {
-          optionBox.setScale(1.05);
-          optionBox.setFillStyle(0xAD76D0);
-        });
-        optionText.on('pointerout', () => {
-          optionBox.setScale(1);
-          optionBox.setFillStyle(0x76ADD0);
-        });
-      }
-
-      this.nextButton = this.add.image(640, 550, 'flechita');
-      this.nextButton.setDisplaySize(50, 50);
-      this.nextButton.setVisible(false);
-      this.nextButton.setInteractive();
-      this.nextButton.on('pointerdown', () => {
-        changePlanetImage.call(this);
-        nextQuestion.call(this);
+      this.load.on('preloadcomplete', () => {
+        setTimeout(() => {
+          cards.forEach(card => {
+            card.setTexture('card-back');
+          });
+        }, 3000); // Espera 3 segundos antes de voltear las cartas al reverso
       });
     }
 
-    function changePlanetImage() {
-      this.planetImage.setTexture(Phaser.Math.RND.pick(['mercurio', 'venus', 'tierra', 'marte', 'jupiter', 'saturno', 'urano', 'neptuno', 'sol', 'luna']));
+    function create() {
+      this.add.image(290, 289, 'background').setScale(1.5);
+    
+      const shuffledImages = Phaser.Utils.Array.Shuffle([...planetImages, ...planetImages]);
+      const cards = shuffledImages.map((image, index) => {
+        const card = this.add.image(100 + (index % 4) * 120, 100 + Math.floor(index / 4) * 150, 'card-back');
+        card.setInteractive();
+        card.imageName = `planet-${planetImages.indexOf(image)}`;
+        card.flipped = false;
+        card.setScale(0.2);
+        return card;
+      });
+    
+      this.flippedCards = [];
+      this.cards = cards;
+    
+      cards.forEach(card => {
+        card.on('pointerdown', () => handleCardClick(card, this));
+      });
     }
+    
 
-    function checkAnswer(selectedAnswer, correctAnswer) {
-      this.feedbackText && this.feedbackText.destroy();
-      if (selectedAnswer === correctAnswer) {
-        this.feedbackText = this.add.text(340, 350, '¡Es correcta!', { fontSize: '24px', fill: '#00ff00' }).setOrigin(0.5);
-        updateScore(score => score + 1);
-      } else {
-        this.feedbackText = this.add.text(340, 350, '¡Es incorrecta!', { fontSize: '24px', fill: '#ff0000' }).setOrigin(0.5);
+    function handleCardClick(card, scene) {
+      if (scene.flippedCards.length < 2 && !card.flipped) {
+        card.setTexture(card.imageName);
+        card.flipped = true;
+        scene.flippedCards.push(card);
       }
-      this.nextButton.setVisible(true);
+
+      if (scene.flippedCards.length === 2) {
+        const [firstCard, secondCard] = scene.flippedCards;
+        if (firstCard.imageName === secondCard.imageName) {
+          setMatches(prevMatches => {
+            const newMatches = prevMatches + 1;
+            if (newMatches === 8) {
+              setIsGameFinished(true);
+              showCongrats(scene);
+            }
+            return newMatches;
+          });
+          scene.flippedCards = [];
+        } else {
+          setTimeout(() => {
+            firstCard.setTexture('card-back');
+            secondCard.setTexture('card-back');
+            firstCard.flipped = false;
+            secondCard.flipped = false;
+            scene.flippedCards = [];
+          }, 1000);
+        }
+      }
     }
 
-    function nextQuestion() {
-      this.feedbackText && this.feedbackText.destroy();
-      this.nextButton.setVisible(false);
-      updateQuestionCount(count => count + 1);
-      createNewQuestion.call(this);
+    function showCongrats(scene) {
+      const congratsImage = scene.add.image(scene.cameras.main.centerX, scene.cameras.main.centerY, 'congrats');
+      congratsImage.setScale(0.5);
+
+      const restartButton = scene.add.text(scene.cameras.main.centerX, scene.cameras.main.centerY + 100, 'Volver a Jugar', {
+        fontSize: '32px',
+        fill: '#000',
+        backgroundColor: '#fff',
+        padding: {
+          left: 20,
+          right: 20,
+          top: 10,
+          bottom: 10,
+        },
+      })
+        .setOrigin(0.5)
+        .setInteractive()
+        .on('pointerdown', () => restartGame(scene));
+    }
+
+    function restartGame(scene) {
+      setMatches(0);
+      setIsGameFinished(false);
+      scene.scene.restart();
     }
 
     return () => {
-      game.destroy(true);
+      phaserGame.destroy(true);
     };
-  }, [questionCount, updateScore, updateQuestionCount]);
+  }, []);
 
-  const [questions] = useState([
-    { image: 'mercurio', options: ['Mercurio', 'Venus', 'Tierra', 'Marte'], correct: 'Mercurio' },
-    { image: 'venus', options: ['Júpiter', 'Venus', 'Saturno', 'Urano'], correct: 'Venus' },
-    { image: 'tierra', options: ['Marte', 'Venus', 'Tierra', 'Neptuno'], correct: 'Tierra' },
-    { image: 'marte', options: ['Saturno', 'Marte', 'Mercurio', 'Júpiter'], correct: 'Marte' },
-    { image: 'jupiter', options: ['Saturno', 'Júpiter', 'Urano', 'Neptuno'], correct: 'Júpiter' },
-    { image: 'saturno', options: ['Urano', 'Neptuno', 'Saturno', 'Tierra'], correct: 'Saturno' },
-    { image: 'urano', options: ['Urano', 'Neptuno', 'Tierra', 'Marte'], correct: 'Urano' },
-    { image: 'neptuno', options: ['Urano', 'Neptuno', 'Venus', 'Marte'], correct: 'Neptuno' },
-    { image: 'sol', options: ['Saturno', 'Sol', 'Mercurio', 'Júpiter'], correct: 'Sol' },
-    { image: 'luna', options: ['Tierra', 'Luna', 'Venus', 'Marte'], correct: 'Luna' },
-  ]);
+  const toggleInstructions = () => {
+    setInstructionsVisible(!instructionsVisible);
+  };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
-      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}></div>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '80vh' }}>
+      <div id="memory-game" style={{ marginRight: '20px' }}></div>
+      <div>
+        <h2>Aciertos: {matches}</h2>
+        <button style={{ 
+          backgroundColor: instructionsVisible ? '#F8BBD0' : '#F06292 ',
+
+          border: 'none', 
+          color: 'white', 
+          padding: '10px 20px', 
+          borderRadius: '5px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s ease',
+          }}
+          onClick={toggleInstructions}>
+          {instructionsVisible ? 'Ocultar Instrucciones' : 'Mostrar Instrucciones'}
+        </button>
+        {instructionsVisible && (
+          <div style={{ backgroundColor: '#F9E79F', padding: '20px', borderRadius: '10px', marginTop: '10px' }}>
+            <h3>Instrucciones:</h3>
+            <p>¡Bienvenido al juego de memoria de planetas!</p>
+            <p>El objetivo es encontrar todas las parejas de planetas.</p>
+            <p>Para jugar, simplemente haz clic en las cartas para revelarlas.</p>
+            <p>Si encuentras dos cartas iguales, permanecerán visibles.</p>
+            <p>Si las cartas no coinciden, se ocultarán después de un segundo.</p>
+            <p>¡Intenta recordar la ubicación de los planetas para hacer coincidir las parejas!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Game4;
-
-
+export default MemoryGame;
