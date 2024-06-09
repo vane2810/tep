@@ -11,7 +11,6 @@ const NoSSR = dynamic(() => import('../components/video'), { ssr: false });
 export default function HomePage() {
 
   return (
-
     <main>
 
       <SeparadorRosa />
@@ -26,6 +25,7 @@ export default function HomePage() {
         <Typewriter
           text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura"
           speed={40}
+          style={{ fontFamily: 'Story, sans-serif', fontWeight: 'bold' }}
         />
       </div>
 
@@ -37,7 +37,6 @@ export default function HomePage() {
       </div>
 
       <SeparadorRosa />
-
 
       {/* Starly */}
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
@@ -53,4 +52,5 @@ export default function HomePage() {
     </main>
   );
 }
+
 
