@@ -108,8 +108,7 @@ export default function SumaPage() {
         {/* Contenido del modal */}
         <div className="text-center">
           <img src="/img/personajes/donkey.png" alt="Personaje de felicitación" className="w-32 h-auto mx-auto mb-4" />
-          <h2 className="text-xl font-semibold mb-4">¡Felicidades! Has completado la sección de suma</h2>
-          <p className="mb-4">Es hora de ponerte a prueba</p>
+          <h2 className="text-xl font-semibold mb-4">Es hora de ponerte a prueba</h2>
           <Link href="/niveles/nivel1/mate/operaciones_basicas/suma/juegos"
             className="verde hover:bg-blue-300 text-white font-bold py-2 px-4 rounded">Continuar
           </Link>

@@ -9,7 +9,7 @@ export default function Modal({ isOpen, onClose, children }) {
       <div className="relative w-auto max-w-lg mx-auto my-6 bg-white rounded-lg shadow-lg">
         <div className="relative flex flex-col w-full p-6 bg-white border-0 rounded-lg outline-none focus:outline-none">
           <div className="flex items-start justify-between border-b border-solid border-blueGray-200 rounded-t">
-            <h3 className="text-xl font-semibold text-center w-full">SUMA</h3>
+            <h3 className="text-xl font-semibold text-center w-full">¡Felicidades! Has completado la sección de suma</h3>
             <button
               className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
               onClick={onClose}
