@@ -10,7 +10,7 @@ const SumGamePage4 = () => {
   return (
     <main>
       <div className="mb-8">
-        <h1 className="mb-4">Juego de Sumas</h1>
+        <h1 className="mb-4"></h1>
         <Game4 />
       </div>
       <SeparadorRosa />

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { SeparadorVerde } from "@/components/separador";
 import '@/styles/globals.css';
+import '@/styles/animacion.css';
 
 export default function PageGameSuma() {
   return (
@@ -13,9 +14,9 @@ export default function PageGameSuma() {
         </Link>
       </div>
       {/* Donkey */}
-      <section className="flex flex-col items-center justify-center ">
+      <section className="flex flex-col items-center justify-center mb-14">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los Juegos de Suma!</h2>
-        <img src="/img/personajes/donkey.png" alt="Donkey" className="h-40 md:h-64 mt-6" />
+        <img src="/img/personajes/donkey.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 
