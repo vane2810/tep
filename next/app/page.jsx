@@ -11,13 +11,9 @@ const NoSSR = dynamic(() => import('../components/video'), { ssr: false });
 export default function HomePage() {
 
   return (
-<<<<<<< HEAD
-
 
     <main>
-=======
-   <main>
->>>>>>> 8cad405b52177aca181026acacc43bfffbbf2f68
+
       <SeparadorRosa />
 
       {/* Bienvenida de Starly */}
@@ -41,7 +37,7 @@ export default function HomePage() {
       </div>
 
       <SeparadorRosa />
-     
+
 
       {/* Starly */}
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
