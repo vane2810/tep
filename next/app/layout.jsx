@@ -2,20 +2,24 @@
 import React from 'react';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
+import { AuthProvider } from '@/context/AuthContext';
 
 export const metadata = {
   title: "TechEduPlanet"
 }
 
-
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
-      <body>
-        <header><Navbar/></header>
-        {children}
-        <footer><Footer/></footer>
-      </body>
-    </html>
-  )
-}
+    <AuthProvider>
+      <html lang="en">
+        <body>
+          <header><Navbar/></header>
+          {children}
+          <footer><Footer/></footer>
+        </body>
+      </html>
+    </AuthProvider>
+  );
+};
+
+export default RootLayout;
