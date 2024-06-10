@@ -13,7 +13,7 @@ const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/suma/game2')
 const SumGamePage2 = () => {
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
-  const [questionCount, setQuestionCount] = useState(0);
+  const [questionCount, setQuestionCount] = useState(1);
   const [showInstructions, setShowInstructions] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
 
@@ -23,6 +23,10 @@ const SumGamePage2 = () => {
 
   const startGame = () => {
     setGameStarted(true);
+    // Resetear el estado cuando se empieza un nuevo juego
+    setFeedback('');
+    setScore(0);
+    setQuestionCount(1);
   };
 
   return (
@@ -71,7 +75,7 @@ const SumGamePage2 = () => {
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
             <h1 className="text-3xl font-bold mb-4 text-center">Juego Decenas y Unidades</h1>
             <div className="flex justify-between text-2xl mb-4">
-              <p className="text-lg">Pregunta: {questionCount}/10</p> {/* Mostramos questionCount */}
+              <p className="text-lg">Pregunta: {questionCount}/10</p>
               <p className="text-lg">Estrellas: {score}</p>
             </div>
             <div className="mb-6 p-4 bg-blue-100 rounded-lg">
@@ -79,6 +83,7 @@ const SumGamePage2 = () => {
               <p>{feedback}</p>
             </div>
             <Game2 setFeedback={setFeedback} setScore={setScore} setQuestionCount={setQuestionCount} />
+
           </div>
         </section>
       )}
@@ -89,4 +94,3 @@ const SumGamePage2 = () => {
 };
 
 export default SumGamePage2;
-

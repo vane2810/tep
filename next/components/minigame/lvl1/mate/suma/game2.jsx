@@ -1,11 +1,9 @@
 // Juego 2 - Suma - Mate - Nivel 1 - Arcade
-
-"use client";
-import React, { useEffect, useState } from 'react';
+"use client"
+import React, { useEffect } from 'react';
 import Phaser from 'phaser';
 
-const Game2 = ({ setFeedback, setScore, setQuestionCount }) => {
-  const [questionNumber, setQuestionNumber] = useState(0);
+const Game2 = ({ setFeedback, setScore, setQuestionCount, questionCount }) => {
 
   useEffect(() => {
     const config = {
@@ -48,13 +46,6 @@ const Game2 = ({ setFeedback, setScore, setQuestionCount }) => {
     }
 
     function createNewQuestion() {
-      if (questionNumber >= 10) {
-        return;
-      }
-
-      // Limpiar elementos anteriores
-      this.children.removeAll();
-      loadBackground.call(this);
 
       // Generar números que no excedan la suma de dos cifras
       const num1 = Phaser.Math.Between(1, 49); // Limitar num1
@@ -96,9 +87,6 @@ const Game2 = ({ setFeedback, setScore, setQuestionCount }) => {
       options.forEach((option, index) => {
         createAnswerOption.call(this, option, index);
       });
-
-      setQuestionNumber(prevNumber => prevNumber + 1);
-      setQuestionCount(prevCount => prevCount + 1); // Actualizar el conteo de preguntas
     }
 
     function createAnswerOption(answer, index) {
@@ -130,25 +118,29 @@ const Game2 = ({ setFeedback, setScore, setQuestionCount }) => {
     }
 
     function checkAnswer(selectedAnswer, correctAnswer) {
-      if (parseInt(selectedAnswer) === correctAnswer) {
-        setFeedback('¡Respuesta Correcta!');
-        setScore(prevScore => prevScore + 10); // Incrementar por 10
-      } else {
-        setFeedback('Respuesta Incorrecta.¡Inténtalo de nuevo!');
-      }
-
       setTimeout(() => {
-        setFeedback('');
-        createNewQuestion.call(this);
-      }, 3000); // Tiempo de espera antes de pasar a la siguiente pregunta (en milisegundos)
+        if (parseInt(selectedAnswer) === correctAnswer) {
+          setFeedback('¡Respuesta Correcta!');
+          setScore(prevScore => prevScore + 10); // Incrementa la puntuación
+        } else {
+          setFeedback('Respuesta Incorrecta. ¡Inténtalo de nuevo!');
+        }
+    
+        if (questionCount >= 9) {
+          setQuestionCount(prevCount => prevCount + 1);
+          createNewQuestion.call(this);
+        } else {
+          setFeedback('Fin del juego. Has respondido 10 preguntas.');
+        }
+      }, 2000);
     }
-
+    
     function update() { }
 
     return () => {
       game.destroy(true);
     };
-  }, [setFeedback, setScore, setQuestionCount]);
+  }, [setFeedback, setScore, setQuestionCount, questionCount]);
 
   return (
     <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>

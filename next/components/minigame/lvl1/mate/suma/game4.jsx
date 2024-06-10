@@ -2,10 +2,14 @@
 
 "use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game4 = ({ updateScore, updateQuestionCount, questionCount }) => {
+const Game4 = ({ updateFeedback, updateScore, updateQuestionCount }) => {
+  const [questionCount, setQuestionCount] = useState(0);
+  const [score, setScore] = useState(0);
+  const [feedback, setFeedback] = useState('');
+
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
@@ -30,9 +34,30 @@ const Game4 = ({ updateScore, updateQuestionCount, questionCount }) => {
       background.setAlpha(0.8);
 
       createNewQuestion.call(this);
+
+      // Escuchar eventos de Phaser y actualizar el estado de React
+      this.events.on('updateScore', (newScore) => {
+        setScore(newScore);
+        updateScore(newScore);
+      });
+
+      this.events.on('updateFeedback', (newFeedback) => {
+        setFeedback(newFeedback);
+        updateFeedback(newFeedback);
+      });
+
+      this.events.on('updateQuestionCount', (newCount) => {
+        setQuestionCount(newCount);
+        updateQuestionCount(newCount);
+      });
     }
 
     function createNewQuestion() {
+      // Si se ha alcanzado el límite de 10 preguntas, no crear una nueva
+      if (questionCount >= 10) {
+        return;
+      }
+
       const num1 = Phaser.Math.Between(1, 10);
       const num2 = Phaser.Math.Between(1, 10);
       const sum = num1 + num2;
@@ -100,26 +125,43 @@ const Game4 = ({ updateScore, updateQuestionCount, questionCount }) => {
     }
 
     function checkAnswer(selectedAnswer, correctAnswer) {
+      let newFeedback = '';
+      let newScore = score;
+      let newQuestionCount = questionCount;
+
       if (parseInt(selectedAnswer) === correctAnswer) {
-        updateScore(score => score + 1); 
-        updateQuestionCount(count => count + 1); 
+        newFeedback = '¡Respuesta Correcta!';
+        newScore += 20;
       } else {
-        updateQuestionCount(count => count + 1); 
+        newFeedback = 'Respuesta Incorrecta. ¡Inténtalo de nuevo!';
       }
 
-      if (questionCount < 9) {
+      newQuestionCount += 1;
+
+      if (newQuestionCount < 10) {
         createNewQuestion.call(this);
+      } else {
+        newFeedback = 'Fin del juego. Has respondido 10 preguntas.';
       }
+
+      // Emitir eventos para actualizar el estado en React
+      this.events.emit('updateScore', newScore);
+      this.events.emit('updateFeedback', newFeedback);
+      this.events.emit('updateQuestionCount', newQuestionCount);
     }
 
     return () => {
       game.destroy(true);
     };
-  }, [questionCount, updateScore, updateQuestionCount]);
+  }, [questionCount, score, feedback, updateFeedback, updateScore, updateQuestionCount]);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
-      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}></div>
+      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}>
+
+        {/* El juego se renderiza aquí */}
+        
+      </div>
     </div>
   );
 };

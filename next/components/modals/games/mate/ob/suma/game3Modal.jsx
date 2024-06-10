@@ -1,7 +1,7 @@
-// Intrucciones - Juego 2 - Suma - Nivel 1
+// Intrucciones - Juego 3 - Suma 
 import React from 'react';
 
-const Game2Modal = ({ show, onClose, onStartGame }) => {
+const Game3Modal = ({ show, onClose, onStartGame }) => {
   if (!show) return null;
 
   const handleStartGame = () => {
@@ -47,4 +47,4 @@ const Game2Modal = ({ show, onClose, onStartGame }) => {
   );
 };
 
-export default Game2Modal;
+export default Game3Modal;

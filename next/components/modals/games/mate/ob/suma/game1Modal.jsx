@@ -1,7 +1,7 @@
-// Intrucciones - Juego 2 - Suma - Nivel 1
+// Intrucciones - Juego 1 - Suma 
 import React from 'react';
 
-const Game2Modal = ({ show, onClose, onStartGame }) => {
+const Game1Modal = ({ show, onClose, onStartGame }) => {
   if (!show) return null;
 
   const handleStartGame = () => {
@@ -21,10 +21,10 @@ const Game2Modal = ({ show, onClose, onStartGame }) => {
         <img src="/img/niveles/mate/signomas.png" alt="Suma" className="h-12 md:h-24 mt-4 mb-4" />
         <p className="mb-6 text-3xs">
             <ol>
-                <li className='text-2xl mb-4'>Aprende a sumar con unidades y decenas</li>
-                <li>1. Tienes un límite de 10 preguntas</li>
-                <li>2 Elige la respuesta que consideres correcta</li>
-                <li>3. Cada pregunta correcta equivale a 100 estrellas</li>
+                <li className='text-2xl mb-4'>Aprende los términos de la suma</li>
+                <li>1. Sólo se mostrará una pregunta</li>
+                <li>2. Arrastra los términos correctos hacia los espacios verdes</li>
+                <li>3. Ganarás 25 estrellas por término correcto</li>
                 <li>4. Dar clic en "Jugar"</li>
             </ol>
         </p>
@@ -47,4 +47,4 @@ const Game2Modal = ({ show, onClose, onStartGame }) => {
   );
 };
 
-export default Game2Modal;
+export default Game1Modal;
