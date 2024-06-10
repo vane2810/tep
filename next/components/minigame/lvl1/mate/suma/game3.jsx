@@ -1,9 +1,11 @@
+// Juego 3 - Suma - Mate - Nivel 1 - Respuestas caen
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game3 = () => {
+const Game2 = () => {
   const [questionCount, setQuestionCount] = useState(0);
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState('');
@@ -11,7 +13,7 @@ const Game3 = () => {
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
-      width: 800,
+      width: 680,
       height: 600,
       parent: 'game-container',
       scene: {
@@ -22,87 +24,81 @@ const Game3 = () => {
       physics: {
         default: 'arcade',
         arcade: {
-          gravity: { y: 0 },
+          gravity: { y: 200 },
           debug: false
         }
       }
     };
 
     const game = new Phaser.Game(config);
+    let fallingOptions;
     let correctAnswer;
-    let answerOptions;
 
     function preload() {
       this.load.image('background', '/img/games/mate/ob/fondogame2.jpg');
-      this.load.image('arrow', '/img/games/mate/ob/respuestagame3.png'); // Asegúrate de usar la ruta correcta
+      this.load.image('arrow', '/img/games/mate/ob/flechitajuego.png'); // Cambia esto a la ruta correcta de tu imagen de flecha
     }
 
     function createScene() {
-      this.add.image(400, 300, 'background').setDisplaySize(800, 600);
+      const background = this.add.image(340, 300, 'background');
+      background.setDisplaySize(680, 600);
+      background.setAlpha(0.8);
 
+      fallingOptions = this.physics.add.group();
       createNewQuestion.call(this);
 
-      // Agregar un temporizador para actualizar las preguntas
-      this.time.addEvent({
-        delay: 10000, // Cambiar pregunta cada 10 segundos
-        callback: () => {
-          setQuestionCount(prevCount => prevCount + 1);
-          createNewQuestion.call(this);
-        },
-        loop: true
+      // Agregar la flecha para pasar a la siguiente pregunta
+      const arrow = this.add.image(645, 565, 'arrow').setInteractive();
+      arrow.setDisplaySize(50, 50);
+      arrow.on('pointerdown', () => {
+        setQuestionCount(prevCount => prevCount + 1);
+        createNewQuestion.call(this);
       });
     }
 
     function createNewQuestion() {
-      const num1 = Phaser.Math.Between(10, 99);
-      const num2 = Phaser.Math.Between(10, 99);
+      const num1 = Phaser.Math.Between(1, 10);
+      const num2 = Phaser.Math.Between(1, 10);
       const sum = num1 + num2;
       correctAnswer = sum;
 
       this.questionText && this.questionText.destroy();
       this.questionBox && this.questionBox.destroy();
-      this.unitsText1 && this.unitsText1.destroy();
-      this.unitsText2 && this.unitsText2.destroy();
-      this.tensText1 && this.tensText1.destroy();
-      this.tensText2 && this.tensText2.destroy();
 
-      // Pregunta
-      this.questionBox = this.add.rectangle(400, 80, 700, 60, 0x76ADD0).setAlpha(0.8);
-      this.questionText = this.add.text(400, 80, `¿Cuál es el resultado de esta suma?`, { fontSize: '32px', fill: '#ffffff' });
+      this.questionBox = this.add.rectangle(340, 100, 400, 50, 0x76ADD0);
+      this.questionText = this.add.text(340, 100, `¿Cuánto es ${num1} + ${num2}?`, { fontSize: '24px', fill: '#ffffff' });
       this.questionText.setOrigin(0.5);
 
-      // Unidades y Decenas
-      this.unitsText1 = this.add.text(420, 150, `U`, { fontSize: '24px', fill: '#ffffff' });
-      this.tensText1 = this.add.text(370, 150, `D`, { fontSize: '24px', fill: '#ffffff' });
-      this.unitsText2 = this.add.text(420, 190, `${num1 % 10}`, { fontSize: '32px', fill: '#ffffff' });
-      this.tensText2 = this.add.text(370, 190, `${Math.floor(num1 / 10)}`, { fontSize: '32px', fill: '#ffffff' });
+      const wrongAnswers = Array.from({ length: 6 }, () => Phaser.Math.Between(1, 20)).filter(ans => ans !== sum);
+      const options = Phaser.Math.RND.shuffle([correctAnswer, ...wrongAnswers.slice(0, 5)]);
 
-      this.unitsText3 = this.add.text(420, 230, `${num2 % 10}`, { fontSize: '32px', fill: '#ffffff' });
-      this.tensText3 = this.add.text(370, 230, `${Math.floor(num2 / 10)}`, { fontSize: '32px', fill: '#ffffff' });
-
-      const wrongAnswers = Array.from({ length: 6 }, () => Phaser.Math.Between(20, 198)).filter(ans => ans !== sum);
-      const options = Phaser.Math.RND.shuffle([correctAnswer, ...wrongAnswers.slice(0, 1)]);
-
-      answerOptions && answerOptions.clear(true, true);
-      answerOptions = this.physics.add.group();
+      fallingOptions.clear(true, true);
 
       options.forEach((option, index) => {
-        createAnswerOption.call(this, option, index);
+        setTimeout(() => createFallingOption.call(this, option), index * 800); // Añadimos un retraso de 800ms entre caídas
       });
     }
 
-    function createAnswerOption(answer, index) {
-      const xPosition = 400;
-      const yPosition = 350 + (index * 100);
-      const optionBox = this.add.image(xPosition, yPosition, 'arrow');
-      const optionText = this.add.text(xPosition, yPosition, answer, { fontSize: '27px', fill: '#000000' });
-      optionBox.setDisplaySize(100, 100);
+    function createFallingOption(answer) {
+      const xPosition = Phaser.Math.Between(50, 630);
+      const optionBox = this.add.rectangle(xPosition, 0, 100, 50, 0x76ADD0);
+      const optionText = this.add.text(xPosition, 0, answer, { fontSize: '24px', fill: '#ffffff' });
       optionText.setOrigin(0.5);
+
+      this.physics.world.enable([optionBox, optionText]);
+      optionBox.body.setVelocityY(1); // Velocidad más lenta
+      optionText.body.setVelocityY(1);
 
       optionBox.setInteractive();
       optionBox.on('pointerdown', () => checkAnswer.call(this, answer, correctAnswer));
 
-      answerOptions.add(optionBox);
+      // Asegurar que el texto siga al cuadro
+      optionText.update = function () {
+        this.x = optionBox.x;
+        this.y = optionBox.y;
+      };
+
+      fallingOptions.add(optionBox);
     }
 
     function checkAnswer(selectedAnswer, correctAnswer) {
@@ -113,13 +109,22 @@ const Game3 = () => {
         setFeedback('Respuesta Incorrecta. ¡Inténtalo de nuevo!');
       }
 
-      setTimeout(() => {
-        setFeedback('');
-      }, 2000);
+      if (questionCount < 9) {
+        setQuestionCount(prevCount => prevCount + 1);
+        createNewQuestion.call(this);
+      } else {
+        setTimeout(() => {
+          setFeedback('Fin del juego. Has respondido 10 preguntas.');
+        }, 1000);
+      }
     }
 
     function update() {
-      // Actualización de la lógica del juego (si es necesario)
+      fallingOptions.children.iterate(option => {
+        if (option && option.y > 600) {
+          option.destroy();
+        }
+      });
     }
 
     return () => {
@@ -136,7 +141,7 @@ const Game3 = () => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
-      <div id="game-container" style={{ width: '800px', height: '600px', position: 'relative', zIndex: 0 }}>
+      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}>
         <h1 style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '20px', left: '20px' }}>Juego de Sumas</h1>
         <p style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '50px', left: '20px' }}>Pregunta {questionCount + 1}/10</p>
         <p style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '80px', left: '20px' }}>Puntuación: {score}</p>
@@ -146,4 +151,4 @@ const Game3 = () => {
   );
 };
 
-export default Game3;
+export default Game2;

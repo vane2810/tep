@@ -21,7 +21,7 @@ export default function SumaPage() {
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
-              <img src="/img/niveles/mate/signomas.png" alt="Animated Image" className="h-64 w-auto mr-4" />
+              <img src="/img/niveles/mate/signomas.png" alt="Suma" className="h-64 w-auto mr-4" />
               <p className="text-black super text-[40px] max-w-lg">SUMA</p>
             </div>
           </div>
