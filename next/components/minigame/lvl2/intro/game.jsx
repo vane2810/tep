@@ -1,10 +1,11 @@
-// pages/GameScene.js
+// pages/Gameintro2.jsx
 "use client";
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useRef } from 'react';
 import Phaser from 'phaser';
 
 const Game = () => {
-  const [gameOver, setGameOver] = useState(false);
+  const gameRef = useRef(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -19,7 +20,7 @@ const Game = () => {
           this.load.image('ship', '/img/games/mate/ob/ship.png');
           this.load.image('asteroid', '/img/games/mate/ob/asteroid.png');
           this.load.image('astronaut', '/img/games/mate/ob/astronaut.png');
-          this.load.image('gameover', '/img/games/mate/ob/gameover.png'); // Imagen para cuando el jugador pierde
+          this.load.image('gameover', '/img/games/mate/ob/gameover.png');
         }
 
         create() {
@@ -40,7 +41,7 @@ const Game = () => {
             loop: true
           });
 
-          this.gameOverTimer = this.time.delayedCall(180000, () => {
+          this.gameOverTimer = this.time.delayedCall(120000, () => {
             if (!this.isGameOver) {
               this.endGame(true);
             }
@@ -69,7 +70,7 @@ const Game = () => {
         addAsteroid() {
           if (!this.isGameOver) {
             const y = Phaser.Math.Between(50, 550);
-            const asteroid = this.asteroids.create(800, y, 'asteroid').setScale(0.15); // Tamaño reducido a 0.15
+            const asteroid = this.asteroids.create(800, y, 'asteroid').setScale(0.15);
             asteroid.setVelocityX(-Phaser.Math.Between(100, 200));
           }
         }
@@ -86,13 +87,11 @@ const Game = () => {
           this.isGameOver = true;
           this.asteroids.clear(true, true);
           this.timer.remove();
-          
-          // Agregar el texto de "¡Perdiste!" encima de la imagen de game over
-          this.gameOverImage = this.add.image(400, 350, 'gameover').setScale(0.5); // Imagen de game over más pequeña
+
+          this.gameOverImage = this.add.image(400, 350, 'gameover').setScale(0.5);
           this.gameOverText = this.add.text(400, 250, isTimeUp ? 'Game Over' : '¡Perdiste!', { fontSize: '48px', fill: '#fff' })
-            .setOrigin(0.5); // Centrar el texto
-          
-          // Ajustar la posición del botón de reinicio
+            .setOrigin(0.5);
+
           this.restartButton = this.add.text(400, 450, 'Volver a jugar', { fontSize: '24px', fill: '#000', backgroundColor: '#fff' })
             .setOrigin(0.5)
             .setPadding(10)
@@ -109,6 +108,7 @@ const Game = () => {
         type: Phaser.AUTO,
         width: 800,
         height: 600,
+        parent: gameRef.current,
         physics: {
           default: 'arcade',
           arcade: {
@@ -117,6 +117,10 @@ const Game = () => {
           },
         },
         scene: GameScene,
+        scale: {
+          mode: Phaser.Scale.FIT,
+          autoCenter: Phaser.Scale.CENTER_BOTH
+        }
       };
 
       const game = new Phaser.Game(config);
@@ -127,7 +131,7 @@ const Game = () => {
     }
   }, []);
 
-  return <div id="phaser-game"></div>;
+  return <div id="phaser-game" ref={gameRef} className="w-full h-full flex justify-center items-center"></div>;
 };
 
 export default Game;
