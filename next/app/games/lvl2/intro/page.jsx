@@ -1,9 +1,9 @@
-// Juego Introductorio -  Nivel 1
+// pages/introGame2.js
 
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
-import '@/styles/animacion.css'
+import '@/styles/animacion.css';
 
 const Game = dynamic(() => import('@/components/minigame/lvl2/intro/game'), { ssr: false });
 
@@ -29,3 +29,5 @@ const IntroGame2 = () => {
 };
 
 export default IntroGame2;
+
+
