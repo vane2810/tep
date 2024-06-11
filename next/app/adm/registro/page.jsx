@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
+import RegistroModal from '@/components/modals/adm/registroModal';
 
 export default function Register() {
   const [formData, setFormData] = useState({

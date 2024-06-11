@@ -21,7 +21,7 @@ const Navbar = () => {
     // Eliminar el token del localStorage
     localStorage.removeItem('token');
     // Redirigir al usuario a la página de inicio de sesión
-    window.location.href = '/login';
+    window.location.href = '/';
   };
 
 
@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="flex items-center">
         {session ? (
           <div className="hidden sm:flex items-center mr-4">
-            <div className="text-xl font-bold mr-2">Usuario Estudiante</div>
+            <div className="text-xl font-bold mr-2">Bienvenido</div>
             <button onClick={handleLogout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 mr-4 px-4 rounded">Cerrar sesión</button>
           </div>
         ) : (
