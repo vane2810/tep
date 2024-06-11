@@ -36,10 +36,11 @@ router.post('/register', async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      roleId: roleId || 1, // Asignar el ID del rol directamente o default
+      roleId: roleId || 1, 
     });
 
-    res.status(201).json({ message: 'Usuario registrado correctamente', user });
+
+    res.status(201).json({ message: 'Usuario registrado correctamente', user});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

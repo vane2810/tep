@@ -1,9 +1,10 @@
 // Juego Introductorio Nivel 3
-"use client"; 
+"use client";
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { SeparadorRosa } from "@/components/separador"; 
-import '@/styles/animacion.css'; 
+import { SeparadorRosa } from "@/components/separador";
+import '@/styles/animacion.css';
+import Link from 'next/link';
 
 
 const CoinCollectingGame = dynamic(() => import('@/components/minigame/lvl3/intro/game'), { ssr: false });
@@ -19,7 +20,7 @@ const InstructionsModal = ({ onClose, onPlay }) => {
           Mueve el personaje con las teclas de flecha para recoger las monedas y evitar los obstáculos.
           Cada moneda te da puntos. ¡Intenta obtener la mayor cantidad posible sin chocar con los obstáculos!
         </p>
-      
+
         <div className="flex justify-center space-x-4">
           <button
             className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
@@ -41,8 +42,8 @@ const InstructionsModal = ({ onClose, onPlay }) => {
 
 // Componente principal del juego introductorio
 const IntroGame3 = () => {
-  const [showModal, setShowModal] = useState(false); 
-  const [showGame, setShowGame] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
+  const [showGame, setShowGame] = useState(false);
 
   // Maneja la apertura del modal
   const handleOpenModal = () => {
@@ -61,8 +62,14 @@ const IntroGame3 = () => {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center">
-      <SeparadorRosa /> 
+    <main>
+      <SeparadorRosa />
+      {/* Volver */}
+      <div className="mt-6 ml-10 inline-block">
+        <Link href="/niveles/nivel3">
+          <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+        </Link>
+      </div>
 
       {/* Sección de bienvenida */}
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
@@ -74,7 +81,7 @@ const IntroGame3 = () => {
         />
       </div>
 
-      <SeparadorRosa /> 
+      <SeparadorRosa />
 
       {/* Zona del juego */}
       {!showGame && (
@@ -98,7 +105,7 @@ const IntroGame3 = () => {
       {showGame && (
         <div className="flex-grow flex justify-center items-center w-full">
           <div className="w-full max-w-[800px] h-[600px] flex justify-center items-center">
-            <CoinCollectingGame /> 
+            <CoinCollectingGame />
           </div>
         </div>
       )}
@@ -108,6 +115,6 @@ const IntroGame3 = () => {
   );
 };
 
-export default IntroGame3; 
+export default IntroGame3;
 
 

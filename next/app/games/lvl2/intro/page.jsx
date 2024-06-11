@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
 import '@/styles/animacion.css';
+import Link from 'next/link';
 
 // Carga dinámica del componente del juego sin renderizado en el servidor (SSR)
 const Game = dynamic(() => import('@/components/minigame/lvl2/intro/game'), { ssr: false });
@@ -13,7 +14,7 @@ const InstructionsModal = ({ onClose, onPlay }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg p-8 max-w-lg mx-auto">
-       
+
         <h2 className="text-2xl font-bold mb-4 text-center">Instrucciones del Juego</h2>
         <img src="/img/games/mate/ob/intrucciones.png" alt="Instrucciones" className="w-1/2 mx-auto mb-4" />
         <p className="mb-4 text-center">
@@ -38,8 +39,8 @@ const InstructionsModal = ({ onClose, onPlay }) => {
 
 // Componente principal del juego introductorio
 const IntroGame2 = () => {
-  const [showModal, setShowModal] = useState(false); 
-  const [showGame, setShowGame] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
+  const [showGame, setShowGame] = useState(false);
 
   // Maneja la apertura del modal
   const handleOpenModal = () => {
@@ -58,9 +59,15 @@ const IntroGame2 = () => {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center">
+    <main>
+      {/* Volver */}
+      <div className="mt-6 ml-10 inline-block">
+        <Link href="/niveles/nivel2">
+          <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+        </Link>
+      </div>
       {/* Sección de bienvenida */}
-      <div className="flex flex-col justify-center items-center mt-10">
+      <div className="flex flex-col justify-center items-center mt-2">
         <h1 className="ml-10 story text-2xl font-bold text-center">Bienvenidos/as a Juegos Introductorios</h1>
         <img
           src="/img/page/starly.png"

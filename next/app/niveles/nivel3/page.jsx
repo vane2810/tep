@@ -27,6 +27,12 @@ export default function Nivel3() {
           <img src="/img/niveles/sociales/sociales.png" alt="Ingles" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
         </Link>
       </div>
+      <div className="flex justify-center items-center my-10">
+        <Link
+          href="/games/lvl3/intro"
+          className=" w-40 h-20 md:w-50 lg:w-60 bg-purple-500 text-white text-center font-bold py-4 px-6 rounded-lg shadow-lg hover:bg-purple-700"
+        >Juego Introductorio</Link>
+      </div>
     </main>
   );
 }

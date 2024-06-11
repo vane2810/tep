@@ -1,17 +1,49 @@
-// Inicio Operaciones Básicas - Nivel 2
-
-import React from "react";
+// /pages/niveles/nivel2/matematicaPage.js
+"use client";
+import React, { useContext, useEffect, useState } from "react";
 import Link from 'next/link';
+import { SessionContext } from '@/context/session'; 
+import GuestModal from '@/components/modals/GuestModal'; 
 import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul } from "@/components/separador";
 
 export default function MatematicaPage() {
+  const { session } = useContext(SessionContext);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (!session) {
+      setShowModal(true);
+    }
+  }, [session]);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  if (!session) {
+    return (
+      <>
+        {/* Botón de Volver */}
+        <div className="mt-6 ml-10 inline-block">
+          <Link href="/niveles/nivel2/mate">
+            <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+          </Link>
+        </div>
+        {/* Modal de Autenticación */}
+        <GuestModal show={showModal} onClose={handleCloseModal} />
+        {/* Mensaje de Acceso Restringido */}
+        <div className="text-center mt-10">Volver</div>
+      </>
+    );
+  }
+
   return (
     <main>
       {/* Bienvenida de Donkey */}
       <section>
         <SeparadorAzul />
         <div className="bg-purple-200 py-4">
-          {/* Volver */}
+          {/* Botón de Volver */}
           <div className="mt-6 ml-10 inline-block">
             <Link href="/niveles/nivel2/mate">
               <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
