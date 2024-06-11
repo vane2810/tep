@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
-import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/suma/modalSuma";
+import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
+import Modal from "@/components/modals/games/mate/ob/leccionModal";
 
 export default function SumaPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -33,7 +33,7 @@ export default function SumaPage() {
       <section className="my-10 px-4">
         <div className="flex items-center">
           <div className="flex-1 text-center">
-            <h2 className="text-2xl font-semibold">Terminos de la suma</h2>
+            <h2 className="text-2xl font-semibold">Términos de la suma</h2>
             <p className="mt-2 text-black text-center">Sumando, sumando y total</p>
           </div>
           <img src="/img/niveles/mate/terminossuma.png" alt="Suma" className="h-32 w-auto ml-4" />
@@ -102,18 +102,13 @@ export default function SumaPage() {
         </button>
       </div>
 
-
       {/* Modal */}
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        {/* Contenido del modal */}
-        <div className="text-center">
-          <img src="/img/personajes/donkey.png" alt="Personaje de felicitación" className="w-32 h-auto mx-auto mb-4" />
-          <h2 className="text-xl font-semibold mb-4">Es hora de ponerte a prueba</h2>
-          <Link href="/niveles/nivel1/mate/operaciones_basicas/suma/juegos"
-            className="verde hover:bg-blue-300 text-white font-bold py-2 px-4 rounded">Continuar
-          </Link>
-        </div>
-      </Modal>
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        subjectName="Suma"
+        continueLink="/niveles/nivel1/mate/operaciones_basicas/suma/juegos"
+      />
     </main>
   );
 }

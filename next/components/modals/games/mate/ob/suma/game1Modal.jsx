@@ -1,12 +1,12 @@
-// Intrucciones - Juego 1 - Suma 
+// Intrucciones Juego 2 - Mamte
 import React from 'react';
 
-const Game1Modal = ({ show, onClose, onStartGame }) => {
+const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   if (!show) return null;
 
   const handleStartGame = () => {
     onStartGame();
-    onClose(); 
+    onClose();
   };
 
   return (
@@ -18,24 +18,25 @@ const Game1Modal = ({ show, onClose, onStartGame }) => {
           </svg>
         </button>
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
-        <img src="/img/niveles/mate/signomas.png" alt="Suma" className="h-12 md:h-24 mt-4 mb-4" />
-        <p className="mb-6 text-3xs">
-            <ol>
-                <li className='text-2xl mb-4'>Aprende los términos de la suma</li>
-                <li>1. Sólo se mostrará una pregunta</li>
-                <li>2. Arrastra los términos correctos hacia los espacios verdes</li>
-                <li>3. Ganarás 25 estrellas por término correcto</li>
-                <li>4. Dar clic en "Jugar"</li>
-            </ol>
-        </p>
+        <p className='text-2xl'> Puntaje: 75 estrellas </p>
+        <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
+        <p className="text-2xl mb-4">Aprende los términos de la {subtitle.toLowerCase()}</p>
+
+        <ol className="mb-6 text-xl">
+          <li>1. Arrastra los términos correctos hacia los espacios vacíos</li>
+          <li>2. Verifica colocar los términos en medio del espacio</li>
+          <li>3. Presiona "Comprobar" para verificar</li>
+          
+        </ol>
+
         <div className="flex space-x-4">
-          <button 
+          <button
             className="bg-blue-500 text-white text-xl py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
             onClick={onClose}
           >
             Cerrar
           </button>
-          <button 
+          <button
             className="bg-green-500 text-white text-xl py-2 px-4 rounded hover:bg-green-700 transition duration-300"
             onClick={handleStartGame}
           >

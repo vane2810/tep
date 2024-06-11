@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import Phaser from 'phaser';
 
-const Game2 = ({ setFeedback, setScore, setQuestionCount, questionCount }) => {
+const Game2 = ({ setFeedback, setScore, setQuestionCount, questionCount, onGameEnd }) => {
 
   useEffect(() => {
     const config = {
@@ -46,13 +46,19 @@ const Game2 = ({ setFeedback, setScore, setQuestionCount, questionCount }) => {
     }
 
     function createNewQuestion() {
+      // Si ya hemos hecho 10 preguntas, terminamos el juego
+      if (questionCount >= 10) {
+        setFeedback('Fin del juego. Has respondido 10 preguntas.');
+        onGameEnd(); // Notificar al componente padre que el juego ha terminado
+        return;
+      }
 
-      // Generar números que no excedan la suma de dos cifras
-      const num1 = Phaser.Math.Between(1, 49); // Limitar num1
+      // Generar números aleatorios para la suma
+      const num1 = Phaser.Math.Between(1, 49); // Limitar num1 para que la suma sea razonable
       const num2 = Phaser.Math.Between(1, 99 - num1); // Limitar num2 para que la suma no exceda 99
       const sum = num1 + num2;
 
-      correctAnswer = sum; // Respuesta correcta, sin multiplicar por 10
+      correctAnswer = sum; // Respuesta correcta
 
       // Mostrar la pregunta
       this.questionBox = this.add.rectangle(400, 80, 700, 60, 0x5fb2e6).setAlpha(0.8);
@@ -126,21 +132,26 @@ const Game2 = ({ setFeedback, setScore, setQuestionCount, questionCount }) => {
           setFeedback('Respuesta Incorrecta. ¡Inténtalo de nuevo!');
         }
     
-        if (questionCount >= 9) {
-          setQuestionCount(prevCount => prevCount + 1);
-          createNewQuestion.call(this);
-        } else {
-          setFeedback('Fin del juego. Has respondido 10 preguntas.');
-        }
-      }, 2000);
+        // Incrementar el contador de preguntas
+        setQuestionCount(prevCount => {
+          const newCount = prevCount + 1;
+          if (newCount <= 10) {
+            createNewQuestion.call(this);
+          } else {
+            setFeedback('Fin del juego. Has respondido 10 preguntas.');
+            onGameEnd(); // Notificar al componente padre que el juego ha terminado
+          }
+          return newCount;
+        });
+      }, 1000); // Reducir el tiempo de espera para mostrar el feedback
     }
-    
+
     function update() { }
 
     return () => {
       game.destroy(true);
     };
-  }, [setFeedback, setScore, setQuestionCount, questionCount]);
+  }, [setFeedback, setScore, setQuestionCount, questionCount, onGameEnd]);
 
   return (
     <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>

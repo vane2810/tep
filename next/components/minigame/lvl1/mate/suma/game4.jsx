@@ -13,8 +13,8 @@ const Game4 = ({ updateFeedback, updateScore, updateQuestionCount }) => {
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
-      width: 680,
-      height: 600,
+      width: '650',
+      height: '500',
       parent: 'game-container',
       scene: {
         preload: preload,
@@ -131,7 +131,7 @@ const Game4 = ({ updateFeedback, updateScore, updateQuestionCount }) => {
 
       if (parseInt(selectedAnswer) === correctAnswer) {
         newFeedback = '¡Respuesta Correcta!';
-        newScore += 20;
+        newScore += 30;
       } else {
         newFeedback = 'Respuesta Incorrecta. ¡Inténtalo de nuevo!';
       }

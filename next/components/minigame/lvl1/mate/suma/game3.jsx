@@ -1,154 +1,214 @@
-// Juego 3 - Suma - Mate - Nivel 1 - Respuestas caen
-
+// Juego de Caza de Números
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Phaser from 'phaser';
 
-const Game2 = () => {
+const Game3 = ({ updateFeedback, updateScore, endGame, updateQuestionCount }) => {
   const [questionCount, setQuestionCount] = useState(0);
-  const [score, setScore] = useState(0);
-  const [feedback, setFeedback] = useState('');
+  const [gameCompleted, setGameCompleted] = useState(false);
+
+  // Memoización de las funciones pasadas como props para evitar reinicios innecesarios del juego
+  const memoizedUpdateFeedback = useCallback(updateFeedback, []);
+  const memoizedUpdateScore = useCallback(updateScore, []);
+  const memoizedEndGame = useCallback(endGame, []);
+  const memoizedUpdateQuestionCount = useCallback(updateQuestionCount, []);
 
   useEffect(() => {
+    class NumberHuntScene extends Phaser.Scene {
+      constructor() {
+        super({ key: 'NumberHuntScene' });
+      }
+
+      preload() {
+        // Cargar cualquier imagen o recurso necesario
+      }
+
+      create() {
+        this.cameras.main.setBackgroundColor('#acd0ef'); // Cambiar el color de fondo de la escena
+
+        this.grid = [];
+        this.selectedNumbers = [];
+        this.targetSum = Phaser.Math.Between(10, 18); // Número objetivo aleatorio para la suma
+        this.canSelect = true;
+
+        this.generateNewQuestion();
+        
+        // Mostrar el número objetivo al jugador
+        this.targetSumText = this.add.text(400, 50, `Encuentra números que sumen ${this.targetSum}`, {
+          fontSize: '24px',
+          fill: '#000000'
+        }).setOrigin(0.5);
+
+        // Botón para pasar a la siguiente pregunta
+        this.nextQuestionButton = this.add.text(400, 450, 'Siguiente Pregunta', {
+          fontSize: '24px',
+          fill: '#ffffff',
+          backgroundColor: '8e7cc3',
+          padding: { x: 10, y: 5 }
+        }).setOrigin(0.5).setInteractive();
+
+        this.nextQuestionButton.on('pointerdown', () => {
+          this.moveToNextQuestion();
+        });
+
+        // Inicialmente ocultar el botón de "Siguiente Pregunta"
+        this.nextQuestionButton.setVisible(false);
+      }
+
+      generateNewQuestion() {
+        // Limpiar la cuadrícula y restablecer las selecciones
+        if (this.grid) {
+          this.grid.forEach(numberText => numberText.destroy());
+        }
+        this.grid = [];
+        this.selectedNumbers = [];
+
+        // Generar una cuadrícula de números aleatorios
+        const numbers = Phaser.Utils.Array.NumberArray(1, 9);
+        const pairedNumbers = numbers.concat(numbers.slice(0, 3)); // Duplicar números y tomar solo 3 más para un total de 12
+        Phaser.Utils.Array.Shuffle(pairedNumbers); // Mezclar las tarjetas
+
+        let index = 0;
+        for (let i = 0; i < 12; i++) {
+          const x = 150 + (i % 6) * 100;
+          const y = 200 + Math.floor(i / 6) * 150;
+          const number = pairedNumbers[index % pairedNumbers.length];
+          this.createNumber(x, y, number);
+          index++;
+        }
+      }
+
+      createNumber(x, y, number) {
+        // Crear el texto del número y asegurarse de que es visible
+        const numberText = this.add.text(x, y, number, {
+          fontSize: '32px',
+          fill: '#ffffff',
+          backgroundColor: '#ff0000', // Asegurar visibilidad
+          padding: { x: 20, y: 10 }
+        }).setOrigin(0.5).setInteractive();
+
+        console.log(`Número creado: ${number} en posición (${x}, ${y})`);
+
+        numberText.setData('number', number);
+        numberText.setData('selected', false);
+
+        numberText.on('pointerdown', () => {
+          if (this.canSelect && !gameCompleted) {
+            this.selectNumber(numberText);
+          }
+        });
+
+        this.grid.push(numberText);
+      }
+
+      selectNumber(numberText) {
+        if (numberText.getData('selected')) {
+          return;
+        }
+
+        const number = numberText.getData('number');
+        this.selectedNumbers.push(number);
+        numberText.setData('selected', true);
+        numberText.setStyle({ fill: '#00ff00' }); // Cambiar el color al seleccionar
+
+        const sum = this.selectedNumbers.reduce((acc, curr) => acc + curr, 0);
+
+        if (sum === this.targetSum) {
+          memoizedUpdateFeedback('¡Correcto! Has encontrado una combinación que suma al objetivo.');
+          memoizedUpdateScore(prevScore => prevScore + 25); // Aumentar el puntaje en 25 por respuesta correcta
+          this.canSelect = false; // Evitar más selecciones hasta mostrar el feedback
+
+          // Actualizar el contador de preguntas
+          setQuestionCount(prevCount => {
+            const newCount = prevCount + 1;
+            memoizedUpdateQuestionCount(newCount);
+
+            // Mostrar el botón de "Siguiente Pregunta" solo si no es la última pregunta
+            if (newCount < 8) {
+              this.nextQuestionButton.setVisible(true);
+            } else {
+              // Si es la última pregunta, marcar el juego como completado
+              memoizedUpdateFeedback('¡Felicidades! Has completado las 8 preguntas.');
+              setGameCompleted(true);
+              // Detener las interacciones y dejar la escena visible para mostrar el mensaje final
+              this.input.enabled = false; // Desactivar la entrada del usuario
+              setTimeout(() => {
+                memoizedEndGame(); // Llama a endGame después de un ligero retraso para asegurar que el feedback se muestra
+              }, 500);
+            }
+
+            return newCount;
+          });
+        } else if (sum > this.targetSum) {
+          memoizedUpdateFeedback('La suma excede el objetivo. Inténtalo de nuevo.');
+          this.resetSelection();
+        }
+      }
+
+      resetSelection() {
+        this.selectedNumbers = [];
+        this.grid.forEach(numberText => {
+          if (numberText) {
+            numberText.setData('selected', false);
+            numberText.setStyle({ fill: '#ffffff' });
+          }
+        });
+        this.canSelect = true; // Permitir nuevas selecciones
+      }
+
+      moveToNextQuestion() {
+        this.cleanUpScene();
+        this.generateNewQuestion();
+        this.targetSum = Phaser.Math.Between(10, 18); // Generar nuevo número objetivo
+        this.targetSumText.setText(`Encuentra números que sumen ${this.targetSum}`);
+        this.nextQuestionButton.setVisible(false); // Ocultar el botón de "Siguiente Pregunta"
+      }
+
+      cleanUpScene() {
+        // Limpiar los elementos de la escena antes de generar la nueva pregunta
+        if (this.grid) {
+          this.grid.forEach(numberText => numberText.destroy());
+        }
+        this.selectedNumbers = [];
+        this.canSelect = true;
+      }
+    }
+
     const config = {
       type: Phaser.AUTO,
-      width: 680,
-      height: 600,
+      width: 800,
+      height: 500,
       parent: 'game-container',
-      scene: {
-        preload: preload,
-        create: createScene,
-        update: update
-      },
+      scene: NumberHuntScene,
       physics: {
         default: 'arcade',
         arcade: {
-          gravity: { y: 200 },
+          gravity: { y: 0 },
           debug: false
         }
       }
     };
 
     const game = new Phaser.Game(config);
-    let fallingOptions;
-    let correctAnswer;
-
-    function preload() {
-      this.load.image('background', '/img/games/mate/ob/fondogame2.jpg');
-      this.load.image('arrow', '/img/games/mate/ob/flechitajuego.png'); // Cambia esto a la ruta correcta de tu imagen de flecha
-    }
-
-    function createScene() {
-      const background = this.add.image(340, 300, 'background');
-      background.setDisplaySize(680, 600);
-      background.setAlpha(0.8);
-
-      fallingOptions = this.physics.add.group();
-      createNewQuestion.call(this);
-
-      // Agregar la flecha para pasar a la siguiente pregunta
-      const arrow = this.add.image(645, 565, 'arrow').setInteractive();
-      arrow.setDisplaySize(50, 50);
-      arrow.on('pointerdown', () => {
-        setQuestionCount(prevCount => prevCount + 1);
-        createNewQuestion.call(this);
-      });
-    }
-
-    function createNewQuestion() {
-      const num1 = Phaser.Math.Between(1, 10);
-      const num2 = Phaser.Math.Between(1, 10);
-      const sum = num1 + num2;
-      correctAnswer = sum;
-
-      this.questionText && this.questionText.destroy();
-      this.questionBox && this.questionBox.destroy();
-
-      this.questionBox = this.add.rectangle(340, 100, 400, 50, 0x76ADD0);
-      this.questionText = this.add.text(340, 100, `¿Cuánto es ${num1} + ${num2}?`, { fontSize: '24px', fill: '#ffffff' });
-      this.questionText.setOrigin(0.5);
-
-      const wrongAnswers = Array.from({ length: 6 }, () => Phaser.Math.Between(1, 20)).filter(ans => ans !== sum);
-      const options = Phaser.Math.RND.shuffle([correctAnswer, ...wrongAnswers.slice(0, 5)]);
-
-      fallingOptions.clear(true, true);
-
-      options.forEach((option, index) => {
-        setTimeout(() => createFallingOption.call(this, option), index * 800); // Añadimos un retraso de 800ms entre caídas
-      });
-    }
-
-    function createFallingOption(answer) {
-      const xPosition = Phaser.Math.Between(50, 630);
-      const optionBox = this.add.rectangle(xPosition, 0, 100, 50, 0x76ADD0);
-      const optionText = this.add.text(xPosition, 0, answer, { fontSize: '24px', fill: '#ffffff' });
-      optionText.setOrigin(0.5);
-
-      this.physics.world.enable([optionBox, optionText]);
-      optionBox.body.setVelocityY(1); // Velocidad más lenta
-      optionText.body.setVelocityY(1);
-
-      optionBox.setInteractive();
-      optionBox.on('pointerdown', () => checkAnswer.call(this, answer, correctAnswer));
-
-      // Asegurar que el texto siga al cuadro
-      optionText.update = function () {
-        this.x = optionBox.x;
-        this.y = optionBox.y;
-      };
-
-      fallingOptions.add(optionBox);
-    }
-
-    function checkAnswer(selectedAnswer, correctAnswer) {
-      if (parseInt(selectedAnswer) === correctAnswer) {
-        setFeedback('¡Respuesta Correcta!');
-        setScore(prevScore => prevScore + 1); // Incrementa la puntuación
-      } else {
-        setFeedback('Respuesta Incorrecta. ¡Inténtalo de nuevo!');
-      }
-
-      if (questionCount < 9) {
-        setQuestionCount(prevCount => prevCount + 1);
-        createNewQuestion.call(this);
-      } else {
-        setTimeout(() => {
-          setFeedback('Fin del juego. Has respondido 10 preguntas.');
-        }, 1000);
-      }
-    }
-
-    function update() {
-      fallingOptions.children.iterate(option => {
-        if (option && option.y > 600) {
-          option.destroy();
-        }
-      });
-    }
 
     return () => {
       game.destroy(true);
     };
-  }, [questionCount]);
-
-  useEffect(() => {
-    const feedbackBox = document.getElementById('feedback-box');
-    if (feedbackBox) {
-      feedbackBox.textContent = feedback;
-    }
-  }, [feedback]);
+  }, [memoizedUpdateFeedback, memoizedUpdateScore, memoizedEndGame, memoizedUpdateQuestionCount, gameCompleted]);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
-      <div id="game-container" style={{ width: '680px', height: '600px', position: 'relative', zIndex: 0 }}>
-        <h1 style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '20px', left: '20px' }}>Juego de Sumas</h1>
-        <p style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '50px', left: '20px' }}>Pregunta {questionCount + 1}/10</p>
-        <p style={{ background:'#ffffff', color: '#000000', position: 'absolute', top: '80px', left: '20px' }}>Puntuación: {score}</p>
-        <p id="feedback-box" style={{ background:'#ffffff' , color: '#000000', position: 'absolute', top: '110px', left: '20px' }}>{feedback}</p>
+      <div id="game-container" style={{ width: '800px', height: '600px', position: 'relative', zIndex: 0 }}>
+        {gameCompleted && (
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: 1, backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '20px', borderRadius: '10px' }}>
+            <h2>¡Felicidades! Has completado las 8 preguntas.</h2>
+          </div>
+        )}
+        {/* El juego se renderiza aquí */}
       </div>
     </div>
   );
 };
 
-export default Game2;
+export default Game3;
