@@ -1,8 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from 'next/link';
+import Modal from "@/components/modals/games/mate/ob/leccionModal";
 import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul, SeparadorAnaranjado } from "@/components/separador";
 
 export default function MultiplicacionPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main>
       {/* Bienvenida de Donkey */}
@@ -80,7 +84,21 @@ export default function MultiplicacionPage() {
           <img src="/img/niveles/mate/paso4multiplicacion.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
         </div>
       </section>
-      <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion/juegos">Juegos</Link>
+
+      {/* Botón para abrir el modal */}
+      <div className="flex justify-end">
+        <button onClick={() => setModalOpen(true)} className="verde hover:bg-blue-300 text-white font-bold py-2 px-4 mb-8 mr-10 rounded">
+          Siguiente
+        </button>
+      </div>
+
+      {/* Modal */}
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        subjectName="Multiplicación"
+        continueLink="/niveles/nivel1/mate/operaciones_basicas/multiplicacion/juegos"
+      />
     </main>
   );
 }

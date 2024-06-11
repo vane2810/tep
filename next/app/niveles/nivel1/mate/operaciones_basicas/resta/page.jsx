@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from 'next/link';
-import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul } from "@/components/separador";
-
+import { SeparadorAzul, SeparadorAmarillo } from "@/components/separador";
+import Modal from "@/components/modals/games/mate/ob/leccionModal";
 export default function RestaPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main>
       {/* Bienvenida de Donkey */}
@@ -100,7 +103,21 @@ export default function RestaPage() {
           <img src="/img/niveles/mate/paso6resta.png" alt="resta" className="h-32 w-auto ml-4" />
         </div>
       </section>
-      <Link href="/niveles/nivel1/mate/operaciones_basicas/resta/juegos">Juegos</Link>
+
+      {/* Botón para abrir el modal */}
+      <div className="flex justify-end">
+        <button onClick={() => setModalOpen(true)} className="verde hover:bg-blue-300 text-white font-bold py-2 px-4 mb-8 mr-10 rounded">
+          Siguiente
+        </button>
+      </div>
+
+      {/* Modal */}
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        subjectName="Resta"
+        continueLink="/niveles/nivel1/mate/operaciones_basicas/resta/juegos"
+      />
     </main>
   );
 }
