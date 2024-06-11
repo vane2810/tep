@@ -1,4 +1,4 @@
-// Juego de Caza de Números
+// Juego 3 - Nivel 1- Mate - Suma 
 "use client";
 
 import React, { useEffect, useState, useCallback } from 'react';
@@ -44,7 +44,7 @@ const Game3 = ({ updateFeedback, updateScore, endGame, updateQuestionCount }) =>
         this.nextQuestionButton = this.add.text(400, 450, 'Siguiente Pregunta', {
           fontSize: '24px',
           fill: '#ffffff',
-          backgroundColor: '8e7cc3',
+          backgroundColor: '#8e7cc3',
           padding: { x: 10, y: 5 }
         }).setOrigin(0.5).setInteractive();
 
@@ -84,7 +84,7 @@ const Game3 = ({ updateFeedback, updateScore, endGame, updateQuestionCount }) =>
         const numberText = this.add.text(x, y, number, {
           fontSize: '32px',
           fill: '#ffffff',
-          backgroundColor: '#ff0000', // Asegurar visibilidad
+          backgroundColor: '#51a4e3', // Asegurar visibilidad
           padding: { x: 20, y: 10 }
         }).setOrigin(0.5).setInteractive();
 

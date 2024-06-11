@@ -23,8 +23,9 @@ const Game3Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
         <p className="text-2xl mb-4">{subtitle} Flotantes</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Lee la pregunta</li>
-          <li>2. Presiona la respuesta flotante</li>
+          <li>1. Lee la indicación</li>
+          <li>2. Busca alternativas de sumas hasta llegar al número objetivo</li>
+          <li>2. Después de responder correctamente presiona "Siguiente Pregunta""</li>
           <li>4. Tienes un límite de 8 preguntas</li>
         </ol>
 
