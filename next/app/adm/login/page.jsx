@@ -1,5 +1,4 @@
 // INICIO DE SESIÓN
-
 "use client";
 import React, { useState } from 'react';
 import '@/styles/globals.css';
@@ -17,6 +16,7 @@ export default function Login() {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
 
+  // Maneja los cambios en los campos del formulario
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -24,6 +24,7 @@ export default function Login() {
     });
   };
 
+  // Maneja el envío del formulario y realiza la petición de inicio de sesión
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -39,19 +40,18 @@ export default function Login() {
         localStorage.setItem('token', data.token);
         setModalMessage('Inicio de sesión exitoso');
         setModalType('success');
-        setShowModal(true);
       } else {
         setModalMessage(data.error);
         setModalType('error');
-        setShowModal(true);
       }
     } catch (error) {
       setModalMessage('Error al iniciar sesión');
       setModalType('error');
-      setShowModal(true);
     }
+    setShowModal(true);
   };
 
+  // Cierra el modal de notificación
   const closeModal = () => {
     setShowModal(false);
     setModalMessage('');
@@ -67,46 +67,43 @@ export default function Login() {
           alt="Logo"
           className="h-32 w-32 mb-10 animate-tumble"
         />
-        <div className="flex justify-center">
-          <form onSubmit={handleSubmit} className="w-full max-w-md">
-            <div className="mb-6">
-              <label className="text-xl font-bold mb-2 story">Correo electrónico:</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
-              />
-            </div>
-            <div className="mb-6">
-              <label className="text-xl font-bold mb-2 story">Contraseña:</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
-              />
-            </div>
-            <button type="submit" className="w-full h-12 px-10 text-xl bg-yellow-300 rounded-md font-bold transition duration-300 ease-in-out hover:bg-yellow-500 flex justify-center items-center story">
-              Iniciar sesión
-            </button>
-          </form>
-        </div>
+        <form onSubmit={handleSubmit} className="w-full max-w-md">
+          <div className="mb-6">
+            <label className="text-xl font-bold mb-2 story">Correo electrónico:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+            />
+          </div>
+          <div className="mb-6">
+            <label className="text-xl font-bold mb-2 story">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+            />
+          </div>
+          <button type="submit" className="w-full h-12 px-10 text-xl bg-yellow-300 rounded-md font-bold transition duration-300 ease-in-out hover:bg-yellow-500 flex justify-center items-center story">
+            Iniciar sesión
+          </button>
+        </form>
         <hr className="w-full border-0 border-t border-black my-8" />
         <div className="text-lg story">
           <p>¿No tienes una cuenta? <Link href="/adm/registro" className="text-blue-500 hover:text-blue-700">Regístrate</Link></p>
         </div>
       </div>
+      {/* Imagen decorativa  */}
       <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
-        <img src="/img/page/login.jpg" alt="Imagen final" className="max-w-full h-auto object-contain" />
+        <img src="/img/page/login.jpg" alt="Imagen de fondo" className="max-w-full h-auto object-contain" />
       </div>
       <LoginModal show={showModal} message={modalMessage} type={modalType} onClose={closeModal} />
     </div>
-
   );
-
 }
