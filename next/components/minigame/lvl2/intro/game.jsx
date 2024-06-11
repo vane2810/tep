@@ -1,4 +1,4 @@
-// pages/Gameintro2.jsx
+//Juego intro Nivel 2
 "use client";
 "use client";
 import { useEffect, useRef } from 'react';

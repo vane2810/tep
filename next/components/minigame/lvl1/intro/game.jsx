@@ -1,3 +1,4 @@
+//Juego intro Nivel 1
 "use client"
 import React, { useState, useEffect } from 'react';
 import Phaser from 'phaser';
@@ -41,14 +42,14 @@ const MemoryGame = () => {
       });
       this.load.image('card-back', '/img/games/mate/ob/card-back.png');
       this.load.image('congrats', '/img/games/mate/ob/congrats.png');
-      this.load.image('background', '/img/games/mate/ob/background.png'); // Carga la imagen de fondo
+      this.load.image('background', '/img/games/mate/ob/background.png'); 
 
       this.load.on('preloadcomplete', () => {
         setTimeout(() => {
           cards.forEach(card => {
             card.setTexture('card-back');
           });
-        }, 3000); // Espera 3 segundos antes de voltear las cartas al reverso
+        }, 3000); 
       });
     }
 

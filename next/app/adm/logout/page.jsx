@@ -9,7 +9,7 @@ export default function Logout() {
       });
       if (res.ok) {
         alert('Sesión cerrada exitosamente');
-        // Aquí podrías realizar cualquier otra acción después de cerrar sesión, como redireccionar a la página de inicio
+        
       } else {
         const data = await res.json();
         alert(data.error || 'Error al cerrar sesión');
