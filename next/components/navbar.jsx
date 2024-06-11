@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Sidebar from './sidebar';
-import useSession from '@/hooks/useSession'; // Asegúrate de que la ruta sea correcta
+import useSession from '@/hooks/useSession'; 
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

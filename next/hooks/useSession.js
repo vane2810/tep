@@ -1,4 +1,4 @@
-// hooks/useSession.js
+// Hooks - use sesion
 import React, { useContext } from 'react';
 import { SessionContext } from '../context/session'; 
  

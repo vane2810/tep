@@ -1,4 +1,4 @@
-// /components/ProtectedPage.js
+// Proteger rutas
 import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { SessionContext } from '@/context/session';
@@ -17,7 +17,7 @@ const ProtectedPage = ({ children }) => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    router.push('/'); // Redirigir a la página de inicio o a otra página después de cerrar el modal
+    router.push('/'); 
   };
 
   if (!session) {

@@ -1,4 +1,4 @@
-// context/session.js
+// Contexto - Session
 "use client"
 import React, { createContext, useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
@@ -9,7 +9,7 @@ export const SessionProvider = ({ children }) => {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
-    // Verifica si hay un token en localStorage para establecer la sesión
+    // token en localStorage 
     const token = localStorage.getItem('token');
     if (token) {
       try {

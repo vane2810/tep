@@ -1,4 +1,4 @@
-// /pages/matematicaPage.js
+// matematicaPage.js
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Link from 'next/link';

@@ -6,7 +6,7 @@ const { User, Role } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
+// Ruta registro
 router.post('/register', async (req, res) => {
   const { name, email, password, confirmPassword, roleId } = req.body;
 
@@ -46,6 +46,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Ruta login
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -69,9 +70,8 @@ router.post('/login', async (req, res) => {
 });
 
 
-
+// Ruta cerrar sesión
 router.post('/logout', (req, res) => {
-  // Limpiar la sesión del usuario (si estás utilizando sesiones)
   req.session.destroy((err) => {
     if (err) {
       console.error(err);
