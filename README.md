@@ -1,9 +1,3 @@
-<!--
-Este archivo README.md no se muestra en la vista principal del repositorio.
--->
-
-# Contenido oculto
-
 # TechEduPlanet
 
 ## Descripción
