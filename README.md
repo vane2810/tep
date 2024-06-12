@@ -4,9 +4,9 @@
 Aplicación web orientada a juegos educativos para esudiantes de segundo ciclo de educación básica 
 
 ## Integrantes 
-- Nombre 1: Hazel Brendaly Granados Ramos (SMSS041722)
-- Nombre 2: Katherine Verenice Fuentes Rivera (SMSS077422)
-- Nombre 3: Olga Vanessa Sorto Fuentes (SMSS055722)
+- Hazel Brendaly Granados Ramos (SMSS041722)
+- Katherine Verenice Fuentes Rivera (SMSS077422)
+- Olga Vanessa Sorto Fuentes (SMSS055722)
 
 ## Tecnologías Utilizadas
 
