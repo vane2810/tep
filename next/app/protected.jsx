@@ -1,4 +1,4 @@
-// Proteger rutas
+// Proteger rutas (No tocar)
 import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { SessionContext } from '@/context/session';

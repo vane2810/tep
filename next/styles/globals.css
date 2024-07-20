@@ -12,6 +12,15 @@
     src: url('/fonts/Info-Story.woff') format('woff'); 
 }
 
+.super {
+    font-family: 'Super', sans-serif;
+}
+
+.story {
+    font-family: 'Story', sans-serif;
+}
+
+
 .celeste {
     background-color: #85C1E9;
 }
@@ -34,16 +43,6 @@
 .azul{
     background-color: rgb(59 130 246);;
 }
-  
 .anaranjado{
     background-color: rgb(237, 151, 38);
 }
-.super {
-    font-family: 'Super', sans-serif;
-}
-
-.story {
-    font-family: 'Story', sans-serif;
-}
-
-

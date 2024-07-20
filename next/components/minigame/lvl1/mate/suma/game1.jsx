@@ -10,7 +10,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
         const config = {
             type: Phaser.AUTO,
             width: 800,
-            height: 300, // Cambiamos la altura a 300px
+            height: 300, 
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -41,7 +41,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
 
         function createScene() {
             // Ajustar el fondo a todo el ancho del juego
-            const background = this.add.image(400, 150, 'background'); // Cambiar el centro del fondo a 150 (la mitad de la nueva altura)
+            const background = this.add.image(400, 150, 'background'); 
             background.setDisplaySize(config.width, config.height);
 
             generateQuestion.call(this);
@@ -61,12 +61,12 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
             termsArray.sort(() => Math.random() - 0.5); // Mezclar términos
 
             // Mostrar la pregunta con fondo
-            this.add.text(400, 50, 'Identifica los términos de esta suma', { // Mover texto de pregunta más arriba
-                fontSize: '22px', // Ajustar tamaño de fuente para caber mejor en la escena
+            this.add.text(400, 50, 'Identifica los términos de esta suma', {
+                fontSize: '22px', 
                 fill: '#ffffff',
                 align: 'center',
-                backgroundColor: '#7966ab', // Color de fondo para la pregunta
-                padding: { x: 20, y: 10 }, // Añadir relleno alrededor del texto
+                backgroundColor: '#7966ab', 
+                padding: { x: 20, y: 10 }, 
                 fontWeight: 'bold'
             }).setOrigin(0.5);
 
@@ -79,7 +79,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
 
             // Crear zonas de arrastre debajo de los números con fondo de color
             dropZones = [
-                createDropZone.call(this, 200, 200, 'Sumando'), // Mover zonas hacia arriba
+                createDropZone.call(this, 200, 200, 'Sumando'), 
                 createDropZone.call(this, 400, 200, 'Sumado'),
                 createDropZone.call(this, 600, 200, 'Total')
             ];
@@ -91,10 +91,10 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
 
             // Crear botón de comprobación con texto y fondo de color
             checkButton = this.add.graphics();
-            checkButton.fillStyle(0x7966ab, 1); // Fondo azul sólido
-            checkButton.fillRect(320, 255, 160, 30); // Ajustar la posición y el tamaño del botón de comprobación
+            checkButton.fillStyle(0x7966ab, 1); 
+            checkButton.fillRect(320, 255, 160, 30); 
 
-            checkButtonText = this.add.text(400, 270, 'Comprobar', { // Ajustar la posición del texto del botón
+            checkButtonText = this.add.text(400, 270, 'Comprobar', { 
                 fontSize: '24px',
                 fill: '#ffffff',
                 align: 'center',
@@ -102,45 +102,45 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
             }).setOrigin(0.5).setInteractive();
 
             checkButtonText.on('pointerdown', () => checkCompletion.call(this));
-            checkButton.setVisible(false); // Ocultar el botón al inicio
+            checkButton.setVisible(false); 
             checkButtonText.setVisible(false);
         }
 
         function createDropZone(x, y, label) {
             const zone = this.add.zone(x, y, 10, 50).setRectangleDropZone(150, 50).setData('label', label);
             const graphics = this.add.graphics();
-            graphics.fillStyle(0xd5a6bd, 0.75); // Fondo verde claro con transparencia
-            graphics.fillRect(x - 75, y - 25, 150, 50); // Ajustar el tamaño y posición del rectángulo para la zona de arrastre
+            graphics.fillStyle(0xd5a6bd, 0.75); 
+            graphics.fillRect(x - 75, y - 25, 150, 50); 
             graphics.lineStyle(2, 0xd5a6bd);
-            graphics.strokeRect(x - 75, y - 25, 150, 50); // Ajustar el borde
+            graphics.strokeRect(x - 75, y - 25, 150, 50); 
             return zone;
         }
 
         function createDraggableTerm(x, y, label) {
             const termBox = this.add.graphics();
-            termBox.fillStyle(0xffffff, 1); // Fondo blanco sólido
-            termBox.fillRect(x - 60, y - 20, 120, 40); // Dibujar rectángulo de fondo
+            termBox.fillStyle(0xffffff, 1); 
+            termBox.fillRect(x - 60, y - 20, 120, 40); 
 
             const termText = this.add.text(x, y, label, {
-                fontSize: '26px', // Ajustar tamaño de fuente
+                fontSize: '26px', 
                 fill: '#000000',
             }).setOrigin(0.5, 0.5).setInteractive({ draggable: true });
 
             termText.setData('term', { label });
 
             termText.on('dragstart', () => {
-                termBox.setAlpha(0.5); // Hacer el fondo semitransparente al arrastrar
+                termBox.setAlpha(0.5); 
             });
 
             termText.on('drag', (pointer, dragX, dragY) => {
                 termText.x = dragX;
                 termText.y = dragY;
-                termBox.x = dragX - 60; // Mantener el fondo en la posición del texto
+                termBox.x = dragX - 60; 
                 termBox.y = dragY - 20;
             });
 
             termText.on('dragend', () => {
-                termBox.setAlpha(1); // Restablecer la opacidad del fondo al soltar
+                termBox.setAlpha(1); 
 
                 dropZones.forEach(zone => {
                     if (zone.getBounds().contains(termText.x, termText.y)) {
@@ -224,7 +224,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
         };
     }, [updateFeedback, updateScore]);
 
-    return <div id="game-container" className="w-[800px] h-[300px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>; // Ajustar el contenedor a la nueva altura
+    return <div id="game-container" className="w-[800px] h-[300px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>; 
 };
 
 export default Game1;
