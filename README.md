@@ -1,11 +1,10 @@
 # TechEduPlanet
 
 ## Descripción
-Aplicación web orientada a juegos educativos para esudiantes de segundo ciclo de educación básica 
+Aplicación web orientada a juegos educativos para estudiantes de segundo ciclo de educación básica 
 
 ## Integrantes 
 - Hazel Brendaly Granados Ramos (SMSS041722)
-- Katherine Verenice Fuentes Rivera (SMSS077422)
 - Olga Vanessa Sorto Fuentes (SMSS055722)
 
 ## Tecnologías Utilizadas
