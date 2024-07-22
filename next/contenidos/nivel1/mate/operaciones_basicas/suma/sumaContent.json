@@ -1,0 +1,35 @@
+{
+    "title": "SUMA",
+    "sections": [
+        {
+            "title": "Términos de la suma",
+            "text": "Sumando, sumando y total",
+            "image": "/img/niveles/mate/terminossuma.png"
+        },
+        {
+            "title": "Paso 1",
+            "text": "Primero debemos ubicar los sumandos uno debajo del otro...",
+            "image": "/img/niveles/mate/paso1suma.png"
+        },
+        {
+            "title": "Paso 2",
+            "text": "Ahora sumamos los dígitos que están en una misma columna...",
+            "image": "/img/niveles/mate/paso2suma.png"
+        },
+        {
+            "title": "Paso 3",
+            "text": "Seguimos con las decenas...",
+            "image": "/img/niveles/mate/paso3suma.png"
+        },
+        {
+            "title": "Paso 4",
+            "text": "Finalmente operamos...",
+            "image": "/img/niveles/mate/paso4suma.png"
+        },
+        {
+            "title": "Paso 5",
+            "text": "Obtenemos el resultado",
+            "image": "/img/niveles/mate/resulsuma.png"
+        }
+    ]
+}

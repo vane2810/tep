@@ -7,6 +7,7 @@ import GuestModal from '@/components/modals/GuestModal';
 import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul } from "@/components/separador";
 
 export default function MatematicaPage() {
+  /*
   const { session } = useContext(SessionContext);
   const [showModal, setShowModal] = useState(false);
 
@@ -23,19 +24,19 @@ export default function MatematicaPage() {
   if (!session) {
     return (
       <>
-        {/* Botón de Volver */}
+        
         <div className="mt-6 ml-10 inline-block">
           <Link href="/niveles/nivel3/mate">
             <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
-        {/* Modal de Autenticación */}
+        
         <GuestModal show={showModal} onClose={handleCloseModal} />
-        {/* Mensaje de Acceso Restringido */}
         <div className="text-center mt-10">Volver</div>
       </>
     );
   }
+  */
 
   return (
     <main>
