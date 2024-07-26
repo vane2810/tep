@@ -45,9 +45,9 @@ export default function MatematicaPage() {
         <SeparadorAzul />
         <div className="bg-purple-200 py-8">
           {/* Volver */}
-          <div className="mt-2 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate">
-              <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+          <div className="mt-6 ml-10 inline-block">
+            <Link href="/niveles/nivel2/mate/operaciones_basicas">
+              <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">

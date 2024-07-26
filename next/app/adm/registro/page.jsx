@@ -128,13 +128,13 @@ export default function Register() {
   return (
     <div className="flex bg-pink-100">
       <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
-        <img src="/img/page/registro.png" alt="Imagen de registro" className="max-w-full h-auto object-contain" />
+        <img src="/img/auth/registro.png" alt="Imagen de registro" className="max-w-full h-auto object-contain" />
       </div>
 
       {/* Formulario de registro */}
       <div className="flex flex-col justify-center items-center w-full lg:w-1/2 p-20 shadow-none">
         <h1 className="text-3xl font-bold mb-4 story">Registro</h1>
-        <img src="/img/page/starly.png" alt="Logo" className="h-32 w-32 mb-10 animate-float" />
+        <img src="/img/personajes/starly/starly.png" alt="Logo" className="h-32 w-32 mb-10 animate-float" />
         <form onSubmit={handleSubmit} className="w-full max-w-md">
           <div className="mb-6">
             <label className="text-xl font-bold mb-2 story">Nombre:</label>

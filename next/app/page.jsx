@@ -16,9 +16,9 @@ export default function HomePage() {
       {/* Bienvenida de Starly */}
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
         <img
-          src="/img/page/starly.png"
+          src="/img/personajes/starly/starly.png"
           alt="Starly"
-          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
+          className="h-32 w-34 mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
         />
         <div className="story text-xl font-bold">
           <Typewriter
@@ -40,8 +40,8 @@ export default function HomePage() {
       {/* Starly */}
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
         <img
-          src="/img/page/starly.png"
-          alt="Animated Image"
+          src="/img/personajes/starly/starly.png"
+          alt="Starly"
           className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-flyIn"
         />
         <Carousel />
@@ -51,5 +51,3 @@ export default function HomePage() {
     </main>
   );
 }
-
-

@@ -63,7 +63,7 @@ export default function Login() {
       <div className="flex flex-col justify-center items-center w-full lg:w-1/2 p-20 shadow-none">
         <h1 className="text-3xl font-bold mb-4 story">Inicio de sesión</h1>
         <img
-          src="/img/page/starly.png"
+          src="/img/personajes/starly/starly.png"
           alt="Logo"
           className="h-32 w-32 mb-10 animate-tumble"
         />
@@ -101,7 +101,7 @@ export default function Login() {
       </div>
       {/* Imagen decorativa  */}
       <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
-        <img src="/img/page/login.jpg" alt="Imagen de fondo" className="max-w-full h-auto object-contain" />
+        <img src="/img/auth/login.jpg" alt="Imagen de fondo" className="max-w-full h-auto object-contain" />
       </div>
       <LoginModal show={showModal} message={modalMessage} type={modalType} onClose={closeModal} />
     </div>
