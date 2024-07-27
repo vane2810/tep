@@ -48,7 +48,7 @@ export default function MatematicaPage() {
           {/* Botón de Volver */}
           <div className="mt-6 ml-10 inline-block">
             <Link href="/niveles/nivel2/mate">
-              <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+              <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">

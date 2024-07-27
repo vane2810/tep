@@ -12,7 +12,7 @@ export default function MultiplicacionPage() {
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
             <Link href="/niveles/nivel2/mate/operaciones_basicas">
-              <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+              <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
@@ -43,7 +43,7 @@ export default function MultiplicacionPage() {
             <h2 className="text-2xl font-semibold">Paso 1</h2>
             <p className="mt-2 text-black text-center">Coloca las cifras a que la cifra mayor vaya a la parte de arriba y la cifra más menor vaya debajo que es ese será el multiplicando.</p>
           </div>
-          <img src="/img/niveles/mate/paso1multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel2/ob/multiplicacion/paso1multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function MultiplicacionPage() {
             <p className="mt-2 text-black text-center">Multiplicar el multiplicador de la derecha con los números del multiplicando, el 3 se multiplica primero por 7 luego por el 5, 0, 8 y por último el 3. </p>
 
           </div>
-          <img src="/img/niveles/mate/paso2multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel2/ob/multiplicacion/paso2multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
         </div>
       </section>
 
@@ -66,7 +66,7 @@ export default function MultiplicacionPage() {
             <h2 className="text-2xl font-semibold">Paso 3</h2>
             <p className="mt-2 text-black text-center">Se multiplica el segundo multiplicador que es el 4 y se multiplicara por el 7 primero, luego por el 5, 0, 8 y por último el 3.</p>
           </div>
-          <img src="/img/niveles/mate/paso3multin2.png" alt="Multiplicación" className="h-32 w-auto ml-5" />
+          <img src="/img/niveles/mate/nivel2/ob/multiplicacion/paso3multin2.png" alt="Multiplicación" className="h-32 w-auto ml-5" />
         </div>
       </section>
 
@@ -77,7 +77,7 @@ export default function MultiplicacionPage() {
             <h2 className="text-2xl font-semibold">Paso 4</h2>
             <p className="mt-2 text-black text-center">Se suma los resultados para obtener el producto</p>
           </div>
-          <img src="/img/niveles/mate/paso4multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel2/ob/multiplicacion/paso4multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
         </div>
       </section>
 
@@ -88,7 +88,7 @@ export default function MultiplicacionPage() {
             <h2 className="text-2xl font-semibold">Paso 5</h2>
             <p className="mt-2 text-black text-center">El producto es 1,606,451.</p>
           </div>
-          <img src="/img/niveles/mate/paso5multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel2/ob/multiplicacion/paso5multin2.png" alt="multiplicacion" className="h-32 w-auto ml-4" />
         </div>
       </section>
     </main>

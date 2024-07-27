@@ -12,7 +12,7 @@ export default function SumaPage() {
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
             <Link href="/niveles/nivel3/mate/operaciones_basicas">
-              <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+              <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
@@ -43,7 +43,7 @@ export default function SumaPage() {
             <h2 className="text-2xl font-semibold">Paso 1</h2>
             <p className="mt-2 text-black text-wrap">Primero debemos ubicar los sumandos uno debajo del otro, puedes imaginar líneas verticales que forman casillas.  En la primera casilla de derecha a izquierda deben estar las unidades, en la segunda las decenas, en la tercera las centenas, en la cuarta las unidades de millar y en la quinta las decenas de millar y la sexta y ultima las centenas de millar.</p>
           </div>
-          <img src="/img/niveles/mate/paso1suman3.png" alt="Suma" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel3/ob/suma/paso1suman3.png" alt="Suma" className="h-32 w-auto ml-4" />
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function SumaPage() {
             <p className="mt-2 text-black text-wrap">Ahora sumamos los dígitos que están en una misma columna, empezamos por las unidades: 6 + 2 = 8 y las decenas 2 + 7 = 9 Ponemos los resultados en casilla de las unidades de la respuesta y en de las decenas, que estará ubicada bajo una línea horizontal. Así como lo muestra la imagen.</p>
 
           </div>
-          <img src="/img/niveles/mate/paso2suman3.png" alt="Resta" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel3/ob/suma/paso2suman3.png" alt="Resta" className="h-32 w-auto ml-4" />
         </div>
       </section>
 
@@ -66,7 +66,7 @@ export default function SumaPage() {
             <h2 className="text-2xl font-semibold">Paso 3</h2>
             <p className="mt-2 text-black text-wrap">Seguimos con las centenas:  4 + 3 = 7 ubicamos esta suma en el lugar de las centenas de la respuesta. Ahora el de las unidades de millar: 3 + 5 = 8 así que ahora ubicamos en el lugar de las unidades de millar en la parte de la respuesta como lo hacemos en la imagen.</p>
           </div>
-          <img src="/img/niveles/mate/paso3suman3.png" alt="Multiplicación" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel3/ob/suma/paso3suman3.png" alt="Multiplicación" className="h-32 w-auto ml-4" />
         </div>
       </section>
 
@@ -77,7 +77,7 @@ export default function SumaPage() {
             <h2 className="text-2xl font-semibold">Paso 4</h2>
             <p className="mt-2 text-black text-center">Finalmente operamos 2 + 1 = 3, poniendo ese números en la casilla reservada para las decenas de millar y operamos como ultimo las centenas de millar 2 + 5 = 7 colócalo en el espacio de respuesta de las de centenas de millar para obtener nuestro resultado final.</p>
           </div>
-          <img src="/img/niveles/mate/paso4suman3.png" alt="División" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel3/ob/suma/paso4suman3.png" alt="División" className="h-32 w-auto ml-4" />
         </div>
       </section>
     </main>

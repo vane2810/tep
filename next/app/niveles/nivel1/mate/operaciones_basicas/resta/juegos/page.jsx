@@ -25,13 +25,13 @@ export default function PageGameSuma() {
       {/* Volver */}
       <div className="mt-2 ml-10 inline-block">
         <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
-          <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+          <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
         </Link>
       </div>
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los Juegos de Resta!</h2>
-        <img src="/img/personajes/donkey.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
+        <img src="/img/personajes/donkey/donkey.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 

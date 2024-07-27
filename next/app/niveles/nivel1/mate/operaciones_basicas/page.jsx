@@ -46,7 +46,7 @@ export default function MatematicaPage() {
         <div className="bg-purple-200 py-8">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel2/mate/operaciones_basicas">
+            <Link href="/niveles/nivel1/mate">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
