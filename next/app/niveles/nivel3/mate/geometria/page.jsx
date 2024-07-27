@@ -1,4 +1,4 @@
-// Página principal -Matemáticas - Nivel 1 - Números Decimales y Fracciones
+// Página principal -Matemáticas - Nivel 3 - Geometría
 
 "use client";
 import React, { useContext, useEffect, useState } from "react";
@@ -41,7 +41,7 @@ export default function MatematicaPage() {
 
   return (
     <main>
-        decimales
+        geometria
     </main>
   );
 }

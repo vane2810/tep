@@ -30,10 +30,10 @@ export default function MatematicaPage() {
           <Link href="/niveles/nivel2/mate/operaciones_basicas">
             <img src="/img/niveles/mate/nivel2/opebasic.png" alt="Operaciones" className="w-36 md:w-64 h-36 md:h-64 md:mr-3 animate-salto" />
           </Link>
-          <Link href="/nivel1/mate/nudeyfra">
+          <Link href="/niveles/nivel2/mate/decimales">
             <img src="/img/niveles/mate/nivel2/numdeciyfra.png" alt="Numeros decimales" className="w-36 md:w-64 h-36 md:h-64 md:mr-3 animate-salto" />
           </Link>
-          <Link href="/nivel1/mate/geo">
+          <Link href="/niveles/nivel2/mate/geometria">
             <img src="/img/niveles/mate/nivel2/geom.png" alt="Geogafia" className="w-36 md:w-64 h-36 md:h-64 md:mr-3 animate-salto" />
           </Link>
           <Link href="/nivel1/mate/resodepro">

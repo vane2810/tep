@@ -40,7 +40,7 @@ export default function PageGameDiv() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la División", "/games/lvl1/mate/division/game1")}
+          onClick={() => openModal("Términos de la División", "/games/lvl1/mate/operaciones_basicas/division/game1")}
         >
           Juego 1
         </div>
@@ -49,7 +49,7 @@ export default function PageGameDiv() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Divisiones de Décenas y Unidades", "/games/lvl1/mate/division/game2")}
+          onClick={() => openModal("Divisiones de Décenas y Unidades", "/games/lvl1/mate/operaciones_basicas/division/game2")}
         >
           Juego 2
         </div>
@@ -58,7 +58,7 @@ export default function PageGameDiv() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Divisiones Flotantes", "/games/lvl1/mate/division/game3")}
+          onClick={() => openModal("Divisiones Flotantes", "/games/lvl1/mate/operaciones_basicas/division/game3")}
         >
           Juego 3
         </div>
@@ -67,7 +67,7 @@ export default function PageGameDiv() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Divisiones Avanzada", "/games/lvl1/mate/division/game4")}
+          onClick={() => openModal("Divisiones Avanzada", "/games/lvl1/mate/operaciones_basicas/division/game4")}
         >
           Juego 4
         </div>

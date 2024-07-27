@@ -82,7 +82,7 @@ export default function SumaPage() {
             <h2 className="text-2xl font-semibold">Paso 4</h2>
             <p className="mt-2 text-black text-center">Finalmente operamos, poniendo ese número en la casilla reservada para las centenas de la respuesta final.</p>
           </div>
-          <img src="/img/niveles/mate/nivel1/ob/suma/paso4sum.png" alt="Suma" className="h-32 w-auto ml-4" />
+          <img src="/img/niveles/mate/nivel1/ob/suma/paso4suma.png" alt="Suma" className="h-32 w-auto ml-4" />
         </div>
       </section>
 

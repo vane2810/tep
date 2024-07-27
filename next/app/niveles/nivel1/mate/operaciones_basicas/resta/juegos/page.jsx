@@ -40,7 +40,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Resta", "/games/lvl1/mate/resta/game1")}
+          onClick={() => openModal("Términos de la Resta", "/games/lvl1/mate/resta/operaciones_basicas/game1")}
         >
           Juego 1
         </div>
@@ -49,7 +49,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Resta de Décenas y Unidades", "/games/lvl1/mate/resta/game2")}
+          onClick={() => openModal("Resta de Décenas y Unidades", "/games/lvl1/mate/operaciones_basicas/resta/game2")}
         >
           Juego 2
         </div>
@@ -58,7 +58,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Restas Flotantes", "/games/lvl1/mate/resta/game3")}
+          onClick={() => openModal("Restas Flotantes", "/games/lvl1/mate/operaciones_basicas/resta/game3")}
         >
           Juego 3
         </div>
@@ -67,7 +67,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Restas Avanzada", "/games/lvl1/mate/resta/game4")}
+          onClick={() => openModal("Restas Avanzada", "/games/lvl1/mate/operaciones_basicas/resta/game4")}
         >
           Juego 4
         </div>

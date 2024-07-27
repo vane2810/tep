@@ -45,14 +45,14 @@ export default function MatematicaPage() {
               className="worm-segment flex-auto w-40 h-auto mt-8 mb-4 lg:w-60 md:mr-2.5 animate-gusano"
             />
           </Link>
-          <Link href="/nivel1/mate/nudeyfra">
+          <Link href="/niveles/nivel1/mate/decimales">
             <img
               src="/img/niveles/mate/nivel1/NDYF.png"
               alt="Números decimales"
               className="worm-segment flex-auto w-40 h-auto mb-4 lg:w-60 md:mr-2.5 animate-gusano"
             />
           </Link>
-          <Link href="/nivel1/mate/geo">
+          <Link href="/niveles/nivel1/mate/geometria">
             <img
               src="/img/niveles/mate/nivel1/geo.png"
               alt="Geometría"

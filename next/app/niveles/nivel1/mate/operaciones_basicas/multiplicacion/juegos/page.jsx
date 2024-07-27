@@ -40,7 +40,7 @@ export default function PageGameMulti() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Multiplicación", "/games/lvl1/mate/multiplicacion/game1")}
+          onClick={() => openModal("Términos de la Multiplicación", "/games/lvl1/mate/multiplicacion/operaciones_basicas/game1")}
         >
           Juego 1
         </div>
@@ -49,7 +49,7 @@ export default function PageGameMulti() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Multiplicaciones de Décenas y Unidades", "/games/lvl1/mate/multiplicacion/game2")}
+          onClick={() => openModal("Multiplicaciones de Décenas y Unidades", "/games/lvl1/mate/operaciones_basicas/multiplicacion/game2")}
         >
           Juego 2
         </div>
@@ -58,7 +58,7 @@ export default function PageGameMulti() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Multiplicaciones Flotantes", "/games/lvl1/mate/multiplicacion/game3")}
+          onClick={() => openModal("Multiplicaciones Flotantes", "/games/lvl1/mate/operaciones_basicas/multiplicacion/game3")}
         >
           Juego 3
         </div>
@@ -67,7 +67,7 @@ export default function PageGameMulti() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Multiplicaciones Avanzada", "/games/lvl1/mate/multiplicacion/game4")}
+          onClick={() => openModal("Multiplicaciones Avanzada", "/games/lvl1/mate/operaciones_basicas/multiplicacion/game4")}
         >
           Juego 4
         </div>

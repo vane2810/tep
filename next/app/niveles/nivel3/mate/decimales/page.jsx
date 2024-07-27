@@ -1,4 +1,4 @@
-// Página principal -Matemáticas - Nivel 1 - Números Decimales y Fracciones
+// Página principal -Matemáticas - Nivel 3 - Números Decimales y Fracciones
 
 "use client";
 import React, { useContext, useEffect, useState } from "react";
