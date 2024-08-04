@@ -27,7 +27,7 @@ export default function MatematicaPage() {
       <>
         
         <div className="mt-6 ml-10 inline-block"> Volver
-          <Link href="/niveles/nivel1/mate">
+          <Link href="/niveles/nivel2/mate">
             <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
