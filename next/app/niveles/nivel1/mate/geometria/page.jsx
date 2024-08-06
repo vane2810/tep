@@ -71,7 +71,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Los estudiantes aprenderán a identificar y clasificar figuras planas como triángulos, cuadrados, rectángulos y círculos, entendiendo sus propiedades y relaciones.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/suma">
+            <Link href="/niveles/nivel1/mate/geometria/figuras">
               <button className="mt-4 px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-300">¡Identifiquemos figuras!</button>
             </Link>
           </div>
@@ -88,7 +88,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Calcular el perímetro de figuras simples sumando la longitud de todos sus lados, aplicando este conocimiento a situaciones cotidianas.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
+            <Link href="/niveles/nivel1/mate/geometria/perimetro">
               <button className="mt-4 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-300">¡Calculemos perímetros!</button>
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Introducción a los ángulos, sus tipos (agudos, rectos, obtusos) y cómo medirlos usando herramientas como el transportador.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion">
+            <Link href="/niveles/nivel1/mate/geometria/angulos">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Midamos ángulos!</button>
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Comprender el concepto de simetría y aprender a reconocer y crear figuras simétricas en su entorno y mediante actividades prácticas.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/division">
+            <Link href="/niveles/nivel1/mate/geometria/simetria">
               <button className="mt-4 px-4 py-2 bg-orange-500 text-black rounded hover:bg-orange-300">¡Descubramos simetrías!</button>
             </Link>
           </div>

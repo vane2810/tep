@@ -71,7 +71,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Los números decimales son una forma de representar números que no son enteros. Se utilizan para mostrar partes de un todo, como, por ejemplo, 0.5 (que representa la mitad).
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/suma">
+            <Link href="/niveles/nivel1/mate/decimales/intro">
               <button className="mt-4 px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-300">¡Aprendamos juntos!</button>
             </Link>
           </div>
@@ -88,7 +88,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Comparar números decimales significa determinar cuál es mayor, menor o si son iguales. Esto es importante para entender mejor los valores y cantidades.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
+            <Link href="/niveles/nivel1/mate/decimales/comparacion">
               <button className="mt-4 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-300">¡Vamos a comparar!</button>
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Se realizará la suma y resta de números decimales, que consiste en alinear los números por el punto decimal y realizar la operación de derecha a izquierda, asegurando que el resultado mantenga el punto decimal correctamente colocado.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion">
+            <Link href="/niveles/nivel1/mate/decimales/suma_resta">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Operemos decimales!</button>
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Una fracción simple representa una parte de un todo y se compone de dos números: el numerador (parte superior) y el denominador (parte inferior).
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/division">
+            <Link href="/niveles/nivel1/mate/decimales/fracciones_simples">
               <button className="mt-4 px-4 py-2 bg-orange-500 text-black rounded hover:bg-orange-300">¡Exploremos fracciones!</button>
             </Link>
           </div>
