@@ -24,9 +24,9 @@ const Modal = ({ isOpen, onClose, subjectName, continueLink }) => {
           <div className="relative p-6 flex-auto text-center">
             {/* Imagen ajustada */}
             <img 
-              src='/img/personajes/donkey.png'
+              src='/img/personajes/donkey/leccioncompleta.png'
               alt='Personaje de felicitación'
-              className='w-32 h-auto mx-auto mb-4'
+              className='w-34 h-auto mx-auto mb-4'
             />
             <p>Ahora puedes continuar o revisar la lección de nuevo</p>
           </div>
