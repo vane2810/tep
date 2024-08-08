@@ -44,8 +44,8 @@ export default function SumaPage() {
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold text-center">Paso 2</h2>
-          <h2 className="text-xl font-semibold text-center">Conociendo las fracciones:</h2>
-          <p className="mt-2 text-black text-center">Ahora, imagina que tienes una pizza y la cortas en dos partes iguales. Si te comes una de esas partes, has comido la mitad de la pizza. Esto se representa con la fracción 1/2.</p>
+          <h2 className="text-xl font-semibold text-center">Comparación de las partes enteras:</h2>
+          <p className="mt-2 text-black text-center">Primero, comparamos las partes enteras de los números decimales. Por ejemplo, al comparar 3.45 y 2.89, observamos que 3 es mayor que 2, por lo tanto, 3.45 es mayor que 2.89.</p>
           <img src="/img/niveles/mate/paso2intro.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
@@ -54,8 +54,8 @@ export default function SumaPage() {
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold text-center">Paso 3</h2>
-          <h2 className="text-xl font-semibold text-center">Relación entre fracciones y decimales</h2>
-          <p className="mt-2 text-black text-center">La fracción 9/10 también se puede escribir como un número decimal. En lugar de 9/10, podemos escribir 0.9. El punto (.) se llama 'punto decimal', y nos indica que hay una parte del número que es menor que 1.</p>
+          <h2 className="text-xl font-semibold text-center">Comparación de las partes decimales:</h2>
+          <p className="mt-2 text-black text-center">Si las partes enteras son iguales, comparamos las partes decimales. Por ejemplo, al comparar 4.56 y 4.78, como las partes enteras (4) son iguales, miramos el primer decimal. 7 es mayor que 5, por lo que 4.78 es mayor que 4.56.</p>
           <img src="/img/niveles/mate/paso3intro.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
@@ -64,8 +64,8 @@ export default function SumaPage() {
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold text-center">Paso 4</h2>
-          <h2 className="text-xl font-semibold text-center">Entendiendo el punto decimal</h2>
-          <p className="mt-2 text-black text-center">El punto decimal separa la parte entera del número de la parte decimal. Por ejemplo, en el número 2.3, el '2' es la parte entera y el '3' después del punto decimal es la parte fraccionaria.</p>
+          <h2 className="text-xl font-semibold text-center">Comparación decimal a decimal:</h2>
+          <p className="mt-2 text-black text-center">Si el primer decimal es igual, comparamos el siguiente decimal. Por ejemplo, al comparar 5.342 y 5.348, comparamos decimal a decimal hasta encontrar una diferencia. Aquí, el tercer decimal (2 en 5.342 y 8 en 5.348) nos dice que 5.348 es mayor.</p>
           <img src="/img/niveles/mate/paso4intro.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
@@ -74,8 +74,8 @@ export default function SumaPage() {
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold text-center">Paso 5</h2>
-          <h2 className="text-xl font-semibold text-center">Practica con números decimales</h2>
-          <p className="mt-2 text-black text-center">Ahora es tu turno. Practica convirtiendo algunas fracciones en decimales. Por ejemplo, ¿cómo escribiríamos 1/5 como decimal? La respuesta es 0.2. ¡Sigue practicando para dominar los números decimales!</p>
+          <h2 className="text-xl font-semibold text-center">Práctica de Comparación</h2>
+          <p className="mt-2 text-black text-center">Ahora es tu turno. Practica comparando estos números decimales: 7.89 y 7.098, 3.56 y 3.560. Recuerda comparar primero las partes enteras y luego decimal a decimal. ¡Sigue practicando para dominar la comparación de números decimales!</p>
           <img src="/img/niveles/mate/paso5intro.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
