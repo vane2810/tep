@@ -22,7 +22,7 @@ export default function SumaPage() {
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
-              <img src="/img/niveles/mate/introfig.png" alt="Animated Image" className="h-64 w-auto mr-4" />
+              <img src="/img/niveles/mate/compafig.png" alt="Animated Image" className="h-64 w-auto mr-4" />
               <p className="text-black super text-[40px] max-w-lg">COMPARACIÓN DE NÚMEROS DECIMALES</p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function SumaPage() {
           <h2 className="text-2xl font-semibold text-center">Paso 2</h2>
           <h2 className="text-xl font-semibold text-center">Comparación de las partes enteras:</h2>
           <p className="mt-2 text-black text-center">Primero, comparamos las partes enteras de los números decimales. Por ejemplo, al comparar 3.45 y 2.89, observamos que 3 es mayor que 2, por lo tanto, 3.45 es mayor que 2.89.</p>
-          <img src="/img/niveles/mate/paso2intro.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <img src="/img/niveles/mate/paso2compa.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
@@ -56,7 +56,7 @@ export default function SumaPage() {
           <h2 className="text-2xl font-semibold text-center">Paso 3</h2>
           <h2 className="text-xl font-semibold text-center">Comparación de las partes decimales:</h2>
           <p className="mt-2 text-black text-center">Si las partes enteras son iguales, comparamos las partes decimales. Por ejemplo, al comparar 4.56 y 4.78, como las partes enteras (4) son iguales, miramos el primer decimal. 7 es mayor que 5, por lo que 4.78 es mayor que 4.56.</p>
-          <img src="/img/niveles/mate/paso3intro.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <img src="/img/niveles/mate/paso3compa.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
@@ -66,7 +66,7 @@ export default function SumaPage() {
           <h2 className="text-2xl font-semibold text-center">Paso 4</h2>
           <h2 className="text-xl font-semibold text-center">Comparación decimal a decimal:</h2>
           <p className="mt-2 text-black text-center">Si el primer decimal es igual, comparamos el siguiente decimal. Por ejemplo, al comparar 5.342 y 5.348, comparamos decimal a decimal hasta encontrar una diferencia. Aquí, el tercer decimal (2 en 5.342 y 8 en 5.348) nos dice que 5.348 es mayor.</p>
-          <img src="/img/niveles/mate/paso4intro.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <img src="/img/niveles/mate/paso4compa.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
@@ -76,7 +76,7 @@ export default function SumaPage() {
           <h2 className="text-2xl font-semibold text-center">Paso 5</h2>
           <h2 className="text-xl font-semibold text-center">Práctica de Comparación</h2>
           <p className="mt-2 text-black text-center">Ahora es tu turno. Practica comparando estos números decimales: 7.89 y 7.098, 3.56 y 3.560. Recuerda comparar primero las partes enteras y luego decimal a decimal. ¡Sigue practicando para dominar la comparación de números decimales!</p>
-          <img src="/img/niveles/mate/paso5intro.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <img src="/img/niveles/mate/paso5compa.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
@@ -90,8 +90,8 @@ export default function SumaPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        subjectName="Introducción a los numeros decimales"
-        continueLink="/niveles/nivel1/mate/decimales/intro/juegos"
+        subjectName="Comparación de numeros decimales"
+        continueLink="/niveles/nivel1/mate/decimales/comparacion/juegos"
       />
     </main>
   );
