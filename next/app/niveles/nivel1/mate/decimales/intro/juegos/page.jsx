@@ -30,7 +30,7 @@ export default function PageGameSuma() {
       </div>
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de introducción a los numeros decimales!</h2>
+        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de introducción a los numeros!</h2>
         <img src="/img/niveles/mate/introfig.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
