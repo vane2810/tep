@@ -23,7 +23,7 @@ export default function SumaPage() {
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
               <img src="/img/niveles/mate/figfrasim.png" alt="Animated Image" className="h-64 w-auto mr-4" />
-              <p className="text-black super text-[40px] max-w-lg">SUMA Y RESTA DE NUMEROS DECIMALES</p>
+              <p className="text-black super text-[40px] max-w-lg">FRACCIONES SIMPLES</p>
             </div>
           </div>
         </div>
