@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose, subjectName, continueLink }) => {
           <div className="relative p-6 flex-auto text-center">
             {/* Imagen ade starly */}
             <img 
-              src='/img/personajes/donkey/leccioncompleta.png'
+              src='/img/personajes/starly/leccioncompleta.png'
               alt='Personaje de felicitación'
               className='w-22 h-auto mx-auto mb-4'
             />

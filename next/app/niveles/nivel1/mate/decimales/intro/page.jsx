@@ -1,16 +1,17 @@
+// Página de contenido de la introduccion a decimales
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 
-export default function SumaPage() {
+export default function IntroPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
   
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida del personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-green-100 py-4">
@@ -90,7 +91,7 @@ export default function SumaPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        subjectName="Introducción a los numeros decimales"
+        subjectName="Introducción a los números decimales"
         continueLink="/niveles/nivel1/mate/decimales/intro/juegos"
       />
     </main>

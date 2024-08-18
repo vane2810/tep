@@ -41,7 +41,7 @@ export default function MatematicaPage() {
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida del personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-purple-200 py-8">
@@ -63,7 +63,7 @@ export default function MatematicaPage() {
         <SeparadorMorado />
       </section>
 
-      {/* Suma */}
+      {/* Introduccion */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -80,7 +80,7 @@ export default function MatematicaPage() {
         <SeparadorRosa />
       </section>
 
-      {/* Resta */}
+      {/* Comparación */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -97,7 +97,7 @@ export default function MatematicaPage() {
         <SeparadorVerde />
       </section>
 
-      {/* Multiplicación */}
+      {/* Suma y resta */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -114,7 +114,7 @@ export default function MatematicaPage() {
         <SeparadorCeleste />
       </section>
 
-      {/* División */}
+      {/* Fraccions simple */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">

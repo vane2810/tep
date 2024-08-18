@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { SeparadorVerde } from "@/components/separador";
-import IntroModalSuma from "@/components/modals/games/mate/introModal";
+import IntroModal from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
@@ -74,7 +74,7 @@ export default function PageGameMulti() {
       </section>
 
       {/* Modal */}
-      <IntroModalSuma 
+      <IntroModal
         show={showModal} 
         onClose={closeModal} 
         title={modalTitle} 
