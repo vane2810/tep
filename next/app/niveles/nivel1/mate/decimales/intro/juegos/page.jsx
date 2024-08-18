@@ -7,7 +7,7 @@ import IntroModal from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
-export default function PageGameSuma() {
+export default function PageGame() {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [continueLink, setContinueLink] = useState("");
@@ -36,13 +36,13 @@ export default function PageGameSuma() {
       <SeparadorVerde />
 
 
- {/*CAMBIAR DIRECCIÓN DE LOS JUEGOS*/}
+ {/*JUEGOS*/}
       {/* Lista de juegos */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-8 py-8">
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/decimales/intro/game1")}
+          onClick={() => openModal("", "/games/lvl1/mate/decimales/intro/game1")}
         >
           Juego 1
         </div>
@@ -74,6 +74,14 @@ export default function PageGameSuma() {
           Juego 4
         </div>
       </section>
+
+      {/* Modal */}
+      <IntroModal
+        show={showModal} 
+        onClose={closeModal} 
+        title={modalTitle} 
+        continueLink={continueLink}
+      />
     </main>
   );
 }
