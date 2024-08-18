@@ -126,3 +126,4 @@ const ResGamePage1 = () => {
 };
 
 export default ResGamePage1;
+//si JJK es tan bueno, por que no vimos a sukuna bailando merengue
