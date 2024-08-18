@@ -1,7 +1,8 @@
-// Intrucciones Juego 2 - Mamte
+// Intrucciones Juego 4 - Mamte
+// Modal reutilizable para el juego 4 de los tres niveles
 import React from 'react';
 
-const Game2Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
+const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   if (!show) return null;
 
   const handleStartGame = () => {
@@ -18,15 +19,14 @@ const Game2Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
           </svg>
         </button>
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
-        <p className='text-2xl'> Puntaje: 100 estrellas </p>
+        <p className='text-2xl'> Puntaje: 300 estrellas </p>
         <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
-        <p className="text-2xl mb-4">{subtitle} de Décenas y Unidades</p>
+        <p className="text-2xl mb-4">{subtitle} Avanzadas</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Comienza sumando por las unidades</li>
-          <li>2. Después por las decenas</li>
-          <li>3. Elige la respuesta que consideres correcta</li>
-          <li>4. Tienes un límite de 10 preguntas</li>
+          <li>1. Elige la respuesta que consideres correcta entre las 3 opciones</li>
+          <li>2. Tienes un límite de 10 preguntas</li>
+          
         </ol>
 
         <div className="flex space-x-4">
@@ -48,4 +48,4 @@ const Game2Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   );
 };
 
-export default Game2Modal;
+export default Game4Modal;

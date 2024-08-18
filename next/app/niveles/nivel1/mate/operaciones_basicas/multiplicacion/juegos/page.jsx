@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { SeparadorVerde } from "@/components/separador";
-import IntroModalSuma from "@/components/modals/games/mate/ob/suma/introModal";
+import IntroModalSuma from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
@@ -40,7 +40,7 @@ export default function PageGameMulti() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Multiplicación", "/games/lvl1/mate/multiplicacion/operaciones_basicas/game1")}
+          onClick={() => openModal("Términos de la Multiplicación", "/games/lvl1/mate/operaciones_basicas/multiplicacion/game1")}
         >
           Juego 1
         </div>

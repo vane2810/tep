@@ -4,10 +4,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Game4Modal from '@/components/modals/games/mate/ob/suma/game4Modal';
+import Game4Modal from '@/components/modals/games/mate/ob/game4Modal';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
+// Importación de juego
 const Game4 = dynamic(() => import('@/components/minigame/lvl1/mate/ob/division/game4'), { ssr: false });
 
 const ResGamePage4 = () => {
