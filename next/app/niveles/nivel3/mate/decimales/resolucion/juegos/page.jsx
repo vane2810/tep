@@ -1,4 +1,4 @@
-// Página de inicio de lo juegos de convesion / Nivel 2
+// Página de inicio de lo juegos de resolucion / Nivel 3
 "use client"
 import React, { useState } from "react";
 import Link from "next/link";
@@ -42,7 +42,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl2/mate/decimales/conversion/game1")}
+          onClick={() => openModal("Términos de la Suma", "/games/lvl3/mate/decimales/resolucion/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl2/mate/decimales/conversion/game2")}
+          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl3/mate/decimales/resolucion/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl2/mate/decimales/conversion/game3")}
+          onClick={() => openModal("Sumas Flotantes", "/games/lvl3/mate/decimales/resolucion/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl2/mate/decimales/conversion/game4")}
+          onClick={() => openModal("Sumas Avanzada", "/games/lvl3/mate/decimales/resolucion/game4")}
         >
           Juego 4
         </div>
