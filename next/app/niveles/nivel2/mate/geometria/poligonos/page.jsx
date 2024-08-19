@@ -17,13 +17,13 @@ export default function FraccionesPage() {
         <div className="bg-green-100 py-4">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate/decimales">
+            <Link href="/niveles/nivel2/mate/geometria">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
-              <img src="/img/niveles/mate/compafig.png" alt="Animated Image" className="h-64 w-auto mr-4" />
+              <img src="/img/niveles/mate/figperi.png" alt="Animated Image" className="h-64 w-auto mr-4" />
               <p className="text-black super text-[40px] max-w-lg">POLIGONOS</p>
             </div>
           </div>
