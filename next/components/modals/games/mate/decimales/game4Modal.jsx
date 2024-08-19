@@ -21,7 +21,7 @@ const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
         <p className='text-2xl'> Puntaje: 300 estrellas </p>
         <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
-        <p className="text-2xl mb-4">{subtitle} Avanzadas</p>
+        <p className="text-2xl mb-4 font-bold">Juego: {subtitle.toLowerCase()}</p>
 
         <ol className="mb-6 text-xl">
           <li>1. Elige la respuesta que consideres correcta entre las 3 opciones</li>
