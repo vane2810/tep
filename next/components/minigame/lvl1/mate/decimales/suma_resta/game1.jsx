@@ -1,9 +1,9 @@
-// Juego 1 - Sumas y Restas de Decimales - Nivel 1
+// Juego 1 - Suma y Resta de Decimales - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
+const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
@@ -29,8 +29,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         const game = new Phaser.Game(config);
         setGameInstance(game);
 
-        let correctAnswer;
-        let number1, number2, operator;
+        let number1, number2, correctAnswer;
 
         function preload() {
             this.load.image('background', '/img/games/mate/ob/game1.jpg');
@@ -45,46 +44,36 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         }
 
         function generateQuestion() {
-            number1 = (Phaser.Math.Between(1, 20) / 10).toFixed(1);
-            number2 = (Phaser.Math.Between(1, 20) / 10).toFixed(1);
-            operator = Phaser.Math.Between(0, 1) === 0 ? '+' : '-';
-            correctAnswer = operator === '+' ? (parseFloat(number1) + parseFloat(number2)).toFixed(1) : (parseFloat(number1) - parseFloat(number2)).toFixed(1);
+            const operation = Phaser.Math.Between(0, 1) === 0 ? 'suma' : 'resta';
+            const base = Phaser.Math.Between(10, 100) / 10;
+            const delta = Phaser.Math.Between(1, 10) / 10;
 
-            // Mostrar la operación en formato vertical
-            this.add.text(400, 50, `${number1}`, {
+            number1 = base.toFixed(1);
+            number2 = delta.toFixed(1);
+
+            if (operation === 'suma') {
+                correctAnswer = (parseFloat(number1) + parseFloat(number2)).toFixed(1);
+            } else {
+                correctAnswer = (parseFloat(number1) - parseFloat(number2)).toFixed(1);
+            }
+
+            // Mostrar la operación
+            this.add.text(400, 50, `${number1} ${operation === 'suma' ? '+' : '-'} ${number2} = ?`, {
                 fontSize: '40px',
                 fill: '#ffffff',
                 align: 'center',
                 backgroundColor: '#7966ab',
                 padding: { x: 20, y: 10 },
-                fontWeight: 'bold'
-            }).setOrigin(0.5);
-
-            this.add.text(400, 100, `${operator} ${number2}`, {
-                fontSize: '40px',
-                fill: '#ffffff',
-                align: 'center',
-                backgroundColor: '#7966ab',
-                padding: { x: 20, y: 10 },
-                fontWeight: 'bold'
-            }).setOrigin(0.5);
-
-            this.add.text(400, 150, `_______`, {
-                fontSize: '40px',
-                fill: '#ffffff',
-                align: 'center',
                 fontWeight: 'bold'
             }).setOrigin(0.5);
 
             // Opciones de respuesta
-            const options = [
-                correctAnswer,
-                (parseFloat(correctAnswer) + Phaser.Math.Between(0.1, 1)).toFixed(1) // Generar una opción incorrecta cercana
-            ];
-            options.sort(() => Math.random() - 0.5); // Mezclar opciones
+            const wrongAnswer1 = (parseFloat(correctAnswer) + Phaser.Math.Between(-10, 10) / 10).toFixed(1);
+            const wrongAnswer2 = (parseFloat(correctAnswer) + Phaser.Math.Between(-10, 10) / 10).toFixed(1);
+            const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer1, wrongAnswer2]);
 
             options.forEach((option, index) => {
-                const button = this.add.text(300 + (index * 200), 200, option, {
+                const button = this.add.text(260 + (index * 140), 130, option, {
                     fontSize: '40px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -96,22 +85,22 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         }
 
         function checkAnswer(selectedOption, button) {
-            let score = 0;
             let feedbackMessage = '';
             let feedbackColor = '';
+            let score = 0;
 
             if (selectedOption === correctAnswer) {
-                score = 15; // 15 estrellas por respuesta correcta
-                feedbackMessage = `¡Correcto! ${number1} ${operator} ${number2} = ${correctAnswer}.`;
+                feedbackMessage = `¡Correcto! ${number1} ${correctAnswer}`;
                 feedbackColor = '#6aa84f'; // Verde para correcto
+                score = 15;
                 button.setStyle({ fill: feedbackColor });
             } else {
-                feedbackMessage = `Incorrecto. ${number1} ${operator} ${number2} = ${correctAnswer}.`;
+                feedbackMessage = `Incorrecto. La respuesta correcta era ${correctAnswer}.`;
                 feedbackColor = '#ff0000'; // Rojo para incorrecto
                 button.setStyle({ fill: feedbackColor });
             }
 
-            updateScore(score);
+            updateScore(prevScore => prevScore + score);
             updateFeedback(feedbackMessage, feedbackColor);
 
             // Desactivar la interacción con todos los botones
@@ -121,69 +110,22 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                 }
             });
 
-            // Si no es la última escena, mostrar botón "Siguiente"
-            if (!isFinalScene) {
-                const nextButton = this.add.text(400, 250, 'Siguiente', {
-                    fontSize: '24px',
-                    fill: '#ffffff',
-                    backgroundColor: '#7966ab',
-                    padding: { x: 20, y: 10 }
-                }).setInteractive().setOrigin(0.5);
-
-                nextButton.on('pointerdown', () => {
-                    // Limpiar feedback anterior
-                    updateFeedback('', '');
-                    proceedToNextScene();
-                    if (gameInstance) {
-                        gameInstance.destroy(true); // Destruir el juego para avanzar a la siguiente escena
-                    }
-                });
+            // Verificar si el puntaje es menor a 50
+            if (score < 50) {
+                showRetryButton(true);
             } else {
-                // En la última escena, mostrar mensaje de finalización basado en el puntaje
-                const finalMessageText = finalScore >= 60
-                    ? '¡Felicidades! Has completado el juego.'
-                    : 'Puntaje ideal no alcanzado.';
-
-                const finalMessage = this.add.text(400, 250, finalMessageText, {
-                    fontSize: '20px',
-                    fill: '#ffffff',
-                    backgroundColor: finalScore >= 60 ? '#6aa84f' : '#ff0000',
-                    padding: { x: 20, y: 10 }
-                }).setOrigin(0.5);
-
-                if (finalScore < 60) {
-                    // Mostrar botón de "Volver a Intentarlo"
-                    const retryButton = this.add.text(400, 200, 'Volver a Intentarlo', {
-                        fontSize: '20px',
-                        fill: '#ffffff',
-                        backgroundColor: '#ff0000',
-                        padding: { x: 20, y: 10 }
-                    }).setInteractive().setOrigin(0.5);
-
-                    retryButton.on('pointerdown', () => {
-                        if (gameInstance) {
-                            gameInstance.destroy(true); // Destruir el juego actual
-                        }
-                        restartGame(); // Reiniciar el juego desde la escena 1
-                    });
-                } else {
-                    setTimeout(() => {
-                        if (gameInstance) {
-                            gameInstance.destroy(true);
-                        }
-                    }, 4000); // Esperar un poco antes de destruir el juego para que el mensaje se vea
-                }
+                showRetryButton(false);
             }
         }
 
-        function update() {}
+        function update() { }
 
         return () => {
             if (gameInstance) {
                 gameInstance.destroy(true);
             }
         };
-    }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame]);
+    }, [updateFeedback, updateScore, showRetryButton]);
 
     return <div id="game-container" className="w-[800px] h-[300px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
