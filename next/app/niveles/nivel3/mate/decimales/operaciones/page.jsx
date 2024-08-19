@@ -24,7 +24,7 @@ export default function OperacionesPage() {
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
               <img src="/img/niveles/mate/introfig.png" alt="Animated Image" className="h-64 w-auto mr-4" />
-              <p className="text-black super text-[40px] max-w-lg">CONVERSIÓN ENTRE FRACCIONES Y DECIMALES</p>
+              <p className="text-black super text-[40px] max-w-lg">OPERACIONES CON FRACCIONES</p>
             </div>
           </div>
         </div>
@@ -43,42 +43,49 @@ export default function OperacionesPage() {
       {/* paso 2 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">¿Qué es un número decimal?</h2>
-          <p className="mt-2 text-black text-center">Un número decimal también representa partes de un todo, pero se escribe con un punto decimal. Por ejemplo, 0.5 es lo mismo que 1/2.</p>
-          <img src="/img/niveles/mate/paso2companum.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Suma de fracciones</h2>
+          <p className="mt-2 text-black text-center">Fracciones con el mismo denominador: Para sumar fracciones que tienen el mismo denominador, solo sumas los numeradores y mantienes el denominador igual.</p>
+          <img src="/img/niveles/mate/paso2.0sumfra.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <p className="mt-2 text-black text-center">Fracciones con diferentes denominadores: Primero, hay que encontrar un denominador común (el número en el que ambos denominadores pueden convertirse). Luego, ajustas los numeradores y sumas.</p>
+          <img src="/img/niveles/mate/paso2.1sumfra.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
       {/* paso 3 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Convertir una fracción a decimal: Paso 1</h2>
-          <p className="mt-2 text-black text-center">Para convertir una fracción a un decimal, divide el número de arriba (numerador) entre el número de abajo (denominador). Ejemplo: 1/4 → 1 ÷ 4 = 0.25.</p>
+          <h2 className="text-2xl font-semibold text-center">Resta de fracciones</h2>
+          <p className="mt-2 text-black text-center">Fracciones con el mismo denominador: Para restar fracciones con el mismo denominador, simplemente restas los numeradores y mantienes el denominador.</p>
+          <img src="/img/niveles/mate/paso3.0opera.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <p className="mt-2 text-black text-center">Fracciones con diferentes denominadores: Igual que con la suma, necesitas un denominador común antes de restar.</p>
+          <img src="/img/niveles/mate/paso3.1opera.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
       {/* paso 4 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Convertir una fracción a decimal: Paso 2</h2>
-          <p className="mt-2 text-black text-center">Escribe el resultado de la división como un número decimal. Así, 1/4 se convierte en 0.25.</p>
+          <h2 className="text-2xl font-semibold text-center">Multiplicación de fracciones</h2>
+          <p className="mt-2 text-black text-center">Multiplicar fracciones es simple: solo multiplicas los numeradores entre sí y los denominadores entre sí.</p>
+          <img src="/img/niveles/mate/paso4opera.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
       {/* paso 5 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Convertir un decimal a fracción: Paso 1</h2>
-          <p className="mt-2 text-black text-center">La simetría ayuda a ver el equilibrio y la armonía en las formas que nos rodean. Es útil en el arte, la naturaleza, y hace que las cosas se vean bonitas y organizadas.</p>
+          <h2 className="text-2xl font-semibold text-center">División de fracciones</h2>
+          <p className="mt-2 text-black text-center">Para dividir fracciones, sigues un truco especial: multiplicas la primera fracción por el inverso de la segunda fracción. El inverso es lo que obtienes al voltear la fracción (intercambiar el numerador y el denominador).</p>
+          <img src="/img/niveles/mate/paso5opera.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
 
      {/* paso 6 */}
      <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Simplificar la fracción</h2>
-          <p className="mt-2 text-black text-center">Simplifica la fracción dividiendo el numerador y el denominador por su máximo común divisor. Ejemplo: 75/100 se simplifica a 3/4.</p>
-          <img src="/img/niveles/mate/paso5sime.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Importancia de las operaciones con fracciones</h2>
+          <p className="mt-2 text-black text-center">Saber cómo trabajar con fracciones es muy útil en la vida diaria. Por ejemplo, cuando compartes pizza con amigos, estás usando fracciones para dividir la comida. Si tienes que medir ingredientes para una receta, las fracciones te dicen cuánta cantidad necesitas. Entender cómo sumar, restar, multiplicar y dividir fracciones te ayuda a resolver problemas y hacer cálculos con partes de un todo.</p>
+          <img src="/img/niveles/mate/paso6opera.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
     
@@ -92,7 +99,11 @@ export default function OperacionesPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
+<<<<<<< HEAD
+        subjectName="Operaciones con fracciones"
+=======
         subjectName="Conversión entre fracciones y números decimales"
+>>>>>>> 249cf6fb38778f09903c764952174c57eb9f20ec
         continueLink="/niveles/nivel3/mate/decimales/operaciones/juegos"
       />
     </main>
