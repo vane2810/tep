@@ -41,13 +41,13 @@ export default function MatematicaPage() {
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-purple-200 py-8">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate">
+            <Link href="/niveles/nivel3/mate">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
@@ -63,7 +63,7 @@ export default function MatematicaPage() {
         <SeparadorMorado />
       </section>
 
-      {/* Suma */}
+      {/* Operaciones con fracciones */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -71,7 +71,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Es crucial aprender a realizar operaciones con fracciones porque las fracciones se utilizan en muchas áreas de la matemática y en situaciones cotidianas. Saber sumar, restar, multiplicar y dividir fracciones ayuda a resolver problemas de manera precisa y efectiva.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/suma">
+            <Link href="/niveles/nivel3/mate/decimales/operaciones">
               <button className="mt-4 px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-300">¡Operemos con fracciones!</button>
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function MatematicaPage() {
         <SeparadorRosa />
       </section>
 
-      {/* Resta */}
+      {/* Números decimales en la vida cotidiana*/}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -88,7 +88,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Los números decimales se utilizan en muchas aplicaciones prácticas en la vida cotidiana, como manejar dinero, medir distancias y cantidades, y calcular precios y descuentos. Comprender cómo trabajar con decimales es esencial para la vida diaria.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
+            <Link href="/niveles/nivel3/mate/decimales/aplicacion">
               <button className="mt-4 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-300">¡Usemos decimales!</button>
             </Link>
           </div>
@@ -97,7 +97,7 @@ export default function MatematicaPage() {
         <SeparadorVerde />
       </section>
 
-      {/* Multiplicación */}
+      {/* Porcentajes y su relación con decimales y fracciones*/}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Los porcentajes son una forma común de representar partes de un todo y están estrechamente relacionados con decimales y fracciones. 
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion">
+            <Link href="/niveles/nivel3/mate/decimales/porcentajes">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Entendamos porcentajes!</button>
             </Link>
           </div>
@@ -114,7 +114,7 @@ export default function MatematicaPage() {
         <SeparadorCeleste />
       </section>
 
-      {/* División */}
+      {/* Resolución de Problemas con Números Decimales y Fracciones */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -122,7 +122,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Resolver problemas matemáticos que involucran números decimales y fracciones es una habilidad clave en la educación matemática.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/division">
+            <Link href="/niveles/nivel3/mate/decimales/resolucion">
               <button className="mt-4 px-4 py-2 bg-orange-500 text-black rounded hover:bg-orange-300">¡Resolvamos problemas!</button>
             </Link>
           </div>
