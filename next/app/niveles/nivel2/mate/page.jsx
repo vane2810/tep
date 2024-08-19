@@ -1,3 +1,4 @@
+// Página de Inicio de Matemáticas - Nivel 2
 import React from "react";
 import Link from 'next/link';
 import { SeparadorRosa } from "@/components/separador";

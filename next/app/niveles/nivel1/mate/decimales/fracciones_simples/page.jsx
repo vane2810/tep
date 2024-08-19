@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
 import Modal from "@/components/modals/games/mate/ob/leccionModal";
 
-export default function SumaPage() {
+export default function FraccionesPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
   

@@ -1,22 +1,23 @@
+// Página de contenido de Conversiones de decimales - Nivel 2
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 
-export default function decimalesPage() {
+export default function ConversionPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
   
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-green-100 py-4">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate/geometria">
+            <Link href="/niveles/nivel2/mate/decimales">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
