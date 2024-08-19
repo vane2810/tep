@@ -1,4 +1,4 @@
-// Juego 1 - Comparacion de decimales - Nivel 1
+// Juego 1 - Multiplicación de decimales - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
 //Importación de juego
-const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/comparacion/game1'), { ssr: false });
+const Game1 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/multiplicacion/game1'), { ssr: false });
 
 const GamePage1 = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -57,7 +57,7 @@ const GamePage1 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/decimales/comparacion/juegos">
+          <Link href="/niveles/nivel2/mate/decimales/multiplicacion/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>

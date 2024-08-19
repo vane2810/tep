@@ -30,7 +30,7 @@ export default function PageGame() {
       </div>
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de multiplicación de numeros decimales!</h2>
+        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de multiplicación de números decimales!</h2>
         <img src="/img/niveles/mate/compafig.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
@@ -42,7 +42,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl2/mate/multiplicacion/equivalentes/game1")}
+          onClick={() => openModal("Términos de la Suma", "/games/lvl2/mate/decimales/multiplicacion/game1")}
         >
           Juego 1
         </div>
