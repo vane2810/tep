@@ -1,8 +1,9 @@
+// Página de contenido de Suma y resta de decimales - Nivel 1
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 
 export default function SumaPage() {
 
