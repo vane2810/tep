@@ -126,4 +126,3 @@ const ResGamePage1 = () => {
 };
 
 export default ResGamePage1;
-//Que reviva gojo

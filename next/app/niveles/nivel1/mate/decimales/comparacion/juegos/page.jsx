@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { SeparadorVerde } from "@/components/separador";
-import IntroModalSuma from "@/components/modals/games/mate/ob/suma/introModal";
+import IntroModal from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
-export default function PageGameSuma() {
+export default function PageGame() {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [continueLink, setContinueLink] = useState("");
@@ -28,21 +28,21 @@ export default function PageGameSuma() {
           <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
         </Link>
       </div>
-      {/* Donkey */}
+      {/* Personaje */}
       <section className="flex flex-col items-center justify-center mb-14">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de comparación de numeros decimales!</h2>
+        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de comparación de números decimales!</h2>
         <img src="/img/niveles/mate/compafig.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 
 
- {/*CAMBIAR DIRECCIÓN DE LOS JUEGOS*/}
+ {/*JUEGOS*/}
       {/* Lista de juegos */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-8 py-8">
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/operaciones_basicas/suma/game1")}
+          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/decimales/comparacion/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/operaciones_basicas/suma/game2")}
+          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/decimales/comparacion/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/operaciones_basicas/suma/game3")}
+          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/decimales/comparacion/game3")}
         >
           Juego 3
         </div>
@@ -69,11 +69,19 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/operaciones_basicas/suma/game4")}
+          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/decimales/comparacion/game4")}
         >
           Juego 4
         </div>
       </section>
+
+      {/* Modal */}
+      <IntroModal
+        show={showModal} 
+        onClose={closeModal} 
+        title={modalTitle} 
+        continueLink={continueLink}
+      />
     </main>
   );
 }

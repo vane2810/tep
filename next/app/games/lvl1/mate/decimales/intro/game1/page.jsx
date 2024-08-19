@@ -2,11 +2,12 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/ob/suma/game1Modal';
+import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
+//Importación de juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/intro/game1'), { ssr: false });
 
 const GamePage1 = () => {
@@ -56,15 +57,15 @@ const GamePage1 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/operaciones_basicas/suma/juegos">
-            <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+          <Link href="/niveles/nivel1/mate/decimales/intro/juegos">
+            <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
         {/* Contenedor del Typewriter, la imagen y el botón */}
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/signomas.png" alt="Suma" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -88,8 +89,8 @@ const GamePage1 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/signomas.png"
-        subtitle="Suma"
+        imageUrl="/img/niveles/mate/introfig.png"
+        subtitle="Decimales"
       />
 
       {/* Escena del juego */}
