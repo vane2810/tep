@@ -23,7 +23,7 @@ export default function ConversionPage() {
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
-              <img src="/img/niveles/mate/figsime.png" alt="Animated Image" className="h-64 w-auto mr-4" />
+              <img src="/img/niveles/mate/introfig.png" alt="Animated Image" className="h-64 w-auto mr-4" />
               <p className="text-black super text-[40px] max-w-lg">CONVERSIÓN ENTRE FRACCIONES Y DECIMALES</p>
             </div>
           </div>

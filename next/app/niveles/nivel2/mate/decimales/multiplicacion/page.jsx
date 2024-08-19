@@ -23,8 +23,8 @@ export default function MultiPage() {
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
-              <img src="/img/niveles/mate/figsime.png" alt="Animated Image" className="h-64 w-auto mr-4" />
-              <p className="text-black super text-[40px] max-w-lg">SIMETRÍA</p>
+              <img src="/img/niveles/mate/compafig.png" alt="Animated Image" className="h-64 w-auto mr-4" />
+              <p className="text-black super text-[40px] max-w-lg">MULTIPLICACIÓN DE NÚMEROS DECIMALES</p>
             </div>
           </div>
         </div>
@@ -34,48 +34,51 @@ export default function MultiPage() {
       {/* paso 1 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">¿Qué es la simetría?</h2>
-          <p className="mt-2 text-black text-center">La simetría es cuando una figura o un objeto se puede dividir en dos partes iguales que son exactamente iguales, como si fueran reflejos en un espejo.</p>
-          <img src="/img/niveles/mate/paso1sime.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Recordando la multiplicación</h2>
+          <p className="mt-2 text-black text-center">La multiplicación es como sumar el mismo número varias veces. Por ejemplo, 3 × 2 es lo mismo que 2 + 2 + 2 = 6.</p>
         </div>
       </section>
       
       {/* paso 2 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Simetría vertical</h2>
-          <p className="mt-2 text-black text-center">Ocurre cuando puedes dibujar una línea de arriba hacia abajo en una figura, y las dos mitades a cada lado de la línea son iguales. Ejemplo: una mariposa.</p>
-          <img src="/img/niveles/mate/paso2sime.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Multiplicación sin el punto decimal</h2>
+          <p className="mt-2 text-black text-center">Primero, multiplica los números como si no tuvieran puntos decimales. Ejemplo: Multiplica 2.5 × 3.2 como si fueran 25 × 32.</p>
         </div>
       </section>
 
       {/* paso 3 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Simetría horizontal</h2>
-          <p className="mt-2 text-black text-center">Ocurre cuando puedes dibujar una línea de lado a lado en una figura, y las dos mitades encima y debajo de la línea son iguales. Ejemplo: un lago que refleja las montañas.</p>
-          <img src="/img/niveles/mate/paso3sime.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Multiplica los números</h2>
+          <p className="mt-2 text-black text-center">Haz la multiplicación normal. Ejemplo: 25 × 32 = 800.</p>
         </div>
       </section>
 
       {/* paso 4 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Simetría rotacional</h2>
-          <p className="mt-2 text-black text-center">Ocurre cuando puedes girar una figura alrededor de un punto central, y en algún momento, la figura parece igual a como era antes de girarla. Ejemplo: una estrella de mar.</p>
-          <img src="/img/niveles/mate/paso4sime.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Contando los lugares decimales</h2>
+          <p className="mt-2 text-black text-center">Cuenta cuántos dígitos hay después del punto decimal en ambos números. Ejemplo: En 2.5 y 3.2, hay un dígito después del punto en cada número, así que en total hay 2 dígitos.</p>
         </div>
       </section>
 
       {/* paso 5 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-semibold text-center">Importancia de la simetría</h2>
-          <p className="mt-2 text-black text-center">La simetría ayuda a ver el equilibrio y la armonía en las formas que nos rodean. Es útil en el arte, la naturaleza, y hace que las cosas se vean bonitas y organizadas.</p>
-          <img src="/img/niveles/mate/paso5sime.png" alt="Suma" className="h-32 w-auto mt-4" />
+          <h2 className="text-2xl font-semibold text-center">Colocando el punto decimal</h2>
+          <p className="mt-2 text-black text-center">Pon el punto decimal en el resultado final, comenzando desde la derecha y moviéndolo hacia la izquierda el número de lugares que contaste antes. Ejemplo: En 800, mueve el punto 2 lugares hacia la izquierda: 8.00.</p>
         </div>
       </section>
 
+{/* paso 6 */}
+<section className="my-10 px-4">
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-semibold text-center">Resultado final</h2>
+          <p className="mt-2 text-black text-center">El resultado de 2.5 × 3.2 es 8.00, o simplemente 8.</p>
+          <img src="/img/niveles/mate/paso6multinum.png" alt="Suma" className="h-32 w-auto mt-4" />
+        </div>
+      </section>
     
       {/* Botón para abrir el modal */}
       <div className="flex justify-end">
@@ -87,8 +90,8 @@ export default function MultiPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        subjectName="Simetría"
-        continueLink="/niveles/nivel1/mate/geometria/simetria/juegos"
+        subjectName="Multiplicación de números decimales"
+        continueLink="/niveles/nivel2/mate/decimales/multiplicacion/juegos"
       />
     </main>
   );

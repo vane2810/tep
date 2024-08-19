@@ -31,7 +31,7 @@ export default function PageGame() {
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de fracciones equivalentes!</h2>
-        <img src="/img/niveles/mate/figsime.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
+        <img src="/img/niveles/mate/figfrasim.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 
