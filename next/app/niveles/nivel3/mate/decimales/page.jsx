@@ -113,23 +113,7 @@ export default function MatematicaPage() {
         </div>
         <SeparadorCeleste />
       </section>
-
-      {/* Resolución de Problemas con Números Decimales y Fracciones */}
-      <section className="my-10 px-4">
-        <div className="flex flex-col md:flex-row items-center text-center">
-          <div className="flex-1 mb-4 md:mb-0">
-            <h2 className="text-xl md:text-2xl font-semibold">Resolución de Problemas con Números Decimales y Fracciones</h2>
-            <p className="mt-2 text-black text-sm md:text-base">
-            Resolver problemas matemáticos que involucran números decimales y fracciones es una habilidad clave en la educación matemática.
-            </p>
-            <Link href="/niveles/nivel3/mate/decimales/resolucion">
-              <button className="mt-4 px-4 py-2 bg-orange-500 text-black rounded hover:bg-orange-300">¡Resolvamos problemas!</button>
-            </Link>
-          </div>
-          <img src="/img/niveles/mate/N4.png" alt="División" className="h-20 md:h-32 w-auto ml-4" />
-        </div>
-        <SeparadorAmarillo />
-      </section>
+      
     </main>
   );
 }
