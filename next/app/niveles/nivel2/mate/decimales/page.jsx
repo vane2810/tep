@@ -27,7 +27,7 @@ export default function MatematicaPage() {
       <>
         
         <div className="mt-6 ml-10 inline-block"> Volver
-          <Link href="/niveles/nivel1/mate">
+          <Link href="/niveles/nivel2/mate">
             <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Es importante aprender a convertir entre fracciones y números decimales porque estas formas de representar números son comunes en matemáticas y en la vida cotidiana. Saber cómo convertir entre ellas facilita la comprensión y resolución de problemas en diferentes contextos, como medir ingredientes en una receta o calcular porcentajes.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/suma">
+            <Link href="/niveles/nivel2/mate/decimales/comparacionnum">
               <button className="mt-4 px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-300">¡Convirtamos números!</button>
             </Link>
           </div>
@@ -88,7 +88,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             La multiplicación de números decimales es una habilidad esencial en matemáticas y en la vida diaria. Nos permite realizar cálculos precisos en situaciones como calcular el costo total de varios artículos, encontrar áreas de figuras geométricas y realizar operaciones financieras.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
+            <Link href="/niveles/nivel2/mate/decimales/multiplidecimales">
               <button className="mt-4 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-300">¡Multipliquemos decimales!</button>
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Dividir números decimales es crucial para manejar cantidades y resolver problemas que involucran divisiones precisas. Es útil en contextos como repartir dinero, medir ingredientes o calcular proporciones en recetas.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion">
+            <Link href="/niveles/nivel2/mate/decimales/divisiondecimales">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Dividamos decimales!</button>
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Entender y trabajar con fracciones equivalentes es fundamental para simplificar fracciones y resolver problemas matemáticos de manera más eficiente. También ayuda a comprender mejor las relaciones entre diferentes fracciones.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/division">
+            <Link href="/niveles/nivel2/mate/decimales/fraccionesequiva">
               <button className="mt-4 px-4 py-2 bg-orange-500 text-black rounded hover:bg-orange-300">¡Identifiquemos fracciones!</button>
             </Link>
           </div>
