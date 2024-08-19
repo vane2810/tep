@@ -1,12 +1,13 @@
+// Página de inicio de lo juegos de convesion / Nivel 2
 "use client"
 import React, { useState } from "react";
 import Link from "next/link";
 import { SeparadorVerde } from "@/components/separador";
-import IntroModalSuma from "@/components/modals/games/mate/ob/suma/introModal";
+import IntroModal from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
-export default function PageGameSuma() {
+export default function PageGame() {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [continueLink, setContinueLink] = useState("");
@@ -73,6 +74,13 @@ export default function PageGameSuma() {
           Juego 4
         </div>
       </section>
+      {/* Modal */}
+      <IntroModal
+        show={showModal} 
+        onClose={closeModal} 
+        title={modalTitle} 
+        continueLink={continueLink}
+      />
     </main>
   );
 }

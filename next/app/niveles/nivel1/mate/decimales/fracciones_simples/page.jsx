@@ -1,8 +1,9 @@
+// Página de cotenido de fracciones simples - Nivel 2
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 
 export default function FraccionesPage() {
 

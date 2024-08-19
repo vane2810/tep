@@ -7,7 +7,7 @@ import IntroModal from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
-export default function PageGameSuma() {
+export default function PageGame() {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [continueLink, setContinueLink] = useState("");
