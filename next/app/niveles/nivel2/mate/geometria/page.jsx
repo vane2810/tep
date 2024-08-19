@@ -41,7 +41,7 @@ export default function MatematicaPage() {
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-purple-200 py-8">
@@ -63,7 +63,7 @@ export default function MatematicaPage() {
         <SeparadorMorado />
       </section>
 
-      {/* Suma */}
+      {/* areas */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -71,7 +71,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Aprender a calcular el área de rectángulos, triángulos y cuadrados utilizando fórmulas específicas, aplicándolas a problemas prácticos.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/suma">
+            <Link href="/niveles/nivel2/mate/geometria/area">
               <button className="mt-4 px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-300">¡Calculemos áreas!</button>
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function MatematicaPage() {
         <SeparadorRosa />
       </section>
 
-      {/* Resta */}
+      {/* poligonos */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -88,7 +88,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Estudiar y clasificar polígonos regulares e irregulares, comprendiendo sus propiedades y cómo se relacionan entre sí.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
+            <Link href="/niveles/nivel2/mate/geometria/poligonos">
               <button className="mt-4 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-300">¡Clasifiquemos polígonos!</button>
             </Link>
           </div>
@@ -97,7 +97,7 @@ export default function MatematicaPage() {
         <SeparadorVerde />
       </section>
 
-      {/* Multiplicación */}
+      {/* cuerpos geometricos */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Identificar y analizar las características de cuerpos tridimensionales como cubos, prismas y cilindros, explorando sus propiedades y aplicaciones.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion">
+            <Link href="/niveles/nivel2/mate/geometria/cuerpos">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Exploremos cuerpos geométricos!</button>
             </Link>
           </div>
@@ -114,7 +114,7 @@ export default function MatematicaPage() {
         <SeparadorCeleste />
       </section>
 
-      {/* División */}
+      {/* transformaciones geometricas */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -122,7 +122,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Introducción a las traslaciones, rotaciones y reflexiones de figuras en el plano, entendiendo cómo estas transformaciones afectan su posición y orientación.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/division">
+            <Link href="/niveles/nivel2/mate/geometria/transformaciones">
               <button className="mt-4 px-4 py-2 bg-orange-500 text-black rounded hover:bg-orange-300">¡Transformemos figuras!</button>
             </Link>
           </div>
