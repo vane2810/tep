@@ -1,4 +1,4 @@
-// Juego 2 - Conversion de decimales - Nivel 1
+// Juego 2 - Resolución - Nivel 3
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
 //Importación de juego
-const Game2 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/conversion/game2'), { ssr: false });
+const Game2 = dynamic(() => import('@/components/minigame/lvl3/mate/decimales/resolucion/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -57,7 +57,7 @@ const GamePage2 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel2/mate/decimales/conversion/juegos">
+          <Link href="/niveles/nivel3/mate/decimales/resolucion/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -65,7 +65,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfrasim.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -89,7 +89,7 @@ const GamePage2 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/introfig.png"
+        imageUrl="/img/niveles/mate/figfrasim.png"
         subtitle="Decimales"
       />
 
