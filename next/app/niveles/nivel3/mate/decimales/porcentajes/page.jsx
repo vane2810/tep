@@ -1,85 +1,84 @@
-// Página de inicio de lo juegos de porcentajes / Nivel 3
-"use client"
+// Página de contenido PORCENTAJES Y SU RELACIÓN CON DECIMALES Y FRACCIONES- Nivel 3
+"use client";
 import React, { useState } from "react";
-import Link from "next/link";
-import { SeparadorVerde } from "@/components/separador";
-import IntroModal from "@/components/modals/games/mate/introModal";
-import '@/styles/globals.css';
-import '@/styles/animacion.css';
+import Link from 'next/link';
+import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
+import Modal from "@/components/modals/games/leccionModal";
 
-export default function PageGame() {
-  const [showModal, setShowModal] = useState(false);
-  const [modalTitle, setModalTitle] = useState("");
-  const [continueLink, setContinueLink] = useState("");
+export default function EquivalentePage() {
 
-  const openModal = (title, link) => {
-    setModalTitle(title);
-    setContinueLink(link);
-    setShowModal(true);
-  };
-
-  const closeModal = () => setShowModal(false);
-
+  const [modalOpen, setModalOpen] = useState(false);
+  
   return (
-    <main className="container mx-auto">
-      {/* Volver */}
-      <div className="mt-2 ml-10 inline-block">
-        <Link href="/niveles/nivel3/mate/decimales/porcentajes">
-          <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-        </Link>
+    <main>
+      {/* Bienvenida de personaje */}
+      <section>
+        <SeparadorAzul />
+        <div className="bg-green-100 py-4">
+          {/* Volver */}
+          <div className="mt-6 ml-10 inline-block">
+            <Link href="/niveles/nivel3/mate/decimales">
+              <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+            </Link>
+          </div>
+          <div className="flex flex-col items-center justify-center mb-5 text-center">
+            <div className="flex items-center justify-center">
+              <img src="/img/niveles/mate/figsumres.jpg" alt="Animated Image" className="h-64 w-auto mr-4" />
+              <p className="text-black super text-[40px] max-w-lg">PORCENTAJES Y SU RELACIÓN CON DECIMALES Y FRACCIOONES</p>
+            </div>
+          </div>
+        </div>
+        <SeparadorVerde />
+      </section>
+
+      {/* paso 1 */}
+      <section className="my-10 px-4">
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-semibold text-center">¿Qué es un porcentaje?</h2>
+          <p className="mt-2 text-black text-center">Un porcentaje es una forma de expresar una parte de un todo, como una fracción. Cuando decimos "porcentaje," nos referimos a cuántas partes hay de cada 100. Por ejemplo, 50% significa 50 partes de cada 100, o la mitad de algo.</p>
+          <img src="/img/niveles/mate/paso1porcen.png" alt="Suma" className="h-32 w-auto mt-4" />
+        </div>
+      </section>
+      
+      {/* paso 2 */}
+      <section className="my-10 px-4">
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-semibold text-center">Porcentajes y decimales</h2>
+          <p className="mt-2 text-black text-center">Para convertir un porcentaje a un decimal, simplemente divides el número por 100 o mueves la coma dos veces a la izquierda. Por ejemplo, 25% se convierte en 0.25</p>
+          <img src="/img/niveles/mate/paso2porcen.png" alt="Suma" className="h-32 w-auto mt-4" />
+        </div>
+      </section>
+
+      {/* paso 3 */}
+      <section className="my-10 px-4">
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-semibold text-center">Porcentajes y fracciones</h2>
+          <p className="mt-2 text-black text-center">Para convertir un porcentaje a una fracción, escribes el porcentaje sobre 100 y luego lo simplificas si es posible.</p>
+          <img src="/img/niveles/mate/paso3porcen.png" alt="Suma" className="h-32 w-auto mt-4" />
+        </div>
+      </section>
+
+      {/* paso 4 */}
+      <section className="my-10 px-4">
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-semibold text-center">Cálculo de porcentajes</h2>
+          <p className="mt-2 text-black text-center">Si quieres encontrar un porcentaje de un número, conviertes el porcentaje a un decimal y lo multiplicas.</p>
+          <img src="/img/niveles/mate/paso4porcen.png" alt="Suma" className="h-32 w-auto mt-4" />
+        </div>
+      </section>
+
+      {/* Botón para abrir el modal */}
+      <div className="flex justify-end">
+        <button onClick={() => setModalOpen(true)} className="verde hover:bg-blue-300 text-white font-bold py-2 px-4 mb-8 mr-10 rounded">
+          Siguiente
+        </button>
       </div>
-      {/* Donkey */}
-      <section className="flex flex-col items-center justify-center mb-14">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de conversión entre fracciones y números decimales!</h2>
-        <img src="/img/niveles/mate/figsumres.jpg" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
-      </section>
-      <SeparadorVerde />
-
-
-      {/*JUEGOS*/}
-      {/* Lista de juegos */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-8 py-8">
-        <div
-          className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
-          items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl3/mate/decimales/porcentajes/game1")}
-        >
-          Juego 1
-        </div>
-
-        {/* Juego 2 */}
-        <div
-          className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
-          items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl3/mate/decimales/porcentajes/game2")}
-        >
-          Juego 2
-        </div>
-
-        {/* Juego 3 */}
-        <div
-          className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
-          items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl3/mate/decimales/porcentajes/game3")}
-        >
-          Juego 3
-        </div>
-
-        {/* Juego 4 */}
-        <div
-          className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
-          items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl3/mate/decimales/porcentajes/game4")}
-        >
-          Juego 4
-        </div>
-      </section>
       {/* Modal */}
-      <IntroModal
-        show={showModal}
-        onClose={closeModal}
-        title={modalTitle}
-        continueLink={continueLink}
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        subjectName="Porcentajes y su relación con decimales y fracciones"
+        continueLink="/niveles/nivel3/mate/decimales/porcentajes/juegos"
       />
     </main>
   );
