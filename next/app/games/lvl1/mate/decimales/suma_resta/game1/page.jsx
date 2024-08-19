@@ -1,4 +1,4 @@
-// Juego 1 - Sumas y Restas de Decimales - Nivel 1
+// Juego 1 - Suma y Resta de decimales- Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-// Importación de juego
+//Importación de juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/suma_resta/game1'), { ssr: false });
 
 const GamePage1 = () => {
@@ -16,7 +16,7 @@ const GamePage1 = () => {
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0);
+  const [gameKey, setGameKey] = useState(0); 
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,9 +24,9 @@ const GamePage1 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback('');
-    setScore(0);
-    setShowRetry(false);
+    setFeedback(''); 
+    setScore(0); 
+    setShowRetry(false); 
   };
 
   const updateFeedback = (newFeedback) => {
@@ -44,11 +44,11 @@ const GamePage1 = () => {
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente
+    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
-    setFeedback('');
-    setScore(0);
-    setShowRetry(false);
+    setFeedback(''); 
+    setScore(0); 
+    setShowRetry(false); 
   };
 
   return (
@@ -97,7 +97,7 @@ const GamePage1 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Sumas y Restas de Decimales</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 
