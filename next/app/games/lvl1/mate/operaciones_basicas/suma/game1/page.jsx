@@ -2,11 +2,12 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/ob/suma/game1Modal';
+import Game1Modal from '@/components/modals/games/mate/ob/game1Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
+// Importación del juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/ob/suma/game1'), { ssr: false });
 
 const SumGamePage1 = () => {
@@ -57,7 +58,7 @@ const SumGamePage1 = () => {
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
           <Link href="/niveles/nivel1/mate/operaciones_basicas/suma/juegos">
-            <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
+            <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
         {/* Contenedor del Typewriter, la imagen y el botón */}

@@ -1,14 +1,15 @@
+// Página de contenido de la resta - Nivel 1
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorAmarillo } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 export default function RestaPage() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-yellow-100 py-4">

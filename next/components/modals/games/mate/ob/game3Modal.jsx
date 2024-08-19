@@ -1,7 +1,8 @@
-// Intrucciones Juego 2 - Mamte
+// Intrucciones Juego 3 - Mamte
+// Modal reutilizable para el juego 3 de los tres niveles
 import React from 'react';
 
-const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
+const Game3Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   if (!show) return null;
 
   const handleStartGame = () => {
@@ -18,15 +19,15 @@ const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
           </svg>
         </button>
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
-        <p className='text-2xl'> Puntaje: 75 estrellas </p>
+        <p className='text-2xl'> Puntaje: 200 estrellas </p>
         <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
-        <p className="text-2xl mb-4">Aprende los términos de la {subtitle.toLowerCase()}</p>
+        <p className="text-2xl mb-4">{subtitle} Flotantes</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Arrastra los términos correctos hacia los espacios vacíos</li>
-          <li>2. Verifica colocar los términos en medio del espacio</li>
-          <li>3. Presiona "Comprobar" para verificar</li>
-          
+          <li>1. Lee la indicación</li>
+          <li>2. Busca alternativas de números hasta llegar al resultado objetivo</li>
+          <li>2. Después de responder correctamente presiona "Siguiente Pregunta""</li>
+          <li>4. Tienes un límite de 8 preguntas</li>
         </ol>
 
         <div className="flex space-x-4">
@@ -48,4 +49,4 @@ const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   );
 };
 
-export default Game1Modal;
+export default Game3Modal;

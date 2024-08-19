@@ -1,7 +1,8 @@
+// Página de contenido de multiplicación
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul, SeparadorAnaranjado, SeparadorRojo } from "@/components/separador";
 
 export default function DivisionPage() {
@@ -9,7 +10,7 @@ export default function DivisionPage() {
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida del personaje*/}
       <section>
         <SeparadorAzul />
         <div className="bg-red-200 py-4">

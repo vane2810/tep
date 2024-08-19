@@ -1,7 +1,8 @@
-// Intrucciones Juego 1 - Mamte
+// Intrucciones Juego 1 - Mate
+// Modal reutilizable para el juego 1 de los tres niveles
 import React from 'react';
 
-const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
+const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   if (!show) return null;
 
   const handleStartGame = () => {
@@ -18,13 +19,14 @@ const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
           </svg>
         </button>
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
-        <p className='text-2xl'> Puntaje: 300 estrellas </p>
+        <p className='text-2xl'> Puntaje: 75 estrellas </p>
         <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
-        <p className="text-2xl mb-4">{subtitle} Avanzadas</p>
+        <p className="text-2xl mb-4">Aprende los términos de la {subtitle.toLowerCase()}</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Elige la respuesta que consideres correcta</li>
-          <li>2. Tienes un límite de 10 preguntas</li>
+          <li>1. Arrastra los términos correctos hacia los espacios vacíos</li>
+          <li>2. Verifica colocar los términos en medio del espacio</li>
+          <li>3. Presiona "Comprobar" para verificar</li>
           
         </ol>
 
@@ -47,4 +49,4 @@ const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   );
 };
 
-export default Game4Modal;
+export default Game1Modal;

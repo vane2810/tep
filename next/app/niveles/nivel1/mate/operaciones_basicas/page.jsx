@@ -1,4 +1,4 @@
-// matematicaPage.js
+// Pagina de inicio de operaciones básicas - Nivel 1
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Link from 'next/link';
@@ -40,7 +40,7 @@ export default function MatematicaPage() {
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida del personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-purple-200 py-8">

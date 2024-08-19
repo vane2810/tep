@@ -1,4 +1,4 @@
-// Inicio Matemáticas
+// Inicio Matemáticas - Nivel 1
 
 import React from "react";
 import Link from 'next/link';
@@ -31,6 +31,7 @@ export default function MatematicaPage() {
       {/*Gusano */}
       <section>
         <div className="flex justify-center overflow-x-auto mt-10">
+          {/* Cabeza */}
           <div className="flex items-center mt-[-30px] md:mt-[-50px] lg:mt-[-80px]">
             <img
               src="/img/niveles/mate/nivel1/cabeza.png"
@@ -38,6 +39,7 @@ export default function MatematicaPage() {
               className="worm-segment w-40 h-auto mt-4 lg:w-60 md:mr-2.5 animate-gusano"
             />
           </div>
+          {/* Operaciones básicas */}
           <Link href="/niveles/nivel1/mate/operaciones_basicas">
             <img
               src="/img/niveles/mate/nivel1/ob.png"
@@ -45,6 +47,7 @@ export default function MatematicaPage() {
               className="worm-segment flex-auto w-40 h-auto mt-8 mb-4 lg:w-60 md:mr-2.5 animate-gusano"
             />
           </Link>
+          {/* Decimales*/}
           <Link href="/niveles/nivel1/mate/decimales">
             <img
               src="/img/niveles/mate/nivel1/NDYF.png"
@@ -52,6 +55,7 @@ export default function MatematicaPage() {
               className="worm-segment flex-auto w-40 h-auto mb-4 lg:w-60 md:mr-2.5 animate-gusano"
             />
           </Link>
+          {/* Geometría*/}
           <Link href="/niveles/nivel1/mate/geometria">
             <img
               src="/img/niveles/mate/nivel1/geo.png"
@@ -59,6 +63,7 @@ export default function MatematicaPage() {
               className="worm-segment flex-auto w-40 h-auto mb-4 mt-8 lg:w-60 md:mr-2.5 animate-gusano"
             />
           </Link>
+          {/* Resolución de problemas (juegos finales) */}
           <Link href="/nivel1/mate/resodepro">
             <img
               src="/img/niveles/mate/nivel1/rdp.png"

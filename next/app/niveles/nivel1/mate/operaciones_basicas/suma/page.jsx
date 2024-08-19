@@ -1,8 +1,9 @@
+// Página de contenido de la suma - Nivel 1
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 
 export default function SumaPage() {
 
@@ -10,7 +11,7 @@ export default function SumaPage() {
   
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-green-100 py-4">
