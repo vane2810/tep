@@ -99,11 +99,7 @@ export default function OperacionesPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-<<<<<<< HEAD
         subjectName="Operaciones con fracciones"
-=======
-        subjectName="Conversión entre fracciones y números decimales"
->>>>>>> 249cf6fb38778f09903c764952174c57eb9f20ec
         continueLink="/niveles/nivel3/mate/decimales/operaciones/juegos"
       />
     </main>
