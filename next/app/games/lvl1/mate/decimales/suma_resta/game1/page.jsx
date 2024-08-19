@@ -15,7 +15,7 @@ const GamePage1 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
+  const [currentScene, setCurrentScene] = useState(1);
   const [gameKey, setGameKey] = useState(0);
 
   const toggleInstructions = () => {
@@ -26,7 +26,7 @@ const GamePage1 = () => {
     setGameStarted(true);
     setFeedback('');
     setScore(0);
-    setShowRetry(false);
+    setCurrentScene(1);
     setGameKey(prevKey => prevKey + 1);
   };
 
@@ -38,11 +38,26 @@ const GamePage1 = () => {
     setScore(prevScore => prevScore + points);
   };
 
-  const handleRetry = () => {
-    setGameKey(prevKey => prevKey + 1);
+  const proceedToNextScene = () => {
+    if (currentScene < 5) {
+      setCurrentScene(currentScene + 1);
+      setGameKey(prevKey => prevKey + 1); // Reiniciar el componente para la nueva escena
+    } else {
+      if (score < 60) {
+        setFeedback('No alcanzaste el puntaje necesario. Debes volver a intentarlo.');
+      } else {
+        setFeedback('¡Felicidades! Has completado todas las escenas.');
+      }
+      setGameStarted(false); // Detener el juego
+    }
+  };
+
+  const restartGame = () => {
+    setGameStarted(true);
     setFeedback('');
     setScore(0);
-    setShowRetry(false);
+    setCurrentScene(1);
+    setGameKey(prevKey => prevKey + 1); // Reiniciar el componente para la nueva escena
   };
 
   return (
@@ -84,31 +99,27 @@ const GamePage1 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figsumres.jpg"
-        subtitle="Decimales"
+        subtitle="Sumando y Restando Decimales"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Suma y Resta de Decimales</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Sumando y Restando Decimales</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              isFinalScene={currentScene === 5} // Indica si es la última escena
+              finalScore={score} // Pasar el puntaje final
+              restartGame={restartGame} // Función para reiniciar el juego
             />
             <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene}</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
-              {showRetry && (
-                <button 
-                  onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
-                >
-                  Volver a Intentarlo
-                </button>
-              )}
             </div>
           </div>
         </section>

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
+const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
         const game = new Phaser.Game(config);
         setGameInstance(game);
 
-        let number1, number2, correctAnswer;
+        let correctAnswer;
 
         function preload() {
             this.load.image('background', '/img/games/mate/ob/game1.jpg');
@@ -48,8 +48,8 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
             const base = Phaser.Math.Between(10, 100) / 10;
             const delta = Phaser.Math.Between(1, 10) / 10;
 
-            number1 = base.toFixed(1);
-            number2 = delta.toFixed(1);
+            const number1 = base.toFixed(1);
+            const number2 = delta.toFixed(1);
 
             if (operation === 'suma') {
                 correctAnswer = (parseFloat(number1) + parseFloat(number2)).toFixed(1);
@@ -67,13 +67,12 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
                 fontWeight: 'bold'
             }).setOrigin(0.5);
 
-            // Opciones de respuesta
+            // Opciones de respuesta (dos opciones en lugar de tres)
             const wrongAnswer1 = (parseFloat(correctAnswer) + Phaser.Math.Between(-10, 10) / 10).toFixed(1);
-            const wrongAnswer2 = (parseFloat(correctAnswer) + Phaser.Math.Between(-10, 10) / 10).toFixed(1);
-            const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer1, wrongAnswer2]);
+            const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer1]);
 
             options.forEach((option, index) => {
-                const button = this.add.text(260 + (index * 140), 130, option, {
+                const button = this.add.text(300 + (index * 200), 130, option, {
                     fontSize: '40px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -90,9 +89,9 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
             let score = 0;
 
             if (selectedOption === correctAnswer) {
-                feedbackMessage = `¡Correcto! ${number1} ${correctAnswer}`;
+                feedbackMessage = `¡Correcto! La respuesta es ${correctAnswer}.`;
                 feedbackColor = '#6aa84f'; // Verde para correcto
-                score = 15;
+                score = 15; // 15 puntos por respuesta correcta
                 button.setStyle({ fill: feedbackColor });
             } else {
                 feedbackMessage = `Incorrecto. La respuesta correcta era ${correctAnswer}.`;
@@ -100,7 +99,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
                 button.setStyle({ fill: feedbackColor });
             }
 
-            updateScore(prevScore => prevScore + score);
+            updateScore(score);
             updateFeedback(feedbackMessage, feedbackColor);
 
             // Desactivar la interacción con todos los botones
@@ -110,11 +109,58 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
                 }
             });
 
-            // Verificar si el puntaje es menor a 50
-            if (score < 50) {
-                showRetryButton(true);
+            // Si no es la última escena, mostrar botón "Siguiente"
+            if (!isFinalScene) {
+                const nextButton = this.add.text(400, 250, 'Siguiente', {
+                    fontSize: '24px',
+                    fill: '#ffffff',
+                    backgroundColor: '#7966ab',
+                    padding: { x: 20, y: 10 }
+                }).setInteractive().setOrigin(0.5);
+
+                nextButton.on('pointerdown', () => {
+                    // Limpiar feedback anterior
+                    updateFeedback('', '');
+                    proceedToNextScene();
+                    if (gameInstance) {
+                        gameInstance.destroy(true); // Destruir el juego para avanzar a la siguiente escena
+                    }
+                });
             } else {
-                showRetryButton(false);
+                // En la última escena, mostrar mensaje de finalización basado en el puntaje
+                const finalMessageText = finalScore >= 60
+                    ? '¡Felicidades! Has completado el juego.'
+                    : 'Puntaje ideal no alcanzado.';
+
+                const finalMessage = this.add.text(400, 250, finalMessageText, {
+                    fontSize: '20px',
+                    fill: '#ffffff',
+                    backgroundColor: finalScore >= 60 ? '#6aa84f' : '#ff0000',
+                    padding: { x: 20, y: 10 }
+                }).setOrigin(0.5);
+
+                if (finalScore < 60) {
+                    // Mostrar botón de "Volver a Intentarlo"
+                    const retryButton = this.add.text(400, 200, 'Volver a Intentarlo', {
+                        fontSize: '20px',
+                        fill: '#ffffff',
+                        backgroundColor: '#ff0000',
+                        padding: { x: 20, y: 10 }
+                    }).setInteractive().setOrigin(0.5);
+
+                    retryButton.on('pointerdown', () => {
+                        if (gameInstance) {
+                            gameInstance.destroy(true); // Destruir el juego actual
+                        }
+                        restartGame(); // Reiniciar el juego desde la escena 1
+                    });
+                } else {
+                    setTimeout(() => {
+                        if (gameInstance) {
+                            gameInstance.destroy(true);
+                        }
+                    }, 4000); // Esperar un poco antes de destruir el juego para que el mensaje se vea
+                }
             }
         }
 
@@ -125,7 +171,7 @@ const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
                 gameInstance.destroy(true);
             }
         };
-    }, [updateFeedback, updateScore, showRetryButton]);
+    }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame]);
 
     return <div id="game-container" className="w-[800px] h-[300px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
