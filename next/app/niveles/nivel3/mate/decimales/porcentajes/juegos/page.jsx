@@ -1,4 +1,4 @@
-// Página de inicio de lo juegos de convesion / Nivel 2
+// Página de inicio de lo juegos de porcentajes / Nivel 3
 "use client"
 import React, { useState } from "react";
 import Link from "next/link";
@@ -24,14 +24,14 @@ export default function PageGame() {
     <main className="container mx-auto">
       {/* Volver */}
       <div className="mt-2 ml-10 inline-block">
-        <Link href="/niveles/nivel2/mate/decimales/conversion">
+        <Link href="/niveles/nivel3/mate/decimales/porcentajes">
           <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
         </Link>
       </div>
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de conversión entre fracciones y números decimales!</h2>
-        <img src="/img/niveles/mate/introfig.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
+        <img src="/img/niveles/mate/figsumres.jpg" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 
@@ -42,7 +42,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl2/mate/decimales/conversion/game1")}
+          onClick={() => openModal("Términos de la Suma", "/games/lvl3/mate/decimales/porcentajes/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl2/mate/decimales/conversion/game2")}
+          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl3/mate/decimales/porcentajes/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl2/mate/decimales/conversion/game3")}
+          onClick={() => openModal("Sumas Flotantes", "/games/lvl3/mate/decimales/porcentajes/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl2/mate/decimales/conversion/game4")}
+          onClick={() => openModal("Sumas Avanzada", "/games/lvl3/mate/decimales/porcentajes/game4")}
         >
           Juego 4
         </div>

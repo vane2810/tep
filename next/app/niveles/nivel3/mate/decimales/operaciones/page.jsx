@@ -1,4 +1,4 @@
-// Página de contenido de operaciones básicas de fracciones - Nivel 3
+// Página de contenido de decimales en la vida cotidiana- Nivel 3
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
@@ -99,7 +99,11 @@ export default function OperacionesPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
+<<<<<<< HEAD
         subjectName="Operaciones con fracciones"
+=======
+        subjectName="Conversión entre fracciones y números decimales"
+>>>>>>> 249cf6fb38778f09903c764952174c57eb9f20ec
         continueLink="/niveles/nivel3/mate/decimales/operaciones/juegos"
       />
     </main>

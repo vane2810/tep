@@ -41,7 +41,7 @@ export default function MatematicaPage() {
 
   return (
     <main>
-      {/* Bienvenida de Donkey */}
+      {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
         <div className="bg-purple-200 py-8">
@@ -63,7 +63,7 @@ export default function MatematicaPage() {
         <SeparadorMorado />
       </section>
 
-      {/* Suma */}
+      {/* Operaciones con fracciones */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -80,7 +80,7 @@ export default function MatematicaPage() {
         <SeparadorRosa />
       </section>
 
-      {/* Resta */}
+      {/* Números decimales en la vida cotidiana*/}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -97,7 +97,7 @@ export default function MatematicaPage() {
         <SeparadorVerde />
       </section>
 
-      {/* Multiplicación */}
+      {/* Porcentajes y su relación con decimales y fracciones*/}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
@@ -114,7 +114,7 @@ export default function MatematicaPage() {
         <SeparadorCeleste />
       </section>
 
-      {/* División */}
+      {/* Resolución de Problemas con Números Decimales y Fracciones */}
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
