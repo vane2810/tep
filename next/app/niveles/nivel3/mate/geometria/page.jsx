@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Introducción a las coordenadas cartesianas y cómo ubicar puntos en un plano utilizando pares ordenados de números.
             </p>
-            <Link href="/niveles/nivel1/mate/geometria/coordenadas">
+            <Link href="/niveles/nivel3/mate/geometria/coordenadas">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Ubica puntos!</button>
             </Link>
           </div>

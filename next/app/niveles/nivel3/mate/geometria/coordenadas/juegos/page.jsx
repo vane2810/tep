@@ -24,14 +24,14 @@ export default function PageGame() {
     <main className="container mx-auto">
       {/* Volver */}
       <div className="mt-2 ml-10 inline-block">
-        <Link href="/niveles/nivel2/mate/decimales/conversion">
+        <Link href="/niveles/nivel3/mate/geometria/coordenadas">
           <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
         </Link>
       </div>
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de conversión entre fracciones y números decimales!</h2>
-        <img src="/img/niveles/mate/introfig.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
+        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de coordenadas en el plano!</h2>
+        <img src="/img/niveles/mate/figangu.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 
