@@ -24,7 +24,7 @@ export default function EquivalentePage() {
           <div className="flex flex-col items-center justify-center mb-5 text-center">
             <div className="flex items-center justify-center">
               <img src="/img/niveles/mate/figsumres.jpg" alt="Animated Image" className="h-64 w-auto mr-4" />
-              <p className="text-black super text-[40px] max-w-lg">PORCENTAJES Y SU RELACIÓN CON DECIMALES Y FRACCIOONES</p>
+              <p className="text-black super text-[40px] max-w-lg">PORCENTAJES Y SU RELACIÓN CON DECIMALES Y FRACCIONES</p>
             </div>
           </div>
         </div>

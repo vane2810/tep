@@ -47,7 +47,7 @@ export default function MatematicaPage() {
         <div className="bg-purple-200 py-8">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate">
+            <Link href="/niveles/nivel3/mate">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
@@ -71,7 +71,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Aplicar el Teorema de Pitágoras para encontrar la longitud de los lados en triángulos rectángulos, utilizando la relación entre los catetos y la hipotenusa.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/suma">
+            <Link href="/niveles/nivel3/mate/geometria/pitagoras">
               <button className="mt-4 px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-300">¡Calculemos hipotenusas!</button>
             </Link>
           </div>
@@ -84,11 +84,11 @@ export default function MatematicaPage() {
       <section className="my-10 px-4">
         <div className="flex flex-col md:flex-row items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
-            <h2 className="text-xl md:text-2xl font-semibold">Área y volumen de cuerpos</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Área y perimetro de cuerpos</h2>
             <p className="mt-2 text-black text-sm md:text-base">
             Cálculo del área y volumen de figuras tridimensionales como pirámides y esferas, aplicando fórmulas específicas para cada figura.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/resta">
+            <Link href="/niveles/nivel3/mate/geometria/area_perimetro">
               <button className="mt-4 px-4 py-2 bg-green-500 text-black rounded hover:bg-green-300">¡Calcula áreas y volúmenes!</button>
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function MatematicaPage() {
             <p className="mt-2 text-black text-sm md:text-base">
             Introducción a las coordenadas cartesianas y cómo ubicar puntos en un plano utilizando pares ordenados de números.
             </p>
-            <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion">
+            <Link href="/niveles/nivel1/mate/geometria/coordenadas">
               <button className="mt-4 px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-300">¡Ubica puntos!</button>
             </Link>
           </div>
