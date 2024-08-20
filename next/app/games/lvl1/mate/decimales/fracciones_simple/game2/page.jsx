@@ -1,4 +1,3 @@
-// Juego 2 - Fracciones simpless- Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -6,9 +5,8 @@ import Game1Modal from '@/components/modals/games/mate/decimales/game2Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
-
-//Importación de juego
-const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/fraccciones_simples/game2'), { ssr: false });
+// Importación de juego
+const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -35,7 +33,6 @@ const GamePage2 = () => {
 
   const updateScore = (newScore) => {
     setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
     if (newScore <= 50) {
       setShowRetry(true);
     } else {
@@ -44,7 +41,6 @@ const GamePage2 = () => {
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
     setScore(0); 
@@ -57,7 +53,7 @@ const GamePage2 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/decimales/fracciones_simples/juegos">
+          <Link href="/niveles/nivel1/mate/decimales/cual_es_mayor/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -65,7 +61,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figfrasim.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/greater_number.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -85,11 +81,11 @@ const GamePage2 = () => {
       </div>
 
       {/* Modal de Indicaciones */}
-      <Game1Modal
+      <GameModal
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/figfrasim.png"
+        imageUrl="/img/niveles/mate/greater_number.png"
         subtitle="Decimales"
       />
 
@@ -97,8 +93,8 @@ const GamePage2 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
-            <Game2 
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Cuál es mayor?</h1>
+            <GreaterNumberGame 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
