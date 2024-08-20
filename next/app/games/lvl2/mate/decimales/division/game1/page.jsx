@@ -1,4 +1,4 @@
-// Juego 1 - Division de decimales - Nivel 1
+// Juego 1 - Division de Decimales - Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/division/game1'), { ssr: false });
 
 const GamePage1 = () => {
@@ -34,9 +34,8 @@ const GamePage1 = () => {
   };
 
   const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
+    setScore(prevScore => prevScore + newScore);
+    if (prevScore + newScore <= 50) {
       setShowRetry(true);
     } else {
       setShowRetry(false);
@@ -97,7 +96,7 @@ const GamePage1 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">División de Decimales</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 

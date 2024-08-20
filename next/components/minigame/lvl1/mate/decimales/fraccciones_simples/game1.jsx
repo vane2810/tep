@@ -1,4 +1,4 @@
-// Juego 1 - Fracciones Simples - Nivel 1
+//
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
@@ -10,7 +10,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         const config = {
             type: Phaser.AUTO,
             width: 800,
-            height: 450, // Altura ligeramente aumentada
+            height: 450, 
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -32,77 +32,49 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         let correctAnswer;
 
         function preload() {
-            this.load.image('background', '/img/games/mate/ob/game1.jpg');
+            // No es necesario cargar imágenes
         }
 
         function createScene() {
-            // Ajustar el fondo a todo el ancho y alto del juego
-            const background = this.add.image(400, 225, 'background'); // Centrar el fondo
-            background.setDisplaySize(config.width, config.height); // Ajustar al nuevo tamaño
-
             generateQuestion.call(this);
         }
 
-       function generateQuestion() {
-    const denominator = Phaser.Math.Between(2, 5); // Denominador entre 2 y 5
-    const numerator = Phaser.Math.Between(1, denominator - 1); // Numerador menor que el denominador
+        function generateQuestion() {
+            const denominator = Phaser.Math.Between(2, 5); // Denominador entre 2 y 5
+            const numerator = Phaser.Math.Between(1, denominator - 1); // Numerador menor que el denominador
 
-    correctAnswer = `${numerator}/${denominator}`;
+            correctAnswer = `${numerator}/${denominator}`;
 
-    // Dibujar el círculo y dividirlo en partes
-    const graphics = this.add.graphics({ lineStyle: { width: 2, color: 0xffffff } });
+            // Mostrar la pregunta
+            this.add.text(400, 150, `¿Cuál es la fracción que tiene el numerador ${numerator} y denominador ${denominator}?`, {
+                fontSize: '20px',
+                fill: '#ffffff',
+                align: 'center',
+                backgroundColor: '#7966ab',
+                padding: { x: 20, y: 10 },
+                fontWeight: 'bold'
+            }).setOrigin(0.5);
 
-    const radius = 60;
-    const centerX = 400;
-    const centerY = 150;
+            // Generar una respuesta incorrecta que no sea igual a la correcta
+            let wrongNumerator;
+            do {
+                wrongNumerator = Phaser.Math.Between(1, denominator - 1);
+            } while (wrongNumerator === numerator);
 
-    // Dibujar el círculo completo
-    graphics.strokeCircle(centerX, centerY, radius);
+            const wrongAnswer = `${wrongNumerator}/${denominator}`;
+            const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer]);
 
-    // Dibujar las divisiones del círculo
-    for (let i = 0; i < denominator; i++) {
-        const startAngle = (i / denominator) * Phaser.Math.PI2;
-        const endAngle = ((i + 1) / denominator) * Phaser.Math.PI2;
+            options.forEach((option, index) => {
+                const button = this.add.text(300 + (index * 200), 250, option, {
+                    fontSize: '30px',
+                    fill: '#000000',
+                    backgroundColor: '#ffffff',
+                    padding: { x: 10, y: 5 }
+                }).setInteractive().setOrigin(0.5);
 
-        const color = i < numerator ? 0x6aa84f : 0xffffff; // Colorear las secciones correspondientes al numerador
-
-        graphics.fillStyle(color, 1);
-        graphics.slice(centerX, centerY, radius, startAngle, endAngle, false);
-        graphics.fillPath();
-        graphics.strokePath();
-    }
-
-    // Mostrar la pregunta
-    this.add.text(400, 250, `Selecciona la fracción que representa la parte coloreada:`, {
-        fontSize: '20px',
-        fill: '#ffffff',
-        align: 'center',
-        backgroundColor: '#7966ab',
-        padding: { x: 20, y: 10 },
-        fontWeight: 'bold'
-    }).setOrigin(0.5);
-
-    // Generar una respuesta incorrecta que no sea igual a la correcta
-    let wrongNumerator;
-    do {
-        wrongNumerator = Phaser.Math.Between(1, denominator - 1);
-    } while (wrongNumerator === numerator);
-
-    const wrongAnswer = `${wrongNumerator}/${denominator}`;
-    const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer]);
-
-    options.forEach((option, index) => {
-        const button = this.add.text(300 + (index * 200), 300, option, {
-            fontSize: '30px',
-            fill: '#000000',
-            backgroundColor: '#ffffff',
-            padding: { x: 10, y: 5 }
-        }).setInteractive().setOrigin(0.5);
-
-        button.on('pointerdown', () => checkAnswer.call(this, option, button));
-    });
-}
-
+                button.on('pointerdown', () => checkAnswer.call(this, option, button));
+            });
+        }
 
         function checkAnswer(selectedOption, button) {
             let feedbackMessage = '';
