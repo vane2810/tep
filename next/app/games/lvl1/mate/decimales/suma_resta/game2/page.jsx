@@ -1,4 +1,4 @@
-// Juego 2 - Suma y Resta de decimales- Nivel 1
+// Juego 2 - Suma y Resta de decimales - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,13 +7,14 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/suma_resta/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Estado para manejar el color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
@@ -29,8 +30,9 @@ const GamePage2 = () => {
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, isCorrect) => {
     setFeedback(newFeedback);
+    setFeedbackColor(isCorrect ? '#6aa84f' : '#ff0000'); // Verde para correcto, rojo para incorrecto
   };
 
   const updateScore = (newScore) => {
@@ -105,16 +107,9 @@ const GamePage2 = () => {
               showRetryButton={setShowRetry} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
-              {showRetry && (
-                <button 
-                  onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
-                >
-                  Volver a Intentarlo
-                </button>
-              )}
+             
             </div>
           </div>
         </section>
