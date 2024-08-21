@@ -1,3 +1,4 @@
+// Juego 2 - Intro de decimales - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';

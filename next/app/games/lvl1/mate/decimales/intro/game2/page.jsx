@@ -1,3 +1,4 @@
+// Juego 2 - Intro de deicmales - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
