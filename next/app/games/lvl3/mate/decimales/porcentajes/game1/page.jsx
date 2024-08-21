@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación del juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl3/mate/decimales/porcentajes/game1'), { ssr: false });
 
 const GamePage1 = () => {
@@ -15,6 +15,7 @@ const GamePage1 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
+  const [currentScene, setCurrentScene] = useState(1);
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
 
@@ -27,6 +28,7 @@ const GamePage1 = () => {
     setFeedback(''); 
     setScore(0); 
     setShowRetry(false); 
+    setCurrentScene(1); 
   };
 
   const updateFeedback = (newFeedback) => {
@@ -34,21 +36,32 @@ const GamePage1 = () => {
   };
 
   const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+    setScore(prevScore => prevScore + newScore);
+  };
+
+  const proceedToNextScene = () => {
+    if (currentScene < 5) {
+      setCurrentScene(prevScene => prevScene + 1); 
+      setGameKey(prevKey => prevKey + 1); 
     } else {
-      setShowRetry(false);
+      if (score >= 60) {
+        setFeedback('¡Felicidades! Has completado todas las escenas.');
+        setShowRetry(false);
+      } else {
+        setFeedback('No alcanzaste el puntaje necesario. Debes volver a intentarlo.');
+        setShowRetry(true);
+      }
+      setGameStarted(false); 
     }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
     setScore(0); 
     setShowRetry(false); 
+    setCurrentScene(1); 
+    setGameStarted(true); 
   };
 
   return (
@@ -65,7 +78,7 @@ const GamePage1 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figsumres.jpg" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figsumres.jpg" alt="Porcentajes, Decimales y Fracciones" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -90,21 +103,25 @@ const GamePage1 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figsumres.jpg"
-        subtitle="Decimales"
+        subtitle="Porcentajes, Decimales y Fracciones"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Aplicación de Porcentajes y Decimales</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              isFinalScene={currentScene === 5}
+              finalScore={score}
+              restartGame={handleRetry}
             />
             <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene} de 5</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (

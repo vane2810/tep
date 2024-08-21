@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const GameDecimalsInRealLife = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
+const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
@@ -188,4 +188,4 @@ const GameDecimalsInRealLife = ({ updateFeedback, updateScore, proceedToNextScen
     return <div id="game-container" className="w-[800px] h-[450px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default GameDecimalsInRealLife;
+export default Game1;

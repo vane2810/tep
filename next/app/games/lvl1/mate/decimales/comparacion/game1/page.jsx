@@ -66,7 +66,7 @@ const GamePage1 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/decimales/intro/juegos">
+          <Link href="/niveles/nivel1/mate/decimales/comparacion/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -74,7 +74,7 @@ const GamePage1 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/compafig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -98,7 +98,7 @@ const GamePage1 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/introfig.png"
+        imageUrl="/img/niveles/mate/compafig.png"
         subtitle="¿Mayor, Menor o Igual?"
       />
 

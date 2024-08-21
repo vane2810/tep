@@ -1,4 +1,4 @@
-// Juego 4 - Comparacion de decimales - Nivel 1
+// Juego 4 - Comparación de Decimales - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game4 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/comparacion/game4'), { ssr: false });
 
 const GamePage4 = () => {
@@ -15,8 +15,9 @@ const GamePage4 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
+  const [currentScene, setCurrentScene] = useState(1);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [gameKey, setGameKey] = useState(0);
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,9 +25,10 @@ const GamePage4 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setScore(0);
+    setShowRetry(false);
+    setCurrentScene(1);
   };
 
   const updateFeedback = (newFeedback) => {
@@ -34,21 +36,32 @@ const GamePage4 = () => {
   };
 
   const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+    setScore(prevScore => prevScore + newScore);
+  };
+
+  const proceedToNextScene = () => {
+    if (currentScene < 6) {
+      setCurrentScene(prevScene => prevScene + 1);
+      setGameKey(prevKey => prevKey + 1);
     } else {
-      setShowRetry(false);
+      if (score >= 200) {
+        setFeedback('¡Felicidades! Has completado todas las escenas.');
+        setShowRetry(false);
+      } else {
+        setFeedback('No alcanzaste el puntaje necesario. Debes volver a intentarlo.');
+        setShowRetry(true);
+      }
+      setGameStarted(false);
     }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setScore(0);
+    setShowRetry(false);
+    setCurrentScene(1);
+    setGameStarted(true);
   };
 
   return (
@@ -97,14 +110,19 @@ const GamePage4 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Comparación de Decimales</h1>
             <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              isFinalScene={currentScene === 6}
+              finalScore={score}
+              restartGame={handleRetry}
+              currentScene={currentScene} // Pasar la escena actual al componente del juego
             />
             <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene} de 6</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
