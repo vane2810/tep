@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game4 = dynamic(() => import('@/components/minigame/lvl3/mate/decimales/porcentajes/game4'), { ssr: false });
 
 const GamePage4 = () => {
@@ -16,7 +16,7 @@ const GamePage4 = () => {
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [gameKey, setGameKey] = useState(0);
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,9 +24,9 @@ const GamePage4 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setScore(0);
+    setShowRetry(false);
   };
 
   const updateFeedback = (newFeedback) => {
@@ -46,9 +46,9 @@ const GamePage4 = () => {
   const handleRetry = () => {
     // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setScore(0);
+    setShowRetry(false);
   };
 
   return (
@@ -97,19 +97,19 @@ const GamePage4 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
-            <Game4 
-              key={gameKey} 
-              updateFeedback={updateFeedback} 
-              updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+            <h1 className="text-3xl font-bold mb-4 text-center">Porcentajes y Decimales</h1>
+            <Game4
+              key={gameKey}
+              updateFeedback={updateFeedback}
+              updateScore={updateScore}
+              showRetryButton={setShowRetry}
             />
             <div className="mt-8">
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
-                <button 
-                  onClick={handleRetry} 
+                <button
+                  onClick={handleRetry}
                   className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
                 >
                   Volver a Intentarlo
@@ -126,3 +126,4 @@ const GamePage4 = () => {
 };
 
 export default GamePage4;
+

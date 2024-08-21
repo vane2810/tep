@@ -12,12 +12,12 @@ const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
   const [showCompletionMessage, setShowCompletionMessage] = useState(false);
 
   const questions = [
-    { question: '¿Qué fracción representa 1/2?', correctAnswer: '0.5' },
-    { question: 'Convierte 3/4 en decimal', correctAnswer: '0.75' },
-    { question: '¿Qué fracción representa 1/4?', correctAnswer: '0.25' },
+    { question: '¿Qué decimal representa 1/2?', correctAnswer: '0.5' },
+    { question: 'Convierte 7/2 en decimal', correctAnswer: '3.5' },
+    { question: '¿Qué decimal representa 1/4?', correctAnswer: '0.25' },
     { question: 'Convierte 2/5 en decimal', correctAnswer: '0.4' },
     { question: '¿Qué fracción representa 3/5?', correctAnswer: '0.6' },
-    { question: 'Convierte 1/8 en decimal', correctAnswer: '0.125' }
+    { question: 'Convierte 8/10 en decimal', correctAnswer: '0.8' }
   ];
 
   useEffect(() => {
@@ -154,7 +154,7 @@ const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
             onClick={handleNextScene}
             style={{
               fontSize: '24px',
-              backgroundColor: '#4CAF50',
+              backgroundColor: '#7966ab',
               color: 'white',
               padding: '10px 20px',
               border: 'none',
