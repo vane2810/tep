@@ -1,4 +1,4 @@
-// Juego 1 - Multiplicación de Fracciones - Nivel 2
+// Juego 1 - Multiplicación de Decimales - Nivel 2
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
@@ -44,22 +44,19 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         }
 
         function generateQuestion() {
-            const numerator1 = Phaser.Math.Between(1, 5);
-            const denominator1 = Phaser.Math.Between(2, 5);
-            const numerator2 = Phaser.Math.Between(1, 5);
-            const denominator2 = Phaser.Math.Between(2, 5);
+            const decimal1 = (Phaser.Math.Between(10, 30) / 10).toFixed(1);
+            const decimal2 = (Phaser.Math.Between(10, 30) / 10).toFixed(1);
 
-            const correctNumerator = numerator1 * numerator2;
-            const correctDenominator = denominator1 * denominator2;
+            const correctProduct = (decimal1 * decimal2).toFixed(2);
 
-            correctAnswer = `${correctNumerator}/${correctDenominator}`;
+            correctAnswer = `${correctProduct}`;
 
-            const wrongAnswer = `${correctNumerator + Phaser.Math.Between(1, 2)}/${correctDenominator + Phaser.Math.Between(1, 2)}`;
+            const wrongAnswer = (correctProduct * (1 + Phaser.Math.Between(1, 2) / 10)).toFixed(2);
 
             const questions = [correctAnswer, wrongAnswer].sort(() => Math.random() - 0.5); // Mezclar respuestas
 
             // Mostrar la instrucción
-            this.add.text(400, 50, `Multiplica las fracciones ${numerator1}/${denominator1} * ${numerator2}/${denominator2}`, {
+            this.add.text(400, 50, `Multiplica los decimales ${decimal1} * ${decimal2}`, {
                 fontSize: '22px',
                 fill: '#ffffff',
                 align: 'center',

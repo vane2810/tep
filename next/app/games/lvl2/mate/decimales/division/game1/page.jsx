@@ -1,4 +1,3 @@
-// Juego 1 - Division de Decimales - Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -15,6 +14,7 @@ const GamePage1 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
+  const [currentScene, setCurrentScene] = useState(1); 
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
 
@@ -27,27 +27,43 @@ const GamePage1 = () => {
     setFeedback(''); 
     setScore(0); 
     setShowRetry(false); 
+    setCurrentScene(1);
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, feedbackColor) => {
     setFeedback(newFeedback);
   };
 
   const updateScore = (newScore) => {
-    setScore(prevScore => prevScore + newScore);
-    if (prevScore + newScore <= 50) {
-      setShowRetry(true);
+    setScore(prevScore => {
+      const updatedScore = prevScore + newScore;
+      return updatedScore;
+    });
+  };
+
+  const proceedToNextScene = () => {
+    if (currentScene < 5) {
+      setCurrentScene(prevScene => prevScene + 1); 
+      setGameKey(prevKey => prevKey + 1); 
     } else {
-      setShowRetry(false);
+      if (score >= 60) {
+        setFeedback('¡Felicidades! Has completado todas las escenas.');
+        setShowRetry(true);
+      } else {
+        setFeedback('No alcanzaste el puntaje necesario. Debes volver a intentarlo.');
+        setShowRetry(false);
+      }
+      setGameStarted(false); 
     }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
     setScore(0); 
     setShowRetry(false); 
+    setCurrentScene(1); 
+    setGameStarted(true); 
   };
 
   return (
@@ -101,9 +117,13 @@ const GamePage1 = () => {
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              isFinalScene={currentScene === 5}
+              finalScore={score}
+              restartGame={handleRetry}
             />
             <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene} de 5</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (

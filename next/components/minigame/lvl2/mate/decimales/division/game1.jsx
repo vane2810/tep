@@ -1,4 +1,4 @@
-// Juego 1 - Division de Decimales - Nivel 2
+// Juego 1 - División de decimales -  Nivel 2
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
@@ -44,18 +44,20 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         }
 
         function generateQuestion() {
-            const numerator1 = Phaser.Math.Between(1, 20);
-            const numerator2 = Phaser.Math.Between(1, 20);
+            const decimal1 = (Phaser.Math.Between(10, 30) / 10).toFixed(1); // Un decimal con una cifra
+            const decimal2 = 2; // Mantener el divisor constante para simplicidad
 
-            const correctAnswerValue = (numerator1 / numerator2).toFixed(2);
-            correctAnswer = `${correctAnswerValue}`;
+            const correctQuotient = (decimal1 / decimal2).toFixed(1); // Resultado simple
 
-            // Generar una respuesta incorrecta
-            const wrongAnswerValue = (parseFloat(correctAnswerValue) + Phaser.Math.FloatBetween(0.1, 1)).toFixed(2);
-            const questions = [correctAnswer, wrongAnswerValue].sort(() => Math.random() - 0.5); // Mezclar respuestas
+            correctAnswer = `${correctQuotient}`;
+
+            // Generar una respuesta incorrecta plausible
+            const wrongAnswer = ((parseFloat(correctQuotient) + Phaser.Math.FloatBetween(0.1, 0.9)).toFixed(1));
+
+            const questions = [correctAnswer, wrongAnswer].sort(() => Math.random() - 0.5); // Mezclar respuestas
 
             // Mostrar la instrucción
-            this.add.text(400, 50, `Divide los números ${numerator1} ÷ ${numerator2}`, {
+            this.add.text(400, 50, `Divide ${decimal1} ÷ ${decimal2}`, {
                 fontSize: '22px',
                 fill: '#ffffff',
                 align: 'center',
@@ -66,7 +68,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
 
             // Mostrar las opciones como botones interactivos
             questions.forEach((num, index) => {
-                const button = this.add.text(250 + (index * 300), 150, num, {
+                const button = this.add.text(350 + (index * 100), 150, num, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -84,18 +86,19 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
 
             if (selectedNum === correctAnswer) {
                 score = 15; // 15 estrellas por escena correcta
-                feedbackMessage = '¡Correcto! Has seleccionado la respuesta correcta.';
+                feedbackMessage = '¡Correcto! Buen trabajo.';
                 feedbackColor = '#6aa84f'; // Verde para correcto
                 button.setStyle({ fill: feedbackColor });
             } else {
                 score = 0; // Respuesta incorrecta
-                feedbackMessage = 'Incorrecto. Inténtalo de nuevo.';
+                feedbackMessage = 'Incorrecto. ¡Inténtalo de nuevo!';
                 feedbackColor = '#ff0000'; // Rojo para incorrecto
                 button.setStyle({ fill: feedbackColor });
             }
 
+            // Actualizar el feedback con el color apropiado
+            updateFeedback(<span style={{ color: feedbackColor }}>{feedbackMessage}</span>);
             updateScore(score);
-            updateFeedback(feedbackMessage, feedbackColor);
 
             // Desactivar la interacción con todos los números
             this.children.getAll().forEach(child => child.disableInteractive());
@@ -110,7 +113,6 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                 }).setInteractive().setOrigin(0.5);
 
                 nextButton.on('pointerdown', () => {
-                    // Limpiar feedback anterior
                     updateFeedback('', '');
                     proceedToNextScene();
                     if (gameInstance) {
@@ -118,10 +120,9 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                     }
                 });
             } else {
-                // En la última escena, mostrar mensaje de finalización basado en el puntaje
                 const finalMessageText = finalScore >= 60
                     ? '¡Felicidades! Has completado el juego.'
-                    : 'Puntaje ideal no alcanzado.';
+                    : 'No alcanzaste el puntaje necesario';
 
                 const finalMessage = this.add.text(400, 250, finalMessageText, {
                     fontSize: '20px',
@@ -131,7 +132,6 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                 }).setOrigin(0.5);
 
                 if (finalScore < 60) {
-                    // Mostrar botón de "Volver a Intentarlo"
                     const retryButton = this.add.text(400, 200, 'Volver a Intentarlo', {
                         fontSize: '20px',
                         fill: '#ffffff',
@@ -150,7 +150,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                         if (gameInstance) {
                             gameInstance.destroy(true);
                         }
-                    }, 4000); // Esperar un poco antes de destruir el juego para que el mensaje se vea
+                    }, 4000);
                 }
             }
         }

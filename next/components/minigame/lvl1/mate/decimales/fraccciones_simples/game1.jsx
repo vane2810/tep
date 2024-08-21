@@ -1,4 +1,4 @@
-//
+//Juego 1 - Fracciones simples - Nivel 2
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
@@ -9,8 +9,8 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
-            width: 800,
-            height: 450, 
+            width: 800, // Ancho ajustado de la escena
+            height: 450, // Alto ajustado de la escena
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -32,10 +32,14 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         let correctAnswer;
 
         function preload() {
-            // No es necesario cargar imágenes
+            this.load.image('background', '/img/games/mate/ob/game1.jpg'); // Ruta de la imagen de fondo
         }
 
         function createScene() {
+            // Ajustar el fondo a todo el ancho y alto de la escena
+            const background = this.add.image(config.width / 2, config.height / 2, 'background');
+            background.setDisplaySize(config.width, config.height);
+
             generateQuestion.call(this);
         }
 
@@ -46,7 +50,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
             correctAnswer = `${numerator}/${denominator}`;
 
             // Mostrar la pregunta
-            this.add.text(400, 150, `¿Cuál es la fracción que tiene el numerador ${numerator} y denominador ${denominator}?`, {
+            this.add.text(config.width / 2, 100, `¿Cuál es la fracción que tiene el numerador ${numerator} y denominador ${denominator}?`, {
                 fontSize: '20px',
                 fill: '#ffffff',
                 align: 'center',
@@ -65,7 +69,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
             const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer]);
 
             options.forEach((option, index) => {
-                const button = this.add.text(300 + (index * 200), 250, option, {
+                const button = this.add.text(300 + (index * 200), 300, option, { // Posición ajustada a 300px desde la parte superior
                     fontSize: '30px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -104,7 +108,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
 
             // Si no es la última escena, mostrar botón "Siguiente"
             if (!isFinalScene) {
-                const nextButton = this.add.text(400, 350, 'Siguiente', {
+                const nextButton = this.add.text(config.width / 2, 350, 'Siguiente', { // Ajustado a 350px desde la parte superior
                     fontSize: '20px',
                     fill: '#ffffff',
                     backgroundColor: '#7966ab',
@@ -125,7 +129,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                     ? '¡Felicidades! Has completado el juego.'
                     : 'Puntaje ideal no alcanzado.';
 
-                const finalMessage = this.add.text(400, 350, finalMessageText, {
+                const finalMessage = this.add.text(config.width / 2, 350, finalMessageText, { // Ajustado a 350px desde la parte superior
                     fontSize: '20px',
                     fill: '#ffffff',
                     backgroundColor: finalScore >= 60 ? '#6aa84f' : '#ff0000',
@@ -134,7 +138,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
 
                 if (finalScore < 60) {
                     // Mostrar botón de "Volver a Intentarlo"
-                    const retryButton = this.add.text(400, 400, 'Volver a Intentarlo', {
+                    const retryButton = this.add.text(config.width / 2, 400, 'Volver a Intentarlo', { // Ajustado a 400px desde la parte superior
                         fontSize: '20px',
                         fill: '#ffffff',
                         backgroundColor: '#ff0000',
