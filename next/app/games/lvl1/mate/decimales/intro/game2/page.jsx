@@ -15,8 +15,7 @@ const GamePage2 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [correctCount, setCorrectCount] = useState(0); // Nuevo estado para contar las respuestas correctas
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,31 +23,25 @@ const GamePage2 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setScore(0);
+    setCorrectCount(0); // Reiniciar el conteo de respuestas correctas al comenzar el juego
   };
 
-  const updateFeedback = (newFeedback) => {
-    setFeedback(newFeedback);
+  const updateFeedback = (newFeedback, color) => {
+    setFeedback(<span style={{ color }}>{newFeedback}</span>);
   };
 
   const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
-    } else {
-      setShowRetry(false);
-    }
+    setScore((prevScore) => prevScore + newScore);
   };
 
-  const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
-    setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+  const incrementCorrectCount = () => {
+    setCorrectCount((prevCount) => prevCount + 1);
+  };
+
+  const finalizeGame = (finalScore) => {
+    setFeedback(`Juego finalizado! Puntuación total: ${finalScore}.`);
   };
 
   return (
@@ -65,7 +58,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Simples" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -89,32 +82,25 @@ const GamePage2 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/introfig.png"
-        subtitle="Decimales"
+        imageUrl="/img/niveles/mate/figfrasim.png"
+        subtitle="¿Cuál es mayor?"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
-            <Game2 
-              key={gameKey} 
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Cuál es mayor?</h1>
+            <Game2
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              finalizeGame={finalizeGame} 
+              incrementCorrectCount={incrementCorrectCount} // Pasar la función para incrementar respuestas correctas
             />
             <div className="mt-8">
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
-              {showRetry && (
-                <button 
-                  onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
-                >
-                  Volver a Intentarlo
-                </button>
-              )}
+              <p className="text-xl font-semibold">Respuestas correctas: {correctCount} de 5</p> {/* Nuevo apartado */}
             </div>
           </div>
         </section>

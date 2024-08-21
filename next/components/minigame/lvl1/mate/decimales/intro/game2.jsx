@@ -3,15 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game2 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
+const Game2 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCount }) => {
     const [gameInstance, setGameInstance] = useState(null);
-    const [currentScene, setCurrentScene] = useState(1);
 
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
             width: 800,
-            height: 300,
+            height: 600, // Aumentar altura para acomodar 5 filas
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -30,33 +29,45 @@ const Game2 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         const game = new Phaser.Game(config);
         setGameInstance(game);
 
-        let numbers = [];
-        let correctAnswer;
-        const pointsPerScene = 20; // Cada escena vale 20 puntos para un total de 100 puntos
+        let correctAnswers = [];
+        let score = 0; // Inicializamos la puntuación en 0
 
         function preload() {
-            this.load.image('background', '/img/games/mate/bg.jpg'); // Cambiar la ruta según la imagen que quieras usar
+            this.load.image('background', '/img/games/mate/ob/game1.jpg');
         }
 
         function createScene() {
-            // Ajustar el fondo a todo el ancho del juego
-            const background = this.add.image(400, 150, 'background');
+            const background = this.add.image(400, 300, 'background');
             background.setDisplaySize(config.width, config.height);
 
-            generateQuestion.call(this);
+            // Generar y mostrar las 5 filas de números
+            for (let i = 0; i < 5; i++) {
+                generateQuestion.call(this, i);
+            }
+
+            // Crear botón de Finalizar
+            const finishButton = this.add.text(400, 550, 'Finalizar', {
+                fontSize: '24px',
+                fill: '#ffffff',
+                backgroundColor: '#7966ab',
+                padding: { x: 20, y: 10 }
+            }).setInteractive().setOrigin(0.5);
+
+            finishButton.on('pointerdown', () => {
+                finalizeGame(score);
+            });
         }
 
-        function generateQuestion() {
-            // Generar dos números decimales aleatorios
+        function generateQuestion(rowIndex) {
             const num1 = (Phaser.Math.Between(1, 200) / 100).toFixed(2);
             const num2 = (Phaser.Math.Between(1, 200) / 100).toFixed(2);
 
-            numbers = [num1, num2];
-            correctAnswer = Math.max(num1, num2).toFixed(2); // Obtener el número mayor
+            const numbers = [num1, num2];
+            correctAnswers[rowIndex] = Math.max(num1, num2).toFixed(2);
 
-            // Mostrar la instrucción
-            this.add.text(400, 50, `Selecciona el número mayor`, {
-                fontSize: '22px',
+            // Mostrar la instrucción para la fila
+            this.add.text(400, 50 + rowIndex * 100, `Fila ${rowIndex + 1}: Selecciona el número mayor`, {
+                fontSize: '18px',
                 fill: '#ffffff',
                 align: 'center',
                 backgroundColor: '#7966ab',
@@ -66,84 +77,42 @@ const Game2 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
 
             // Mostrar los números como botones interactivos
             numbers.forEach((num, index) => {
-                const button = this.add.text(250 + (index * 300), 150, num, {
+                const button = this.add.text(300 + (index * 200), 100 + rowIndex * 100, num, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
                     padding: { x: 10, y: 5 }
                 }).setInteractive().setOrigin(0.5);
 
-                button.on('pointerdown', () => checkAnswer.call(this, num, button));
+                button.on('pointerdown', () => checkAnswer.call(this, num, rowIndex, button));
             });
         }
 
-        function checkAnswer(selectedNum, button) {
-            let score = 0;
-            let feedbackMessage = '';
-            let feedbackColor = '';
+        function checkAnswer(selectedNum, rowIndex, button) {
+            let feedbackMessage;
+            let feedbackColor;
 
-            if (selectedNum == correctAnswer) {
-                score = pointsPerScene; // Cada escena otorga 20 puntos por respuesta correcta
-                feedbackMessage = '¡Correcto! Has seleccionado el número mayor.';
+            if (selectedNum === correctAnswers[rowIndex]) {
+                score += 20; // Sumar 20 puntos a la puntuación total
+                incrementCorrectCount(); // Incrementar el contador de respuestas correctas en la vista
+                feedbackMessage = `¡Correcto! Has seleccionado el número mayor en la fila ${rowIndex + 1}.`;
                 feedbackColor = '#6aa84f'; // Verde para correcto
-                button.setStyle({ fill: feedbackColor });
+                button.setStyle({ fill: feedbackColor, backgroundColor: '#d9ead3' });
             } else {
-                feedbackMessage = 'Incorrecto. Inténtalo de nuevo.';
+                feedbackMessage = `Incorrecto. Inténtalo de nuevo en la fila ${rowIndex + 1}.`;
                 feedbackColor = '#ff0000'; // Rojo para incorrecto
-                button.setStyle({ fill: feedbackColor });
+                button.setStyle({ fill: feedbackColor, backgroundColor: '#f4cccc' });
             }
 
-            updateScore(score);
+            updateScore(score); // Actualizar la puntuación en la vista
             updateFeedback(feedbackMessage, feedbackColor);
 
-            // Desactivar la interacción con todos los números
-            numbers.forEach(() => {
-                button.disableInteractive();
-            });
-
-            // Si no es la última escena, mostrar botón "Siguiente"
-            if (currentScene < 5) {
-                const nextButton = this.add.text(400, 250, 'Siguiente', {
-                    fontSize: '24px',
-                    fill: '#ffffff',
-                    backgroundColor: '#7966ab',
-                    padding: { x: 20, y: 10 }
-                }).setInteractive().setOrigin(0.5);
-
-                nextButton.on('pointerdown', () => {
-                    setCurrentScene(currentScene + 1);
-                    proceedToNextScene(); // Avanzar a la siguiente escena
-                    this.scene.restart(); // Reiniciar la escena
-                });
-            } else {
-                // En la última escena, mostrar mensaje de finalización basado en el puntaje
-                const finalMessageText = finalScore >= 100
-                    ? '¡Felicidades! Has completado el juego con éxito.'
-                    : 'Puntaje ideal no alcanzado.';
-
-                const finalMessage = this.add.text(400, 250, finalMessageText, {
-                    fontSize: '20px',
-                    fill: '#ffffff',
-                    backgroundColor: finalScore >= 100 ? '#6aa84f' : '#ff0000',
-                    padding: { x: 20, y: 10 }
-                }).setOrigin(0.5);
-
-                if (finalScore < 100) {
-                    const retryButton = this.add.text(400, 200, 'Volver a Intentarlo', {
-                        fontSize: '20px',
-                        fill: '#ffffff',
-                        backgroundColor: '#ff0000',
-                        padding: { x: 20, y: 10 }
-                    }).setInteractive().setOrigin(0.5);
-
-                    retryButton.on('pointerdown', () => {
-                        if (gameInstance) {
-                            gameInstance.destroy(true); // Destruir el juego actual
-                        }
-                        restartGame(); // Reiniciar el juego desde la escena 1
-                    });
+            // Desactivar la interacción con todos los números en la fila actual
+            this.children.getAll().forEach((child) => {
+                if (child.y === button.y) {
+                    child.disableInteractive();
                 }
-            }
+            });
         }
 
         function update() { }
@@ -153,9 +122,9 @@ const Game2 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                 gameInstance.destroy(true);
             }
         };
-    }, [currentScene, updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame]);
+    }, [incrementCorrectCount, finalizeGame]);
 
-    return <div id="game-container" className="w-[800px] h-[300px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
+    return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
 export default Game2;
