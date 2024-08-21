@@ -1,4 +1,3 @@
-// Juego 2 - Comparacion de decimales - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/comparacion/game2'), { ssr: false });
 
 const GamePage2 = () => {
@@ -15,7 +14,7 @@ const GamePage2 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
+  const [showRetry, setShowRetry] = useState(false); // Estado para mostrar el botón "Volver a Intentar"
   const [gameKey, setGameKey] = useState(0); 
 
   const toggleInstructions = () => {
@@ -35,16 +34,9 @@ const GamePage2 = () => {
 
   const updateScore = (newScore) => {
     setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
-    } else {
-      setShowRetry(false);
-    }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
     setScore(0); 
