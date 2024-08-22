@@ -24,7 +24,7 @@ export default function PageGame() {
     <main className="container mx-auto">
       {/* Volver */}
       <div className="mt-2 ml-10 inline-block">
-        <Link href="/niveles/nivel1/mate/geometria/area"> 
+        <Link href="/niveles/nivel1/mate/geometria/angulos"> 
           <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
         </Link>
       </div>
