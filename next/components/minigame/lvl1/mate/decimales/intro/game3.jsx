@@ -36,7 +36,7 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
         const maxScore = 200; // Puntuación total al completar todos los pares (10 parejas = 200 puntos)
 
         function preload() {
-            this.load.image('background', '/img/games/mate/ob/game1.jpg');
+            this.load.image('background', '/img/games/mate/decimales/game3.jpg');
         }
 
         function createScene() {
@@ -55,7 +55,7 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
             decimalPairs = Phaser.Utils.Array.Shuffle(pairs); // Mezclar las tarjetas para mayor dificultad
 
             decimalPairs.forEach((value, index) => {
-                const card = this.add.text(80 + (index % 5) * 140, 80 + Math.floor(index / 5) * 80, value, {
+                const card = this.add.text(120 + (index % 5) * 140, 80 + Math.floor(index / 5) * 80, value, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',

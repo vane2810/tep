@@ -16,9 +16,13 @@ const GamePage3 = () => {
   const [feedback, setFeedback] = useState('');
   const [feedbackColor, setFeedbackColor] = useState('#000000'); // Color del feedback
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
+  const [currentScene, setCurrentScene] = useState(1);
+  const [showNextButton, setShowNextButton] = useState(false); // Controla la visibilidad del botón "Siguiente"
+  const [gameKey, setGameKey] = useState(0); 
 
-  const maxScore = 200; // Puntuación máxima al completar todas las rondas
+  const totalScenes = 5; // Número total de escenas
+  const pointsPerScene = 40; // Puntos por escena
+  const maxScore = pointsPerScene * totalScenes; // Puntuación máxima
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -29,7 +33,8 @@ const GamePage3 = () => {
     setFeedback(''); 
     setFeedbackColor('#000000');
     setScore(0); 
-    setShowRetry(false); 
+    setCurrentScene(1);
+    setShowNextButton(false); // Ocultar el botón al iniciar el juego
   };
 
   const updateFeedback = (newFeedback, color) => {
@@ -37,22 +42,33 @@ const GamePage3 = () => {
     setFeedbackColor(color); // Establecer el color del feedback
   };
 
-  const updateScore = (newScore) => {
-    setScore(newScore);
+  const updateScore = (points) => {
+    setScore(prevScore => prevScore + points);
+  };
+
+  const onCompleteScene = (sceneScore) => {
+    updateScore(sceneScore);
+    setShowNextButton(true); // Mostrar el botón "Siguiente" al completar la escena
+  };
+
+  const handleNextScene = () => {
+    if (currentScene < totalScenes) {
+      setCurrentScene(prevScene => prevScene + 1);
+      setGameKey(prevKey => prevKey + 1); // Reiniciar la escena
+      setShowNextButton(false); // Ocultar el botón después de pasar de escena
+      setFeedback(''); 
+    } else {
+      setGameStarted(false); // Terminar el juego si es la última escena
+    }
   };
 
   const handleRetry = () => {
-    setShowRetry(false);
     setFeedback(''); 
     setFeedbackColor('#000000');
     setScore(0); 
-    setGameStarted(false);
-  };
-
-  const onCompleteGame = () => {
-    if (score >= maxScore) {
-      setShowRetry(false); // Evitar mostrar el botón de reinicio si el juego se completa
-    }
+    setCurrentScene(1);
+    setGameKey(prevKey => prevKey + 1); 
+    setShowNextButton(false); // Ocultar el botón de "Siguiente" en el reinicio
   };
 
   return (
@@ -101,21 +117,23 @@ const GamePage3 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">¿Cuál número es mayor?</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Escena {currentScene} de {totalScenes}</h1>
             <Game3 
+              key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              onCompleteGame={onCompleteGame}
+              onCompleteScene={onCompleteScene}
+              isFinalScene={currentScene === totalScenes}
             />
             <div className="mt-8">
               <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}/{maxScore}</p>
-              {showRetry && (
+              {showNextButton && (
                 <button 
-                  onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
+                  onClick={handleNextScene} 
+                  className="mt-4 py-2 px-6 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
                 >
-                  Volver a Intentarlo
+                  Siguiente
                 </button>
               )}
             </div>
@@ -129,6 +147,3 @@ const GamePage3 = () => {
 };
 
 export default GamePage3;
-
-
-

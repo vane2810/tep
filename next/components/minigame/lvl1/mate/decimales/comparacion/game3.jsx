@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
+const Game3 = ({ updateFeedback, updateScore, onCompleteScene, isFinalScene }) => {
     const [gameInstance, setGameInstance] = useState(null);
-    const [currentRound, setCurrentRound] = useState(1); // Llevar la cuenta de las rondas
+    const [currentOrder, setCurrentOrder] = useState([]);
 
     useEffect(() => {
         const config = {
@@ -30,10 +30,9 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
         const game = new Phaser.Game(config);
         setGameInstance(game);
 
-        let totalScore = 0;
-        const scorePerRound = 20; // Puntos por ronda correcta
-        const maxRounds = 10; // Número máximo de rondas
-        const maxScore = scorePerRound * maxRounds; // Puntuación total al completar todas las rondas
+        let decimalNumbers = [];
+        let sceneScore = 0;
+        const scorePerCorrect = 40; // Puntos por escena completada
 
         function preload() {
             this.load.image('background', '/img/games/mate/ob/game1.jpg');
@@ -43,86 +42,60 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
             const background = this.add.image(400, 200, 'background');
             background.setDisplaySize(config.width, config.height);
 
-            startRound.call(this);
+            generateNumbers.call(this);
         }
 
-        function startRound() {
-            const num1 = (Phaser.Math.Between(1, 99) / 100).toFixed(2);
-            const num2 = (Phaser.Math.Between(1, 99) / 100).toFixed(2);
-            
-            this.add.text(400, 50, '¿Cuál número es mayor?', {
-                fontSize: '22px',
-                fill: '#ffffff',
-                align: 'center',
-                backgroundColor: '#7966ab',
-                padding: { x: 20, y: 10 },
-                fontWeight: 'bold'
-            }).setOrigin(0.5);
-
-            // Crear botones para las dos opciones
-            const option1 = this.add.text(250, 200, num1, {
-                fontSize: '28px',
-                fill: '#000000',
-                backgroundColor: '#ffffff',
-                padding: { x: 20, y: 10 }
-            }).setInteractive().setOrigin(0.5);
-
-            const option2 = this.add.text(550, 200, num2, {
-                fontSize: '28px',
-                fill: '#000000',
-                backgroundColor: '#ffffff',
-                padding: { x: 20, y: 10 }
-            }).setInteractive().setOrigin(0.5);
-
-            option1.on('pointerdown', () => evaluateAnswer.call(this, num1, num2, option1, option2));
-            option2.on('pointerdown', () => evaluateAnswer.call(this, num2, num1, option2, option1));
-        }
-
-        function evaluateAnswer(selectedNum, otherNum, selectedOption, otherOption) {
-            if (parseFloat(selectedNum) > parseFloat(otherNum)) {
-                updateFeedback('¡Correcto! ' + selectedNum + ' es mayor.', '#6aa84f'); // Feedback en verde
-                totalScore += scorePerRound;
-                updateScore(totalScore); // Actualizar la puntuación total
-                selectedOption.setStyle({ fill: '#6aa84f' });
-            } else {
-                updateFeedback('Incorrecto. ' + otherNum + ' es mayor.', '#ff0000'); // Feedback en rojo
-                selectedOption.setStyle({ fill: '#ff0000' });
+        function generateNumbers() {
+            decimalNumbers = [];
+            for (let i = 0; i < 5; i++) {  // Generar 5 números decimales
+                const num = (Phaser.Math.Between(1, 99) / 100).toFixed(2);
+                decimalNumbers.push(num);
             }
+            decimalNumbers.sort((a, b) => b - a); // Ordenar los números de mayor a menor
 
-            setTimeout(() => {
-                setCurrentRound((prevRound) => {
-                    if (prevRound < maxRounds) {
-                        clearScene.call(this);
-                        startRound.call(this);
-                        return prevRound + 1;
-                    } else {
-                        endGame.call(this);
-                        return prevRound;
-                    }
-                });
-            }, 1000);
+            decimalNumbers.forEach((value, index) => {
+                const card = this.add.text(160 + (index % 5) * 120, 150, value, {
+                    fontSize: '28px',
+                    fill: '#000000',
+                    backgroundColor: '#ffffff',
+                    padding: { x: 20, y: 10 }
+                }).setInteractive().setOrigin(0.5);
+
+                card.on('pointerdown', () => selectNumber.call(this, value, card));
+            });
         }
 
-        function clearScene() {
-            this.children.list.forEach(child => child.destroy()); // Limpiar la escena actual
-        }
+        function selectNumber(value, card) {
+            const correctNextValue = decimalNumbers[currentOrder.length];
 
-        function endGame() {
-            updateFeedback('¡Felicidades! Has completado el juego y obtenido ' + totalScore + ' puntos.', '#6aa84f');
-            onCompleteGame(); // Llamar a la función para finalizar el juego
+            if (parseFloat(value) === parseFloat(correctNextValue)) {
+                updateFeedback('¡Correcto!', '#6aa84f'); // Feedback en verde
+                sceneScore += scorePerCorrect / decimalNumbers.length; // 40 puntos distribuidos entre los 5 números
+                setCurrentOrder([...currentOrder, value]);
+                card.setStyle({ fill: '#6aa84f' });
+
+                if (currentOrder.length === decimalNumbers.length) {
+                    // Notificar a React que la escena se completó
+                    onCompleteScene(sceneScore);
+                }
+            } else {
+                updateFeedback('Incorrecto. Vuelve a intentarlo.', '#ff0000'); // Feedback en rojo
+                setTimeout(() => {
+                    onCompleteScene(0); // Notificar a React que la escena fue incorrecta
+                }, 1000);
+            }
         }
 
         function update() { }
 
         return () => {
             if (gameInstance) {
-                gameInstance.destroy(true);
+                gameInstance.destroy(true); // Destruir la instancia del juego al desmontar el componente
             }
         };
-    }, [updateFeedback, updateScore, onCompleteGame]);
+    }, [currentOrder, updateFeedback, updateScore, onCompleteScene, isFinalScene]);
 
     return <div id="game-container" className="w-[800px] h-[400px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
 export default Game3;
-
