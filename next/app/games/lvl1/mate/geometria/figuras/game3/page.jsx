@@ -1,4 +1,4 @@
-// Juego 3 - Introducción de decimales - Nivel 1
+// Juego 3 - Figuras - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -69,7 +69,7 @@ const GamePage3 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -93,7 +93,7 @@ const GamePage3 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/introfig.png"
+        imageUrl="/img/niveles/mate/figfig.png"
         subtitle="Introducción a los números decimales"
       />
 
