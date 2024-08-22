@@ -77,7 +77,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Simples" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -101,7 +101,7 @@ const GamePage2 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/figfrasim.png"
+        imageUrl="/img/niveles/mate/introfig.png"
         subtitle="¿Cuál es mayor?"
       />
 
