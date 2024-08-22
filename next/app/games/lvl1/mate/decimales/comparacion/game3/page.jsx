@@ -7,16 +7,18 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game3 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/comparacion/game3'), { ssr: false });
 
 const GamePage3 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+
+  const maxScore = 200; // Puntuación máxima al completar todas las rondas
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -25,30 +27,32 @@ const GamePage3 = () => {
   const startGame = () => {
     setGameStarted(true);
     setFeedback(''); 
+    setFeedbackColor('#000000');
     setScore(0); 
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, color) => {
     setFeedback(newFeedback);
+    setFeedbackColor(color); // Establecer el color del feedback
   };
 
   const updateScore = (newScore) => {
     setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
-    } else {
-      setShowRetry(false);
-    }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
-    setGameKey(prevKey => prevKey + 1);
+    setShowRetry(false);
     setFeedback(''); 
+    setFeedbackColor('#000000');
     setScore(0); 
-    setShowRetry(false); 
+    setGameStarted(false);
+  };
+
+  const onCompleteGame = () => {
+    if (score >= maxScore) {
+      setShowRetry(false); // Evitar mostrar el botón de reinicio si el juego se completa
+    }
   };
 
   return (
@@ -97,16 +101,15 @@ const GamePage3 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Cuál número es mayor?</h1>
             <Game3 
-              key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              onCompleteGame={onCompleteGame}
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
+              <p className="text-xl font-semibold">Estrellas: {score}/{maxScore}</p>
               {showRetry && (
                 <button 
                   onClick={handleRetry} 
@@ -126,3 +129,6 @@ const GamePage3 = () => {
 };
 
 export default GamePage3;
+
+
+
