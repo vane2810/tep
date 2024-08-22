@@ -24,10 +24,9 @@ const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
         <p className="text-2xl mb-4 font-bold">Juego: {subtitle.toLowerCase()}</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Arrastra los términos correctos hacia los espacios vacíos</li>
-          <li>2. Verifica colocar los términos en medio del espacio</li>
-          <li>3. Presiona "Comprobar" para verificar</li>
-          
+        <li>1. Observa la figura geométrica que aparece en la pantalla.</li>
+        <li>2. Haz clic en el nombre correcto de la figura debajo de la imagen.</li>
+        <li>3. Avanza a la siguiente figura al dar en "Siguiente"</li>
         </ol>
 
         <div className="flex space-x-4">
