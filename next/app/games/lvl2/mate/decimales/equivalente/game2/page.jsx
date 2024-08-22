@@ -1,4 +1,3 @@
-// Juego 2 - Fracciones equivalentes - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,13 +6,14 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/equivalente/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Estado para manejar el color del texto del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
@@ -25,12 +25,19 @@ const GamePage2 = () => {
   const startGame = () => {
     setGameStarted(true);
     setFeedback(''); 
+    setFeedbackColor('#000000'); // Restablecer el color del texto del feedback al iniciar el juego
     setScore(0); 
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, isCorrect, isFinal = false) => {
     setFeedback(newFeedback);
+    setFeedbackColor(isCorrect ? '#6aa84f' : '#ff0000'); // Verde para correcto, rojo para incorrecto
+
+    if (isFinal) {
+      setFeedback('¡Felicidades! Has encontrado todos los pares.');
+      setFeedbackColor('#6aa84f'); // Verde para el mensaje de felicitación final
+    }
   };
 
   const updateScore = (newScore) => {
@@ -47,6 +54,7 @@ const GamePage2 = () => {
     // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
+    setFeedbackColor('#000000'); // Restablecer el color del texto del feedback al reiniciar
     setScore(0); 
     setShowRetry(false); 
   };
@@ -65,7 +73,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figfrasim.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Equivalentes" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -90,14 +98,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Decimales"
+        subtitle="Fracciones Equivalentes"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones Equivalentes</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 
@@ -105,7 +113,7 @@ const GamePage2 = () => {
               showRetryButton={setShowRetry} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
                 <button 
