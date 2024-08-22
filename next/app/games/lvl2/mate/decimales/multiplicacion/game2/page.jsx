@@ -61,7 +61,7 @@ const GamePage2 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/decimales/multiplicacion/juegos">
+          <Link href="/niveles/nivel2/mate/decimales/multiplicacion/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
