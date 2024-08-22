@@ -1,11 +1,10 @@
+// Juego 3 - Suma y resta - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
+const Game3 = ({ updateFeedback, updateScore }) => {
     const [gameInstance, setGameInstance] = useState(null);
-    const [sceneKey, setSceneKey] = useState(0); // Para forzar la recreación del juego en cada escena
-    const [currentScore, setCurrentScore] = useState(0); // Almacena el puntaje actual
 
     useEffect(() => {
         const config = {
@@ -33,18 +32,27 @@ const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
         let pairs = [];
         let revealedCards = [];
         let cardObjects = []; // Array para almacenar las cartas
-        let numberOfPairs = 5; // Cambiar a 5 pares
-        let maxScore = 100;
-        let scorePerPair = maxScore / numberOfPairs;
+        const numberOfPairs = 5; // Cambiar a 5 pares
+        const maxScore = 100;
+        const scorePerPair = maxScore / numberOfPairs;
 
         function preload() {
-            this.load.image('background', '/img/games/mate/ob/game1.jpg');
+            this.load.image('background', '/img/games/mate/decimales/game3.jpg');
         }
 
         function createScene() {
             // Ajustar el fondo a todo el ancho del juego
             const background = this.add.image(400, 200, 'background');
             background.setDisplaySize(config.width, config.height);
+
+            // Añadir la instrucción dentro de la escena
+            this.add.text(400, 50, 'Busca las parejas que sumen 1.00', {
+                fontSize: '24px',
+                fill: '#ffffff',
+                align: 'center',
+                backgroundColor: '#7966ab',
+                padding: { x: 20, y: 10 }
+            }).setOrigin(0.5);
 
             generatePairs.call(this);
             createCards.call(this);
@@ -65,7 +73,7 @@ const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
 
         function createCards() {
             pairs.forEach((value, index) => {
-                const card = this.add.text(150 + (index % 4) * 150, 100 + Math.floor(index / 4) * 120, value, {
+                const card = this.add.text(170 + (index % 4) * 150, 120 + Math.floor(index / 4) * 120, value, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -74,11 +82,11 @@ const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
                 }).setInteractive().setOrigin(0.5);
 
                 cardObjects.push(card); // Añadir la carta al array de objetos
-                card.on('pointerdown', () => selectCard.call(this, card, value, index));
+                card.on('pointerdown', () => selectCard.call(this, card, value));
             });
         }
 
-        function selectCard(card, value, index) {
+        function selectCard(card, value) {
             if (revealedCards.length < 2 && !card.selected) {
                 card.selected = true;
                 revealedCards.push({ card, value });
@@ -99,10 +107,9 @@ const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
             const [firstCard, secondCard] = revealedCards;
 
             if ((parseFloat(firstCard.value) + parseFloat(secondCard.value)).toFixed(2) === '1.00') {
-                updateFeedback('¡Correcto! Encontraste un par que suma 1.00.', true);
-                setCurrentScore((prevScore) => {
+                updateFeedback('¡Correcto! Encontraste un par que suma 1.00', true);
+                updateScore((prevScore) => {
                     const newScore = prevScore + scorePerPair;
-                    updateScore(newScore); // Actualizar el puntaje acumulado
                     return newScore;
                 });
                 firstCard.card.setStyle({ backgroundColor: '#6aa84f', border: '2px solid #6aa84f' }); // Verde para correcto
@@ -141,9 +148,9 @@ const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
                 gameInstance.destroy(true);
             }
         };
-    }, [sceneKey, updateFeedback, updateScore, isFinalScene, finalScore]);
+    }, [updateFeedback, updateScore]);
 
     return <div id="game-container" className="w-[800px] h-[400px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default Game2;
+export default Game3;

@@ -7,17 +7,16 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-// Importación de juego
+// Importación del juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/suma_resta/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
-  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Estado para manejar el color del feedback
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [correctCount, setCorrectCount] = useState(0); // Estado para contar las respuestas correctas
+  const [showRetryButton, setShowRetryButton] = useState(false); // Estado para mostrar botón de "Volver a Intentar"
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -25,32 +24,43 @@ const GamePage2 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setScore(0);
+    setCorrectCount(0); // Reiniciar el conteo de respuestas correctas al comenzar el juego
+    setShowRetryButton(false); // Ocultar botón de "Volver a Intentar"
   };
 
-  const updateFeedback = (newFeedback, isCorrect) => {
-    setFeedback(newFeedback);
-    setFeedbackColor(isCorrect ? '#6aa84f' : '#ff0000'); // Verde para correcto, rojo para incorrecto
+  const updateFeedback = (newFeedback, color) => {
+    setFeedback(<span style={{ color }}>{newFeedback}</span>);
   };
 
   const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+    setScore(newScore); // Actualizar directamente al nuevo valor, ya que cada respuesta correcta es 20 puntos
+  };
+
+  const incrementCorrectCount = () => {
+    setCorrectCount((prevCount) => prevCount + 1);
+  };
+
+  const finalizeGame = (finalScore) => {
+    if (finalScore >= 80) {
+      setFeedback("¡Felicidades! Has completado el juego.");
     } else {
-      setShowRetry(false);
+      setFeedback("No has alcanzado la puntuación necesaria.");
+      setShowRetryButton(true); // Mostrar botón de "Volver a Intentar" si no alcanzó 80 puntos
     }
   };
 
-  const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
-    setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+  const resetGame = () => {
+    // Reiniciar la escena de Phaser
+    const gameContainer = document.getElementById('game-container');
+    if (gameContainer) {
+      while (gameContainer.firstChild) {
+        gameContainer.removeChild(gameContainer.firstChild);
+      }
+    }
+    setGameStarted(false);
+    startGame(); // Reiniciar el juego
   };
 
   return (
@@ -59,7 +69,7 @@ const GamePage2 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/decimales/suma_resta/juegos">
+          <Link href="/niveles/nivel1/mate/decimales/intro/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -67,7 +77,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figsumres.jpg" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -91,26 +101,37 @@ const GamePage2 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/figsumres.jpg"
-        subtitle="Decimales"
+        imageUrl="/img/niveles/mate/introfig.png"
+        subtitle="Suma y Resta de Decimales"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
-            <Game2 
-              key={gameKey} 
-              updateFeedback={updateFeedback} 
-              updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+            <h1 className="text-3xl font-bold mb-4 text-center">Suma y Resta de Decimales</h1>
+            <Game2
+              updateFeedback={updateFeedback}
+              updateScore={updateScore}  // Pasar la función para actualizar la puntuación
+              finalizeGame={finalizeGame}
+              incrementCorrectCount={incrementCorrectCount} // Pasar la función para incrementar respuestas correctas
+              resetGame={resetGame} // Pasar la función para reiniciar el juego
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
-             
+              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold">Estrellas: {score} / 100</p> {/* Actualización del total a 100 */}
+              <p className="text-xl font-semibold">Respuestas correctas: {correctCount} de 5</p> {/* Nuevo apartado */}
             </div>
+
+            {/* Botón "Volver a Intentar" */}
+            {showRetryButton && (
+              <button
+                className="mt-4 verde story text-xl text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
+                onClick={resetGame}
+              >
+                Volver a Intentar
+              </button>
+            )}
           </div>
         </section>
       )}

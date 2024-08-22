@@ -1,12 +1,11 @@
-// Juego 3 - Comparación de decimales - Nivel 1
+// Juego 3 - COmparacion - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game3 = ({ updateFeedback, updateScore, onCompleteScene, isFinalScene }) => {
+const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
-    const [currentOrder, setCurrentOrder] = useState([]);
-
+    
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
@@ -31,8 +30,9 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteScene, isFinalScene }) =
         setGameInstance(game);
 
         let decimalNumbers = [];
-        let sceneScore = 0;
-        const scorePerCorrect = 40; // Puntos por escena completada
+        const totalNumbers = 8;
+        let selectedNumbers = [];
+        let selectableTexts = [];
 
         function preload() {
             this.load.image('background', '/img/games/mate/ob/game1.jpg');
@@ -43,57 +43,70 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteScene, isFinalScene }) =
             background.setDisplaySize(config.width, config.height);
 
             generateNumbers.call(this);
+            createSelectableNumbers.call(this);
         }
 
         function generateNumbers() {
             decimalNumbers = [];
-            for (let i = 0; i < 5; i++) {  // Generar 5 números decimales
+            for (let i = 0; i < totalNumbers; i++) {
                 const num = (Phaser.Math.Between(1, 99) / 100).toFixed(2);
                 decimalNumbers.push(num);
             }
-            decimalNumbers.sort((a, b) => b - a); // Ordenar los números de mayor a menor
+        }
 
-            decimalNumbers.forEach((value, index) => {
-                const card = this.add.text(160 + (index % 5) * 120, 150, value, {
+        function createSelectableNumbers() {
+            selectableTexts = [];
+            const shuffledNumbers = Phaser.Utils.Array.Shuffle(decimalNumbers.slice()); // Desordenar números
+
+            shuffledNumbers.forEach((value, index) => {
+                const text = this.add.text(100 + (index % 4) * 150, 100 + Math.floor(index / 4) * 120, value, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
-                    padding: { x: 20, y: 10 }
+                    padding: { x: 15, y: 10 },
+                    border: '2px solid #000000'
                 }).setInteractive().setOrigin(0.5);
 
-                card.on('pointerdown', () => selectNumber.call(this, value, card));
+                text.on('pointerdown', () => selectNumber(value, text));
+
+                selectableTexts.push(text);
             });
         }
 
-        function selectNumber(value, card) {
-            const correctNextValue = decimalNumbers[currentOrder.length];
+        function selectNumber(value, textObject) {
+            const lastSelectedNumber = selectedNumbers[selectedNumbers.length - 1];
 
-            if (parseFloat(value) === parseFloat(correctNextValue)) {
-                updateFeedback('¡Correcto!', '#6aa84f'); // Feedback en verde
-                sceneScore += scorePerCorrect / decimalNumbers.length; // 40 puntos distribuidos entre los 5 números
-                setCurrentOrder([...currentOrder, value]);
-                card.setStyle({ fill: '#6aa84f' });
-
-                if (currentOrder.length === decimalNumbers.length) {
-                    // Notificar a React que la escena se completó
-                    onCompleteScene(sceneScore);
-                }
+            if (selectedNumbers.length === 0 || value <= lastSelectedNumber) {
+                selectedNumbers.push(value);
+                textObject.setFill('#d3d3d3'); // Marcar como seleccionado
+                checkOrder();
             } else {
-                updateFeedback('Incorrecto. Vuelve a intentarlo.', '#ff0000'); // Feedback en rojo
-                setTimeout(() => {
-                    onCompleteScene(0); // Notificar a React que la escena fue incorrecta
-                }, 1000);
+                updateFeedback('Debe seleccionar los números de mayor a menor.', '#ff0000');
             }
         }
 
-        function update() { }
+        function checkOrder() {
+            if (selectedNumbers.length === decimalNumbers.length) {
+                const correctOrder = [...decimalNumbers].sort((a, b) => b - a);
+                
+                if (JSON.stringify(selectedNumbers) === JSON.stringify(correctOrder)) {
+                    updateFeedback('¡Correcto! Has ordenado los números correctamente.', '#6aa84f');
+                    updateScore(200);
+                    onCompleteGame();
+                } else {
+                    updateFeedback('El orden no es correcto. Intenta nuevamente.', '#ff0000');
+                }
+            }
+        }
+
+        function update() {}
 
         return () => {
             if (gameInstance) {
-                gameInstance.destroy(true); // Destruir la instancia del juego al desmontar el componente
+                gameInstance.destroy(true);
             }
         };
-    }, [currentOrder, updateFeedback, updateScore, onCompleteScene, isFinalScene]);
+    }, [updateFeedback, updateScore, onCompleteGame]);
 
     return <div id="game-container" className="w-[800px] h-[400px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };

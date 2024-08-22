@@ -1,3 +1,4 @@
+// Juego 2 - Fracciones simples - N1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
@@ -146,9 +147,13 @@ const Game2 = ({ updateFeedback, updateScore }) => {
         }
 
         function endGame() {
-            setTimeout(() => {
-                updateFeedback('¡Felicidades! Has encontrado todos los pares.', true); // Mostrar mensaje de felicitaciones
-            }, 500);
+            // Actualizar el feedback y deshabilitar todas las interacciones
+            updateFeedback('¡Felicidades! Has encontrado todos los pares.', true);
+
+            // Desactivar la interacción con todas las cartas
+            cardObjects.forEach(card => {
+                card.disableInteractive();
+            });
         }
 
         function update() { }
