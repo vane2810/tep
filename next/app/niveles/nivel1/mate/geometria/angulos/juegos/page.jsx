@@ -1,4 +1,4 @@
-// Página de inicio de lo juegos área de figuras planas / Nivel 1
+// Página de inicio de lo juegos ángulos/ Nivel 1
 "use client"
 import React, { useState } from "react";
 import Link from "next/link";
@@ -31,7 +31,7 @@ export default function PageGame() {
       {/* Personaje */}
       <section className="flex flex-col items-center justify-center mb-14">
         <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de comparación de números decimales!</h2>
-        <img src="/img/niveles/mate/compafig.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
+        <img src="/img/niveles/mate/figangu.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
 
@@ -42,7 +42,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/decimales/comparacion/game1")}
+          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/geometria/angulos/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/decimales/comparacion/game2")}
+          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/geometria/angulos/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/decimales/comparacion/game3")}
+          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/geometria/angulos/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/decimales/comparacion/game4")}
+          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/geometria/angulos/game4")}
         >
           Juego 4
         </div>

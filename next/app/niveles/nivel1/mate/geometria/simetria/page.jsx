@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorVerde } from "@/components/separador";
-import Modal from "@/components/modals/games/mate/ob/leccionModal";
+import Modal from "@/components/modals/games/leccionModal";
 
 export default function SumaPage() {
 
