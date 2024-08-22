@@ -3,14 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const TrianguloGame = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
+const FigurasBasicasGame = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
+        // Suponiendo que la imagen de fondo es de 800x600
         const config = {
             type: Phaser.AUTO,
-            width: 800,
-            height: 300,
+            width: 800, // Ancho ajustado a la imagen de fondo
+            height: 600, // Altura ajustada a la imagen de fondo
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -30,45 +31,50 @@ const TrianguloGame = ({ updateFeedback, updateScore, proceedToNextScene, isFina
         setGameInstance(game);
 
         function preload() {
-            this.load.image('equilatero', '/img/games/triangulo/equilatero.png');
-            this.load.image('isosceles', '/img/games/triangulo/isosceles.png');
-            this.load.image('escaleno', '/img/games/triangulo/escaleno.png');
+            this.load.image('Triangulo', '/img/niveles/mate/paso2figugeo.png');
+            this.load.image('Cuadrado', '/img/niveles/mate/paso3figugeo.png');
+            this.load.image('Rectangulo', '/img/niveles/mate/paso4figugeo.png');
+            this.load.image('Circulo', '/img/niveles/mate/paso5figugeo.png');
+            this.load.image('background', '/img/games/mate/geometria/fondogame1.png');
         }
 
         function createScene() {
-            // Mostrar imagen del triángulo
-            const triangleType = Phaser.Math.RND.pick(['equilatero', 'isosceles', 'escaleno']);
-            this.add.image(400, 150, triangleType);
+            // Añadir fondo y ajustarlo al tamaño del escenario
+            const background = this.add.image(400, 300, 'background'); // Centro de la imagen de fondo
+            background.setDisplaySize(config.width, config.height);
 
-            const correctOption = triangleType;
+            // Seleccionar una figura geométrica aleatoriamente
+            const figuras = ['Triangulo', 'Cuadrado', 'Rectangulo', 'Circulo'];
+            const figuraCorrecta = Phaser.Math.RND.pick(figuras);
+            this.add.image(400, 300, figuraCorrecta); // Centrando la figura en la escena
 
             // Opciones de respuesta
-            const options = ['equilatero', 'isosceles', 'escaleno'];
-            options.forEach((option, index) => {
-                const button = this.add.text(260 + (index * 140), 250, option, {
-                    fontSize: '40px',
+            figuras.forEach((figura, index) => {
+                const button = this.add.text(200 + (index * 150), 500, figura, {
+                    fontSize: '20px', // Tamaño más pequeño
                     fill: '#000000',
                     backgroundColor: '#ffffff',
-                    padding: { x: 10, y: 5 }
+                    padding: { x: 10, y: 5 },
+                    fontFamily: 'Arial' // Asegurar que la fuente es Arial o similar
                 }).setInteractive().setOrigin(0.5);
 
-                button.on('pointerdown', () => checkAnswer.call(this, option, button));
+                button.on('pointerdown', () => checkAnswer.call(this, figura, figuraCorrecta, button));
             });
         }
 
-        function checkAnswer(selectedOption, button) {
+        function checkAnswer(selectedOption, correctOption, button) {
             let score = 0;
             let feedbackMessage = '';
             let feedbackColor = '';
 
             if (selectedOption === correctOption) {
                 score = 15; 
-                feedbackMessage = `¡Correcto! El triángulo es ${correctOption}.`;
+                feedbackMessage = `¡Correcto! Es un ${correctOption}.`;
                 feedbackColor = '#6aa84f';
                 button.setStyle({ fill: feedbackColor });
             } else {
                 score = 0;
-                feedbackMessage = `Incorrecto. Este es un ${correctOption}.`;
+                feedbackMessage = `Incorrecto. Es un ${correctOption}.`;
                 feedbackColor = '#ff0000';
                 button.setStyle({ fill: feedbackColor });
             }
@@ -83,7 +89,7 @@ const TrianguloGame = ({ updateFeedback, updateScore, proceedToNextScene, isFina
             });
 
             if (!isFinalScene) {
-                const nextButton = this.add.text(400, 250, 'Siguiente', {
+                const nextButton = this.add.text(400, 550, 'Siguiente', {
                     fontSize: '24px',
                     fill: '#ffffff',
                     backgroundColor: '#7966ab',
@@ -102,7 +108,7 @@ const TrianguloGame = ({ updateFeedback, updateScore, proceedToNextScene, isFina
                     ? '¡Felicidades! Has completado el juego.'
                     : 'Puntaje ideal no alcanzado.';
 
-                const finalMessage = this.add.text(400, 250, finalMessageText, {
+                const finalMessage = this.add.text(400, 550, finalMessageText, {
                     fontSize: '20px',
                     fill: '#ffffff',
                     backgroundColor: finalScore >= 60 ? '#6aa84f' : '#ff0000',
@@ -110,7 +116,7 @@ const TrianguloGame = ({ updateFeedback, updateScore, proceedToNextScene, isFina
                 }).setOrigin(0.5);
 
                 if (finalScore < 60) {
-                    const retryButton = this.add.text(400, 200, 'Volver a Intentarlo', {
+                    const retryButton = this.add.text(400, 500, 'Volver a Intentarlo', {
                         fontSize: '20px',
                         fill: '#ffffff',
                         backgroundColor: '#ff0000',
@@ -142,7 +148,7 @@ const TrianguloGame = ({ updateFeedback, updateScore, proceedToNextScene, isFina
         };
     }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame]);
 
-    return <div id="game-container" className="w-[800px] h-[300px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
+    return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default TrianguloGame;
+export default FigurasBasicasGame;
