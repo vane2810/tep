@@ -1,7 +1,9 @@
+// Pagina de juego - Nivel 1 - Figuras
 "use client"
 import React, { useState } from "react";
 import Link from "next/link";
 import { SeparadorVerde } from "@/components/separador";
+import IntroModal from "@/components/modals/games/mate/introModal";
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
@@ -49,7 +51,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/geometria/figuras/game1")}
+          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/geometria/figuras/game2")}
         >
           Juego 2
         </div>
@@ -58,7 +60,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/operaciones_basicas/suma/game3")}
+          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/geometria/figuras/game3")}
         >
           Juego 3
         </div>
@@ -67,11 +69,18 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/operaciones_basicas/suma/game4")}
+          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/geometria/figuras/game4")}
         >
           Juego 4
         </div>
       </section>
+      {/* Modal */}
+      <IntroModal
+        show={showModal} 
+        onClose={closeModal} 
+        title={modalTitle} 
+        continueLink={continueLink}
+      />
     </main>
   );
 }
