@@ -41,7 +41,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/operaciones_basicas/suma/game1")}
+          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/geometria/figuras/game1")}
         >
           Juego 1
         </div>
@@ -50,7 +50,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/operaciones_basicas/suma/game2")}
+          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/geometria/figuras/game1")}
         >
           Juego 2
         </div>
