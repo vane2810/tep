@@ -1,22 +1,24 @@
-// Juego 1 - Poligonos - Nivel 2
+// Juego 3 - Perimetro- Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal';
+import Game1Modal from '@/components/modals/games/mate/geometria/game3Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
-const Game1 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/poligonos/game1'), { ssr: false });
+// Importación de juego
+const Game3 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/area/game3'), { ssr: false });
 
-const GamePage1 = () => {
+const GamePage3 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+
+  const maxScore = 200; // Puntuación máxima al completar todos los pares
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -25,30 +27,32 @@ const GamePage1 = () => {
   const startGame = () => {
     setGameStarted(true);
     setFeedback(''); 
+    setFeedbackColor('#000000');
     setScore(0); 
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, color) => {
     setFeedback(newFeedback);
+    setFeedbackColor(color); // Establecer el color del feedback
   };
 
   const updateScore = (newScore) => {
     setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
-    } else {
-      setShowRetry(false);
-    }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
-    setGameKey(prevKey => prevKey + 1);
+    setShowRetry(false);
     setFeedback(''); 
+    setFeedbackColor('#000000');
     setScore(0); 
-    setShowRetry(false); 
+    setGameStarted(false);
+  };
+
+  const onCompleteGame = () => {
+    if (score >= maxScore) {
+      setShowRetry(false); // Evitar mostrar el botón de reinicio si el juego se completa
+    }
   };
 
   return (
@@ -57,7 +61,7 @@ const GamePage1 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel2/mate/geometria/poligonos/juegos">
+          <Link href="/niveles/nivel2/mate/geometria/area/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -65,14 +69,14 @@ const GamePage1 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figperi.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
             <div className="story font-bold text-xl mb-4">
               <Typewriter
-                text="   Lee las indicaciones para comenzar"
+                text="   Lee las indicaciones antes de comenzar"
                 speed={40}
               />
             </div>
@@ -89,24 +93,23 @@ const GamePage1 = () => {
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/figperi.png"
-        subtitle="Decimales"
+        imageUrl="/img/niveles/mate/figfig.png"
+        subtitle="Introducción a los números decimales"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
-            <Game1 
-              key={gameKey} 
+            <h1 className="text-3xl font-bold mb-4 text-center">Encuentra los pares de decimales</h1>
+            <Game3 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              onCompleteGame={onCompleteGame}
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
+              <p className="text-xl font-semibold">Estrellas: {score}/{maxScore}</p>
               {showRetry && (
                 <button 
                   onClick={handleRetry} 
@@ -125,4 +128,6 @@ const GamePage1 = () => {
   );
 };
 
-export default GamePage1;
+export default GamePage3;
+
+

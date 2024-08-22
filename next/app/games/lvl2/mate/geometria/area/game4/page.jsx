@@ -1,20 +1,21 @@
-// Juego 1 - Poligonos - Nivel 2
+// Juego 4 - Perimetro- Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal';
+import Game4Modal from '@/components/modals/games/mate/geometria/game4Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
-const Game1 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/poligonos/game1'), { ssr: false });
+// Importación de juego
+const Game4 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/area/game4'), { ssr: false });
 
-const GamePage1 = () => {
+const GamePage4 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
+  const [currentScene, setCurrentScene] = useState(1);
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
 
@@ -27,6 +28,7 @@ const GamePage1 = () => {
     setFeedback(''); 
     setScore(0); 
     setShowRetry(false); 
+    setCurrentScene(1); 
   };
 
   const updateFeedback = (newFeedback) => {
@@ -34,21 +36,25 @@ const GamePage1 = () => {
   };
 
   const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+    setScore(prevScore => prevScore + newScore);
+  };
+
+  const proceedToNextScene = () => {
+    if (currentScene < 6) {
+      setCurrentScene(prevScene => prevScene + 1); 
+      setGameKey(prevKey => prevKey + 1); 
     } else {
-      setShowRetry(false);
+      setGameStarted(false); 
     }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
     setScore(0); 
     setShowRetry(false); 
+    setCurrentScene(1); 
+    setGameStarted(true); 
   };
 
   return (
@@ -57,7 +63,7 @@ const GamePage1 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel2/mate/geometria/poligonos/juegos">
+          <Link href="/niveles/nivel2/mate/geometria/area/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
@@ -65,7 +71,7 @@ const GamePage1 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figperi.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfig.png" alt="Decimales" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -85,11 +91,11 @@ const GamePage1 = () => {
       </div>
 
       {/* Modal de Indicaciones */}
-      <Game1Modal
+      <Game4Modal
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
-        imageUrl="/img/niveles/mate/figperi.png"
+        imageUrl="/img/niveles/mate/figfig.png"
         subtitle="Decimales"
       />
 
@@ -97,14 +103,19 @@ const GamePage1 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
-            <Game1 
+            <h1 className="text-3xl font-bold mb-4 text-center">Introducción a los Decimales</h1>
+            <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              isFinalScene={currentScene === 6}
+              finalScore={score}
+              restartGame={handleRetry}
+              currentScene={currentScene}
             />
             <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene} de 6</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
@@ -125,4 +136,4 @@ const GamePage1 = () => {
   );
 };
 
-export default GamePage1;
+export default GamePage4;
