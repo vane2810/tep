@@ -150,7 +150,6 @@ const Game2 = ({ updateFeedback, updateScore, onComplete }) => {
 
         function endGame() {
             updateFeedback('¡Felicidades! Has encontrado todas las equivalencias.', true);
-            onComplete(); // Llama a la función para pasar a la siguiente fase
         }
 
         function update() { }
