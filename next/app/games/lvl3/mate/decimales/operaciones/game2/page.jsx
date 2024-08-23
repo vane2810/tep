@@ -1,4 +1,3 @@
-// Juego 2 - Operaciones entre fracciones- Nivel 3
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,15 +6,17 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl3/mate/decimales/operaciones/game2'), { ssr: false });
 
 const GamePage2 = () => {
+  const totalPhases = 5; // Total de fases
+  const [currentPhase, setCurrentPhase] = useState(1); // Fase actual
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
+  const [showRetry, setShowRetry] = useState(false); // Estado para controlar la visibilidad del botón de "Volver a Intentarlo"
   const [gameKey, setGameKey] = useState(0); 
 
   const toggleInstructions = () => {
@@ -24,45 +25,51 @@ const GamePage2 = () => {
 
   const startGame = () => {
     setGameStarted(true);
+    resetGameState(); 
+  };
+
+  const resetGameState = () => {
     setFeedback(''); 
     setScore(0); 
+    setCurrentPhase(1); // Reiniciar a la fase 1
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
-    setFeedback(newFeedback);
+  const updateFeedback = (newFeedback, isCorrect) => {
+    const feedbackColor = isCorrect ? 'text-green-500' : 'text-red-500'; // Verde para correcto, rojo para incorrecto
+    setFeedback(<span className={feedbackColor}>{newFeedback}</span>);
   };
 
-  const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+  const updateScore = (pointsEarned) => {
+    setScore(prevScore => prevScore + pointsEarned);
+  };
+
+  const proceedToNextScene = () => {
+    if (currentPhase < totalPhases) {
+      setCurrentPhase(prevPhase => prevPhase + 1);
+      setGameKey(prevKey => prevKey + 1); // Forzar la recreación del juego para la nueva fase
     } else {
-      setShowRetry(false);
+      // Aquí podrías manejar la lógica de finalización del juego si se completa la última fase
     }
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    resetGameState(); 
   };
 
   return (
-    <main className="bg-gray-100">
+    <main className="bg-gray-100 min-h-screen flex flex-col">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap">
+      <div className="flex items-center justify-between flex-wrap px-8 mt-8">
         {/* Botón de Volver */}
-        <div className="ml-8 inline-block mb-20">
+        <div className="inline-block mb-20">
           <Link href="/niveles/nivel3/mate/decimales/operaciones/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
         {/* Contenedor del Typewriter, la imagen y el botón */}
-        <div className="flex items-center my-6 mx-auto">
+        <div className="flex items-center mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
             <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
@@ -90,19 +97,22 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/introfig.png"
-        subtitle="Decimales"
+        subtitle="Operaciones con Fracciones"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
-        <section className='min-h-screen flex flex-col items-center'>
+        <section className="flex-grow flex flex-col items-center">
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              currentPhase={currentPhase}
+              totalPhases={totalPhases}
+              finalScore={score}
+              restartGame={handleRetry}
             />
             <div className="mt-8">
               <p className="text-xl font-semibold">Feedback: {feedback}</p>

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const GameMultiplication = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
+const Game2 = ({ updateFeedback, updateScore, isFinalScene, finalScore }) => {
     const [gameInstance, setGameInstance] = useState(null);
     const [sceneKey, setSceneKey] = useState(0); // Para forzar la recreación del juego en cada escena
     const [currentScore, setCurrentScore] = useState(0); // Almacena el puntaje actual
@@ -156,4 +156,4 @@ const GameMultiplication = ({ updateFeedback, updateScore, isFinalScene, finalSc
     return <div id="game-container" className="w-[800px] h-[400px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default GameMultiplication;
+export default Game2;
