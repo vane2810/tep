@@ -1,4 +1,3 @@
-// Juego 2 - Porcentajes - Nivel 3
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,13 +6,14 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación del juego dinámicamente
 const Game2 = dynamic(() => import('@/components/minigame/lvl3/mate/decimales/porcentajes/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Estado para manejar el color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
@@ -25,12 +25,14 @@ const GamePage2 = () => {
   const startGame = () => {
     setGameStarted(true);
     setFeedback(''); 
+    setFeedbackColor('#000000'); // Restablecer el color del feedback al iniciar el juego
     setScore(0); 
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, isCorrect) => {
     setFeedback(newFeedback);
+    setFeedbackColor(isCorrect ? '#6aa84f' : '#ff0000'); // Verde para correcto, rojo para incorrecto
   };
 
   const updateScore = (newScore) => {
@@ -47,6 +49,7 @@ const GamePage2 = () => {
     // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
+    setFeedbackColor('#000000'); // Restablecer el color del feedback al reiniciar
     setScore(0); 
     setShowRetry(false); 
   };
@@ -105,7 +108,7 @@ const GamePage2 = () => {
               showRetryButton={setShowRetry} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
                 <button 
