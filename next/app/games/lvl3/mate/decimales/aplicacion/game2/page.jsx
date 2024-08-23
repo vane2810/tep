@@ -1,4 +1,3 @@
-// Juego 2 - Aplicacion en la vdida cotiana - Nivel 3
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,16 +6,19 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación del juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl3/mate/decimales/aplicacion/game2'), { ssr: false });
 
 const GamePage2 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState('#000000'); // Estado para manejar el color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [gameKey, setGameKey] = useState(0);
+
+  const targetAmount = 1.25; // Monto objetivo para sumar
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,18 +26,19 @@ const GamePage2 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setFeedbackColor('#000000'); // Restablecer el color del feedback al iniciar el juego
+    setScore(0);
+    setShowRetry(false);
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, isCorrect) => {
     setFeedback(newFeedback);
+    setFeedbackColor(isCorrect ? '#6aa84f' : '#ff0000'); // Verde para correcto, rojo para incorrecto
   };
 
   const updateScore = (newScore) => {
     setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
     if (newScore <= 50) {
       setShowRetry(true);
     } else {
@@ -44,11 +47,11 @@ const GamePage2 = () => {
   };
 
   const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setFeedbackColor('#000000'); // Restablecer el color del feedback al reiniciar
+    setScore(0);
+    setShowRetry(false);
   };
 
   return (
@@ -65,14 +68,14 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/compafig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/compafig.png" alt="Supermercado" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
             <div className="story font-bold text-xl mb-4">
               <Typewriter
-                text="   Lee las indicaciones para comenzar"
+                text="Selecciona productos para sumar la cantidad exacta"
                 speed={40}
               />
             </div>
@@ -90,22 +93,22 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/compafig.png"
-        subtitle="Decimales"
+        subtitle="Supermercado Virtual"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Supermercado Virtual</h1>
             <Game2 
               key={gameKey} 
+              targetAmount={targetAmount} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
                 <button 
