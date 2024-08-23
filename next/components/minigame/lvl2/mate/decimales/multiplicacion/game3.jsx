@@ -62,15 +62,14 @@ const Game3 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCoun
         }
 
         function generateQuestion(rowIndex) {
-            const num1 = (Phaser.Math.Between(1, 10) / 10).toFixed(1); // Genera un número decimal entre 0.1 y 1.0
-            const num2 = (Phaser.Math.Between(1, 10) / 10).toFixed(1); // Genera un segundo número decimal entre 0.1 y 1.0
+            const num1 = Phaser.Math.Between(1, 10) / 10;
+            const num2 = Phaser.Math.Between(1, 10) / 10;
             const correctAnswer = (num1 * num2).toFixed(2);
-            const incorrectAnswer = ((num1 * num2) + Phaser.Math.Between(1, 20) / 100).toFixed(2);
 
             correctAnswers[rowIndex] = correctAnswer;
 
             // Mostrar la instrucción para la fila
-            this.add.text(400, 50 + rowIndex * 100, `Fila ${rowIndex + 1}: ¿Cuál es el resultado de ${num1} x ${num2}?`, {
+            this.add.text(400, 50 + rowIndex * 100, `Fila ${rowIndex + 1}: Selecciona el resultado correcto de ${num1} x ${num2}`, {
                 fontSize: '18px',
                 fill: '#ffffff',
                 align: 'center',
@@ -79,33 +78,37 @@ const Game3 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCoun
                 fontWeight: 'bold'
             }).setOrigin(0.5);
 
-            // Mostrar las opciones como botones interactivos
-            const options = [correctAnswer, incorrectAnswer].sort(() => Math.random() - 0.5);
+            // Generar respuestas alternativas
+            const wrongAnswer1 = (correctAnswer * 1.1).toFixed(2);
+            const wrongAnswer2 = (correctAnswer * 0.9).toFixed(2);
 
-            options.forEach((option, index) => {
-                const button = this.add.text(300 + (index * 200), 100 + rowIndex * 100, option, {
+            const answers = [correctAnswer, wrongAnswer1, wrongAnswer2].sort(() => Math.random() - 0.5);
+
+            // Mostrar las respuestas como botones interactivos
+            answers.forEach((answer, index) => {
+                const button = this.add.text(240 + (index * 150), 100 + rowIndex * 100, answer, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
                     padding: { x: 10, y: 5 }
                 }).setInteractive().setOrigin(0.5);
 
-                button.on('pointerdown', () => checkAnswer.call(this, option, rowIndex, button));
+                button.on('pointerdown', () => checkAnswer.call(this, answer, rowIndex, button));
             });
         }
 
-        function checkAnswer(selectedOption, rowIndex, button) {
+        function checkAnswer(selectedAnswer, rowIndex, button) {
             let feedbackMessage;
             let feedbackColor;
 
-            if (selectedOption === correctAnswers[rowIndex]) {
+            if (selectedAnswer === correctAnswers[rowIndex]) {
                 score += 20; // Sumar 20 puntos a la puntuación total, cada pregunta vale 20 puntos
                 incrementCorrectCount(); // Incrementar el contador de respuestas correctas en la vista
-                feedbackMessage = `¡Correcto! Has seleccionado el resultado correcto en la fila ${rowIndex + 1}.`;
+                feedbackMessage = `¡Correcto! El resultado de la multiplicación en la fila ${rowIndex + 1} es ${selectedAnswer}.`;
                 feedbackColor = '#6aa84f'; // Verde para correcto
                 button.setStyle({ fill: feedbackColor, backgroundColor: '#d9ead3' });
             } else {
-                feedbackMessage = `Incorrecto. No has seleccionado el resultado correcto en la fila ${rowIndex + 1}.`;
+                feedbackMessage = `Incorrecto. El resultado correcto en la fila ${rowIndex + 1} era ${correctAnswers[rowIndex]}.`;
                 feedbackColor = '#ff0000'; // Rojo para incorrecto
                 button.setStyle({ fill: feedbackColor, backgroundColor: '#f4cccc' });
             }

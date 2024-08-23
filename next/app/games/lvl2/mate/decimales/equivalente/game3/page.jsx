@@ -1,4 +1,4 @@
-// Juego 3 - Fracciones equivalentes- Nivel 1
+// Juego 3 - Fracciones Equivalentes - Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game3 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/equivalente/game3'), { ssr: false });
 
 const GamePage3 = () => {
@@ -29,17 +29,22 @@ const GamePage3 = () => {
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
-    setFeedback(newFeedback);
+  const updateFeedback = (newFeedback, color) => {
+    setFeedback(<span style={{ color }}>{newFeedback}</span>);
   };
 
   const updateScore = (newScore) => {
     setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+  };
+
+  const finalizeGame = (finalScore) => {
+    if (finalScore >= 100) {
+      setFeedback(<span style={{ color: '#6aa84f' }}>¡Felicidades! Has completado el juego con la máxima puntuación.</span>);
+    } else if (finalScore >= 50) {
+      setFeedback(<span style={{ color: '#6aa84f' }}>¡Bien hecho! Has completado el juego.</span>);
     } else {
-      setShowRetry(false);
+      setFeedback(<span style={{ color: '#ff0000' }}>No has alcanzado la puntuación necesaria.</span>);
+      setShowRetry(true);
     }
   };
 
@@ -65,7 +70,7 @@ const GamePage3 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figfrasim.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Equivalentes" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -90,19 +95,20 @@ const GamePage3 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Decimales"
+        subtitle="Fracciones Equivalentes"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones Equivalentes</h1>
             <Game3 
               key={gameKey} 
               updateFeedback={updateFeedback} 
-              updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              updateScore={updateScore}
+              finalizeGame={finalizeGame}
+              resetGame={handleRetry}
             />
             <div className="mt-8">
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
