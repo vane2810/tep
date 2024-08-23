@@ -34,7 +34,7 @@ const GamePage3 = () => {
   };
 
   const updateScore = (points) => {
-    setScore(points);
+    setScore(score + points); // Incrementar la puntuación en lugar de reiniciar
   };
 
   const onCompleteGame = () => {
@@ -89,7 +89,7 @@ const GamePage3 = () => {
       {/* Escena del juego */}
       {gameStarted && (
         <section className='flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
+          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[1250px]"> {/* Ancho ajustado a 1000px */}
             <h1 className="text-3xl font-bold mb-4 text-center">Organiza los decimales de mayor a menor</h1>
             <Game3 
               updateFeedback={updateFeedback} 
@@ -110,3 +110,4 @@ const GamePage3 = () => {
 };
 
 export default GamePage3;
+

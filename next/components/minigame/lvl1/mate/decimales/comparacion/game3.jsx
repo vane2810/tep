@@ -1,16 +1,17 @@
-// Juego 3 - COmparacion - Nivel 1
+// Juego 3 - Comparacion - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
 const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
+    const [gameFinished, setGameFinished] = useState(false);
     
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
-            width: 800,
-            height: 400,
+            width: 1000, // Aumentado el ancho para acomodar más opciones
+            height: 600, // Aumentado el alto para acomodar más filas
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -30,7 +31,7 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
         setGameInstance(game);
 
         let decimalNumbers = [];
-        const totalNumbers = 8;
+        const totalNumbers = 15; // Ahora hay 15 opciones en total
         let selectedNumbers = [];
         let selectableTexts = [];
 
@@ -39,11 +40,23 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
         }
 
         function createScene() {
-            const background = this.add.image(400, 200, 'background');
+            const background = this.add.image(500, 300, 'background');
             background.setDisplaySize(config.width, config.height);
 
             generateNumbers.call(this);
             createSelectableNumbers.call(this);
+
+            // Crear botón para comprobar selección
+            const checkButton = this.add.text(500, 550, 'Comprobar', {
+                fontSize: '28px',
+                fill: '#ffffff',
+                backgroundColor: '#0000ff',
+                padding: { x: 15, y: 10 },
+                border: '2px solid #000000',
+                cursor: 'pointer'
+            }).setInteractive().setOrigin(0.5);
+
+            checkButton.on('pointerdown', () => checkOrder());
         }
 
         function generateNumbers() {
@@ -56,10 +69,12 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
 
         function createSelectableNumbers() {
             selectableTexts = [];
-            const shuffledNumbers = Phaser.Utils.Array.Shuffle(decimalNumbers.slice()); // Desordenar números
+            const shuffledNumbers = Phaser.Utils.Array.Shuffle(decimalNumbers.slice()); 
 
             shuffledNumbers.forEach((value, index) => {
-                const text = this.add.text(100 + (index % 4) * 150, 100 + Math.floor(index / 4) * 120, value, {
+                const xPosition = 100 + (index % 5) * 180; // Ajuste de las posiciones en el eje X
+                const yPosition = 100 + Math.floor(index / 5) * 140; // Ajuste de las posiciones en el eje Y
+                const text = this.add.text(xPosition, yPosition, value, {
                     fontSize: '28px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -74,14 +89,10 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
         }
 
         function selectNumber(value, textObject) {
-            const lastSelectedNumber = selectedNumbers[selectedNumbers.length - 1];
-
-            if (selectedNumbers.length === 0 || value <= lastSelectedNumber) {
+            if (!selectedNumbers.includes(value)) {
                 selectedNumbers.push(value);
                 textObject.setFill('#d3d3d3'); // Marcar como seleccionado
-                checkOrder();
-            } else {
-                updateFeedback('Debe seleccionar los números de mayor a menor.', '#ff0000');
+                textObject.setInteractive(false); // Deshabilitar la interacción para evitar seleccionar el mismo número de nuevo
             }
         }
 
@@ -92,11 +103,22 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
                 if (JSON.stringify(selectedNumbers) === JSON.stringify(correctOrder)) {
                     updateFeedback('¡Correcto! Has ordenado los números correctamente.', '#6aa84f');
                     updateScore(200);
-                    onCompleteGame();
+                    setGameFinished(true); // Marcar el juego como finalizado
                 } else {
                     updateFeedback('El orden no es correcto. Intenta nuevamente.', '#ff0000');
+                    resetSelection();
                 }
+            } else {
+                updateFeedback('Selecciona todos los números antes de comprobar.', '#ff0000');
             }
+        }
+
+        function resetSelection() {
+            selectedNumbers = [];
+            selectableTexts.forEach(text => {
+                text.setFill('#000000'); // Restaurar el color original
+                text.setInteractive(true); // Habilitar la interacción nuevamente
+            });
         }
 
         function update() {}
@@ -106,9 +128,18 @@ const Game3 = ({ updateFeedback, updateScore, onCompleteGame }) => {
                 gameInstance.destroy(true);
             }
         };
-    }, [updateFeedback, updateScore, onCompleteGame]);
+    }, [updateFeedback, updateScore]);
 
-    return <div id="game-container" className="w-[800px] h-[400px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
+    return (
+        <div id="game-container" className="w-[1000px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8">
+            {gameFinished && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <p className="text-3xl font-bold text-white">Juego Finalizado</p>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default Game3;
+
