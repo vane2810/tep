@@ -42,7 +42,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("editar", "/games/lvl1/mate/decimales/intro/game1")}
+          onClick={() => openModal("Identificación de decimales", "/games/lvl1/mate/decimales/intro/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/decimales/intro/game2")}
+          onClick={() => openModal("¿Cuál es mayor?", "/games/lvl1/mate/decimales/intro/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/decimales/intro/game3")}
+          onClick={() => openModal("Encuentra los pares de decimales", "/games/lvl1/mate/decimales/intro/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/decimales/intro/game4")}
+          onClick={() => openModal("Fracción a decimal", "/games/lvl1/mate/decimales/intro/game4")}
         >
           Juego 4
         </div>

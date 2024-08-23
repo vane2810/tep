@@ -94,7 +94,7 @@ const GamePage3 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/introfig.png"
-        subtitle="Introducción a los números decimales"
+        subtitle="Encuentra los pares de decimales"
       />
 
       {/* Escena del juego */}

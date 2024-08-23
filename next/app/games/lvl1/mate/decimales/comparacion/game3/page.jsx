@@ -83,7 +83,7 @@ const GamePage3 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/compafig.png"
-        subtitle="Decimales"
+        subtitle="Organiza los decimales de mayor a menor"
       />
 
       {/* Escena del juego */}

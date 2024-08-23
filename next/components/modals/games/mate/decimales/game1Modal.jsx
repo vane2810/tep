@@ -13,21 +13,16 @@ const Game1Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 story">
       <div className="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-xl flex flex-col items-center text-center">
-        <button className="absolute top-0 right-0 m-4 text-gray-500" onClick={onClose}>
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
         <p className='text-2xl'> Puntaje: 75 estrellas </p>
         <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
         <p className="text-2xl mb-4 font-bold">Juego: {subtitle.toLowerCase()}</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Arrastra los términos correctos hacia los espacios vacíos</li>
-          <li>2. Verifica colocar los términos en medio del espacio</li>
-          <li>3. Presiona "Comprobar" para verificar</li>
-          
+          <li>1. Lee cuidadosamente la indicación del juego</li>
+          <li>2. Selecciona la respuesta correcta</li>
+          <li>3. Son 5 ejercicios, cada uno equivale a 15 estrellas</li>
+          <li>4. Si no obtines el mínimo de estrellas, deberás volver a intentarlo</li>
         </ol>
 
         <div className="flex space-x-4">

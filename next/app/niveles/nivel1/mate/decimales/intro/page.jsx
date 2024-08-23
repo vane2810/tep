@@ -1,4 +1,4 @@
-// Página de contenido de la introduccion a decimales
+// Página de contenido de la introduccion a decimales - Nivel 1
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';

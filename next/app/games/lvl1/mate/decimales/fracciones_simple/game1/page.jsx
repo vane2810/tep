@@ -2,10 +2,10 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
+import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal';
 
 // Importación del juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/fraccciones_simples/game1'), { ssr: false });
@@ -27,7 +27,7 @@ const GamePage1 = () => {
     setFeedback('');
     setScore(0);
     setCurrentScene(1);
-    setGameKey(prevKey => prevKey + 1);
+    setGameKey(prevKey => prevKey + 1); // Reiniciar el componente para la nueva escena
   };
 
   const updateFeedback = (newFeedback, color) => {
@@ -81,13 +81,16 @@ const GamePage1 = () => {
             {/* Texto */}
             <div className="story font-bold text-xl mb-4">
               <Typewriter
-                text="   Lee las indicaciones para comenzar"
+                text="Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
             {/* Botón de Indicaciones */}
-            <button className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
-              onClick={toggleInstructions}> Indicaciones
+            <button 
+              className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+              onClick={toggleInstructions}
+            >
+              Indicaciones
             </button>
           </div>
         </div>
@@ -119,7 +122,7 @@ const GamePage1 = () => {
             <div className="mt-8">
               <p className="text-xl font-semibold">Ejercicio {currentScene}</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
+              <p className="text-xl font-semibold">Estrellas: {score} / 75</p>
             </div>
           </div>
         </section>

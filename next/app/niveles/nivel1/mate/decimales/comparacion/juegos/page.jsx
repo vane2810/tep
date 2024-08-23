@@ -42,7 +42,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/decimales/comparacion/game1")}
+          onClick={() => openModal("¿Mayor, Menor o Igual?", "/games/lvl1/mate/decimales/comparacion/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/decimales/comparacion/game2")}
+          onClick={() => openModal("Selección de mayor, menor o igual que", "/games/lvl1/mate/decimales/comparacion/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/decimales/comparacion/game3")}
+          onClick={() => openModal("Organiza los decimales de mayor a menor", "/games/lvl1/mate/decimales/comparacion/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGame() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/decimales/comparacion/game4")}
+          onClick={() => openModal("Escribe el mayor o menor", "/games/lvl1/mate/decimales/comparacion/game4")}
         >
           Juego 4
         </div>

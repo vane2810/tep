@@ -13,19 +13,15 @@ const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 story">
       <div className="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-xl flex flex-col items-center text-center">
-        <button className="absolute top-0 right-0 m-4 text-gray-500" onClick={onClose}>
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
         <h2 className="text-3xl font-semibold mb-4">Instrucciones del juego</h2>
         <p className='text-2xl'> Puntaje: 300 estrellas </p>
         <img src={imageUrl} alt="Imagen del juego" className="h-12 md:h-24 mt-4 mb-4" />
         <p className="text-2xl mb-4 font-bold">Juego: {subtitle.toLowerCase()}</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Elige la respuesta que consideres correcta entre las 3 opciones</li>
-          <li>2. Tienes un límite de 10 preguntas</li>
+          <li>1. Lee cuidadosamente la pregunta</li>
+          <li>2. Escribe el número decimal correspondiente</li>
+          <li>3. Si no alcanzas las 200 estrellas, debes volver a intentarlo</li>
           
         </ol>
 

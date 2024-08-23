@@ -91,7 +91,7 @@ export default function ComparacionPage() {
       <Modal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        subjectName="Comparación de numeros decimales"
+        subjectName="Comparación de números decimales"
         continueLink="/niveles/nivel1/mate/decimales/comparacion/juegos"
       />
     </main>

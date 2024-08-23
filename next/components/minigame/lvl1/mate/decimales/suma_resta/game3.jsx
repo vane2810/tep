@@ -33,7 +33,7 @@ const Game3 = ({ updateFeedback, updateScore }) => {
         let revealedCards = [];
         let cardObjects = []; // Array para almacenar las cartas
         const numberOfPairs = 5; // Cambiar a 5 pares
-        const maxScore = 100;
+        const maxScore = 200;
         const scorePerPair = maxScore / numberOfPairs;
 
         function preload() {

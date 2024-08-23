@@ -78,11 +78,11 @@ const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         let score = 0;
 
         if (userInput.trim() === correctAnswer) {
-            feedbackMessage = `¡Correcto! La respuesta es ${correctAnswer}.`;
+            feedbackMessage = `¡Correcto! La respuesta es ${correctAnswer}`;
             feedbackColor = '#6aa84f';
             score = 50;
         } else {
-            feedbackMessage = `Incorrecto. La respuesta correcta era ${correctAnswer}.`;
+            feedbackMessage = `Incorrecto. La respuesta correcta era ${correctAnswer}`;
             feedbackColor = '#ff0000';
         }
 
@@ -148,7 +148,7 @@ const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                         onClick={handleNextScene}
                         style={{
                             fontSize: '24px',
-                            backgroundColor: '#4CAF50',
+                            backgroundColor: '#7966ab',
                             color: 'white',
                             padding: '10px 20px',
                             border: 'none',

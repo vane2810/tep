@@ -119,7 +119,7 @@ const GamePage1 = () => {
             <div className="mt-8">
               <p className="text-xl font-semibold">Ejercicio {currentScene}</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
+              <p className="text-xl font-semibold">Estrellas: {score} / 75</p>
             </div>
           </div>
         </section>

@@ -1,11 +1,11 @@
+// Juego 2 - Comparación de decimales - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game2 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCount, resetGame, showRetryButton }) => {
+const Game2 = ({ updateFeedback, updateScore, finalizeGame, showRetryButton }) => {
     const [gameInstance, setGameInstance] = useState(null);
-    const [correctCount, setCorrectCount] = useState(0); // Contador de respuestas correctas
-    const [incorrectAnswer, setIncorrectAnswer] = useState(false); // Estado para controlar si hay alguna respuesta incorrecta
+    const [correctCount, setCorrectCount] = useState(0); 
 
     useEffect(() => {
         const config = {
@@ -32,7 +32,7 @@ const Game2 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCoun
 
         let correctAnswers = [];
         let score = 0;
-        let localCorrectCount = 0; // Usamos una variable local para contar las respuestas correctas
+        let localCorrectCount = 0; 
 
         function preload() {
             this.load.image('background', '/img/games/mate/ob/game1.jpg');
@@ -94,15 +94,14 @@ const Game2 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCoun
 
             // Verificar si la respuesta seleccionada es correcta
             if (selectedOption === correctAnswers[rowIndex]) {
-                score += 20;
-                localCorrectCount += 1; // Usar una variable local para contar
-                setCorrectCount(prevCount => prevCount + 1); // Actualizar también el estado para consistencia
+                score += 20; // Cada respuesta correcta suma 20 puntos
+                localCorrectCount += 1; 
+                setCorrectCount(prevCount => prevCount + 1); 
                 feedbackMessage = `¡Correcto! ${selectedOption} es la respuesta correcta.`;
-                feedbackColor = '#6aa84f'; // Verde para respuestas correctas
+                feedbackColor = '#6aa84f'; 
             } else {
                 feedbackMessage = `Incorrecto. La respuesta correcta era "${correctAnswers[rowIndex]}".`;
-                feedbackColor = '#ff0000'; // Rojo para respuestas incorrectas
-                setIncorrectAnswer(true); // Indicar que hay una respuesta incorrecta
+                feedbackColor = '#ff0000'; 
             }
 
             button.setStyle({ fill: feedbackColor, backgroundColor: feedbackColor === '#6aa84f' ? '#d9ead3' : '#f4cccc' });
@@ -115,14 +114,14 @@ const Game2 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCoun
             buttons.forEach(btn => btn.disableInteractive());
 
             // Verificar si es la última fila y si todas las respuestas fueron correctas
-            if (rowIndex === 4) { // Suponiendo que hay 5 filas
+            if (rowIndex === 4) { 
                 setTimeout(() => {
-                    if (localCorrectCount === 5) { // Usar la variable local para verificar
+                    if (localCorrectCount === 5) { 
                         updateFeedback(<span style={{ color: '#6aa84f' }}>¡Felicidades! Todas las respuestas son correctas.</span>);
                     } else {
                         updateFeedback(<span style={{ color: '#ff0000' }}>No todas las respuestas son correctas. Inténtalo de nuevo.</span>);
                         if (typeof showRetryButton === 'function') {
-                            showRetryButton(true); // Mostrar botón de "Volver a Intentar"
+                            showRetryButton(true); 
                         }
                     }
 
