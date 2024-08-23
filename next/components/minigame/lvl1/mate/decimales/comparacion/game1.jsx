@@ -29,8 +29,8 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         const game = new Phaser.Game(config);
         setGameInstance(game);
 
-        let comparison;
-        let number1, number2;
+        let correctAnswer;
+        let numerator, denominator;
 
         function preload() {
             this.load.image('background', '/img/games/mate/ob/game1.jpg');
@@ -45,21 +45,14 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         }
 
         function generateQuestion() {
-            number1 = (Phaser.Math.Between(1, 20) / 10).toFixed(1);
-            number2 = (Phaser.Math.Between(1, 20) / 10).toFixed(1);
+            denominator = Phaser.Math.Between(2, 5); // Denominador entre 2 y 5
+            numerator = Phaser.Math.Between(1, denominator - 1); // Numerador menor que el denominador
 
-            // Determinar cuál es mayor, menor o igual
-            if (parseFloat(number1) > parseFloat(number2)) {
-                comparison = '>';
-            } else if (parseFloat(number1) < parseFloat(number2)) {
-                comparison = '<';
-            } else {
-                comparison = '=';
-            }
+            correctAnswer = `${numerator}/${denominator}`;
 
             // Mostrar la instrucción
-            this.add.text(400, 50, `${number1} ? ${number2}`, {
-                fontSize: '40px',
+            this.add.text(400, 50, `¿Cuál es la fracción correcta para el numerador ${numerator} y denominador ${denominator}?`, {
+                fontSize: '24px',
                 fill: '#ffffff',
                 align: 'center',
                 backgroundColor: '#7966ab',
@@ -67,10 +60,18 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
                 fontWeight: 'bold'
             }).setOrigin(0.5);
 
-            // Opciones de comparación
-            const options = ['>', '<', '='];
+            // Generar una respuesta incorrecta
+            let wrongNumerator;
+            do {
+                wrongNumerator = Phaser.Math.Between(1, denominator - 1);
+            } while (wrongNumerator === numerator);
+
+            const wrongAnswer = `${wrongNumerator}/${denominator}`;
+            const options = Phaser.Utils.Array.Shuffle([correctAnswer, wrongAnswer]);
+
+            // Mostrar las opciones
             options.forEach((option, index) => {
-                const button = this.add.text(260 + (index * 140), 130, option, {
+                const button = this.add.text(260 + (index * 280), 130, option, {
                     fontSize: '40px',
                     fill: '#000000',
                     backgroundColor: '#ffffff',
@@ -86,14 +87,14 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
             let feedbackMessage = '';
             let feedbackColor = '';
 
-            if (selectedOption === comparison) {
+            if (selectedOption === correctAnswer) {
                 score = 15; // 15 estrellas por escena correcta
-                feedbackMessage = `¡Correcto! ${number1} ${comparison} ${number2}.`;
+                feedbackMessage = `¡Correcto! La fracción es ${correctAnswer}.`;
                 feedbackColor = '#6aa84f'; // Verde para correcto
                 button.setStyle({ fill: feedbackColor });
             } else {
                 score = 0; // Respuesta incorrecta
-                feedbackMessage = `Incorrecto. ${number1} ${comparison} ${number2}.`;
+                feedbackMessage = `Incorrecto. La fracción correcta era ${correctAnswer}.`;
                 feedbackColor = '#ff0000'; // Rojo para incorrecto
                 button.setStyle({ fill: feedbackColor });
             }

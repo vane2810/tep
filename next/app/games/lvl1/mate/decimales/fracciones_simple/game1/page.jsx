@@ -81,7 +81,7 @@ const GamePage1 = () => {
             {/* Texto */}
             <div className="story font-bold text-xl mb-4">
               <Typewriter
-                text="Lee las indicaciones para comenzar"
+                text="  Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
