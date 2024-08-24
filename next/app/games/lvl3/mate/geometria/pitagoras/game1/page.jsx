@@ -117,7 +117,6 @@ const GamePage1 = () => {
               restartGame={restartGame} // Función para reiniciar el juego
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Ejercicio {currentScene}</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
             </div>
