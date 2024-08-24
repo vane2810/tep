@@ -3,53 +3,18 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
-    const [userInput, setUserInput] = useState('');
-    const [correctAnswer, setCorrectAnswer] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [showNextButton, setShowNextButton] = useState(false);
-    const [showFinalMessage, setShowFinalMessage] = useState(false);
-
-    const questions = [
-        { question: 'Convierte 7/10 en un decimal', correctAnswer: '0.7' },
-        { question: '¿Qué decimal representa la fracción 1/2?', correctAnswer: '0.5' },
-        { question: 'Convierte 1/5 en decimal.', correctAnswer: '0.2' },
-        { question: '¿Qué decimal representa la fracción 3/10?', correctAnswer: '0.3' },
-        { question: 'Convierte 4/10 en un decimal', correctAnswer: '0.4' },
-        { question: '¿Qué decimal representa la fracción 2/5?', correctAnswer: '0.4' }
-    ];
+const FigurasGeometricasGame = ({ updateFeedback, updateScore, restartGame }) => {
+    const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
-        const preload = function () {
-            this.load.image('background', '/img/games/mate/decimales/game4.jpg');
-        };
-
-        const create = function () {
-            const background = this.add.image(400, 100, 'background');
-            background.setDisplaySize(800, 200);
-
-            const currentQuestion = questions[currentScene - 1];
-            setCorrectAnswer(currentQuestion.correctAnswer);
-
-            this.add.text(400, 100, currentQuestion.question, {
-                fontSize: '22px',
-                fill: '#ffffff',
-                align: 'center',
-                backgroundColor: '#7966ab',
-                padding: { x: 20, y: 10 },
-                fontWeight: 'bold',
-                wordWrap: { width: 760, useAdvancedWrap: true }
-            }).setOrigin(0.5);
-        };
-
         const config = {
             type: Phaser.AUTO,
             width: 800,
-            height: 200,
+            height: 600,
             parent: 'game-container',
             scene: {
                 preload: preload,
-                create: create,
+                create: create
             },
             physics: {
                 default: 'arcade',
@@ -61,124 +26,212 @@ const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         };
 
         const game = new Phaser.Game(config);
+        setGameInstance(game);
+
+        function preload() {
+            this.load.image('background', '/img/games/mate/geometria/fondogame1.png');
+        }
+
+        function create() {
+            let currentScore = 0; // Inicializa el puntaje actual en 0
+            let phase = 1;
+
+            const background = this.add.image(400, 300, 'background');
+            background.setDisplaySize(800, 600);
+
+            const questionText = this.add.text(400, 150, '', {
+                fontSize: '28px',
+                fill: '#000',
+                fontFamily: 'Georgia, serif',
+                align: 'center',
+                wordWrap: { width: 700 }
+            }).setOrigin(0.5);
+
+            const optionButtons = [];
+
+            for (let i = 0; i < 4; i++) {
+                const button = this.add.text(400, 250 + (i * 70), '', {
+                    fontSize: '22px',
+                    fill: '#000',
+                    backgroundColor: '#E0BBE4',
+                    padding: { x: 20, y: 15 },
+                    borderRadius: 10,
+                    fontFamily: 'Arial',
+                    align: 'center',
+                }).setInteractive().setOrigin(0.5);
+
+                button.on('pointerdown', () => checkAnswer(button.text, button.correctOption, button));
+                optionButtons.push(button);
+            }
+
+            const nextButton = this.add.text(400, 550, 'Siguiente Fase', {
+                fontSize: '24px',
+                fill: '#fff',
+                backgroundColor: '#006400',
+                padding: { x: 25, y: 12 },
+                borderRadius: 10,
+                fontFamily: 'Arial',
+                align: 'center',
+            }).setInteractive().setOrigin(0.5);
+
+            nextButton.on('pointerdown', () => {
+                updateFeedback('', '');
+                phase += 1;
+                displayNextQuestion();
+            });
+
+            nextButton.setVisible(false);
+
+            const retryButton = this.add.text(400, 350, 'Volver a Intentarlo', {
+                fontSize: '24px',
+                fill: '#fff',
+                backgroundColor: '#ff0000',
+                padding: { x: 25, y: 12 },
+                borderRadius: 10,
+                fontFamily: 'Arial',
+                align: 'center',
+            }).setInteractive().setOrigin(0.5);
+
+            retryButton.on('pointerdown', () => {
+                restartGame();
+                if (gameInstance) {
+                    gameInstance.destroy(true);
+                }
+            });
+
+            retryButton.setVisible(false);
+
+            displayNextQuestion();
+
+            function displayNextQuestion() {
+                const questions = [
+                    {
+                        pregunta: "¿Qué tipo de triángulo tiene todos sus lados diferentes?",
+                        opciones: [
+                            "Equilátero",
+                            "Isósceles",
+                            "Escaleno", // Correcta
+                            "Rectángulo"
+                        ],
+                        correcta: "Escaleno"
+                    },
+                    {
+                        pregunta: "¿Cuál de las siguientes afirmaciones describe un cuadrado?",
+                        opciones: [
+                            "Todos los lados y ángulos son iguales.", // Correcta
+                            "Tiene lados largos y cortos.",
+                            "Es un círculo.",
+                            "Solo tiene dos lados iguales."
+                        ],
+                        correcta: "Todos los lados y ángulos son iguales."
+                    },
+                    {
+                        pregunta: "¿Qué figura geométrica tiene lados opuestos iguales y ángulos rectos?",
+                        opciones: [
+                            "Triángulo",
+                            "Cuadrado",
+                            "Rectángulo", // Correcta
+                            "Círculo"
+                        ],
+                        correcta: "Rectángulo"
+                    },
+                    {
+                        pregunta: "¿Cuál es la característica única de un círculo?",
+                        opciones: [
+                            "Tiene tres lados.",
+                            "Todos sus puntos están a la misma distancia del centro.", // Correcta
+                            "Tiene cuatro esquinas.",
+                            "Es un polígono."
+                        ],
+                        correcta: "Todos sus puntos están a la misma distancia del centro."
+                    },
+                    {
+                        pregunta: "¿Cuál es el nombre de un triángulo que tiene dos lados iguales?",
+                        opciones: [
+                            "Equilátero",
+                            "Isósceles", // Correcta
+                            "Escaleno",
+                            "Rectángulo"
+                        ],
+                        correcta: "Isósceles"
+                    }
+                ];
+
+                if (phase > 5 || currentScore >= 200) {
+                    if (currentScore >= 200) {
+                        questionText.setText('¡Felicidades! Has alcanzado los 200 puntos.');
+                    } else {
+                        questionText.setText('No lograste el total de puntos. Vuelve a intentarlo.');
+                        retryButton.setVisible(true);
+                    }
+                    optionButtons.forEach(button => button.setVisible(false));
+                    nextButton.setVisible(false);
+                    return;
+                }
+
+                const preguntaActual = questions[phase - 1];
+
+                questionText.setText(preguntaActual.pregunta);
+
+                Phaser.Utils.Array.Shuffle(preguntaActual.opciones);
+
+                optionButtons.forEach((button, index) => {
+                    button.setText(preguntaActual.opciones[index]);
+                    button.correctOption = preguntaActual.correcta;
+                    button.setVisible(true);
+                    button.setStyle({ fill: '#000', backgroundColor: '#E0BBE4' });
+                    button.setInteractive();
+                });
+
+                nextButton.setVisible(false);
+                retryButton.setVisible(false); // Ocultar el botón de volver a intentar en las preguntas normales
+            }
+
+            function checkAnswer(selectedOption, correctOption, button) {
+                let score = 0;
+                let feedbackMessage = '';
+                let feedbackColor = '';
+
+                if (selectedOption === correctOption) {
+                    score = 40;
+                    feedbackMessage = "¡Correcto! " + correctOption;
+                    feedbackColor = '#6aa84f';
+                } else {
+                    feedbackMessage = "Incorrecto. " + correctOption;
+                    feedbackColor = '#ff0000';
+                }
+
+                currentScore += score;
+
+                if (currentScore >= 200) {
+                    currentScore = 200; // Limitar la puntuación a un máximo de 200
+                }
+
+                updateScore(currentScore);  // Actualiza la puntuación acumulada
+                updateFeedback(feedbackMessage, `Estrellas: ${currentScore}`);
+
+                button.setStyle({ fill: feedbackColor });
+
+                optionButtons.forEach(btn => btn.disableInteractive());
+
+                if (currentScore >= 200 || phase >= 5) {
+                    nextButton.setText('Finalizar');
+                } else {
+                    nextButton.setText('Siguiente Fase');
+                }
+
+                nextButton.setVisible(true);
+            }
+        }
 
         return () => {
-            game.destroy(true);
-        };
-    }, [currentScene]);
-
-    const handleInputChange = (event) => {
-        setUserInput(event.target.value);
-    };
-
-    const handleSubmit = () => {
-        setIsSubmitted(true);
-        let feedbackMessage = '';
-        let feedbackColor = '';
-        let score = 0;
-
-        if (userInput.trim() === correctAnswer) {
-            feedbackMessage = `¡Correcto! La respuesta es ${correctAnswer}`;
-            feedbackColor = '#6aa84f';
-            score = 50;
-        } else {
-            feedbackMessage = `Incorrecto. La respuesta correcta era ${correctAnswer}`;
-            feedbackColor = '#ff0000';
-        }
-
-        updateScore(score);
-        updateFeedback(<span style={{ color: feedbackColor }}>{feedbackMessage}</span>);
-        setShowNextButton(true);
-    };
-
-    const handleNextScene = () => {
-        if (isFinalScene) {
-            if (finalScore >= 200) {
-                setShowFinalMessage(true);
-                updateFeedback(<span style={{ color: '#6aa84f' }}>¡Felicidades! Has completado el juego con éxito</span>);
-            } else {
-                setShowFinalMessage(true);
-                updateFeedback(<span style={{ color: '#ff0000' }}>No alcanzaste los 200 puntos. Debes volver a intentarlo</span>);
+            if (gameInstance) {
+                gameInstance.destroy(true);
             }
-        } else {
-            setShowNextButton(false);
-            setIsSubmitted(false);
-            setUserInput('');
-            updateFeedback('');
-            proceedToNextScene();
-        }
-    };
+        };
+    }, [updateFeedback, updateScore, restartGame]);
 
-    return (
-        <div className="game-container">
-            <div id="game-container" className="w-[800px] h-[200px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>
-            {!showFinalMessage && !isSubmitted && (
-                <div className="input-container" style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <input
-                        type="text"
-                        value={userInput}
-                        onChange={handleInputChange}
-                        style={{
-                            fontSize: '24px',
-                            padding: '10px',
-                            width: '150px',
-                            textAlign: 'center',
-                            border: '2px solid #000000',
-                            marginRight: '10px'
-                        }}
-                    />
-                    <button
-                        onClick={handleSubmit}
-                        style={{
-                            fontSize: '24px',
-                            backgroundColor: '#4CAF50',
-                            color: 'white',
-                            padding: '10px 20px',
-                            border: 'none',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        Comprobar
-                    </button>
-                </div>
-            )}
-            {!showFinalMessage && showNextButton && (
-                <div className="next-button-container" style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <button
-                        onClick={handleNextScene}
-                        style={{
-                            fontSize: '24px',
-                            backgroundColor: '#7966ab',
-                            color: 'white',
-                            padding: '10px 20px',
-                            border: 'none',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        Siguiente
-                    </button>
-                </div>
-            )}
-            {showFinalMessage && finalScore < 200 && (
-                <div className="retry-button-container" style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <button
-                        onClick={restartGame}
-                        style={{
-                            fontSize: '24px',
-                            backgroundColor: '#FF0000',
-                            color: 'white',
-                            padding: '10px 20px',
-                            border: 'none',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        Volver a Intentarlo
-                    </button>
-                </div>
-            )}
-        </div>
-    );
+    return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default Game4;
-
+export default FigurasGeometricasGame;
