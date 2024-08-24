@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const FigurasGeometricasGame = ({ updateFeedback, updateScore, restartGame }) => {
+const Figuras4Game = ({ updateFeedback, updateScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
@@ -234,4 +234,4 @@ const FigurasGeometricasGame = ({ updateFeedback, updateScore, restartGame }) =>
     return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default FigurasGeometricasGame;
+export default Figuras4Game;
