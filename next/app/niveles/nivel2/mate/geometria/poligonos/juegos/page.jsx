@@ -30,7 +30,7 @@ export default function PageGameSuma() {
       </div>
       {/* Donkey */}
       <section className="flex flex-col items-center justify-center mb-14">
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de los tipos de Simetría!</h2>
+        <h2 className="text-2xl md:text-4xl font-bold mt-4 story">¡Bienvenido a los juegos de identificación de poligonos!</h2>
         <img src="/img/niveles/mate/figperi.png" alt="Donkey" className="h-28 md:h-64 mt-6 animate-tumble" />
       </section>
       <SeparadorVerde />
