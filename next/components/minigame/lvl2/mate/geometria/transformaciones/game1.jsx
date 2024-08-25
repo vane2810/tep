@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const transformacionesGame = ({ updateFeedback, updateScore, restartGame }) => {
+const TransformacionesGeometricasGame = ({ updateFeedback, updateScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
@@ -105,74 +105,74 @@ const transformacionesGame = ({ updateFeedback, updateScore, restartGame }) => {
             function displayNextQuestion() {
                 const adivinanzas = [
                     {
-                        pregunta: "Soy un cuerpo geométrico con seis caras cuadradas iguales. ¿Quién soy?",
+                        pregunta: "¿Qué tipo de transformación geométrica mueve una figura de un lugar a otro sin cambiar su orientación?",
                         opciones: [
-                            "Cubo",
-                            "Esfera",
-                            "Cilindro",
-                            "Pirámide"
+                            "Traslación",
+                            "Rotación",
+                            "Reflexión",
+                            "Dilación"
                         ],
-                        correcta: "Cubo"
+                        correcta: "Traslación"
                     },
                     {
-                        pregunta: "Tengo una base circular y un punto en la parte superior. ¿Qué soy?",
+                        pregunta: "¿Cómo se llama la transformación geométrica que gira una figura alrededor de un punto?",
                         opciones: [
-                            "Cono",
-                            "Cilindro",
-                            "Cubo",
-                            "Esfera"
+                            "Rotación",
+                            "Traslación",
+                            "Reflexión",
+                            "Simetría"
                         ],
-                        correcta: "Cono"
+                        correcta: "Rotación"
                     },
                     {
-                        pregunta: "Tengo dos bases circulares y lados curvados. ¿Quién soy?",
+                        pregunta: "Si reflejas una figura sobre un eje, ¿qué tipo de transformación es?",
                         opciones: [
-                            "Cilindro",
-                            "Cono",
-                            "Cubo",
-                            "Pirámide"
+                            "Reflexión",
+                            "Rotación",
+                            "Traslación",
+                            "Escalado"
                         ],
-                        correcta: "Cilindro"
+                        correcta: "Reflexión"
                     },
                     {
-                        pregunta: "Tengo todas mis caras planas y rectangulares. ¿Qué soy?",
+                        pregunta: "¿Qué transformación geométrica mantiene la forma y tamaño de una figura, pero la coloca en una posición diferente?",
                         opciones: [
-                            "Prisma rectangular",
-                            "Cubo",
-                            "Pirámide",
-                            "Cono"
+                            "Traslación",
+                            "Rotación",
+                            "Reflexión",
+                            "Dilación"
                         ],
-                        correcta: "Prisma rectangular"
+                        correcta: "Traslación"
                     },
                     {
-                        pregunta: "Soy un cuerpo geométrico sin caras planas ni aristas. ¿Qué soy?",
+                        pregunta: "¿Cuál de las siguientes NO es una transformación geométrica?",
                         opciones: [
-                            "Esfera",
-                            "Cubo",
-                            "Pirámide",
-                            "Prisma"
+                            "Dilación",
+                            "Rotación",
+                            "Traslación",
+                            "Reflexión"
                         ],
-                        correcta: "Esfera"
+                        correcta: "Dilación"
                     },
                     {
-                        pregunta: "Tengo una base cuadrada y cuatro caras triangulares que se encuentran en un vértice. ¿Quién soy?",
+                        pregunta: "Si giras una figura 90 grados alrededor de su centro, ¿qué tipo de transformación has realizado?",
                         opciones: [
-                            "Pirámide",
-                            "Cubo",
-                            "Cilindro",
-                            "Esfera"
+                            "Rotación",
+                            "Reflexión",
+                            "Traslación",
+                            "Dilación"
                         ],
-                        correcta: "Pirámide"
+                        correcta: "Rotación"
                     },
                     {
-                        pregunta: "Soy un cuerpo geométrico con bases triangulares y caras rectangulares. ¿Qué soy?",
+                        pregunta: "¿Qué transformación geométrica refleja una figura como si la vieras en un espejo?",
                         opciones: [
-                            "Prisma triangular",
-                            "Cubo",
-                            "Cono",
-                            "Cilindro"
+                            "Reflexión",
+                            "Rotación",
+                            "Traslación",
+                            "Escalado"
                         ],
-                        correcta: "Prisma triangular"
+                        correcta: "Reflexión"
                     }
                 ];
 
@@ -250,4 +250,4 @@ const transformacionesGame = ({ updateFeedback, updateScore, restartGame }) => {
     return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default transformacionesGame;
+export default TransformacionesGeometricasGame;
