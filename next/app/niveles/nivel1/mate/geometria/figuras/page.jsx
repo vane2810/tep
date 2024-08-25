@@ -7,7 +7,7 @@ import Modal from "@/components/modals/games/leccionModal";
 export default function SumaPage() {
 
   const [modalOpen, setModalOpen] = useState(false);
-  
+
   return (
     <main>
       {/* Bienvenida de Donkey */}
@@ -38,13 +38,19 @@ export default function SumaPage() {
           <img src="/img/niveles/mate/paso1figugeo.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
-      
+
       {/* paso 2 */}
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold text-center">El Triángulo</h2>
           <h2 className="text-xl font-semibold text-center">Un triángulo es una figura con tres lados y tres esquinas (que también se llaman vértices).</h2>
-          <p className="mt-2 text-black text-center">Clasificación: Los triángulos pueden ser de diferentes tipos según sus lados:Equilátero: Todos sus lados son iguales, Isósceles: Tiene dos lados iguales y Escaleno: Todos sus lados son diferentes.</p>
+          <p className="mt-2 text-black text-center">
+            Clasificación: Los triángulos pueden ser de diferentes tipos según sus lados:<br />
+            Equilátero: Todos sus lados son iguales,<br />
+            Isósceles: Tiene dos lados iguales y<br />
+            Escaleno: Todos sus lados son diferentes.
+          </p>
+
           <img src="/img/niveles/mate/paso2figugeo.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>

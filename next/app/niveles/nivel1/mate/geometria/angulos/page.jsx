@@ -34,7 +34,7 @@ export default function SumaPage() {
       <section className="my-10 px-4">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold text-center">¿Qué es un ángulo?</h2>
-          <p className="mt-2 text-black text-center">Un ángulo se forma cuando dos líneas se encuentran en un punto llamado vértice. Piensa en las manos de un reloj: cuando señalan las 3:00, forman un ángulo en el centro del reloj. Los ángulos nos ayudan a entender cómo se abren o se cierran las cosas.</p>
+          <p className="mt-2 text-black text-center">Un ángulo se forma cuando dos líneas se encuentran en un punto llamado vértice. Piensa en las manos de un reloj: Cuando señalan las 3:00, forman un ángulo en el centro del reloj. Los ángulos nos ayudan a entender cómo se abren o se cierran las cosas.</p>
           <img src="/img/niveles/mate/paso1angu.png" alt="Suma" className="h-32 w-auto mt-4" />
         </div>
       </section>
