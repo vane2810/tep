@@ -102,7 +102,7 @@ const GamePage4 = () => {
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
+          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[1300px]">
             <h1 className="text-3xl font-bold mb-4 text-center">Indentifica las caracteristicas del área</h1>
             <Game4 
               key={gameKey} 
