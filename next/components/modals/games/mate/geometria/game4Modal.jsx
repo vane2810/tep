@@ -24,9 +24,9 @@ const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
         <p className="text-2xl mb-4 font-bold">Juego: {subtitle.toLowerCase()}</p>
 
         <ol className="mb-6 text-xl">
-          <li>1. Elige la respuesta que consideres correcta entre las 3 opciones</li>
-          <li>2. Tienes un límite de 10 preguntas</li>
-          
+          <li>1. Lee cada pregunta con atención y selecciona la opción correcta.</li>
+          <li>2. Si no alcanzas las 300 estrellas al final del juego, no te preocupes, puedes hacer clic en 'Volver a Intentarlo' para jugar de nuevo</li>
+          <li>2. Cada pregunta vale 50 estrellas. ¡Apunta a obtener todas las respuestas correctas para ganar el juego y alcanzar el máximo de 300 estrellas!</li>
         </ol>
 
         <div className="flex space-x-4">

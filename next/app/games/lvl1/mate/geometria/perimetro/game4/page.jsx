@@ -103,7 +103,7 @@ const GamePage4 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Introducción a los Decimales</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Identifica las caracteristicas del perimetro</h1>
             <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 
@@ -115,7 +115,6 @@ const GamePage4 = () => {
               currentScene={currentScene}
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Ejercicio {currentScene} de 6</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (

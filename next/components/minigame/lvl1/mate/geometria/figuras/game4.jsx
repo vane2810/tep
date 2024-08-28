@@ -1,22 +1,10 @@
 // Juego 4 - figuras - Nivel 1
-// TrueFalseGame.js
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const TrueFalseGame = () => {
+const GeometryQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);
-    const [score, setScore] = useState(0);
-    const [questionIndex, setQuestionIndex] = useState(0);
-    const [feedback, setFeedback] = useState('');
-
-    const questions = [
-        { question: "El triángulo tiene 3 lados.", correctAnswer: true },
-        { question: "Un cuadrado tiene 5 lados.", correctAnswer: false },
-        { question: "El círculo tiene esquinas.", correctAnswer: false },
-        { question: "Un rectángulo tiene 4 lados.", correctAnswer: true },
-        { question: "Un hexágono tiene 6 lados.", correctAnswer: true },
-    ];
 
     useEffect(() => {
         const config = {
@@ -26,15 +14,7 @@ const TrueFalseGame = () => {
             parent: 'game-container',
             scene: {
                 preload: preload,
-                create: create,
-                update: update
-            },
-            physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: { y: 0 },
-                    debug: false
-                }
+                create: create
             }
         };
 
@@ -42,75 +22,167 @@ const TrueFalseGame = () => {
         setGameInstance(game);
 
         function preload() {
-            this.load.image('background', '/img/games/mate/geometria/fondogame1.png');
+            this.load.image('background', '/img/games/mate/geometria/fondo2game1.png');
         }
 
         function create() {
-            this.add.image(400, 300, 'background');
+            this.add.image(400, 300, 'background').setDisplaySize(800, 600);
 
-            showQuestion.call(this, questions[questionIndex]);
+            this.score = 0;
+            this.currentQuestionIndex = 0;
 
-            const trueButton = this.add.text(300, 400, 'Verdadero', {
-                fontSize: '32px',
-                fill: '#00ff00',
-                backgroundColor: '#000000',
-                padding: { x: 20, y: 10 },
-                borderRadius: 5
-            }).setInteractive().on('pointerdown', () => checkAnswer.call(this, true));
-
-            const falseButton = this.add.text(500, 400, 'Falso', {
-                fontSize: '32px',
-                fill: '#ff0000',
-                backgroundColor: '#000000',
-                padding: { x: 20, y: 10 },
-                borderRadius: 5
-            }).setInteractive().on('pointerdown', () => checkAnswer.call(this, false));
-
-            this.nextButton = this.add.text(400, 500, 'Siguiente', {
+            this.questionText = this.add.text(400, 150, '', {
                 fontSize: '24px',
-                fill: '#ffffff',
-                backgroundColor: '#0000ff',
-                padding: { x: 20, y: 10 },
-                borderRadius: 5
-            }).setInteractive().setOrigin(0.5);
-            this.nextButton.visible = false; // Ocultar el botón "Siguiente" al principio
+                fill: '#000',
+                fontFamily: 'Arial',
+                align: 'center',
+                wordWrap: { width: 700 }
+            }).setOrigin(0.5);
 
-            this.nextButton.on('pointerdown', () => {
-                setQuestionIndex(prevIndex => prevIndex + 1);
-                this.scene.restart();
+            this.options = [
+                this.add.text(400, 300, '', {
+                    fontSize: '22px',
+                    fill: '#fff',
+                    backgroundColor: '#3498db',
+                    padding: { x: 20, y: 15 },
+                    borderRadius: 10
+                }).setInteractive().setOrigin(0.5),
+
+                this.add.text(400, 375, '', {
+                    fontSize: '22px',
+                    fill: '#fff',
+                    backgroundColor: '#3498db',
+                    padding: { x: 20, y: 15 },
+                    borderRadius: 10
+                }).setInteractive().setOrigin(0.5),
+
+                this.add.text(400, 450, '', {
+                    fontSize: '22px',
+                    fill: '#fff',
+                    backgroundColor: '#3498db',
+                    padding: { x: 20, y: 15 },
+                    borderRadius: 10
+                }).setInteractive().setOrigin(0.5),
+
+                this.add.text(400, 525, '', {
+                    fontSize: '22px',
+                    fill: '#fff',
+                    backgroundColor: '#3498db',
+                    padding: { x: 20, y: 15 },
+                    borderRadius: 10
+                }).setInteractive().setOrigin(0.5),
+            ];
+
+            this.options.forEach((option, index) => {
+                option.on('pointerdown', () => checkAnswer.call(this, index));
+            });
+
+            this.retryButton = this.add.text(400, 500, 'Volver a Intentarlo', {
+                fontSize: '24px',
+                fill: '#fff',
+                backgroundColor: '#e74c3c',
+                padding: { x: 25, y: 12 },
+                borderRadius: 10,
+                fontFamily: 'Arial',
+                align: 'center'
+            }).setInteractive().setOrigin(0.5).setVisible(false);
+
+            this.retryButton.on('pointerdown', () => restartGame());
+
+            this.questions = [
+                {
+                    question: '¿Cuál de las siguientes afirmaciones describe correctamente un triángulo equilátero?',
+                    answers: [
+                        'Tiene dos lados iguales.',
+                        'Todos sus lados son iguales.',
+                        'Todos sus lados son diferentes.',
+                        'Tiene cuatro lados.'
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: '¿Qué hace que un cuadrado sea especial?',
+                    answers: [
+                        'Todos sus lados y ángulos son iguales.',
+                        'Tiene lados largos y cortos.',
+                        'Tiene tres lados iguales.',
+                        'No tiene lados ni esquinas.'
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: '¿Cuál de estas figuras tiene lados opuestos iguales pero no todos los lados son iguales?',
+                    answers: [
+                        'Cuadrado',
+                        'Triángulo',
+                        'Rectángulo',
+                        'Círculo'
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: '¿Cuál de las siguientes afirmaciones es cierta sobre un círculo?',
+                    answers: [
+                        'Tiene tres lados.',
+                        'Tiene cuatro lados iguales.',
+                        'No tiene lados ni esquinas.',
+                        'Es un tipo de rectángulo.'
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: '¿Cómo se llama un triángulo que tiene todos los lados diferentes?',
+                    answers: [
+                        'Equilátero',
+                        'Isósceles',
+                        'Escaleno',
+                        'Rectángulo'
+                    ],
+                    correctAnswer: 2
+                }
+            ];
+
+            displayQuestion.call(this);
+        }
+
+        function displayQuestion() {
+            if (this.currentQuestionIndex >= this.questions.length) {
+                endGame.call(this);
+                return;
+            }
+
+            const currentQuestion = this.questions[this.currentQuestionIndex];
+            this.questionText.setText(currentQuestion.question);
+
+            currentQuestion.answers.forEach((answer, index) => {
+                this.options[index].setText(answer);
             });
         }
 
-        function showQuestion(question) {
-            this.add.text(400, 200, question.question, {
-                fontSize: '28px',
-                fill: '#ffffff',
-                fontFamily: 'Arial',
-                wordWrap: { width: 700 },
-                align: 'center'
-            }).setOrigin(0.5);
-
-            this.add.text(400, 550, `Feedback: ${feedback}`, {
-                fontSize: '20px',
-                fill: '#ffffff',
-                fontFamily: 'Arial',
-                align: 'center'
-            }).setOrigin(0.5);
-        }
-
-        function checkAnswer(selectedAnswer) {
-            const currentQuestion = questions[questionIndex];
-            if (selectedAnswer === currentQuestion.correctAnswer) {
-                setScore(prevScore => prevScore + 10);
-                setFeedback('¡Correcto!');
+        function checkAnswer(index) {
+            const currentQuestion = this.questions[this.currentQuestionIndex];
+            if (index === currentQuestion.correctAnswer) {
+                this.score += 50; // Aumentar en 50 puntos por cada respuesta correcta
+                updateFeedback("¡Correcto!", `Estrellas: ${this.score}`);
             } else {
-                setFeedback('Incorrecto.');
+                updateFeedback("Incorrecto", `Estrellas: ${this.score}`);
             }
-            this.nextButton.visible = true; // Mostrar el botón "Siguiente" después de responder
+
+            this.currentQuestionIndex += 1;
+            displayQuestion.call(this);
         }
 
-        function update() {
-            // Lógica de actualización si es necesario
+        function endGame() {
+            this.questionText.setText("¡Juego Finalizado!");
+            this.options.forEach(option => option.setVisible(false));
+
+            updateScore(this.score);
+            if (this.score >= 300) {
+                updateFeedback("¡Felicidades! Lo lograste.", `Estrellas: ${this.score}`);
+            } else {
+                updateFeedback("¡No alcanzaste el puntaje necesario!", `Estrellas: ${this.score}`);
+                this.retryButton.setVisible(true); // Mostrar el botón de reinicio si no se alcanzan 300 estrellas
+            }
         }
 
         return () => {
@@ -118,11 +190,9 @@ const TrueFalseGame = () => {
                 gameInstance.destroy(true);
             }
         };
-    }, [questionIndex, feedback]);
+    }, [updateFeedback, updateScore, restartGame]);
 
     return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default TrueFalseGame;
-
-
+export default GeometryQuizGame;

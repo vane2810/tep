@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/decimales/game4Modal';
+import Game1Modal from '@/components/modals/games/mate/geometria/game4Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
@@ -97,7 +97,7 @@ const GamePage4 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Identifica las caracteristicas de los cuerpos geometricos</h1>
             <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 
