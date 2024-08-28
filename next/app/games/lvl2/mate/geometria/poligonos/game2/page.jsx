@@ -1,4 +1,3 @@
-// Juego 2 - Poligonos- Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/poligonos/game2'), { ssr: false });
 
 const GamePage2 = () => {
@@ -29,8 +28,8 @@ const GamePage2 = () => {
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
-    setFeedback(newFeedback);
+  const updateFeedback = (newFeedback, color) => {
+    setFeedback(<span style={{ color }}>{newFeedback}</span>);
   };
 
   const updateScore = (newScore) => {
@@ -65,7 +64,7 @@ const GamePage2 = () => {
         <div className="flex items-center my-6 mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figperi.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figperi.png" alt="Polígonos" className="h-40 w-auto" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
@@ -90,14 +89,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figperi.png"
-        subtitle="Decimales"
+        subtitle="Polígonos"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Tipos de Polígonos</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 
