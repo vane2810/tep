@@ -16,7 +16,7 @@ export default function SumaPage() {
         <div className="bg-green-100 py-4">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate/decimales">
+            <Link href="/niveles/nivel1/mate/geometria">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>

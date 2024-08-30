@@ -1,4 +1,3 @@
-// Juego 2 - Cuerpos geometricos - Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/cuerpos/game2'), { ssr: false });
 
 const GamePage2 = () => {
@@ -16,7 +15,7 @@ const GamePage2 = () => {
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [gameKey, setGameKey] = useState(0);
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -29,8 +28,8 @@ const GamePage2 = () => {
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
-    setFeedback(newFeedback);
+  const updateFeedback = (newFeedback, color) => {
+    setFeedback(<span style={{ color }}>{newFeedback}</span>);
   };
 
   const updateScore = (newScore) => {
@@ -97,7 +96,7 @@ const GamePage2 = () => {
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Cuerpos Geométricos</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 
