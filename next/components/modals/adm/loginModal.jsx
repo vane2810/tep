@@ -1,11 +1,11 @@
 import React from 'react';
 import '@/styles/modals/modalLogin.css';
 
-const LoginModal = ({ show, message, type, onClose }) => {
+const LoginModal = ({ show, message, type, onClose, redirectTo }) => {
   const handleContinue = () => {
-    if (type === 'success') {
-      // Redirigir al usuario a la página de inicio
-      window.location.href = '/';
+    if (type === 'success' && redirectTo) {
+      // Redirigir al usuario a la ruta específica
+      window.location.href = redirectTo;
     }
     onClose();
   };

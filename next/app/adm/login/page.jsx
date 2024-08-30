@@ -1,10 +1,10 @@
 // INICIO DE SESIÓN
 "use client";
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Importar useRouter
+import { useRouter } from 'next/navigation';
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
-import LoginModal from '@/components/modals/adm/loginModa';
+import LoginModal from '@/components/modals/adm/LoginModal';
 import Link from 'next/link';
 
 export default function Login() {
@@ -16,14 +16,14 @@ export default function Login() {
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
-  const router = useRouter(); // Inicializar useRouter
+  const [redirectTo, setRedirectTo] = useState(''); // Nueva variable de estado para la redirección
+  const router = useRouter(); 
 
   // Mapeo de niveles a rutas
   const nivelRutas = {
     1: 'niveles/nivel1',
     2: 'niveles/nivel2',
     3: 'niveles/nivel3',
-    // Agrega más niveles si es necesario
   };
 
   // Maneja los cambios en los campos del formulario
@@ -51,18 +51,18 @@ export default function Login() {
         setModalMessage('Inicio de sesión exitoso');
         setModalType('success');
 
-        // Redirigir basado en el rol y nivel del usuario
+        // Determina la ruta de redirección basada en el rol y nivel del usuario
         if (data.role === 'estudiante') {
           const ruta = nivelRutas[data.nivel];
           if (ruta) {
-            router.push(`/${ruta}`);
+            setRedirectTo(`/${ruta}`);
           } else {
             console.error('Nivel desconocido:', data.nivel);
           }
         } else if (data.role === 'docente') {
-          router.push('/docente/dashboard');
+          setRedirectTo('/docente/dashboard');
         } else if (data.role === 'padre') {
-          router.push('/padre/dashboard');
+          setRedirectTo('/padre/dashboard');
         }
       } else {
         setModalMessage(data.error);
@@ -75,11 +75,16 @@ export default function Login() {
     setShowModal(true);
   };
 
-  // Cierra el modal de notificación
+  // Cierra el modal de notificación y redirige si es necesario
   const closeModal = () => {
     setShowModal(false);
     setModalMessage('');
     setModalType('');
+
+    // Redirigir cuando se cierre el modal si hay una ruta definida
+    if (redirectTo) {
+      router.push(redirectTo);
+    }
   };
 
   return (
@@ -133,7 +138,13 @@ export default function Login() {
       <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
         <img src="/img/auth/login.jpg" alt="Imagen de fondo" className="max-w-full h-auto object-contain" />
       </div>
-      <LoginModal show={showModal} message={modalMessage} type={modalType} onClose={closeModal} />
+      <LoginModal 
+        show={showModal} 
+        message={modalMessage} 
+        type={modalType} 
+        onClose={closeModal} 
+        redirectTo={redirectTo} // Pasamos la ruta de redirección al modal
+      />
     </div>
   );
 }

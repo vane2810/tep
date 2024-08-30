@@ -15,7 +15,7 @@ export default function RegistroModal({ onClose, message, isError }) {
           <div>
             <p className="text-lg font-bold text-red-600 mb-4">Error al registrar:</p>
             <img 
-              src="/img/page/starly.png" 
+              src="/img/personajes/starly/starly.png" 
               alt="Error" 
               className="h-56 w-auto mx-auto mb-4"
             />
@@ -34,7 +34,7 @@ export default function RegistroModal({ onClose, message, isError }) {
           <div>
             <p className="text-lg font-bold text-green-600 mb-4">¡Registro exitoso!</p>
             <img 
-              src="/img/page/starly.png" 
+              src="/img/personajes/starly/starly.png" 
               alt="Registro exitoso" 
               className="h-30 w-auto mx-auto mb-4"
             />
