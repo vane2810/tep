@@ -39,7 +39,7 @@ const Navbar = () => {
         {session ? (
           <div className="hidden sm:flex items-center mr-4">
             <div className="text-xl font-bold mr-2">Bienvenido</div>
-            <button onClick={handleLogout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 mr-4 px-4 rounded">Cerrar sesión</button>
+            <button onClick={handleLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 mr-4 px-4 rounded">Cerrar sesión</button>
           </div>
         ) : (
           <div className="hidden sm:block">

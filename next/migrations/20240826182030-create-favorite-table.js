@@ -2,19 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Roles', {
+    await queryInterface.createTable('Favorites', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING,
+      usuario_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
         allowNull: false
       },
-      description: {
-        type: Sequelize.STRING
+      juego_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Games',
+          key: 'id'
+        },
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Roles');
+    await queryInterface.dropTable('Favorites');
   }
 };

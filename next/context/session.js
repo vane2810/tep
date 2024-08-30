@@ -9,13 +9,12 @@ export const SessionProvider = ({ children }) => {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
-    // token en localStorage 
     const token = localStorage.getItem('token');
     if (token) {
       try {
         const decoded = jwt.decode(token);
         if (decoded) {
-          setSession({ user: decoded.id, role: decoded.role }); 
+          setSession({ user: decoded.id, role: decoded.role, nivel: decoded.nivel });
         }
       } catch (error) {
         console.error('Error decodificando el token:', error);
@@ -25,13 +24,11 @@ export const SessionProvider = ({ children }) => {
   }, []);
 
   const login = (user) => {
-    
-    localStorage.setItem('token', user.token); 
-    setSession({ user: user.id, role: user.role });
+    localStorage.setItem('token', user.token);
+    setSession({ user: user.id, role: user.role, nivel: user.nivel });
   };
 
   const logout = () => {
-    // Limpiar el estado de sesión
     localStorage.removeItem('token');
     setSession(null);
   };
@@ -42,3 +39,4 @@ export const SessionProvider = ({ children }) => {
     </SessionContext.Provider>
   );
 };
+

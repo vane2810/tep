@@ -1,9 +1,10 @@
 // INICIO DE SESIÓN
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Importar useRouter
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
-import LoginModal from '@/components/modals/adm/LoginModal';
+import LoginModal from '@/components/modals/adm/loginModa';
 import Link from 'next/link';
 
 export default function Login() {
@@ -15,6 +16,15 @@ export default function Login() {
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
+  const router = useRouter(); // Inicializar useRouter
+
+  // Mapeo de niveles a rutas
+  const nivelRutas = {
+    1: 'niveles/nivel1',
+    2: 'niveles/nivel2',
+    3: 'niveles/nivel3',
+    // Agrega más niveles si es necesario
+  };
 
   // Maneja los cambios en los campos del formulario
   const handleChange = (e) => {
@@ -40,6 +50,20 @@ export default function Login() {
         localStorage.setItem('token', data.token);
         setModalMessage('Inicio de sesión exitoso');
         setModalType('success');
+
+        // Redirigir basado en el rol y nivel del usuario
+        if (data.role === 'estudiante') {
+          const ruta = nivelRutas[data.nivel];
+          if (ruta) {
+            router.push(`/${ruta}`);
+          } else {
+            console.error('Nivel desconocido:', data.nivel);
+          }
+        } else if (data.role === 'docente') {
+          router.push('/docente/dashboard');
+        } else if (data.role === 'padre') {
+          router.push('/padre/dashboard');
+        }
       } else {
         setModalMessage(data.error);
         setModalType('error');

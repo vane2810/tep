@@ -2,13 +2,13 @@
 
 const express = require('express');
 const router = express.Router();
-const { User, Role } = require('../models');
+const { User, Character, Level } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 // Ruta registro
 router.post('/register', async (req, res) => {
-  const { name, email, password, confirmPassword, roleId } = req.body;
+  const { name, email, password, confirmPassword } = req.body;
 
   const validateName = (name) => {
     const regex = /^[a-zA-Z\s]+$/;
@@ -36,22 +36,67 @@ router.post('/register', async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      roleId: roleId || 1, 
+      role: null,
     });
 
+    res.status(201).json({ message: 'Usuario registrado correctamente', userId: user.id });
+  } catch (error) {
+    console.error("Error al registrar usuario:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
-    res.status(201).json({ message: 'Usuario registrado correctamente', user});
+// Ruta para actualizar el rol
+router.post('/role', async (req, res) => {
+  const { userId, role } = req.body;
+
+  try {
+    const user = await User.findByPk(userId);
+    user.role = role;
+    await user.save();
+
+    res.status(200).json({ message: 'Rol asignado correctamente' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// Ruta login
+// Ruta para actualizar el nivel
+router.post('/level', async (req, res) => {
+  const { userId, levelId } = req.body;
+
+  try {
+    const user = await User.findByPk(userId);
+    user.levelId = levelId;
+    await user.save();
+
+    res.status(200).json({ message: 'Nivel asignado correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Ruta para actualizar el personaje
+router.post('/character', async (req, res) => {
+  const { userId, characterId } = req.body;
+
+  try {
+    const user = await User.findByPk(userId);
+    user.characterId = characterId;
+    await user.save();
+
+    res.status(200).json({ message: 'Personaje asignado correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ where: { email }, include: Role });
+    const user = await User.findOne({ where: { email } });
     if (!user) {
       return res.status(400).json({ error: 'El correo electrónico no está registrado' });
     }
@@ -61,13 +106,16 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
     }
 
-    const token = jwt.sign({ id: user.id, role: user.Role.name }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id, role: user.role, nivel: user.levelId }, 'your_jwt_secret', { expiresIn: '1h' });
 
-    res.status(200).json({ message: 'Inicio de sesión exitoso', token, role: user.Role.name });
+    res.status(200).json({ message: 'Inicio de sesión exitoso', token, role: user.role, nivel: user.levelId });
   } catch (error) {
+    console.error("Error durante el inicio de sesión:", error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
 
 
 // Ruta cerrar sesión
