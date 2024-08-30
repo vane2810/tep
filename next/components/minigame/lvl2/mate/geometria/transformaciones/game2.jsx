@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Phaser from 'phaser';
 
-const GameTransformations = ({ updateFeedback, updateScore, finalizeGame }) => {
+const Game2 = ({ updateFeedback, updateScore, finalizeGame }) => {
     const gameContainerRef = useRef(null);
     const gameInstanceRef = useRef(null);
 
@@ -312,4 +312,4 @@ const GameTransformations = ({ updateFeedback, updateScore, finalizeGame }) => {
     );
 };
 
-export default GameTransformations;
+export default Game2;
