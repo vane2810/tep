@@ -120,7 +120,6 @@ const GamePage2 = () => {
             <div className="mt-8">
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score} / 100</p> {/* Actualización del total a 100 */}
-              <p className="text-xl font-semibold">Respuestas correctas: {correctCount} de 5</p> {/* Nuevo apartado */}
             </div>
 
             {/* Botón "Volver a Intentar" */}
