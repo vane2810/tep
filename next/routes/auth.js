@@ -110,7 +110,7 @@ router.post('/login', async (req, res) => {
 
     // Genera un token JWT que incluye el characterId
     const token = jwt.sign(
-      { id: user.id, name: user.name, role: user.role, nivel: user.levelId, characterId: user.characterId, characterName: user.Character.name }, // Incluye el characterId aquí
+      { id: user.id, name: user.name, role: user.role, nivel: user.levelId, characterId: user.characterId }, // Incluye el characterId aquí
       'your_jwt_secret',
       { expiresIn: '1h' }
     );
@@ -123,7 +123,6 @@ router.post('/login', async (req, res) => {
       nivel: user.levelId, 
       characterId: user.characterId,
       name: user.name,
-      characterName: user.Character.name,
     });
   } catch (error) {
     console.error("Error durante el inicio de sesión:", error);

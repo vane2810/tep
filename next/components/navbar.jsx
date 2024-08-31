@@ -52,7 +52,7 @@ const Navbar = () => {
                 <img
                   src={characterImages[selectedCharacter]}
                   alt="Personaje"
-                  title={session.characterName} 
+                  title='Personaje'
                   className="w-20 h-20 object-cover rounded-xl border-2 border-black cursor-pointer"
                   onClick={toggleDropdown}
                 />
