@@ -9,8 +9,8 @@ const AreaQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
-            width: 1400,  // Ancho ajustado
-            height: 900,  // Altura ajustada
+            width: 1400,
+            height: 900,
             parent: 'game-container',
             scene: {
                 preload: preload,
