@@ -64,7 +64,7 @@ export default function MatematicaPage() {
             />
           </Link>
           {/* Resolución de problemas (juegos finales) */}
-          <Link href="/nivel1/mate/resodepro">
+          <Link href="/niveles/nivel1/mate/multimedia">
             <img
               src="/img/niveles/mate/nivel1/rdp.png"
               alt="Resolución de problemas"

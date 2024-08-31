@@ -36,7 +36,7 @@ export default function MatematicaPage() {
           <Link href="/niveles/nivel3/mate/geometria">
             <img src="/img/niveles/mate/nivel3/geometri.png" alt="Geografia" className="w-36 md:w-64 h-36 md:h-64 md:mr-3" />
           </Link>
-          <Link href="/nivel1/mate/resodepro">
+          <Link href="/niveles/nivel3/mate/multimedia">
             <img src="/img/niveles/mate/nivel3/resoluciondp.png" alt="Resolucion de problemas" className="w-36 md:w-64 h-36 md:h-64 md:mr-3" />
           </Link>
         </div>
