@@ -3,28 +3,33 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Sidebar from './sidebar';
-import useSession from '@/hooks/useSession'; 
+import useSession from '@/hooks/useSession';
+import characterImages from '@/utils/characterImages';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt, faCog } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { session, login, logout } = useSession();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { session, logout, selectedCharacter } = useSession();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  useEffect(() => {
-    console.log('Navbar renderizado nuevamente', session);
-  }, [session]);
-
-  // Al hacer clic en el botón de cerrar sesión
-  const handleLogout = () => {
-    // Eliminar el token del localStorage
-    localStorage.removeItem('token');
-    // Redirigir al usuario a la página de inicio de sesión
-    window.location.href = '/';
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
+  useEffect(() => {
+    console.log('Navbar renderizado nuevamente', session);
+    console.log("Personaje seleccionado:", selectedCharacter);
+  }, [session, selectedCharacter]);
+
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/';
+  };
 
   return (
     <nav className="flex justify-between items-center p-6 celeste text-black sticky top-0 left-0 right-0 z-10">
@@ -34,12 +39,37 @@ const Navbar = () => {
         </Link>
         <Link href='/' className="text-3xl super hidden sm:block">TechEduPlanet</Link>
       </div>
+      <div className="flex items-center relative">
 
-      <div className="flex items-center">
         {session ? (
-          <div className="hidden sm:flex items-center mr-4">
-            <div className="text-xl font-bold mr-2">Bienvenido</div>
-            <button onClick={handleLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 mr-4 px-4 rounded">Cerrar sesión</button>
+          <div className="hidden sm:flex items-center mr-12 relative">
+            <div className='text-2xl text-center mr-10 font-bold story'>
+              <h1>Bienvenido</h1>
+              <span> {session.name}</span>
+            </div>
+            {selectedCharacter && (
+              <div className="relative">
+                <img
+                  src={characterImages[selectedCharacter]}
+                  alt="Personaje"
+                  title={session.characterName} 
+                  className="w-20 h-20 object-cover rounded-xl border-2 border-black cursor-pointer"
+                  onClick={toggleDropdown}
+                />
+              </div>
+            )}
+            {isDropdownOpen && (
+              <div className="absolute -right-16 mt-2 w-60 bg-white border rounded-lg shadow-lg z-50 transform translate-y-24 story">
+                <button className="block w-full text-left px-4 py-2 text-lg hover:bg-gray-100 ">
+                  Configuración de cuenta
+                  <FontAwesomeIcon icon={faCog} className="ml-2" />
+                </button>
+                <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-lg  hover:bg-gray-100">
+                  Cerrar sesión
+                  <FontAwesomeIcon icon={faSignOutAlt} className="ml-4" />
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="hidden sm:block">

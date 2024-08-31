@@ -96,24 +96,41 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    // Encuentra al usuario por su correo electrónico
     const user = await User.findOne({ where: { email } });
     if (!user) {
       return res.status(400).json({ error: 'El correo electrónico no está registrado' });
     }
 
+    // Compara la contraseña proporcionada con la almacenada en la base de datos
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
     }
 
-    const token = jwt.sign({ id: user.id, role: user.role, nivel: user.levelId }, 'your_jwt_secret', { expiresIn: '1h' });
+    // Genera un token JWT que incluye el characterId
+    const token = jwt.sign(
+      { id: user.id, name: user.name, role: user.role, nivel: user.levelId, characterId: user.characterId, characterName: user.Character.name }, // Incluye el characterId aquí
+      'your_jwt_secret',
+      { expiresIn: '1h' }
+    );
 
-    res.status(200).json({ message: 'Inicio de sesión exitoso', token, role: user.role, nivel: user.levelId });
+    // Responde con el token y la información adicional necesaria
+    res.status(200).json({ 
+      message: 'Inicio de sesión exitoso', 
+      token, 
+      role: user.role, 
+      nivel: user.levelId, 
+      characterId: user.characterId,
+      name: user.name,
+      characterName: user.Character.name,
+    });
   } catch (error) {
     console.error("Error durante el inicio de sesión:", error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
 
 
 

@@ -60,9 +60,9 @@ export default function Login() {
             console.error('Nivel desconocido:', data.nivel);
           }
         } else if (data.role === 'docente') {
-          setRedirectTo('/docente/dashboard');
+          setRedirectTo('/');
         } else if (data.role === 'padre') {
-          setRedirectTo('/padre/dashboard');
+          setRedirectTo('/');
         }
       } else {
         setModalMessage(data.error);
@@ -143,7 +143,7 @@ export default function Login() {
         message={modalMessage} 
         type={modalType} 
         onClose={closeModal} 
-        redirectTo={redirectTo} // Pasamos la ruta de redirección al modal
+        redirectTo={redirectTo}   
       />
     </div>
   );

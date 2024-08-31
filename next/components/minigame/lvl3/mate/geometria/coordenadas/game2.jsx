@@ -229,7 +229,7 @@ const Game2 = ({ updateFeedback, updateScore, finalizeGame }) => {
             style={{ 
                 width: '800px', 
                 height: '600px', 
-                backgroundColor: '#3498db' // Cambiar color de fondo aquí si es necesario
+                backgroundColor: '#3498db' 
             }}
         ></div>
     );
