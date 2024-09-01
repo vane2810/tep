@@ -1,4 +1,3 @@
-// Juego 3 - Cuerpos geometricos  - Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,16 +6,17 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación de juego
 const Game3 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/cuerpos/game3'), { ssr: false });
 
 const GamePage3 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState(''); // Nuevo estado para el color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [gameKey, setGameKey] = useState(0);
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,13 +24,15 @@ const GamePage3 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setFeedbackColor(''); // Restablecer el color del feedback al iniciar el juego
+    setScore(0);
+    setShowRetry(false);
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, color) => {
     setFeedback(newFeedback);
+    setFeedbackColor(color); // Actualizar el color del feedback basado en el resultado
   };
 
   const updateScore = (newScore) => {
@@ -46,9 +48,10 @@ const GamePage3 = () => {
   const handleRetry = () => {
     // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFeedback('');
+    setFeedbackColor(''); // Restablecer el color del feedback al reiniciar
+    setScore(0);
+    setShowRetry(false);
   };
 
   return (
@@ -105,7 +108,7 @@ const GamePage3 = () => {
               showRetryButton={setShowRetry} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p> {/* Aplicar color del feedback */}
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
                 <button 
