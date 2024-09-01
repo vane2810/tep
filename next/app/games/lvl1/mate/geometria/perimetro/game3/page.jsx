@@ -129,5 +129,3 @@ const GamePage3 = () => {
 };
 
 export default GamePage3;
-
-
