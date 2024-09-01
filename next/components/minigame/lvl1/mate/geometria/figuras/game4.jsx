@@ -1,9 +1,8 @@
-// Juego 4 - figuras - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const GeometryQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
+const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
@@ -14,7 +13,15 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
             parent: 'game-container',
             scene: {
                 preload: preload,
-                create: create
+                create: createScene,
+                update: update
+            },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
             }
         };
 
@@ -25,174 +32,159 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
             this.load.image('background', '/img/games/mate/geometria/fondo2game1.png');
         }
 
-        function create() {
-            this.add.image(400, 300, 'background').setDisplaySize(800, 600);
+        function createScene() {
+            const background = this.add.image(400, 300, 'background');
+            background.setDisplaySize(config.width, config.height);
 
-            this.score = 0;
-            this.currentQuestionIndex = 0;
-
-            this.questionText = this.add.text(400, 150, '', {
-                fontSize: '24px',
-                fill: '#000',
-                fontFamily: 'Arial',
-                align: 'center',
-                wordWrap: { width: 700 }
-            }).setOrigin(0.5);
-
-            this.options = [
-                this.add.text(400, 300, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(400, 375, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(400, 450, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(400, 525, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-            ];
-
-            this.options.forEach((option, index) => {
-                option.on('pointerdown', () => checkAnswer.call(this, index));
-            });
-
-            this.retryButton = this.add.text(400, 500, 'Volver a Intentarlo', {
-                fontSize: '24px',
-                fill: '#fff',
-                backgroundColor: '#e74c3c',
-                padding: { x: 25, y: 12 },
-                borderRadius: 10,
-                fontFamily: 'Arial',
-                align: 'center'
-            }).setInteractive().setOrigin(0.5).setVisible(false);
-
-            this.retryButton.on('pointerdown', () => restartGame());
-
-            this.questions = [
+            const questions = [
                 {
-                    question: '¿Cuál de las siguientes afirmaciones describe correctamente un triángulo equilátero?',
-                    answers: [
-                        'Tiene dos lados iguales.',
-                        'Todos sus lados son iguales.',
-                        'Todos sus lados son diferentes.',
-                        'Tiene cuatro lados.'
-                    ],
-                    correctAnswer: 1
-                },
-                {
-                    question: '¿Qué hace que un cuadrado sea especial?',
-                    answers: [
-                        'Todos sus lados y ángulos son iguales.',
-                        'Tiene lados largos y cortos.',
-                        'Tiene tres lados iguales.',
-                        'No tiene lados ni esquinas.'
-                    ],
+                    question: '¿Qué figura tiene todos sus lados iguales?',
+                    answers: ['Cuadrado', 'Triángulo Isósceles', 'Rectángulo'],
                     correctAnswer: 0
                 },
                 {
-                    question: '¿Cuál de estas figuras tiene lados opuestos iguales pero no todos los lados son iguales?',
-                    answers: [
-                        'Cuadrado',
-                        'Triángulo',
-                        'Rectángulo',
-                        'Círculo'
-                    ],
+                    question: '¿Cuál figura tiene un ángulo recto?',
+                    answers: ['Triángulo Equilátero', 'Rectángulo', 'Círculo'],
+                    correctAnswer: 1
+                },
+                {
+                    question: '¿Qué figura tiene tres lados?',
+                    answers: ['Círculo', 'Cuadrado', 'Triángulo'],
                     correctAnswer: 2
                 },
                 {
-                    question: '¿Cuál de las siguientes afirmaciones es cierta sobre un círculo?',
-                    answers: [
-                        'Tiene tres lados.',
-                        'Tiene cuatro lados iguales.',
-                        'No tiene lados ni esquinas.',
-                        'Es un tipo de rectángulo.'
-                    ],
+                    question: '¿Qué figura no tiene lados?',
+                    answers: ['Rectángulo', 'Triángulo', 'Círculo'],
                     correctAnswer: 2
                 },
                 {
-                    question: '¿Cómo se llama un triángulo que tiene todos los lados diferentes?',
-                    answers: [
-                        'Equilátero',
-                        'Isósceles',
-                        'Escaleno',
-                        'Rectángulo'
-                    ],
-                    correctAnswer: 2
+                    question: '¿Qué figura tiene cuatro lados de diferentes longitudes?',
+                    answers: ['Rectángulo', 'Cuadrado', 'Triángulo Isósceles'],
+                    correctAnswer: 0
                 }
             ];
 
-            displayQuestion.call(this);
-        }
+            let currentQuestionIndex = currentScene - 1;
 
-        function displayQuestion() {
-            if (this.currentQuestionIndex >= this.questions.length) {
-                endGame.call(this);
-                return;
+            showQuestion.call(this, questions[currentQuestionIndex]);
+
+            function showQuestion(question) {
+                this.questionText = this.add.text(400, 100, question.question, {
+                    fontSize: '24px',
+                    fill: '#000000',
+                    fontFamily: 'Arial',
+                    align: 'center',
+                    wordWrap: { width: 700 }
+                }).setOrigin(0.5);
+
+                this.options = [];
+
+                question.answers.forEach((answer, index) => {
+                    const option = this.add.text(400, 200 + (index * 60), answer, {
+                        fontSize: '20px',
+                        fill: '#000000',
+                        backgroundColor: '#ffffff',
+                        padding: { x: 20, y: 10 },
+                        fontFamily: 'Arial'
+                    }).setInteractive().setOrigin(0.5);
+
+                    option.on('pointerdown', () => checkAnswer.call(this, index, question.correctAnswer, option));
+                    this.options.push(option);
+                });
             }
 
-            const currentQuestion = this.questions[this.currentQuestionIndex];
-            this.questionText.setText(currentQuestion.question);
+            function checkAnswer(selectedIndex, correctIndex, button) {
+                let score = 0;
+                let feedbackMessage = '';
+                let feedbackColor = '';
 
-            currentQuestion.answers.forEach((answer, index) => {
-                this.options[index].setText(answer);
-            });
-        }
+                if (selectedIndex === correctIndex) {
+                    score = 60;
+                    feedbackMessage = '¡Correcto!';
+                    feedbackColor = '#6aa84f';
+                    button.setStyle({ fill: feedbackColor });
+                } else {
+                    feedbackMessage = 'Incorrecto.';
+                    feedbackColor = '#ff0000';
+                    button.setStyle({ fill: feedbackColor });
+                }
 
-        function checkAnswer(index) {
-            const currentQuestion = this.questions[this.currentQuestionIndex];
-            if (index === currentQuestion.correctAnswer) {
-                this.score += 50; // Aumentar en 50 puntos por cada respuesta correcta
-                updateFeedback("¡Correcto!", `Estrellas: ${this.score}`);
-            } else {
-                updateFeedback("Incorrecto", `Estrellas: ${this.score}`);
+                updateScore(score);
+                updateFeedback(feedbackMessage, feedbackColor);
+
+                this.children.list.forEach(child => {
+                    if (child.input && child !== button) {
+                        child.disableInteractive();
+                    }
+                });
+
+                const nextButton = this.add.text(400, 500, 'Siguiente', {
+                    fontSize: '24px',
+                    fill: '#ffffff',
+                    backgroundColor: '#7966ab',
+                    padding: { x: 20, y: 10 }
+                }).setInteractive().setOrigin(0.5);
+
+                nextButton.on('pointerdown', () => {
+                    this.questionText.destroy();
+                    this.options.forEach(option => option.destroy());
+                    nextButton.destroy();
+                    updateFeedback('');
+                    proceedToNextScene();
+
+                    if (!isFinalScene) {
+                        currentQuestionIndex++;
+                        if (currentQuestionIndex < questions.length) {
+                            showQuestion.call(this, questions[currentQuestionIndex]);
+                        } else {
+                            endGame.call(this);
+                        }
+                    } else {
+                        endGame.call(this);
+                    }
+                });
             }
 
-            this.currentQuestionIndex += 1;
-            displayQuestion.call(this);
-        }
+            function endGame() {
+                const finalMessageText = finalScore >= 250
+                    ? '¡Felicidades! Has completado el juego.'
+                    : 'No alcanzaste el puntaje necesario. Debes volver a intentarlo para obtener al menos 250 puntos.';
 
-        function endGame() {
-            this.questionText.setText("¡Juego Finalizado!");
-            this.options.forEach(option => option.setVisible(false));
+                const finalMessage = this.add.text(400, 300, finalMessageText, {
+                    fontSize: '24px',
+                    fill: '#ffffff',
+                    backgroundColor: finalScore >= 250 ? '#6aa84f' : '#ff0000',
+                    padding: { x: 20, y: 10 }
+                }).setOrigin(0.5);
 
-            updateScore(this.score);
-            if (this.score >= 300) {
-                updateFeedback("¡Felicidades! Lo lograste.", `Estrellas: ${this.score}`);
-            } else {
-                updateFeedback("¡No alcanzaste el puntaje necesario!", `Estrellas: ${this.score}`);
-                this.retryButton.setVisible(true); // Mostrar el botón de reinicio si no se alcanzan 300 estrellas
+                if (finalScore < 250) {
+                    const retryButton = this.add.text(400, 400, 'Volver a Intentarlo', {
+                        fontSize: '20px',
+                        fill: '#ffffff',
+                        backgroundColor: '#e74c3c',
+                        padding: { x: 20, y: 10 }
+                    }).setInteractive().setOrigin(0.5);
+
+                    retryButton.on('pointerdown', () => {
+                        restartGame();
+                    });
+                }
+
             }
         }
+
+        function update() {}
 
         return () => {
             if (gameInstance) {
                 gameInstance.destroy(true);
             }
         };
-    }, [updateFeedback, updateScore, restartGame]);
+    }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene]);
 
     return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
 export default GeometryQuizGame;
+
+

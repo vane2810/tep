@@ -140,7 +140,7 @@ export default function MatematicaPage() {
                 className="h-40 md:h-64 w-auto mb-4 md:mb-0 md:mr-4 animate-tambaleo" 
               />
               <p className="text-black super text-lg md:text-4xl max-w-lg">
-              "BIENVENIDA/O A NUESTRA GALERIA MULTIMEDIA, DONDE CADA VIDEO ES UNA PUERTA HACIA EL CONOCIMIENTO.¡HAZ CLIC Y DEJA QUE LA EDUCACIÓN TE SORPRENDA!."
+              BIENVENIDA/O A NUESTRA GALERIA MULTIMEDIA, DONDE CADA VIDEO ES UNA PUERTA HACIA EL CONOCIMIENTO.¡HAZ CLIC Y DEJA QUE LA EDUCACIÓN TE SORPRENDA!.
               </p>
             </div>
           </div>

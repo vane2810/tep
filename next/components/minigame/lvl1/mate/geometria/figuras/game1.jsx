@@ -7,11 +7,10 @@ const FigurasBasicasGame = ({ updateFeedback, updateScore, proceedToNextScene, i
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
-        // Suponiendo que la imagen de fondo es de 800x600
         const config = {
             type: Phaser.AUTO,
-            width: 800, // Ancho ajustado a la imagen de fondo
-            height: 600, // Altura ajustada a la imagen de fondo
+            width: 800, 
+            height: 600, 
             parent: 'game-container',
             scene: {
                 preload: preload,
@@ -40,13 +39,13 @@ const FigurasBasicasGame = ({ updateFeedback, updateScore, proceedToNextScene, i
 
         function createScene() {
             // Añadir fondo y ajustarlo al tamaño del escenario
-            const background = this.add.image(400, 300, 'background'); // Centro de la imagen de fondo
+            const background = this.add.image(400, 300, 'background'); 
             background.setDisplaySize(config.width, config.height);
 
             // Seleccionar una figura geométrica aleatoriamente
             const figuras = ['Triangulo', 'Cuadrado', 'Rectangulo', 'Circulo'];
             const figuraCorrecta = Phaser.Math.RND.pick(figuras);
-            this.add.image(400, 300, figuraCorrecta); // Centrando la figura en la escena
+            this.add.image(400, 300, figuraCorrecta); 
 
             // Opciones de respuesta
             figuras.forEach((figura, index) => {
