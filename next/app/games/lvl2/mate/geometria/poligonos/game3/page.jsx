@@ -1,4 +1,4 @@
-// Juego 3 - Poligonos - Nivel 2
+// Juego 3 - Polígonos - Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -14,6 +14,7 @@ const GamePage3 = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState(''); // Añadido para gestionar el color del feedback
   const [score, setScore] = useState(0);
   const [showRetry, setShowRetry] = useState(false);
   const [gameKey, setGameKey] = useState(0); 
@@ -25,12 +26,14 @@ const GamePage3 = () => {
   const startGame = () => {
     setGameStarted(true);
     setFeedback(''); 
+    setFeedbackColor(''); // Resetear color del feedback
     setScore(0); 
     setShowRetry(false); 
   };
 
-  const updateFeedback = (newFeedback) => {
+  const updateFeedback = (newFeedback, color) => {
     setFeedback(newFeedback);
+    setFeedbackColor(color); // Actualizar el color del feedback
   };
 
   const updateScore = (newScore) => {
@@ -47,6 +50,7 @@ const GamePage3 = () => {
     // Incrementar gameKey para forzar la recreación del componente 
     setGameKey(prevKey => prevKey + 1);
     setFeedback(''); 
+    setFeedbackColor(''); // Resetear color del feedback al reiniciar
     setScore(0); 
     setShowRetry(false); 
   };
@@ -105,7 +109,7 @@ const GamePage3 = () => {
               showRetryButton={setShowRetry} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
               <p className="text-xl font-semibold">Estrellas: {score}</p>
               {showRetry && (
                 <button 
