@@ -66,7 +66,7 @@ export default function MatematicaPage() {
           {/* Resolución de problemas (juegos finales) */}
           <Link href="/niveles/nivel1/mate/multimedia">
             <img
-              src="/img/niveles/mate/nivel1/rdp.png"
+              src="/img/niveles/mate/nivel1/refuerzof.png"
               alt="Resolución de problemas"
               className="worm-segment flex-auto w-40 h-auto mb-4 md:w-50 lg:w-60 animate-gusano"
             />

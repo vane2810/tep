@@ -1,3 +1,4 @@
+//Pagina de repaso - Nivel 1
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
@@ -28,13 +29,13 @@ export default function MatematicaPage() {
     { id: 3, title: "MULTIPLICACIÓN", img: "/img/niveles/mate/tema3.png", videoUrl: "https://www.youtube.com/embed/M_KTwNWVt5c" },
     { id: 4, title: "DIVISIÓN", img: "/img/niveles/mate/tema4.png", videoUrl: "https://www.youtube.com/embed/20gkmv731VI" },
     { id: 5, title: "INTRODUCCIÓN A LOS NÚMEROS DECIMALES", img: "/img/niveles/mate/tema5.png", videoUrl: "https://www.youtube.com/embed/6uSN7MBb35Q" },
-    { id: 6, title: "COMPARACIÓN DE NÚMEROS DECIMALES", img: "/img/niveles/mate/tema6.png", videoUrl: "https://www.youtube.com/embed/videoID6" },
-    { id: 7, title: "SUMA Y RESTA DE NÚMEROS DECIMALES", img: "/img/niveles/mate/tema7.png", videoUrl: "https://www.youtube.com/embed/videoID1" },
-    { id: 8, title: "FRACCIONES SIMPLES", img: "/img/niveles/mate/tema8.png", videoUrl: "https://www.youtube.com/embed/videoID2" },
-    { id: 9, title: "FIGURAS GEOMÉTRICAS", img: "/img/niveles/mate/tema9.png", videoUrl: "https://www.youtube.com/embed/videoID3" },
-    { id: 10, title: "PERÍMETRO", img: "/img/niveles/mate/tema10.png", videoUrl: "https://www.youtube.com/embed/videoID4" },
-    { id: 11, title: "ÁNGULOS", img: "/img/niveles/mate/tema11.png", videoUrl: "https://www.youtube.com/embed/videoID5" },
-    { id: 12, title: "SIMETRÍA", img: "/img/niveles/mate/tema12.png", videoUrl: "https://www.youtube.com/embed/videoID6" },
+    { id: 6, title: "COMPARACIÓN DE NÚMEROS DECIMALES", img: "/img/niveles/mate/tema6.png", videoUrl: "https://www.youtube.com/embed/hdfQZ-sB7gw" },
+    { id: 7, title: "SUMA Y RESTA DE NÚMEROS DECIMALES", img: "/img/niveles/mate/tema7.png", videoUrl: "https://www.youtube.com/embed/L70rINFflUw" },
+    { id: 8, title: "FRACCIONES SIMPLES", img: "/img/niveles/mate/tema8.png", videoUrl: "https://www.youtube.com/embed/xXkmN7io71w" },
+    { id: 9, title: "FIGURAS GEOMÉTRICAS", img: "/img/niveles/mate/tema9.png", videoUrl: "https://www.youtube.com/embed/I-6yrK30c84" },
+    { id: 10, title: "PERÍMETRO", img: "/img/niveles/mate/tema10.png", videoUrl: "https://www.youtube.com/embed/xysXV7cBfcU" },
+    { id: 11, title: "ÁNGULOS", img: "/img/niveles/mate/tema11.png", videoUrl: "https://www.youtube.com/embed/c9CI3JZUYas" },
+    { id: 12, title: "SIMETRÍA", img: "/img/niveles/mate/tema12.png", videoUrl: "https://www.youtube.com/embed/fgcs8bHmNTU" },
   ];
 
   return (

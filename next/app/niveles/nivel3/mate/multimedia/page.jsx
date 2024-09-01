@@ -1,15 +1,21 @@
+//Pagina de repaso - Nivel 3
 "use client";
 import React, { useState } from "react";
 import Link from 'next/link';
 import { SeparadorAzul, SeparadorMorado } from "@/components/separador";
 
 export default function MatematicaPage() {
+  const [unlocked, setUnlocked] = useState([1]); // El tema 1 está desbloqueado inicialmente
   const [videoUrl, setVideoUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (url) => {
+  const openModal = (url, id) => {
     setVideoUrl(url);
     setIsModalOpen(true);
+    // Desbloquea el siguiente tema si aún no está desbloqueado
+    if (unlocked.length < id + 1) {
+      setUnlocked([...unlocked, id + 1]);
+    }
   };
 
   const closeModal = () => {
@@ -17,31 +23,108 @@ export default function MatematicaPage() {
     setVideoUrl("");
   };
 
-  // Lista de temas con sus URLs de videos
   const temas = [
-    { id: 1, title: "Tema 1", description: "Descripción del tema 1", img: "/img/niveles/mate/tema12.png", videoUrl: "https://www.youtube.com/embed/videoID1" },
-    { id: 2, title: "Tema 2", description: "Descripción del tema 2", img: "/img/niveles/mate/tema11.png", videoUrl: "https://www.youtube.com/embed/videoID2" },
-    { id: 3, title: "Tema 3", description: "Descripción del tema 3", img: "/img/niveles/mate/tema10.png", videoUrl: "https://www.youtube.com/embed/videoID3" },
-    { id: 4, title: "Tema 4", description: "Descripción del tema 4", img: "/img/niveles/mate/tema9.png", videoUrl: "https://www.youtube.com/embed/videoID4" },
-    { id: 5, title: "Tema 5", description: "Descripción del tema 5", img: "/img/niveles/mate/tema8.png", videoUrl: "https://www.youtube.com/embed/videoID5" },
-    { id: 6, title: "Tema 6", description: "Descripción del tema 6", img: "/img/niveles/mate/tema7.png", videoUrl: "https://www.youtube.com/embed/videoID6" },
-    { id: 7, title: "Tema 7", description: "Descripción del tema 7", img: "/img/niveles/mate/tema6.png", videoUrl: "https://www.youtube.com/embed/videoID1" },
-    { id: 8, title: "Tema 8", description: "Descripción del tema 8", img: "/img/niveles/mate/tema5.png", videoUrl: "https://www.youtube.com/embed/videoID2" },
-    { id: 9, title: "Tema 9", description: "Descripción del tema 9", img: "/img/niveles/mate/tema4.png", videoUrl: "https://www.youtube.com/embed/videoID3" },
-    { id: 10, title: "Tema 10", description: "Descripción del tema 10", img: "/img/niveles/mate/tema3.png", videoUrl: "https://www.youtube.com/embed/videoID4" },
-    { id: 11, title: "Tema 11", description: "Descripción del tema 11", img: "/img/niveles/mate/tema2.png", videoUrl: "https://www.youtube.com/embed/videoID5" },
-    { id: 12, title: "Tema 12", description: "Descripción del tema 12", img: "/img/niveles/mate/tema1.png", videoUrl: "https://www.youtube.com/embed/videoID6" },
+    { id: 1, title: "SUMA", img: "/img/niveles/mate/tema1.png", videoUrl: "https://www.youtube.com/embed/qwp9rmW04SU" },
+    { id: 2, title: "RESTA", img: "/img/niveles/mate/tema2.png", videoUrl: "https://www.youtube.com/embed/7xZmvV9u6ls" },
+    { id: 3, title: "MULTIPLICACIÓN", img: "/img/niveles/mate/tema3.png", videoUrl: "https://www.youtube.com/embed/M_KTwNWVt5c" },
+    { id: 4, title: "DIVISIÓN", img: "/img/niveles/mate/tema4.png", videoUrl: "https://www.youtube.com/embed/20gkmv731VI" },
+    { id: 5, title: "INTRODUCCIÓN A LOS NÚMEROS DECIMALES", img: "/img/niveles/mate/tema5.png", videoUrl: "https://www.youtube.com/embed/6uSN7MBb35Q" },
+    { id: 6, title: "COMPARACIÓN DE NÚMEROS DECIMALES", img: "/img/niveles/mate/tema6.png", videoUrl: "https://www.youtube.com/embed/hdfQZ-sB7gw" },
+    { id: 7, title: "SUMA Y RESTA DE NÚMEROS DECIMALES", img: "/img/niveles/mate/tema7.png", videoUrl: "https://www.youtube.com/embed/L70rINFflUw" },
+    { id: 8, title: "FRACCIONES SIMPLES", img: "/img/niveles/mate/tema8.png", videoUrl: "https://www.youtube.com/embed/xXkmN7io71w" },
+    { id: 9, title: "FIGURAS GEOMÉTRICAS", img: "/img/niveles/mate/tema9.png", videoUrl: "https://www.youtube.com/embed/I-6yrK30c84" },
+    { id: 10, title: "PERÍMETRO", img: "/img/niveles/mate/tema10.png", videoUrl: "https://www.youtube.com/embed/xysXV7cBfcU" },
+    { id: 11, title: "ÁNGULOS", img: "/img/niveles/mate/tema11.png", videoUrl: "https://www.youtube.com/embed/c9CI3JZUYas" },
+    { id: 12, title: "SIMETRÍA", img: "/img/niveles/mate/tema12.png", videoUrl: "https://www.youtube.com/embed/fgcs8bHmNTU" },
   ];
 
   return (
     <main>
+      <style jsx>{`
+        @keyframes tambaleo {
+          0%, 100% { transform: rotate(-3deg); }
+          50% { transform: rotate(3deg); }
+        }
+
+        .animate-tambaleo {
+          animation: tambaleo 1s infinite;
+        }
+
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: rgba(0, 0, 0, 0.9); /* Aumenté la opacidad del fondo */
+          z-index: 50;
+        }
+
+        .modal-content {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          max-width: 100%;
+          max-height: 100%;
+          width: 100%;
+          height: 90%; /* Ajusta la altura al 90% del contenedor */
+        }
+
+        .close-btn {
+          background: red;
+          color: white;
+          border: none;
+          padding: 15px;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          border-radius: 50%;
+          font-size: 20px; /* Botón de cierre más grande */
+          z-index: 100;
+        }
+
+        .locked {
+          position: relative;
+          filter: blur(5px) opacity(0.6); /* Efecto de disolución y desenfoque */
+          pointer-events: none; /* Evita que se puedan clicar los temas bloqueados */
+        }
+
+        .locked::before {
+          content: '\\1F512'; /* Emoji de candado */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 2rem;
+          color: white;
+        }
+
+        .unlocked {
+          cursor: pointer;
+          filter: none;
+        }
+
+        .instrucciones {
+          font-weight: bold;
+          text-align: left;
+          width: 100%;
+          margin-bottom: 20px;
+          padding-left: 10px;
+          font-size: 1.5rem; /* Tamaño de letra más grande */
+        }
+      `}</style>
+
       {/* Bienvenida de personaje */}
       <section>
         <SeparadorAzul />
-        <div className="bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300 py-8">
+        <div className="bg-gradient-to-r from-red-200 via-orange-200 to-pink-200 py-8">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel3/mate">
+            <Link href="/niveles/nivel1/mate">
               <img 
                 src="/img/home/regresar.png" 
                 alt="Volver" 
@@ -51,14 +134,14 @@ export default function MatematicaPage() {
             </Link>
           </div>
           <div className="flex flex-col items-center justify-center mb-5 text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center bg-white p-4 rounded-lg shadow-lg">
+            <div className="flex flex-col md:flex-row items-center justify-center">
               <img 
                 src="/img/niveles/mate/starlyvideo3.png" 
                 alt="Animated Image" 
-                className="h-40 md:h-64 w-auto mb-4 md:mb-0 md:mr-4 rounded-lg shadow-lg" 
+                className="h-40 md:h-64 w-auto mb-4 md:mb-0 md:mr-4 animate-tambaleo" 
               />
-              <p className="text-black super text-lg md:text-2xl max-w-lg leading-relaxed">
-              "Explora el mundo del aprendizaje visual con nuestra colección de videos educativos. ¡Aprender nunca ha sido tan interactivo!"
+              <p className="text-black super text-lg md:text-4xl max-w-lg">
+              "SUMÉRGETE EN NUESTRO CONTENIDO MULTIMEDIA DONDE CADA VIDEO TE LLEVARÁ A DESCUBRIR, APRENDER Y EXPLORAR DE MANERA DINÁMICA Y ENTRETENIDA"
               </p>
             </div>
           </div>
@@ -69,13 +152,13 @@ export default function MatematicaPage() {
       {/* Sección de temas */}
       <section className="py-8 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl text-center font-semibold mb-8">Elige tu Tema</h2>
+          <p className="instrucciones">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {temas.map((tema) => (
               <div 
                 key={tema.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
-                onClick={() => openModal(tema.videoUrl)}
+                className={unlocked.includes(tema.id) ? "unlocked bg-white rounded-lg shadow-lg overflow-hidden" : "locked bg-white rounded-lg shadow-lg overflow-hidden"}
+                onClick={() => unlocked.includes(tema.id) && openModal(tema.videoUrl, tema.id)}
               >
                 <img 
                   src={tema.img} 
@@ -94,9 +177,10 @@ export default function MatematicaPage() {
 
       {/* Modal para el video */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-          <div className="bg-white p-4 rounded-lg shadow-lg max-w-3xl mx-auto">
-            <div className="relative pb-56.25">
+        <div className="modal">
+          <div className="modal-content">
+            <button className="close-btn" onClick={closeModal}>X</button>
+            <div className="relative" style={{ height: "90%" }}>
               <iframe 
                 src={videoUrl}
                 title="YouTube Video"
@@ -106,12 +190,6 @@ export default function MatematicaPage() {
                 allowFullScreen
               ></iframe>
             </div>
-            <button 
-              className="mt-4 text-red-600 hover:text-red-800"
-              onClick={closeModal}
-            >
-              Cerrar
-            </button>
           </div>
         </div>
       )}
