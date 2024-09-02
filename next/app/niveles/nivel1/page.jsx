@@ -11,7 +11,7 @@ export default function Nivel1() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [bgColor, setBgColor] = useState("#fff1e6");
 
-  const fullText = "¡Hola, pequeños genios! Es hora de comenzar el Nivel 1. ¡Vamos a jugar y aprender!";
+  const fullText = "¡Hola, pequeños genios! Es hora de comenzar el Nivel 1. ¡Vamos aprender y jugar!";
   const images = [
     "/img/niveles/mate/nivel1/bienvenida/mundito1.png", 
     "/img/niveles/mate/nivel1/bienvenida/mundito2.png", 
