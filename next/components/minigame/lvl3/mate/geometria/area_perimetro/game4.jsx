@@ -1,21 +1,29 @@
 //Juego 4 - área y perimetro - Nivel 3
+
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const ThreeDShapesQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
+const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
-            width: 1300,
-            height: 900,
+            width: 800,
+            height: 600,
             parent: 'game-container',
             scene: {
                 preload: preload,
-                create: create,
+                create: createScene,
                 update: update
+            },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
             }
         };
 
@@ -26,187 +34,183 @@ const ThreeDShapesQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
             this.load.image('background', '/img/games/mate/geometria/fondo2game1.png');
         }
 
-        function create() {
-            this.add.image(650, 450, 'background').setDisplaySize(1300, 900);
+        function createScene() {
+            const background = this.add.image(400, 300, 'background');
+            background.setDisplaySize(config.width, config.height);
 
-            this.score = 0;
-            this.currentQuestionIndex = 0;
-
-            this.questionText = this.add.text(400, 150, '', {
-                fontSize: '24px',
-                fill: '#000',
-                fontFamily: 'Arial',
-                align: 'center',
-                wordWrap: { width: 700 }
-            }).setOrigin(0.5);
-
-            this.options = [
-                this.add.text(400, 300, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(400, 375, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(400, 450, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(400, 525, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-            ];
-
-            this.options.forEach((option, index) => {
-                option.on('pointerdown', () => checkAnswer.call(this, index));
-            });
-
-            // Botón "Volver a Intentarlo" dentro del juego
-            this.retryButton = this.add.text(400, 575, 'Volver a Intentarlo', {
-                fontSize: '24px',
-                fill: '#fff',
-                backgroundColor: '#e74c3c',
-                padding: { x: 25, y: 12 },
-                borderRadius: 10,
-                fontFamily: 'Arial',
-                align: 'center'
-            }).setInteractive().setOrigin(0.5).setVisible(false);
-
-            this.retryButton.on('pointerdown', () => {
-                this.score = 0;
-                this.currentQuestionIndex = 0;
-                updateFeedback('', '');
-                this.retryButton.setVisible(false);
-                this.options.forEach(option => option.setVisible(true));
-                displayQuestion.call(this);
-            });
-
-            this.questions = [
+            const questions = [
                 {
                     question: '¿Qué es una figura tridimensional?',
                     answers: [
-                        'Una figura con tres dimensiones: largo, ancho y alto.',
-                        'Una figura plana con solo dos dimensiones.',
-                        'Una figura sin volumen.',
-                        'Una figura que solo tiene una dimensión.'
+                        'Una figura con tres dimensiones: largo, ancho y alto',
+                        'Una figura plana con solo dos dimensiones',
+                        'Una figura sin volumen',
+                        'Una figura que solo tiene una dimensión'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Qué es el área de una pirámide?',
                     answers: [
-                        'La cantidad de superficie que cubre la pirámide.',
-                        'El volumen de espacio dentro de la pirámide.',
-                        'El perímetro de la base de la pirámide.',
-                        'La altura de la pirámide.'
+                        'La cantidad de superficie que cubre la pirámide',
+                        'El volumen de espacio dentro de la pirámide',
+                        'El perímetro de la base de la pirámide',
+                        'La altura de la pirámide'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Qué nos dice el volumen de una pirámide?',
                     answers: [
-                        'Cuánto espacio ocupa dentro la pirámide.',
-                        'Cuántos lados tiene la pirámide.',
-                        'La longitud de los bordes de la pirámide.',
-                        'Cuánto papel de regalo se necesita para cubrir la pirámide.'
+                        'Cuánto espacio ocupa dentro la pirámide',
+                        'Cuántos lados tiene la pirámide',
+                        'La longitud de los bordes de la pirámide',
+                        'Cuánto papel de regalo se necesita para cubrir la pirámide'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Qué sucede si la pirámide es más alta o más ancha?',
                     answers: [
-                        'Su volumen será mayor.',
-                        'Su volumen será menor.',
-                        'Su área se reduce.',
-                        'El número de caras aumenta.'
+                        'Su volumen será mayor',
+                        'Su volumen será menor',
+                        'Su área se reduce',
+                        'El número de caras aumenta'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Por qué es importante entender el área y el volumen?',
                     answers: [
-                        'Para diseñar objetos y entender cuánto espacio ocupan.',
-                        'Para cambiar la forma de los objetos.',
-                        'Para reducir el tamaño de una figura.',
-                        'Para eliminar las dimensiones de una figura.'
+                        'Para diseñar objetos y entender cuánto espacio ocupan',
+                        'Para cambiar la forma de los objetos',
+                        'Para reducir el tamaño de una figura',
+                        'Para eliminar las dimensiones de una figura'
                     ],
                     correctAnswer: 0
                 }
             ];
 
-            displayQuestion.call(this);
-        }
+            // Ajuste para utilizar currentScene como índice
+            let currentQuestionIndex = currentScene - 1;
 
-        function displayQuestion() {
-            if (this.currentQuestionIndex >= this.questions.length) {
-                endGame.call(this);
-                return;
+            showQuestion.call(this, questions[currentQuestionIndex]);
+
+            function showQuestion(question) {
+                this.questionText = this.add.text(400, 100, question.question, {
+                    fontSize: '24px',
+                    fill: '#000000',
+                    fontFamily: 'Arial',
+                    align: 'center',
+                    wordWrap: { width: 700 },
+                    backgroundColor: '#7966ab',
+                    padding: { x: 10, y: 10 }
+                }).setOrigin(0.5);
+
+                this.options = [];
+
+                question.answers.forEach((answer, index) => {
+                    const option = this.add.text(400, 200 + (index * 60), answer, {
+                        fontSize: '20px',
+                        fill: '#000000',
+                        backgroundColor: '#eeeeee',
+                        padding: { x: 20, y: 10 },
+                        fontFamily: 'Arial'
+                    }).setInteractive().setOrigin(0.5);
+
+                    option.on('pointerdown', () => checkAnswer.call(this, index, question.correctAnswer, option));
+                    this.options.push(option);
+                });
             }
 
-            const currentQuestion = this.questions[this.currentQuestionIndex];
-            this.questionText.setText(currentQuestion.question);
 
-            currentQuestion.answers.forEach((answer, index) => {
-                this.options[index].setText(answer);
-            });
-        }
+            function checkAnswer(selectedIndex, correctIndex, button) {
+                let score = 0;
+                let feedbackMessage = '';
+                let feedbackColor = '';
 
-        function checkAnswer(index) {
-            const currentQuestion = this.questions[this.currentQuestionIndex];
-            if (index === currentQuestion.correctAnswer) {
-                this.score += 50; // Aumentar en 50 puntos por cada respuesta correcta
-                updateFeedback("¡Correcto!", `Estrellas: ${this.score}`);
-            } else {
-                updateFeedback("Incorrecto", `Estrellas: ${this.score}`);
+                if (selectedIndex === correctIndex) {
+                    score = 60; // Puntos por respuesta correcta
+                    feedbackMessage = '¡Correcto! Sigue así';
+                    feedbackColor = '#6aa84f';
+                    button.setStyle({ fill: feedbackColor });
+                } else {
+                    feedbackMessage = 'Incorrecto. Ve a la siguiente';
+                    feedbackColor = '#ff0000';
+                    button.setStyle({ fill: feedbackColor });
+                }
+
+                updateScore(score);
+                updateFeedback(feedbackMessage, feedbackColor);
+
+                this.children.list.forEach(child => {
+                    if (child.input && child !== button) {
+                        child.disableInteractive();
+                    }
+                });
+
+                if (!isFinalScene) {
+                    const nextButton = this.add.text(400, 450, 'Siguiente', {
+                        fontSize: '24px',
+                        fill: '#ffffff',
+                        backgroundColor: '#7966ab',
+                        padding: { x: 20, y: 10 }
+                    }).setInteractive().setOrigin(0.5);
+
+                    nextButton.on('pointerdown', () => {
+                        updateFeedback('', '');
+                        proceedToNextScene();
+                        if (gameInstance) {
+                            gameInstance.destroy(true);
+                        }
+                    });
+                } else {
+                    const finalMessageText = finalScore >= 240
+                        ? '¡Felicidades! Has completado el juego'
+                        : 'Puntaje ideal no alcanzado';
+
+                    const finalMessage = this.add.text(400, 450, finalMessageText, {
+                        fontSize: '20px',
+                        fill: '#ffffff',
+                        backgroundColor: finalScore >= 240 ? '#6aa84f' : '#ff0000',
+                        padding: { x: 20, y: 10 }
+                    }).setOrigin(0.5);
+
+                    if (finalScore < 240) {
+                        const retryButton = this.add.text(400, 500, 'Volver a Intentarlo', {
+                            fontSize: '20px',
+                            fill: '#ffffff',
+                            backgroundColor: '#ff0000',
+                            padding: { x: 20, y: 10 }
+                        }).setInteractive().setOrigin(0.5);
+
+                        retryButton.on('pointerdown', () => {
+                            if (gameInstance) {
+                                gameInstance.destroy(true);
+                            }
+                            restartGame();
+                        });
+                    } else {
+                        setTimeout(() => {
+                            if (gameInstance) {
+                                gameInstance.destroy(true);
+                            }
+                        }, 4000);
+                    }
+                }
             }
-
-            this.currentQuestionIndex += 1;
-            displayQuestion.call(this);
         }
 
-        function endGame() {
-            this.questionText.setText("¡Juego Finalizado!");
-            this.options.forEach(option => option.setVisible(false));
-
-            updateScore(this.score);
-            if (this.score >= 300) {
-                updateFeedback("¡Felicidades! Lo lograste.", `Estrellas: ${this.score}`);
-            } else {
-                updateFeedback("¡No alcanzaste el puntaje necesario!", `Estrellas: ${this.score}`);
-                this.retryButton.setVisible(true); // Mostrar el botón de reinicio si no se alcanzan 300 estrellas
-            }
-        }
-
-        function update() {
-            // Actualización de la escena si es necesario
-        }
+        function update() { }
 
         return () => {
             if (gameInstance) {
-                gameInstance.destroy(true); // Destruir la instancia actual del juego cuando el componente se desmonte
+                gameInstance.destroy(true);
             }
         };
-    }, [updateFeedback, updateScore, restartGame]);
+    }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene]);
 
     return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default ThreeDShapesQuizGame;
-
+export default Game4;

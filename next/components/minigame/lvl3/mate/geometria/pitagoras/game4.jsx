@@ -1,21 +1,29 @@
 //Juego 4 - Pitagoras - Nivel 3
+
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
 
-const PythagorasQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
+const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
     const [gameInstance, setGameInstance] = useState(null);
 
     useEffect(() => {
         const config = {
             type: Phaser.AUTO,
-            width: 1300,
-            height: 900,
+            width: 800,
+            height: 600,
             parent: 'game-container',
             scene: {
                 preload: preload,
-                create: create,
+                create: createScene,
                 update: update
+            },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
             }
         };
 
@@ -26,176 +34,183 @@ const PythagorasQuizGame = ({ updateFeedback, updateScore, restartGame }) => {
             this.load.image('background', '/img/games/mate/geometria/fondo2game1.png');
         }
 
-        function create() {
-            this.add.image(650, 450, 'background').setDisplaySize(1300, 900);
+        function createScene() {
+            const background = this.add.image(400, 300, 'background');
+            background.setDisplaySize(config.width, config.height);
 
-            this.score = 0;
-            this.currentQuestionIndex = 0;
-
-            this.questionText = this.add.text(650, 150, '', {
-                fontSize: '24px',
-                fill: '#000',
-                fontFamily: 'Arial',
-                align: 'center',
-                wordWrap: { width: 1000 }  // Aumentamos el ancho del wordWrap para ajustarlo al nuevo tamaño
-            }).setOrigin(0.5);
-
-            this.options = [
-                this.add.text(650, 300, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(650, 400, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(650, 500, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-
-                this.add.text(650, 600, '', {
-                    fontSize: '22px',
-                    fill: '#fff',
-                    backgroundColor: '#3498db',
-                    padding: { x: 20, y: 15 },
-                    borderRadius: 10
-                }).setInteractive().setOrigin(0.5),
-            ];
-
-            this.options.forEach((option, index) => {
-                option.on('pointerdown', () => checkAnswer.call(this, index));
-            });
-
-            this.retryButton = this.add.text(650, 700, 'Volver a Intentarlo', {
-                fontSize: '24px',
-                fill: '#fff',
-                backgroundColor: '#e74c3c',
-                padding: { x: 25, y: 12 },
-                borderRadius: 10,
-                fontFamily: 'Arial',
-                align: 'center'
-            }).setInteractive().setOrigin(0.5).setVisible(false);
-
-            this.retryButton.on('pointerdown', () => {
-                this.score = 0;
-                this.currentQuestionIndex = 0;
-                updateFeedback('', '');
-                this.retryButton.setVisible(false);
-                this.options.forEach(option => option.setVisible(true));
-                displayQuestion.call(this);
-            });
-
-            this.questions = [
+            const questions = [
                 {
                     question: '¿Qué es un triángulo rectángulo?',
                     answers: [
-                        'Un triángulo con un ángulo de 90 grados.',
-                        'Un triángulo con todos sus lados iguales.',
-                        'Un triángulo con un ángulo obtuso.',
-                        'Un triángulo sin ángulos rectos.'
+                        'Un triángulo con un ángulo de 90 grados',
+                        'Un triángulo con todos sus lados iguales',
+                        'Un triángulo con un ángulo obtuso',
+                        'Un triángulo sin ángulos rectos'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Qué dice el Teorema de Pitágoras?',
                     answers: [
-                        'La suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa.',
-                        'La suma de todos los ángulos de un triángulo es 180 grados.',
-                        'El perímetro de un triángulo es la suma de sus lados.',
-                        'Los ángulos de un triángulo rectángulo son siempre iguales.'
+                        'La suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa',
+                        'La suma de todos los ángulos de un triángulo es 180 grados',
+                        'El perímetro de un triángulo es la suma de sus lados',
+                        'Los ángulos de un triángulo rectángulo son siempre iguales'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Cómo se usa el Teorema de Pitágoras?',
                     answers: [
-                        'Para calcular la longitud de un lado en un triángulo rectángulo.',
-                        'Para medir el área de un triángulo.',
-                        'Para dividir un triángulo en dos partes iguales.',
-                        'Para sumar los ángulos de un triángulo.'
+                        'Para calcular la longitud de un lado en un triángulo rectángulo',
+                        'Para medir el área de un triángulo',
+                        'Para dividir un triángulo en dos partes iguales',
+                        'Para sumar los ángulos de un triángulo'
                     ],
                     correctAnswer: 0
                 },
                 {
                     question: '¿Por qué es importante el Teorema de Pitágoras?',
                     answers: [
-                        'Porque se usa en la construcción y navegación para encontrar distancias y alinear objetos.',
-                        'Porque se usa para decorar triángulos.',
-                        'Porque ayuda a medir el volumen de un triángulo.',
-                        'Porque permite crear triángulos más grandes.'
+                        'Porque se usa en la construcción para encontrar distancias y alinear objetos',
+                        'Porque se usa para decorar triángulos',
+                        'Porque ayuda a medir el volumen de un triángulo',
+                        'Porque permite crear triángulos más grandes'
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: '¿Qué formas geométricas se utilizan en el Teorema de Pitágoras?',
+                    answers: [
+                        'Cuadrados',
+                        'Círculos',
+                        'Triángulos equiláteros',
+                        'Rectángulos'
                     ],
                     correctAnswer: 0
                 }
+                
             ];
+            // Ajuste para utilizar currentScene como índice
+            let currentQuestionIndex = currentScene - 1;
 
-            displayQuestion.call(this);
-        }
+            showQuestion.call(this, questions[currentQuestionIndex]);
 
-        function displayQuestion() {
-            if (this.currentQuestionIndex >= this.questions.length) {
-                endGame.call(this);
-                return;
+            function showQuestion(question) {
+                this.questionText = this.add.text(400, 100, question.question, {
+                    fontSize: '24px',
+                    fill: '#000000',
+                    fontFamily: 'Arial',
+                    align: 'center',
+                    wordWrap: { width: 700 },
+                    backgroundColor: '#7966ab',
+                    padding: { x: 10, y: 10 }
+                }).setOrigin(0.5);
+
+                this.options = [];
+
+                question.answers.forEach((answer, index) => {
+                    const option = this.add.text(400, 200 + (index * 60), answer, {
+                        fontSize: '20px',
+                        fill: '#000000',
+                        backgroundColor: '#eeeeee',
+                        padding: { x: 20, y: 10 },
+                        fontFamily: 'Arial'
+                    }).setInteractive().setOrigin(0.5);
+
+                    option.on('pointerdown', () => checkAnswer.call(this, index, question.correctAnswer, option));
+                    this.options.push(option);
+                });
             }
 
-            const currentQuestion = this.questions[this.currentQuestionIndex];
-            this.questionText.setText(currentQuestion.question);
 
-            currentQuestion.answers.forEach((answer, index) => {
-                this.options[index].setText(answer);
-            });
-        }
+            function checkAnswer(selectedIndex, correctIndex, button) {
+                let score = 0;
+                let feedbackMessage = '';
+                let feedbackColor = '';
 
-        function checkAnswer(index) {
-            const currentQuestion = this.questions[this.currentQuestionIndex];
-            if (index === currentQuestion.correctAnswer) {
-                this.score += 75; // Aumentar en 75 puntos por cada respuesta correcta
-                updateFeedback("¡Correcto!", `Estrellas: ${this.score}`);
-            } else {
-                updateFeedback("Incorrecto", `Estrellas: ${this.score}`);
+                if (selectedIndex === correctIndex) {
+                    score = 60; // Puntos por respuesta correcta
+                    feedbackMessage = '¡Correcto! Sigue así';
+                    feedbackColor = '#6aa84f';
+                    button.setStyle({ fill: feedbackColor });
+                } else {
+                    feedbackMessage = 'Incorrecto. Ve a la siguiente';
+                    feedbackColor = '#ff0000';
+                    button.setStyle({ fill: feedbackColor });
+                }
+
+                updateScore(score);
+                updateFeedback(feedbackMessage, feedbackColor);
+
+                this.children.list.forEach(child => {
+                    if (child.input && child !== button) {
+                        child.disableInteractive();
+                    }
+                });
+
+                if (!isFinalScene) {
+                    const nextButton = this.add.text(400, 450, 'Siguiente', {
+                        fontSize: '24px',
+                        fill: '#ffffff',
+                        backgroundColor: '#7966ab',
+                        padding: { x: 20, y: 10 }
+                    }).setInteractive().setOrigin(0.5);
+
+                    nextButton.on('pointerdown', () => {
+                        updateFeedback('', '');
+                        proceedToNextScene();
+                        if (gameInstance) {
+                            gameInstance.destroy(true);
+                        }
+                    });
+                } else {
+                    const finalMessageText = finalScore >= 240
+                        ? '¡Felicidades! Has completado el juego'
+                        : 'Puntaje ideal no alcanzado';
+
+                    const finalMessage = this.add.text(400, 450, finalMessageText, {
+                        fontSize: '20px',
+                        fill: '#ffffff',
+                        backgroundColor: finalScore >= 240 ? '#6aa84f' : '#ff0000',
+                        padding: { x: 20, y: 10 }
+                    }).setOrigin(0.5);
+
+                    if (finalScore < 240) {
+                        const retryButton = this.add.text(400, 500, 'Volver a Intentarlo', {
+                            fontSize: '20px',
+                            fill: '#ffffff',
+                            backgroundColor: '#ff0000',
+                            padding: { x: 20, y: 10 }
+                        }).setInteractive().setOrigin(0.5);
+
+                        retryButton.on('pointerdown', () => {
+                            if (gameInstance) {
+                                gameInstance.destroy(true);
+                            }
+                            restartGame();
+                        });
+                    } else {
+                        setTimeout(() => {
+                            if (gameInstance) {
+                                gameInstance.destroy(true);
+                            }
+                        }, 4000);
+                    }
+                }
             }
-
-            this.currentQuestionIndex += 1;
-            displayQuestion.call(this);
         }
 
-        function endGame() {
-            this.questionText.setText("¡Juego Finalizado!");
-            this.options.forEach(option => option.setVisible(false));
-
-            updateScore(this.score);
-            if (this.score >= 300) {
-                updateFeedback("¡Felicidades! Lo lograste.", `Estrellas: ${this.score}`);
-            } else {
-                updateFeedback("¡No alcanzaste el puntaje necesario!", `Estrellas: ${this.score}`);
-                this.retryButton.setVisible(true);
-            }
-        }
-
-        function update() {
-            // Actualización de la escena si es necesario
-        }
+        function update() { }
 
         return () => {
             if (gameInstance) {
                 gameInstance.destroy(true);
             }
         };
-    }, [updateFeedback, updateScore, restartGame]);
+    }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene]);
 
-    return <div id="game-container" className="w-[1300px] h-[900px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
+    return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
 };
 
-export default PythagorasQuizGame;
-
+export default Game4;

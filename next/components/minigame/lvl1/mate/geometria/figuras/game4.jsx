@@ -1,3 +1,4 @@
+// Juego 4 - Figuras - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
 import Phaser from 'phaser';
@@ -76,8 +77,8 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     fontFamily: 'Arial',
                     align: 'center',
                     wordWrap: { width: 700 },
-                    backgroundColor: '#7966ab', 
-                    padding: { x: 10, y: 10 } 
+                    backgroundColor: '#7966ab',
+                    padding: { x: 10, y: 10 }
                 }).setOrigin(0.5);
 
                 this.options = [];
@@ -123,7 +124,7 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                 });
 
                 if (!isFinalScene) {
-                    const nextButton = this.add.text(400, 500, 'Siguiente', {
+                    const nextButton = this.add.text(400, 450, 'Siguiente', {
                         fontSize: '24px',
                         fill: '#ffffff',
                         backgroundColor: '#7966ab',
@@ -131,46 +132,45 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     }).setInteractive().setOrigin(0.5);
 
                     nextButton.on('pointerdown', () => {
-                        this.questionText.destroy();
-                        this.options.forEach(option => option.destroy());
-                        nextButton.destroy();
-                        updateFeedback('');
+                        updateFeedback('', '');
                         proceedToNextScene();
                         if (gameInstance) {
                             gameInstance.destroy(true);
                         }
                     });
                 } else {
-                    showFinalScreen.call(this);
-                }
-            }
+                    const finalMessageText = finalScore >= 240
+                        ? '¡Felicidades! Has completado el juego'
+                        : 'Puntaje ideal no alcanzado';
 
-            function showFinalScreen() {
-                const finalMessageText = finalScore >= 250
-                    ? '¡Felicidades! Has completado el juego.'
-                    : 'No alcanzaste el puntaje necesario. Debes volver a intentarlo.';
-
-                const finalMessage = this.add.text(400, 300, finalMessageText, {
-                    fontSize: '24px',
-                    fill: '#ffffff',
-                    backgroundColor: finalScore >= 250 ? '#6aa84f' : '#ff0000',
-                    padding: { x: 20, y: 10 }
-                }).setOrigin(0.5);
-
-                if (finalScore < 60) {
-                    const retryButton = this.add.text(400, 400, 'Volver a Intentarlo', {
+                    const finalMessage = this.add.text(400, 450, finalMessageText, {
                         fontSize: '20px',
                         fill: '#ffffff',
-                        backgroundColor: '#e74c3c',
+                        backgroundColor: finalScore >= 240 ? '#6aa84f' : '#ff0000',
                         padding: { x: 20, y: 10 }
-                    }).setInteractive().setOrigin(0.5);
+                    }).setOrigin(0.5);
 
-                    retryButton.on('pointerdown', () => {
-                        if (gameInstance) {
-                            gameInstance.destroy(true);
-                        }
-                        restartGame();
-                    });
+                    if (finalScore < 240) {
+                        const retryButton = this.add.text(400, 400, 'Volver a Intentarlo', {
+                            fontSize: '20px',
+                            fill: '#ffffff',
+                            backgroundColor: '#ff0000',
+                            padding: { x: 20, y: 10 }
+                        }).setInteractive().setOrigin(0.5);
+
+                        retryButton.on('pointerdown', () => {
+                            if (gameInstance) {
+                                gameInstance.destroy(true);
+                            }
+                            restartGame();
+                        });
+                    } else {
+                        setTimeout(() => {
+                            if (gameInstance) {
+                                gameInstance.destroy(true);
+                            }
+                        }, 4000);
+                    }
                 }
             }
         }

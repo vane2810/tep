@@ -1,13 +1,13 @@
-// Juego 4 - Poligonos - Nivel 2
+// Juego 4 - Poligonos- Nivel 2
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Game1Modal from '@/components/modals/games/mate/geometria/game4Modal';
+import Game4Modal from '@/components/modals/games/mate/geometria/game4Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-//Importación de juego
+// Importación del juego
 const Game4 = dynamic(() => import('@/components/minigame/lvl2/mate/geometria/poligonos/game4'), { ssr: false });
 
 const GamePage4 = () => {
@@ -15,8 +15,10 @@ const GamePage4 = () => {
   const [showInstructions, setShowInstructions] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
-  const [showRetry, setShowRetry] = useState(false);
-  const [gameKey, setGameKey] = useState(0); 
+  const [currentScene, setCurrentScene] = useState(1);
+  const [gameKey, setGameKey] = useState(0);
+  const [finalScore, setFinalScore] = useState(0);
+  const [gameEnded, setGameEnded] = useState(false);
 
   const toggleInstructions = () => {
     setShowInstructions(!showInstructions);
@@ -24,59 +26,63 @@ const GamePage4 = () => {
 
   const startGame = () => {
     setGameStarted(true);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setGameEnded(false);
+    setFeedback('');
+    setScore(0);
+    setCurrentScene(1);
+    setGameKey(prevKey => prevKey + 1);
+    setFinalScore(0);
   };
 
-  const updateFeedback = (newFeedback) => {
-    setFeedback(newFeedback);
+  const updateFeedback = (newFeedback, color) => {
+    setFeedback(<span style={{ color }}>{newFeedback}</span>);
   };
 
-  const updateScore = (newScore) => {
-    setScore(newScore);
-    // Mostrar el botón de reiniciar si la puntuación es 50 o menos
-    if (newScore <= 50) {
-      setShowRetry(true);
+  const updateScore = (points) => {
+    setScore(prevScore => prevScore + points);
+    setFinalScore(prevScore => prevScore + points);
+  };
+
+  const proceedToNextScene = () => {
+    if (currentScene < 5) {
+      setCurrentScene(currentScene + 1);
+      setGameKey(prevKey => prevKey + 1);
     } else {
-      setShowRetry(false);
+      setGameStarted(false);
+      setGameEnded(true);
     }
   };
 
-  const handleRetry = () => {
-    // Incrementar gameKey para forzar la recreación del componente 
+  const restartGame = () => {
+    setGameStarted(true);
+    setGameEnded(false);
+    setFeedback('');
+    setScore(0);
+    setCurrentScene(1);
     setGameKey(prevKey => prevKey + 1);
-    setFeedback(''); 
-    setScore(0); 
-    setShowRetry(false); 
+    setFinalScore(0);
   };
 
   return (
     <main className="bg-gray-100">
       <SeparadorVerde />
       <div className="flex items-center justify-between flex-wrap">
-        {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
           <Link href="/niveles/nivel2/mate/geometria/poligonos/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
-        {/* Contenedor del Typewriter, la imagen y el botón */}
         <div className="flex items-center my-6 mx-auto">
-          {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figperi.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figperi.png" alt="Figuras Geométricas" className="h-40 w-auto" />
           </div>
-          {/* Typewriter y botón */}
           <div className="flex flex-col">
-            {/* Texto */}
             <div className="story font-bold text-xl mb-4">
               <Typewriter
                 text="   Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
-            {/* Botón de Indicaciones */}
             <button className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
               onClick={toggleInstructions}> Indicaciones
             </button>
@@ -84,42 +90,38 @@ const GamePage4 = () => {
         </div>
       </div>
 
-      {/* Modal de Indicaciones */}
-      <Game1Modal
+      <Game4Modal
         show={showInstructions}
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figperi.png"
-        subtitle="Decimales"
+        subtitle="Identificación de Figuras"
       />
 
-      {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Identifica las caracteristicas de los poligonos</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Identificación de Figuras Geométricas</h1>
+            <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene}/5</p>
+              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold">Estrellas: {score}</p>
+            </div>
             <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
-              showRetryButton={setShowRetry} 
+              proceedToNextScene={proceedToNextScene} 
+              isFinalScene={currentScene === 5} 
+              finalScore={finalScore} 
+              restartGame={restartGame} 
+              currentScene={currentScene}
             />
-            <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
-              {showRetry && (
-                <button 
-                  onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
-                >
-                  Volver a Intentarlo
-                </button>
-              )}
-            </div>
+            
           </div>
         </section>
       )}
-
+      
       <SeparadorVerde />
     </main>
   );

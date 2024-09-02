@@ -102,6 +102,11 @@ const GamePage4 = () => {
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
             <h1 className="text-3xl font-bold mb-4 text-center">Identificación de Figuras Geométricas</h1>
+            <div className="mt-8">
+              <p className="text-xl font-semibold">Ejercicio {currentScene}/5</p>
+              <p className="text-xl font-semibold">Feedback: {feedback}</p>
+              <p className="text-xl font-semibold">Estrellas: {score}</p>
+            </div>
             <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 
@@ -112,16 +117,10 @@ const GamePage4 = () => {
               restartGame={restartGame} 
               currentScene={currentScene}
             />
-            <div className="mt-8">
-              <p className="text-xl font-semibold">Ejercicio {currentScene}/5</p>
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
-            </div>
+            
           </div>
         </section>
       )}
-
-      {/* Se elimina la sección de gameEnded ya que no es necesario el botón de reinicio aquí */}
       
       <SeparadorVerde />
     </main>
