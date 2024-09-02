@@ -121,33 +121,11 @@ const GamePage4 = () => {
         </section>
       )}
 
-      {gameEnded && (
-        <section className='min-h-screen flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px] text-center">
-            <h1 className="text-3xl font-bold mb-4">
-              {finalScore >= 250 ? '¡Felicidades! Has completado el juego.' : 'No alcanzaste el puntaje necesario.'}
-            </h1>
-            {finalScore < 250 && (
-              <button 
-                onClick={restartGame} 
-                className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
-              >
-                Volver a Intentarlo
-              </button>
-            )}
-            {finalScore >= 250 && (
-              <p className="text-xl font-semibold">Puntaje final: {finalScore}</p>
-            )}
-          </div>
-        </section>
-      )}
-
+      {/* Se elimina la sección de gameEnded ya que no es necesario el botón de reinicio aquí */}
+      
       <SeparadorVerde />
     </main>
   );
 };
 
 export default GamePage4;
-
-
-

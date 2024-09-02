@@ -141,7 +141,7 @@ export default function MatematicaPage() {
                 className="h-40 md:h-64 w-auto mb-4 md:mb-0 md:mr-4 animate-tambaleo" 
               />
               <p className="text-black super text-lg md:text-4xl max-w-lg">
-              "EXPLORA EL MUNDO DEL APRENDIZAJE VISUAL CON NUESTRA COLECCIÓN DE VIDEOS EDUCATIVOS.¡APRENDER NUNCA HA SIDO TAN INTERACTIVO!."
+              EXPLORA EL MUNDO DEL APRENDIZAJE VISUAL CON NUESTRA COLECCIÓN DE VIDEOS EDUCATIVOS.¡APRENDER NUNCA HA SIDO TAN INTERACTIVO!.
               </p>
             </div>
           </div>

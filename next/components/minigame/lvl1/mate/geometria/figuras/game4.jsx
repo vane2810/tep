@@ -64,6 +64,7 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                 }
             ];
 
+            // Ajuste para utilizar currentScene como índice
             let currentQuestionIndex = currentScene - 1;
 
             showQuestion.call(this, questions[currentQuestionIndex]);
@@ -74,7 +75,9 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     fill: '#000000',
                     fontFamily: 'Arial',
                     align: 'center',
-                    wordWrap: { width: 700 }
+                    wordWrap: { width: 700 },
+                    backgroundColor: '#7966ab', 
+                    padding: { x: 10, y: 10 } 
                 }).setOrigin(0.5);
 
                 this.options = [];
@@ -83,7 +86,7 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     const option = this.add.text(400, 200 + (index * 60), answer, {
                         fontSize: '20px',
                         fill: '#000000',
-                        backgroundColor: '#ffffff',
+                        backgroundColor: '#eeeeee',
                         padding: { x: 20, y: 10 },
                         fontFamily: 'Arial'
                     }).setInteractive().setOrigin(0.5);
@@ -93,18 +96,19 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                 });
             }
 
+
             function checkAnswer(selectedIndex, correctIndex, button) {
                 let score = 0;
                 let feedbackMessage = '';
                 let feedbackColor = '';
 
                 if (selectedIndex === correctIndex) {
-                    score = 60;
-                    feedbackMessage = '¡Correcto!';
+                    score = 60; // Puntos por respuesta correcta
+                    feedbackMessage = '¡Correcto! Sigue así';
                     feedbackColor = '#6aa84f';
                     button.setStyle({ fill: feedbackColor });
                 } else {
-                    feedbackMessage = 'Incorrecto.';
+                    feedbackMessage = 'Incorrecto. Ve a la siguiente';
                     feedbackColor = '#ff0000';
                     button.setStyle({ fill: feedbackColor });
                 }
@@ -118,37 +122,33 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     }
                 });
 
-                const nextButton = this.add.text(400, 500, 'Siguiente', {
-                    fontSize: '24px',
-                    fill: '#ffffff',
-                    backgroundColor: '#7966ab',
-                    padding: { x: 20, y: 10 }
-                }).setInteractive().setOrigin(0.5);
+                if (!isFinalScene) {
+                    const nextButton = this.add.text(400, 500, 'Siguiente', {
+                        fontSize: '24px',
+                        fill: '#ffffff',
+                        backgroundColor: '#7966ab',
+                        padding: { x: 20, y: 10 }
+                    }).setInteractive().setOrigin(0.5);
 
-                nextButton.on('pointerdown', () => {
-                    this.questionText.destroy();
-                    this.options.forEach(option => option.destroy());
-                    nextButton.destroy();
-                    updateFeedback('');
-                    proceedToNextScene();
-
-                    if (!isFinalScene) {
-                        currentQuestionIndex++;
-                        if (currentQuestionIndex < questions.length) {
-                            showQuestion.call(this, questions[currentQuestionIndex]);
-                        } else {
-                            endGame.call(this);
+                    nextButton.on('pointerdown', () => {
+                        this.questionText.destroy();
+                        this.options.forEach(option => option.destroy());
+                        nextButton.destroy();
+                        updateFeedback('');
+                        proceedToNextScene();
+                        if (gameInstance) {
+                            gameInstance.destroy(true);
                         }
-                    } else {
-                        endGame.call(this);
-                    }
-                });
+                    });
+                } else {
+                    showFinalScreen.call(this);
+                }
             }
 
-            function endGame() {
+            function showFinalScreen() {
                 const finalMessageText = finalScore >= 250
                     ? '¡Felicidades! Has completado el juego.'
-                    : 'No alcanzaste el puntaje necesario. Debes volver a intentarlo para obtener al menos 250 puntos.';
+                    : 'No alcanzaste el puntaje necesario. Debes volver a intentarlo.';
 
                 const finalMessage = this.add.text(400, 300, finalMessageText, {
                     fontSize: '24px',
@@ -157,7 +157,7 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     padding: { x: 20, y: 10 }
                 }).setOrigin(0.5);
 
-                if (finalScore < 250) {
+                if (finalScore < 60) {
                     const retryButton = this.add.text(400, 400, 'Volver a Intentarlo', {
                         fontSize: '20px',
                         fill: '#ffffff',
@@ -166,14 +166,16 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
                     }).setInteractive().setOrigin(0.5);
 
                     retryButton.on('pointerdown', () => {
+                        if (gameInstance) {
+                            gameInstance.destroy(true);
+                        }
                         restartGame();
                     });
                 }
-
             }
         }
 
-        function update() {}
+        function update() { }
 
         return () => {
             if (gameInstance) {
@@ -186,5 +188,3 @@ const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isF
 };
 
 export default GeometryQuizGame;
-
-
