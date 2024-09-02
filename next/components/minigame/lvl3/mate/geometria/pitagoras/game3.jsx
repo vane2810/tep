@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Phaser from 'phaser';
 
-const PythagorasDragDropGame = ({ updateFeedback, updateScore, finalizeGame }) => {
+const Game3 = ({ updateFeedback, updateScore, finalizeGame }) => {
     const gameContainerRef = useRef(null);
     const gameInstanceRef = useRef(null);
     let score = 0;
@@ -157,4 +157,4 @@ const PythagorasDragDropGame = ({ updateFeedback, updateScore, finalizeGame }) =
     );
 };
 
-export default PythagorasDragDropGame;
+export default Game3;
