@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
 import '@/styles/animacion.css';
-import Link from 'next/link';
+import Volver from '@/components/botonVolver'
 
 
 const CoinCollectingGame = dynamic(() => import('@/components/minigame/lvl3/intro/game'), { ssr: false });
@@ -65,17 +65,13 @@ const IntroGame3 = () => {
     <main>
       <SeparadorRosa />
       {/* Volver */}
-      <div className="mt-6 ml-10 inline-block">
-        <Link href="/niveles/nivel3">
-          <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-        </Link>
-      </div>
+      <Volver href="/niveles/nivel3" />
 
       {/* Sección de bienvenida */}
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
         <h1 className="ml-10 story text-2xl font-bold text-center">Bienvenido a Juegos Introductorios</h1>
         <img
-          src="/img/page/starly.png"
+          src="/img/personajes/starly/starly.png"
           alt="Starly"
           className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
         />

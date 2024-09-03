@@ -92,7 +92,7 @@ export default function Nivel3() {
 
           {/* Juego Introductorio */}
           <div className="w-full md:w-1/4 flex flex-col justify-center items-center p-4 mt-8 md:mt-0">
-            <Link href="/games/lvl2/intro">
+            <Link href="/games/lvl3/intro">
               <img
                 src="/img/home/juego_intro.png"
                 alt="Juego Introductorio"
