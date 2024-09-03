@@ -54,7 +54,7 @@ export default function Nivel2() {
   }
 
   return showWelcome ? (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-r from-purple-900 via-indigo-900 to-black text-white">
+   <div className="flex items-center justify-center h-screen bg-gradient-to-r from-orange-300 via-yellow-300 to-red-400 text-white">  
       <div className="text-center">
         <img
           src={images[currentImageIndex]}
