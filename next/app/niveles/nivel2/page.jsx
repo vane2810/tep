@@ -106,7 +106,7 @@ export default function Nivel2() {
       <SeparadorAzul/>
       <section className="mt-10">
         <div className="flex justify-center items-center mb-10">
-          <Link href="/niveles/nivel1/mate">
+          <Link href="/niveles/nivel2/mate">
             <img
               src="/img/personajes/donkey/donkeyboton.png"
               alt="Matematica"
@@ -114,21 +114,21 @@ export default function Nivel2() {
             />
           </Link>
         
-          <Link href="/niveles/nivel1/lenguaje">
+          <Link href="/niveles/nivel2/lenguaje">
             <img
               src="/img/personajes/principe/principeboton.png"
               alt="Lenguaje"
               className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
             />
           </Link>
-          <Link href="/niveles/nivel1/ingles">
+          <Link href="/niveles/nivel2/ingles">
             <img
               src="/img/personajes/griffit/griffitboton.png"
               alt="Ingles"
               className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg "
             />
           </Link>
-          <Link href="/niveles/nivel1/sociales">
+          <Link href="/niveles/nivel2/sociales">
             <img
               src="/img/personajes/burbuja/burbujaboton.png"
               alt="Sociales"
