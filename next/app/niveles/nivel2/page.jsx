@@ -8,7 +8,7 @@ import useSession from '@/hooks/useSession';
 import Typewriter from "@/components/typeWriter";
 import '@/styles/animacion.css';
 
-export default function Nivel1() {
+export default function Nivel2() {
   const [isVerifying, setIsVerifying] = useState(true);
   const [showWelcome, setShowWelcome] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
