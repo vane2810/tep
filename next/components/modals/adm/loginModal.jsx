@@ -1,10 +1,10 @@
+// Modal de alerta de inicio de sesión
 import React from 'react';
 import '@/styles/modals/modalLogin.css';
 
 const LoginModal = ({ show, message, type, onClose, redirectTo }) => {
   const handleContinue = () => {
     if (type === 'success' && redirectTo) {
-      // Redirigir al usuario a la ruta específica
       window.location.href = redirectTo;
     }
     onClose();

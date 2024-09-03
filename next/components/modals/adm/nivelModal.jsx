@@ -1,3 +1,4 @@
+// Modal de Elección de Nivel
 import React, { useState } from 'react';
 
 const NivelModal = ({ show, onClose, onLevelSelected }) => {
@@ -6,13 +7,13 @@ const NivelModal = ({ show, onClose, onLevelSelected }) => {
   if (!show) return null;
 
   const handleSelectLevel = (levelId) => {
-    setSelectedLevel(levelId); // Almacena la selección del nivel
+    setSelectedLevel(levelId); 
   };
 
   const handleConfirmSelection = () => {
     if (selectedLevel !== null) {
-      onLevelSelected(selectedLevel); // Confirma la selección
-      onClose(); // Cierra el modal después de confirmar
+      onLevelSelected(selectedLevel); 
+      onClose(); 
     }
   };
 

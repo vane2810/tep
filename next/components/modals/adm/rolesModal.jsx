@@ -7,13 +7,13 @@ const RolModal = ({ show, onClose, onRoleSelected }) => {
   if (!show) return null;
 
   const handleSelectRole = (role) => {
-    setSelectedRole(role); // Almacena la selección del rol
+    setSelectedRole(role); 
   };
 
   const handleConfirmSelection = () => {
     if (selectedRole !== null) {
-      onRoleSelected(selectedRole); // Confirma la selección
-      onClose(); // Cierra el modal después de confirmar
+      onRoleSelected(selectedRole); 
+      onClose(); 
     }
   };
 

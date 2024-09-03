@@ -2,17 +2,17 @@
 import React, { useState } from 'react';
 
 const PersonajeModal = ({ show, onCharacterSelected }) => {
-  const [selectedCharacter, setSelectedCharacter] = useState(null); // Estado para la selección actual
+  const [selectedCharacter, setSelectedCharacter] = useState(null); 
 
   if (!show) return null;
 
   const handleSelectCharacter = (characterId) => {
-    setSelectedCharacter(characterId); // Almacena la selección del personaje
+    setSelectedCharacter(characterId); 
   };
 
   const handleConfirmSelection = () => {
     if (selectedCharacter !== null) {
-      onCharacterSelected(selectedCharacter); // Confirma la selección
+      onCharacterSelected(selectedCharacter); 
     }
   };
 
@@ -184,7 +184,7 @@ const PersonajeModal = ({ show, onCharacterSelected }) => {
           <button
             onClick={handleConfirmSelection}
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-green-500"
-            disabled={selectedCharacter === null} // Deshabilitar si no hay selección
+            disabled={selectedCharacter === null} 
           >
             Confirmar
           </button>
