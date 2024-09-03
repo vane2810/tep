@@ -6,7 +6,7 @@ import Sidebar from './sidebar';
 import useSession from '@/hooks/useSession';
 import characterImages from '@/utils/characterImages';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,34 +21,35 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  useEffect(() => {
-    console.log('Navbar renderizado nuevamente', session);
-    console.log("Personaje seleccionado:", selectedCharacter);
-  }, [session, selectedCharacter]);
-
   const handleLogout = () => {
+    localStorage.removeItem('hasSeenWelcome');
     logout();
     window.location.href = '/';
   };
 
+
+  const logoLink = session
+    ? `/niveles/nivel${session.nivel}`  
+    : '/'; 
+
   return (
     <nav className="flex justify-between items-center p-6 celeste text-black sticky top-0 left-0 right-0 z-10">
       <div className="flex items-center">
-        <Link href="/" className="flex items-center">
+        <Link href={logoLink} className="flex items-center">
           <img src="/img/home/logoTEP.png" alt="Logo de la aplicación" className="h-20 w-auto mr-4 sm:mr-10 ml-4 sm:ml-10" />
+          <span className="text-3xl super hidden sm:block">TechEduPlanet</span>
         </Link>
-        <Link href='/' className="text-3xl super hidden sm:block">TechEduPlanet</Link>
       </div>
+      
       <div className="flex items-center relative">
-
         {session ? (
           <div className="hidden sm:flex items-center mr-12 relative">
-            <div className='text-2xl text-center mr-10 font-bold story'>
+            <div className='text-2xl text-center mr-10 font-bold story text-rosado'>
               <h1>Bienvenido</h1>
               <span> {session.name}</span>
             </div>
             {selectedCharacter && (
-              <div className="relative">
+              <div className="relative transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
                 <img
                   src={characterImages[selectedCharacter]}
                   alt="Personaje"
@@ -59,12 +60,8 @@ const Navbar = () => {
               </div>
             )}
             {isDropdownOpen && (
-              <div className="absolute -right-16 mt-2 w-60 bg-white border rounded-lg shadow-lg z-50 transform translate-y-24 story">
-                <button className="block w-full text-left px-4 py-2 text-lg hover:bg-gray-100 ">
-                  Configuración de cuenta
-                  <FontAwesomeIcon icon={faCog} className="ml-2" />
-                </button>
-                <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-lg  hover:bg-gray-100">
+              <div className="absolute -right-12 mt-2 w-50 bg-white border rounded-lg shadow-lg z-50 transform translate-y-24 story">
+                <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-lg  hover:bg-red-500">
                   Cerrar sesión
                   <FontAwesomeIcon icon={faSignOutAlt} className="ml-4" />
                 </button>

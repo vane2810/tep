@@ -1,32 +1,43 @@
 // Inicio Nivel 2
-
 import React from "react";
 import Link from 'next/link';
+import Volver from '@/components/botonVolver'
+import { SeparadorAnaranjado, SeparadorRojo } from "@/components/separador";
 
 export default function Nivel2() {
   return (
     <main>
-      {/* Volver */}
-      <div className="mt-6 ml-10 inline-block">
-        <Link href="/">
-          <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-        </Link>
-      </div>
-      {/* Botones*/}
-      <div className="flex justify-center items-center mb-10">
-        <Link href="/niveles/nivel2/mate">
-          <img src="/img/personajes/donkey/donkeyboton.png" alt="Matematica" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
-        </Link>
-        <Link href="/niveles/nivel2/lenguaje">
-          <img src="/img/personajes/principe/principeboton.png" alt="Lenguaje" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
-        </Link>
-        <Link href="/niveles/nivel2/ingles">
-          <img src="/img/personajes/griffit/griffitboton.png" alt="Ingles" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
-        </Link>
-        <Link href="/niveles/nivel2/sociales">
-          <img src="/img/personajes/burbuja/burbujaboton.png" alt="Sociales" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
-        </Link>
-      </div>
+      <SeparadorRojo />
+      <section>
+        {/* Volver */}
+        <Volver href="/" title="Volver a la página principal" />
+        <div className="mt-6 ml-10 flex justify-center items-center">
+          <img src="/img/personajes/niveles/marten2.png" alt="Nivel 2" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
+        </div>
+        
+          
+
+      </section>
+
+      <SeparadorRojo />
+      <section>
+        {/* Botones*/}
+        <div className="flex justify-center items-center mb-10">
+          <Link href="/niveles/nivel2/mate">
+            <img src="/img/personajes/donkey/donkeyboton.png" alt="Matematica" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
+          </Link>
+          <Link href="/niveles/nivel2/lenguaje">
+            <img src="/img/personajes/principe/principeboton.png" alt="Lenguaje" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
+          </Link>
+          <Link href="/niveles/nivel2/ingles">
+            <img src="/img/personajes/griffit/griffitboton.png" alt="Ingles" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
+          </Link>
+          <Link href="/niveles/nivel2/sociales">
+            <img src="/img/personajes/burbuja/burbujaboton.png" alt="Sociales" className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-2" />
+          </Link>
+        </div>
+      </section>
+
       <div className="flex justify-center items-center my-10">
         <Link
           href="/games/lvl2/intro"

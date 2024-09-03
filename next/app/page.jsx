@@ -6,7 +6,7 @@ import Typewriter from "../components/typeWriter";
 import '../styles/animacion.css';
 import dynamic from 'next/dynamic';
 
-const NoSSR = dynamic(() => import('../components/video'), { ssr: false });
+const Video = dynamic(() => import('../components/video'), { ssr: false });
 
 export default function HomePage() {
   return (
@@ -32,7 +32,7 @@ export default function HomePage() {
       
       <div className="flex justify-center">
         {/* Botones (Planetas) */}
-        <NoSSR />
+        <Video />
       </div>
       
       <SeparadorRosa />

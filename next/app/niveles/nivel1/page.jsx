@@ -1,56 +1,59 @@
-// Inicio del Nivel 1 (botones de materias)
-"use client";
+// Página de inicio del NIVEL 1
 "use client";
 import React, { useState, useEffect } from "react";
+import Volver from "@/components/botonVolver";
 import Link from 'next/link';
-import { SeparadorRosa } from "@/components/separador";
+import { SeparadorAmarillo, SeparadorRosa, SeparadorAzul } from "@/components/separador";
+import useSession from '@/hooks/useSession';
+import Typewriter from "@/components/typeWriter";
+import '@/styles/animacion.css';
 
 export default function Nivel1() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [text, setText] = useState("");
+  const [isVerifying, setIsVerifying] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [bgColor, setBgColor] = useState("#fff1e6");
+  const { session } = useSession();
 
-  const fullText = "¡Hola, pequeños genios! Es hora de comenzar el Nivel 1. ¡Vamos aprender y jugar!";
+  const fullText = "  ¡Hola, pequeños genios! Bienvenidos al Nivel 1  ¡Vamos a aprender y a jugar!";
   const images = [
-    "/img/niveles/mate/nivel1/bienvenida/mundito1.png", 
-    "/img/niveles/mate/nivel1/bienvenida/mundito2.png", 
-    "/img/niveles/mate/nivel1/bienvenida/mundito3.png"
+    "/img/personajes/niveles/bienvenida/mundito1.png",
+    "/img/personajes/niveles/bienvenida/mundito2.png",
+    "/img/personajes/niveles/bienvenida/mundito3.png"
   ];
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 10000);
+    if (session) {
+      const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
 
-    const typeWriter = (text, index = 0) => {
-      if (index <= text.length) {
-        setText(text.slice(0, index));
-        setTimeout(() => typeWriter(text, index + 1), 100);
+      if (!hasSeenWelcome) {
+        setShowWelcome(true);
+        const timeout = setTimeout(() => {
+          localStorage.setItem('hasSeenWelcome', 'true');
+          setShowWelcome(false);
+          setIsVerifying(false);
+        }, 10000);
+
+        const imageInterval = setInterval(() => {
+          setCurrentImageIndex(prev => (prev + 1) % images.length);
+        }, 4000);
+
+        return () => {
+          clearTimeout(timeout);
+          clearInterval(imageInterval);
+        };
+      } else {
+        setIsVerifying(false);
       }
-    };
+    } else {
+      setIsVerifying(false);
+    }
+  }, [session]);
 
-    typeWriter(fullText);
+  if (isVerifying) {
+    return null;
+  }
 
-    const imageInterval = setInterval(() => {
-      setCurrentImageIndex(prev => (prev + 1) % images.length);
-    }, 4000);
-
-    return () => {
-      clearTimeout(timeout);
-      clearInterval(imageInterval);
-    };
-  }, []);
-
-  const handleMouseEnter = (color) => {
-    setBgColor(color);
-  };
-
-  const handleMouseLeave = () => {
-    setBgColor("#fff1e6");
-  };
-
-  return isLoading ? (
+  return showWelcome ? (
     <div className="flex items-center justify-center h-screen bg-gradient-to-r from-purple-900 via-indigo-900 to-black text-white">
       <div className="text-center">
         <img
@@ -58,111 +61,84 @@ export default function Nivel1() {
           alt="Welcome"
           className="h-64 w-auto mb-4 mx-auto"
         />
-        <p className="text-3xl font-mono">{text}</p>
+        <div className="text-3xl font-bold story">
+          <Typewriter text={fullText} speed={80} />
+        </div>
+
       </div>
     </div>
   ) : (
     <main>
-      <style jsx>{`
-        @keyframes tambaleo {
-          0%, 100% { transform: rotate(-3deg); }
-          50% { transform: rotate(3deg); }
-        }
-
-        .animate-tambaleo {
-          animation: tambaleo 1s infinite;
-        }
-
-
-        /* Animación de latido (pulse) */
-        @keyframes pulse {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-          100% { transform: scale(1); }
-        }
-
-        .pulse-animation {
-          animation: pulse 1.5s infinite;
-        }
-      `}</style>
-
+      <SeparadorAzul/>
       <section>
-        <SeparadorRosa />
-        <div className="mt-6 ml-10 inline-block">
-          <Link href="/">
-            <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-          </Link>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-center mb-5">
-          <div className="flex flex-col items-center md:mr-8 md:ml-2.5 mb-4 md:mb-0">
-            {/* Agregar clase para tambaleo a la imagen */}
-            <img src="/img/niveles/mate/nivel1/bienvenida/mundito1.png" alt="Donkey" className="h-64 w-auto mx-2.5 md:mr-8 md:ml-2.5 animate-tambaleo" />
+        {/* Volver */}
+        {!session && (
+          <Volver href="/" title="Volver a la página de inicio" />
+        )}
+        <div className="w-full flex flex-col md:flex-row items-center justify-center p-4">
+          {/* Celestia */}
+          <div className="w-full md:w-3/4 flex items-center justify-center p-4">
+            <div className="flex items-center">
+              <img
+                src="/img/personajes/niveles/bienvenida/mundito1.png"
+                alt="Nivel 1"
+                className="h-64 w-auto animate-tambaleo mr-10"
+              />
+              <p className="text-black super text-3xl md:text-3xl text-left">
+                ¡BIENVENIDOS AL NIVEL I! <br /> PLANETA CELESTIA
+              </p>
+            </div>
           </div>
-          <p className="text-black super text-2xl md:text-2xl md:ml-8">"¡BIENVENIDOS AL NIVEL UNO! PREPÁRENSE PARA UNA AVENTURA DE APRENDIZAJE LLENA DE SORPRESAS Y DIVERSIÓN."</p>
+
+          {/* Juego Introductorio */}
+          <div className="w-full md:w-1/4 flex flex-col justify-center items-center p-4 mt-8 md:mt-0">
+            <Link href="/games/lvl1/intro">
+              <img
+                src="/img/home/juego_intro.png"
+                alt="Juego Introductorio"
+                className="w-36 md:w-44 lg:w-52 xl:w-60  animate-float"
+              />
+            </Link>
+          </div>
         </div>
-        <SeparadorRosa />
       </section>
 
-      {/* Sección de materias con el color de fondo dinámico */}
-      <div
-        className="flex flex-col justify-center items-center mb-10 p-10"
-        style={{
-          backgroundColor: bgColor,
-          minHeight: "300px",
-          borderRadius: "10px",
-        }}
-      >
+      <SeparadorAzul/>
+      <section className="mt-10">
         <div className="flex justify-center items-center mb-10">
-          {/* Agregar la clase de latido a los botones */}
           <Link href="/niveles/nivel1/mate">
             <img
               src="/img/personajes/donkey/donkeyboton.png"
               alt="Matematica"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 pulse-animation"
-              onMouseEnter={() => handleMouseEnter("#ffe4e1")}
-              onMouseLeave={handleMouseLeave}
+              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
             />
           </Link>
+        
           <Link href="/niveles/nivel1/lenguaje">
             <img
               src="/img/personajes/principe/principeboton.png"
               alt="Lenguaje"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 pulse-animation"
-              onMouseEnter={() => handleMouseEnter("#e6e6fa")}
-              onMouseLeave={handleMouseLeave}
+              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
             />
           </Link>
           <Link href="/niveles/nivel1/ingles">
             <img
               src="/img/personajes/griffit/griffitboton.png"
               alt="Ingles"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 pulse-animation"
-              onMouseEnter={() => handleMouseEnter("#f0e68c")}
-              onMouseLeave={handleMouseLeave}
+              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg "
             />
           </Link>
           <Link href="/niveles/nivel1/sociales">
             <img
               src="/img/personajes/burbuja/burbujaboton.png"
               alt="Sociales"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 pulse-animation"
-              onMouseEnter={() => handleMouseEnter("#d3ffce")}
-              onMouseLeave={handleMouseLeave}
+              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
             />
           </Link>
         </div>
+      </section>
+      <SeparadorAzul/>
 
-        <div className="flex justify-center items-center my-10">
-          <Link
-            href="/games/lvl1/intro"
-            className="w-40 h-20 md:w-50 lg:w-60 bg-purple-500 text-white text-center font-bold py-4 px-6 rounded-lg shadow-lg hover:bg-purple-700"
-            onMouseEnter={() => handleMouseEnter("#add8e6")}
-            onMouseLeave={handleMouseLeave}
-          >
-            Juego Introductorio
-          </Link>
-        </div>
-      </div>
     </main>
   );
 }

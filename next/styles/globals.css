@@ -27,7 +27,6 @@
 .rosado {
     background-color: #ED1566;
 }
-
 .rojo {
     background-color:darkred;
 }
@@ -45,4 +44,7 @@
 }
 .anaranjado{
     background-color: rgb(237, 151, 38);
+}
+.text-rosado{
+    color: #ED1566;
 }

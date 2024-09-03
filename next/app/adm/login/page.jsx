@@ -17,7 +17,7 @@ export default function Login() {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
   const [redirectTo, setRedirectTo] = useState(''); // Nueva variable de estado para la redirección
-  const router = useRouter(); 
+  const router = useRouter();
 
   // Mapeo de niveles a rutas
   const nivelRutas = {
@@ -48,6 +48,7 @@ export default function Login() {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token);
+        localStorage.removeItem('hasSeenWelcome'); // Eliminar hasSeenWelcome al iniciar sesión
         setModalMessage('Inicio de sesión exitoso');
         setModalType('success');
 
@@ -74,6 +75,7 @@ export default function Login() {
     }
     setShowModal(true);
   };
+
 
   // Cierra el modal de notificación y redirige si es necesario
   const closeModal = () => {
@@ -138,12 +140,12 @@ export default function Login() {
       <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
         <img src="/img/auth/login.jpg" alt="Imagen de fondo" className="max-w-full h-auto object-contain" />
       </div>
-      <LoginModal 
-        show={showModal} 
-        message={modalMessage} 
-        type={modalType} 
-        onClose={closeModal} 
-        redirectTo={redirectTo}   
+      <LoginModal
+        show={showModal}
+        message={modalMessage}
+        type={modalType}
+        onClose={closeModal}
+        redirectTo={redirectTo}
       />
     </div>
   );
