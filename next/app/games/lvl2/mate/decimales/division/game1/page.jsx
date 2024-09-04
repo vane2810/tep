@@ -105,7 +105,7 @@ const GamePage1 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figsumres.jpg"
-        subtitle="Decimales"
+        subtitle="División de Decimales"
       />
 
       {/* Escena del juego */}
