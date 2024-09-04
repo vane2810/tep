@@ -94,7 +94,7 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/compafig.png"
-        subtitle="Decimales"
+        subtitle="Multiplicación de Decimales"
       />
 
       {/* Escena del juego */}

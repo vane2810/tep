@@ -20,7 +20,7 @@ const Game2Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
 
         <ol className="mb-6 text-xl">
           <li>1. Lee cuidadosamente las indicaciones</li>
-          <li>2. Encuentra la fracción que corresponde con su decimal</li>
+          <li>2. Encuentra las fracciones correctas</li>
           <li>3. Puedes seguir intentando hasta encontrar los pares correspondiente</li>
         </ol>
 
