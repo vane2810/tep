@@ -98,14 +98,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Fracciones Equivalentes"
+        subtitle="Emparejemos fracciones equivalentes"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones Equivalentes</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Emparejemos fracciones equivalentes</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 
