@@ -95,14 +95,14 @@ const GamePage3 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/introfig.png"
-        subtitle="Operaciones Básicas entre Fracciones"
+        subtitle="Fracciones. . . pero en operaciones basicas"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Operaciones Básicas entre Fracciones</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones. . . pero en operaciones basicas</h1>
             <Game3 
               key={gameKey} 
               updateFeedback={updateFeedback} 

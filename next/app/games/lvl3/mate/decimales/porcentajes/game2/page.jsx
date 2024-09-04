@@ -93,14 +93,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figsumres.jpg"
-        subtitle="Decimales"
+        subtitle="¿Seran lo mismo?"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Términos de la Suma</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Seran lo mismo?</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 

@@ -90,7 +90,7 @@ const GamePage4 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figsumres.jpg"
-        subtitle="Decimales"
+        subtitle="Porcentajes y Decimales"
       />
 
       {/* Escena del juego */}

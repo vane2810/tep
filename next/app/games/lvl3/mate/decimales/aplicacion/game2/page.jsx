@@ -93,14 +93,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/compafig.png"
-        subtitle="Supermercado Virtual"
+        subtitle="Sumemos las compras"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Supermercado Virtual</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Sumemos las compras</h1>
             <Game2 
               key={gameKey} 
               targetAmount={targetAmount} 
