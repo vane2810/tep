@@ -103,14 +103,14 @@ const GamePage4 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Fracciones Simples"
+        subtitle="Convirtamos fracciones"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones Simples</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Convirtamos fracciones</h1>
             <Game4 
               key={gameKey} 
               updateFeedback={updateFeedback} 

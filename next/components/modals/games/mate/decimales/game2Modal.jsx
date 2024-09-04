@@ -20,8 +20,8 @@ const Game2Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
 
         <ol className="mb-6 text-xl">
           <li>1. Lee cuidadosamente las indicaciones</li>
-          <li>2. Selecciona la respuesta correcta en cada fila</li>
-          <li>3. Si no obtines el mínimo de estrellas, deberás volver a intentarlo</li>
+          <li>2. Encuentra la fracción que corresponde con su decimal</li>
+          <li>3. Puedes seguir intentando hasta encontrar los pares correspondiente</li>
         </ol>
 
         <div className="flex space-x-4">

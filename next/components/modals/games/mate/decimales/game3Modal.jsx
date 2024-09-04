@@ -1,4 +1,4 @@
-// Intrucciones Juego 3 - Mamte
+// Intrucciones Juego 3 - Mate
 // Modal reutilizable para el juego 3 de los tres niveles
 import React from 'react';
 
@@ -20,8 +20,8 @@ const Game3Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
 
         <ol className="mb-6 text-xl">
           <li>1. Lee cuidadosamente indicación</li>
-          <li>2. Selecciona la respuesta correcta </li>
-          <li>3. Cada par correcto equivale a 20 estrellas</li>
+          <li>2. Selecciona la respuesta correcta de cada fila</li>
+          <li>3. Las respuestas correctas de cada fila valen 40 puntos</li>
         </ol>
 
         <div className="flex space-x-4">

@@ -103,7 +103,7 @@ const Game3 = ({ updateFeedback, updateScore, finalizeGame, incrementCorrectCoun
             let feedbackColor;
 
             if (selectedFraction === correctAnswers[rowIndex]) {
-                score += 20; // Sumar 20 puntos a la puntuación total, cada pregunta vale 20 puntos
+                score += 40; // Sumar 20 puntos a la puntuación total, cada pregunta vale 20 puntos
                 incrementCorrectCount(); // Incrementar el contador de respuestas correctas en la vista
                 feedbackMessage = `¡Correcto! Has seleccionado la fracción mayor en la fila ${rowIndex + 1}.`;
                 feedbackColor = '#6aa84f'; // Verde para correcto

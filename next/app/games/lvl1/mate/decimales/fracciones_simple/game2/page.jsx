@@ -1,3 +1,4 @@
+// Juego 2 - Fracciones Simples - Nivel 1
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -99,14 +100,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Fracciones Simples"
+        subtitle="Comparacion de fracciones y decimales"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Identificación de Fracciones Simples</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Comparacion de fracciones y decimales</h1>
             <Game2
               key={gameKey} 
               updateFeedback={updateFeedback} 

@@ -102,14 +102,14 @@ const GamePage3 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Fracciones Simples"
+        subtitle="¿Cual es mayor?"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones Simples</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Cual es mayor?</h1>
             <Game3
               updateFeedback={updateFeedback} 
               updateScore={updateScore}  // Pasar la función para actualizar la puntuación
@@ -119,7 +119,7 @@ const GamePage3 = () => {
             />
             <div className="mt-8">
               <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score} / 100</p> {/* Actualización del total a 100 */}
+              <p className="text-xl font-semibold">Estrellas: {score} / 200</p> {/* Actualización del total a 100 */}
               <p className="text-xl font-semibold">Respuestas correctas: {correctCount} de 5</p> {/* Nuevo apartado */}
             </div>
 

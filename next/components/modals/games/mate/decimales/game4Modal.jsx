@@ -22,7 +22,7 @@ const Game4Modal = ({ show, onClose, onStartGame, imageUrl, subtitle }) => {
           <li>1. Lee cuidadosamente la pregunta</li>
           <li>2. Escribe el número decimal correspondiente</li>
           <li>3. Si no alcanzas las 200 estrellas, debes volver a intentarlo</li>
-          
+          <li>4. El maximo de estrellas a conseguir es de 300</li>
         </ol>
 
         <div className="flex space-x-4">

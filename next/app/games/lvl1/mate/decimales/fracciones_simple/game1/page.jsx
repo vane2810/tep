@@ -102,7 +102,7 @@ const GamePage1 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfrasim.png"
-        subtitle="Fracciones Simples"
+        subtitle="Identificación de Fracciones Simples"
       />
 
       {/* Escena del juego */}
