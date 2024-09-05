@@ -22,11 +22,11 @@ const Modal = ({ isOpen, onClose, subjectName, continueLink }) => {
             <img
               src='/img/personajes/starly/starly.png'
               alt='Personaje de felicitación'
-              className='w-22 h-auto mx-auto mb-4'
+              className='w-18 h-18 mx-auto mb-4'
             />
             <p>Ahora puedes continuar o revisar la lección de nuevo</p>
           </div>
-          <div className="flex space-x-4 justify-center">
+          <div className="flex space-x-4 justify-center story">
             <button
               className="bg-blue-500 text-white text-xl py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
               onClick={onClose}

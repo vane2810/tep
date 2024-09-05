@@ -53,7 +53,7 @@ const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
 
             // Mostrar la instrucción
             this.add.text(400, 50, `¿Cuál es la fracción correcta para el numerador ${numerator} y denominador ${denominator}?`, {
-                fontSize: '24px',
+                fontSize: '18px',
                 fill: '#ffffff',
                 align: 'center',
                 backgroundColor: '#7966ab',
