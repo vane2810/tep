@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Volver from "@/components/botonVolver";
 import Link from 'next/link';
-import { SeparadorAmarillo, SeparadorRosa, SeparadorAzul } from "@/components/separador";
+import { SeparadorRojo } from "@/components/separador";
 import useSession from '@/hooks/useSession';
 import Typewriter from "@/components/typeWriter";
 import '@/styles/animacion.css';
@@ -69,7 +69,7 @@ export default function Nivel3() {
     </div>
   ) : (
     <main>
-      <SeparadorAzul/>
+      <SeparadorRojo/>
       <section>
         {/* Volver */}
         {!session && (
@@ -103,7 +103,7 @@ export default function Nivel3() {
         </div>
       </section>
 
-      <SeparadorAzul/>
+      <SeparadorRojo/>
       <section className="mt-10">
         <div className="flex justify-center items-center mb-10">
           <Link href="/niveles/nivel3/mate">
@@ -137,7 +137,7 @@ export default function Nivel3() {
           </Link>
         </div>
       </section>
-      <SeparadorAzul/>
+      <SeparadorRojo/>
 
     </main>
   );

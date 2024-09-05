@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Volver from "@/components/botonVolver";
 import Link from 'next/link';
-import { SeparadorAmarillo, SeparadorRosa, SeparadorAzul } from "@/components/separador";
+import { SeparadorAzul } from "@/components/separador";
 import useSession from '@/hooks/useSession';
 import Typewriter from "@/components/typeWriter";
 import '@/styles/animacion.css';
