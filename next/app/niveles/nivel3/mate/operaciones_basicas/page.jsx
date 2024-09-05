@@ -7,7 +7,7 @@ import GuestModal from '@/components/modals/GuestModal';
 import { SeparadorRosa, SeparadorVerde, SeparadorCeleste, SeparadorAmarillo, SeparadorMorado, SeparadorAzul } from "@/components/separador";
 
 export default function MatematicaPage() {
-  /*
+  
   const { session } = useContext(SessionContext);
   const [showModal, setShowModal] = useState(false);
 
@@ -36,7 +36,6 @@ export default function MatematicaPage() {
       </>
     );
   }
-  */
 
   return (
     <main>

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { SeparadorAzul, SeparadorMorado } from "@/components/separador";
 
 export default function MatematicaPage() {
-  const [unlocked, setUnlocked] = useState([1]); // El tema 1 está desbloqueado inicialmente
+  const [unlocked, setUnlocked] = useState([1]); 
   const [videoUrl, setVideoUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -140,7 +140,7 @@ export default function MatematicaPage() {
                 alt="Animated Image" 
                 className="h-40 md:h-64 w-auto mb-4 md:mb-0 md:mr-4 animate-tambaleo" 
               />
-              <p className="text-black super text-lg md:text-4xl max-w-lg">
+              <p className="text-black super text-lg md:text-4xl max-w-lg ">
               BIENVENIDA/O A NUESTRA GALERIA MULTIMEDIA, DONDE CADA VIDEO ES UNA PUERTA HACIA EL CONOCIMIENTO.¡HAZ CLIC Y DEJA QUE LA EDUCACIÓN TE SORPRENDA!.
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function MatematicaPage() {
       {/* Sección de temas */}
       <section className="py-8 bg-gray-100">
         <div className="container mx-auto px-4">
-          <p className="instrucciones">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
+          <p className="instrucciones story">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {temas.map((tema) => (
               <div 
@@ -163,7 +163,7 @@ export default function MatematicaPage() {
                 <img 
                   src={tema.img} 
                   alt={tema.title} 
-                  className="w-full h-32 sm:h-48 object-cover"
+                  className="w-full h-28 sm:h-48 object-cover"
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-bold">{tema.title}</h3>

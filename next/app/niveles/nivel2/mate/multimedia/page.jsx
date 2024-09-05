@@ -124,7 +124,7 @@ export default function MatematicaPage() {
         <div className="bg-gradient-to-r from-blue-200 via-green-200 to-yellow-200 py-8">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
-            <Link href="/niveles/nivel1/mate">
+            <Link href="/niveles/nivel2/mate">
               <img 
                 src="/img/home/regresar.png" 
                 alt="Volver" 
@@ -152,7 +152,7 @@ export default function MatematicaPage() {
       {/* Sección de temas */}
       <section className="py-8 bg-gray-100">
         <div className="container mx-auto px-4">
-          <p className="instrucciones">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
+          <p className="instrucciones story">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {temas.map((tema) => (
               <div 

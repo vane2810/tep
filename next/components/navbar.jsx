@@ -77,7 +77,7 @@ const Navbar = () => {
         <img src="/img/home/barra/linea.png" alt="Abrir barra lateral" className="h-10 w-10 cursor-pointer mr-4" onClick={toggleSidebar} />
       </div>
 
-      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
+      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} session={session} />
     </nav>
   );
 };
