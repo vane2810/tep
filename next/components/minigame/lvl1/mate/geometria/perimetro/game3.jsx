@@ -132,7 +132,7 @@ const Game3 = ({ updateFeedback, updateScore, finalizeGame }) => {
 
             level.perimeters.forEach((perimeter, index) => {
                 const y = startY + index * spacingY;
-                const perimeterText = this.add.text(perimeterStartX, y, `${perimeter} unidades`, {
+                const perimeterText = this.add.text(perimeterStartX, y, `${perimeter} centimetros`, {
                     fontSize: '22px',
                     fill: '#000000',
                     backgroundColor: '#f0f0f0',

@@ -81,13 +81,13 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfig.png"
-        subtitle="¿Cuál es mayor?"
+        subtitle="¿Que figura es?"
       />
 
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Identificación de Figuras</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Que figura es?</h1>
             <Game2
               updateFeedback={updateFeedback}
               updateScore={updateScore}

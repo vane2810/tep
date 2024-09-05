@@ -102,14 +102,14 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figsime.png"
-        subtitle="¿Cuál es mayor?"
+        subtitle="¿Que tipo de simetria es?"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">¿Cuál es mayor?</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Que tipo de simetria es?</h1>
             <Game2
               updateFeedback={updateFeedback} 
               updateScore={setScore}  // Actualizar la puntuación directamente
