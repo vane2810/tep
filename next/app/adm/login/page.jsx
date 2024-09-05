@@ -16,7 +16,7 @@ export default function Login() {
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
-  const [redirectTo, setRedirectTo] = useState(''); // Nueva variable de estado para la redirección
+  const [redirectTo, setRedirectTo] = useState(''); 
   const router = useRouter();
 
   // Mapeo de niveles a rutas
@@ -48,7 +48,7 @@ export default function Login() {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token);
-        localStorage.removeItem('hasSeenWelcome'); // Eliminar hasSeenWelcome al iniciar sesión
+        localStorage.removeItem('hasSeenWelcome'); 
         setModalMessage('Inicio de sesión exitoso');
         setModalType('success');
 
@@ -77,13 +77,13 @@ export default function Login() {
   };
 
 
-  // Cierra el modal de notificación y redirige si es necesario
+  // Cierra el modal de notificación 
   const closeModal = () => {
     setShowModal(false);
     setModalMessage('');
     setModalType('');
 
-    // Redirigir cuando se cierre el modal si hay una ruta definida
+    // Redirigir cuando se cierre el modal 
     if (redirectTo) {
       router.push(redirectTo);
     }

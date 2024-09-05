@@ -7,7 +7,7 @@ import Game2Modal from '@/components/modals/games/mate/ob/suma/game2Modal';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/resta/game2'), { ssr: false });
+const Game2 = dynamic(() => import('@/components/minigame/lvl3/mate/resta/game2'), { ssr: false });
 
 const ResGamePage2 = () => {
   const [feedback, setFeedback] = useState('');

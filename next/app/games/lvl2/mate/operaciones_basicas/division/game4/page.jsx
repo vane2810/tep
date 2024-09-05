@@ -8,7 +8,7 @@ import Game4Modal from '@/components/modals/games/mate/ob/suma/game4Modal';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-const Game4 = dynamic(() => import('@/components/minigame/lvl1/mate/division/game4'), { ssr: false });
+const Game4 = dynamic(() => import('@/components/minigame/lvl2/mate/division/game4'), { ssr: false });
 
 const ResGamePage4 = () => {
   const [feedback, setFeedback] = useState('');
@@ -72,7 +72,7 @@ const ResGamePage4 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20">
-          <Link href="/niveles/nivel1/mate/operaciones_basicas/division/juegos">
+          <Link href="/niveles/nivel2/mate/operaciones_basicas/division/juegos">
             <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>

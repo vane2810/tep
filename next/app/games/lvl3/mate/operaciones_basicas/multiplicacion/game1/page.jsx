@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 
-const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/multiplicacion/game1'), { ssr: false });
+const Game1 = dynamic(() => import('@/components/minigame/lvl3/mate/multiplicacion/game1'), { ssr: false });
 
 const MultiGamePage1 = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -56,7 +56,7 @@ const MultiGamePage1 = () => {
       <div className="flex items-center justify-between flex-wrap">
         {/* Botón de Volver */}
         <div className="ml-8 inline-block mb-20"> 
-          <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion/juegos">
+          <Link href="/niveles/nivel3/mate/operaciones_basicas/multiplicacion/juegos">
             <img src="/img/page/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>

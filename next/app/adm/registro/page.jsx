@@ -82,7 +82,7 @@ export default function Register() {
     e.preventDefault();
 
     if (nameError || emailError || passwordError || confirmPasswordError) {
-      return; // Evita el envío si hay errores de validación
+      return; 
     }
 
     try {
@@ -127,7 +127,7 @@ export default function Register() {
       if (res.ok) {
         if (role === 'estudiante') {
           setShowRolModal(false);
-          setShowNivelModal(true);  // Abre el modal de selección de nivel
+          setShowNivelModal(true);  
         } else {
           setShowModal(true);
           setModalMessage('Registro completado');
