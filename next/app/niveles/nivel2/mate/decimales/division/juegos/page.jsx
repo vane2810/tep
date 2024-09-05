@@ -42,7 +42,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl2/mate/decimales/division/game1")}
+          onClick={() => openModal("Juego 1", "/games/lvl2/mate/decimales/division/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl2/mate/decimales/division/game2")}
+          onClick={() => openModal("Juego 2", "/games/lvl2/mate/decimales/division/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl2/mate/decimales/division/game3")}
+          onClick={() => openModal("Juego 3", "/games/lvl2/mate/decimales/division/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGame() {
         <div
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl2/mate/decimales/division/game4")}
+          onClick={() => openModal("Juego 4", "/games/lvl2/mate/decimales/division/game4")}
         >
           Juego 4
         </div>

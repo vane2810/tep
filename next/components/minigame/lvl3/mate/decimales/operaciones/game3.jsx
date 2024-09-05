@@ -1,7 +1,7 @@
 // Juego 3 - OPeraciones básicas de fracciones - Nivel 3
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game3 = ({ updateFeedback, updateScore, finalizeGame, resetGame }) => {
     const [gameInstance, setGameInstance] = useState(null);

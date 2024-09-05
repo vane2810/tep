@@ -42,7 +42,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/geometria/figuras/game1")}
+          onClick={() => openModal("Identifica la figura", "/games/lvl1/mate/geometria/figuras/game1")}
         >
           Juego 1
         </div>
@@ -51,7 +51,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/geometria/figuras/game2")}
+          onClick={() => openModal("¿Que figura es?", "/games/lvl1/mate/geometria/figuras/game2")}
         >
           Juego 2
         </div>
@@ -60,7 +60,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/geometria/figuras/game3")}
+          onClick={() => openModal("¿Cual es cual?", "/games/lvl1/mate/geometria/figuras/game3")}
         >
           Juego 3
         </div>
@@ -69,7 +69,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/geometria/figuras/game4")}
+          onClick={() => openModal("¿Conoces como son?", "/games/lvl1/mate/geometria/figuras/game4")}
         >
           Juego 4
         </div>

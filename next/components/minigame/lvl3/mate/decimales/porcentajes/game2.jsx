@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game2 = ({ updateFeedback, updateScore, onComplete }) => {
     const [gameInstance, setGameInstance] = useState(null);

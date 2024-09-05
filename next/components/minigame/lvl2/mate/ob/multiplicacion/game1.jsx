@@ -1,7 +1,7 @@
 // Juego 1 - Nivel 1 - Resta
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game1 = ({ updateFeedback, updateScore, showRetryButton }) => {
     const [gameInstance, setGameInstance] = useState(null);

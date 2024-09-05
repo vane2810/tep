@@ -1,7 +1,7 @@
 // Juego 1 - Multiplicación de Decimales - Nivel 2
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game1 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);

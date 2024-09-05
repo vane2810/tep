@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const PolygonsGame = ({ updateFeedback, updateScore, finalizeGame }) => {
     const gameContainerRef = useRef(null);

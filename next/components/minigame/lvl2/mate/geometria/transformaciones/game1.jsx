@@ -1,7 +1,7 @@
 // Juego 1 - transformaciones - Nivel 2
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const TransformacionesGeometricasGame = ({ updateFeedback, updateScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);

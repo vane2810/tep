@@ -41,7 +41,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Términos de la Suma", "/games/lvl1/mate/geometria/simetria/game1")}
+          onClick={() => openModal("Puede ser simetrico", "/games/lvl1/mate/geometria/simetria/game1")}
         >
           Juego 1
         </div>
@@ -50,7 +50,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Suma de Décenas y Unidades", "/games/lvl1/mate/geometria/simetria/game2")}
+          onClick={() => openModal("¿Que tipo de simetria es?", "/games/lvl1/mate/geometria/simetria/game2")}
         >
           Juego 2
         </div>
@@ -59,7 +59,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Flotantes", "/games/lvl1/mate/geometria/simetria/game3")}
+          onClick={() => openModal("¿Sera simetrico?", "/games/lvl1/mate/geometria/simetria/game3")}
         >
           Juego 3
         </div>
@@ -68,7 +68,7 @@ export default function PageGameSuma() {
         <div 
           className="border text-xl font-semibold story border-gray-300 rounded-lg p-8 flex flex-col 
           items-center justify-center hover:bg-gray-100 transition duration-300 cursor-pointer celeste"
-          onClick={() => openModal("Sumas Avanzada", "/games/lvl1/mate/geometria/simetria/game4")}
+          onClick={() => openModal("Informate simetricamente", "/games/lvl1/mate/geometria/simetria/game4")}
         >
           Juego 4
         </div>
