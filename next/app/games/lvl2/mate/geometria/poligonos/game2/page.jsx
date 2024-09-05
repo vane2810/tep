@@ -89,7 +89,7 @@ const GamePage2 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figperi.png"
-        subtitle="Polígonos"
+        subtitle="Tipos de polígonos"
       />
 
       {/* Escena del juego */}

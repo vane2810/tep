@@ -95,13 +95,13 @@ const GamePage4 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfig.png"
-        subtitle="Identificación de Figuras"
+        subtitle="¿Sera aqui el area?"
       />
 
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Identificación de Figuras Geométricas</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Sera aqui el area?</h1>
             <div className="mt-8">
               <p className="text-xl font-semibold">Ejercicio {currentScene}/5</p>
               <p className="text-xl font-semibold">Feedback: {feedback}</p>

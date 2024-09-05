@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Phaser from 'phaser';
 
-const PuzzleTransformations = ({ updateFeedback, updateScore, finalizeGame }) => {
+const Game2 = ({ updateFeedback, updateScore, finalizeGame }) => {
     const gameContainerRef = useRef(null);
     const gameInstanceRef = useRef(null);
 
@@ -32,271 +32,272 @@ const PuzzleTransformations = ({ updateFeedback, updateScore, finalizeGame }) =>
 
         gameInstanceRef.current = new Phaser.Game(config);
 
+        let correctAnswers = [];
         let score = 0;
-        let currentPuzzle = 0;
-        let puzzles = [];
-        let currentFigure = 0;
-        let isVerified = false; // Para evitar sumar puntos más de una vez
+        let currentQuestion = 0;
+        let questionAnswered = false;
 
         function preload() {
             console.log("Preloading assets...");
+            this.load.image('background', '/img/games/mate/ob/game1.jpg'); // Verifica que la ruta sea correcta
         }
 
         function createScene() {
             console.log("Creating scene...");
-            this.cameras.main.setBackgroundColor('#f0f0f0');
+            const background = this.add.image(400, 300, 'background');
+            background.setDisplaySize(config.width, config.height);
 
-            puzzles = [
+            // Definir las preguntas sobre transformaciones geométricas
+            const questions = [
                 {
-                    original: { x: 300, y: 200, rotation: 0 },
-                    transformations: [{ type: 'translate', dx: 200, dy: 0 }],
-                    instructions: "Mueve la figura hacia la derecha"
+                    figure: 'move',
+                    question: '¿Qué transformación se ha aplicado a la figura?',
+                    options: ['Traslación', 'Rotación', 'Reflexión'],
+                    answer: 'Traslación'
                 },
                 {
-                    original: { x: 300, y: 200, rotation: 0 },
-                    transformations: [{ type: 'rotate', angle: 45 }],
-                    instructions: "Gira la figura para que encaje con el cuadro objetivo"
+                    figure: 'rotate',
+                    question: '¿Qué transformación se ha aplicado a la figura?',
+                    options: ['Rotación', 'Reflexión', 'Traslación'],
+                    answer: 'Rotación'
                 },
                 {
-                    original: { x: 300, y: 200, rotation: 0 },
-                    transformations: [{ type: 'reflect', axis: 'x' }],
-                    instructions: "Encuentra la figura reflejada correcta"
+                    figure: 'reflect',
+                    question: '¿Qué transformación se ha aplicado a la figura?',
+                    options: ['Reflexión', 'Rotación', 'Traslación'],
+                    answer: 'Reflexión'
+                },
+                {
+                    figure: 'random',
+                    question: null, // Se establecerá dinámicamente
+                    options: ['Sí', 'No'], // Respuestas de Sí o No
+                    answer: null // Se establecerá dinámicamente
                 }
             ];
 
-            generatePuzzle.call(this, puzzles[currentPuzzle]);
+            // Configurar la última pregunta con una transformación al azar
+            const lastQuestionOptions = [
+                {
+                    figure: 'move',
+                    question: '¿Esta figura ha sido movida?',
+                    answer: 'Sí'
+                },
+                {
+                    figure: 'rotate',
+                    question: '¿Esta figura ha sido rotada?',
+                    answer: 'Sí'
+                },
+                {
+                    figure: 'reflect',
+                    question: '¿Esta figura ha sido reflejada?',
+                    answer: 'Sí'
+                },
+                {
+                    figure: 'move',
+                    question: '¿Esta figura ha sido rotada?',
+                    answer: 'No'
+                },
+                {
+                    figure: 'rotate',
+                    question: '¿Esta figura ha sido movida?',
+                    answer: 'No'
+                },
+                {
+                    figure: 'reflect',
+                    question: '¿Esta figura ha sido movida?',
+                    answer: 'No'
+                }
+            ];
+
+            // Seleccionar aleatoriamente la configuración para la última pregunta
+            const randomLastQuestion = Phaser.Math.RND.pick(lastQuestionOptions);
+            questions[3].figure = randomLastQuestion.figure;
+            questions[3].question = randomLastQuestion.question;
+            questions[3].answer = randomLastQuestion.answer;
+
+            correctAnswers = questions;
+            generateQuestion.call(this, currentQuestion);
         }
 
-        function generatePuzzle(puzzle) {
-            this.children.removeAll();
-            isVerified = false; // Restablecer estado para cada nuevo nivel
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
 
-            const instructionsText = this.add.text(400, 50, puzzle.instructions, {
-                fontSize: '24px',
+        function generateQuestion(index) {
+            if (index >= correctAnswers.length) {
+                if (typeof finalizeGame === 'function') {
+                    finalizeGame(score);  // Verificar que finalizeGame sea una función
+                } else {
+                    console.error("finalizeGame no está definido o no es una función");
+                }
+                return;
+            }
+
+            const questionData = correctAnswers[index];
+            this.children.removeAll();
+
+            const background = this.add.image(400, 300, 'background');
+            background.setDisplaySize(800, 600);
+
+            // Mostrar la figura transformada usando gráficos
+            const graphics = this.add.graphics();
+
+            switch (questionData.figure) {
+                case 'move':
+                    graphics.fillStyle(0xff0000, 1.0); // Rojo
+                    // Dibujar un cuadrado original y su versión trasladada
+                    graphics.fillRect(250, 250, 100, 100); // Cuadrado original
+                    graphics.fillRect(450, 250, 100, 100); // Cuadrado trasladado
+                    // Dibujar una flecha indicando la dirección de la traslación
+                    drawArrow(graphics, 350, 300, 50, 0); // Flecha horizontal hacia la derecha, más corta
+                    break;
+                case 'rotate':
+                    graphics.fillStyle(0x00ff00, 1.0); // Verde
+                    // Dibujar un cuadrado original y su versión rotada manualmente
+                    graphics.fillRect(250, 250, 100, 100); // Cuadrado original
+                    drawRotatedSquare(graphics, 550, 300, 100, Phaser.Math.DegToRad(45)); // Cuadrado rotado, desplazado a la derecha
+                    break;
+                case 'reflect':
+                    graphics.fillStyle(0x0000ff, 1.0); // Azul
+                    // Dibujar un triángulo escaleno original y su versión reflejada horizontalmente
+                    drawScaleneTriangle(graphics, 250, 300); // Triángulo escaleno original
+                    drawReflectedScaleneTriangle(graphics, 550, 300); // Triángulo escaleno reflejado
+                    break;
+            }
+
+            // Mostrar la pregunta centrada
+            const questionText = this.add.text(400, 50, questionData.question, {
+                fontSize: '26px',
                 fill: '#000000',
                 fontWeight: 'bold',
+                stroke: '#ffffff',
+                strokeThickness: 4,
                 wordWrap: { width: 700, useAdvancedWrap: true }
-            }).setOrigin(0.5);
+            }).setOrigin(0.5); // Centrar la pregunta
 
-            if (puzzle.transformations[0].type === 'rotate') {
-                let rotationAngle = 0;
+            shuffleArray(questionData.options);
 
-                const rotateLeftButton = this.add.text(200, 550, '← Girar a la Izquierda', {
-                    fontSize: '20px',
+            const buttonStartX = 200; // Ajuste para separar más los botones
+            const buttonSpacingX = 200; // Separación entre botones
+            const buttonY = 450;
+            questionData.options.forEach((option, i) => {
+                const x = buttonStartX + i * buttonSpacingX;
+
+                const optionText = this.add.text(x, buttonY, option, {
+                    fontSize: '22px',
                     fill: '#000000',
-                    backgroundColor: '#ffffff',
-                    padding: { x: 10, y: 5 },
-                    borderRadius: 5
-                }).setInteractive();
+                    backgroundColor: '#f0f0f0',
+                    padding: { x: 20, y: 10 },
+                    borderRadius: 10
+                }).setOrigin(0.5); // Centrar los botones
 
-                const rotateRightButton = this.add.text(500, 550, 'Girar a la Derecha →', {
-                    fontSize: '20px',
-                    fill: '#000000',
-                    backgroundColor: '#ffffff',
-                    padding: { x: 10, y: 5 },
-                    borderRadius: 5
-                }).setInteractive();
+                optionText.setInteractive().on('pointerdown', () => handleOptionClick.call(this, option, questionData.answer));
+            });
 
-                const draggablePiece = this.add.rectangle(puzzle.original.x + 50, puzzle.original.y + 50, 100, 100, 0xff0000);
-                draggablePiece.setInteractive();
-
-                const targetX = puzzle.original.x + (puzzle.transformations[0].dx || 0) + 50;
-                const targetY = puzzle.original.y + (puzzle.transformations[0].dy || 0) + 50;
-                const targetRotation = Phaser.Math.DegToRad(puzzle.transformations[0].angle || 0);
-
-                const targetPiece = this.add.graphics();
-                targetPiece.lineStyle(2, 0x000000, 1);
-                targetPiece.strokeRect(-50, -50, 100, 100);
-                targetPiece.x = targetX;
-                targetPiece.y = targetY;
-
-                if (targetRotation) {
-                    targetPiece.rotation = targetRotation;
-                }
-
-                rotateLeftButton.on('pointerdown', () => {
-                    rotationAngle -= 15;
-                    draggablePiece.rotation = Phaser.Math.DegToRad(rotationAngle);
-                });
-
-                rotateRightButton.on('pointerdown', () => {
-                    rotationAngle += 15;
-                    draggablePiece.rotation = Phaser.Math.DegToRad(rotationAngle);
-                });
-
-                this.input.on('pointerup', () => {
-                    checkSolution.call(this, draggablePiece, puzzle, targetPiece, "¡La figura encaja correctamente!");
-                });
-            } else if (puzzle.transformations[0].type === 'reflect') {
-                let changeablePiece;
-
-                const figures = [
-                    { type: 'square', color: 0xff0000 },
-                    { type: 'triangle', color: 0x00ff00 },
-                    { type: 'circle', color: 0x0000ff }
-                ];
-
-                const correctFigureIndex = 2;
-
-                // Añadir figura objetivo (correcta) para que el jugador pueda verla
-                const targetFigure = this.add.circle(300, 300, 50, figures[correctFigureIndex].color);
-
-                const updateFigure = () => {
-                    if (changeablePiece) changeablePiece.destroy();
-                    const figure = figures[currentFigure];
-                    if (figure.type === 'square') {
-                        changeablePiece = this.add.rectangle(600, 300, 100, 100, figure.color);
-                    } else if (figure.type === 'triangle') {
-                        changeablePiece = this.add.polygon(600, 300, [0, -50, 50, 50, -50, 50], figure.color);
-                    } else if (figure.type === 'circle') {
-                        changeablePiece = this.add.circle(600, 300, 50, figure.color);
-                    }
-                    changeablePiece.setInteractive();
-                };
-
-                updateFigure();
-
-                const changeFigureButton = this.add.text(200, 550, 'Cambiar Figura', {
-                    fontSize: '20px',
-                    fill: '#000000',
-                    backgroundColor: '#ffffff',
-                    padding: { x: 10, y: 5 },
-                    borderRadius: 5
-                }).setInteractive();
-
-                const verifyButton = this.add.text(500, 550, 'Verificar', {
-                    fontSize: '20px',
-                    fill: '#000000',
-                    backgroundColor: '#ffffff',
-                    padding: { x: 10, y: 5 },
-                    borderRadius: 5
-                }).setInteractive();
-
-                changeFigureButton.on('pointerdown', () => {
-                    // Cambiar figura sin afectar la verificación o el estado del juego
-                    currentFigure = (currentFigure + 1) % figures.length;
-                    updateFigure();
-                });
-
-                verifyButton.on('pointerdown', () => {
-                    // Solo verificar la figura seleccionada y sumar puntos si es correcta
-                    if (currentFigure === correctFigureIndex && !isVerified) {
-                        updateFeedback("¡Correcto! Has completado el puzzle.", "green");
-                        score += 50;
-                        updateScore(score);
-                        isVerified = true; // Marcar como verificado para evitar suma múltiple de puntos
-                        if (currentPuzzle < puzzles.length - 1) {
-                            currentPuzzle++;
-                            generatePuzzle.call(this, puzzles[currentPuzzle]);
-                        } else {
-                            setTimeout(() => {
-                                if (typeof finalizeGame === 'function') {
-                                    finalizeGame(score);
-                                } else {
-                                    console.error('finalizeGame is not defined or is not a function');
-                                }
-                            }, 1000);
-                        }
-                    } else if (!isVerified) {
-                        updateFeedback("¡Incorrecto! Inténtalo de nuevo.", "red");
-                    }
-                });
-            } else {
-                const draggablePiece = this.add.rectangle(puzzle.original.x + 50, puzzle.original.y + 50, 100, 100, 0xff0000);
-                draggablePiece.setInteractive();
-                this.input.setDraggable(draggablePiece);
-
-                const targetX = puzzle.original.x + (puzzle.transformations[0].dx || 0) + 50;
-                const targetY = puzzle.original.y + (puzzle.transformations[0].dy || 0) + 50;
-
-                const targetPiece = this.add.graphics();
-                targetPiece.lineStyle(2, 0x000000, 1);
-                targetPiece.strokeRect(-50, -50, 100, 100);
-                targetPiece.x = targetX;
-                targetPiece.y = targetY;
-
-                this.input.on('dragstart', (pointer, gameObject) => {
-                    gameObject.setData('startX', gameObject.x);
-                    gameObject.setData('startY', gameObject.y);
-                });
-
-                this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-                    if (!isVerified) {
-                        gameObject.x = dragX;
-                        gameObject.y = dragY;
-                    }
-                });
-
-                this.input.on('dragend', (pointer, gameObject) => {
-                    checkSolution.call(this, gameObject, puzzle, targetPiece, "¡Correcto!");
-                });
-            }
+            questionAnswered = false;
         }
 
-        function checkSolution(piece, puzzle, targetPiece, correctMessage) {
-            const tolerance = 20; // Aumentamos la tolerancia a 20 píxeles
-            const positionMatch = Phaser.Math.Distance.Between(piece.x, piece.y, targetPiece.x, targetPiece.y) < tolerance;
+        function drawArrow(graphics, fromX, fromY, length, angle) {
+            const arrowHeadLength = 10; // Reduce el tamaño de la punta de la flecha
+            const arrowHeadAngle = Math.PI / 6;
+            const toX = fromX + length * Math.cos(angle);
+            const toY = fromY + length * Math.sin(angle);
 
-            if (positionMatch) {
-                // Auto-ajuste de la posición si está dentro de la tolerancia
-                piece.x = targetPiece.x;
-                piece.y = targetPiece.y;
-            }
+            graphics.lineStyle(4, 0x000000, 1);
+            graphics.beginPath();
+            graphics.moveTo(fromX, fromY);
+            graphics.lineTo(toX, toY);
+            graphics.strokePath();
 
-            if (puzzle.transformations[0].type === 'rotate') {
-                const rotationMatch = Phaser.Math.Within(Phaser.Math.RadToDeg(piece.rotation), Phaser.Math.RadToDeg(targetPiece.rotation), tolerance);
-                if (rotationMatch) {
-                    if (!isVerified) {
-                        updateFeedback(correctMessage, "green");
-                        score += 50;
-                        updateScore(score);
-                        isVerified = true; // Evitar sumar puntos múltiples veces
-                        if (currentPuzzle < puzzles.length - 1) {
-                            currentPuzzle++;
-                            generatePuzzle.call(this, puzzles[currentPuzzle]);
-                        } else {
-                            setTimeout(() => {
-                                if (typeof finalizeGame === 'function') {
-                                    finalizeGame(score);
-                                } else {
-                                    console.error('finalizeGame is not defined or is not a function');
-                                }
-                            }, 1000);
-                        }
-                    }
+            graphics.beginPath();
+            graphics.moveTo(toX, toY);
+            graphics.lineTo(
+                toX - arrowHeadLength * Math.cos(angle - arrowHeadAngle),
+                toY - arrowHeadLength * Math.sin(angle - arrowHeadAngle)
+            );
+            graphics.lineTo(
+                toX - arrowHeadLength * Math.cos(angle + arrowHeadAngle),
+                toY - arrowHeadLength * Math.sin(angle + arrowHeadAngle)
+            );
+            graphics.closePath();
+            graphics.fillPath();
+        }
+
+        function drawRotatedSquare(graphics, x, y, size, angle) {
+            const halfSize = size / 2;
+            const points = [
+                { x: -halfSize, y: -halfSize },
+                { x: halfSize, y: -halfSize },
+                { x: halfSize, y: halfSize },
+                { x: -halfSize, y: halfSize }
+            ];
+
+            const rotatedPoints = points.map(point => ({
+                x: point.x * Math.cos(angle) - point.y * Math.sin(angle),
+                y: point.x * Math.sin(angle) + point.y * Math.cos(angle)
+            }));
+
+            graphics.beginPath();
+            graphics.moveTo(x + rotatedPoints[0].x, y + rotatedPoints[0].y);
+            rotatedPoints.forEach(point => {
+                graphics.lineTo(x + point.x, y + point.y);
+            });
+            graphics.closePath();
+            graphics.fillPath();
+        }
+
+        function drawScaleneTriangle(graphics, x, y) {
+            graphics.beginPath();
+            graphics.moveTo(x, y - 50);        // Vértice superior
+            graphics.lineTo(x - 70, y + 60);   // Vértice inferior izquierdo
+            graphics.lineTo(x + 50, y + 40);   // Vértice inferior derecho
+            graphics.closePath();
+            graphics.fillPath();
+        }
+
+        function drawReflectedScaleneTriangle(graphics, x, y) {
+            graphics.beginPath();
+            graphics.moveTo(x, y - 50);        // Vértice superior
+            graphics.lineTo(x + 70, y + 60);   // Vértice inferior izquierdo (reflejado)
+            graphics.lineTo(x - 50, y + 40);   // Vértice inferior derecho (reflejado)
+            graphics.closePath();
+            graphics.fillPath();
+        }
+
+        function handleOptionClick(selectedOption, correctAnswer) {
+            if (questionAnswered) return;
+
+            const isCorrect = selectedOption === correctAnswer;
+            const feedbackColor = isCorrect ? "green" : "red"; // Verde si es correcto, rojo si es incorrecto
+
+            updateFeedback(isCorrect ? "¡Muy bien! ¡Respuesta correcta!" : "¡Ups! Intenta de nuevo.", feedbackColor);
+            
+            if (isCorrect) {
+                score += 50;
+                updateScore(score);
+                questionAnswered = true;
+
+                if (currentQuestion < correctAnswers.length - 1) {
+                    currentQuestion++;
+                    generateQuestion.call(this, currentQuestion);
                 } else {
-                    updateFeedback("¡Incorrecto! Inténtalo de nuevo.", "red");
-                }
-            } else {
-                if (positionMatch) {
-                    if (!isVerified) {
-                        updateFeedback(correctMessage, "green");
-                        score += 50;
-                        updateScore(score);
-                        isVerified = true; // Evitar sumar puntos múltiples veces
-                        if (currentPuzzle < puzzles.length - 1) {
-                            currentPuzzle++;
-                            generatePuzzle.call(this, puzzles[currentPuzzle]);
+                    setTimeout(() => {
+                        if (typeof finalizeGame === 'function') {
+                            finalizeGame(score); // Verificar que finalizeGame sea una función
                         } else {
-                            setTimeout(() => {
-                                if (typeof finalizeGame === 'function') {
-                                    finalizeGame(score);
-                                } else {
-                                    console.error('finalizeGame is not defined or is not a function');
-                                }
-                            }, 1000);
+                            console.error("finalizeGame no está definido o no es una función");
                         }
-                    }
-                } else {
-                    updateFeedback("¡Incorrecto! Inténtalo de nuevo.", "red");
-                    piece.x = piece.getData('startX');
-                    piece.y = piece.getData('startY');
+                        updateFeedback("¡Felicidades! Has completado el juego.", "green"); // Mensaje de felicitaciones en verde
+                    }, 2000);
                 }
             }
         }
 
         function update() {
-            // Actualizaciones si es necesario
+            // Actualizaciones del juego si es necesario
         }
 
         return () => {
@@ -311,4 +312,4 @@ const PuzzleTransformations = ({ updateFeedback, updateScore, finalizeGame }) =>
     );
 };
 
-export default PuzzleTransformations;
+export default Game2;

@@ -99,14 +99,14 @@ const GamePage1 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figfig.png"
-        subtitle=" Identificación de Decimales"
+        subtitle="¿Que es el area?"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center"> Identificación de Decimales</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">¿Que es el area?</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 
