@@ -1,7 +1,7 @@
 // Juego 4 - Introduccion de decimales - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Figuras4Game = ({ updateFeedback, updateScore, restartGame }) => {
     const [gameInstance, setGameInstance] = useState(null);

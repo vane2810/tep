@@ -1,7 +1,7 @@
 // Juego - Simetría y sus Tipos
 "use client";
 import React, { useEffect, useRef } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game2 = ({ updateFeedback, updateScore, finalizeGame }) => {
     const gameContainerRef = useRef(null);

@@ -1,7 +1,7 @@
 // Juego 4 - Fracciones Simples - Nivel 1
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
   const [userInput, setUserInput] = useState('');

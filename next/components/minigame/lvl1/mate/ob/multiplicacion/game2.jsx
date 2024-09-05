@@ -1,7 +1,7 @@
 // Juego 2 - Multiplicación - Mate - Nivel 1 - Arcade
 "use client";
 import React, { useEffect } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game2 = ({ setFeedback, setScore, setQuestionCount, questionCount, onGameEnd }) => {
 

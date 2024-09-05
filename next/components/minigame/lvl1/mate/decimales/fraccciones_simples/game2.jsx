@@ -1,7 +1,7 @@
 // Juego 2 - Fracciones simples - N1
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game2 = ({ updateFeedback, updateScore }) => {
     const [gameInstance, setGameInstance] = useState(null);

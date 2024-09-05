@@ -2,7 +2,7 @@
 
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const GeometryQuizGame = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
     const [gameInstance, setGameInstance] = useState(null);
