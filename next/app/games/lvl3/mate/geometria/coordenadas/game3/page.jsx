@@ -94,14 +94,14 @@ const GamePage3 = () => {
         onClose={toggleInstructions}
         onStartGame={startGame}
         imageUrl="/img/niveles/mate/figangu.png"
-        subtitle="Introducción a los números decimales"
+        subtitle="Encuentra la coordenada"
       />
 
       {/* Escena del juego */}
       {gameStarted && (
         <section className='min-h-screen flex flex-col items-center'>
           <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Encuentra los pares de decimales</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center">Encuentra la coordenada</h1>
             <Game3 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
