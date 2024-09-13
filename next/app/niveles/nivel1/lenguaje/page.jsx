@@ -32,9 +32,10 @@ export default function LenguajePage() {
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
+          <p className="text-white text-center text-3xl">¡Bienvenidos a mi asignatura, soy principe y estare acompañandolos en este aventura!</p>
           <div className="flex flex-col md:flex-row items-center justify-center mb-5 welcome-content">
             <div className="flex flex-col items-center md:mr-8 md:ml-2.5 mb-4 md:mb-0">
-              <img src="/img/personajes/principe/principesaludo.png" alt="Donkey" className="h-64.3 w-auto mx-2.3 md:mr-8 md:ml-2.5" />
+              <img src="/img/personajes/principe/principe.png" alt="Donkey" className="h-64.3 w-auto mx-2.3 md:mr-8 md:ml-2.5" />
             </div>
             <p className="super text-white font-bold text-4xl md:text-6xl md:ml-8 neon-text">¡Lenguaje!</p>
           </div>
