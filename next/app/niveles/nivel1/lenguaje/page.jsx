@@ -14,10 +14,10 @@ export default function LenguajePage() {
     { id: 4, position: { top: '65%', left: '40%' } },
     { id: 5, position: { top: '60%', left: '50%' } },
     { id: 6, position: { top: '55%', left: '60%' } },
-    { id: 7, position: { top: '50%', left: '70%' } },
-    { id: 8, position: { top: '45%', left: '80%' } },
-    { id: 9, position: { top: '35%', left: '85%' } },  // Nivel 9 se acerca más al planeta
-    { id: 10, position: { top: '20%', left: '86%' } }  // Nivel 10 más cerca del planeta
+    { id: 7, position: { top: '50%', left: '69%' } },
+    { id: 8, position: { top: '45%', left: '78%' } },
+    { id: 9, position: { top: '35%', left: '84%' } },  // Nivel 9 se acerca más al planeta
+    { id: 10, position: { top: '22%', left: '87%' } }  // Nivel 10 más cerca del planeta
   ];
 
   return (
@@ -119,8 +119,8 @@ export default function LenguajePage() {
 
         .astronaut {
           position: absolute;
-          bottom: 2%;  /* Astronauta en la esquina inferior izquierda */
-          left: 4%;
+          bottom: 5%;  /* Astronauta en la esquina inferior izquierda */
+          left: 5%;
           transform: translate(-50%, -50%);
         }
 
@@ -139,24 +139,24 @@ export default function LenguajePage() {
           position: absolute;
           top: 10%;
           left: 90%; /* Mueve el planeta más a la esquina */
-          width: 8vw; /* Tamaño adaptable del planeta */
+          width: 10vw; /* Tamaño adaptable del planeta */
           animation: float 5s ease-in-out infinite;
         }
 
         .rocket {
           position: absolute;
-          top: 30%;
-          left: 10%;
+          top: 5%; /* Ajusta el cohete a la esquina superior izquierda */
+          left: 5%;
           width: 8vw; /* Tamaño adaptable del cohete */
-          animation: fly 10s linear infinite;
+          animation: move-rocket 5s ease-in-out infinite alternate; /* Movimiento controlado */
         }
 
         .comet {
           position: absolute;
-          top: 50%;
-          right: 0;
-          width: 6vw; /* Tamaño adaptable del cometa */
-          animation: fly-by 7s ease-in-out infinite;
+          bottom: 5%; /* Ajusta la nave a la esquina inferior derecha */
+          right: 5%;
+          width: 6vw; /* Tamaño adaptable de la nave */
+          animation: move-comet 8s ease-in-out infinite alternate; /* Movimiento controlado */
         }
 
         @keyframes float {
@@ -164,30 +164,33 @@ export default function LenguajePage() {
             transform: translateY(0);
           }
           50% {
-            transform: translateY(-20px);
+            transform: translateY(-10px); /* Suaviza el movimiento flotante */
           }
         }
 
-        @keyframes fly {
+        @keyframes move-rocket {
           0% {
-            left: 10%;
+            top: 5%;
+            left: 5%;
           }
           100% {
-            left: 100%;
-            transform: rotate(360deg);
+            top: 10%; /* El cohete se mueve hacia arriba */
+            left: 15%; /* y a la derecha */
           }
         }
 
-        @keyframes fly-by {
+        @keyframes move-comet {
           0% {
-            right: -10%;
+            bottom: 5%;
+            right: 5%;
           }
           100% {
-            right: 110%;
-            transform: translateX(-100px) rotate(45deg);
+            bottom: 10%; /* La nave se mueve hacia abajo */
+            right: 15%; /* y a la izquierda */
           }
         }
       `}</style>
     </main>
   );
 }
+
