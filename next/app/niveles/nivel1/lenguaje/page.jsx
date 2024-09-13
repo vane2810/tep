@@ -1,14 +1,15 @@
-"use client";  // Asegura que todo el código se ejecute en el cliente
+// Inicio Lenguaje - Nivel 1
 
+"use client";
 import React from "react";
 import Link from 'next/link';
-import { SeparadorRosa } from "@/components/separador";  // Mantén tus componentes importados
+import { SeparadorAmarillo, SeparadorRosa } from "@/components/separador";  // Mantén tus componentes importados
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
 
 export default function LenguajePage() {
   const levels = [
-    { id: 1, position: { top: '85%', left: '10%' } },  // Nivel 1 empieza más abajo
+    { id: 1, position: { top: '85%', left: '10%' } },
     { id: 2, position: { top: '78%', left: '20%' } },
     { id: 3, position: { top: '70%', left: '30%' } },
     { id: 4, position: { top: '65%', left: '40%' } },
@@ -16,29 +17,28 @@ export default function LenguajePage() {
     { id: 6, position: { top: '55%', left: '60%' } },
     { id: 7, position: { top: '50%', left: '69%' } },
     { id: 8, position: { top: '45%', left: '78%' } },
-    { id: 9, position: { top: '35%', left: '84%' } },  // Nivel 9 se acerca más al planeta
-    { id: 10, position: { top: '22%', left: '87%' } }  // Nivel 10 más cerca del planeta
+    { id: 9, position: { top: '35%', left: '84%' } },
+    { id: 10, position: { top: '22%', left: '87%' } }
   ];
 
   return (
     <main className="flex justify-center items-center">
       <div className="w-[90%] mx-auto"> {/* Márgenes en ambos lados */}
         {/* Bienvenida de Donkey */}
-        <section>
-          <SeparadorRosa />
+        <section className="welcome-section">
           {/* Volver */}
           <div className="mt-6 ml-10 inline-block">
             <Link href="/niveles/nivel1">
               <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
             </Link>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center mb-5">
+          <div className="flex flex-col md:flex-row items-center justify-center mb-5 welcome-content">
             <div className="flex flex-col items-center md:mr-8 md:ml-2.5 mb-4 md:mb-0">
-              <img src="/img/personajes/donkey/donkeysaludo.png" alt="Donkey" className="h-64 w-auto mx-2.5 md:mr-8 md:ml-2.5" />
+              <img src="/img/personajes/principe/principesaludo.png" alt="Donkey" className="h-64.3 w-auto mx-2.3 md:mr-8 md:ml-2.5" />
             </div>
-            <p className="text-black super text-4xl md:text-6xl md:ml-8">LENGUAJE</p>
+            <p className="super text-white font-bold text-4xl md:text-6xl md:ml-8 neon-text">¡Lenguaje!</p>
           </div>
-          <SeparadorRosa />
+          <p className="text-white text-center text-2xl">Navega por las estrellas y explora cada contenido de la materia. ¡Aprender es una aventura galáctica!</p>
         </section>
 
         {/* Mapa Galáctico */}
@@ -79,6 +79,27 @@ export default function LenguajePage() {
 
       {/* Estilos CSS incluidos en el mismo archivo usando styled-jsx */}
       <style jsx>{`
+        .welcome-section {
+          background-color: #4527a0; /* Color que solicitaste */
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 20px;
+          color: #fff;
+        }
+
+        .welcome-content {
+          color: white;
+        }
+
+        .neon-text {
+          color: #000000; /* Blanco */
+          font-weight: bold;
+          text-shadow: 
+          0 0 5px #ffee58 ,   /* Reflejo suave amarillito */
+          0 0 10px #ffffcc,
+          0 0 15px #ffffcc;
+        }
+
         .galaxy-map {
           width: 100%;
           height: 100vh;
@@ -89,7 +110,7 @@ export default function LenguajePage() {
         }
 
         .map-background {
-          background-image: url('/img/niveless/lenguaje/lvl1/fondon1.jpg'); /* Fondo galáctico */
+          background-image: url('/img/niveless/lenguaje/lvl1/fondon1.jpg');
           background-size: cover;
           background-position: center;
           width: 100%;
@@ -106,26 +127,26 @@ export default function LenguajePage() {
         }
 
         .level-icon {
-          width: 4vw; /* Tamaño más pequeño para las estrellas */
+          width: 4vw;
           height: 4vw;
           cursor: pointer;
         }
 
         .level-number {
           color: white;
-          font-size: 2vw; /* Tamaño del número */
+          font-size: 2vw;
           margin-top: 5px;
         }
 
         .astronaut {
           position: absolute;
-          bottom: 5%;  /* Astronauta en la esquina inferior izquierda */
+          bottom: 5%;
           left: 5%;
           transform: translate(-50%, -50%);
         }
 
         .astronaut-icon {
-          width: 6vw; /* Tamaño adaptable del astronauta */
+          width: 6vw;
           height: auto;
         }
 
@@ -137,26 +158,26 @@ export default function LenguajePage() {
 
         .planet {
           position: absolute;
-          top: 10%;
-          left: 90%; /* Mueve el planeta más a la esquina */
-          width: 10vw; /* Tamaño adaptable del planeta */
+          top: 9%;
+          left: 90%;
+          width: 8vw;
           animation: float 5s ease-in-out infinite;
         }
 
         .rocket {
           position: absolute;
-          top: 5%; /* Ajusta el cohete a la esquina superior izquierda */
+          top: 5%;
           left: 5%;
-          width: 8vw; /* Tamaño adaptable del cohete */
-          animation: move-rocket 5s ease-in-out infinite alternate; /* Movimiento controlado */
+          width: 8vw;
+          animation: move-rocket 5s ease-in-out infinite alternate;
         }
 
         .comet {
           position: absolute;
-          bottom: 5%; /* Ajusta la nave a la esquina inferior derecha */
+          bottom: 5%;
           right: 5%;
-          width: 6vw; /* Tamaño adaptable de la nave */
-          animation: move-comet 8s ease-in-out infinite alternate; /* Movimiento controlado */
+          width: 6vw;
+          animation: move-comet 8s ease-in-out infinite alternate;
         }
 
         @keyframes float {
@@ -164,7 +185,7 @@ export default function LenguajePage() {
             transform: translateY(0);
           }
           50% {
-            transform: translateY(-10px); /* Suaviza el movimiento flotante */
+            transform: translateY(-10px);
           }
         }
 
@@ -174,8 +195,8 @@ export default function LenguajePage() {
             left: 5%;
           }
           100% {
-            top: 10%; /* El cohete se mueve hacia arriba */
-            left: 15%; /* y a la derecha */
+            top: 10%;
+            left: 15%;
           }
         }
 
@@ -185,12 +206,11 @@ export default function LenguajePage() {
             right: 5%;
           }
           100% {
-            bottom: 10%; /* La nave se mueve hacia abajo */
-            right: 15%; /* y a la izquierda */
+            bottom: 10%;
+            right: 15%;
           }
         }
       `}</style>
     </main>
   );
 }
-
