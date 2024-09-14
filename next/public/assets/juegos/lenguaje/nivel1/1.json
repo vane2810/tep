@@ -1,0 +1,8 @@
+{
+    "nombre": "Juego de Suma",
+    "backgroundImage": "/img/games/mate/ob/game1.jpg",
+    "num1": 5,
+    "num2": 7,
+    "instrucciones": "Arrastra los términos correctos al lugar correspondiente."
+  }
+  

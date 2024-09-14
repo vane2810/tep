@@ -19,7 +19,7 @@ export default function Component({ id }) {
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/lenguaje/nivel1/${id}.json`);
+        const res = await fetch(`/assets/materias/lenguaje/nivel3/${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 
@@ -59,7 +59,7 @@ export default function Component({ id }) {
 
   // Función para redirigir a la página del juego
   const handlePlayGame = () => {
-    router.push(`/games/lvl1/lenguaje/${id}`);  
+    router.push(`/games/lvl3/lenguaje/${id}`);  
   };
 
   if (!lecciones || lecciones.length === 0) {
@@ -74,7 +74,7 @@ export default function Component({ id }) {
 
       {/* Botón de Volver */}
       <div className="top-4 left-4 z-10 absolute">
-        <Volver href="/niveles/nivel1/lenguaje" />
+        <Volver href="/niveles/nivel3/lenguaje" />
       </div>
 
       <div className="flex justify-center items-center bg-gradient-to-r from-purple-300 via-pink-200 to-yellow-100 min-h-screen">
