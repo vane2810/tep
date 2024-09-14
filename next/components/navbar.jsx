@@ -5,9 +5,6 @@ import Link from 'next/link';
 import Sidebar from './sidebar';
 import useSession from '@/hooks/useSession';
 import characterImages from '@/utils/characterImages';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -63,7 +60,6 @@ const Navbar = () => {
               <div className="absolute -right-12 mt-2 w-50 bg-white border rounded-lg shadow-lg z-50 transform translate-y-24 story">
                 <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-lg  hover:bg-red-500">
                   Cerrar sesión
-                  <FontAwesomeIcon icon={faSignOutAlt} className="ml-4" />
                 </button>
               </div>
             )}

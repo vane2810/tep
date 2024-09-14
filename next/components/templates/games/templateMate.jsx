@@ -1,4 +1,4 @@
-// 
+// Página de reutilizable para todos los juegos de Matemáticas
 import React from 'react';
 import { SeparadorVerde } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";

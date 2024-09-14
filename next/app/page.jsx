@@ -5,6 +5,7 @@ import { SeparadorRosa } from "../components/separador";
 import Typewriter from "../components/typeWriter";
 import '../styles/animacion.css';
 import dynamic from 'next/dynamic';
+import Tabs from '../components/tabs'
 
 const Video = dynamic(() => import('../components/video'), { ssr: false });
 
@@ -14,13 +15,13 @@ export default function HomePage() {
       <SeparadorRosa />
       
       {/* Bienvenida de Starly */}
-      <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
+      <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10">
         <img
           src="/img/personajes/starly/starly.png"
           alt="Starly"
-          className="h-32 w-34 mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
+          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-34 h-32 md:h-40 animate-tumble"
         />
-        <div className="story text-xl font-bold">
+        <div className="font-bold text-xl story">
           <Typewriter
             text="¡ Hola! Soy Starly y te estaré acompañando en esta aventura"
             speed={40}
@@ -38,15 +39,16 @@ export default function HomePage() {
       <SeparadorRosa />
       
       {/* Starly */}
-      <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
+      <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10">
         <img
           src="/img/personajes/starly/starly.png"
           alt="Starly"
-          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-flyIn"
+          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-flyIn"
         />
         <Carousel />
       </div>
       
+      <Tabs/>
       <SeparadorRosa />
     </main>
   );

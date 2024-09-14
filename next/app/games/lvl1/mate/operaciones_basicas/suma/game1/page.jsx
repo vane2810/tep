@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import GameTemplate from '@/components/templates/games/templateMate';
 import Game1Modal from '@/components/modals/games/mate/ob/game1Modal';  
 
-// Importación del juego dinámico
+// Importación del juego 
 const Game1 = dynamic(() => import('@/components/minigame/lvl1/mate/ob/suma/game1'), { ssr: false });
 
 const GamePage1 = () => {

@@ -6,6 +6,7 @@ import '@/styles/globals.css';
 import '@/styles/animacion.css';
 import LoginModal from '@/components/modals/adm/LoginModal';
 import Link from 'next/link';
+import Volver from '@/components/botonVolver';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -92,11 +93,7 @@ export default function Login() {
   return (
     <div className="flex bg-pink-100">
       {/* Volver */}
-      <div className="mt-6 ml-10 inline-block">
-        <Link href="/">
-          <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-        </Link>
-      </div>
+      <Volver href="/" />
       <div className="flex flex-col justify-center items-center w-full lg:w-1/2 p-20 shadow-none">
         <h1 className="text-3xl font-bold mb-4 story">Inicio de sesión</h1>
         <img

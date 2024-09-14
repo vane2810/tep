@@ -201,11 +201,7 @@ export default function Register() {
 
   return (
     <div className="flex bg-pink-100">
-      <div className="mt-6 ml-10 inline-block">
-        <Link href="/">
-          <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-        </Link>
-      </div>
+      <Volver href="/" />
       <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
         <img src="/img/auth/registro.png" alt="Imagen de registro" className="max-w-full h-auto object-contain" />
       </div>

@@ -111,6 +111,36 @@
   100% { transform: scale(1); }
 }
 
+@keyframes moveRocket {
+  0% {
+    top: 5%;
+    left: 5%;
+  }
+  100% {
+    top: 10%;
+    left: 15%;
+  }
+}
+
+@keyframes moveComet {
+  0% {
+    bottom: 5%;
+    right: 5%;
+  }
+  100% {
+    bottom: 10%;
+    right: 15%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 /* Clases de animación para llamar a toda la app */
 
@@ -154,4 +184,17 @@
 
 .pulse-animation {
   animation: pulse 1.5s infinite;
+}
+
+
+.rocket-animation {
+  animation: moveRocket 3s ease-in-out infinite alternate;
+}
+
+.comet-animation {
+  animation: moveComet 5s ease-in-out infinite alternate;
+}
+
+.planet-animation {
+  animation: float 3s ease-in-out infinite;
 }
