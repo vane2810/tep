@@ -2,7 +2,7 @@
 
 "use client";
 import React, { useEffect, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene }) => {
     const [gameInstance, setGameInstance] = useState(null);
@@ -210,7 +210,7 @@ const Game4 = ({ updateFeedback, updateScore, proceedToNextScene, isFinalScene, 
         };
     }, [updateFeedback, updateScore, proceedToNextScene, isFinalScene, finalScore, restartGame, currentScene]);
 
-    return <div id="game-container" className="w-[800px] h-[600px] relative shadow-lg rounded-lg overflow-hidden mx-auto mt-8"></div>;
+    return <div id="game-container" className="relative shadow-lg mx-auto mt-8 rounded-lg w-[800px] h-[600px] overflow-hidden"></div>;
 };
 
 export default Game4;

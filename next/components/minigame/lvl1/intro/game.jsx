@@ -1,7 +1,7 @@
 //Juego intro Nivel 1
 "use client"
 import React, { useState, useEffect } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const planetImages = [
   '/img/games/mate/ob/mercurio.png',

@@ -1,7 +1,7 @@
 // Juego intro Nivel 3
 "use client";
 import { useEffect, useRef } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const CoinCollectingGame = () => {
   const gameRef = useRef(null);

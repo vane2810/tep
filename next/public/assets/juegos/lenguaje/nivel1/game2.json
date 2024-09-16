@@ -1,0 +1,23 @@
+{
+  "nombre": "Juego Matemático Aleatorio",
+  "gameType": "Operaciones",
+  "imageUrl": "/img/niveles/mate/intro.png",
+  "modalData": {
+    "puntaje": "100 estrellas",
+    "imagenModal": "/img/niveles/mate/intro.png",
+    "subtitulo": "Operaciones",
+    "indicaciones": [
+      "Resuelve las operaciones aleatorias",
+      "Selecciona la respuesta correcta"
+    ]
+  },
+  "totalPuntos": 100,
+  "minPuntos": 70,
+  "numeroPreguntas": 5,
+  "limiteEscenas": 5,
+  "rangoNumeros": {
+    "min": 1,
+    "max": 10
+  },
+  "tiposOperaciones": ["suma", "resta", "multiplicacion"]
+}

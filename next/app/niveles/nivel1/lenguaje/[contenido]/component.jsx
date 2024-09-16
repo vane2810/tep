@@ -1,10 +1,12 @@
 // Componente reutilizable para lenguaje de todos los niveles
-"use client";  
+"use client";
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';  // Asegúrate de usar la importación correcta
 import Volver from '@/components/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
+
+
 
 export default function Component({ id }) {
   const [lecciones, setLecciones] = useState([]);
@@ -59,8 +61,10 @@ export default function Component({ id }) {
 
   // Función para redirigir a la página del juego
   const handlePlayGame = () => {
-    router.push(`/games/lvl1/lenguaje/${id}`);  
+    router.push(`/niveles/nivel1/lenguaje/${id}/${id}`);
+
   };
+
 
   if (!lecciones || lecciones.length === 0) {
     return null;

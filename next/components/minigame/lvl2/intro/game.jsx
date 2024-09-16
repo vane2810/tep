@@ -2,7 +2,7 @@
 "use client";
 "use client";
 import { useEffect, useRef } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 
 const Game = () => {
   const gameRef = useRef(null);
@@ -131,7 +131,7 @@ const Game = () => {
     }
   }, []);
 
-  return <div id="phaser-game" ref={gameRef} className="w-full h-full flex justify-center items-center"></div>;
+  return <div id="phaser-game" ref={gameRef} className="flex justify-center items-center w-full h-full"></div>;
 };
 
 export default Game;
