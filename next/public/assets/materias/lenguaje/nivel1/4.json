@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Los Verbos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Verbos: ¿Qué son?",
+            "descripcion": "Los verbos son palabras que expresan acciones, estados o procesos realizados por el sujeto.",
+            "imagenLeccion": "/img/niveles/lenguaje/verbo.png",
+            "ejemplos": [
+                "Ejemplo 1: correr, saltar, escribir.",
+                "Ejemplo 2: ser, estar, parecer."
+            ]
+        },
+        "2": {
+            "titulo": "Tiempos Verbales",
+            "descripcion": "Los tiempos verbales indican cuándo ocurre la acción: pasado, presente o futuro.",
+            "imagenLeccion": "/img/niveles/lenguaje/tiempos_verbales.png",
+            "ejemplos": [
+                "Ejemplo 1 (presente): Yo corro.",
+                "Ejemplo 2 (pasado): Yo corrí."
+            ]
+        },
+        "3": {
+            "titulo": "Verbos en Modo Indicativo",
+            "descripcion": "El modo indicativo expresa hechos reales o seguros.",
+            "imagenLeccion": "/img/niveles/lenguaje/indicativo.png",
+            "ejemplos": [
+                "Ejemplo 1: Yo estudio todos los días.",
+                "Ejemplo 2: Ellos viajaron la semana pasada."
+            ]
+        },
+        "4": {
+            "titulo": "Verbos en Modo Subjuntivo",
+            "descripcion": "El modo subjuntivo se usa para expresar deseos, dudas o posibilidades.",
+            "imagenLeccion": "/img/niveles/lenguaje/subjuntivo.png",
+            "ejemplos": [
+                "Ejemplo 1: Ojalá llegue temprano.",
+                "Ejemplo 2: Es posible que llueva mañana."
+            ]
+        },
+        "5": {
+            "titulo": "Verbos en Modo Imperativo",
+            "descripcion": "El modo imperativo se usa para dar órdenes o hacer pedidos.",
+            "imagenLeccion": "/img/niveles/lenguaje/imperativo.png",
+            "ejemplos": [
+                "Ejemplo 1: ¡Corre más rápido!",
+                "Ejemplo 2: ¡Estudia para el examen!"
+            ]
+        }
+    }
+}
