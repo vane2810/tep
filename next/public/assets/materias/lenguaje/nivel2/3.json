@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Los Adjetivos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Adjetivos: ¿Qué son?",
+            "descripcion": "Los adjetivos describen características de los sustantivos.",
+            "imagenLeccion": "/img/niveles/lenguaje/adjetivo.png",
+            "ejemplos": [
+                "Ejemplo 1: El coche rápido.",
+                "Ejemplo 2: La casa grande."
+            ]
+        },
+        "2": {
+            "titulo": "Adjetivos Calificativos",
+            "descripcion": "Expresan cualidades o estados del sustantivo.",
+            "imagenLeccion": "/img/niveles/lenguaje/calificativos.png",
+            "ejemplos": [
+                "Ejemplo 1: El gato negro.",
+                "Ejemplo 2: El día soleado."
+            ]
+        },
+        "3": {
+            "titulo": "Adjetivos Posesivos",
+            "descripcion": "Indican pertenencia o posesión.",
+            "imagenLeccion": "/img/niveles/lenguaje/posesivos.png",
+            "ejemplos": [
+                "Ejemplo 1: Mi libro.",
+                "Ejemplo 2: Su perro."
+            ]
+        },
+        "4": {
+            "titulo": "Adjetivos Demostrativos",
+            "descripcion": "Señalan proximidad o lejanía del sustantivo.",
+            "imagenLeccion": "/img/niveles/lenguaje/demostrativos.png",
+            "ejemplos": [
+                "Ejemplo 1: Este coche.",
+                "Ejemplo 2: Aquella montaña."
+            ]
+        },
+        "5": {
+            "titulo": "Grados del Adjetivo",
+            "descripcion": "Indican el grado de intensidad: positivo, comparativo, superlativo.",
+            "imagenLeccion": "/img/niveles/lenguaje/grados_adjetivo.png",
+            "ejemplos": [
+                "Ejemplo 1: El coche rápido.",
+                "Ejemplo 2: El coche más rápido."
+            ]
+        }
+    }
+}

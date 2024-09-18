@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Los Artículos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Artículos: ¿Qué son?",
+            "descripcion": "Los artículos acompañan a los sustantivos y nos indican su género y número. Pueden ser definidos o indefinidos.",
+            "imagenLeccion": "/img/niveles/lenguaje/articulos.png",
+            "ejemplos": [
+                "Ejemplo 1: el libro, la casa.",
+                "Ejemplo 2: los perros, las flores."
+            ]
+        },
+        "2": {
+            "titulo": "Artículos Definidos",
+            "descripcion": "Se utilizan para referirse a algo específico y conocido por el hablante.",
+            "imagenLeccion": "/img/niveles/lenguaje/articulos_definidos.png",
+            "ejemplos": [
+                "Ejemplo 1: el coche (específico).",
+                "Ejemplo 2: las sillas (específicas)."
+            ]
+        },
+        "3": {
+            "titulo": "Artículos Indefinidos",
+            "descripcion": "Se utilizan para referirse a algo de manera general o desconocido.",
+            "imagenLeccion": "/img/niveles/lenguaje/articulos_indefinidos.png",
+            "ejemplos": [
+                "Ejemplo 1: un perro (general).",
+                "Ejemplo 2: unas flores (general)."
+            ]
+        },
+        "4": {
+            "titulo": "Género de los Artículos",
+            "descripcion": "Los artículos concuerdan en género con el sustantivo que acompañan, ya sea masculino o femenino.",
+            "imagenLeccion": "/img/niveles/lenguaje/genero_articulos.png",
+            "ejemplos": [
+                "Ejemplo 1: el coche (masculino).",
+                "Ejemplo 2: la mesa (femenino)."
+            ]
+        },
+        "5": {
+            "titulo": "Número de los Artículos",
+            "descripcion": "Los artículos también concuerdan en número con el sustantivo, ya sea singular o plural.",
+            "imagenLeccion": "/img/niveles/lenguaje/numero_articulos.png",
+            "ejemplos": [
+                "Ejemplo 1: el gato (singular).",
+                "Ejemplo 2: los gatos (plural)."
+            ]
+        }
+    }
+}

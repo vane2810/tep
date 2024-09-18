@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Ortografía Básica",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Mayúsculas",
+            "descripcion": "Se usan al inicio de una oración, en nombres propios y abreviaturas.",
+            "imagenLeccion": "/img/niveles/lenguaje/mayusculas.png",
+            "ejemplos": [
+                "Ejemplo 1: María vive en México.",
+                "Ejemplo 2: Hoy es lunes."
+            ]
+        },
+        "2": {
+            "titulo": "El Punto",
+            "descripcion": "Indica el final de una oración o idea completa.",
+            "imagenLeccion": "/img/niveles/lenguaje/punto.png",
+            "ejemplos": [
+                "Ejemplo 1: Me gusta leer.",
+                "Ejemplo 2: Vamos al cine."
+            ]
+        },
+        "3": {
+            "titulo": "La Coma",
+            "descripcion": "Separa elementos en una lista o marca una pausa breve.",
+            "imagenLeccion": "/img/niveles/lenguaje/coma.png",
+            "ejemplos": [
+                "Ejemplo 1: Compré manzanas, naranjas y uvas.",
+                "Ejemplo 2: Después de la cena, fuimos al parque."
+            ]
+        },
+        "4": {
+            "titulo": "Signos de Interrogación",
+            "descripcion": "Se usan al hacer preguntas y van al inicio y al final.",
+            "imagenLeccion": "/img/niveles/lenguaje/interrogacion.png",
+            "ejemplos": [
+                "Ejemplo 1: ¿Cómo te llamas?",
+                "Ejemplo 2: ¿Qué hora es?"
+            ]
+        },
+        "5": {
+            "titulo": "Signos de Exclamación",
+            "descripcion": "Expresan sorpresa o emociones fuertes y van al inicio y al final.",
+            "imagenLeccion": "/img/niveles/lenguaje/exclamacion.png",
+            "ejemplos": [
+                "Ejemplo 1: ¡Qué gran sorpresa!",
+                "Ejemplo 2: ¡Felicidades!"
+            ]
+        }
+    }
+}

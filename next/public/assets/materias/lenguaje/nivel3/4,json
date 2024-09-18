@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Los Verbos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Verbos: ¿Qué son?",
+            "descripcion": "Los verbos son palabras que indican acciones, estados o procesos realizados por el sujeto en la oración.",
+            "imagenLeccion": "/img/niveles/lenguaje/verbo.png",
+            "ejemplos": [
+                "Ejemplo 1: correr, saltar, escribir.",
+                "Ejemplo 2: ser, estar, parecer."
+            ]
+        },
+        "2": {
+            "titulo": "Tiempos Verbales",
+            "descripcion": "Los tiempos verbales señalan cuándo ocurre la acción: pasado, presente o futuro.",
+            "imagenLeccion": "/img/niveles/lenguaje/tiempos_verbales.png",
+            "ejemplos": [
+                "Ejemplo 1: Yo corro (presente).",
+                "Ejemplo 2: Yo corrí (pasado)."
+            ]
+        },
+        "3": {
+            "titulo": "Modo Indicativo",
+            "descripcion": "El modo indicativo se utiliza para expresar hechos reales o seguros.",
+            "imagenLeccion": "/img/niveles/lenguaje/indicativo.png",
+            "ejemplos": [
+                "Ejemplo 1: Estudio todos los días.",
+                "Ejemplo 2: Ellos viajaron la semana pasada."
+            ]
+        },
+        "4": {
+            "titulo": "Modo Subjuntivo",
+            "descripcion": "El modo subjuntivo se usa para expresar deseos, dudas o hipótesis.",
+            "imagenLeccion": "/img/niveles/lenguaje/subjuntivo.png",
+            "ejemplos": [
+                "Ejemplo 1: Ojalá llegue pronto.",
+                "Ejemplo 2: Es posible que venga mañana."
+            ]
+        },
+        "5": {
+            "titulo": "Modo Imperativo",
+            "descripcion": "El modo imperativo se emplea para dar órdenes o instrucciones.",
+            "imagenLeccion": "/img/niveles/lenguaje/imperativo.png",
+            "ejemplos": [
+                "Ejemplo 1: ¡Haz la tarea!",
+                "Ejemplo 2: ¡Ven aquí ahora!"
+            ]
+        }
+    }
+}

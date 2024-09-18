@@ -4,7 +4,7 @@
     "lecciones": {
         "1": {
             "titulo": "Signos de Puntuación: La Coma",
-            "descripcion": "La coma se usa para separar elementos en una lista, para marcar una pausa breve dentro de una oración, o para aislar aclaraciones.",
+            "descripcion": "La coma se usa para separar elementos en una lista, marcar pausas breves, y para aclaraciones o incisos dentro de una oración compleja.",
             "imagenLeccion": "/img/niveles/lenguaje/coma.png",
             "ejemplos": [
                 "Ejemplo 1: Me gustan las frutas, las verduras y los cereales.",
@@ -13,7 +13,7 @@
         },
         "2": {
             "titulo": "Signos de Puntuación: El Punto",
-            "descripcion": "El punto indica el final de una oración. Existen tres tipos de punto: el punto y seguido, el punto y aparte, y el punto final.",
+            "descripcion": "El punto marca el final de una oración o un párrafo. Puede ser punto y seguido, punto y aparte, o punto final, y es esencial para separar ideas completas.",
             "imagenLeccion": "/img/niveles/lenguaje/punto.png",
             "ejemplos": [
                 "Ejemplo 1: Me llamo Juan. Vivo en Madrid.",
@@ -22,7 +22,7 @@
         },
         "3": {
             "titulo": "Signos de Puntuación: Los Dos Puntos",
-            "descripcion": "Los dos puntos se usan para introducir una explicación, una lista, una cita o un resumen de lo que se ha dicho antes.",
+            "descripcion": "Los dos puntos introducen explicaciones, citas textuales, enumeraciones o resúmenes de lo anterior. También se usan en cartas y documentos formales.",
             "imagenLeccion": "/img/niveles/lenguaje/dos_puntos.png",
             "ejemplos": [
                 "Ejemplo 1: Estos son los ingredientes: harina, azúcar y huevos.",
@@ -31,7 +31,7 @@
         },
         "4": {
             "titulo": "Signos de Puntuación: El Punto y Coma",
-            "descripcion": "El punto y coma separa oraciones dentro de un mismo enunciado cuando ya se han usado comas.",
+            "descripcion": "El punto y coma separa oraciones extensas que ya contienen comas, o se usa para enumeraciones complejas y oraciones con elementos coordinados.",
             "imagenLeccion": "/img/niveles/lenguaje/punto_coma.png",
             "ejemplos": [
                 "Ejemplo 1: Tengo hambre; sin embargo, esperaré a la cena.",
@@ -40,7 +40,7 @@
         },
         "5": {
             "titulo": "Signos de Puntuación: Puntos Suspensivos",
-            "descripcion": "Los puntos suspensivos indican que una oración queda incompleta o que hay una pausa dramática.",
+            "descripcion": "Los puntos suspensivos indican una oración interrumpida o incompleta, añadiendo dramatismo o suspenso. También pueden marcar un silencio prolongado.",
             "imagenLeccion": "/img/niveles/lenguaje/puntos_supensivos.png",
             "ejemplos": [
                 "Ejemplo 1: Sabía que algo malo iba a pasar...",
