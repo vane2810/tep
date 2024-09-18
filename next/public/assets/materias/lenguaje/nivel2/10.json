@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Los Artículos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Artículos: ¿Qué son?",
+            "descripcion": "Los artículos acompañan al sustantivo e indican su género y número.",
+            "imagenLeccion": "/img/niveles/lenguaje/articulos.png",
+            "ejemplos": [
+                "Ejemplo 1: el libro, la casa.",
+                "Ejemplo 2: los perros, las flores."
+            ]
+        },
+        "2": {
+            "titulo": "Artículos Definidos",
+            "descripcion": "Se refieren a algo conocido o específico.",
+            "imagenLeccion": "/img/niveles/lenguaje/articulos_definidos.png",
+            "ejemplos": [
+                "Ejemplo 1: el coche (específico).",
+                "Ejemplo 2: las sillas (específicas)."
+            ]
+        },
+        "3": {
+            "titulo": "Artículos Indefinidos",
+            "descripcion": "Se refieren a algo no conocido o general.",
+            "imagenLeccion": "/img/niveles/lenguaje/articulos_indefinidos.png",
+            "ejemplos": [
+                "Ejemplo 1: un perro (general).",
+                "Ejemplo 2: unas flores (general)."
+            ]
+        },
+        "4": {
+            "titulo": "Género de los Artículos",
+            "descripcion": "Concuerdan en género con el sustantivo: masculino o femenino.",
+            "imagenLeccion": "/img/niveles/lenguaje/genero_articulos.png",
+            "ejemplos": [
+                "Ejemplo 1: el coche (masculino).",
+                "Ejemplo 2: la mesa (femenino)."
+            ]
+        },
+        "5": {
+            "titulo": "Número de los Artículos",
+            "descripcion": "Concuerdan en número con el sustantivo: singular o plural.",
+            "imagenLeccion": "/img/niveles/lenguaje/numero_articulos.png",
+            "ejemplos": [
+                "Ejemplo 1: el gato (singular).",
+                "Ejemplo 2: los gatos (plural)."
+            ]
+        }
+    }
+}

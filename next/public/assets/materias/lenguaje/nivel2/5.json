@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Pronombres Personales",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Pronombres Personales: ¿Qué son?",
+            "descripcion": "Los pronombres personales reemplazan a los sustantivos para evitar repeticiones.",
+            "imagenLeccion": "/img/niveles/lenguaje/pronombres.png",
+            "ejemplos": [
+                "Ejemplo 1: Yo soy estudiante.",
+                "Ejemplo 2: Él juega fútbol."
+            ]
+        },
+        "2": {
+            "titulo": "Primera Persona",
+            "descripcion": "Se refiere a quien habla (yo, nosotros).",
+            "imagenLeccion": "/img/niveles/lenguaje/primera_persona.png",
+            "ejemplos": [
+                "Ejemplo 1: Yo estudio.",
+                "Ejemplo 2: Nosotros vamos al parque."
+            ]
+        },
+        "3": {
+            "titulo": "Segunda Persona",
+            "descripcion": "Se refiere a quien escucha (tú, ustedes).",
+            "imagenLeccion": "/img/niveles/lenguaje/segunda_persona.png",
+            "ejemplos": [
+                "Ejemplo 1: Tú lees un libro.",
+                "Ejemplo 2: Ustedes cantan."
+            ]
+        },
+        "4": {
+            "titulo": "Tercera Persona",
+            "descripcion": "Se refiere a quien o lo que no participa directamente (él, ella, ellos).",
+            "imagenLeccion": "/img/niveles/lenguaje/tercera_persona.png",
+            "ejemplos": [
+                "Ejemplo 1: Él corre.",
+                "Ejemplo 2: Ellas bailan."
+            ]
+        },
+        "5": {
+            "titulo": "Pronombres: Género y Número",
+            "descripcion": "Concuerdan en género (masculino o femenino) y número (singular o plural).",
+            "imagenLeccion": "/img/niveles/lenguaje/genero_numero_pronombres.png",
+            "ejemplos": [
+                "Ejemplo 1: Él (masculino), ella (femenino).",
+                "Ejemplo 2: Nosotros (plural), yo (singular)."
+            ]
+        }
+    }
+}

@@ -4,7 +4,7 @@
     "lecciones": {
         "1": {
             "titulo": "Sustantivos: ¿Qué son?",
-            "descripcion": "Los sustantivos son palabras que usamos para nombrar personas, animales, cosas, lugares o ideas.",
+            "descripcion": "Los sustantivos nombran personas, animales, cosas, lugares o ideas. Se clasifican según su función en la oración y otras características.",
             "imagenLeccion": "/img/niveles/lenguaje/sustantivos.png",
             "ejemplos": [
                 "Ejemplo 1: perro, casa, alegría.",
@@ -13,7 +13,7 @@
         },
         "2": {
             "titulo": "Sustantivos Comunes y Propios",
-            "descripcion": "Los sustantivos comunes nombran cosas de manera general, mientras que los propios nombran cosas de forma específica.",
+            "descripcion": "Los sustantivos comunes nombran de manera general, mientras que los propios son nombres específicos de personas, lugares o entidades.",
             "imagenLeccion": "/img/niveles/lenguaje/comunes_propios.png",
             "ejemplos": [
                 "Ejemplo 1 (común): montaña.",
@@ -22,7 +22,7 @@
         },
         "3": {
             "titulo": "Sustantivos Concretos y Abstractos",
-            "descripcion": "Los sustantivos concretos son cosas que podemos ver o tocar, mientras que los abstractos son ideas o sentimientos.",
+            "descripcion": "Los sustantivos concretos designan cosas que podemos percibir, mientras que los abstractos se refieren a conceptos o ideas intangibles.",
             "imagenLeccion": "/img/niveles/lenguaje/concretos_abstractos.png",
             "ejemplos": [
                 "Ejemplo 1 (concreto): árbol.",
@@ -31,7 +31,7 @@
         },
         "4": {
             "titulo": "Sustantivos Individuales y Colectivos",
-            "descripcion": "Los sustantivos individuales nombran una sola cosa, mientras que los colectivos nombran un grupo de cosas.",
+            "descripcion": "Los individuales se refieren a una sola entidad, y los colectivos designan a un conjunto de entidades.",
             "imagenLeccion": "/img/niveles/lenguaje/individuales_colectivos.png",
             "ejemplos": [
                 "Ejemplo 1 (individual): abeja.",
@@ -40,7 +40,7 @@
         },
         "5": {
             "titulo": "Sustantivos: Género y Número",
-            "descripcion": "Los sustantivos tienen género (masculino o femenino) y número (singular o plural).",
+            "descripcion": "Los sustantivos varían según el género (masculino o femenino) y el número (singular o plural). Esta concordancia es fundamental para la coherencia en la oración.",
             "imagenLeccion": "/img/niveles/lenguaje/genero_numero.png",
             "ejemplos": [
                 "Ejemplo 1 (género): niño (masculino), niña (femenino).",

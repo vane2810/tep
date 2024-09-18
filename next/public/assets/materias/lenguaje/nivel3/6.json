@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Sujeto y Predicado",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Sujeto y Predicado: ¿Qué son?",
+            "descripcion": "El sujeto indica quién realiza la acción, mientras que el predicado describe la acción o lo que se dice del sujeto en la oración.",
+            "imagenLeccion": "/img/niveles/lenguaje/sujeto_predicado.png",
+            "ejemplos": [
+                "Ejemplo 1: El perro (sujeto) corre rápido (predicado).",
+                "Ejemplo 2: La niña (sujeto) come una manzana (predicado)."
+            ]
+        },
+        "2": {
+            "titulo": "El Sujeto",
+            "descripcion": "El sujeto puede ser explícito (aparece en la oración) o tácito (implícito, pero no mencionado).",
+            "imagenLeccion": "/img/niveles/lenguaje/sujeto.png",
+            "ejemplos": [
+                "Ejemplo 1: Juan lee un libro. (Sujeto explícito: Juan)",
+                "Ejemplo 2: Corro todas las mañanas. (Sujeto tácito: Yo)"
+            ]
+        },
+        "3": {
+            "titulo": "El Predicado",
+            "descripcion": "El predicado contiene el verbo principal de la oración y describe la acción que realiza el sujeto.",
+            "imagenLeccion": "/img/niveles/lenguaje/predicado.png",
+            "ejemplos": [
+                "Ejemplo 1: El niño lee un libro. (Predicado: lee un libro)",
+                "Ejemplo 2: Las flores crecen rápidamente. (Predicado: crecen rápidamente)"
+            ]
+        },
+        "4": {
+            "titulo": "Núcleo del Sujeto",
+            "descripcion": "El núcleo del sujeto es la palabra principal, generalmente un sustantivo o pronombre.",
+            "imagenLeccion": "/img/niveles/lenguaje/nucleo_sujeto.png",
+            "ejemplos": [
+                "Ejemplo 1: La casa (Núcleo: casa).",
+                "Ejemplo 2: El coche (Núcleo: coche)."
+            ]
+        },
+        "5": {
+            "titulo": "Núcleo del Predicado",
+            "descripcion": "El núcleo del predicado es el verbo principal que indica la acción o estado.",
+            "imagenLeccion": "/img/niveles/lenguaje/nucleo_predicado.png",
+            "ejemplos": [
+                "Ejemplo 1: Juan corre. (Núcleo: corre).",
+                "Ejemplo 2: María canta una canción. (Núcleo: canta)."
+            ]
+        }
+    }
+}

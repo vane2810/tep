@@ -4,7 +4,7 @@
     "lecciones": {
         "1": {
             "titulo": "Sustantivos: ¿Qué son?",
-            "descripcion": "Los sustantivos son palabras que usamos para nombrar personas, animales, cosas, lugares o ideas.",
+            "descripcion": "Los sustantivos nombran personas, animales, cosas, lugares o ideas.",
             "imagenLeccion": "/img/niveles/lenguaje/sustantivos.png",
             "ejemplos": [
                 "Ejemplo 1: perro, casa, alegría.",
@@ -13,7 +13,7 @@
         },
         "2": {
             "titulo": "Sustantivos Comunes y Propios",
-            "descripcion": "Los sustantivos comunes nombran cosas de manera general, mientras que los propios nombran cosas de forma específica.",
+            "descripcion": "Comunes nombran de forma general; propios, de manera específica.",
             "imagenLeccion": "/img/niveles/lenguaje/comunes_propios.png",
             "ejemplos": [
                 "Ejemplo 1 (común): montaña.",
@@ -22,7 +22,7 @@
         },
         "3": {
             "titulo": "Sustantivos Concretos y Abstractos",
-            "descripcion": "Los sustantivos concretos son cosas que podemos ver o tocar, mientras que los abstractos son ideas o sentimientos.",
+            "descripcion": "Concretos se perciben con los sentidos; abstractos, no.",
             "imagenLeccion": "/img/niveles/lenguaje/concretos_abstractos.png",
             "ejemplos": [
                 "Ejemplo 1 (concreto): árbol.",
@@ -31,7 +31,7 @@
         },
         "4": {
             "titulo": "Sustantivos Individuales y Colectivos",
-            "descripcion": "Los sustantivos individuales nombran una sola cosa, mientras que los colectivos nombran un grupo de cosas.",
+            "descripcion": "Individuales nombran un solo ser; colectivos, un grupo.",
             "imagenLeccion": "/img/niveles/lenguaje/individuales_colectivos.png",
             "ejemplos": [
                 "Ejemplo 1 (individual): abeja.",
@@ -40,7 +40,7 @@
         },
         "5": {
             "titulo": "Sustantivos: Género y Número",
-            "descripcion": "Los sustantivos tienen género (masculino o femenino) y número (singular o plural).",
+            "descripcion": "Los sustantivos pueden ser masculinos o femeninos, singulares o plurales.",
             "imagenLeccion": "/img/niveles/lenguaje/genero_numero.png",
             "ejemplos": [
                 "Ejemplo 1 (género): niño (masculino), niña (femenino).",
@@ -49,3 +49,4 @@
         }
     }
 }
+

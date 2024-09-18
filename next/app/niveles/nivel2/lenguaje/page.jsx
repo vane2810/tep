@@ -45,7 +45,7 @@ export default function LenguajePage() {
             subject="lenguaje"
             basePath="niveles/nivel2/"
             levels={levels}
-            fondoUrl="/img/niveless/lenguaje/lvl1/fondon1.jpg"
+            fondoUrl="/img/niveless/lenguaje/lvl1/fondon2.jpg"
             decorativos={decorativos}
           />
         </div>
