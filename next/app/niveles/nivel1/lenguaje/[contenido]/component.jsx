@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';  // Asegúrate de usar la importación correcta
+import { useRouter } from 'next/navigation';  
 import Volver from '@/components/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
 

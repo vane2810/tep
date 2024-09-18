@@ -7,6 +7,7 @@ import { SeparadorAzul } from "@/components/separador";
 import useSession from '@/hooks/useSession';
 import Typewriter from "@/components/typeWriter";
 import '@/styles/animacion.css';
+import Botones from "@/components/templates/niveles/botonStructure";
 
 export default function Nivel2() {
   const [isVerifying, setIsVerifying] = useState(true);
@@ -54,14 +55,14 @@ export default function Nivel2() {
   }
 
   return showWelcome ? (
-   <div className="flex items-center justify-center h-screen bg-gradient-to-r from-orange-300 via-yellow-300 to-red-400 text-white">  
+   <div className="flex justify-center items-center bg-gradient-to-r from-orange-300 via-yellow-300 to-red-400 h-screen text-white">  
       <div className="text-center">
         <img
           src={images[currentImageIndex]}
           alt="Welcome"
-          className="h-64 w-auto mb-4 mx-auto"
+          className="mx-auto mb-4 w-auto h-64"
         />
-        <div className="text-3xl font-bold story">
+        <div className="font-bold text-3xl story">
           <Typewriter text={fullText} speed={80} />
         </div>
 
@@ -75,28 +76,28 @@ export default function Nivel2() {
         {!session && (
           <Volver href="/" title="Volver a la página de inicio" />
         )}
-        <div className="w-full flex flex-col md:flex-row items-center justify-center p-4">
+        <div className="flex md:flex-row flex-col justify-center items-center p-4 w-full">
           {/* Celestia */}
-          <div className="w-full md:w-3/4 flex items-center justify-center p-4">
+          <div className="flex justify-center items-center p-4 w-full md:w-3/4">
             <div className="flex items-center">
               <img
                 src="/img/personajes/niveles/bienvenida/munditok1.png"
                 alt="Nivel 1"
-                className="h-64 w-auto animate-tambaleo mr-10"
+                className="mr-10 w-auto h-64 animate-tambaleo"
               />
-              <p className="text-black super text-3xl md:text-3xl text-left">
+              <p className="text-3xl text-black text-left md:text-3xl super">
                 ¡BIENVENIDOS AL NIVEL II! <br /> PLANETA KAORI
               </p>
             </div>
           </div>
 
           {/* Juego Introductorio */}
-          <div className="w-full md:w-1/4 flex flex-col justify-center items-center p-4 mt-8 md:mt-0">
+          <div className="flex flex-col justify-center items-center mt-8 md:mt-0 p-4 w-full md:w-1/4">
             <Link href="/games/lvl2/intro">
               <img
                 src="/img/home/juego_intro.png"
                 alt="Juego Introductorio"
-                className="w-36 md:w-44 lg:w-52 xl:w-60  animate-float"
+                className="w-36 md:w-44 lg:w-52 xl:w-60 animate-float"
               />
             </Link>
           </div>
@@ -104,39 +105,12 @@ export default function Nivel2() {
       </section>
 
       <SeparadorAzul/>
-      <section className="mt-10">
-        <div className="flex justify-center items-center mb-10">
-          <Link href="/niveles/nivel2/mate">
-            <img
-              src="/img/personajes/donkey/donkeyboton.png"
-              alt="Matematica"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
-            />
-          </Link>
-        
-          <Link href="/niveles/nivel2/lenguaje">
-            <img
-              src="/img/personajes/principe/principeboton.png"
-              alt="Lenguaje"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
-            />
-          </Link>
-          <Link href="/niveles/nivel2/ingles">
-            <img
-              src="/img/personajes/griffit/griffitboton.png"
-              alt="Ingles"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg "
-            />
-          </Link>
-          <Link href="/niveles/nivel2/sociales">
-            <img
-              src="/img/personajes/burbuja/burbujaboton.png"
-              alt="Sociales"
-              className="boton w-40 md:w-48 lg:w-56 xl:w-64 mx-4 rounded-full transition-transform transform hover:scale-105 hover:shadow-lg"
-            />
-          </Link>
-        </div>
-      </section>
+      <Botones
+        mate="/niveles/nivel2/mate"
+        lenguaje="/niveles/nivel2/lenguaje"
+        sociales="/niveles/nivel2/sociales"
+        ingles="/niveles/nivel2/ingles"
+      />
       <SeparadorAzul/>
 
     </main>
