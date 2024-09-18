@@ -1,13 +1,13 @@
 // Página principal de Sociales - Nivel 1
 import React from "react";
 import WelcomeSection from '@/components/templates/materias/welcomeSection';
-import LevelMap from '@/components/templates/materias/levelMapso';
+import LevelMap from '@/components/templates/materias/levelMap';
 import '@/styles/animacion.css';
 import { SeparadorMorado } from "@/components/separador";
 
-export default function SocialessPage() {
+export default function SocialesPage() {
   const levels = [
-    { id: 1, position: { top: '85%', left: '10%' } },
+    { id: 1, position: { top: '85%', left: '10%' }, textColor: 'black' },
     { id: 2, position: { top: '78%', left: '20%' } },
     { id: 3, position: { top: '70%', left: '30%' } },
     { id: 4, position: { top: '65%', left: '40%' } },
@@ -37,7 +37,7 @@ export default function SocialessPage() {
             personajeImg="/img/personajes/burbuja/burbuja.png"
             personajeAlt="Burbuja"
             titulo="¡SOCIALES!"
-            mensajeBienvenida="¡Bienvenidos a mi clase, soy la profesora burbuja y te guiaré en esta aventura!"
+            mensajeBienvenida="¡Bienvenidos a mi clase, soy la Profesora Burbuja y te guiaré en esta aventura!"
           />
 
           {/* Mapa de niveles para Sociales */}
@@ -47,6 +47,8 @@ export default function SocialessPage() {
             levels={levels}
             fondoUrl="/img/niveles/sociales/fondon1s.jpg"
             decorativos={decorativos}
+            camino="/img/niveles/sociales/cofre.png"
+            caricatura="/img/niveles/sociales/pirata.png"
           />
         </div>
       </div>
