@@ -1,7 +1,7 @@
 // Componente reutilizable del mapa para todas las asignaturas y niveles
 import Link from 'next/link';
 
-const LevelMap = ({ subject, basePath, levels, fondoUrl, decorativos }) => (
+const LevelMapso = ({ subject, basePath, levels, fondoUrl, decorativos }) => (
     <section className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[100vh]" style={{ backgroundImage: `url(${fondoUrl})` }}>
         {/* Astronauta al inicio */}
         <div className="bottom-[5%] left-[5%] absolute">
@@ -26,5 +26,5 @@ const LevelMap = ({ subject, basePath, levels, fondoUrl, decorativos }) => (
     </section>
 );
 
-export default LevelMap;
+export default LevelMapso;
 
