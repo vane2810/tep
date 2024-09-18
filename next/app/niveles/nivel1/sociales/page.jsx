@@ -31,7 +31,7 @@ export default function SocialesPage() {
       <div className="flex justify-center items-center w-full">
 
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-          {/* Bienvenida para Lenguaje */}
+          {/* Bienvenida para Sociales */}
           <WelcomeSection
             volverUrl="/niveles/nivel1"
             personajeImg="/img/personajes/burbuja/burbuja.png"

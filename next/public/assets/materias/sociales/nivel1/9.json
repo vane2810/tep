@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Sitios Arqueológicos de El Salvador",
+    "imagenPortada": "/img/personaje/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Joya de Cerén",
+            "descripcion": "Joya de Cerén es un sitio arqueológico conocido como 'la Pompeya de América'. Fue cubierto por ceniza volcánica, preservando la vida cotidiana de los habitantes mayas.",
+            "imagenLeccion": "/img/niveles/sociales/joya_de_ceren.png",
+            "ejemplos": [
+                "Ejemplo 1: Se encuentra en el departamento de La Libertad.",
+                "Ejemplo 2: Es Patrimonio de la Humanidad de la UNESCO."
+            ]
+        },
+        "2": {
+            "titulo": "San Andrés",
+            "descripcion": "San Andrés fue un centro ceremonial maya que se destacó en el comercio entre las ciudades del área maya.",
+            "imagenLeccion": "/img/niveles/sociales/san_andres.png",
+            "ejemplos": [
+                "Ejemplo 1: Pirámides mayas.",
+                "Ejemplo 2: Localizado en La Libertad."
+            ]
+        },
+        "3": {
+            "titulo": "Tazumal",
+            "descripcion": "Tazumal es uno de los complejos arqueológicos más importantes, con estructuras piramidales y artefactos de la cultura maya.",
+            "imagenLeccion": "/img/niveles/sociales/tazumal.png",
+            "ejemplos": [
+                "Ejemplo 1: Ubicado en Chalchuapa, Santa Ana.",
+                "Ejemplo 2: Tiene una de las pirámides más grandes de El Salvador."
+            ]
+        },
+        "4": {
+            "titulo": "Casa Blanca",
+            "descripcion": "Casa Blanca es un sitio arqueológico que alberga estructuras mayas y un museo con piezas de la vida precolombina.",
+            "imagenLeccion": "/img/niveles/sociales/casa_blanca.png",
+            "ejemplos": [
+                "Ejemplo 1: Ubicado en Chalchuapa.",
+                "Ejemplo 2: Excavaciones arqueológicas en curso."
+            ]
+        },
+        "5": {
+            "titulo": "Cihuatán",
+            "descripcion": "Cihuatán fue una ciudad fortificada, uno de los asentamientos más grandes del área maya postclásica en El Salvador.",
+            "imagenLeccion": "/img/niveles/sociales/cihuatan.png",
+            "ejemplos": [
+                "Ejemplo 1: Ubicada cerca de Aguilares, San Salvador.",
+                "Ejemplo 2: Consta de varias estructuras ceremoniales."
+            ]
+        }
+    }
+}

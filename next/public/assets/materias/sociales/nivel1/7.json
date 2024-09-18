@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Historia de El Salvador: Independencia",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Independencia de Centroamérica",
+            "descripcion": "El 15 de septiembre de 1821, El Salvador se independizó de España junto con el resto de Centroamérica.",
+            "imagenLeccion": "/img/niveles/sociales/15sep.png",
+            "ejemplos": [
+                "Ejemplo 1: Firmada en Guatemala.",
+                "Ejemplo 2: Celebrada en toda la región."
+            ]
+        },
+        "2": {
+            "titulo": "Personajes Importantes",
+            "descripcion": "José Matías Delgado es considerado el Padre de la Patria en El Salvador.",
+            "imagenLeccion": "/img/niveles/sociales/delgado.png",
+            "ejemplos": [
+                "Ejemplo 1: José Matías Delgado.",
+                "Ejemplo 2: Manuel José Arce."
+            ]
+        },
+        "3": {
+            "titulo": "Celebración del Día de la Independencia",
+            "descripcion": "Cada 15 de septiembre, el país celebra con desfiles y actos cívicos.",
+            "imagenLeccion": "/img/niveles/sociales/celebracion.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles estudiantiles.",
+                "Ejemplo 2: Actos cívicos en las plazas."
+            ]
+        },
+        "4": {
+            "titulo": "La Independencia Centroamericana",
+            "descripcion": "El Salvador fue parte de la Federación de Provincias Unidas de Centroamérica tras la independencia.",
+            "imagenLeccion": "/img/niveles/sociales/federacion.png",
+            "ejemplos": [
+                "Ejemplo 1: Federación duró hasta 1841.",
+                "Ejemplo 2: Manuel José Arce fue su primer presidente."
+            ]
+        },
+        "5": {
+            "titulo": "El Camino a la República",
+            "descripcion": "El Salvador se convirtió en una república independiente en 1841.",
+            "imagenLeccion": "/img/niveles/sociales/republica.png",
+            "ejemplos": [
+                "Ejemplo 1: Independencia total en 1841.",
+                "Ejemplo 2: Primer presidente: Juan Lindo."
+            ]
+        }
+    }
+}
