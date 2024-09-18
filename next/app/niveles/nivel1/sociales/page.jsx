@@ -5,7 +5,7 @@ import LevelMap from '@/components/templates/materias/levelMapso';
 import '@/styles/animacion.css';
 import { SeparadorMorado } from "@/components/separador";
 
-export default function SocialessPage() {
+export default function SocialesPage() {
   const levels = [
     { id: 1, position: { top: '85%', left: '10%' } },
     { id: 2, position: { top: '78%', left: '20%' } },
@@ -31,7 +31,7 @@ export default function SocialessPage() {
       <div className="flex justify-center items-center w-full">
 
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-          {/* Bienvenida para Lenguaje */}
+          {/* Bienvenida para Sociales */}
           <WelcomeSection
             volverUrl="/niveles/nivel1"
             personajeImg="/img/personajes/burbuja/burbuja.png"

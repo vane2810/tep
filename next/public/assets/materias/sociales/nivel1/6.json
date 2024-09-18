@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Geografía de El Salvador: Montañas y Ríos",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Las Montañas",
+            "descripcion": "El Salvador tiene varias cadenas montañosas que cruzan el país.",
+            "imagenLeccion": "/img/niveles/sociales/montanas.png",
+            "ejemplos": [
+                "Ejemplo 1: Sierra Madre de Chiapas.",
+                "Ejemplo 2: Cordillera del Bálsamo."
+            ]
+        },
+        "2": {
+            "titulo": "Los Ríos",
+            "descripcion": "El río Lempa es el más largo y caudaloso de El Salvador.",
+            "imagenLeccion": "/img/niveles/sociales/rio.png",
+            "ejemplos": [
+                "Ejemplo 1: Río Lempa.",
+                "Ejemplo 2: Río Grande de San Miguel."
+            ]
+        },
+        "3": {
+            "titulo": "Los Lagos",
+            "descripcion": "El Salvador tiene varios lagos, como el Lago de Coatepeque, de origen volcánico.",
+            "imagenLeccion": "/img/niveles/sociales/lago.png",
+            "ejemplos": [
+                "Ejemplo 1: Lago de Ilopango.",
+                "Ejemplo 2: Lago de Coatepeque."
+            ]
+        },
+        "4": {
+            "titulo": "Playas",
+            "descripcion": "El Salvador es famoso por sus playas en el Pacífico, ideales para el surf.",
+            "imagenLeccion": "/img/niveles/sociales/playas.png",
+            "ejemplos": [
+                "Ejemplo 1: Playa El Tunco.",
+                "Ejemplo 2: Playa El Zonte."
+            ]
+        },
+        "5": {
+            "titulo": "Volcanes",
+            "descripcion": "El país es conocido por sus numerosos volcanes activos e inactivos.",
+            "imagenLeccion": "/img/niveles/sociales/volcanes.png",
+            "ejemplos": [
+                "Ejemplo 1: Volcán de San Salvador.",
+                "Ejemplo 2: Volcán de Izalco."
+            ]
+        }
+    }
+}
