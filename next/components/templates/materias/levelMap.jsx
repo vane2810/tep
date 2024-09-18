@@ -1,7 +1,7 @@
 // Componente reutilizable del mapa para todas las asignaturas y niveles
 import Link from 'next/link';
 
-const LevelMap = ({ subject, basePath, levels, fondoUrl, decorativos }) => (
+const LevelMap = ({ subject, basePath, levels, fondoUrl, decorativos, img }) => (
     <section className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[100vh]" style={{ backgroundImage: `url(${fondoUrl})` }}>
         {/* Astronauta al inicio */}
         <div className="bottom-[5%] left-[5%] absolute">
@@ -12,7 +12,7 @@ const LevelMap = ({ subject, basePath, levels, fondoUrl, decorativos }) => (
         {levels.map((level) => (
             <div key={level.id} className="absolute" style={{ top: level.position.top, left: level.position.left }}>
                 <Link href={`/${basePath}${subject}/${level.id}`}>
-                    <img src="/img/niveless/lenguaje/lvl1/estrella.png" alt={`Nivel ${level.id}`} className="w-[4vw] h-[4vw] cursor-pointer" />
+                    <img src={img} alt={`Nivel ${level.id}`} className="hover:shadow-lg rounded-full w-[4vw] h-[4vw] transform transition-transform cursor-pointer hover:scale-105" />
                 </Link>
 
                 <span className="mt-2 text-[2vw] text-white">{level.id}</span>

@@ -47,6 +47,7 @@ export default function LenguajePage() {
             levels={levels}
             fondoUrl="/img/niveless/lenguaje/lvl1/fondon1.jpg"
             decorativos={decorativos}
+            img="/img/niveless/lenguaje/lvl1/estrella.png"
           />
         </div>
       </div>
