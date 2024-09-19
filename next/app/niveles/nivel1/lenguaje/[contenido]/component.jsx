@@ -6,8 +6,6 @@ import { useRouter } from 'next/navigation';
 import Volver from '@/components/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
 
-
-
 export default function Component({ id }) {
   const [lecciones, setLecciones] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);

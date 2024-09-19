@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Phaser from 'phaser';
 
-const GameMath = ({ gameData, currentScene, updateScore, updateFeedback, proceedToNextScene }) => {
+const Game2 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToNextScene }) => {
   const [gameInstance, setGameInstance] = useState(null);
 
   useEffect(() => {
@@ -131,4 +131,4 @@ const GameMath = ({ gameData, currentScene, updateScore, updateFeedback, proceed
   return <div id="game-container" className="relative shadow-lg mx-auto mt-8 rounded-lg w-[800px] h-[300px] overflow-hidden"></div>;
 };
 
-export default GameMath;
+export default Game2;

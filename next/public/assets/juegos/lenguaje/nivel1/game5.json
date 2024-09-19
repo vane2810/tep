@@ -1,0 +1,36 @@
+{
+    "nombre": "Juego de Arrastrar Suma",
+    "gameType": "Arrastrar",
+    "imageUrl": "/img/niveles/mate/introfig.png",
+    "modalData": {
+        "puntaje": "75 estrellas",
+        "imagenModal": "/img/niveles/mate/introfig.png",
+        "subtitulo": "Signos de Putuación",
+        "indicaciones": [
+            "Selecciona la respuesta correcta pedazo de ",
+            "El puntaje mínimo para pasar es de 50 estrellas",
+            "Vuelva a intentarlo si no las consigues"
+        ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 75,
+    "limiteEscenas": 1,
+    "escenas": [
+        {
+            "num1": 7,
+            "num2": 3,
+            "termsArray": [
+                {
+                    "label": "Juan"
+                },
+                {
+                    "label": "Simona"
+                },
+                {
+                    "label": "Lupa"
+                }
+            ],
+            "puntos": 25
+        }
+    ]
+}
