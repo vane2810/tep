@@ -50,7 +50,7 @@ export default function JuegoPage() {
         if (id) {
             const loadGame = async () => {
                 try {
-                    const res = await fetch(`/assets/juegos/lenguaje/nivel1/game${id}.json`);
+                    const res = await fetch(`/assets/juegos/lenguaje/nivel2/game${id}.json`);
                     const data = await res.json();
                     setGameData(data);
 

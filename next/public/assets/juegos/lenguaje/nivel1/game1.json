@@ -1,7 +1,7 @@
 { 
   "nombre": "Signos de Putuación",
   "gameType": "Seleccionar",
-  "imageUrl": "/img/niveles/mate/introfig.png",
+  "imageUrl": "/img/personajes/principe/principe.png",
   "modalData": {
     "puntaje": "75 estrellas",
     "imagenModal": "/img/niveles/mate/introfig.png",

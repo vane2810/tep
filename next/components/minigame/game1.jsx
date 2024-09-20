@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Phaser from 'phaser';
 
-const Game1 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToNextScene, score }) => {
+const Game1 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToNextScene, puntos }) => {
   const [gameInstance, setGameInstance] = useState(null);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-// Página principal de Lenguaje - Nivel 1
+// Página principal de Lenguaje - Nivel 2
 import React from "react";
 import WelcomeSection from '@/components/templates/materias/welcomeSection';
 import LevelMap from '@/components/templates/materias/levelMap';
@@ -45,8 +45,10 @@ export default function LenguajePage() {
             subject="lenguaje"
             basePath="niveles/nivel2/"
             levels={levels}
-            fondoUrl="/img/niveless/lenguaje/lvl1/fondon2.jpg"
+            fondoUrl="/img/niveless/lenguaje/lvl1/fondon1.jpg"
             decorativos={decorativos}
+            camino="/img/niveless/lenguaje/lvl1/estrella.png"
+            caricatura="/img/niveless/lenguaje/lvl1/astronautan1.png"
           />
         </div>
       </div>

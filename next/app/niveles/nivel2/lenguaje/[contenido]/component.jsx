@@ -1,8 +1,8 @@
 // Componente reutilizable para lenguaje de todos los niveles
-"use client";  
+"use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';  // Asegúrate de usar la importación correcta
+import { useRouter } from 'next/navigation';  
 import Volver from '@/components/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
 
@@ -19,7 +19,7 @@ export default function Component({ id }) {
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/lenguaje/nivel2/${id}.json`);
+        const res = await fetch(`/assets/materias/lenguaje/nivel2/contenido${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 
@@ -59,8 +59,10 @@ export default function Component({ id }) {
 
   // Función para redirigir a la página del juego
   const handlePlayGame = () => {
-    router.push(`/games/lvl2/lenguaje/${id}`);  
+    router.push(`/niveles/nivel2/lenguaje/${id}/${id}`);
+
   };
+
 
   if (!lecciones || lecciones.length === 0) {
     return null;

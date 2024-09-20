@@ -1,10 +1,10 @@
 {
     "nombre": "Pronombres Personales",
     "gameType": "Seleccionar",
-    "imageUrl": "/img/niveles/lengua/introfig.png",
+    "imageUrl": "/img/personajes/principe/principe.png",
     "modalData": {
       "puntaje": "100 estrellas",
-      "imagenModal": "/img/niveles/lengua/introfig.png",
+      "imagenModal": "/img/personajes/principe/principe.png",
       "subtitulo": "Pronombres Personales",
       "indicaciones": [
         "Selecciona el pronombre correcto en cada oración",
@@ -13,7 +13,7 @@
       ]
     },
     "totalPuntos": 100,
-    "minPuntos": 60,
+    "minPuntos": 80,
     "limiteEscenas": 10,
     "escenas": [
       {
