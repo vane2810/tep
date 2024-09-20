@@ -122,7 +122,7 @@ const Game1 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToN
         if (gameInstance) {
           gameInstance.destroy(true); // Destruir el juego para avanzar a la siguiente escena
         }
-      }, 1500);
+      }, 3500);
     }
     
 

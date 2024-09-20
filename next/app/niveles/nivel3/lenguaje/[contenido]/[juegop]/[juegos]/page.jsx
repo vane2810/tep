@@ -50,7 +50,7 @@ export default function JuegoPage() {
         if (id) {
             const loadGame = async () => {
                 try {
-                    const res = await fetch(`/assets/juegos/lenguaje/nivel2/game${id}.json`);
+                    const res = await fetch(`/assets/juegos/lenguaje/nivel3/game${id}.json`);
                     const data = await res.json();
                     setGameData(data);
 
@@ -134,7 +134,7 @@ export default function JuegoPage() {
             {/* Sección de las indicaciones */}
             <div className="flex flex-wrap justify-between items-center">
                 <div className="inline-block mb-20 ml-8">
-                    <Volver href="/niveles/nivel2/lenguaje" />
+                    <Volver href="/niveles/nivel3/lenguaje" />
                 </div>
                 <div className="flex items-center mx-auto my-6">
                     <div className="flex-shrink-0 mr-4">
