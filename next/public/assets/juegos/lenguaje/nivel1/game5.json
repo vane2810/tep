@@ -1,10 +1,10 @@
 {
     "nombre": "Pronombres Personales",
     "gameType": "Seleccionar",
-    "imageUrl": "/img/niveles/lengua/introfig.png",
+    "imageUrl": "/img/niveles/mate/introfig.png",
     "modalData": {
       "puntaje": "100 estrellas",
-      "imagenModal": "/img/niveles/lengua/introfig.png",
+      "imagenModal": "/img/niveles/mate/introfig.png",
       "subtitulo": "Pronombres Personales",
       "indicaciones": [
         "Selecciona el pronombre correcto en cada oración",

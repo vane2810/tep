@@ -1,10 +1,10 @@
 {
     "nombre": "Ortografía Básica",
     "gameType": "Seleccionar",
-    "imageUrl": "/img/niveles/lengua/ortografia.png",
+    "imageUrl": "/img/niveles/mate/ortografia.png",
     "modalData": {
       "puntaje": "150 estrellas",
-      "imagenModal": "/img/niveles/lengua/ortografia.png",
+      "imagenModal": "/img/niveles/mate/ortografia.png",
       "subtitulo": "Ortografía Básica",
       "indicaciones": [
         "Selecciona la opción correcta en cada pregunta",
