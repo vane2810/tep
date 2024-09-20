@@ -19,7 +19,7 @@ export default function Component({ id }) {
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/lenguaje/nivel1/${id}.json`);
+        const res = await fetch(`/assets/materias/lenguaje/nivel1/contenido${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 

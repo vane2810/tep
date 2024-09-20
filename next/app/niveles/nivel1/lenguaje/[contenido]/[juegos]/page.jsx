@@ -18,6 +18,9 @@ const getGameComponent = (gameType) => {
         case "Operaciones":
             return dynamic(() => import('@/components/minigame/game3'), { ssr: false });
 
+        case "Operaciones":
+            return dynamic(() => import('@/components/minigame/game3'), { ssr: false });
+
         case "Arrastrar":
             return dynamic(() => import('@/components/minigame/game5'), { ssr: false });
 
@@ -84,7 +87,7 @@ export default function JuegoPage() {
             setGameKey(prevKey => prevKey + 1);
         } else {
             // Al final del juego, verifica el puntaje acumulado
-            if (score <= gameData.minPuntos) {
+            if (score > gameData.minPuntos) {
                 // Si el puntaje es mayor o igual al mínimo, muestra el mensaje de éxito
                 setFeedback(<span style={{ color: '#6aa84f' }}>¡Felicidades! Has completado el juego con éxito</span>);
             } else {
