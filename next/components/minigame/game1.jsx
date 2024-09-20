@@ -131,7 +131,7 @@ const Game1 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToN
         gameInstance.destroy(true);
       }
     };
-  }, [gameData, currentScene, updateFeedback, updateScore, proceedToNextScene]);
+  }, [gameData, currentScene, updateFeedback, updateScore, proceedToNextScene, puntos]);
 
   return <div id="game-container" className="relative shadow-lg mx-auto mt-8 rounded-lg w-[800px] h-[325px] overflow-hidden"></div>;
 };
