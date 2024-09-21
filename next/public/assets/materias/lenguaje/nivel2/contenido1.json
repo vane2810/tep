@@ -1,50 +1,57 @@
 {
-    "tituloGeneral": "Signos de Puntuación",
+    "tituloGeneral": "El Uso de la 'B'",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Signos de Puntuación: La Coma",
-            "descripcion": "La coma se usa para separar elementos en una lista, para hacer pausas dentro de la oración, o para delimitar aclaraciones y elementos adicionales.",
-            "imagenLeccion": "/img/niveles/lenguaje/coma.png",
+            "titulo": "B antes de una consonante",
+            "descripcion": "Siempre antes de otra consonante se escribe siempre B (y no V).",
+            "imagenLeccion": "/img/niveles/lenguaje/bu_bur_bus.png",
             "ejemplos": [
-                "Ejemplo 1: Me gustan las frutas, las verduras y los cereales.",
-                "Ejemplo 2: Después de correr, me senté a descansar."
+                "Esbozar",
+                "Arbol",
+                "Abanico",
+                "Abuelos"
             ]
         },
         "2": {
-            "titulo": "Signos de Puntuación: El Punto",
-            "descripcion": "El punto marca el final de una oración. Puede ser punto y seguido, punto y aparte o punto final, dependiendo del contexto.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto.png",
+            "titulo": "La B y M",
+            "descripcion": "Siempre después de la M se escribe B, y después de la letra N siempre se escribe V.",
+            "imagenLeccion": "/img/niveles/lenguaje/verbos_bir.png",
             "ejemplos": [
-                "Ejemplo 1: Me llamo Juan. Vivo en Madrid.",
-                "Ejemplo 2: Llegamos tarde al cine. No alcanzamos a ver la película."
+                "Cambio",
+                "Embalar",
+                "Calambre",
+                "Hamburguesa"
             ]
         },
         "3": {
-            "titulo": "Signos de Puntuación: Los Dos Puntos",
-            "descripcion": "Los dos puntos introducen explicaciones, listas, citas o resúmenes de lo mencionado anteriormente.",
-            "imagenLeccion": "/img/niveles/lenguaje/dos_puntos.png",
+            "titulo": "Verbos ir y verbos terminados en -ar",
+            "descripcion": "Lleva también B el pretérito imperfecto de los verbos terminados en -ar y del verbo 'ir'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_b_despues_m.png",
             "ejemplos": [
-                "Ejemplo 1: Estos son los ingredientes: harina, azúcar y huevos.",
-                "Ejemplo 2: El profesor dijo: 'Estudien para el examen de mañana.'"
+                "Cantaba",
+                "Bailaba",
+                "Tocaba",
+                "iba"
             ]
         },
         "4": {
-            "titulo": "Signos de Puntuación: El Punto y Coma",
-            "descripcion": "El punto y coma separa oraciones largas que ya contienen comas o para evitar confusiones en una enumeración.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto_coma.png",
+            "titulo": "Palabras que empiezan con 'bien-' o 'bene-'",
+            "descripcion": "Se escribe 'b' en las palabras que comienzan con los prefijos 'bien-' o 'bene-', que indican bondad o bienestar.",
+            "imagenLeccion": "/img/niveles/lenguaje/bien_bene.png",
             "ejemplos": [
-                "Ejemplo 1: Tengo hambre; sin embargo, esperaré a la cena.",
-                "Ejemplo 2: Salimos a correr; luego, volvimos a casa."
+                "Siempre actuó con benevolencia hacia los demás.",
+                "Me siento bien después de hacer ejercicio."
             ]
         },
         "5": {
-            "titulo": "Signos de Puntuación: Puntos Suspensivos",
-            "descripcion": "Los puntos suspensivos indican que la oración queda inconclusa, o crean una pausa para generar suspenso.",
-            "imagenLeccion": "/img/niveles/lenguaje/puntos_supensivos.png",
+            "titulo": "Palabras derivadas de 'haber', 'beber' y 'caber'",
+            "descripcion": "Todas las formas conjugadas de los verbos 'haber', 'beber' y 'caber' se escriben con 'b'.",
+            "imagenLeccion": "/img/niveles/lenguaje/verbos_haber_beber_caber.png",
             "ejemplos": [
-                "Ejemplo 1: Sabía que algo malo iba a pasar...",
-                "Ejemplo 2: No lo sé... tal vez más tarde."
+                "Haber terminado la tarea es bueno",
+                "El agua que bebí estaba fría.",
+                "No caben más personas en el auto."
             ]
         }
     }
