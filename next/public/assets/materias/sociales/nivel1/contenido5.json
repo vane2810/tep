@@ -7,8 +7,8 @@
             "descripcion": "El Salvador tiene una población de más de 6 millones de personas, con una alta densidad poblacional.",
             "imagenLeccion": "/img/niveles/sociales/densidad.png",
             "ejemplos": [
-                "Ejemplo 1: Capital: San Salvador.",
-                "Ejemplo 2: Lengua oficial: español."
+                "Capital: San Salvador.",
+                "Lengua oficial: español."
             ]
         },
         "2": {
@@ -16,7 +16,7 @@
             "descripcion": "La familia es muy importante en la vida de los salvadoreños.",
             "imagenLeccion": "/img/niveles/sociales/familia.png",
             "ejemplos": [
-                "Ejemplo 1: Reuniones familiares los fines de semana.",
+                "Reuniones familiares los fines de semana.",
                 "Ejemplo 2: Celebraciones de cumpleaños con comida típica."
             ]
         },
@@ -25,8 +25,8 @@
             "descripcion": "La música folclórica es parte de las tradiciones salvadoreñas.",
             "imagenLeccion": "/img/niveles/sociales/musica.png",
             "ejemplos": [
-                "Ejemplo 1: El Xuc, música tradicional.",
-                "Ejemplo 2: Bailes típicos como el torito pinto."
+                "El Xuc, música tradicional.",
+                "Bailes típicos como el torito pinto."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "En las zonas rurales, aún se conservan trajes típicos como el traje de los campesinos.",
             "imagenLeccion": "/img/niveles/sociales/vestimenta.png",
             "ejemplos": [
-                "Ejemplo 1: Trajes de algodón con colores vivos.",
-                "Ejemplo 2: Sombreros de paja."
+                "Trajes de algodón con colores vivos.",
+                "Sombreros de paja."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "El Salvador es conocido por sus artesanías de barro, tejidos y madera.",
             "imagenLeccion": "/img/niveles/sociales/artesania.png",
             "ejemplos": [
-                "Ejemplo 1: Joyería hecha a mano.",
-                "Ejemplo 2: Productos de barro y cerámica."
+                "Joyería hecha a mano.",
+                "Productos de barro y cerámica."
             ]
         }
     }

@@ -1,50 +1,60 @@
 {
-    "tituloGeneral": "Centroamérica: La Federación Centroamericana",
-    "imagenPortada": "/img/centroamerica/federacion.png",
+    "tituloGeneral": "Centro América: Costa Rica",
+    "imagenPortada": "/img/centroamerica/costarica.png",
     "lecciones": {
         "1": {
-            "titulo": "Fundación de la Federación",
-            "descripcion": "En 1823, se fundó la Federación de Provincias Unidas de Centroamérica, uniendo a cinco países.",
-            "imagenLeccion": "/img/centroamerica/fundacion.png",
+            "titulo": "Ubicación de Costa Rica",
+            "descripcion": "Costa Rica está en el sur de Centroamérica, entre Nicaragua y Panamá.",
+            "imagenLeccion": "/img/centroamerica/mapa_costarica.png",
             "ejemplos": [
-                "Ejemplo 1: Incluía Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica.",
-                "Ejemplo 2: Fue creada tras la independencia de España."
+                "Al este tiene costas en el mar Caribe.",
+                "Al oeste tiene costas en el océano Pacífico."
             ]
         },
         "2": {
-            "titulo": "Primer Presidente",
-            "descripcion": "Manuel José Arce fue el primer presidente de la Federación Centroamericana.",
-            "imagenLeccion": "/img/centroamerica/arce.png",
+            "titulo": "Independencia",
+            "descripcion": "Costa Rica se independizó de España el 15 de septiembre de 1821.",
+            "imagenLeccion": "/img/centroamerica/independencia_costarica.png",
             "ejemplos": [
-                "Ejemplo 1: Gobernó de 1825 a 1829.",
-                "Ejemplo 2: Arce intentó mantener la unidad de la federación."
+                "Costa Rica fue parte de las Provincias Unidas de Centroamérica."
             ]
         },
         "3": {
-            "titulo": "Causas de la Disolución",
-            "descripcion": "La Federación se disolvió debido a diferencias políticas y conflictos entre los estados.",
-            "imagenLeccion": "/img/centroamerica/disolucion.png",
+            "titulo": "Cultura y Tradiciones",
+            "descripcion": "Costa Rica es conocida por su cultura de paz y respeto por el medio ambiente.",
+            "imagenLeccion": "/img/centroamerica/cultura_costarica.png",
             "ejemplos": [
-                "Ejemplo 1: Desacuerdos sobre el poder centralizado.",
-                "Ejemplo 2: Conflictos territoriales entre los estados miembros."
+                "El lema de Costa Rica es 'Pura Vida', que refleja una vida sencilla y positiva.",
+                "El español es el idioma oficial."
             ]
         },
         "4": {
-            "titulo": "Impacto en la Historia",
-            "descripcion": "La disolución de la Federación marcó el inicio de los países centroamericanos como estados soberanos e independientes.",
-            "imagenLeccion": "/img/centroamerica/impacto.png",
+            "titulo": "Símbolos Patrios de Costa Rica (Parte 1)",
+            "descripcion": "Costa Rica tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
+            "imagenLeccion": "/img/centroamerica/simbolos_costarica.png",
             "ejemplos": [
-                "Ejemplo 1: Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica.",
-                "Ejemplo 2: Cada país formó su propio gobierno."
+                "La bandera tiene franjas azules, blancas y rojas con un escudo a la izquierda.",
+                "El escudo tiene tres montañas y dos océanos, simbolizando la ubicación entre el Pacífico y el Caribe."
             ]
         },
         "5": {
-            "titulo": "Legado de la Federación",
-            "descripcion": "Aunque la Federación no duró mucho, dejó un legado de unidad en Centroamérica, y varios intentos de reunificación se han realizado a lo largo de la historia.",
-            "imagenLeccion": "/img/centroamerica/legado.png",
+            "titulo": "Símbolos Patrios de Costa Rica (Parte 2)",
+            "descripcion": "Otros símbolos patrios de Costa Rica reflejan su biodiversidad y su riqueza natural.",
+            "imagenLeccion": "/img/centroamerica/simbolos_costarica.png",
             "ejemplos": [
-                "Ejemplo 1: Banderas similares en la región.",
-                "Ejemplo 2: Intercambio cultural y comercial entre los países."
+                "Flor Nacional: Guaria Morada.",
+                "Árbol Nacional: Guanacaste.",
+                "Ave Nacional: Yigüirro.",
+                "Comida Típica: Gallo pinto y casado."
+            ]
+        },
+        "6": {
+            "titulo": "Parque Nacional Corcovado",
+            "descripcion": "El Parque Nacional Corcovado es una de las áreas naturales más importantes de Costa Rica.",
+            "imagenLeccion": "/img/centroamerica/corcovado.png",
+            "ejemplos": [
+                "Es conocido por su biodiversidad, siendo el hogar de muchas especies en peligro de extinción.",
+                "Es parte de la Reserva de la Biosfera del Pacífico de la UNESCO."
             ]
         }
     }

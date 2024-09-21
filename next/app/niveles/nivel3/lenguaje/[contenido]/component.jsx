@@ -165,7 +165,7 @@ export default function Component({ id }) {
                 ) : (
                   <button
                     onClick={handlePlayGame}  // Redirigir al juego cuando se hace clic en "Jugar"
-                    className="bg-green-500 hover:bg-green-700 px-6 py-2 rounded-lg text-white text-xl transition duration-300 story"
+                    className="bg-purple-700 hover:bg-purple-500 px-6 py-2 rounded-lg text-white text-xl transition duration-300 story"
                   >
                     Jugar
                   </button>

@@ -1,50 +1,60 @@
 {
-    "tituloGeneral": "Costa Rica: Tradiciones y Cultura",
-    "imagenPortada": "/img/centroamerica/costa_rica.png",
+    "tituloGeneral": "Centro América: Guatemala",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
     "lecciones": {
         "1": {
-            "titulo": "La Carreta Típica",
-            "descripcion": "La carreta típica es un símbolo de Costa Rica, utilizada en la agricultura y decorada con coloridos diseños.",
-            "imagenLeccion": "/img/centroamerica/carreta.png",
+            "titulo": "Ubicación de Guatemala",
+            "descripcion": "Guatemala está en el norte de Centroamérica, limitando con México, Belice, Honduras y El Salvador.",
+            "imagenLeccion": "/img/centroamerica/mapa_guatemala.png",
             "ejemplos": [
-                "Ejemplo 1: Patrimonio cultural desde 1988.",
-                "Ejemplo 2: Utilizada para transportar café y otros productos."
+                "Al oeste está México y al este Belice y Honduras.",
+                "El Océano Pacífico limita al sur de Guatemala."
             ]
         },
         "2": {
-            "titulo": "El Gallo Pinto",
-            "descripcion": "El Gallo Pinto es el plato más popular de Costa Rica, hecho con arroz y frijoles.",
-            "imagenLeccion": "/img/centroamerica/gallo_pinto_costa_rica.png",
+            "titulo": "Independencia",
+            "descripcion": "Guatemala se independizó de España el 15 de septiembre de 1821.",
+            "imagenLeccion": "/img/centroamerica/independencia_guatemala.png",
             "ejemplos": [
-                "Ejemplo 1: Se sirve en el desayuno.",
-                "Ejemplo 2: Acompañado de tortillas y natilla."
+                "Guatemala fue parte del Imperio Mexicano brevemente después de su independencia."
             ]
         },
         "3": {
-            "titulo": "Día de la Independencia",
-            "descripcion": "El 15 de septiembre, Costa Rica celebra su independencia de España con desfiles y actividades cívicas.",
-            "imagenLeccion": "/img/centroamerica/independencia_costa_rica.png",
+            "titulo": "Cultura y Tradiciones",
+            "descripcion": "Guatemala es conocida por su herencia maya, que sigue siendo parte importante de la cultura.",
+            "imagenLeccion": "/img/centroamerica/cultura_guatemala.png",
             "ejemplos": [
-                "Ejemplo 1: Desfiles de bandas estudiantiles.",
-                "Ejemplo 2: Actos cívicos en las escuelas."
+                "El idioma maya es hablado por muchos habitantes en el interior.",
+                "El Quetzal es un símbolo cultural importante."
             ]
         },
         "4": {
-            "titulo": "Semana Santa",
-            "descripcion": "La Semana Santa es una de las celebraciones religiosas más importantes en Costa Rica, con procesiones y actividades religiosas.",
-            "imagenLeccion": "/img/centroamerica/semana_santa_costa_rica.png",
+            "titulo": "Símbolos Patrios de Guatemala (Parte 1)",
+            "descripcion": "Guatemala tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
+            "imagenLeccion": "/img/centroamerica/simbolos_guatemala.png",
             "ejemplos": [
-                "Ejemplo 1: Procesiones en San José.",
-                "Ejemplo 2: Alfombras de flores y aserrín."
+                "La bandera tiene franjas azules y blancas, con un escudo en el centro.",
+                "El escudo de armas tiene el Quetzal y pergaminos que simbolizan libertad."
             ]
         },
         "5": {
-            "titulo": "Día de la Virgen de los Ángeles",
-            "descripcion": "El 2 de agosto, Costa Rica celebra el Día de la Virgen de los Ángeles, patrona del país.",
-            "imagenLeccion": "/img/centroamerica/virgen_angeles.png",
+            "titulo": "Símbolos Patrios de Guatemala (Parte 2)",
+            "descripcion": "Otros símbolos patrios importantes en Guatemala reflejan su biodiversidad y cultura.",
+            "imagenLeccion": "/img/centroamerica/simbolos_guatemala.png",
             "ejemplos": [
-                "Ejemplo 1: Peregrinación a la Basílica de Cartago.",
-                "Ejemplo 2: Misas y procesiones en su honor."
+                "Flor Nacional: Monja Blanca.",
+                "Árbol Nacional: Árbol de Ceiba.",
+                "Ave Nacional: Quetzal.",
+                "Comida Típica: Pepián y tamales."
+            ]
+        },
+        "6": {
+            "titulo": "Tikal: Ciudad Maya",
+            "descripcion": "Tikal es una antigua ciudad maya y uno de los sitios arqueológicos más importantes de Centroamérica.",
+            "imagenLeccion": "/img/centroamerica/tikal.png",
+            "ejemplos": [
+                "Tikal fue una de las ciudades más poderosas del período clásico maya.",
+                "Sus templos y pirámides atraen a turistas de todo el mundo."
             ]
         }
     }

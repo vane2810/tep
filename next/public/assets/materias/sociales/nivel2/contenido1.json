@@ -1,52 +1,51 @@
 {
-    "tituloGeneral": "Guatemala: Tradiciones y Cultura",
-    "imagenPortada": "/img/centroamerica/guatemala.png",
+    "tituloGeneral": "Centroamérica: Introducción",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
     "lecciones": {
         "1": {
-            "titulo": "El Quetzal",
-            "descripcion": "El quetzal es el ave nacional de Guatemala, símbolo de libertad y belleza.",
-            "imagenLeccion": "/img/centroamerica/quetzal.png",
+            "titulo": "Ubicación de Centroamérica",
+            "descripcion": "Centroamérica es una región que conecta América del Norte con América del Sur. Está rodeada por el océano Pacífico y el mar Caribe.",
+            "imagenLeccion": "/img/centroamerica/mapa.png",
             "ejemplos": [
-                "Ejemplo 1: El quetzal aparece en el escudo de Guatemala.",
-                "Ejemplo 2: También es la moneda oficial."
+                "Limita al norte con México.",
+                "Limita al sur con Colombia."
             ]
         },
         "2": {
-            "titulo": "Semana Santa",
-            "descripcion": "La Semana Santa en Antigua Guatemala es famosa por sus procesiones y alfombras de flores.",
-            "imagenLeccion": "/img/centroamerica/semana_santa_guatemala.png",
+            "titulo": "Los Países de Centroamérica",
+            "descripcion": "Centroamérica está formada por siete países: Guatemala, Belice, El Salvador, Honduras, Nicaragua, Costa Rica y Panamá.",
+            "imagenLeccion": "/img/centroamerica/paises.png",
             "ejemplos": [
-                "Ejemplo 1: Procesiones religiosas en Semana Santa.",
-                "Ejemplo 2: Alfombras hechas de flores y aserrín."
+                "El Salvador es el país más pequeño.",
+                "Belice es el único país donde se habla inglés como idioma oficial."
             ]
         },
         "3": {
-            "titulo": "Comida Tradicional",
-            "descripcion": "El Pepián es uno de los platillos más tradicionales de la gastronomía guatemalteca.",
-            "imagenLeccion": "/img/centroamerica/pepián.png",
+            "titulo": "El Clima de Centroamérica",
+            "descripcion": "Centroamérica tiene un clima tropical. En la mayoría de los países hay dos estaciones: una seca y una lluviosa.",
+            "imagenLeccion": "/img/centroamerica/clima.png",
             "ejemplos": [
-                "Ejemplo 1: Pepián de pollo.",
-                "Ejemplo 2: Enchiladas guatemaltecas."
+                "La estación seca va de noviembre a abril.",
+                "La estación lluviosa va de mayo a octubre."
             ]
         },
         "4": {
-            "titulo": "La Marimba",
-            "descripcion": "La marimba es el instrumento musical nacional de Guatemala.",
-            "imagenLeccion": "/img/centroamerica/marimba.png",
+            "titulo": "Volcanes en Centroamérica",
+            "descripcion": "Centroamérica tiene muchos volcanes activos y es famosa por su actividad volcánica.",
+            "imagenLeccion": "/img/centroamerica/volcanes.png",
             "ejemplos": [
-                "Ejemplo 1: La marimba tiene origen africano.",
-                "Ejemplo 2: Se utiliza en fiestas y eventos culturales."
+                "El Volcán de Fuego en Guatemala es uno de los más activos.",
+                "El volcán Irazú en Costa Rica es muy visitado por turistas."
             ]
         },
         "5": {
-            "titulo": "Día de Todos los Santos",
-            "descripcion": "El 1 de noviembre, Guatemala celebra el Día de Todos los Santos con barriletes gigantes en Santiago Sacatepéquez.",
-            "imagenLeccion": "/img/centroamerica/barriletes.png",
+            "titulo": "La Comida Tradicional de Centroamérica",
+            "descripcion": "La comida en CA es variada y deliciosa. Platillos como pupusas, tamales y gallo pinto son populares.",
+            "imagenLeccion": "/img/centroamerica/comida.png",
             "ejemplos": [
-                "Ejemplo 1: Los barriletes simbolizan la conexión con los difuntos.",
-                "Ejemplo 2: Concursos de barriletes en varios pueblos."
+                "Las pupusas son una comida típica de El Salvador.",
+                "El gallo pinto es muy popular en Costa Rica y Nicaragua."
             ]
         }
     }
 }
-

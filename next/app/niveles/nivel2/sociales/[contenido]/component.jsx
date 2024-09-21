@@ -125,7 +125,7 @@ export default function Component({ id }) {
             }}
           >
             {/* Página izquierda del libro */}
-            <div className="top-[12%] left-[18%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
+            <div className="top-[12%] left-[15%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
               <h2 className="mb-4 font-bold text-2xl">{currentLeccion.titulo}</h2>
               <p className="font-serif text-lg leading-relaxed">{currentLeccion.descripcion}</p>
 
@@ -174,7 +174,7 @@ export default function Component({ id }) {
                 ) : (
                   <button
                     onClick={handlePlayGame}
-                    className="bg-green-500 hover:bg-green-700 px-6 py-2 rounded-lg text-white text-xl transition duration-300 story"
+                    className="bg-blue-700 hover:bg-blue-500 px-6 py-2 rounded-lg text-white text-xl transition duration-300 story"
                   >
                     Jugar
                   </button>

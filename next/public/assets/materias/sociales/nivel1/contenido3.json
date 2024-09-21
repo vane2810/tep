@@ -7,8 +7,8 @@
             "descripcion": "Las pupusas son el plato más popular de El Salvador. Se hacen con masa de maíz y se rellenan con queso, frijoles o chicharrón.",
             "imagenLeccion": "/img/niveles/sociales/pupusas.png",
             "ejemplos": [
-                "Ejemplo 1: Pupusas de queso.",
-                "Ejemplo 2: Pupusas de chicharrón."
+                "Pupusas de queso.",
+                "Pupusas de chicharrón."
             ]
         },
         "2": {
@@ -16,8 +16,8 @@
             "descripcion": "Son elotes asados cubiertos con mayonesa, salsa de tomate y queso rallado.",
             "imagenLeccion": "/img/niveles/sociales/elotes.png",
             "ejemplos": [
-                "Ejemplo 1: Mayonesa y queso rallado.",
-                "Ejemplo 2: Salsa picante al gusto."
+                "Mayonesa y queso rallado.",
+                "Salsa picante al gusto."
             ]
         },
         "3": {
@@ -25,8 +25,8 @@
             "descripcion": "Los tamales se hacen de masa de maíz envuelta en hojas de plátano, con relleno de carne o frijoles.",
             "imagenLeccion": "/img/niveles/sociales/tamales.png",
             "ejemplos": [
-                "Ejemplo 1: Tamales de elote.",
-                "Ejemplo 2: Tamales de pollo."
+                "Tamales de elote.",
+                "Tamales de pollo."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "La yuca frita se sirve con curtido y chicharrón.",
             "imagenLeccion": "/img/niveles/sociales/yuca.png",
             "ejemplos": [
-                "Ejemplo 1: Yuca con chicharrón.",
-                "Ejemplo 2: Yuca con salsa picante."
+                "Yuca con chicharrón.",
+                "Yuca con salsa picante."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "Las empanadas son fritas y rellenas de leche o frijoles.",
             "imagenLeccion": "/img/niveles/sociales/empanadas.png",
             "ejemplos": [
-                "Ejemplo 1: Rellenas de leche.",
-                "Ejemplo 2: Rellenas de frijol."
+                "Rellenas de leche.",
+                "Rellenas de frijol."
             ]
         }
     }

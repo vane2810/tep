@@ -7,8 +7,8 @@
             "descripcion": "La bandera de El Salvador tiene tres franjas: dos azules y una blanca en el centro.",
             "imagenLeccion": "/img/niveles/sociales/bandera.png",
             "ejemplos": [
-                "Ejemplo 1: Azul representa el cielo y el mar.",
-                "Ejemplo 2: Blanco simboliza la paz."
+                "Azul representa el cielo y el mar.",
+                "Blanco simboliza la paz."
             ]
         },
         "2": {
@@ -16,8 +16,8 @@
             "descripcion": "El escudo tiene una pirámide rodeada de la leyenda 'República de El Salvador en la América Central'.",
             "imagenLeccion": "/img/niveles/sociales/escudo.png",
             "ejemplos": [
-                "Ejemplo 1: Cinco banderas representan la federación centroamericana.",
-                "Ejemplo 2: El arcoíris simboliza la esperanza."
+                "Cinco banderas representan la federación centroamericana.",
+                "El arcoíris simboliza la esperanza."
             ]
         },
         "3": {
@@ -25,8 +25,8 @@
             "descripcion": "El himno fue escrito por el poeta cubano Juan José Cañas.",
             "imagenLeccion": "/img/niveles/sociales/himno.png",
             "ejemplos": [
-                "Ejemplo 1: Adoptado oficialmente en 1879.",
-                "Ejemplo 2: La música fue compuesta por Juan Aberle."
+                "Adoptado oficialmente en 1879.",
+                "La música fue compuesta por Juan Aberle."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "La flor nacional es la flor de izote, símbolo de la belleza natural del país.",
             "imagenLeccion": "/img/niveles/sociales/flor.png",
             "ejemplos": [
-                "Ejemplo 1: Flor blanca y pequeña.",
-                "Ejemplo 2: Crece en zonas cálidas."
+                "Flor blanca y pequeña.",
+                "Crece en zonas cálidas."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "El árbol de maquilishuat es el árbol nacional de El Salvador.",
             "imagenLeccion": "/img/niveles/sociales/arbol.png",
             "ejemplos": [
-                "Ejemplo 1: Flores rosadas y vistosas.",
-                "Ejemplo 2: Crece en zonas altas."
+                "Flores rosadas y vistosas.",
+                "Crece en zonas altas."
             ]
         }
     }

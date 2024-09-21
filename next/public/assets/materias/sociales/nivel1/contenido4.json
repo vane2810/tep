@@ -7,8 +7,8 @@
             "descripcion": "Cada ciudad en El Salvador celebra fiestas patronales en honor a su santo patrono.",
             "imagenLeccion": "/img/niveles/sociales/fiestas_patronales.png",
             "ejemplos": [
-                "Ejemplo 1: San Salvador celebra al Divino Salvador del Mundo.",
-                "Ejemplo 2: Santa Ana celebra a Nuestra Señora de Santa Ana."
+                "San Salvador celebra al Divino Salvador del Mundo.",
+                "Santa Ana celebra a Nuestra Señora de Santa Ana."
             ]
         },
         "2": {
@@ -16,8 +16,8 @@
             "descripcion": "El 15 de septiembre se celebra la independencia de Centroamérica de España.",
             "imagenLeccion": "/img/niveles/sociales/independencia.png",
             "ejemplos": [
-                "Ejemplo 1: Desfiles en las principales ciudades.",
-                "Ejemplo 2: Bandas escolares participan en el desfile."
+                "Desfiles en las principales ciudades.",
+                "Bandas escolares participan en el desfile."
             ]
         },
         "3": {
@@ -25,8 +25,8 @@
             "descripcion": "Durante la Semana Santa, se celebran procesiones religiosas en todo el país.",
             "imagenLeccion": "/img/niveles/sociales/semana_santa.png",
             "ejemplos": [
-                "Ejemplo 1: Procesiones de Viernes Santo.",
-                "Ejemplo 2: Alfombras de aserrín."
+                "Procesiones de Viernes Santo.",
+                "Alfombras de aserrín."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "El 7 de septiembre, en Ahuachapán, se celebra la festividad de los farolitos en honor a la Virgen Niña.",
             "imagenLeccion": "/img/niveles/sociales/farolitos.png",
             "ejemplos": [
-                "Ejemplo 1: Decoración de calles con farolitos.",
-                "Ejemplo 2: Concurso de farolitos creativos."
+                "Decoración de calles con farolitos.",
+                "Concurso de farolitos creativos."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "El 2 de noviembre se celebra el Día de los Difuntos, con visitas a los cementerios y altares.",
             "imagenLeccion": "/img/sociales/salvador/difuntos.png",
             "ejemplos": [
-                "Ejemplo 1: Decoración de tumbas con flores.",
-                "Ejemplo 2: Ofrendas y altares en memoria de los difuntos."
+                "Decoración de tumbas con flores.",
+                "Ofrendas y altares en memoria de los difuntos."
             ]
         }
     }

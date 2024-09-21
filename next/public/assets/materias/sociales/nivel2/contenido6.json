@@ -1,50 +1,60 @@
 {
-    "tituloGeneral": "Panamá: Tradiciones y Cultura",
-    "imagenPortada": "/img/centroamerica/panama.png",
+    "tituloGeneral": "Centro América: Honduras",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
     "lecciones": {
         "1": {
-            "titulo": "El Canal de Panamá",
-            "descripcion": "El Canal de Panamá es una de las mayores obras de ingeniería del mundo, conectando el océano Atlántico y el océano Pacífico.",
-            "imagenLeccion": "/img/centroamerica/canal_panama.png",
+            "titulo": "Ubicación de Honduras",
+            "descripcion": "Honduras está en el centro-norte de Centroamérica, limitando con Guatemala, El Salvador y Nicaragua.",
+            "imagenLeccion": "/img/centroamerica/mapa_honduras.png",
             "ejemplos": [
-                "Ejemplo 1: Inaugurado en 1914.",
-                "Ejemplo 2: Crucial para el comercio internacional."
+                "Al norte tiene costas en el mar Caribe.",
+                "Al sur limita con El Salvador y Nicaragua."
             ]
         },
         "2": {
-            "titulo": "La Pollera",
-            "descripcion": "La pollera es el traje típico de las mujeres panameñas, utilizado en festividades y celebraciones.",
-            "imagenLeccion": "/img/centroamerica/pollera.png",
+            "titulo": "Independencia",
+            "descripcion": "Honduras se independizó de España el 15 de septiembre de 1821.",
+            "imagenLeccion": "/img/centroamerica/independencia_honduras.png",
             "ejemplos": [
-                "Ejemplo 1: Decorada con encajes y bordados.",
-                "Ejemplo 2: Usada en el Festival de la Pollera en Las Tablas."
+                "Fue parte de las Provincias Unidas de Centroamérica después de la independencia."
             ]
         },
         "3": {
-            "titulo": "Día de la Independencia",
-            "descripcion": "Panamá celebra su independencia de España el 28 de noviembre y de Colombia el 3 de noviembre.",
-            "imagenLeccion": "/img/centroamerica/independencia_panama.png",
+            "titulo": "Cultura y Tradiciones",
+            "descripcion": "Honduras tiene una rica mezcla de cultura indígena, española y africana.",
+            "imagenLeccion": "/img/centroamerica/cultura_honduras.png",
             "ejemplos": [
-                "Ejemplo 1: Desfiles patrióticos.",
-                "Ejemplo 2: Actos cívicos en todo el país."
+                "Las danzas de los Garífunas son importantes en la costa caribeña.",
+                "El español es el idioma oficial."
             ]
         },
         "4": {
-            "titulo": "Carnaval de Panamá",
-            "descripcion": "El carnaval de Panamá es una de las celebraciones más grandes del país, lleno de desfiles, música y color.",
-            "imagenLeccion": "/img/centroamerica/carnaval_panama.png",
+            "titulo": "Símbolos Patrios de Honduras (Parte 1)",
+            "descripcion": "Honduras tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
+            "imagenLeccion": "/img/centroamerica/simbolos_honduras.png",
             "ejemplos": [
-                "Ejemplo 1: Celebrado en febrero o marzo.",
-                "Ejemplo 2: Famoso en Las Tablas y la Ciudad de Panamá."
+                "La bandera tiene franjas azules y blancas con cinco estrellas.",
+                "El escudo tiene volcanes, montañas y herramientas de trabajo."
             ]
         },
         "5": {
-            "titulo": "Semana Santa",
-            "descripcion": "La Semana Santa es una celebración importante en Panamá, marcada por procesiones y actividades religiosas.",
-            "imagenLeccion": "/img/centroamerica/semana_santa_panama.png",
+            "titulo": "Símbolos Patrios de Honduras (Parte 2)",
+            "descripcion": "Otros símbolos patrios de Honduras reflejan su biodiversidad y riqueza natural.",
+            "imagenLeccion": "/img/centroamerica/simbolos_honduras.png",
             "ejemplos": [
-                "Ejemplo 1: Procesiones en La Villa de Los Santos.",
-                "Ejemplo 2: Alfombras de flores y aserrín."
+                "Flor Nacional: Orquídea.",
+                "Árbol Nacional: Pino.",
+                "Ave Nacional: Guacamaya Roja.",
+                "Comida Típica: Baleadas y tamales."
+            ]
+        },
+        "6": {
+            "titulo": "Copán: Ciudad Maya",
+            "descripcion": "Copán es un antiguo centro maya en Honduras y uno de los sitios arqueológicos más importantes.",
+            "imagenLeccion": "/img/centroamerica/copan.png",
+            "ejemplos": [
+                "Copán fue una ciudad avanzada con monumentos y esculturas.",
+                "Es Patrimonio de la Humanidad por la UNESCO."
             ]
         }
     }

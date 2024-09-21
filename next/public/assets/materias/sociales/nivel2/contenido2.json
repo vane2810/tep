@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Honduras: Tradiciones y Cultura",
-    "imagenPortada": "/img/centroamerica/honduras.png",
+    "tituloGeneral": "Centroamérica: Historia",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
     "lecciones": {
         "1": {
-            "titulo": "La Garífuna",
-            "descripcion": "El pueblo garífuna de Honduras celebra su cultura a través de la música, danza y comida tradicional.",
-            "imagenLeccion": "/img/centroamerica/garifuna.png",
+            "titulo": "Los Primeros Habitantes",
+            "descripcion": "Los primeros habitantes de Centroamérica fueron pueblos indígenas que desarrollaron grandes civilizaciones.",
+            "imagenLeccion": "/img/centroamerica/primeros_habitantes.png",
             "ejemplos": [
-                "Ejemplo 1: Celebración del Día del Garífuna el 12 de abril.",
-                "Ejemplo 2: Música tradicional como la punta."
+                "Los mayas vivieron en lo que hoy es Guatemala, Belice y partes de Honduras.",
+                "Los chorotegas habitaron lo que hoy es Nicaragua y Costa Rica."
             ]
         },
         "2": {
-            "titulo": "Las Baleadas",
-            "descripcion": "Las baleadas son un plato típico de Honduras, hechas con tortillas de harina y frijoles.",
-            "imagenLeccion": "/img/centroamerica/baleadas.png",
+            "titulo": "La Conquista Española",
+            "descripcion": "En el siglo XVI, los españoles llegaron a Centroamérica y conquistaron a los pueblos indígenas.",
+            "imagenLeccion": "/img/centroamerica/conquista.png",
             "ejemplos": [
-                "Ejemplo 1: Baleadas con frijoles y queso.",
-                "Ejemplo 2: Baleadas con aguacate y carne."
+                "Hernán Cortés fue uno de los primeros en explorar la región.",
+                "Pedro de Alvarado lideró la conquista de los mayas en Guatemala."
             ]
         },
         "3": {
-            "titulo": "Feria Juniana",
-            "descripcion": "La Feria Juniana es la fiesta más grande de Honduras, celebrada en San Pedro Sula en honor a San Pedro.",
-            "imagenLeccion": "/img/centroamerica/feria_juniana.png",
+            "titulo": "La Independencia de España",
+            "descripcion": "El 15 de septiembre de 1821, los países de Centroamérica se independizaron de España.",
+            "imagenLeccion": "/img/centroamerica/independencia.png",
             "ejemplos": [
-                "Ejemplo 1: Desfiles y conciertos.",
-                "Ejemplo 2: Actividades culturales y recreativas."
+                "La independencia se firmó en Guatemala.",
+                "El Acta de Independencia se proclamó en varios países al mismo tiempo."
             ]
         },
         "4": {
-            "titulo": "La Ceiba Carnival",
-            "descripcion": "El carnaval de La Ceiba es uno de los más famosos en Honduras, celebrado en honor a San Isidro Labrador.",
-            "imagenLeccion": "/img/centroamerica/la_ceiba.png",
+            "titulo": "La Federación de CA",
+            "descripcion": "Después de la independencia, se formó la Federación de Centroamérica, pero no duró debido a los conflictos internos.",
+            "imagenLeccion": "/img/centroamerica/federacion.png",
             "ejemplos": [
-                "Ejemplo 1: Desfiles llenos de color.",
-                "Ejemplo 2: Música, comida y actividades recreativas."
+                "La Federación incluía a cinco países: Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica.",
+                "Se disolvió en 1841 debido a diferencias políticas."
             ]
         },
         "5": {
-            "titulo": "Semana Santa",
-            "descripcion": "Semana Santa en Honduras es una celebración religiosa con procesiones y actividades en todo el país.",
-            "imagenLeccion": "/img/centroamerica/semana_santa_honduras.png",
+            "titulo": "Centroamérica Hoy",
+            "descripcion": "Hoy en día, los países de Centroamérica son naciones independientes que trabajan juntas en áreas como comercio y cultura",
+            "imagenLeccion": "/img/centroamerica/centroamerica_hoy.png",
             "ejemplos": [
-                "Ejemplo 1: Procesiones religiosas.",
-                "Ejemplo 2: Alfombras de aserrín en Comayagua."
+                "Los países tienen banderas y gobiernos propios.",
+                "Centroamérica tiene tratados de libre comercio entre sus países."
             ]
         }
     }

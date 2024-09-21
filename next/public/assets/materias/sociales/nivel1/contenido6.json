@@ -7,8 +7,8 @@
             "descripcion": "El Salvador tiene varias cadenas montañosas que cruzan el país.",
             "imagenLeccion": "/img/niveles/sociales/montanas.png",
             "ejemplos": [
-                "Ejemplo 1: Sierra Madre de Chiapas.",
-                "Ejemplo 2: Cordillera del Bálsamo."
+                "Sierra Madre de Chiapas.",
+                "Cordillera del Bálsamo."
             ]
         },
         "2": {
@@ -16,8 +16,8 @@
             "descripcion": "El río Lempa es el más largo y caudaloso de El Salvador.",
             "imagenLeccion": "/img/niveles/sociales/rio.png",
             "ejemplos": [
-                "Ejemplo 1: Río Lempa.",
-                "Ejemplo 2: Río Grande de San Miguel."
+                "Río Lempa.",
+                "Río Grande de San Miguel."
             ]
         },
         "3": {
@@ -25,8 +25,8 @@
             "descripcion": "El Salvador tiene varios lagos, como el Lago de Coatepeque, de origen volcánico.",
             "imagenLeccion": "/img/niveles/sociales/lago.png",
             "ejemplos": [
-                "Ejemplo 1: Lago de Ilopango.",
-                "Ejemplo 2: Lago de Coatepeque."
+                "Lago de Ilopango.",
+                "Lago de Coatepeque."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "El Salvador es famoso por sus playas en el Pacífico, ideales para el surf.",
             "imagenLeccion": "/img/niveles/sociales/playas.png",
             "ejemplos": [
-                "Ejemplo 1: Playa El Tunco.",
-                "Ejemplo 2: Playa El Zonte."
+                "Playa El Tunco.",
+                "Playa El Zonte."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "El país es conocido por sus numerosos volcanes activos e inactivos.",
             "imagenLeccion": "/img/niveles/sociales/volcanes.png",
             "ejemplos": [
-                "Ejemplo 1: Volcán de San Salvador.",
-                "Ejemplo 2: Volcán de Izalco."
+                "Volcán de San Salvador.",
+                "Volcán de Izalco."
             ]
         }
     }

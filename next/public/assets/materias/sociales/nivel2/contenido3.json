@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "El Salvador: Tradiciones y Cultura",
-    "imagenPortada": "/img/centroamerica/el_salvador.png",
+    "tituloGeneral": "Centroamérica: Cultura y Tradiciones",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
     "lecciones": {
         "1": {
-            "titulo": "Pupusas",
-            "descripcion": "Las pupusas son el platillo más emblemático de El Salvador, hechas de maíz y rellenas de queso, frijoles o chicharrón.",
-            "imagenLeccion": "/img/centroamerica/pupusas.png",
+            "titulo": "La Música y el Baile",
+            "descripcion": "La música y el baile son muy importantes en Centroamérica, y cada país tiene sus propios ritmos.",
+            "imagenLeccion": "/img/centroamerica/musica_baile.png",
             "ejemplos": [
-                "Ejemplo 1: Se celebran el Día Nacional de la Pupusa.",
-                "Ejemplo 2: Pupusas de queso con loroco."
+                "El Punto Guanacasteco es un baile típico de Costa Rica.",
+                "La marimba es un instrumento popular en Guatemala."
             ]
         },
         "2": {
-            "titulo": "Las Fiestas Patronales",
-            "descripcion": "Cada ciudad celebra fiestas patronales en honor a su santo patrón.",
-            "imagenLeccion": "/img/centroamerica/fiestas_patronales.png",
+            "titulo": "Las Festividades",
+            "descripcion": "Centroamérica celebra varias festividades, muchas relacionadas con su historia y religión.",
+            "imagenLeccion": "/img/centroamerica/festividades.png",
             "ejemplos": [
-                "Ejemplo 1: Fiestas del Divino Salvador en San Salvador.",
-                "Ejemplo 2: Fiestas de Santa Ana."
+                "El Día de los Muertos se celebra en Guatemala y El Salvador.",
+                "La Semana Santa es muy importante en Nicaragua."
             ]
         },
         "3": {
-            "titulo": "Día de los Farolitos",
-            "descripcion": "El 7 de septiembre, en Ahuachapán, se celebra el Día de los Farolitos, decorando las calles con luces.",
-            "imagenLeccion": "/img/centroamerica/farolitos.png",
+            "titulo": "La Comida Típica",
+            "descripcion": "La comida en Centroamérica es variada y deliciosa, con platillos únicos en cada país.",
+            "imagenLeccion": "/img/centroamerica/comida_típica.png",
             "ejemplos": [
-                "Ejemplo 1: Calles iluminadas por farolitos de papel.",
-                "Ejemplo 2: Celebración en honor a la Virgen Niña."
+                "Las pupusas son famosas en El Salvador.",
+                "El gallo pinto es muy popular en Nicaragua y Costa Rica."
             ]
         },
         "4": {
-            "titulo": "El Xuc",
-            "descripcion": "El Xuc es un ritmo musical tradicional, muy popular en fiestas y eventos culturales.",
-            "imagenLeccion": "/img/centroamerica/xuc.png",
+            "titulo": "Vestimenta Tradicional",
+            "descripcion": "Cada país tiene su propia vestimenta tradicional, que usan en festivales y celebraciones.",
+            "imagenLeccion": "/img/centroamerica/vestimenta.png",
             "ejemplos": [
-                "Ejemplo 1: El Xuc fue creado por Francisco Palaviccini.",
-                "Ejemplo 2: Ritmo alegre y festivo."
+                "En Guatemala, los trajes típicos tienen colores brillantes.",
+                "En Panamá, se usa la pollera en fiestas tradicionales."
             ]
         },
         "5": {
-            "titulo": "Semana Santa",
-            "descripcion": "La Semana Santa en El Salvador se celebra con procesiones, alfombras de flores y actividades religiosas.",
-            "imagenLeccion": "/img/centroamerica/semana_santa_el_salvador.png",
+            "titulo": "Artesanías",
+            "descripcion": "Las artesanías centroamericanas son famosas por su colorido y originalidad.",
+            "imagenLeccion": "/img/centroamerica/artesanias.png",
             "ejemplos": [
-                "Ejemplo 1: Procesiones religiosas en todo el país.",
-                "Ejemplo 2: Alfombras de aserrín decoran las calles."
+                "En Costa Rica, las carretas pintadas son muy conocidas.",
+                "En Nicaragua, se hacen cerámicas tradicionales."
             ]
         }
     }

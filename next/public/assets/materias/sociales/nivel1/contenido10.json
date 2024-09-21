@@ -1,10 +1,10 @@
 {
     "tituloGeneral": "Volcanes de El Salvador",
-    "imagenPortada": "/img/personajes/burbuja/volcan.png",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
     "lecciones": {
         "1": {
             "titulo": "Volcán de San Salvador",
-            "descripcion": "El volcán de San Salvador, también conocido como Quetzaltepec, se encuentra cerca de la capital del país. Es un volcán activo que forma parte del paisaje de la ciudad.",
+            "descripcion": "También conocido como Quetzaltepec, se encuentra cerca de la capital del país",
             "imagenLeccion": "/img/niveles/volcanes/ss_volcan.png",
             "ejemplos": [
                 "Altura: 1,893 metros.",
@@ -13,7 +13,7 @@
         },
         "2": {
             "titulo": "Volcán de Izalco",
-            "descripcion": "El volcán de Izalco es conocido como 'El Faro del Pacífico' debido a que, en el pasado, sus erupciones constantes servían como guía para los navegantes.",
+            "descripcion": "Llamado 'El Faro del Pacífico' debido a que, en el pasado, sus erupciones constantes servían como guía para los navegantes.",
             "imagenLeccion": "/img/niveles/volcanes/izalco.png",
             "ejemplos": [
                 "Altura: 1,950 metros.",
@@ -22,7 +22,7 @@
         },
         "3": {
             "titulo": "Volcán de San Miguel",
-            "descripcion": "El volcán de San Miguel, también llamado Chaparrastique, es uno de los volcanes más activos de El Salvador. Se encuentra en el departamento de San Miguel.",
+            "descripcion": "También llamado Chaparrastique, es uno de los volcanes más activos de El Salvador. ",
             "imagenLeccion": "/img/niveles/volcanes/sanmiguel.png",
             "ejemplos": [
                 "Altura: 2,129 metros.",
@@ -31,7 +31,7 @@
         },
         "4": {
             "titulo": "Volcán Ilamatepec",
-            "descripcion": "El volcán Ilamatepec, también conocido como volcán de Santa Ana, es el más alto de El Salvador. Tiene una laguna cratérica de color turquesa en su cumbre.",
+            "descripcion": "El volcán Ilamatepec, también conocido como volcán de Santa Ana, es el más alto de El Salvador.",
             "imagenLeccion": "/img/niveles/volcanes/ilamatepec.png",
             "ejemplos": [
                 "Altura: 2,381 metros.",
@@ -40,7 +40,7 @@
         },
         "5": {
             "titulo": "Volcán Tecapa",
-            "descripcion": "El volcán Tecapa se encuentra en el departamento de Usulután. Cerca de su cráter se encuentra la laguna de Alegría, famosa por su color verde esmeralda.",
+            "descripcion": "El volcán Tecapa se encuentra en el departamento de Usulután. Cerca de su cráter se encuentra la laguna de Alegría",
             "imagenLeccion": "/img/niveles/volcanes/tecapa.png",
             "ejemplos": [
                 "Altura: 1,593 metros.",

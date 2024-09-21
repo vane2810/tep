@@ -7,8 +7,8 @@
             "descripcion": "La agricultura ha sido históricamente el sector más importante de la economía de El Salvador.",
             "imagenLeccion": "/img/niveles/sociales/agricultura.png",
             "ejemplos": [
-                "Ejemplo 1: Cultivo de café.",
-                "Ejemplo 2: Producción de caña de azúcar."
+                "Cultivo de café.",
+                "Producción de caña de azúcar."
             ]
         },
         "2": {
@@ -16,8 +16,8 @@
             "descripcion": "El Salvador ha desarrollado su sector industrial en los últimos años.",
             "imagenLeccion": "/img/niveles/sociales/industria.png",
             "ejemplos": [
-                "Ejemplo 1: Fabricación de textiles.",
-                "Ejemplo 2: Industria alimentaria."
+                "Fabricación de textiles.",
+                "Industria alimentaria."
             ]
         },
         "3": {
@@ -25,8 +25,8 @@
             "descripcion": "El país exporta productos como el café, azúcar y textiles a nivel internacional.",
             "imagenLeccion": "/img/niveles/sociales/exportaciones.png",
             "ejemplos": [
-                "Ejemplo 1: Exportaciones de café.",
-                "Ejemplo 2: Exportaciones de textiles."
+                "Exportaciones de café.",
+                "Exportaciones de textiles."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "Las remesas enviadas por los salvadoreños en el extranjero son una fuente importante de ingresos.",
             "imagenLeccion": "/img/niveles/sociales/remesas.png",
             "ejemplos": [
-                "Ejemplo 1: Envíos desde Estados Unidos.",
-                "Ejemplo 2: Ayudan al consumo local."
+                "Envíos desde Estados Unidos.",
+                "Ayudan al consumo local."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "El turismo en El Salvador ha crecido, especialmente con el surf y el ecoturismo.",
             "imagenLeccion": "/img/niveles/sociales/turismo.png",
             "ejemplos": [
-                "Ejemplo 1: Playas del Pacífico.",
-                "Ejemplo 2: Sitios arqueológicos como Joya de Cerén."
+                "Playas del Pacífico.",
+                "Sitios arqueológicos como Joya de Cerén."
             ]
         }
     }
