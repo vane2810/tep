@@ -104,7 +104,7 @@ const Game5 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToN
     function checkAnswer(opcionSeleccionada, button, puntos) {
       let feedbackMessage = '';
       let feedbackColor = '';
-    
+
       if (opcionSeleccionada === gameData.escenas[currentScene].correcta) {
         feedbackMessage = `¡Correcto! La respuesta es: ${opcionSeleccionada}`;
         feedbackColor = '#6aa84f'; // Verde para correcto
@@ -113,10 +113,10 @@ const Game5 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToN
         feedbackMessage = `Incorrecto. La respuesta es: ${gameData.escenas[currentScene].correcta}`;
         feedbackColor = '#ff0000'; // Rojo para incorrecto
       }
-    
+
       updateFeedback(feedbackMessage, feedbackColor);
       button.setStyle({ fill: feedbackColor });
-    
+
       setTimeout(() => {
         proceedToNextScene(); // Avanza a la siguiente escena
         if (gameInstance) {
@@ -124,7 +124,7 @@ const Game5 = ({ gameData, currentScene, updateScore, updateFeedback, proceedToN
         }
       }, 1500);
     }
-    
+
 
     return () => {
       if (gameInstance) {

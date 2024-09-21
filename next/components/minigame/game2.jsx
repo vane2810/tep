@@ -1,3 +1,4 @@
+//game 2 - "Operaciones" seleccionar pero con cantidades al azar (recomendado para mate nada más)
 "use client";
 import React, { useEffect, useState } from 'react';
 import * as Phaser from 'phaser';

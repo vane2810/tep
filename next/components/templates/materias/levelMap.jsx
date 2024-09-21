@@ -15,7 +15,7 @@ const LevelMap = ({ subject, basePath, levels, fondoUrl, decorativos, camino, ca
                     <img src={camino} alt={`Nivel ${level.id}`} className="hover:shadow-lg rounded-full w-[4vw] h-[4vw] transform transition-transform cursor-pointer hover:scale-105" />
                 </Link>
 
-                <span className="mt-2 text-[2vw] text-white">{level.id}</span>
+                <span className="mt-2 font-bold text-[2vw]" style={{ color: level.color || 'inherit' }}>{level.id}</span>
             </div>
         ))}
 

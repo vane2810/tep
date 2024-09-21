@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Volcanes de El Salvador",
+    "imagenPortada": "/img/personajes/burbuja/volcan.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Volcán de San Salvador",
+            "descripcion": "El volcán de San Salvador, también conocido como Quetzaltepec, se encuentra cerca de la capital del país. Es un volcán activo que forma parte del paisaje de la ciudad.",
+            "imagenLeccion": "/img/niveles/volcanes/ss_volcan.png",
+            "ejemplos": [
+                "Altura: 1,893 metros.",
+                "Última erupción: 1917."
+            ]
+        },
+        "2": {
+            "titulo": "Volcán de Izalco",
+            "descripcion": "El volcán de Izalco es conocido como 'El Faro del Pacífico' debido a que, en el pasado, sus erupciones constantes servían como guía para los navegantes.",
+            "imagenLeccion": "/img/niveles/volcanes/izalco.png",
+            "ejemplos": [
+                "Altura: 1,950 metros.",
+                "Última erupción: 1958."
+            ]
+        },
+        "3": {
+            "titulo": "Volcán de San Miguel",
+            "descripcion": "El volcán de San Miguel, también llamado Chaparrastique, es uno de los volcanes más activos de El Salvador. Se encuentra en el departamento de San Miguel.",
+            "imagenLeccion": "/img/niveles/volcanes/sanmiguel.png",
+            "ejemplos": [
+                "Altura: 2,129 metros.",
+                "Última erupción: 2019."
+            ]
+        },
+        "4": {
+            "titulo": "Volcán Ilamatepec",
+            "descripcion": "El volcán Ilamatepec, también conocido como volcán de Santa Ana, es el más alto de El Salvador. Tiene una laguna cratérica de color turquesa en su cumbre.",
+            "imagenLeccion": "/img/niveles/volcanes/ilamatepec.png",
+            "ejemplos": [
+                "Altura: 2,381 metros.",
+                "Última erupción: 2005."
+            ]
+        },
+        "5": {
+            "titulo": "Volcán Tecapa",
+            "descripcion": "El volcán Tecapa se encuentra en el departamento de Usulután. Cerca de su cráter se encuentra la laguna de Alegría, famosa por su color verde esmeralda.",
+            "imagenLeccion": "/img/niveles/volcanes/tecapa.png",
+            "ejemplos": [
+                "Altura: 1,593 metros.",
+                "Laguna de Alegría en su cráter."
+            ]
+        }
+    }
+}

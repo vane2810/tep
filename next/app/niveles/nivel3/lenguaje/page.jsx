@@ -7,17 +7,18 @@ import { SeparadorMorado } from "@/components/separador";
 
 export default function LenguajePage() {
   const levels = [
-    { id: 1, position: { top: '85%', left: '10%' } },
-    { id: 2, position: { top: '78%', left: '20%' } },
-    { id: 3, position: { top: '70%', left: '30%' } },
-    { id: 4, position: { top: '65%', left: '40%' } },
-    { id: 5, position: { top: '60%', left: '50%' } },
-    { id: 6, position: { top: '55%', left: '60%' } },
-    { id: 7, position: { top: '50%', left: '69%' } },
-    { id: 8, position: { top: '45%', left: '78%' } },
-    { id: 9, position: { top: '35%', left: '84%' } },
-    { id: 10, position: { top: '22%', left: '87%' } }
+    { id: 1, position: { top: '85%', left: '10%' }, color: 'white' },
+    { id: 2, position: { top: '78%', left: '20%' }, color: 'white' },
+    { id: 3, position: { top: '70%', left: '30%' }, color: 'white' },
+    { id: 4, position: { top: '65%', left: '40%' }, color: 'white' },
+    { id: 5, position: { top: '60%', left: '50%' }, color: 'white' },
+    { id: 6, position: { top: '55%', left: '60%' }, color: 'white' },
+    { id: 7, position: { top: '50%', left: '69%' }, color: 'white' },
+    { id: 8, position: { top: '45%', left: '78%' }, color: 'white' },
+    { id: 9, position: { top: '35%', left: '84%' }, color: 'white' },
+    { id: 10, position: { top: '22%', left: '87%' }, color: 'white' },
   ];
+
 
   const decorativos = [
     { img: '/img/niveless/lenguaje/lvl1/planetan1.png', alt: 'Planeta', className: 'planet-animation', style: { top: '9%', left: '90%', width: '8vw' } },
@@ -28,6 +29,7 @@ export default function LenguajePage() {
   return (
     <main>
       <SeparadorMorado />
+
       <div className="flex justify-center items-center w-full">
 
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
@@ -47,6 +49,8 @@ export default function LenguajePage() {
             levels={levels}
             fondoUrl="/img/niveless/lenguaje/lvl1/fondon3.jpg"
             decorativos={decorativos}
+            camino="/img/niveless/lenguaje/lvl1/estrella.png"
+            caricatura="/img/niveless/lenguaje/lvl1/astronautan1.png"
           />
         </div>
       </div>

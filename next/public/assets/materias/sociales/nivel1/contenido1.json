@@ -7,8 +7,8 @@
             "descripcion": "El Salvador está en América Central, limita con Honduras, Guatemala y el océano Pacífico.",
             "imagenLeccion": "/img/niveles/sociales/mapa.png",
             "ejemplos": [
-                "Ejemplo 1: Norte - Honduras.",
-                "Ejemplo 2: Sur - Océano Pacífico."
+                "Norte - Honduras.",
+                "Sur - Océano Pacífico."
             ]
         },
         "2": {
@@ -16,8 +16,8 @@
             "descripcion": "El Salvador es el país más pequeño de América Central.",
             "imagenLeccion": "/img/niveles/sociales/extension.png",
             "ejemplos": [
-                "Ejemplo 1: Área total de 21,041 km².",
-                "Ejemplo 2: Conocido como 'El Pulgarcito de América'."
+                "Área total de 21,041 km².",
+                "Conocido como 'El Pulgarcito de América'."
             ]
         },
         "3": {
@@ -25,8 +25,8 @@
             "descripcion": "El clima de El Salvador es tropical, con una estación lluviosa y una seca.",
             "imagenLeccion": "/img/niveles/sociales/clima.png",
             "ejemplos": [
-                "Ejemplo 1: Estación seca: noviembre a abril.",
-                "Ejemplo 2: Estación lluviosa: mayo a octubre."
+                "Estación seca: noviembre a abril.",
+                "Estación lluviosa: mayo a octubre."
             ]
         },
         "4": {
@@ -34,8 +34,8 @@
             "descripcion": "El Salvador es conocido por tener muchos volcanes, como el volcán de San Salvador.",
             "imagenLeccion": "/img/niveles/sociales/volcan.png",
             "ejemplos": [
-                "Ejemplo 1: Volcán de San Miguel.",
-                "Ejemplo 2: Volcán de Izalco."
+                "Volcán de San Miguel.",
+                "Volcán de Izalco."
             ]
         },
         "5": {
@@ -43,8 +43,8 @@
             "descripcion": "El Salvador cuenta con varios ríos importantes, como el río Lempa.",
             "imagenLeccion": "/img/niveles/sociales/rio.png",
             "ejemplos": [
-                "Ejemplo 1: Río Lempa.",
-                "Ejemplo 2: Río Grande de San Miguel."
+                "Río Lempa.",
+                "Río Grande de San Miguel."
             ]
         }
     }

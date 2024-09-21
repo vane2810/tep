@@ -15,12 +15,6 @@ const getGameComponent = (gameType) => {
         case "Seleccionar":
             return dynamic(() => import('@/components/minigame/game1'), { ssr: false });
 
-        case "Operaciones":
-            return dynamic(() => import('@/components/minigame/game3'), { ssr: false });
-
-        case "Operaciones":
-            return dynamic(() => import('@/components/minigame/game3'), { ssr: false });
-
         case "Arrastrar":
             return dynamic(() => import('@/components/minigame/game5'), { ssr: false });
 

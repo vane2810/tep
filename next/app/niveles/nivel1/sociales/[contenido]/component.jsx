@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';  // Asegúrate de usar la importación correcta
 import Volver from '@/components/botonVolver';
-import { SeparadorMorado } from '@/components/separador';
+import { SeparadorAzul } from '@/components/separador';
 
 
 
@@ -59,12 +59,9 @@ export default function Component({ id }) {
     }
   };
 
-  // Función para redirigir a la página del juego
   const handlePlayGame = () => {
     router.push(`/niveles/nivel1/sociales/${id}/${id}`);
-
   };
-
 
   if (!lecciones || lecciones.length === 0) {
     return null;
@@ -74,7 +71,7 @@ export default function Component({ id }) {
 
   return (
     <main className="relative">
-      <SeparadorMorado />
+      <SeparadorAzul />
 
       {/* Botón de Volver */}
       <div className="top-4 left-4 z-10 absolute">
@@ -115,10 +112,15 @@ export default function Component({ id }) {
         {isOpen && (
           <div
             className="relative bg-cover bg-center shadow-2xl w-[850px] h-[550px] transition-transform duration-700"
-            style={{ backgroundImage: "url('/img/niveless/lenguaje/libro_abierto.png')" }}
+            style={{
+              backgroundImage: "url('/img/niveless/sociales/mapa_abierto.png')",
+              backgroundSize: 'contain',  
+              backgroundPosition: 'center', 
+              backgroundRepeat: 'no-repeat',
+            }}
           >
             {/* Página izquierda del libro */}
-            <div className="top-[10%] left-[10%] absolute p-8 w-[38%] h-[65%] story">
+            <div className="top-[12%] left-[18%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
               <h2 className="mb-4 font-bold text-2xl">{currentLeccion.titulo}</h2>
               <p className="font-serif text-lg leading-relaxed">{currentLeccion.descripcion}</p>
 
@@ -127,7 +129,7 @@ export default function Component({ id }) {
                 <img
                   src={currentLeccion.imagenLeccion}
                   alt={currentLeccion.titulo}
-                  className="mt-4 rounded-lg w-[100%] h-[100px] object-contain"
+                  className="mt-8 rounded-lg w-[100%] h-[100px] object-contain"
                 />
               )}
 
@@ -146,8 +148,8 @@ export default function Component({ id }) {
             </div>
 
             {/* Página derecha del libro */}
-            <div className="top-[10%] right-[10%] absolute p-8 w-[38%] h-[65%]">
-              <h3 className="mb-4 font-bold text-2xl story">Ejemplos:</h3>
+            <div className="top-[35%] right-[10%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
+              <h3 className="mb-4 font-bold text-2xl story">Datos importantes:</h3>
               <ul className="font-serif text-lg leading-relaxed list-disc list-inside">
                 {currentLeccion.ejemplos.map((ejemplo, index) => (
                   <li key={index}>{ejemplo}</li>
@@ -155,7 +157,7 @@ export default function Component({ id }) {
               </ul>
 
               {/* Flecha derecha en la página derecha */}
-              <div className="right-4 bottom-4 absolute">
+              <div className="right-4 bottom-12 absolute"> {/* Ajustar bottom a 12 para acercarla */}
                 {currentPage < lecciones.length - 1 ? (
                   <img
                     onClick={nextPage}
@@ -166,7 +168,7 @@ export default function Component({ id }) {
                   />
                 ) : (
                   <button
-                    onClick={handlePlayGame}  // Redirigir al juego cuando se hace clic en "Jugar"
+                    onClick={handlePlayGame}
                     className="bg-green-500 hover:bg-green-700 px-6 py-2 rounded-lg text-white text-xl transition duration-300 story"
                   >
                     Jugar
@@ -177,7 +179,7 @@ export default function Component({ id }) {
           </div>
         )}
       </div>
-      <SeparadorMorado />
+      <SeparadorAzul />
     </main>
   );
 }
