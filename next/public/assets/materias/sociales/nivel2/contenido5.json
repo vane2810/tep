@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Costa Rica: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/costa_rica.png",
+    "lecciones": {
+        "1": {
+            "titulo": "La Carreta Típica",
+            "descripcion": "La carreta típica es un símbolo de Costa Rica, utilizada en la agricultura y decorada con coloridos diseños.",
+            "imagenLeccion": "/img/centroamerica/carreta.png",
+            "ejemplos": [
+                "Ejemplo 1: Patrimonio cultural desde 1988.",
+                "Ejemplo 2: Utilizada para transportar café y otros productos."
+            ]
+        },
+        "2": {
+            "titulo": "El Gallo Pinto",
+            "descripcion": "El Gallo Pinto es el plato más popular de Costa Rica, hecho con arroz y frijoles.",
+            "imagenLeccion": "/img/centroamerica/gallo_pinto_costa_rica.png",
+            "ejemplos": [
+                "Ejemplo 1: Se sirve en el desayuno.",
+                "Ejemplo 2: Acompañado de tortillas y natilla."
+            ]
+        },
+        "3": {
+            "titulo": "Día de la Independencia",
+            "descripcion": "El 15 de septiembre, Costa Rica celebra su independencia de España con desfiles y actividades cívicas.",
+            "imagenLeccion": "/img/centroamerica/independencia_costa_rica.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles de bandas estudiantiles.",
+                "Ejemplo 2: Actos cívicos en las escuelas."
+            ]
+        },
+        "4": {
+            "titulo": "Semana Santa",
+            "descripcion": "La Semana Santa es una de las celebraciones religiosas más importantes en Costa Rica, con procesiones y actividades religiosas.",
+            "imagenLeccion": "/img/centroamerica/semana_santa_costa_rica.png",
+            "ejemplos": [
+                "Ejemplo 1: Procesiones en San José.",
+                "Ejemplo 2: Alfombras de flores y aserrín."
+            ]
+        },
+        "5": {
+            "titulo": "Día de la Virgen de los Ángeles",
+            "descripcion": "El 2 de agosto, Costa Rica celebra el Día de la Virgen de los Ángeles, patrona del país.",
+            "imagenLeccion": "/img/centroamerica/virgen_angeles.png",
+            "ejemplos": [
+                "Ejemplo 1: Peregrinación a la Basílica de Cartago.",
+                "Ejemplo 2: Misas y procesiones en su honor."
+            ]
+        }
+    }
+}

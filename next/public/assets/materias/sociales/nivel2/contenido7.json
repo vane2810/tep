@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Belice: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/belice.png",
+    "lecciones": {
+        "1": {
+            "titulo": "El Creole",
+            "descripcion": "La cultura creole de Belice está presente en la música, el idioma y las costumbres locales.",
+            "imagenLeccion": "/img/centroamerica/creole.png",
+            "ejemplos": [
+                "Ejemplo 1: El idioma creole es ampliamente hablado.",
+                "Ejemplo 2: Música popular como el brukdown."
+            ]
+        },
+        "2": {
+            "titulo": "La Garífuna",
+            "descripcion": "El pueblo garífuna, que vive en la costa de Belice, celebra su cultura con música, danza y comida.",
+            "imagenLeccion": "/img/centroamerica/garifuna_belice.png",
+            "ejemplos": [
+                "Ejemplo 1: Día de la Garífuna, celebrado el 19 de noviembre.",
+                "Ejemplo 2: Música como la punta."
+            ]
+        },
+        "3": {
+            "titulo": "Día de la Independencia",
+            "descripcion": "Belice celebra su independencia del Reino Unido el 21 de septiembre.",
+            "imagenLeccion": "/img/centroamerica/independencia_belice.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles y actos cívicos.",
+                "Ejemplo 2: Celebraciones patrióticas en la Ciudad de Belice."
+            ]
+        },
+        "4": {
+            "titulo": "El Mestizo",
+            "descripcion": "Los mestizos representan una parte importante de la cultura beliceña, con influencia de las tradiciones mayas y españolas.",
+            "imagenLeccion": "/img/centroamerica/mestizo.png",
+            "ejemplos": [
+                "Ejemplo 1: Celebraciones religiosas y tradicionales.",
+                "Ejemplo 2: Música y danzas influenciadas por España."
+            ]
+        },
+        "5": {
+            "titulo": "Fiestas Patrias",
+            "descripcion": "Las fiestas patrias en Belice incluyen desfiles, eventos culturales y deportivos.",
+            "imagenLeccion": "/img/centroamerica/fiestas_patias_belice.png",
+            "ejemplos": [
+                "Ejemplo 1: Concursos de bandas.",
+                "Ejemplo 2: Actividades recreativas en todo el país."
+            ]
+        }
+    }
+}

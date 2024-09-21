@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "El Salvador: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/el_salvador.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Pupusas",
+            "descripcion": "Las pupusas son el platillo más emblemático de El Salvador, hechas de maíz y rellenas de queso, frijoles o chicharrón.",
+            "imagenLeccion": "/img/centroamerica/pupusas.png",
+            "ejemplos": [
+                "Ejemplo 1: Se celebran el Día Nacional de la Pupusa.",
+                "Ejemplo 2: Pupusas de queso con loroco."
+            ]
+        },
+        "2": {
+            "titulo": "Las Fiestas Patronales",
+            "descripcion": "Cada ciudad celebra fiestas patronales en honor a su santo patrón.",
+            "imagenLeccion": "/img/centroamerica/fiestas_patronales.png",
+            "ejemplos": [
+                "Ejemplo 1: Fiestas del Divino Salvador en San Salvador.",
+                "Ejemplo 2: Fiestas de Santa Ana."
+            ]
+        },
+        "3": {
+            "titulo": "Día de los Farolitos",
+            "descripcion": "El 7 de septiembre, en Ahuachapán, se celebra el Día de los Farolitos, decorando las calles con luces.",
+            "imagenLeccion": "/img/centroamerica/farolitos.png",
+            "ejemplos": [
+                "Ejemplo 1: Calles iluminadas por farolitos de papel.",
+                "Ejemplo 2: Celebración en honor a la Virgen Niña."
+            ]
+        },
+        "4": {
+            "titulo": "El Xuc",
+            "descripcion": "El Xuc es un ritmo musical tradicional, muy popular en fiestas y eventos culturales.",
+            "imagenLeccion": "/img/centroamerica/xuc.png",
+            "ejemplos": [
+                "Ejemplo 1: El Xuc fue creado por Francisco Palaviccini.",
+                "Ejemplo 2: Ritmo alegre y festivo."
+            ]
+        },
+        "5": {
+            "titulo": "Semana Santa",
+            "descripcion": "La Semana Santa en El Salvador se celebra con procesiones, alfombras de flores y actividades religiosas.",
+            "imagenLeccion": "/img/centroamerica/semana_santa_el_salvador.png",
+            "ejemplos": [
+                "Ejemplo 1: Procesiones religiosas en todo el país.",
+                "Ejemplo 2: Alfombras de aserrín decoran las calles."
+            ]
+        }
+    }
+}

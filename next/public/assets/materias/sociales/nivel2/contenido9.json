@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Centroamérica: La Federación Centroamericana",
+    "imagenPortada": "/img/centroamerica/federacion.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Fundación de la Federación",
+            "descripcion": "En 1823, se fundó la Federación de Provincias Unidas de Centroamérica, uniendo a cinco países.",
+            "imagenLeccion": "/img/centroamerica/fundacion.png",
+            "ejemplos": [
+                "Ejemplo 1: Incluía Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica.",
+                "Ejemplo 2: Fue creada tras la independencia de España."
+            ]
+        },
+        "2": {
+            "titulo": "Primer Presidente",
+            "descripcion": "Manuel José Arce fue el primer presidente de la Federación Centroamericana.",
+            "imagenLeccion": "/img/centroamerica/arce.png",
+            "ejemplos": [
+                "Ejemplo 1: Gobernó de 1825 a 1829.",
+                "Ejemplo 2: Arce intentó mantener la unidad de la federación."
+            ]
+        },
+        "3": {
+            "titulo": "Causas de la Disolución",
+            "descripcion": "La Federación se disolvió debido a diferencias políticas y conflictos entre los estados.",
+            "imagenLeccion": "/img/centroamerica/disolucion.png",
+            "ejemplos": [
+                "Ejemplo 1: Desacuerdos sobre el poder centralizado.",
+                "Ejemplo 2: Conflictos territoriales entre los estados miembros."
+            ]
+        },
+        "4": {
+            "titulo": "Impacto en la Historia",
+            "descripcion": "La disolución de la Federación marcó el inicio de los países centroamericanos como estados soberanos e independientes.",
+            "imagenLeccion": "/img/centroamerica/impacto.png",
+            "ejemplos": [
+                "Ejemplo 1: Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica.",
+                "Ejemplo 2: Cada país formó su propio gobierno."
+            ]
+        },
+        "5": {
+            "titulo": "Legado de la Federación",
+            "descripcion": "Aunque la Federación no duró mucho, dejó un legado de unidad en Centroamérica, y varios intentos de reunificación se han realizado a lo largo de la historia.",
+            "imagenLeccion": "/img/centroamerica/legado.png",
+            "ejemplos": [
+                "Ejemplo 1: Banderas similares en la región.",
+                "Ejemplo 2: Intercambio cultural y comercial entre los países."
+            ]
+        }
+    }
+}

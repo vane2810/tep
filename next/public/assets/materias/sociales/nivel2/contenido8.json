@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Centroamérica: La Independencia",
+    "imagenPortada": "/img/centroamerica/independencia.png",
+    "lecciones": {
+        "1": {
+            "titulo": "El 15 de Septiembre de 1821",
+            "descripcion": "Centroamérica declaró su independencia de España el 15 de septiembre de 1821.",
+            "imagenLeccion": "/img/centroamerica/15_septiembre.png",
+            "ejemplos": [
+                "Ejemplo 1: Firmada en Guatemala.",
+                "Ejemplo 2: Celebrada en toda la región."
+            ]
+        },
+        "2": {
+            "titulo": "Las Provincias Unidas de Centroamérica",
+            "descripcion": "Tras la independencia, se formó la Federación de Provincias Unidas de Centroamérica.",
+            "imagenLeccion": "/img/centroamerica/federacion.png",
+            "ejemplos": [
+                "Ejemplo 1: Incluía Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica.",
+                "Ejemplo 2: Duró hasta 1841."
+            ]
+        },
+        "3": {
+            "titulo": "José Matías Delgado",
+            "descripcion": "José Matías Delgado fue uno de los principales líderes del movimiento independentista en El Salvador.",
+            "imagenLeccion": "/img/centroamerica/delgado.png",
+            "ejemplos": [
+                "Ejemplo 1: Conocido como el Padre de la Patria en El Salvador.",
+                "Ejemplo 2: Participó en la firma del Acta de Independencia."
+            ]
+        },
+        "4": {
+            "titulo": "Celebraciones Actuales",
+            "descripcion": "Hoy en día, los países centroamericanos celebran su independencia con desfiles, conciertos y actos cívicos.",
+            "imagenLeccion": "/img/centroamerica/celebraciones_independencia.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles escolares en todos los países.",
+                "Ejemplo 2: Actos cívicos en las plazas principales."
+            ]
+        },
+        "5": {
+            "titulo": "La Bandera de Centroamérica",
+            "descripcion": "La bandera de las Provincias Unidas de Centroamérica tenía franjas azules y blancas, similares a las banderas actuales de varios países de la región.",
+            "imagenLeccion": "/img/centroamerica/bandera.png",
+            "ejemplos": [
+                "Ejemplo 1: Simboliza la unión de los pueblos.",
+                "Ejemplo 2: Inspiró las banderas de Guatemala, Honduras, y Nicaragua."
+            ]
+        }
+    }
+}
