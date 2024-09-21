@@ -1,50 +1,56 @@
 {
-    "tituloGeneral": "Los Adjetivos",
+    "tituloGeneral": "El Uso de la 'V'",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Adjetivos: ¿Qué son?",
-            "descripcion": "Los adjetivos describen características de los sustantivos.",
-            "imagenLeccion": "/img/niveles/lenguaje/adjetivo.png",
+            "titulo": "Formas de vebos",
+            "descripcion": "Algunas formas de los verbos estar, andar, tener, mantener, contener y sostener",
+            "imagenLeccion": "/img/niveles/lenguaje/vice_viz_vi.png",
             "ejemplos": [
-                "Ejemplo 1: El coche rápido.",
-                "Ejemplo 2: La casa grande."
+                "Estuviste",
+                "Anduvo",
+                "Tuvieron",
+                "Mantuviese"
             ]
         },
         "2": {
-            "titulo": "Adjetivos Calificativos",
-            "descripcion": "Expresan cualidades o estados del sustantivo.",
-            "imagenLeccion": "/img/niveles/lenguaje/calificativos.png",
+            "titulo": "Después de 'n', 'd' y 'b'",
+            "descripcion": "Se escribe 'v' después de las consonantes 'n', 'd' y 'b' en algunas palabras.",
+            "imagenLeccion": "/img/niveles/lenguaje/n_d_b.png",
             "ejemplos": [
-                "Ejemplo 1: El gato negro.",
-                "Ejemplo 2: El día soleado."
+                "Invitaré a todos mis amigos a la fiesta.",
+                "Estuvo de pie delante del grupo."
             ]
         },
         "3": {
-            "titulo": "Adjetivos Posesivos",
-            "descripcion": "Indican pertenencia o posesión.",
-            "imagenLeccion": "/img/niveles/lenguaje/posesivos.png",
+            "titulo": "Regla 3: Verbos terminados en '-olver' y sus conjugaciones",
+            "descripcion": "Todos los verbos terminados en '-olver' y sus conjugaciones se escriben con 'v'.",
+            "imagenLeccion": "/img/niveles/lenguaje/verbos_olver.png",
             "ejemplos": [
-                "Ejemplo 1: Mi libro.",
-                "Ejemplo 2: Su perro."
+                "Él resolvió el problema en cuestión de minutos.",
+                "Cuando volvimos a casa, ya era tarde."
             ]
         },
         "4": {
-            "titulo": "Adjetivos Demostrativos",
-            "descripcion": "Señalan proximidad o lejanía del sustantivo.",
-            "imagenLeccion": "/img/niveles/lenguaje/demostrativos.png",
+            "titulo": "Palabras que comienzan con:",
+            "descripcion": "Las palabras que empiezan con cal-, cer-, cla-, con- y cur-.",
+            "imagenLeccion": "/img/niveles/lenguaje/eva_eve_evi_evo.png",
             "ejemplos": [
-                "Ejemplo 1: Este coche.",
-                "Ejemplo 2: Aquella montaña."
+                "Calvo",
+                "Clave",
+                "Conversacion",
+                "curva"
             ]
         },
         "5": {
-            "titulo": "Grados del Adjetivo",
-            "descripcion": "Indican el grado de intensidad: positivo, comparativo, superlativo.",
-            "imagenLeccion": "/img/niveles/lenguaje/grados_adjetivo.png",
+            "titulo": "Palabras que empiezan:",
+            "descripcion": "Las palabras que empiezan con di-",
+            "imagenLeccion": "/img/niveles/lenguaje/voro_vora.png",
             "ejemplos": [
-                "Ejemplo 1: El coche rápido.",
-                "Ejemplo 2: El coche más rápido."
+                "Diversidad",
+                "Diversión",
+                "Divino",
+                "Dividir"
             ]
         }
     }
