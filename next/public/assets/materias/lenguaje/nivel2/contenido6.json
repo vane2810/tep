@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Sujeto y Predicado",
+    "tituloGeneral": "El Uso de las Palabras Compuestas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Sujeto y Predicado: ¿Qué son?",
-            "descripcion": "El sujeto indica quién realiza la acción, y el predicado describe la acción o lo que se dice del sujeto.",
-            "imagenLeccion": "/img/niveles/lenguaje/sujeto_predicado.png",
+            "titulo": "Palabras compuestas unidas sin guion",
+            "descripcion": "Cuando las palabras compuestas se forman por dos palabras que se escriben juntas sin guion, solo la primera palabra mantiene su tilde, si la tiene.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_compuestas_unidas.png",
             "ejemplos": [
-                "Ejemplo 1: El perro (sujeto) corre rápido (predicado).",
-                "Ejemplo 2: La niña (sujeto) come una manzana (predicado)."
+                "Decimosacuerdo (decimo + acuerdo).",
+                "Sabelotodo (sabe + todo)."
             ]
         },
         "2": {
-            "titulo": "El Sujeto",
-            "descripcion": "El sujeto es quien realiza la acción. Puede ser explícito o tácito.",
-            "imagenLeccion": "/img/niveles/lenguaje/sujeto.png",
+            "titulo": "Palabras compuestas con guion",
+            "descripcion": "Cuando dos palabras se unen con guion para formar una palabra compuesta, ambas palabras mantienen sus acentos y se pronuncian por separado.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_compuestas_guion.png",
             "ejemplos": [
-                "Ejemplo 1: Los gatos juegan. (Sujeto explícito: Los gatos)",
-                "Ejemplo 2: Corro todos los días. (Sujeto tácito: Yo)"
+                "Teórico-práctico (teoría + práctica).",
+                "Físico-químico (física + química)."
             ]
         },
         "3": {
-            "titulo": "El Predicado",
-            "descripcion": "El predicado describe la acción que realiza el sujeto o lo que se dice de él.",
-            "imagenLeccion": "/img/niveles/lenguaje/predicado.png",
+            "titulo": "Combinación de verbo y sustantivo",
+            "descripcion": "Las palabras compuestas formadas por la combinación de un verbo y un sustantivo se escriben juntas y sin guion.",
+            "imagenLeccion": "/img/niveles/lenguaje/compuesto_verbo_sustantivo.png",
             "ejemplos": [
-                "Ejemplo 1: El niño lee un libro. (Predicado: lee un libro)",
-                "Ejemplo 2: Las flores crecen. (Predicado: crecen)"
+                "Abrelatas (abre + latas).",
+                "Cortaúñas (corta + uñas)."
             ]
         },
         "4": {
-            "titulo": "Núcleo del Sujeto",
-            "descripcion": "El núcleo del sujeto es la palabra principal, generalmente un sustantivo.",
-            "imagenLeccion": "/img/niveles/lenguaje/nucleo_sujeto.png",
+            "titulo": "Palabras compuestas que cambian de género",
+            "descripcion": "Algunas palabras compuestas cambian el género de la palabra original al convertirse en compuestas, siendo común que adopten el género masculino.",
+            "imagenLeccion": "/img/niveles/lenguaje/cambio_genero.png",
             "ejemplos": [
-                "Ejemplo 1: La casa (Núcleo: casa).",
-                "Ejemplo 2: El coche (Núcleo: coche)."
+                "El paraguas (para + aguas).",
+                "El sacapuntas (saca + puntas)."
             ]
         },
         "5": {
-            "titulo": "Núcleo del Predicado",
-            "descripcion": "El núcleo del predicado es el verbo principal que indica la acción.",
-            "imagenLeccion": "/img/niveles/lenguaje/nucleo_predicado.png",
+            "titulo": "Regla 5: Plural de palabras compuestas",
+            "descripcion": "Para formar el plural de las palabras compuestas, solo el segundo componente suele cambiar a plural.",
+            "imagenLeccion": "/img/niveles/lenguaje/plural_compuestas.png",
             "ejemplos": [
-                "Ejemplo 1: Juan corre (Núcleo: corre).",
-                "Ejemplo 2: María canta (Núcleo: canta)."
+                "Los abrelatas (abre + latas).",
+                "Los sacapuntas (saca + puntas)."
             ]
         }
     }

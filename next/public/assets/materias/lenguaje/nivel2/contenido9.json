@@ -1,50 +1,46 @@
 {
-    "tituloGeneral": "Ortografía Básica",
+    "tituloGeneral": "El Uso de los Trabalenguas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Mayúsculas",
-            "descripcion": "Se usan al inicio de una oración, en nombres propios y abreviaturas.",
-            "imagenLeccion": "/img/niveles/lenguaje/mayusculas.png",
+            "titulo": "¿Qué es un trabalenguas?",
+            "descripcion": "Un trabalenguas es una secuencia de palabras o frases que resulta difícil de pronunciar rápidamente debido a la repetición de sonidos similares. Se utilizan como juegos de palabras para mejorar la pronunciación y la agilidad verbal.",
+            "imagenLeccion": "/img/niveles/lenguaje/trabalenguas_que_es.png",
             "ejemplos": [
-                "Ejemplo 1: María vive en México.",
-                "Ejemplo 2: Hoy es lunes."
+                "Tres tristes tigres tragaban trigo en un trigal."
             ]
         },
         "2": {
-            "titulo": "El Punto",
-            "descripcion": "Indica el final de una oración o idea completa.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto.png",
+            "titulo": "Propósito de los trabalenguas",
+            "descripcion": "Los trabalenguas se utilizan para mejorar la dicción, divertirse, y desafiar la habilidad de pronunciar rápidamente secuencias de sonidos complejas. También ayudan a entrenar los músculos del habla.",
+            "imagenLeccion": "/img/niveles/lenguaje/trabalenguas_proposito.png",
             "ejemplos": [
-                "Ejemplo 1: Me gusta leer.",
-                "Ejemplo 2: Vamos al cine."
+                "Pablito clavó un clavito, ¿qué clavito clavó Pablito?"
             ]
         },
         "3": {
-            "titulo": "La Coma",
-            "descripcion": "Separa elementos en una lista o marca una pausa breve.",
-            "imagenLeccion": "/img/niveles/lenguaje/coma.png",
+            "titulo": "Trabalenguas con sonidos similares",
+            "descripcion": "Muchos trabalenguas utilizan sonidos similares repetidamente, lo que hace que sea fácil equivocarse al intentar pronunciarlos rápido.",
+            "imagenLeccion": "/img/niveles/lenguaje/trabalenguas_sonidos.png",
             "ejemplos": [
-                "Ejemplo 1: Compré manzanas, naranjas y uvas.",
-                "Ejemplo 2: Después de la cena, fuimos al parque."
+                "El cielo está enladrillado, ¿quién lo desenladrillará?,Si el desenladrillador lo desenladrillara, buen desenladrillador sería."
             ]
         },
         "4": {
-            "titulo": "Signos de Interrogación",
-            "descripcion": "Se usan al hacer preguntas y van al inicio y al final.",
-            "imagenLeccion": "/img/niveles/lenguaje/interrogacion.png",
+            "titulo": "Trabalenguas cortos y fáciles",
+            "descripcion": "Existen trabalenguas cortos que son ideales para practicar con niños pequeños, ya que son más fáciles de recordar y repetir.",
+            "imagenLeccion": "/img/niveles/lenguaje/trabalenguas_faciles.png",
             "ejemplos": [
-                "Ejemplo 1: ¿Cómo te llamas?",
-                "Ejemplo 2: ¿Qué hora es?"
+                "Ejemplo 1: Tres tristes tigres.",
+                "Ejemplo 2: Pancha plancha con cuatro planchas."
             ]
         },
         "5": {
-            "titulo": "Signos de Exclamación",
-            "descripcion": "Expresan sorpresa o emociones fuertes y van al inicio y al final.",
-            "imagenLeccion": "/img/niveles/lenguaje/exclamacion.png",
+            "titulo": "Trabalenguas largos y difíciles",
+            "descripcion": "Los trabalenguas largos y complicados son un verdadero reto para quienes buscan mejorar su habilidad verbal y la velocidad de pronunciación.",
+            "imagenLeccion": "/img/niveles/lenguaje/trabalenguas_dificiles.png",
             "ejemplos": [
-                "Ejemplo 1: ¡Qué gran sorpresa!",
-                "Ejemplo 2: ¡Felicidades!"
+                "Erre con erre cigarro, erre con erre barril, rápido ruedan los carros, rápido el ferrocarril."
             ]
         }
     }

@@ -1,50 +1,47 @@
 {
-    "tituloGeneral": "Los Artículos",
+    "tituloGeneral": "El Uso de las Leyendas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Artículos: ¿Qué son?",
-            "descripcion": "Los artículos acompañan al sustantivo e indican su género y número.",
-            "imagenLeccion": "/img/niveles/lenguaje/articulos.png",
+            "titulo": "¿Qué es una leyenda?",
+            "descripcion": "Una leyenda es una narración popular que combina hechos históricos con elementos ficticios o sobrenaturales.",
+            "imagenLeccion": "/img/niveles/lenguaje/leyenda_que_es.png",
             "ejemplos": [
-                "Ejemplo 1: el libro, la casa.",
-                "Ejemplo 2: los perros, las flores."
+                "Ejemplo: La leyenda de El Dorado, que relata la historia de una ciudad hecha de oro escondida en América del Sur."
             ]
         },
         "2": {
-            "titulo": "Artículos Definidos",
-            "descripcion": "Se refieren a algo conocido o específico.",
-            "imagenLeccion": "/img/niveles/lenguaje/articulos_definidos.png",
+            "titulo": "Características de las leyendas",
+            "descripcion": "Las leyendas se caracterizan por estar asociadas a un lugar específico y tener personajes que suelen ser héroes.",
+            "imagenLeccion": "/img/niveles/lenguaje/caracteristicas_leyenda.png",
             "ejemplos": [
-                "Ejemplo 1: el coche (específico).",
-                "Ejemplo 2: las sillas (específicas)."
+                "Ejemplo: La leyenda de La Llorona, que mezcla la tragedia de una madre real con elementos sobrenaturales."
             ]
         },
         "3": {
-            "titulo": "Artículos Indefinidos",
-            "descripcion": "Se refieren a algo no conocido o general.",
-            "imagenLeccion": "/img/niveles/lenguaje/articulos_indefinidos.png",
+            "titulo": "Tipos de leyendas",
+            "descripcion": "Existen diferentes tipos de leyendas: leyendas urbanas, leyendas históricas, leyendas religiosas y leyendas etiológicas, que explican el origen de algo.",
+            "imagenLeccion": "/img/niveles/lenguaje/tipos_leyenda.png",
             "ejemplos": [
-                "Ejemplo 1: un perro (general).",
-                "Ejemplo 2: unas flores (general)."
+                "Ejemplo 1: Leyenda urbana - La leyenda de los fantasmas en la carretera.",
+                "Ejemplo 2: Leyenda histórica - La leyenda de El Cid Campeador."
             ]
         },
         "4": {
-            "titulo": "Género de los Artículos",
-            "descripcion": "Concuerdan en género con el sustantivo: masculino o femenino.",
-            "imagenLeccion": "/img/niveles/lenguaje/genero_articulos.png",
+            "titulo": "Elementos comunes en las leyendas",
+            "descripcion": "Las leyendas suelen incluir un héroe o protagonista, un antagonista o fuerza maligna, una localización real o simbólica, y la intervención de lo sobrenatural.",
+            "imagenLeccion": "/img/niveles/lenguaje/elementos_comunes.png",
             "ejemplos": [
-                "Ejemplo 1: el coche (masculino).",
-                "Ejemplo 2: la mesa (femenino)."
+                "Ejemplo: En la leyenda de Robin Hood, el héroe lucha contra las injusticias del malvado sheriff de Nottingham."
             ]
         },
         "5": {
-            "titulo": "Número de los Artículos",
-            "descripcion": "Concuerdan en número con el sustantivo: singular o plural.",
-            "imagenLeccion": "/img/niveles/lenguaje/numero_articulos.png",
+            "titulo": "Leyendas populares",
+            "descripcion": "Existen muchas leyendas populares que han sobrevivido a lo largo de los siglos.",
+            "imagenLeccion": "/img/niveles/lenguaje/leyendas_populares.png",
             "ejemplos": [
-                "Ejemplo 1: el gato (singular).",
-                "Ejemplo 2: los gatos (plural)."
+                "Ejemplo 1: La leyenda del chupacabras.",
+                "Ejemplo 2: La leyenda del Rey Arturo y la espada Excalibur."
             ]
         }
     }

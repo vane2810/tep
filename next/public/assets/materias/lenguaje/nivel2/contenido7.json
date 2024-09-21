@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Tipos de Oraciones",
+    "tituloGeneral": "El Uso de los Prefijos",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Tipos de Oraciones: ¿Qué son?",
-            "descripcion": "Las oraciones se clasifican según su intención: afirmativas, negativas, interrogativas, exclamativas, e imperativas.",
-            "imagenLeccion": "/img/niveles/lenguaje/tipos_oraciones.png",
+            "titulo": "Prefijos unidos a una sola palabra",
+            "descripcion": "Los prefijos se escriben unidos a la palabra base sin guion cuando esta es una sola palabra.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_unidos.png",
             "ejemplos": [
-                "Ejemplo 1: El perro juega en el parque. (Afirmativa)",
-                "Ejemplo 2: ¿Vas a la escuela hoy? (Interrogativa)"
+                "Subterráneo (sub + terráneo).",
+                "Prehistoria (pre + historia)."
             ]
         },
         "2": {
-            "titulo": "Oraciones Afirmativas",
-            "descripcion": "Expresan una afirmación o hecho positivo.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_afirmativas.png",
+            "titulo": "Regla 2: Prefijos con palabras compuestas",
+            "descripcion": "Cuando el prefijo se une a una palabra compuesta, se separa por medio de un guion para evitar ambigüedades.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_guion.png",
             "ejemplos": [
-                "Ejemplo 1: El sol brilla en el cielo.",
-                "Ejemplo 2: Los niños corren en el patio."
+                "Ex-director (ex + director).",
+                "Vice-alcalde (vice + alcalde)."
             ]
         },
         "3": {
-            "titulo": "Oraciones Negativas",
-            "descripcion": "Niegan una acción o hecho.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_negativas.png",
+            "titulo": "Prefijos ante nombres propios",
+            "descripcion": "Cuando un prefijo precede a un nombre propio, debe separarse por guion.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_nombres_propios.png",
             "ejemplos": [
-                "Ejemplo 1: No voy a la fiesta.",
-                "Ejemplo 2: Ella no quiere comer."
+                "Anti-Europa (anti + Europa).",
+                "Pro-América (pro + América)."
             ]
         },
         "4": {
-            "titulo": "Oraciones Interrogativas",
-            "descripcion": "Se usan para hacer preguntas.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_interrogativas.png",
+            "titulo": "Prefijos y palabras con tildes",
+            "descripcion": "Las palabras con prefijo conservan la tilde de la palabra base, si esta la lleva, ya que el prefijo no afecta la acentuación.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_tilde.png",
             "ejemplos": [
-                "Ejemplo 1: ¿Dónde estás?",
-                "Ejemplo 2: ¿Qué hora es?"
+                "Sobreúso (sobre + uso).",
+                "Kilómetro (Kilo + metro)."
             ]
         },
         "5": {
-            "titulo": "Oraciones Exclamativas",
-            "descripcion": "Expresan sorpresa o emoción.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_exclamativas.png",
+            "titulo": "Prefijos y uso de preposiciones",
+            "descripcion": "Algunos prefijos como 'contra-', 'pre-' o 'pro-' pueden formar locuciones con preposiciones, que deben escribirse separadas.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_preposiciones.png",
             "ejemplos": [
-                "Ejemplo 1: ¡Qué lindo día!",
-                "Ejemplo 2: ¡No lo puedo creer!"
+                "Contra viento (contra + viento).",
+                "Pro vida (pro + vida)."
             ]
         }
     }

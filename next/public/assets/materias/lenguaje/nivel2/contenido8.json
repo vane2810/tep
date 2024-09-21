@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Sinónimos y Antónimos",
+    "tituloGeneral": "El Uso de los Sufijos",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Sinónimos y Antónimos: ¿Qué son?",
-            "descripcion": "Los sinónimos son palabras con significados similares, mientras que los antónimos tienen significados opuestos.",
-            "imagenLeccion": "/img/niveles/lenguaje/sinonimos_antonimos.png",
+            "titulo": " que forman sustantivos",
+            "descripcion": "Algunos sufijos se utilizan para formar sustantivos a partir de verbos o adjetivos.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_sustantivos.png",
             "ejemplos": [
-                "Ejemplo 1 (sinónimos): bonito - hermoso.",
-                "Ejemplo 2 (antónimos): grande - pequeño."
+                "Cantante (cantar + -ante).",
+                "Belleza (bello + -eza)."
             ]
         },
         "2": {
-            "titulo": "Sinónimos",
-            "descripcion": "Son palabras diferentes que tienen el mismo o un significado parecido.",
-            "imagenLeccion": "/img/niveles/lenguaje/sinonimos.png",
+            "titulo": "Sufijos que forman adjetivos",
+            "descripcion": "Existen sufijos que se emplean para formar adjetivos a partir de sustantivos o verbos.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_adjetivos.png",
             "ejemplos": [
-                "Ejemplo 1: rápido - veloz.",
-                "Ejemplo 2: feliz - contento."
+                "Amigable (amigo + -able).",
+                "Amoroso (amor + -oso)."
             ]
         },
         "3": {
-            "titulo": "Antónimos",
-            "descripcion": "Son palabras que expresan ideas contrarias o significados opuestos.",
-            "imagenLeccion": "/img/niveles/lenguaje/antonimos.png",
+            "titulo": "Sufijos diminutivos",
+            "descripcion": "Los sufijos diminutivos se utilizan para indicar pequeñez o afecto, y se agregan al final de la palabra base.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_diminutivos.png",
             "ejemplos": [
-                "Ejemplo 1: frío - caliente.",
-                "Ejemplo 2: alto - bajo."
+                "Perrito (perro + -ito).",
+                "Casita (casa + -ita)."
             ]
         },
         "4": {
-            "titulo": "Sinónimos Contextuales",
-            "descripcion": "Algunas palabras son sinónimas solo en ciertos contextos.",
-            "imagenLeccion": "/img/niveles/lenguaje/sinonimos_contextuales.png",
+            "titulo": "Sufijos aumentativos",
+            "descripcion": "Los sufijos aumentativos se utilizan para señalar algo grande o con mayor intensidad.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_aumentativos.png",
             "ejemplos": [
-                "Ejemplo 1: Claro (evidente en 'Es claro que lo hará').",
-                "Ejemplo 2: Claro (luminoso en 'El día está claro')."
+                "Grandote (grande + -ote).",
+                "Casona (casa + -ona)."
             ]
         },
         "5": {
-            "titulo": "Usos de Sinónimos y Antónimos",
-            "descripcion": "Se usan para enriquecer el vocabulario y mejorar la precisión al comunicarse.",
-            "imagenLeccion": "/img/niveles/lenguaje/uso_sinonimos_antonimos.png",
+            "titulo": "Sufijos despectivos",
+            "descripcion": "Los sufijos despectivos indican desprecio o menor valoración hacia lo que designa la palabra base.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_despectivos.png",
             "ejemplos": [
-                "Ejemplo 1 (sinónimos): usar 'hermoso' en vez de 'bonito'.",
-                "Ejemplo 2 (antónimos): 'grande' en vez de 'pequeño'."
+                "Librucho (libro + -ucho).",
+                "Pueblucho (pueblo + -ucho)."
             ]
         }
     }
