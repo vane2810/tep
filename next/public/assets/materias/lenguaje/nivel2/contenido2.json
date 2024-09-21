@@ -1,52 +1,52 @@
 {
-    "tituloGeneral": "Los Sustantivos",
+    "tituloGeneral": "El Uso de la 'H'",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Sustantivos: ¿Qué son?",
-            "descripcion": "Los sustantivos nombran personas, animales, cosas, lugares o ideas.",
-            "imagenLeccion": "/img/niveles/lenguaje/sustantivos.png",
+            "titulo": "Palabras que empiezan con 'he-' o 'hi-' seguidas de vocal",
+            "descripcion": "Se escribe 'h' al inicio de las palabras que empiezan con 'he-' o 'hi-' seguidas de vocal, excepto en las palabras como 'errar' o 'ir'.",
+            "imagenLeccion": "/img/niveles/lenguaje/he_hi.png",
             "ejemplos": [
-                "Ejemplo 1: perro, casa, alegría.",
-                "Ejemplo 2: niña, ciudad, amor."
+                "El helicóptero aterrizó con precisión.",
+                "El hielo se derritió bajo el sol."
             ]
         },
         "2": {
-            "titulo": "Sustantivos Comunes y Propios",
-            "descripcion": "Comunes nombran de forma general; propios, de manera específica.",
-            "imagenLeccion": "/img/niveles/lenguaje/comunes_propios.png",
+            "titulo": "Con un sonido similar al de J",
+            "descripcion": "Esto solo sucede con extranjerismos, es decir, palabras que provienen de otras lenguas, porque se mantiene la pronunciación del idioma original.",
+            "imagenLeccion": "/img/niveles/lenguaje/hab_hech_holl.png",
             "ejemplos": [
-                "Ejemplo 1 (común): montaña.",
-                "Ejemplo 2 (propio): Monte Everest."
+                "Hockey",
+                "Hollywood",
+                "Hacker"
             ]
         },
         "3": {
-            "titulo": "Sustantivos Concretos y Abstractos",
-            "descripcion": "Concretos se perciben con los sentidos; abstractos, no.",
-            "imagenLeccion": "/img/niveles/lenguaje/concretos_abstractos.png",
+            "titulo": "Palabras que comienzan con 'hum-' seguidas de vocal",
+            "descripcion": "Las palabras que empiezan con 'hum-' seguidas de vocal siempre se escriben con 'h'.",
+            "imagenLeccion": "/img/niveles/lenguaje/hum.png",
             "ejemplos": [
-                "Ejemplo 1 (concreto): árbol.",
-                "Ejemplo 2 (abstracto): felicidad."
+                "El humano tiene muchas capacidades.",
+                "La humedad en el ambiente era alta."
             ]
         },
         "4": {
-            "titulo": "Sustantivos Individuales y Colectivos",
-            "descripcion": "Individuales nombran un solo ser; colectivos, un grupo.",
-            "imagenLeccion": "/img/niveles/lenguaje/individuales_colectivos.png",
+            "titulo": "Derivados de palabras que llevan 'h'",
+            "descripcion": "Los derivados y compuestos de palabras que llevan 'h' conservan la 'h' en su escritura.",
+            "imagenLeccion": "/img/niveles/lenguaje/derivados_h.png",
             "ejemplos": [
-                "Ejemplo 1 (individual): abeja.",
-                "Ejemplo 2 (colectivo): enjambre."
+                "Hermano – Hermanito.",
+                "Humo – Ahumado."
             ]
         },
         "5": {
-            "titulo": "Sustantivos: Género y Número",
-            "descripcion": "Los sustantivos pueden ser masculinos o femeninos, singulares o plurales.",
-            "imagenLeccion": "/img/niveles/lenguaje/genero_numero.png",
+            "titulo": "Palabras que comienzan con los prefijos 'hiper-', 'hipo-', 'hidr-', o 'hecto-'",
+            "descripcion": "Se escribe 'h' en las palabras que comienzan con los prefijos 'hiper-', 'hipo-', 'hidr-', o 'hecto-'.",
+            "imagenLeccion": "/img/niveles/lenguaje/hiper_hipo_hidr_hecto.png",
             "ejemplos": [
-                "Ejemplo 1 (género): niño (masculino), niña (femenino).",
-                "Ejemplo 2 (número): perro (singular), perros (plural)."
+                "Sufre de hipertensión desde hace años.",
+                "El doctor le diagnosticó hipoglucemia."
             ]
         }
     }
 }
-
