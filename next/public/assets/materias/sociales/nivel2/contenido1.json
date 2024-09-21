@@ -1,0 +1,52 @@
+{
+    "tituloGeneral": "Guatemala: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/guatemala.png",
+    "lecciones": {
+        "1": {
+            "titulo": "El Quetzal",
+            "descripcion": "El quetzal es el ave nacional de Guatemala, símbolo de libertad y belleza.",
+            "imagenLeccion": "/img/centroamerica/quetzal.png",
+            "ejemplos": [
+                "Ejemplo 1: El quetzal aparece en el escudo de Guatemala.",
+                "Ejemplo 2: También es la moneda oficial."
+            ]
+        },
+        "2": {
+            "titulo": "Semana Santa",
+            "descripcion": "La Semana Santa en Antigua Guatemala es famosa por sus procesiones y alfombras de flores.",
+            "imagenLeccion": "/img/centroamerica/semana_santa_guatemala.png",
+            "ejemplos": [
+                "Ejemplo 1: Procesiones religiosas en Semana Santa.",
+                "Ejemplo 2: Alfombras hechas de flores y aserrín."
+            ]
+        },
+        "3": {
+            "titulo": "Comida Tradicional",
+            "descripcion": "El Pepián es uno de los platillos más tradicionales de la gastronomía guatemalteca.",
+            "imagenLeccion": "/img/centroamerica/pepián.png",
+            "ejemplos": [
+                "Ejemplo 1: Pepián de pollo.",
+                "Ejemplo 2: Enchiladas guatemaltecas."
+            ]
+        },
+        "4": {
+            "titulo": "La Marimba",
+            "descripcion": "La marimba es el instrumento musical nacional de Guatemala.",
+            "imagenLeccion": "/img/centroamerica/marimba.png",
+            "ejemplos": [
+                "Ejemplo 1: La marimba tiene origen africano.",
+                "Ejemplo 2: Se utiliza en fiestas y eventos culturales."
+            ]
+        },
+        "5": {
+            "titulo": "Día de Todos los Santos",
+            "descripcion": "El 1 de noviembre, Guatemala celebra el Día de Todos los Santos con barriletes gigantes en Santiago Sacatepéquez.",
+            "imagenLeccion": "/img/centroamerica/barriletes.png",
+            "ejemplos": [
+                "Ejemplo 1: Los barriletes simbolizan la conexión con los difuntos.",
+                "Ejemplo 2: Concursos de barriletes en varios pueblos."
+            ]
+        }
+    }
+}
+

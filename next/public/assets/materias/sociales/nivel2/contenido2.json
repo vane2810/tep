@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Honduras: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/honduras.png",
+    "lecciones": {
+        "1": {
+            "titulo": "La Garífuna",
+            "descripcion": "El pueblo garífuna de Honduras celebra su cultura a través de la música, danza y comida tradicional.",
+            "imagenLeccion": "/img/centroamerica/garifuna.png",
+            "ejemplos": [
+                "Ejemplo 1: Celebración del Día del Garífuna el 12 de abril.",
+                "Ejemplo 2: Música tradicional como la punta."
+            ]
+        },
+        "2": {
+            "titulo": "Las Baleadas",
+            "descripcion": "Las baleadas son un plato típico de Honduras, hechas con tortillas de harina y frijoles.",
+            "imagenLeccion": "/img/centroamerica/baleadas.png",
+            "ejemplos": [
+                "Ejemplo 1: Baleadas con frijoles y queso.",
+                "Ejemplo 2: Baleadas con aguacate y carne."
+            ]
+        },
+        "3": {
+            "titulo": "Feria Juniana",
+            "descripcion": "La Feria Juniana es la fiesta más grande de Honduras, celebrada en San Pedro Sula en honor a San Pedro.",
+            "imagenLeccion": "/img/centroamerica/feria_juniana.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles y conciertos.",
+                "Ejemplo 2: Actividades culturales y recreativas."
+            ]
+        },
+        "4": {
+            "titulo": "La Ceiba Carnival",
+            "descripcion": "El carnaval de La Ceiba es uno de los más famosos en Honduras, celebrado en honor a San Isidro Labrador.",
+            "imagenLeccion": "/img/centroamerica/la_ceiba.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles llenos de color.",
+                "Ejemplo 2: Música, comida y actividades recreativas."
+            ]
+        },
+        "5": {
+            "titulo": "Semana Santa",
+            "descripcion": "Semana Santa en Honduras es una celebración religiosa con procesiones y actividades en todo el país.",
+            "imagenLeccion": "/img/centroamerica/semana_santa_honduras.png",
+            "ejemplos": [
+                "Ejemplo 1: Procesiones religiosas.",
+                "Ejemplo 2: Alfombras de aserrín en Comayagua."
+            ]
+        }
+    }
+}

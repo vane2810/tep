@@ -21,15 +21,15 @@ const Botones = ({ mate, lenguaje, sociales, ingles }) => (
             </Link>
             <Link href={sociales}>
                 <img
-                    src="/img/personajes/griffit/griffitboton.png"
-                    alt="Ingles"
+                    src="/img/personajes/burbuja/burbujaboton.png"
+                    alt="Sociales"
                     className="hover:shadow-lg mx-4 rounded-full w-40 md:w-48 lg:w-56 xl:w-64 transform transition-transform boton hover:scale-105"
                 />
             </Link>
             <Link href={ingles}>
                 <img
-                    src="/img/personajes/burbuja/burbujaboton.png"
-                    alt="Sociales"
+                    src="/img/personajes/griffit/griffitboton.png"
+                    alt="Ingles"
                     className="hover:shadow-lg mx-4 rounded-full w-40 md:w-48 lg:w-56 xl:w-64 transform transition-transform boton hover:scale-105"
                 />
             </Link>

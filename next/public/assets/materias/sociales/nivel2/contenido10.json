@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Centroamérica: La Ruta del Comercio y el Canal de Panamá",
+    "imagenPortada": "/img/centroamerica/canal_comercio.png",
+    "lecciones": {
+        "1": {
+            "titulo": "La Ruta del Comercio",
+            "descripcion": "Desde la época colonial, Centroamérica ha sido un corredor comercial importante, conectando el Atlántico y el Pacífico.",
+            "imagenLeccion": "/img/centroamerica/ruta_comercio.png",
+            "ejemplos": [
+                "Ejemplo 1: Las rutas comerciales conectaban Europa y Asia.",
+                "Ejemplo 2: Productos como el oro y plata pasaban por Centroamérica."
+            ]
+        },
+        "2": {
+            "titulo": "El Canal de Panamá",
+            "descripcion": "El Canal de Panamá, inaugurado en 1914, revolucionó el comercio internacional al acortar el tiempo de navegación entre los océanos.",
+            "imagenLeccion": "/img/centroamerica/canal.png",
+            "ejemplos": [
+                "Ejemplo 1: Permite el paso de miles de barcos al año.",
+                "Ejemplo 2: Es crucial para el comercio global."
+            ]
+        },
+        "3": {
+            "titulo": "Impacto en la Economía Centroamericana",
+            "descripcion": "El comercio internacional ha sido un motor económico clave para los países de la región, gracias a su ubicación estratégica.",
+            "imagenLeccion": "/img/centroamerica/economia.png",
+            "ejemplos": [
+                "Ejemplo 1: El Canal de Panamá es una de las principales fuentes de ingresos.",
+                "Ejemplo 2: Comercio de productos agrícolas y manufacturados."
+            ]
+        },
+        "4": {
+            "titulo": "Nuevas Rutas Comerciales",
+            "descripcion": "Con la ampliación del Canal de Panamá en 2016, se abrieron nuevas rutas comerciales para barcos más grandes.",
+            "imagenLeccion": "/img/centroamerica/rutas.png",
+            "ejemplos": [
+                "Ejemplo 1: La nueva ampliación permite el paso de los 'Post-Panamax'.",
+                "Ejemplo 2: Incrementó la capacidad de transporte global."
+            ]
+        },
+        "5": {
+            "titulo": "El Futuro del Comercio en Centroamérica",
+            "descripcion": "Centroamérica continúa siendo una región clave para el comercio, con el Canal de Panamá y puertos estratégicos en Costa Rica y Honduras.",
+            "imagenLeccion": "/img/centroamerica/futuro_comercio.png",
+            "ejemplos": [
+                "Ejemplo 1: Puerto Limón en Costa Rica.",
+                "Ejemplo 2: Puerto Cortés en Honduras."
+            ]
+        }
+    }
+}

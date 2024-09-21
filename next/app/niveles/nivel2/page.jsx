@@ -108,8 +108,8 @@ export default function Nivel2() {
       <Botones
         mate="/niveles/nivel2/mate"
         lenguaje="/niveles/nivel2/lenguaje"
-        sociales="/niveles/nivel2/sociales"
         ingles="/niveles/nivel2/ingles"
+        sociales="/niveles/nivel2/sociales"
       />
       <SeparadorAzul/>
 

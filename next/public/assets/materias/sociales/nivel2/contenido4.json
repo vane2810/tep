@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Nicaragua: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/nicaragua.png",
+    "lecciones": {
+        "1": {
+            "titulo": "El Güegüense",
+            "descripcion": "El Güegüense es una danza y obra teatral tradicional nicaragüense, declarada Patrimonio Oral e Inmaterial de la Humanidad.",
+            "imagenLeccion": "/img/centroamerica/gueguense.png",
+            "ejemplos": [
+                "Ejemplo 1: Representa la resistencia indígena.",
+                "Ejemplo 2: Se celebra durante las fiestas patronales de Diriamba."
+            ]
+        },
+        "2": {
+            "titulo": "El Gallo Pinto",
+            "descripcion": "El Gallo Pinto es un plato típico de Nicaragua, hecho con arroz y frijoles.",
+            "imagenLeccion": "/img/centroamerica/gallo_pinto.png",
+            "ejemplos": [
+                "Ejemplo 1: Se sirve en el desayuno.",
+                "Ejemplo 2: Acompañado de tortillas y queso."
+            ]
+        },
+        "3": {
+            "titulo": "La Purísima",
+            "descripcion": "La Purísima es una celebración religiosa en honor a la Inmaculada Concepción de María.",
+            "imagenLeccion": "/img/centroamerica/purisima.png",
+            "ejemplos": [
+                "Ejemplo 1: Celebrada el 7 de diciembre.",
+                "Ejemplo 2: Se canta y se reza en familia."
+            ]
+        },
+        "4": {
+            "titulo": "Día de la Tradición",
+            "descripcion": "El 31 de mayo se celebra el Día de la Tradición Nicaragüense, con danzas, música y desfiles.",
+            "imagenLeccion": "/img/centroamerica/tradicion_nicaragua.png",
+            "ejemplos": [
+                "Ejemplo 1: Bailes folclóricos y procesiones.",
+                "Ejemplo 2: Muestras de artesanía tradicional."
+            ]
+        },
+        "5": {
+            "titulo": "Semana Santa",
+            "descripcion": "La Semana Santa en Nicaragua incluye procesiones y representaciones religiosas.",
+            "imagenLeccion": "/img/centroamerica/semana_santa_nicaragua.png",
+            "ejemplos": [
+                "Ejemplo 1: Procesiones en Granada.",
+                "Ejemplo 2: Actividades religiosas en León."
+            ]
+        }
+    }
+}

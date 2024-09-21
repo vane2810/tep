@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Panamá: Tradiciones y Cultura",
+    "imagenPortada": "/img/centroamerica/panama.png",
+    "lecciones": {
+        "1": {
+            "titulo": "El Canal de Panamá",
+            "descripcion": "El Canal de Panamá es una de las mayores obras de ingeniería del mundo, conectando el océano Atlántico y el océano Pacífico.",
+            "imagenLeccion": "/img/centroamerica/canal_panama.png",
+            "ejemplos": [
+                "Ejemplo 1: Inaugurado en 1914.",
+                "Ejemplo 2: Crucial para el comercio internacional."
+            ]
+        },
+        "2": {
+            "titulo": "La Pollera",
+            "descripcion": "La pollera es el traje típico de las mujeres panameñas, utilizado en festividades y celebraciones.",
+            "imagenLeccion": "/img/centroamerica/pollera.png",
+            "ejemplos": [
+                "Ejemplo 1: Decorada con encajes y bordados.",
+                "Ejemplo 2: Usada en el Festival de la Pollera en Las Tablas."
+            ]
+        },
+        "3": {
+            "titulo": "Día de la Independencia",
+            "descripcion": "Panamá celebra su independencia de España el 28 de noviembre y de Colombia el 3 de noviembre.",
+            "imagenLeccion": "/img/centroamerica/independencia_panama.png",
+            "ejemplos": [
+                "Ejemplo 1: Desfiles patrióticos.",
+                "Ejemplo 2: Actos cívicos en todo el país."
+            ]
+        },
+        "4": {
+            "titulo": "Carnaval de Panamá",
+            "descripcion": "El carnaval de Panamá es una de las celebraciones más grandes del país, lleno de desfiles, música y color.",
+            "imagenLeccion": "/img/centroamerica/carnaval_panama.png",
+            "ejemplos": [
+                "Ejemplo 1: Celebrado en febrero o marzo.",
+                "Ejemplo 2: Famoso en Las Tablas y la Ciudad de Panamá."
+            ]
+        },
+        "5": {
+            "titulo": "Semana Santa",
+            "descripcion": "La Semana Santa es una celebración importante en Panamá, marcada por procesiones y actividades religiosas.",
+            "imagenLeccion": "/img/centroamerica/semana_santa_panama.png",
+            "ejemplos": [
+                "Ejemplo 1: Procesiones en La Villa de Los Santos.",
+                "Ejemplo 2: Alfombras de flores y aserrín."
+            ]
+        }
+    }
+}
