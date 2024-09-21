@@ -21,7 +21,7 @@ export default function Component({ id }) {
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/sociales/nivel1/contenido${id}.json`);
+        const res = await fetch(`/assets/materias/sociales/nivel2/contenido${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 
@@ -75,7 +75,7 @@ export default function Component({ id }) {
 
       {/* Botón de Volver */}
       <div className="top-4 left-4 z-10 absolute">
-        <Volver href="/niveles/nivel1/sociales" />
+        <Volver href="/niveles/nivel2/sociales" />
       </div>
 
       <div className="flex justify-center items-center bg-gradient-to-r from-yellow-100 via-pink-100 to-yellow-100 min-h-screen">
