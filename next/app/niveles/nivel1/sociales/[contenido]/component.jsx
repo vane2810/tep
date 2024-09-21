@@ -100,9 +100,10 @@ export default function Component({ id }) {
               </h1>
 
               {/* Imagen adicional, como el principito */}
-              {imagenPortada && (
-                <img src={imagenPortada} alt={tituloGeneral} className="mb-2 w-28 h-auto" />
-              )}
+                <img src={imagenPortada || '/img/personajes/burbuja/burbuja.png'}
+                  alt={tituloGeneral}
+                  className="mb-2 w-28 h-auto"
+                />
 
               <h1 className="mb-4 font-bold text-3xl text-black text-center story">
                 {tituloGeneral}
@@ -129,14 +130,11 @@ export default function Component({ id }) {
               <h2 className="mb-4 font-bold text-2xl">{currentLeccion.titulo}</h2>
               <p className="font-serif text-lg leading-relaxed">{currentLeccion.descripcion}</p>
 
-              {/* Imagen de la lección dentro del libro, ajustada */}
-              {currentLeccion.imagenLeccion && (
-                <img
-                  src={currentLeccion.imagenLeccion}
-                  alt={currentLeccion.titulo}
-                  className="mt-8 rounded-lg w-[100%] h-[100px] object-contain"
-                />
-              )}
+              {/* Imagen de la lección dentro del libro, ajustada */}<img
+                src={currentLeccion.imagenLeccion || '/img/personajes/burbuja/burbuja.png'}
+                alt={currentLeccion.titulo}
+                className="mt-8 rounded-lg w-[100%] h-[100px] object-contain"
+              />
 
               {/* Flecha izquierda en la página izquierda */}
               {currentPage > 0 && (

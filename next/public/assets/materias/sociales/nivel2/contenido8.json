@@ -1,12 +1,13 @@
 {
     "tituloGeneral": "Centro América: Nicaragua",
-    "imagenPortada": "/img/centroamerica/nicaragua.png",
+    "imagenPortada": "",
     "lecciones": {
       "1": {
         "titulo": "Ubicación de Nicaragua",
         "descripcion": "Nicaragua está en el centro-norte de Centroamérica, entre Honduras y Costa Rica.",
         "imagenLeccion": "/img/centroamerica/mapa_nicaragua.png",
         "ejemplos": [
+          "Capital: San José",
           "Al oeste limita con el océano Pacífico.",
           "Al este tiene costas en el mar Caribe."
         ]

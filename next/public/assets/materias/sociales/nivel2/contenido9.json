@@ -1,12 +1,13 @@
 {
     "tituloGeneral": "Centro América: Costa Rica",
-    "imagenPortada": "/img/centroamerica/costarica.png",
+    "imagenPortada": "",
     "lecciones": {
         "1": {
             "titulo": "Ubicación de Costa Rica",
             "descripcion": "Costa Rica está en el sur de Centroamérica, entre Nicaragua y Panamá.",
             "imagenLeccion": "/img/centroamerica/mapa_costarica.png",
             "ejemplos": [
+                "Capital: San José",
                 "Al este tiene costas en el mar Caribe.",
                 "Al oeste tiene costas en el océano Pacífico."
             ]

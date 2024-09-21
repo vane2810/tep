@@ -1,12 +1,13 @@
 {
     "tituloGeneral": "Centro América: Guatemala",
-    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "imagenPortada": "",
     "lecciones": {
         "1": {
             "titulo": "Ubicación de Guatemala",
             "descripcion": "Guatemala está en el norte de Centroamérica, limitando con México, Belice, Honduras y El Salvador.",
             "imagenLeccion": "/img/centroamerica/mapa_guatemala.png",
             "ejemplos": [
+                "Capital: Ciudad de Guatemala",
                 "Al oeste está México y al este Belice y Honduras.",
                 "El Océano Pacífico limita al sur de Guatemala."
             ]

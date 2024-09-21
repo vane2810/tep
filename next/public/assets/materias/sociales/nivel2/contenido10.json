@@ -1,12 +1,13 @@
 {
     "tituloGeneral": "Centro América: Panamá",
-    "imagenPortada": "/img/centroamerica/panama.png",
+    "imagenPortada": "",
     "lecciones": {
         "1": {
             "titulo": "Ubicación de Panamá",
             "descripcion": "Panamá está en el extremo sureste de Centroamérica, entre Costa Rica y Colombia.",
             "imagenLeccion": "/img/centroamerica/mapa_panama.png",
             "ejemplos": [
+                "Capital: Ciudad de Panamá",
                 "Al norte está el mar Caribe y al sur el océano Pacífico.",
                 "Es el punto de conexión entre Centroamérica y Sudamérica."
             ]

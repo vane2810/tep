@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';  
+import { useRouter } from 'next/navigation';
 import Volver from '@/components/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
 
@@ -94,9 +94,11 @@ export default function Component({ id }) {
               </h1>
 
               {/* Imagen del principito */}
-              {imagenPortada && (
-                <img src={imagenPortada} alt={tituloGeneral} className="mb-6 w-24 h-auto" />
-              )}
+              <img src={imagenPortada || '/img/personajes/principe/principe.png'}
+                alt={tituloGeneral}
+                className="mb-6 w-24 h-auto"
+              />
+
 
               <h1 className="mb-6 font-bold text-4xl text-center text-white story">
                 {tituloGeneral}
@@ -120,14 +122,11 @@ export default function Component({ id }) {
               <h2 className="mb-4 font-bold text-2xl">{currentLeccion.titulo}</h2>
               <p className="font-serif text-lg leading-relaxed">{currentLeccion.descripcion}</p>
 
-              {/* Imagen de la lección dentro del libro, ajustada */}
-              {currentLeccion.imagenLeccion && (
-                <img
-                  src={currentLeccion.imagenLeccion}
-                  alt={currentLeccion.titulo}
-                  className="mt-4 rounded-lg w-[100%] h-[100px] object-contain"
-                />
-              )}
+              {/* Imagen de la lección dentro del libro, ajustada */}<img
+                src={currentLeccion.imagenLeccion || '/img/personajes/principe/principe.png'}
+                alt={currentLeccion.titulo}
+                className="mt-4 rounded-lg w-[100%] h-[100px] object-contain"
+              />
 
               {/* Flecha izquierda en la página izquierda */}
               {currentPage > 0 && (
