@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Los Verbos",
+    "tituloGeneral": "El Uso de las Comillas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Verbos: ¿Qué son?",
-            "descripcion": "Los verbos expresan acciones, estados o procesos.",
-            "imagenLeccion": "/img/niveles/lenguaje/verbo.png",
+            "titulo": "Citas textuales",
+            "descripcion": "Las comillas se utilizan para reproducir exactamente lo que ha dicho o escrito otra persona.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_cita_textual.png",
             "ejemplos": [
-                "Ejemplo 1: correr, saltar, escribir.",
-                "Ejemplo 2: ser, estar, parecer."
+                "El autor señaló: \"La vida es como un viaje sin mapa.\"",
+                "El profesor dijo: \"Estudien para el examen del lunes.\""
             ]
         },
         "2": {
-            "titulo": "Tiempos Verbales",
-            "descripcion": "Indican cuándo ocurre la acción: pasado, presente, futuro.",
-            "imagenLeccion": "/img/niveles/lenguaje/tiempos_verbales.png",
+            "titulo": "Títulos de obras",
+            "descripcion": "Se usan comillas para los títulos de artículos, capítulos de libros, poemas, canciones, y películas.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_titulos.png",
             "ejemplos": [
-                "Ejemplo 1: Yo corro (presente).",
-                "Ejemplo 2: Yo corrí (pasado)."
+                "Mi poema favorito es \"La canción del pirata\" de Espronceda.",
+                "Vimos la película \"El Padrino\" el fin de semana."
             ]
         },
         "3": {
-            "titulo": "Modo Indicativo",
-            "descripcion": "Expresa hechos reales o seguros.",
-            "imagenLeccion": "/img/niveles/lenguaje/indicativo.png",
+            "titulo": "Para destacar palabras o expresiones",
+            "descripcion": "Las comillas se utilizan para resaltar palabras o expresiones que se quieren destacar o que tienen un significado especial.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_destacar_palabras.png",
             "ejemplos": [
-                "Ejemplo 1: Estudio todos los días.",
-                "Ejemplo 2: Viajamos el año pasado."
+                "El término \"software\" proviene del inglés.",
+                "El coche era muy \"moderno\" para su época."
             ]
         },
         "4": {
-            "titulo": "Modo Subjuntivo",
-            "descripcion": "Expresa deseos, dudas o posibilidades.",
-            "imagenLeccion": "/img/niveles/lenguaje/subjuntivo.png",
+            "titulo": "Uso irónico o sarcástico",
+            "descripcion": "Se emplean las comillas para marcar un uso irónico o sarcástico de una palabra o expresión.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_ironico.png",
             "ejemplos": [
-                "Ejemplo 1: Ojalá llegue pronto.",
-                "Ejemplo 2: Es posible que venga."
+                "Seguro que es muy \"trabajador\", nunca lo veo hacer nada.",
+                "¡Qué \"inteligente\" resultó ser!"
             ]
         },
         "5": {
-            "titulo": "Modo Imperativo",
-            "descripcion": "Se usa para dar órdenes o pedir algo.",
-            "imagenLeccion": "/img/niveles/lenguaje/imperativo.png",
+            "titulo": "Diálogos en textos literarios",
+            "descripcion": "En algunos textos literarios se emplean comillas para marcar los diálogos de los personajes.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_dialogo.png",
             "ejemplos": [
-                "Ejemplo 1: ¡Corre más rápido!",
-                "Ejemplo 2: ¡Haz la tarea!"
+                "\"¿Dónde estás?\", preguntó María.",
+                "Juan respondió: \"Estoy en la biblioteca.\""
             ]
         }
     }
