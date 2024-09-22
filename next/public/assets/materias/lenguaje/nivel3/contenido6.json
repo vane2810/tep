@@ -1,50 +1,48 @@
 {
-    "tituloGeneral": "Sujeto y Predicado",
+    "tituloGeneral": "Palabras Primitivas y Derivadas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Sujeto y Predicado: ¿Qué son?",
-            "descripcion": "El sujeto indica quién realiza la acción, mientras que el predicado describe la acción o lo que se dice del sujeto en la oración.",
-            "imagenLeccion": "/img/niveles/lenguaje/sujeto_predicado.png",
+            "titulo": "¿Qué son las palabras primitivas?",
+            "descripcion": "Las palabras primitivas son aquellas que no derivan de ninguna otra palabra, es decir, son palabras base o raíz de las que se forman otras palabras.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_primitivas.png",
             "ejemplos": [
-                "Ejemplo 1: El perro (sujeto) corre rápido (predicado).",
-                "Ejemplo 2: La niña (sujeto) come una manzana (predicado)."
+                "'Pan' es una palabra primitiva, ya que no proviene de ninguna otra palabra."
             ]
         },
         "2": {
-            "titulo": "El Sujeto",
-            "descripcion": "El sujeto puede ser explícito (aparece en la oración) o tácito (implícito, pero no mencionado).",
-            "imagenLeccion": "/img/niveles/lenguaje/sujeto.png",
+            "titulo": "¿Qué son las palabras derivadas?",
+            "descripcion": "Las palabras derivadas son aquellas que provienen de una palabra primitiva a la que se le añaden prefijos o sufijos para crear nuevas palabras con significados relacionados.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_derivadas.png",
             "ejemplos": [
-                "Ejemplo 1: Juan lee un libro. (Sujeto explícito: Juan)",
-                "Ejemplo 2: Corro todas las mañanas. (Sujeto tácito: Yo)"
+                "'Panadero' es una palabra derivada de 'pan'."
             ]
         },
         "3": {
-            "titulo": "El Predicado",
-            "descripcion": "El predicado contiene el verbo principal de la oración y describe la acción que realiza el sujeto.",
-            "imagenLeccion": "/img/niveles/lenguaje/predicado.png",
+            "titulo": "Relación entre palabras primitivas y derivadas",
+            "descripcion": "Las palabras primitivas son la raíz de muchas palabras derivadas. Las derivadas se forman agregando sufijos o prefijos a la palabra primitiva, y su significado está relacionado con esta.",
+            "imagenLeccion": "/img/niveles/lenguaje/relacion_primitivas_derivadas.png",
             "ejemplos": [
-                "Ejemplo 1: El niño lee un libro. (Predicado: lee un libro)",
-                "Ejemplo 2: Las flores crecen rápidamente. (Predicado: crecen rápidamente)"
+                "Ejemplo 1: 'Flor' (primitiva) → 'Florería' (derivada).",
+                "Ejemplo 2: 'Libro' (primitiva) → 'Librería' (derivada)."
             ]
         },
         "4": {
-            "titulo": "Núcleo del Sujeto",
-            "descripcion": "El núcleo del sujeto es la palabra principal, generalmente un sustantivo o pronombre.",
-            "imagenLeccion": "/img/niveles/lenguaje/nucleo_sujeto.png",
+            "titulo": "Formación de palabras derivadas",
+            "descripcion": "Las palabras derivadas se forman mediante la adición de prefijos (antes de la raíz) o sufijos (después de la raíz) a la palabra primitiva.",
+            "imagenLeccion": "/img/niveles/lenguaje/formacion_derivadas.png",
             "ejemplos": [
-                "Ejemplo 1: La casa (Núcleo: casa).",
-                "Ejemplo 2: El coche (Núcleo: coche)."
+                "Ejemplo 1: 'Reescribir' (prefijo 're-' + 'escribir').",
+                "Ejemplo 2: 'Caminante' (raíz 'camino' + sufijo '-ante')."
             ]
         },
         "5": {
-            "titulo": "Núcleo del Predicado",
-            "descripcion": "El núcleo del predicado es el verbo principal que indica la acción o estado.",
-            "imagenLeccion": "/img/niveles/lenguaje/nucleo_predicado.png",
+            "titulo": "Ejemplos comunes de palabras primitivas y derivadas",
+            "descripcion": "A continuación, se presentan algunos ejemplos comunes de palabras primitivas y las palabras derivadas que se forman a partir de ellas.",
+            "imagenLeccion": "/img/niveles/lenguaje/ejemplos_primitivas_derivadas.png",
             "ejemplos": [
-                "Ejemplo 1: Juan corre. (Núcleo: corre).",
-                "Ejemplo 2: María canta una canción. (Núcleo: canta)."
+                "Ejemplo 1: 'Agua' (primitiva) → 'Aguacero', 'Agujero' (derivadas).",
+                "Ejemplo 2: 'Sol' (primitiva) → 'Soleado', 'Solar' (derivadas)."
             ]
         }
     }

@@ -1,50 +1,47 @@
 {
-    "tituloGeneral": "Ortografía Básica",
+    "tituloGeneral": "El Género de la Novela",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Mayúsculas",
-            "descripcion": "Las mayúsculas se usan al inicio de una oración, en nombres propios y títulos, entre otros.",
-            "imagenLeccion": "/img/niveles/lenguaje/mayusculas.png",
+            "titulo": "¿Qué es una novela?",
+            "descripcion": "Una novela es una obra narrativa de ficción, escrita en prosa, que relata sucesos a lo largo de una estructura compleja con múltiples personajes y eventos. Generalmente es más extensa que un cuento.",
+            "imagenLeccion": "/img/niveles/lenguaje/que_es_novela.png",
             "ejemplos": [
-                "Ejemplo 1: María vive en México.",
-                "Ejemplo 2: Hoy es lunes."
+                "'Don Quijote de la Mancha' es una de las novelas más importantes de la literatura universal."
             ]
         },
         "2": {
-            "titulo": "El Punto",
-            "descripcion": "El punto se utiliza para marcar el final de una oración. Existen tres tipos: punto y seguido, punto y aparte, y punto final.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto.png",
+            "titulo": "Características de las novelas",
+            "descripcion": "Las novelas suelen tener una estructura dividida en capítulos, con una trama extensa y desarrollada, personajes complejos, y pueden explorar diferentes temas, emociones y conflictos humanos.",
+            "imagenLeccion": "/img/niveles/lenguaje/caracteristicas_novela.png",
             "ejemplos": [
-                "Ejemplo 1: Me gusta leer.",
-                "Ejemplo 2: Vamos al cine."
+                "Las novelas incluyen descripciones detalladas, diálogos entre personajes y pueden abarcar largos periodos de tiempo."
             ]
         },
         "3": {
-            "titulo": "La Coma",
-            "descripcion": "La coma se usa para separar elementos en una lista, para hacer una pausa breve dentro de una oración o para aclarar información adicional.",
-            "imagenLeccion": "/img/niveles/lenguaje/coma.png",
+            "titulo": "Tipos de novelas",
+            "descripcion": "Existen diferentes tipos de novelas según su temática o enfoque. Entre los más comunes están la novela histórica, la novela romántica, la novela policíaca, la novela de ciencia ficción y la novela de aventuras.",
+            "imagenLeccion": "/img/niveles/lenguaje/tipos_novela.png",
             "ejemplos": [
-                "Ejemplo 1: Compré manzanas, naranjas y uvas.",
-                "Ejemplo 2: Después de la cena, fuimos al parque."
+                "Novela histórica – 'Guerra y paz' de León Tolstói.",
+                "Novela de ciencia ficción – '1984' de George Orwell."
             ]
         },
         "4": {
-            "titulo": "Signos de Interrogación",
-            "descripcion": "Se utilizan para hacer preguntas y siempre se colocan al inicio y al final de la pregunta.",
-            "imagenLeccion": "/img/niveles/lenguaje/interrogacion.png",
+            "titulo": "Estructura de una novela",
+            "descripcion": "La estructura de una novela generalmente se compone de introducción, desarrollo y desenlace. Puede estar dividida en capítulos, que permiten un avance gradual de la trama y el desarrollo de los personajes.",
+            "imagenLeccion": "/img/niveles/lenguaje/estructura_novela.png",
             "ejemplos": [
-                "Ejemplo 1: ¿Cómo te llamas?",
-                "Ejemplo 2: ¿Qué hora es?"
+                "En 'Cien años de soledad', la estructura sigue la historia de varias generaciones de una familia."
             ]
         },
         "5": {
-            "titulo": "Signos de Exclamación",
-            "descripcion": "Se usan para expresar sorpresa, emociones fuertes o exclamaciones, y también se colocan al inicio y al final de la frase.",
-            "imagenLeccion": "/img/niveles/lenguaje/exclamacion.png",
+            "titulo": "Novelas famosas en la literatura",
+            "descripcion": "Algunas novelas han marcado hitos en la historia de la literatura por su calidad narrativa y por abordar temas universales como el amor, la guerra, la libertad y la justicia.",
+            "imagenLeccion": "/img/niveles/lenguaje/novelas_famosas.png",
             "ejemplos": [
-                "Ejemplo 1: ¡Qué gran sorpresa!",
-                "Ejemplo 2: ¡Felicidades!"
+                "'Matar a un ruiseñor' de Harper Lee.",
+                "'Crimen y castigo' de Fiódor Dostoyevski."
             ]
         }
     }

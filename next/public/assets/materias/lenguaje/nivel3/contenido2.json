@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Los Sustantivos",
+    "tituloGeneral": "Reglas de la Y y la LL",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Sustantivos: ¿Qué son?",
-            "descripcion": "Los sustantivos nombran personas, animales, cosas, lugares o ideas. Se clasifican según su función en la oración y otras características.",
-            "imagenLeccion": "/img/niveles/lenguaje/sustantivos.png",
+            "titulo": "Uso de la Y como conjunción",
+            "descripcion": "La letra 'y' se utiliza como conjunción para unir palabras o frases que no empiezan con 'i' o 'hi'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_y_conjuncion.png",
             "ejemplos": [
-                "Ejemplo 1: perro, casa, alegría.",
-                "Ejemplo 2: niña, ciudad, amor."
+                "María 'y' Juan fueron al parque.",
+                "Compramos manzanas 'y' peras."
             ]
         },
         "2": {
-            "titulo": "Sustantivos Comunes y Propios",
-            "descripcion": "Los sustantivos comunes nombran de manera general, mientras que los propios son nombres específicos de personas, lugares o entidades.",
-            "imagenLeccion": "/img/niveles/lenguaje/comunes_propios.png",
+            "titulo": "Uso de la Y en verbos terminados en -uir",
+            "descripcion": "Se escribe 'y' en las formas verbales que terminan en 'uir', excepto en nosotros y vosotros.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_y_uir.png",
             "ejemplos": [
-                "Ejemplo 1 (común): montaña.",
-                "Ejemplo 2 (propio): Monte Everest."
+                "Construir – Él construye.",
+                "Incluir – Ellos incluyen."
             ]
         },
         "3": {
-            "titulo": "Sustantivos Concretos y Abstractos",
-            "descripcion": "Los sustantivos concretos designan cosas que podemos percibir, mientras que los abstractos se refieren a conceptos o ideas intangibles.",
-            "imagenLeccion": "/img/niveles/lenguaje/concretos_abstractos.png",
+            "titulo": "Uso de la LL en palabras que terminan en -illo y -illa",
+            "descripcion": "Las palabras que terminan en los diminutivos '-illo' o '-illa' se escriben con 'll'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_ll_illo_illa.png",
             "ejemplos": [
-                "Ejemplo 1 (concreto): árbol.",
-                "Ejemplo 2 (abstracto): felicidad."
+                "Palo – Palillo.",
+                "Casa – Casilla."
             ]
         },
         "4": {
-            "titulo": "Sustantivos Individuales y Colectivos",
-            "descripcion": "Los individuales se refieren a una sola entidad, y los colectivos designan a un conjunto de entidades.",
-            "imagenLeccion": "/img/niveles/lenguaje/individuales_colectivos.png",
+            "titulo": "Uso de la Y como vocal y sonido semivocálico",
+            "descripcion": "La 'y' actúa como vocal cuando está al final de una palabra o cuando forma parte de un diptongo o triptongo.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_y_vocal.png",
             "ejemplos": [
-                "Ejemplo 1 (individual): abeja.",
-                "Ejemplo 2 (colectivo): enjambre."
+                "Ejemplo 1: Hoy.",
+                "Ejemplo 2: Rey."
             ]
         },
         "5": {
-            "titulo": "Sustantivos: Género y Número",
-            "descripcion": "Los sustantivos varían según el género (masculino o femenino) y el número (singular o plural). Esta concordancia es fundamental para la coherencia en la oración.",
-            "imagenLeccion": "/img/niveles/lenguaje/genero_numero.png",
+            "titulo": "Uso de la LL en palabras derivadas",
+            "descripcion": "Se usa 'll' en palabras derivadas de otras que ya llevan 'll' en su raíz.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_ll_derivadas.png",
             "ejemplos": [
-                "Ejemplo 1 (género): niño (masculino), niña (femenino).",
-                "Ejemplo 2 (número): perro (singular), perros (plural)."
+                "Llave – Llavero.",
+                "Lluvia – Llovera."
             ]
         }
     }

@@ -1,50 +1,49 @@
 {
-    "tituloGeneral": "Tipos de Oraciones",
+    "tituloGeneral": "El Uso de las Palabras Homónimas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Tipos de Oraciones: ¿Qué son?",
-            "descripcion": "Las oraciones se clasifican según su función en afirmativas, negativas, interrogativas, exclamativas e imperativas.",
-            "imagenLeccion": "/img/niveles/lenguaje/tipos_oraciones.png",
+            "titulo": "¿Qué son las palabras homónimas?",
+            "descripcion": "Las palabras homónimas son aquellas que se escriben o se pronuncian igual, pero tienen significados diferentes. Se clasifican en homógrafas (mismo sonido y escritura) y homófonas (mismo sonido, distinta escritura).",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_homonimas_que_es.png",
             "ejemplos": [
-                "Ejemplo 1: El perro juega en el parque. (Afirmativa)",
-                "Ejemplo 2: ¿Vas a la escuela hoy? (Interrogativa)"
+                "'Banco' puede referirse a una entidad financiera o a un asiento largo."
             ]
         },
         "2": {
-            "titulo": "Oraciones Afirmativas",
-            "descripcion": "Expresan una afirmación o hecho positivo.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_afirmativas.png",
+            "titulo": "Palabras homógrafas",
+            "descripcion": "Las palabras homógrafas son aquellas que se escriben igual y se pronuncian igual, pero tienen significados diferentes.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_homografas.png",
             "ejemplos": [
-                "Ejemplo 1: El sol brilla en el cielo.",
-                "Ejemplo 2: Los niños corren en el patio."
+                "'Vino' (del verbo venir) y 'vino' (bebida alcohólica).",
+                "'Llama' (animal) y 'llama' (fuego)."
             ]
         },
         "3": {
-            "titulo": "Oraciones Negativas",
-            "descripcion": "Niegan una acción o hecho.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_negativas.png",
+            "titulo": "Palabras homófonas",
+            "descripcion": "Las palabras homófonas son aquellas que se pronuncian igual, pero se escriben de manera diferente y tienen significados distintos.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_homofonas.png",
             "ejemplos": [
-                "Ejemplo 1: No voy a la fiesta.",
-                "Ejemplo 2: Ella no quiere comer."
+                "'Coser' (unir con hilo) y 'cocer' (cocinar).",
+                "'Hecho' (sucedido) y 'echo' (del verbo echar)."
             ]
         },
         "4": {
-            "titulo": "Oraciones Interrogativas",
-            "descripcion": "Se utilizan para hacer preguntas y solicitar información.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_interrogativas.png",
+            "titulo": "Diferencias entre palabras homónimas y polisémicas.",
+            "descripcion": "Las palabras homónimas tienen sonidos o escrituras iguales pero significados diferentes. Las palabras polisémicas tienen múltiples significados.",
+            "imagenLeccion": "/img/niveles/lenguaje/diferencias_homonimas_polisemicas_sinonimas.png",
             "ejemplos": [
-                "Ejemplo 1: ¿Dónde estás?",
-                "Ejemplo 2: ¿Qué hora es?"
+                "Ejemplo de palabra homónima: 'Calle' (vía pública) y 'calle' (del verbo callar).",
+                "Ejemplo de palabra polisémica: 'Llave' (herramienta o solución)."
             ]
         },
         "5": {
-            "titulo": "Oraciones Exclamativas",
-            "descripcion": "Expresan sorpresa, emoción o sentimientos intensos.",
-            "imagenLeccion": "/img/niveles/lenguaje/oraciones_exclamativas.png",
+            "titulo": "Cómo identificar palabras homónimas",
+            "descripcion": "Para identificar palabras homónimas, es importante prestar atención al contexto en el que se usan, ya que aunque suenan o se ven igual, su significado depende de la situación.",
+            "imagenLeccion": "/img/niveles/lenguaje/identificar_homonimas.png",
             "ejemplos": [
-                "Ejemplo 1: ¡Qué lindo día!",
-                "Ejemplo 2: ¡No lo puedo creer!"
+                "'Bota' (calzado) y 'bota' (del verbo botar).",
+                "'Haya' (árbol) y 'haya' (del verbo haber)."
             ]
         }
     }
