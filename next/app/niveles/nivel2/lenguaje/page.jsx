@@ -1,7 +1,7 @@
 // Página principal de Lenguaje - Nivel 2
 import React from "react";
 import WelcomeSection from '@/components/templates/materias/welcomeSection';
-import LevelMap from '@/components/templates/materias/levelMap';
+import MapLenguaje from '@/components/templates/materias/mapLenguaje';
 import '@/styles/animacion.css';
 import { SeparadorMorado } from "@/components/separador";
 
@@ -42,7 +42,7 @@ export default function LenguajePage() {
           />
 
           {/* Mapa de niveles para Lenguaje */}
-          <LevelMap
+          <MapLenguaje
             subject="lenguaje"
             basePath="niveles/nivel2/"
             levels={levels}
