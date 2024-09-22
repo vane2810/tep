@@ -1,50 +1,47 @@
 {
-    "tituloGeneral": "Los Artículos",
+    "tituloGeneral": "El Género de los Poemas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Artículos: ¿Qué son?",
-            "descripcion": "Los artículos acompañan a los sustantivos y nos indican su género y número. Pueden ser definidos o indefinidos.",
-            "imagenLeccion": "/img/niveles/lenguaje/articulos.png",
+            "titulo": "¿Qué es un poema?",
+            "descripcion": "Un poema es una composición literaria que utiliza el lenguaje poético para expresar emociones, ideas o sentimientos, generalmente con un uso particular del ritmo, la métrica y la rima. Los poemas suelen estar escritos en verso.",
+            "imagenLeccion": "/img/niveles/lenguaje/que_es_poema.png",
             "ejemplos": [
-                "Ejemplo 1: el libro, la casa.",
-                "Ejemplo 2: los perros, las flores."
+                "'Caminante, no hay camino' de Antonio Machado es un poema que reflexiona sobre la vida."
             ]
         },
         "2": {
-            "titulo": "Artículos Definidos",
-            "descripcion": "Se utilizan para referirse a algo específico y conocido por el hablante.",
-            "imagenLeccion": "/img/niveles/lenguaje/articulos_definidos.png",
+            "titulo": "Características de los poemas",
+            "descripcion": "Los poemas se caracterizan por estar compuestos en verso, utilizar recursos literarios como la metáfora, la aliteración o la anáfora, y por expresar de forma condensada pensamientos y emociones. Pueden tener o no rima y métrica regular.",
+            "imagenLeccion": "/img/niveles/lenguaje/caracteristicas_poema.png",
             "ejemplos": [
-                "Ejemplo 1: el coche (específico).",
-                "Ejemplo 2: las sillas (específicas)."
+                "En el poema 'Soneto XXIII' de Garcilaso de la Vega, se observa el uso de la rima y la métrica en versos de arte mayor."
             ]
         },
         "3": {
-            "titulo": "Artículos Indefinidos",
-            "descripcion": "Se utilizan para referirse a algo de manera general o desconocido.",
-            "imagenLeccion": "/img/niveles/lenguaje/articulos_indefinidos.png",
+            "titulo": "Tipos de poemas",
+            "descripcion": "Existen diferentes tipos de poemas según su forma y estructura. Entre los más conocidos están el soneto, la oda, el haiku, la elegía, y el verso libre.",
+            "imagenLeccion": "/img/niveles/lenguaje/tipos_poemas.png",
             "ejemplos": [
-                "Ejemplo 1: un perro (general).",
-                "Ejemplo 2: unas flores (general)."
+                "Soneto – 'Soneto XXIII' de Garcilaso de la Vega.",
+                "Haiku – 'Un viejo estanque / salta una rana / ruido de agua.'"
             ]
         },
         "4": {
-            "titulo": "Género de los Artículos",
-            "descripcion": "Los artículos concuerdan en género con el sustantivo que acompañan, ya sea masculino o femenino.",
-            "imagenLeccion": "/img/niveles/lenguaje/genero_articulos.png",
+            "titulo": "Estructura de un poema",
+            "descripcion": "Los poemas están compuestos por versos, que pueden agruparse en estrofas. El ritmo y la rima son elementos importantes en muchos poemas, aunque algunos modernos prescinden de la rima y usan verso libre.",
+            "imagenLeccion": "/img/niveles/lenguaje/estructura_poema.png",
             "ejemplos": [
-                "Ejemplo 1: el coche (masculino).",
-                "Ejemplo 2: la mesa (femenino)."
+                "Un soneto tiene 14 versos, organizados en dos cuartetos y dos tercetos."
             ]
         },
         "5": {
-            "titulo": "Número de los Artículos",
-            "descripcion": "Los artículos también concuerdan en número con el sustantivo, ya sea singular o plural.",
-            "imagenLeccion": "/img/niveles/lenguaje/numero_articulos.png",
+            "titulo": "Poemas famosos en la literatura",
+            "descripcion": "Algunos poemas han dejado una profunda huella en la literatura mundial debido a su belleza lírica, profundidad emocional y originalidad.",
+            "imagenLeccion": "/img/niveles/lenguaje/poemas_famosos.png",
             "ejemplos": [
-                "Ejemplo 1: el gato (singular).",
-                "Ejemplo 2: los gatos (plural)."
+                "'La canción del pirata' de José de Espronceda.",
+                "'El cuervo' de Edgar Allan Poe."
             ]
         }
     }

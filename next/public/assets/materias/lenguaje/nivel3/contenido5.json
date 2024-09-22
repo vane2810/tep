@@ -1,50 +1,47 @@
 {
-    "tituloGeneral": "Pronombres Personales",
+    "tituloGeneral": "El Uso de las Palabras Monosémicas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Pronombres Personales: ¿Qué son?",
-            "descripcion": "Los pronombres personales reemplazan a los sustantivos para evitar repeticiones y facilitar la comunicación.",
-            "imagenLeccion": "/img/niveles/lenguaje/pronombres.png",
+            "titulo": "¿Qué son las palabras monosemicas?",
+            "descripcion": "Las palabras monosémicas son aquellas que tienen un solo significado, independientemente del contexto en el que se utilicen.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_monosemicas_que_es.png",
             "ejemplos": [
-                "Ejemplo 1: Yo soy estudiante.",
-                "Ejemplo 2: Él juega fútbol."
+                "'Termómetro' siempre se refiere a un instrumento para medir la temperatura."
             ]
         },
         "2": {
-            "titulo": "Primera Persona",
-            "descripcion": "Se refiere a quien habla (yo, nosotros) o al grupo al que pertenece el hablante.",
-            "imagenLeccion": "/img/niveles/lenguaje/primera_persona.png",
+            "titulo": "Características de las palabras monosemicas",
+            "descripcion": "Las palabras monosémicas tienen un significado fijo y no varía según el contexto. Son fáciles de entender ya que no presentan ambigüedad.",
+            "imagenLeccion": "/img/niveles/lenguaje/caracteristicas_monosemicas.png",
             "ejemplos": [
-                "Ejemplo 1: Yo estudio.",
-                "Ejemplo 2: Nosotros caminamos."
+                "'Bicicleta' siempre se refiere a un vehículo de dos ruedas impulsado por pedales."
             ]
         },
         "3": {
-            "titulo": "Segunda Persona",
-            "descripcion": "Se refiere a quien escucha o recibe la acción (tú, ustedes).",
-            "imagenLeccion": "/img/niveles/lenguaje/segunda_persona.png",
+            "titulo": "Ejemplos comunes de palabras monosemicas",
+            "descripcion": "Algunas palabras monosémicas se utilizan frecuentemente en la vida cotidiana debido a su significado claro y único.",
+            "imagenLeccion": "/img/niveles/lenguaje/ejemplos_monosemicas.png",
             "ejemplos": [
-                "Ejemplo 1: Tú lees un libro.",
-                "Ejemplo 2: Ustedes juegan al fútbol."
+                "'Reloj' – Aparato para medir el tiempo.",
+                "'Telescopio' – Instrumento para observar objetos lejanos."
             ]
         },
         "4": {
-            "titulo": "Tercera Persona",
-            "descripcion": "Se refiere a quien no participa directamente en la conversación (él, ella, ellos).",
-            "imagenLeccion": "/img/niveles/lenguaje/tercera_persona.png",
+            "titulo": "Diferencia entre palabras monosemicas y polisémicas",
+            "descripcion": "Las palabras monosémicas tienen un único significado, mientras que las palabras polisémicas pueden tener varios significados dependiendo del contexto.",
+            "imagenLeccion": "/img/niveles/lenguaje/diferencia_monosemicas_polisemicas.png",
             "ejemplos": [
-                "Ejemplo 1: Él corre.",
-                "Ejemplo 2: Ellas cantan."
+                "Ejemplo de palabra monosémica: 'Microscopio' – Instrumento óptico.",
+                "Ejemplo de palabra polisémica: 'Banco' – Puede referirse a una entidad financiera o a un asiento."
             ]
         },
         "5": {
-            "titulo": "Pronombres: Género y Número",
-            "descripcion": "Concuerdan en género (masculino o femenino) y número (singular o plural) con el sustantivo que reemplazan.",
-            "imagenLeccion": "/img/niveles/lenguaje/genero_numero_pronombres.png",
+            "titulo": "Cómo identificar palabras monosemicas",
+            "descripcion": "Para identificar una palabra monosémica, basta con observar que su significado es único y no cambia según el contexto.",
+            "imagenLeccion": "/img/niveles/lenguaje/identificar_monosemicas.png",
             "ejemplos": [
-                "Ejemplo 1: Él (masculino), ella (femenino).",
-                "Ejemplo 2: Nosotros (plural), yo (singular)."
+                "'Aguja' siempre se refiere a un objeto fino y puntiagudo utilizado para coser o inyectar."
             ]
         }
     }
