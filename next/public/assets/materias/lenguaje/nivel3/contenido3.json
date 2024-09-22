@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Los Adjetivos",
+    "tituloGeneral": "Reglas de la G y la J",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Adjetivos: ¿Qué son?",
-            "descripcion": "Los adjetivos son palabras que describen o califican a los sustantivos, proporcionando más información sobre ellos.",
-            "imagenLeccion": "/img/niveles/lenguaje/adjetivo.png",
+            "titulo": "Uso de la G antes de 'e' y 'i'",
+            "descripcion": "Se escribe 'g' cuando el sonido suave /g/ precede a las vocales 'e' o 'i'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_g_antes_e_i.png",
             "ejemplos": [
-                "Ejemplo 1: El coche rápido.",
-                "Ejemplo 2: La casa grande."
+                "Ejemplo 1: Gente.",
+                "Ejemplo 2: General."
             ]
         },
         "2": {
-            "titulo": "Adjetivos Calificativos",
-            "descripcion": "Expresan cualidades, características o estados del sustantivo.",
-            "imagenLeccion": "/img/niveles/lenguaje/calificativos.png",
+            "titulo": "Uso de la J antes de 'e' y 'i'",
+            "descripcion": "Se escribe 'j' cuando el sonido fuerte /j/ precede a las vocales 'e' o 'i'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_j_antes_e_i.png",
             "ejemplos": [
-                "Ejemplo 1: El gato negro.",
-                "Ejemplo 2: El día soleado."
+                "Ejemplo 1: Jefe.",
+                "Ejemplo 2: Jirafa."
             ]
         },
         "3": {
-            "titulo": "Adjetivos Posesivos",
-            "descripcion": "Indican posesión o pertenencia, relacionando el sustantivo con su dueño.",
-            "imagenLeccion": "/img/niveles/lenguaje/posesivos.png",
+            "titulo": "Palabras que terminan en -ger y -gir",
+            "descripcion": "Los verbos terminados en '-ger' y '-gir' se escriben con 'g', excepto en 'tejer' y 'crujir'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_g_ger_gir.png",
             "ejemplos": [
-                "Ejemplo 1: Mi libro.",
-                "Ejemplo 2: Su perro."
+                "Ejemplo 1: Recoger.",
+                "Ejemplo 2: Dirigir."
             ]
         },
         "4": {
-            "titulo": "Adjetivos Demostrativos",
-            "descripcion": "Señalan la proximidad o lejanía del sustantivo en relación con quien habla.",
-            "imagenLeccion": "/img/niveles/lenguaje/demostrativos.png",
+            "titulo": "Uso de la J en formas verbales de verbos terminados en -jar",
+            "descripcion": "Las formas verbales de los verbos terminados en '-jar' y sus derivados se escriben con 'j'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_j_verbos_jar.png",
             "ejemplos": [
-                "Ejemplo 1: Este coche.",
-                "Ejemplo 2: Aquella montaña."
+                "Trabajar – Trabajé.",
+                "Viajar – Viajamos."
             ]
         },
         "5": {
-            "titulo": "Grados del Adjetivo",
-            "descripcion": "Indican diferentes grados de intensidad: positivo, comparativo y superlativo.",
-            "imagenLeccion": "/img/niveles/lenguaje/grados_adjetivo.png",
+            "titulo": "Uso de la G en palabras que comienzan con 'geo-', 'gest-' o 'legi-'",
+            "descripcion": "Las palabras que comienzan con los prefijos 'geo-', 'gest-' o 'legi-' se escriben con 'g'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_g_geo_gest_legi.png",
             "ejemplos": [
-                "Ejemplo 1 (comparativo): El coche es más rápido que la moto.",
-                "Ejemplo 2 (superlativo): Es el coche más rápido de todos."
+                "Ejemplo 1: Geografía.",
+                "Ejemplo 2: Gestión."
             ]
         }
     }

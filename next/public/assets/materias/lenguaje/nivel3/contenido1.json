@@ -1,50 +1,50 @@
 {
-    "tituloGeneral": "Signos de Puntuación",
+    "tituloGeneral": "Reglas de la Z, la C y la S",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Signos de Puntuación: La Coma",
-            "descripcion": "La coma se usa para separar elementos en una lista, marcar pausas breves, y para aclaraciones o incisos dentro de una oración compleja.",
-            "imagenLeccion": "/img/niveles/lenguaje/coma.png",
+            "titulo": "Uso de la Z al final de las palabras",
+            "descripcion": "Se escribe 'z' al final de las palabras que terminan en el sonido /z/ en singular, pero que forman su plural con 'ces'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_z_final_palabra.png",
             "ejemplos": [
-                "Ejemplo 1: Me gustan las frutas, las verduras y los cereales.",
-                "Ejemplo 2: Después de correr, me senté a descansar."
+                "Ejemplo 1: Lápiz (plural: lápices).",
+                "Ejemplo 2: Cruz (plural: cruces)."
             ]
         },
         "2": {
-            "titulo": "Signos de Puntuación: El Punto",
-            "descripcion": "El punto marca el final de una oración o un párrafo. Puede ser punto y seguido, punto y aparte, o punto final, y es esencial para separar ideas completas.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto.png",
+            "titulo": "Uso de la C en diminutivos",
+            "descripcion": "Los diminutivos que terminan en '-cito' o '-cita' se escriben con 'c' cuando la palabra original termina en 't', 'd' o con vocal.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_c_diminutivos.png",
             "ejemplos": [
-                "Ejemplo 1: Me llamo Juan. Vivo en Madrid.",
-                "Ejemplo 2: Llegamos tarde al cine. No alcanzamos a ver la película."
+                "Ejemplo 1: Ratón – Ratoncito.",
+                "Ejemplo 2: Flor – Florecita."
             ]
         },
         "3": {
-            "titulo": "Signos de Puntuación: Los Dos Puntos",
-            "descripcion": "Los dos puntos introducen explicaciones, citas textuales, enumeraciones o resúmenes de lo anterior. También se usan en cartas y documentos formales.",
-            "imagenLeccion": "/img/niveles/lenguaje/dos_puntos.png",
+            "titulo": "Uso de la S en palabras terminadas en '-oso' y '-osa'",
+            "descripcion": "Las palabras terminadas en '-oso' o '-osa', que indican cualidad o abundancia, se escriben con 's'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_s_oso_osa.png",
             "ejemplos": [
-                "Ejemplo 1: Estos son los ingredientes: harina, azúcar y huevos.",
-                "Ejemplo 2: El profesor dijo: 'Estudien para el examen de mañana.'"
+                "Ejemplo 1: Hermoso.",
+                "Ejemplo 2: Gloriosa."
             ]
         },
         "4": {
-            "titulo": "Signos de Puntuación: El Punto y Coma",
-            "descripcion": "El punto y coma separa oraciones extensas que ya contienen comas, o se usa para enumeraciones complejas y oraciones con elementos coordinados.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto_coma.png",
+            "titulo": "Uso de la C en verbos terminados en '-cer' y '-cir'",
+            "descripcion": "Los verbos terminados en '-cer' y '-cir' se escriben con 'c' en todas sus formas, excepto cuando la raíz es irregular.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_c_cer_cir.png",
             "ejemplos": [
-                "Ejemplo 1: Tengo hambre; sin embargo, esperaré a la cena.",
-                "Ejemplo 2: Salimos a correr; luego, volvimos a casa."
+                "Ejemplo 1: Conocer – Yo conozco.",
+                "Ejemplo 2: Conducir – Yo conduzco."
             ]
         },
         "5": {
-            "titulo": "Signos de Puntuación: Puntos Suspensivos",
-            "descripcion": "Los puntos suspensivos indican una oración interrumpida o incompleta, añadiendo dramatismo o suspenso. También pueden marcar un silencio prolongado.",
-            "imagenLeccion": "/img/niveles/lenguaje/puntos_supensivos.png",
+            "titulo": "Uso de la Z en verbos terminados en '-izar'",
+            "descripcion": "Se escribe 'z' en los verbos terminados en '-izar' que provienen de palabras que no llevan 's' en su forma original.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_z_izar.png",
             "ejemplos": [
-                "Ejemplo 1: Sabía que algo malo iba a pasar...",
-                "Ejemplo 2: No lo sé... tal vez más tarde."
+                "Ejemplo 1: Autor – Autorizar.",
+                "Ejemplo 2: Canal – Canalizar."
             ]
         }
     }

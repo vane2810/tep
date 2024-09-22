@@ -1,50 +1,48 @@
 {
-    "tituloGeneral": "Los Verbos",
+    "tituloGeneral": "El Uso de las Palabras Polisémicas",
     "imagenPortada": "/img/personajes/principe/principe.png",
     "lecciones": {
         "1": {
-            "titulo": "Verbos: ¿Qué son?",
-            "descripcion": "Los verbos son palabras que indican acciones, estados o procesos realizados por el sujeto en la oración.",
-            "imagenLeccion": "/img/niveles/lenguaje/verbo.png",
+            "titulo": "¿Qué son las palabras polisémicas?",
+            "descripcion": "Las palabras polisémicas son aquellas que tienen varios significados o acepciones, dependiendo del contexto en el que se utilicen.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_polisemicas_que_es.png",
             "ejemplos": [
-                "Ejemplo 1: correr, saltar, escribir.",
-                "Ejemplo 2: ser, estar, parecer."
+                "La palabra 'banco' puede referirse a una entidad financiera o a un asiento."
             ]
         },
         "2": {
-            "titulo": "Tiempos Verbales",
-            "descripcion": "Los tiempos verbales señalan cuándo ocurre la acción: pasado, presente o futuro.",
-            "imagenLeccion": "/img/niveles/lenguaje/tiempos_verbales.png",
+            "titulo": "Importancia del contexto en palabras polisémicas",
+            "descripcion": "El significado de una palabra polisémica depende del contexto en el que se emplee. La misma palabra puede tener un significado diferente según cómo se use en una oración.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_polisemicas_contexto.png",
             "ejemplos": [
-                "Ejemplo 1: Yo corro (presente).",
-                "Ejemplo 2: Yo corrí (pasado)."
+                "'El banco cerró a las 5.' (Entidad financiera).",
+                "'Nos sentamos en el banco del parque.' (Asiento)."
             ]
         },
         "3": {
-            "titulo": "Modo Indicativo",
-            "descripcion": "El modo indicativo se utiliza para expresar hechos reales o seguros.",
-            "imagenLeccion": "/img/niveles/lenguaje/indicativo.png",
+            "titulo": "Palabras polisémicas comunes en español",
+            "descripcion": "En español, existen muchas palabras polisémicas que usamos frecuentemente. Es importante conocer los diferentes significados para evitar confusiones.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_polisemicas_comunes.png",
             "ejemplos": [
-                "Ejemplo 1: Estudio todos los días.",
-                "Ejemplo 2: Ellos viajaron la semana pasada."
+                "'Luz' puede referirse a la iluminación o al nombre propio de una persona.",
+                "'Hoja' puede referirse a la parte de una planta o a una página de un cuaderno."
             ]
         },
         "4": {
-            "titulo": "Modo Subjuntivo",
-            "descripcion": "El modo subjuntivo se usa para expresar deseos, dudas o hipótesis.",
-            "imagenLeccion": "/img/niveles/lenguaje/subjuntivo.png",
+            "titulo": "Diferencia entre palabras polisémicas y homónimas",
+            "descripcion": "Las palabras polisémicas tienen varios significados relacionados entre sí, mientras que las palabras homónimas son aquellas que se escriben o pronuncian igual, pero tienen significados diferentes.",
+            "imagenLeccion": "/img/niveles/lenguaje/polisemicas_vs_homonimas.png",
             "ejemplos": [
-                "Ejemplo 1: Ojalá llegue pronto.",
-                "Ejemplo 2: Es posible que venga mañana."
+                "Ejemplo de palabra polisémica: 'Copa' (competición deportiva o vaso).",
+                "Ejemplo de palabra homónima: 'Vino' (verbo venir y bebida alcohólica)."
             ]
         },
         "5": {
-            "titulo": "Modo Imperativo",
-            "descripcion": "El modo imperativo se emplea para dar órdenes o instrucciones.",
-            "imagenLeccion": "/img/niveles/lenguaje/imperativo.png",
+            "titulo": "Cómo identificar palabras polisémicas",
+            "descripcion": "Para identificar una palabra polisémica, debemos analizar los diferentes significados que puede tener dependiendo del contexto. Esto se hace a través de la lectura o escucha atenta.",
+            "imagenLeccion": "/img/niveles/lenguaje/identificar_polisemicas.png",
             "ejemplos": [
-                "Ejemplo 1: ¡Haz la tarea!",
-                "Ejemplo 2: ¡Ven aquí ahora!"
+                "'Clave' puede ser una contraseña, una nota musical o algo esencial para resolver un problema."
             ]
         }
     }
