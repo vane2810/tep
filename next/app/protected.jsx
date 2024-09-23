@@ -2,7 +2,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { SessionContext } from '@/context/session';
-import GuestModal from '@/components/modals/GuestModal';
+import GuestModal from '@/components/modals/guestModal';
 
 const ProtectedPage = ({ children }) => {
   const { session } = useContext(SessionContext);
@@ -24,7 +24,7 @@ const ProtectedPage = ({ children }) => {
     return (
       <>
         <GuestModal show={showModal} onClose={handleCloseModal} />
-        <div className="text-center mt-10">Acceso restringido. Necesitas iniciar sesión para continuar.</div>
+        <div className="mt-10 text-center">Acceso restringido. Necesitas iniciar sesión para continuar.</div>
       </>
     );
   }

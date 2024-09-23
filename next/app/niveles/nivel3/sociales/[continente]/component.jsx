@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Volver from '@/components/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
 import { useRouter } from 'next/navigation';
+import Loading from '@/components/loading';
 
 export default function SocialesComponent({ id }) { // Usar id recibido desde las props
   const [continente, setContinente] = useState(null);
@@ -28,9 +29,7 @@ export default function SocialesComponent({ id }) { // Usar id recibido desde la
 
   if (!continente) {
     return (
-      <div className="flex justify-center items-center h-screen story">
-        <p>Cargando datos del continente...</p>
-      </div>
+      <Loading/>
     );
   }
 
@@ -55,11 +54,11 @@ export default function SocialesComponent({ id }) { // Usar id recibido desde la
         <div className="flex items-center bg-white shadow-lg p-4 rounded-lg max-w-4xl">
 
           <div className="flex-1 p-6 story">
-            <h2 className="mb-8 font-bold text-2xl">Sabías que...</h2>
+            <h2 className="mb-8 font-bold text-3xl">Sabías que...</h2>
             <p className="mb-6 text-xl">{continente.descripcion}</p>
             <button
-              className="bg-blue-700 hover:bg-blue-500 mt-4 px-4 py-2 rounded w-full font-bold text-white"
-              onClick={() => router.push(`/niveles/nivel3/sociales/${id}/${paises.id}`)}
+              className="bg-blue-700 hover:bg-blue-500 mt-4 px-4 py-2 rounded w-full font-bold text-white text-xl"
+              onClick={() => router.push(`/niveles/nivel3/sociales/${continente.idContinente}/${continente.idPais}`)}
             >
               Explorar {continente.name}
             </button>
@@ -92,7 +91,7 @@ export default function SocialesComponent({ id }) { // Usar id recibido desde la
               <img src={pais.imagen} alt={pais.nombre} title={`Bandera de ${pais.nombre}`} className="shadow-lg mb-6 rounded-lg w-full h-40 object-cover" />
               <button
                 className="bg-blue-700 hover:bg-blue-500 px-4 py-2 rounded font-bold text-lg text-white story"
-                onClick={() => router.push(`/niveles/nivel3/sociales/${id}/${pais.id}`)}
+                onClick={() => router.push(`/niveles/nivel3/sociales/${pais.idContinente}/${pais.idPais}`)}
                 title={`Explorar ${pais.nombre}`}
               >
                 Explorar {pais.nombre}

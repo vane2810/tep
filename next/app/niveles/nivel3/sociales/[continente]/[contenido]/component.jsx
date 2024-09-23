@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';  
 import Volver from '@/components/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
+import Loading from '@/components/loading';
 
 
 
@@ -16,12 +17,12 @@ export default function Component({ id }) {
   const [imagenPortada, setImagenPortada] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const router = useRouter();  // Inicializar useRouter correctamente
+  const router = useRouter(); 
 
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/sociales/nivel2/contenido${id}.json`);
+        const res = await fetch(`/assets/materias/sociales/nivel3/contenidos/${id}/contenido${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 
@@ -34,7 +35,7 @@ export default function Component({ id }) {
         }
 
         setIsLoading(false);
-      } catch (error) {
+      } catch ( error) {
         console.error('Error al cargar las lecciones:', error);
         setLecciones([]);
         setIsLoading(false);
@@ -42,6 +43,14 @@ export default function Component({ id }) {
     };
     fetchLecciones();
   }, [id]);
+
+  if (isLoading) {
+    return <Loading/>
+  }
+
+  if (!lecciones || lecciones.length === 0) {
+    return <div>No se encontraron lecciones.</div>;
+  }
 
   const handleOpenBook = () => {
     setIsOpen(true);
