@@ -7,16 +7,16 @@ import { SeparadorMorado } from "@/components/separador";
 
 export default function LenguajePage() {
   const levels = [
-    { id: 1, position: { top: '85%', left: '10%' }, color: 'white' },
-    { id: 2, position: { top: '78%', left: '20%' }, color: 'white' },
-    { id: 3, position: { top: '70%', left: '30%' }, color: 'white' },
-    { id: 4, position: { top: '65%', left: '40%' }, color: 'white' },
-    { id: 5, position: { top: '60%', left: '50%' }, color: 'white' },
-    { id: 6, position: { top: '55%', left: '60%' }, color: 'white' },
-    { id: 7, position: { top: '50%', left: '69%' }, color: 'white' },
-    { id: 8, position: { top: '45%', left: '78%' }, color: 'white' },
-    { id: 9, position: { top: '35%', left: '84%' }, color: 'white' },
-    { id: 10, position: { top: '22%', left: '87%' }, color: 'white' },
+    { id: 1, name: 'Contenido 1', position: { top: '85%', left: '10%' }, color: 'white' },
+    { id: 2, name: 'Contenido 2', position: { top: '78%', left: '20%' }, color: 'white' },
+    { id: 3, name: 'Contenido 3', position: { top: '70%', left: '30%' }, color: 'white' },
+    { id: 4, name: 'Contenido 4', position: { top: '65%', left: '40%' }, color: 'white' },
+    { id: 5, name: 'Contenido 5', position: { top: '60%', left: '50%' }, color: 'white' },
+    { id: 6, name: 'Contenido 6', position: { top: '55%', left: '60%' }, color: 'white' },
+    { id: 7, name: 'Contenido 7', position: { top: '50%', left: '69%' }, color: 'white' },
+    { id: 8, name: 'Contenido 8', position: { top: '45%', left: '78%' }, color: 'white' },
+    { id: 9, name: 'Contenido 9', position: { top: '35%', left: '84%' }, color: 'white' },
+    { id: 10, name: 'Contenido 10', position: { top: '22%', left: '87%' }, color: 'white' },
   ];
 
 

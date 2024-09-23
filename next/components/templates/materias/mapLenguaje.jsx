@@ -1,4 +1,4 @@
-// Componente reutilizable del mapa para todas las asignaturas y niveles
+// Componente reutilizable del mapa para lenguaje
 import Link from 'next/link';
 
 const MapLenguaje = ({ subject, basePath, levels, fondoUrl, decorativos, camino, caricatura }) => (
@@ -12,10 +12,16 @@ const MapLenguaje = ({ subject, basePath, levels, fondoUrl, decorativos, camino,
         {levels.map((level) => (
             <div key={level.id} className="absolute" style={{ top: level.position.top, left: level.position.left }}>
                 <Link href={`/${basePath}${subject}/${level.id}`}>
-                    <img src={camino} alt={`Nivel ${level.id}`} className="hover:shadow-lg rounded-full w-[4vw] h-[4vw] transform transition-transform cursor-pointer hover:scale-105" />
+                    <img
+                        src={camino}
+                        alt={`Nivel ${level.id}`}
+                        className="hover:shadow-lg rounded-full w-[4vw] h-[4vw] transform transition-transform cursor-pointer hover:scale-105"
+                        title={`${level.name}`}
+                    />
                 </Link>
 
                 <span className="mt-2 font-bold text-[2vw]" style={{ color: level.color || 'inherit' }}>{level.id}</span>
+
             </div>
         ))}
 

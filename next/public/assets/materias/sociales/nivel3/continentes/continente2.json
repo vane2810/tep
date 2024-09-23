@@ -1,0 +1,26 @@
+{
+    "name": "América",
+    "descripcion": "América es un continente que se extiende desde el norte del círculo polar ártico hasta el sur del círculo polar antártico. Incluye una diversa gama de climas y ecosistemas, desde tundras en Canadá hasta selvas tropicales en Brasil.",
+    "imagenPortada": "/img/continentes/america.jpg",
+    "paises": [
+      {
+        "id": "mexico",
+        "nombre": "México",
+        "descripcion": "México es conocido por sus ricas tradiciones culturales, la comida picante, y su historia azteca y maya. Las playas de Cancún y los sitios arqueológicos como Teotihuacán son solo algunos de sus atractivos turísticos.",
+        "imagen": "/img/paises/mexico.jpg"
+      },
+      {
+        "id": "usa",
+        "nombre": "Estados Unidos",
+        "descripcion": "Estados Unidos es un país diverso y vasto, conocido por su economía influyente y su cultura popular dominante. Desde los rascacielos de Nueva York hasta los parques naturales como Yellowstone, ofrece una amplia variedad de experiencias.",
+        "imagen": "/img/paises/usa.jpg"
+      },
+      {
+        "id": "brasil",
+        "nombre": "Brasil",
+        "descripcion": "Brasil, famoso por su carnaval de Río de Janeiro, el fútbol y su selva amazónica, es un país vibrante con una rica diversidad cultural y natural.",
+        "imagen": "/img/paises/brasil.jpg"
+      }
+    ]
+  }
+  

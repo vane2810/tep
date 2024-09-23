@@ -1,7 +1,7 @@
 // Página principal de Sociales - Nivel 2
 import React from "react";
 import WelcomeSection from '@/components/templates/materias/welcomeSection';
-import LevelMap from '@/components/templates/materias/levelMap';
+import LevelMap from '@/components/templates/materias/mapLenguaje';
 import '@/styles/animacion.css';
 import { SeparadorAzul } from "@/components/separador";
 

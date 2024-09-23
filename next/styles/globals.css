@@ -40,7 +40,7 @@
     background-color: #A74DB5;
 }
 .azul{
-    background-color: rgb(59 130 246);;
+    background-color: rgb(59 130 246);
 }
 .anaranjado{
     background-color: rgb(237, 151, 38);
@@ -55,3 +55,6 @@
     color: darkred
 }
 
+.text-azul{
+    color:  rgb(59 130 246);
+}
