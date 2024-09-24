@@ -1,48 +1,41 @@
 {
-  "idContinente": "1",
-  "idPais": "1",
+  "id": "africa",
   "name": "África",
   "descripcion": "África es el tercer continente más extenso y el segundo más poblado del mundo.",
   "imagenPortada": "/img/niveles/sociales/nivel3/continentes/africa.png",
   "paises": [
     {
-      "idPais": "2",
-      "idContinente": "1",
+      "id": "egipto",
       "nombre": "Egipto",
       "descripcion": "Egipto es mundialmente famoso por su antigua civilización y algunos de los monumentos más icónicos, incluyendo las pirámides de Giza y el Gran Templo de Luxor.",
       "imagen":  "/img/niveles/sociales/nivel3/paises/africa/egipto.jpg"
     },
     {
-      "idPais": "3",
-      "idContinente": "1",
+      "id": "sudafrica",
       "nombre": "Sudáfrica",
       "descripcion": "Sudáfrica es conocida por su diversidad cultural, histórica y sus paisajes naturales, que incluyen el Parque Nacional Kruger, uno de los parques de vida silvestre más grandes del mundo.",
       "imagen": "/img/niveles/sociales/nivel3/paises/africa/sudafrica.jpg"
     },
     {
-      "idPais": "4",
-      "idContinente": "1",
+      "id": "nigeria",
       "nombre": "Nigeria",
       "descripcion": "Nigeria, la economía más grande de África, es conocida por su industria cinematográfica, Nollywood, y su vibrante cultura y arte.",
       "imagen": "/img/niveles/sociales/nivel3/paises/africa/nigeria.jpg"
     },
     {
-      "idPais": "5",
-      "idContinente": "1",
+      "id": "kenia",
       "nombre": "Kenia",
       "descripcion": "Kenia es famosa por sus safaris en el Parque Nacional Masai Mara y su rica vida silvestre, que incluye leones, elefantes y rinocerontes.",
       "imagen": "/img/niveles/sociales/nivel3/paises/africa/kenia.jpg"
     },
     {
-      "idPais": "6",
-      "idContinente": "1",
+      "id": "etiopia",
       "nombre": "Etiopía",
       "descripcion": "Etiopía es uno de los lugares de origen de la humanidad y es conocida por su patrimonio paleontológico, incluyendo el fósil de Lucy, así como por sus impresionantes paisajes y su rica historia.",
       "imagen": "/img/niveles/sociales/nivel3/paises/africa/etiopia.jpg"
     },
     {
-      "idPais": "7",
-      "idContinente": "1",
+      "id": "marruecos",
       "nombre": "Marruecos",
       "descripcion": "Marruecos, situado en el norte de África, es conocido por sus ciudades con grandes mercados y medinas, como Marrakech, y su influencia cultural árabe y bereber.",
       "imagen": "/img/niveles/sociales/nivel3/paises/africa/marruecos.jpg"

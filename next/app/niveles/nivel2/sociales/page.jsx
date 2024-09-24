@@ -1,58 +1,54 @@
 // Página principal de Sociales - Nivel 2
-import React from "react";
+import React from 'react';
 import WelcomeSection from '@/components/templates/materias/welcomeSection';
-import LevelMap from '@/components/templates/materias/mapLenguaje';
+import dynamic from 'next/dynamic';
 import '@/styles/animacion.css';
-import { SeparadorAzul } from "@/components/separador";
+import { SeparadorAzul } from '@/components/separador';
+
+// Importación dinámica de LevelMap
+const MapSociales = dynamic(() => import('@/components/templates/materias/mapSociales'), {
+    ssr: false,
+});
 
 export default function SocialesPage() {
-  const levels = [
-    { id: 1, position: { top: '85%', left: '10%' }, color: 'black' },
-    { id: 2, position: { top: '78%', left: '20%' } },
-    { id: 3, position: { top: '70%', left: '30%' } },
-    { id: 4, position: { top: '65%', left: '40%' } },
-    { id: 5, position: { top: '60%', left: '50%' } },
-    { id: 6, position: { top: '55%', left: '60%' } },
-    { id: 7, position: { top: '50%', left: '69%' } },
-    { id: 8, position: { top: '45%', left: '78%' } },
-    { id: 9, position: { top: '35%', left: '84%' } },
-    { id: 10, position: { top: '22%', left: '87%' } }
-  ];
+    const area = [
+        { id: 1, name: 'Bélice', shape: 'poly', coords: '703,527,827,485,956,535,1018,637,1056,642,1055,796,1039,844,977,841,943,882,899,896,708,640' },
+        { id: 2, name: 'Guatemala', shape: 'poly', coords: '425,550,412,469,501,366,358,204, 155,186,110, 184,50,219,64,327,126,298,214,523,381,841,377, 1008,414,1020,667,747,635,687,597,665,552,671,506,649,463,618,409,575 '},
+        { id: 3, name: 'Honduras', shape: 'poly', coords: '120, 187, 113, 195, 104, 203, 90, 214, 98, 227, 108, 226, 122, 229, 130, 230, 146, 235, 151, 240, 164, 243, 179, 242, 185, 236, 190, 229, 190, 213, 179, 210, 162, 210, 150, 198'},
+        { id: 4, name: 'El Salvador', shape: 'poly', coords: '120, 187, 113, 195, 104, 203, 90, 214, 98, 227, 108, 226, 122, 229, 130, 230, 146, 235, 151, 240, 164, 243, 179, 242, 185, 236, 190, 229, 190, 213, 179, 210, 162, 210, 150, 198'},
+        { id: 5, name: 'Nicaragua', shape: 'poly', coords: '120, 187, 113, 195, 104, 203, 90, 214, 98, 227, 108, 226, 122, 229, 130, 230, 146, 235, 151, 240, 164, 243, 179, 242, 185, 236, 190, 229, 190, 213, 179, 210, 162, 210, 150, 198'},
+        { id: 6, name: 'Costa Rica', shape: 'poly', coords: '762,322,932,195,1083,230,1007,400,970,404,935,427,883,445,853,404,821,424,813,448,770,445,772,378'},
+        { id: 7, name: 'Panamá', shape: 'poly', coords: '1529,848,129'},
+    ];
 
-  const decorativos = [
-    { img: '/img/niveless/lenguaje/lvl1/planetan1.png', alt: 'Planeta', className: 'planet-animation', style: { top: '9%', left: '90%', width: '8vw' } },
-    { img: '/img/niveles/sociales/cangrejo.png', alt: 'Cangrejo', className: 'rocket-animation', style: { top: '5%', left: '5%', width: '8vw' } },
-    { img: '/img/niveles/sociales/tiburon.png', alt: 'Tiburon', className: 'comet-animation', style: { right: '5%', bottom: '5%', width: '6vw' } },
-  ];
+    return (
+        <main>
+            <SeparadorAzul />
+            <div className="flex justify-center items-center w-full">
+                <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
+                    {/* Bienvenida para Sociales */}
+                    <WelcomeSection
+                        volverUrl="/niveles/nivel2"
+                        personajeImg="/img/personajes/burbuja/burbuja.png"
+                        personajeAlt="Burbuja"
+                        titulo="¡SOCIALES!"
+                        mensajeBienvenida="¡Bienvenidos a mi clase, soy la Profesora Burbuja y te guiaré en esta aventura!"
+                    />
 
-  return (
-    <main>
-      <SeparadorAzul />
-      <div className="flex justify-center items-center w-full">
+                    {/* Mapa interactivo de continentes */}
+                    <MapSociales
+                        fondoUrl="/img/niveless/sociales/mapa_ca.png"
+                        subject="sociales"
+                        basePath="niveles/nivel2/"
+                        areas={area}
+                        fondoSize="contain"
+                        caricatura="/img/niveles/sociales/pirata.png"
+                        medida="w-auto h-auto"
 
-        <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-          {/* Bienvenida para Sociales */}
-          <WelcomeSection
-            volverUrl="/niveles/nivel2"
-            personajeImg="/img/personajes/burbuja/burbuja.png"
-            personajeAlt="Burbuja"
-            titulo="¡SOCIALES!"
-            mensajeBienvenida="¡Bienvenidos a mi clase, soy la Profesora Burbuja y te guiaré en esta aventura!"
-          />
-
-          {/* Mapa de niveles para Sociales */}
-          <LevelMap
-            subject="sociales"
-            basePath="niveles/nivel2/"
-            levels={levels}
-            fondoUrl="/img/niveles/sociales/fondo2s.jpg"
-            decorativos={decorativos}
-            camino="/img/niveles/sociales/cofre.png"
-            caricatura="/img/niveles/sociales/pirata.png"
-          />
-        </div>
-      </div>
-      <SeparadorAzul />
-    </main>
-  );
+                    />
+                </div>
+            </div>
+            <SeparadorAzul />
+        </main>
+    );
 }

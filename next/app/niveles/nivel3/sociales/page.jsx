@@ -41,6 +41,7 @@ export default function SocialesPage() {
                         areas={area}
                         fondoSize="contain"
                         caricatura="/img/niveles/sociales/pirata.png"
+                        medida="w-full h-auto"
 
                     />
                 </div>

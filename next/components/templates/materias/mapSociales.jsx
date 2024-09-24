@@ -2,7 +2,7 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
 
-const MapSociales = ({ fondoUrl, fondoSize, areas, basePath, caricatura, subject }) => {
+const MapSociales = ({ fondoUrl, fondoSize, areas, basePath, caricatura, subject, medida }) => {
     const imgRef = useRef(null);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const MapSociales = ({ fondoUrl, fondoSize, areas, basePath, caricatura, subject
                 useMap="#continente-map"
                 alt="Mapa del Mundo"
                 ref={imgRef}
-                className="w-full h-auto"
+                className={medida}
             />
             <map name="continente-map">
                 {areas.map((area, index) => (

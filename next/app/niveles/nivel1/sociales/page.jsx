@@ -7,7 +7,7 @@ import { SeparadorAzul } from "@/components/separador";
 
 export default function SocialesPage() {
   const levels = [
-    { id: 1, position: { top: '85%', left: '10%' }, color: 'black' },
+    { id: 1, position: { top: '85%', left: '10%' } },
     { id: 2, position: { top: '78%', left: '20%' } },
     { id: 3, position: { top: '70%', left: '30%' } },
     { id: 4, position: { top: '65%', left: '40%' } },

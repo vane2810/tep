@@ -2,12 +2,12 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';  
+import { useRouter } from 'next/navigation';
 import Volver from '@/components/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
 import Loading from '@/components/loading';
 
-export default function Component({ idContinente, idPais }) {
+export default function Component({ id }) {
   const [lecciones, setLecciones] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +15,12 @@ export default function Component({ idContinente, idPais }) {
   const [imagenPortada, setImagenPortada] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const router = useRouter(); 
+  const router = useRouter();
 
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/sociales/nivel3/contenidos/continente${idContinente}/contenido${idPais}.json`);
+        const res = await fetch(`/assets/materias/sociales/nivel3/contenidos/${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 
@@ -33,20 +33,20 @@ export default function Component({ idContinente, idPais }) {
         }
 
         setIsLoading(false);
-      } catch ( error) {
+      } catch (error) {
         console.error('Error al cargar las lecciones:', error);
         setLecciones([]);
         setIsLoading(false);
       }
     };
 
-    if (idContinente && idPais) {
+    if (id) {
       fetchLecciones();
     }
-  }, [idContinente, idPais]);
+  }, [id]);
 
   if (isLoading) {
-    return <Loading/>
+    return <Loading />
   }
 
   if (!lecciones || lecciones.length === 0) {
@@ -71,8 +71,9 @@ export default function Component({ idContinente, idPais }) {
 
   const handlePlayGame = () => {
     // Asegura la correcta navegación al juego con los id específicos
-    router.push(`/niveles/nivel3/sociales/juego/${idContinente}/contenido${idPais}`);
+    router.push(`/niveles/nivel3/sociales/${id}/${id}/${id}`);
   };
+  
 
   if (!lecciones || lecciones.length === 0) {
     return null;
@@ -105,19 +106,19 @@ export default function Component({ idContinente, idPais }) {
             {/* Contenido centrado en el área blanca del cofre */}
             <div className="top-16 left-0 absolute flex flex-col justify-center items-center p-8 w-full h-full">
               {/* Título del libro */}
-              <h1 className="mb-2 font-bold text-3xl text-black text-center story">
-                Lección {id}:
+              <h1 className="mb-2 font-bold text-4xl text-black text-center story">
+                Lección 
               </h1>
 
               {/* Imagen adicional, como el principito */}
               <img
-                src={imagenPortada ? imagenPortada : "/img/personajes/burbuja/burbuja.png"}  // Fallback a la genérica
+                src={imagenPortada ? imagenPortada : "/img/personajes/burbuja/burbuja.png"}  
                 alt={tituloGeneral}
                 className="mb-2 w-28 h-auto"
               />
 
 
-              <h1 className="mb-4 font-bold text-3xl text-black text-center story">
+              <h1 className="mb-2 font-bold text-4xl text-black text-center story">
                 {tituloGeneral}
               </h1>
             </div>
