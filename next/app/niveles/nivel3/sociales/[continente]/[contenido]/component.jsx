@@ -7,9 +7,7 @@ import Volver from '@/components/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
 import Loading from '@/components/loading';
 
-
-
-export default function Component({ id }) {
+export default function Component({ idContinente, idPais }) {
   const [lecciones, setLecciones] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +20,7 @@ export default function Component({ id }) {
   useEffect(() => {
     const fetchLecciones = async () => {
       try {
-        const res = await fetch(`/assets/materias/sociales/nivel3/contenidos/${id}/contenido${id}.json`);
+        const res = await fetch(`/assets/materias/sociales/nivel3/contenidos/continente${idContinente}/contenido${idPais}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
 
@@ -41,8 +39,11 @@ export default function Component({ id }) {
         setIsLoading(false);
       }
     };
-    fetchLecciones();
-  }, [id]);
+
+    if (idContinente && idPais) {
+      fetchLecciones();
+    }
+  }, [idContinente, idPais]);
 
   if (isLoading) {
     return <Loading/>
@@ -69,7 +70,8 @@ export default function Component({ id }) {
   };
 
   const handlePlayGame = () => {
-    router.push(`/niveles/nivel3/sociales/${id}/${id}/${id}`);
+    // Asegura la correcta navegación al juego con los id específicos
+    router.push(`/niveles/nivel3/sociales/juego/${idContinente}/contenido${idPais}`);
   };
 
   if (!lecciones || lecciones.length === 0) {
@@ -77,7 +79,6 @@ export default function Component({ id }) {
   }
 
   const currentLeccion = lecciones[currentPage];
-
   return (
     <main className="relative">
       <SeparadorAzul />

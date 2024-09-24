@@ -3,34 +3,32 @@
 import React, { useState, useEffect } from 'react';
 import Volver from '@/components/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router'; // Cambiado de 'next/navigation' que no es correcto
 import Loading from '@/components/loading';
 
-export default function SocialesComponent({ id }) { // Usar id recibido desde las props
+export default function SocialesComponent() {
   const [continente, setContinente] = useState(null);
   const router = useRouter();
+  const { id} = router.query; // Asegúrate de que 'continenteId' es el nombre del parámetro dinámico en tu archivo de ruta
 
   useEffect(() => {
-    const fetchContinente = async () => {
-      try {
-        const res = await fetch(`/assets/materias/sociales/nivel3/continentes/continente${id}.json`);
-        if (!res.ok) throw new Error('Error al cargar el archivo JSON');
-        const data = await res.json();
-        setContinente(data);
-      } catch (error) {
-        console.error('Error al cargar los datos del continente:', error);
-      }
-    };
-
-    if (id) {
+    if (id) { // Verifica que continenteId no sea undefined
+      const fetchContinente = async () => {
+        try {
+          const res = await fetch(`/assets/materias/sociales/nivel3/continentes/continente${id}.json`);
+          if (!res.ok) throw new Error('Error al cargar el archivo JSON');
+          const data = await res.json();
+          setContinente(data);
+        } catch (error) {
+          console.error('Error al cargar los datos del continente:', error);
+        }
+      };
       fetchContinente();
     }
   }, [id]);
 
   if (!continente) {
-    return (
-      <Loading/>
-    );
+    return <Loading/>;
   }
 
   return (
@@ -58,7 +56,7 @@ export default function SocialesComponent({ id }) { // Usar id recibido desde la
             <p className="mb-6 text-xl">{continente.descripcion}</p>
             <button
               className="bg-blue-700 hover:bg-blue-500 mt-4 px-4 py-2 rounded w-full font-bold text-white text-xl"
-              onClick={() => router.push(`/niveles/nivel3/sociales/${continente.idContinente}/${continente.idPais}`)}
+              onClick={() => router.push(`/niveles/nivel3/sociales/${continente.idContinente}/${continente.idContinente}`)}
             >
               Explorar {continente.name}
             </button>
@@ -91,7 +89,7 @@ export default function SocialesComponent({ id }) { // Usar id recibido desde la
               <img src={pais.imagen} alt={pais.nombre} title={`Bandera de ${pais.nombre}`} className="shadow-lg mb-6 rounded-lg w-full h-40 object-cover" />
               <button
                 className="bg-blue-700 hover:bg-blue-500 px-4 py-2 rounded font-bold text-lg text-white story"
-                onClick={() => router.push(`/niveles/nivel3/sociales/${pais.idContinente}/${pais.idPais}`)}
+                onClick={() => router.push(`/niveles/nivel3/sociales/${continente.idContinente}/${pais.idPais}`)}
                 title={`Explorar ${pais.nombre}`}
               >
                 Explorar {pais.nombre}

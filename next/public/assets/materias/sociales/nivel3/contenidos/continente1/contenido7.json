@@ -1,0 +1,36 @@
+{
+  "tituloGeneral": "Descubre África",
+  "imagenPortada": "",
+  "lecciones": [
+    {
+      "id": "1",
+      "titulo": "Geografía Básica",
+      "descripcion": "Explora la vastedad de África, el segundo continente más grande del mundo.",
+      "imagenLeccion": "/img/lecciones/africa/geografia.jpg",
+      "ejemplos": [
+        "Superficie: 30.37 millones de km²",
+        "El Sahara, el desierto más grande del mundo, se encuentra aquí."
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Culturas y Tradiciones",
+      "descripcion": "África es un mosaico de culturas con más de 3,000 grupos étnicos.",
+      "imagenLeccion": "/img/lecciones/africa/cultura.jpg",
+      "ejemplos": [
+        "Idiomas principales: más de 2,000 idiomas hablados.",
+        "Festivales destacados: Mardi Gras de Nigeria y Timkat en Etiopía."
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Sitios Emblemáticos",
+      "descripcion": "Conoce algunos de los lugares más impresionantes y significativos de África.",
+      "imagenLeccion": "/img/lecciones/africa/sitios.jpg",
+      "ejemplos": [
+        "Las Pirámides de Giza en Egipto, maravillas del mundo antiguo.",
+        "Monte Kilimanjaro en Tanzania, el pico más alto de África."
+      ]
+    }
+  ]
+}
