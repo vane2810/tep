@@ -59,7 +59,7 @@ export default function Component({ id }) {
 
   // Función para redirigir a la página del juego
   const handlePlayGame = () => {
-    router.push(`/niveles/nivel3/lenguaje/${id}/${id}/${id}`);
+    router.push(`/niveles/nivel3/lenguaje/${id}/${id}`);
 
   };
 
