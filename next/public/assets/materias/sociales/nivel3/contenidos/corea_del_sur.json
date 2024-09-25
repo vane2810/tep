@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Corea del Sur",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Corea del Sur",
+        "descripcion": "Corea del Sur está en el este de Asia, en la península de Corea, al sur de Corea del Norte.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Seúl.",
+          "Limita al norte con Corea del Norte y está rodeada por el mar de Japón y el mar Amarillo."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Corea del Sur se estableció oficialmente el 15 de agosto de 1948, tras la ocupación japonesa (1910-1945) y la división de Corea en dos estados.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El 15 de agosto se celebra el Día de la Liberación, conmemorando el fin de la ocupación japonesa.",
+          "Syngman Rhee fue el primer presidente de Corea del Sur."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Corea del Sur es conocida por su cultura pop global (K-pop), tecnología avanzada y tradiciones centenarias.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas: El coreano es el idioma oficial.",
+          "Festividades importantes: Seollal (Año Nuevo Lunar) y Chuseok (Día de Acción de Gracias coreano)."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Corea del Sur",
+        "descripcion": "La bandera de Corea del Sur es blanca con un símbolo de yin y yang en el centro y cuatro trigramas en cada esquina.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El símbolo central, llamado 'Taeguk', representa el equilibrio del universo.",
+          "La flor nacional es la rosa de Sharon ('mugunghwa')."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Corea del Sur tiene una geografía montañosa, con grandes ríos y costas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El monte Hallasan, en la isla de Jeju, es la montaña más alta del país.",
+          "El río Han fluye a través de Seúl y es uno de los más importantes de Corea."
+        ]
+      }
+    ]
+  }
+  

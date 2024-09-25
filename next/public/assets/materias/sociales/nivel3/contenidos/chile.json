@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Chile",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Chile",
+        "descripcion": "Chile está en América del Sur y es un país largo y estrecho que se extiende a lo largo de la costa del Pacífico.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Santiago.",
+          "Limita al norte con Perú, al este con Bolivia y Argentina, y al oeste con el océano Pacífico."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Chile declaró su independencia de España el 18 de septiembre de 1810.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El 18 de septiembre se celebra el Día de la Independencia.",
+          "Bernardo O'Higgins es uno de los héroes de la independencia chilena."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Chile es conocido por su rica tradición cultural, incluyendo música, danza y gastronomía.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas: El español es el idioma oficial.",
+          "Festividades importantes: Fiestas Patrias y el Festival de Viña del Mar."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Chile",
+        "descripcion": "La bandera de Chile tiene una estrella blanca en un cuadro azul, una franja blanca y una franja roja.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "La estrella simboliza la guía hacia un mejor futuro.",
+          "El cóndor y el huemul son animales simbólicos de Chile."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Chile tiene una geografía muy variada, que incluye desiertos, montañas y glaciares.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El desierto de Atacama es el más árido del mundo.",
+          "La Patagonia chilena es famosa por sus paisajes naturales y vida salvaje."
+        ]
+      }
+    ]
+  }
+  

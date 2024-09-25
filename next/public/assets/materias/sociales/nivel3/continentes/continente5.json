@@ -1,25 +1,44 @@
 {
-  "name": "América",
-  "descripcion": "América es un continente que se extiende desde el norte del círculo polar ártico hasta el sur del círculo polar antártico. Incluye una diversa gama de climas y ecosistemas, desde tundras en Canadá hasta selvas tropicales en Brasil.",
-  "imagenPortada": "/img/continentes/america.jpg",
+  "id": "oceania",
+  "name": "Oceanía",
+  "descripcion": "Oceanía es una región compuesta por miles de islas repartidas por el océano Pacífico, que incluye países como Australia, Nueva Zelanda y Papúa Nueva Guinea. Es conocida por su biodiversidad, paisajes exóticos y culturas únicas.",
+  "imagenPortada": "/img/niveles/sociales/nivel3/continentes/oceania.png",
   "paises": [
     {
-      "id": "mexico",
-      "nombre": "México",
-      "descripcion": "México es conocido por sus ricas tradiciones culturales, la comida picante, y su historia azteca y maya. Las playas de Cancún y los sitios arqueológicos como Teotihuacán son solo algunos de sus atractivos turísticos.",
-      "imagen": "/img/paises/mexico.jpg"
+      "id": "australia",
+      "nombre": "Australia",
+      "descripcion": "Australia es el país más grande de Oceanía y es conocido por su fauna única, playas espectaculares y la Gran Barrera de Coral. Sídney y Melbourne son dos de sus principales ciudades.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/oceania/australia.png"
     },
     {
-      "id": "usa",
-      "nombre": "Estados Unidos",
-      "descripcion": "Estados Unidos es un país diverso y vasto, conocido por su economía influyente y su cultura popular dominante. Desde los rascacielos de Nueva York hasta los parques naturales como Yellowstone, ofrece una amplia variedad de experiencias.",
-      "imagen": "/img/paises/usa.jpg"
+      "id": "nueva_zelanda",
+      "nombre": "Nueva Zelanda",
+      "descripcion": "Nueva Zelanda es famosa por sus paisajes impresionantes, utilizados como escenario para películas como El Señor de los Anillos. Wellington es la capital, aunque Auckland es la ciudad más grande.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/oceania/nueva_zelanda.png"
     },
     {
-      "id": "brasil",
-      "nombre": "Brasil",
-      "descripcion": "Brasil, famoso por su carnaval de Río de Janeiro, el fútbol y su selva amazónica, es un país vibrante con una rica diversidad cultural y natural.",
-      "imagen": "/img/paises/brasil.jpg"
+      "id": "papua_nueva_guinea",
+      "nombre": "Papúa Nueva Guinea",
+      "descripcion": "Papúa Nueva Guinea es conocida por su diversidad cultural y lingüística, con más de 800 lenguas habladas. Su geografía es mayormente montañosa y cubierta de selvas tropicales.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/oceania/papua_nueva_guinea.png"
+    },
+    {
+      "id": "fiyi",
+      "nombre": "Fiyi",
+      "descripcion": "Fiyi es un archipiélago en el Pacífico Sur conocido por sus playas paradisíacas, arrecifes de coral y aguas cristalinas, lo que lo convierte en un popular destino turístico.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/oceania/fiyi.png"
+    },
+    {
+      "id": "samoa",
+      "nombre": "Samoa",
+      "descripcion": "Samoa es un estado insular en el Pacífico conocido por su cultura polinesia, playas tropicales y hospitalidad. La capital es Apia, en la isla de Upolu.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/oceania/samoa.png"
+    },
+    {
+      "id": "tonga",
+      "nombre": "Tonga",
+      "descripcion": "El Reino de Tonga es un grupo de más de 170 islas en el Pacífico Sur, famoso por su cultura tradicional polinesia y sus impresionantes paisajes.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/oceania/tonga.png"
     }
   ]
 }

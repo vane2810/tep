@@ -1,25 +1,45 @@
 {
-  "name": "América",
-  "descripcion": "América es un continente que se extiende desde el norte del círculo polar ártico hasta el sur del círculo polar antártico. Incluye una diversa gama de climas y ecosistemas, desde tundras en Canadá hasta selvas tropicales en Brasil.",
-  "imagenPortada": "/img/continentes/america.jpg",
+  "id": "asia",
+  "name": "Asia",
+  "descripcion": "Asia es el continente más grande y poblado del mundo, con una enorme diversidad cultural, geográfica y climática. Desde las montañas del Himalaya hasta las vastas planicies de China y los desiertos de Arabia, Asia es hogar de civilizaciones antiguas y modernas maravillas.",
+  "imagenPortada": "/img/niveles/sociales/nivel3/continentes/asia.png",
   "paises": [
     {
-      "id": "mexico",
-      "nombre": "México",
-      "descripcion": "México es conocido por sus ricas tradiciones culturales, la comida picante, y su historia azteca y maya. Las playas de Cancún y los sitios arqueológicos como Teotihuacán son solo algunos de sus atractivos turísticos.",
-      "imagen": "/img/paises/mexico.jpg"
+      "id": "china",
+      "nombre": "China",
+      "descripcion": "China es el país más poblado del mundo y una de las civilizaciones más antiguas. Es conocida por su rica historia, incluyendo la Gran Muralla, y su rápido desarrollo económico.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/asia/china.png"
     },
     {
-      "id": "usa",
-      "nombre": "Estados Unidos",
-      "descripcion": "Estados Unidos es un país diverso y vasto, conocido por su economía influyente y su cultura popular dominante. Desde los rascacielos de Nueva York hasta los parques naturales como Yellowstone, ofrece una amplia variedad de experiencias.",
-      "imagen": "/img/paises/usa.jpg"
+      "id": "japon",
+      "nombre": "Japón",
+      "descripcion": "Japón es una nación insular famosa por su tecnología avanzada, cultura tradicional y su gastronomía, como el sushi. Ciudades como Tokio combinan modernidad y cultura milenaria.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/asia/japon.png"
     },
     {
-      "id": "brasil",
-      "nombre": "Brasil",
-      "descripcion": "Brasil, famoso por su carnaval de Río de Janeiro, el fútbol y su selva amazónica, es un país vibrante con una rica diversidad cultural y natural.",
-      "imagen": "/img/paises/brasil.jpg"
+      "id": "india",
+      "nombre": "India",
+      "descripcion": "India es conocida por su diversidad cultural, espiritualidad y por ser la cuna de religiones como el hinduismo y el budismo. El Taj Mahal es uno de los monumentos más famosos del país.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/asia/india.png"
+    },
+    {
+      "id": "rusia",
+      "nombre": "Rusia",
+      "descripcion": "Aunque Rusia está parcialmente en Europa, la mayor parte de su territorio se extiende por Asia. Es el país más grande del mundo y conocido por su vasta historia y paisajes extremos, desde tundras hasta bosques.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/asia/rusia.png"
+    },
+    {
+      "id": "corea_del_sur",
+      "nombre": "Corea del Sur",
+      "descripcion": "Corea del Sur es famosa por su tecnología avanzada, su cultura pop global (K-pop) y su rica historia que se refleja en sus templos y palacios. Su capital, Seúl, es una metrópoli moderna.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/asia/corea_del_sur.png"
+    },
+    {
+      "id": "tailandia",
+      "nombre": "Tailandia",
+      "descripcion": "Tailandia es conocida por sus playas tropicales, templos budistas y la vibrante vida nocturna de Bangkok. El país es uno de los destinos turísticos más populares del sudeste asiático.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/asia/tailandia.png"
     }
   ]
 }
+

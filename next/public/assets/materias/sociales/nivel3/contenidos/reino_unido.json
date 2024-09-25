@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Reino Unido",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación del Reino Unido",
+        "descripcion": "El Reino Unido está en Europa Occidental y está formado por cuatro países: Inglaterra, Escocia, Gales e Irlanda del Norte.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Londres.",
+          "Limita con el mar del Norte, el canal de la Mancha y el océano Atlántico."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "El Reino Unido se formó en 1707 con la unión de Inglaterra y Escocia. Irlanda del Norte se unió más tarde, en 1922, tras la independencia del resto de Irlanda.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Reino Unido es una monarquía constitucional.",
+          "La Reina Isabel II fue una de las monarcas más longevas, sirviendo desde 1952 hasta 2022."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "El Reino Unido es famoso por su cultura, literatura, música y deportes. El té de la tarde y los pubs son elementos clave en la vida social británica.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas: El inglés es el idioma oficial, pero también se hablan galés y gaélico escocés.",
+          "Festividades importantes: Navidad, Guy Fawkes Night y el Trooping the Colour."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios del Reino Unido",
+        "descripcion": "La bandera del Reino Unido, conocida como la 'Union Jack', combina los símbolos de los países que lo componen.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El león británico es un símbolo nacional del Reino Unido.",
+          "El himno nacional es 'God Save the King' (o 'Queen' en función del monarca)."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "El Reino Unido tiene una geografía variada, con montañas, colinas y costas. El clima es templado y lluvioso.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Las Tierras Altas de Escocia son famosas por sus paisajes montañosos.",
+          "El río Támesis, que atraviesa Londres, es uno de los ríos más importantes del Reino Unido."
+        ]
+      }
+    ]
+  }
+  

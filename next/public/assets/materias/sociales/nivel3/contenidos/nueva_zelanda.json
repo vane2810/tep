@@ -1,0 +1,54 @@
+{
+    "tituloGeneral": "Nueva Zelanda",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Nueva Zelanda",
+        "descripcion": "Nueva Zelanda está en Oceanía, compuesta por dos islas principales: la Isla Norte y la Isla Sur.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Wellington.",
+          "Está en el océano Pacífico sur."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Nueva Zelanda se convirtió en un dominio autónomo en 1907, bajo la monarquía británica.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Día de Waitangi se celebra el 6 de febrero."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Nueva Zelanda tiene una cultura maorí rica, combinada con influencias europeas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idioma oficial: inglés y maorí.",
+          "Festividades: Día de Waitangi."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Nueva Zelanda",
+        "descripcion": "La bandera incluye la Union Jack y las estrellas de la Cruz del Sur.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El helecho plateado es un símbolo nacional."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Nueva Zelanda es famosa por sus paisajes montañosos y playas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El monte Cook es el más alto del país."
+        ]
+      }
+    ]
+  }
+  
