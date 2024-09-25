@@ -64,7 +64,7 @@ export default function InglesLeccionComponent({ id }) {
   };
   // Función para redirigir a la página del juego
   const handlePlayGame = () => {
-    router.push(`/niveles/nivel1/ingles/${id}/${id}/${id}`);
+    router.push(`/niveles/nivel3/ingles/${id}/${id}/${id}`);
 
   };
   // Asignamos una imagen genérica si no hay imagenLeccion específica
@@ -76,7 +76,7 @@ export default function InglesLeccionComponent({ id }) {
 
       {/* Botón de Volver */}
       <div className="top-4 left-4 z-10 absolute">
-        <Volver href="/niveles/nivel1/ingles" />
+        <Volver href="/niveles/nivel3/ingles" />
       </div>
 
       <div className="flex justify-center items-center bg-gradient-to-r from-yellow-100 via-pink-100 to-yellow-100 min-h-screen">

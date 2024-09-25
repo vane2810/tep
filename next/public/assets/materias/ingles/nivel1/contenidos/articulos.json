@@ -1,0 +1,56 @@
+{
+    "tituloGeneral": "Articles",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "What are Articles?",
+        "tituloEspanol": "¿Qué son los Artículos?",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "Articles tell us if we are talking about something specific.",
+            "oracionEspanol": "Los artículos nos dicen si hablamos de algo específico.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "A and An",
+        "tituloEspanol": "A y An",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "A cat is on the roof. (We use 'a' when the word starts with a consonant sound)",
+            "oracionEspanol": "Un gato está en el techo. (Usamos 'a' cuando la palabra empieza con un sonido de consonante)",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "An apple is on the table. (We use 'an' when the word starts with a vowel sound)",
+            "oracionEspanol": "Una manzana está en la mesa. (Usamos 'an' cuando la palabra empieza con un sonido de vocal)",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "The",
+        "tituloEspanol": "El/La",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "The sun is shining. (We use 'the' when talking about something specific)",
+            "oracionEspanol": "El sol está brillando. (Usamos 'the' cuando hablamos de algo específico)",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "The book on the desk is mine.",
+            "oracionEspanol": "El libro sobre el escritorio es mío.",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

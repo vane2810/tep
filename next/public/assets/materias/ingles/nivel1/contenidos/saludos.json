@@ -1,0 +1,97 @@
+{
+    "tituloGeneral": "Greetings",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "Hello",
+        "tituloEspanol": "Hola",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "Hello! How are you?",
+            "oracionEspanol": "¡Hola! ¿Cómo estás?",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "Hello! My name is John.",
+            "oracionEspanol": "¡Hola! Me llamo John.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "Good Morning",
+        "tituloEspanol": "Buenos días",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "Good morning! Did you sleep well?",
+            "oracionEspanol": "¡Buenos días! ¿Dormiste bien?",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "Good morning! Today is a beautiful day.",
+            "oracionEspanol": "¡Buenos días! Hoy es un día hermoso.",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "Good Night",
+        "tituloEspanol": "Buenas noches",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "Good night! Sleep well.",
+            "oracionEspanol": "¡Buenas noches! Duerme bien.",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "Good night! See you tomorrow.",
+            "oracionEspanol": "¡Buenas noches! Nos vemos mañana.",
+            "audio": ""
+          }
+        ]
+      },
+      "4": {
+        "tituloIngles": "Goodbye",
+        "tituloEspanol": "Adiós",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "Goodbye! Have a great day!",
+            "oracionEspanol": "¡Adiós! ¡Que tengas un buen día!",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "Goodbye! See you later.",
+            "oracionEspanol": "¡Adiós! Nos vemos más tarde.",
+            "audio": ""
+          }
+        ]
+      },
+      "5": {
+        "tituloIngles": "How are you?",
+        "tituloEspanol": "¿Cómo estás?",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "How are you? I'm doing well.",
+            "oracionEspanol": "¿Cómo estás? Estoy bien.",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "How are you? It's been a while!",
+            "oracionEspanol": "¿Cómo estás? ¡Ha pasado tiempo!",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

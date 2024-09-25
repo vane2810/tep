@@ -1,0 +1,43 @@
+{
+    "nombreIngles": "Basic Grammar",
+    "nombreEspañol": "Gramática Básica",
+    "lecciones": [
+      {
+        "id": "sustantivos",
+        "nombreIngles": "Nouns",
+        "nombreEspañol": "Sustantivos",
+        "imagen": "/img/niveles/ingles/sustantivos.jpg"
+      },
+      {
+        "id": "verbos",
+        "nombreIngles": "Verbs",
+        "nombreEspañol": "Verbos",
+        "imagen": "/img/niveles/ingles/verbos.jpg"
+      },
+      {
+        "id": "adjetivos",
+        "nombreIngles": "Adjectives",
+        "nombreEspañol": "Adjetivos",
+        "imagen": "/img/niveles/ingles/adjetivos.jpg"
+      },
+      {
+        "id": "pronombres",
+        "nombreIngles": "Pronouns",
+        "nombreEspañol": "Pronombres",
+        "imagen": "/img/niveles/ingles/pronombres.jpg"
+      },
+      {
+        "id": "preposiciones",
+        "nombreIngles": "Prepositions",
+        "nombreEspañol": "Preposiciones",
+        "imagen": "/img/niveles/ingles/preposiciones.jpg"
+      },
+      {
+        "id": "articulos",
+        "nombreIngles": "Articles",
+        "nombreEspañol": "Artículos",
+        "imagen": "/img/niveles/ingles/articulos.jpg"
+      }
+    ]
+  }
+  

@@ -128,7 +128,7 @@ export default function JuegoPage() {
             {/* Sección de las indicaciones */}
             <div className="flex flex-wrap justify-between items-center">
                 <div className="inline-block mb-20 ml-8">
-                    <Volver href="/niveles/nivel1/ingles" />
+                    <Volver href="/niveles/nivel3/ingles" />
                 </div>
                 <div className="flex items-center mx-auto my-6">
                     <div className="flex-shrink-0 mr-4">
