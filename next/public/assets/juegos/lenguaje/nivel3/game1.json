@@ -64,9 +64,9 @@
         "pregunta": "¿Cuál palabra es correcta con el sufijo '-oso' que indica cualidad?",
         "opciones": [
           "Gracioso",
-          "Furoroso",
+          "Furorozo",
           "Tenebrozo",
-          "Cariñoso"
+          "Cariñoco"
         ],
         "correcta": "Gracioso",
         "puntos": 10
