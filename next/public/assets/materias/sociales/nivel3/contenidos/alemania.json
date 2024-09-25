@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Alemania",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Alemania",
+        "descripcion": "Alemania está en el centro de Europa y es uno de los países más importantes del continente.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Berlín.",
+          "Limita con Dinamarca, Polonia, República Checa, Austria, Suiza, Francia, Luxemburgo, Bélgica y los Países Bajos."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Alemania fue unificada en 1871 bajo el liderazgo de Otto von Bismarck. La reunificación alemana tuvo lugar en 1990 tras la caída del Muro de Berlín.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El 3 de octubre se celebra el Día de la Unidad Alemana, conmemorando la reunificación del país.",
+          "El Muro de Berlín fue un símbolo de la Guerra Fría y la división de Alemania."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Alemania es famosa por su rica tradición en música clásica, filosofía y ciencia. Además, es conocida por sus festivales y eventos culturales.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas: El alemán es el idioma oficial.",
+          "Festividades importantes: Oktoberfest y el Día de la Unidad Alemana."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Alemania",
+        "descripcion": "La bandera de Alemania tiene tres franjas horizontales de color negro, rojo y dorado.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El águila federal es el emblema nacional de Alemania.",
+          "El himno nacional es 'Deutschlandlied', que se canta desde la reunificación."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Alemania cuenta con una gran diversidad geográfica que incluye montañas, llanuras, ríos y bosques.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Los Alpes bávaros son la cadena montañosa más alta del país.",
+          "El río Rin es uno de los ríos más importantes de Alemania y de Europa."
+        ]
+      }
+    ]
+  }
+  

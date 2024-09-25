@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Brasil",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Brasil",
+        "descripcion": "Brasil está en América del Sur y es el país más grande del continente.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Brasilia.",
+          "Limita con todos los países de América del Sur, excepto Chile y Ecuador."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Brasil declaró su independencia de Portugal el 7 de septiembre de 1822.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Día de la Independencia se celebra el 7 de septiembre.",
+          "Pedro I fue proclamado emperador tras la independencia."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Brasil es famoso por su música, baile y festivales coloridos, como el Carnaval.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas: El portugués es el idioma oficial.",
+          "Festividades importantes: El Carnaval de Río de Janeiro y la Fiesta de São João."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Brasil",
+        "descripcion": "La bandera de Brasil es verde con un rombo amarillo en el centro y un círculo azul con estrellas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El verde representa las selvas, y el amarillo simboliza la riqueza mineral.",
+          "El lema en la bandera es 'Ordem e Progresso' (Orden y Progreso)."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Brasil es conocido por su vasta selva amazónica y su gran variedad de paisajes.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Amazonas es el río más largo de Brasil y el más caudaloso del mundo.",
+          "El Pantanal es la región de humedales más grande del planeta."
+        ]
+      }
+    ]
+  }
+  

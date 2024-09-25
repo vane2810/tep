@@ -1,0 +1,54 @@
+{
+    "tituloGeneral": "Samoa",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Samoa",
+        "descripcion": "Samoa es un estado insular en el Pacífico Sur, compuesto por dos islas principales: Upolu y Savai'i.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Apia.",
+          "Está al este de Fiyi y al norte de Tonga."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Samoa se independizó de Nueva Zelanda el 1 de enero de 1962.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Día de la Independencia se celebra el 1 de junio."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Samoa tiene una rica cultura polinesia con fuertes tradiciones comunitarias.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idioma oficial: samoano e inglés.",
+          "Festividades: Día de la Independencia y Navidad."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Samoa",
+        "descripcion": "La bandera de Samoa tiene un fondo rojo con un cantón azul que muestra la Cruz del Sur.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El escudo de Samoa muestra una paloma con una rama de olivo."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Samoa cuenta con paisajes volcánicos, playas y selvas tropicales.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El monte Silisili, en Savai'i, es la montaña más alta de Samoa."
+        ]
+      }
+    ]
+  }
+  

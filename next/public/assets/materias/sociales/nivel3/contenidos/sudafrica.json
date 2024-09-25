@@ -1,0 +1,58 @@
+{
+    "tituloGeneral": "Sudáfrica",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Sudáfrica",
+        "descripcion": "Sudáfrica está en el extremo sur de África, con costas en el océano Atlántico e Índico.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capitales: Pretoria, Ciudad del Cabo y Bloemfontein.",
+          "Limita con Namibia, Botsuana y Mozambique."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Sudáfrica se independizó del Reino Unido en 1910.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El apartheid fue una política de segregación racial.",
+          "Nelson Mandela fue clave en la lucha por la igualdad."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Sudáfrica es conocida como la 'Nación del Arcoíris' por su diversidad.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Tiene 11 idiomas oficiales.",
+          "Las danzas tribales son parte importante de su cultura."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Sudáfrica",
+        "descripcion": "La bandera tiene seis colores y representa la diversidad del país.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El himno combina 'Nkosi Sikelel' iAfrika' y 'Die Stem'.",
+          "El escudo muestra símbolos de unidad."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Flora y Fauna",
+        "descripcion": "Sudáfrica tiene una rica biodiversidad.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Parque Nacional Kruger es hogar de los 'Cinco Grandes'.",
+          "La flor nacional es el protea."
+        ]
+      }
+    ]
+  }
+  
+  

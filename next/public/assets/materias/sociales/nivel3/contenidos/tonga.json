@@ -1,0 +1,54 @@
+{
+    "tituloGeneral": "Tonga",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Tonga",
+        "descripcion": "Tonga es un reino polinesio en el Pacífico Sur, compuesto por más de 170 islas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Nuku'alofa.",
+          "Se encuentra al sur de Samoa y al este de Fiyi."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Tonga es el único reino del Pacífico que nunca fue colonizado. Sin embargo, obtuvo plena soberanía del Reino Unido en 1970.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El Día de la Independencia se celebra el 4 de junio."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Tonga tiene una rica cultura polinesia, con tradiciones que incluyen el baile 'lakalaka' y la elaboración de tapas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idioma oficial: tongano e inglés.",
+          "Festividades: Semana de la Constitución y el Día del Rey."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Tonga",
+        "descripcion": "La bandera de Tonga tiene un fondo rojo con una cruz blanca en la esquina superior izquierda.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "La cruz simboliza la fe cristiana."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Tonga está formada por islas volcánicas y coralinas, con playas y montañas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El volcán Hunga Tonga es uno de los más conocidos."
+        ]
+      }
+    ]
+  }
+  

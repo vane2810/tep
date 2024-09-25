@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Canadá",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Canadá",
+        "descripcion": "Canadá está en América del Norte, al norte de Estados Unidos, y es el segundo país más grande del mundo.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Ottawa.",
+          "Limita al sur con Estados Unidos y al norte con el océano Ártico."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Canadá obtuvo su autonomía del Reino Unido el 1 de julio de 1867, aunque siguió siendo parte del Imperio Británico.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El 1 de julio se celebra el Día de Canadá, conmemorando la creación de la Confederación.",
+          "La independencia total de Canadá se consolidó con la Ley de Canadá de 1982."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Canadá es conocido por su diversidad cultural y su coexistencia pacífica de culturas indígenas, francófonas, anglófonas y de inmigrantes.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas oficiales: Inglés y francés.",
+          "Festividades importantes: Acción de Gracias y el Día de Canadá."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Canadá",
+        "descripcion": "La bandera de Canadá es roja con una hoja de arce blanca en el centro.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "La hoja de arce es el símbolo nacional.",
+          "El castor es otro animal símbolo de Canadá."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "Canadá tiene una geografía diversa que incluye montañas, bosques, lagos y praderas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Las Montañas Rocosas canadienses son una de sus principales atracciones naturales.",
+          "Canadá es famoso por sus Grandes Lagos y sus vastos territorios árticos."
+        ]
+      }
+    ]
+  }
+  
