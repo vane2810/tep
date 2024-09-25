@@ -1,4 +1,4 @@
-{ 
+{
   "nombre": "Signos de Putuación",
   "gameType": "Seleccionar",
   "imageUrl": "/img/personajes/principe/principe.png",
@@ -59,7 +59,7 @@
       ],
       "correcta": "Compré manzanas, peras y uvas",
       "puntos": 15
-    },    
+    },
     {
       "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto y coma?",
       "opciones": [

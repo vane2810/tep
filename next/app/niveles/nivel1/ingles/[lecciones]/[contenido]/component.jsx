@@ -1,4 +1,3 @@
-// Componente reutilizable para sociales de todos los niveles
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -7,79 +6,47 @@ import Volver from '@/components/botonVolver';
 import { SeparadorAnaranjado } from '@/components/separador';
 import Loading from '@/components/loading';
 
-export default function Component({ id }) {
-  const [lecciones, setLecciones] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
+export default function InglesLeccionComponent({ id }) {
+  const [leccion, setLeccion] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [tituloGeneral, setTituloGeneral] = useState('');
-  const [imagenPortada, setImagenPortada] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
 
   useEffect(() => {
-    const fetchLecciones = async () => {
+    const fetchLeccion = async () => {
       try {
         const res = await fetch(`/assets/materias/ingles/nivel1/contenidos/${id}.json`);
         if (!res.ok) throw new Error('Error al cargar el archivo JSON');
         const data = await res.json();
-
-        if (data.lecciones) {
-          setLecciones(Object.values(data.lecciones));
-          setTituloGeneral(data.tituloGeneral || '');
-          setImagenPortada(data.imagenPortada || '');
-        } else {
-          throw new Error('El archivo JSON no contiene lecciones');
-        }
-
+        setLeccion(data);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error al cargar las lecciones:', error);
-        setLecciones([]);
+        console.error('Error al cargar la lección:', error);
         setIsLoading(false);
       }
     };
 
     if (id) {
-      fetchLecciones();
+      fetchLeccion();
     }
   }, [id]);
 
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
-  if (!lecciones || lecciones.length === 0) {
-    return <div>No se encontraron lecciones.</div>;
+  if (!leccion) {
+    return <div>No se encontró la lección.</div>;
   }
 
-  const handleOpenBook = () => {
+  const handleOpenDoor = () => {
     setIsOpen(true);
   };
 
-  const nextPage = () => {
-    if (currentPage < lecciones.length - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
+  // Asignamos la imagen genérica si no existe una específica
+  const imagenLeccion = leccion.imagenLeccion ? leccion.imagenLeccion : '/img/personajes/griffit/griffit.png';
 
-  const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handlePlayGame = () => {
-    // Asegura la correcta navegación al juego con los id específicos
-    router.push(`/niveles/nivel1/ingles/${id}/${id}/${id}`);
-  };
-  
-
-  if (!lecciones || lecciones.length === 0) {
-    return null;
-  }
-
-  const currentLeccion = lecciones[currentPage];
   return (
     <main className="relative">
       <SeparadorAnaranjado />
@@ -90,113 +57,102 @@ export default function Component({ id }) {
       </div>
 
       <div className="flex justify-center items-center bg-gradient-to-r from-yellow-100 via-pink-100 to-yellow-100 min-h-screen">
-        {/* Portada del libro */}
+        {/* Portada de la puerta de aula */}
         {!isOpen && (
           <div
-            onClick={handleOpenBook}
+            onClick={handleOpenDoor}
             className="relative transition-transform duration-500 cursor-pointer hover:scale-105"
           >
-            {/* Imagen de fondo del cofre */}
+            {/* Imagen de la puerta de aula */}
             <img
-              src="/img/niveless/sociales/cofre.png" // Ruta de tu imagen del cofre
-              alt="Cofre"
-              className="w-[650px] h-[495px]"  // Ajusta el tamaño de la imagen según sea necesario
+              src="/img/niveless/ingles/puerta.png" // Ruta de la imagen de la puerta
+              alt="Puerta de Aula"
+              className="w-[480px] h-[500px]"  // Ajuste de tamaño de la imagen
             />
 
-            {/* Contenido centrado en el área blanca del cofre */}
-            <div className="top-16 left-0 absolute flex flex-col justify-center items-center p-8 w-full h-full">
-              {/* Título del libro */}
+            {/* Contenido centrado en la puerta */}
+            <div className="top-2 left-0 absolute flex flex-col justify-center items-center p-8 w-full h-full">
+              {/* Título en la puerta */}
               <h1 className="mb-2 font-bold text-4xl text-black text-center story">
-                Lección 
+                Lesson / Lección
               </h1>
 
-              {/* Imagen adicional, como el principito */}
+              {/* Imagen adicional */}
               <img
-                src={imagenPortada ? imagenPortada : "/img/personajes/burbuja/burbuja.png"}  
-                alt={tituloGeneral}
-                className="mb-2 w-28 h-auto"
+                src={leccion.imagenPortada || '/img/personajes/griffit/griffit.png'}
+                alt={`${leccion.tituloEspanol} / ${leccion.tituloIngles}`}
+                className="mb-4 w-28 h-auto"
               />
 
-
-              <h1 className="mb-2 font-bold text-4xl text-black text-center story">
-                {tituloGeneral}
+              {/* Título de la lección */}
+              <h1 className="mb-6 font-bold text-3xl text-black text-center story">
+                {leccion.tituloIngles} / {leccion.tituloEspanol}
               </h1>
             </div>
           </div>
         )}
 
-
-
-        {/* Contenido del libro cuando está abierto */}
+        {/* Contenido de la pizarra cuando se abre la puerta */}
         {isOpen && (
           <div
-            className="relative bg-cover bg-center shadow-2xl w-[850px] h-[550px] transition-transform duration-700"
+            className="relative bg-cover bg-center shadow-2xl w-[900px] h-[550px] transition-transform duration-700"
             style={{
-              backgroundImage: "url('/img/niveless/sociales/mapa_abierto.png')",
+              backgroundImage: "url('/img/niveless/ingles/pizarra.png')",
               backgroundSize: 'contain',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
             }}
           >
-            {/* Página izquierda del libro */}
-            <div className="top-[12%] left-[15%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
-              <h2 className="mb-4 font-bold text-2xl">{currentLeccion.titulo}</h2>
-              <p className="font-serif text-lg leading-relaxed">{currentLeccion.descripcion}</p>
-
-              {/* Imagen de la lección dentro del libro, ajustada */}
+            {/* Imagen en la esquina superior derecha */}
+            <div className="top-38 right-8 absolute">
               <img
-                src={currentLeccion.imagenLeccion || "/img/personajes/burbuja/burbuja.png"}
-                alt={currentLeccion.titulo}
-                className="mt-8 rounded-lg w-[100%] h-[100px] object-contain"
+                src={imagenLeccion}
+                alt="Imagen de la lección"
+                className="w-[80px] h-[80px] object-contain"
               />
-
-
-              {/* Flecha izquierda en la página izquierda */}
-              {currentPage > 0 && (
-                <div className="bottom-10 left-4 absolute">
-                  <img
-                    onClick={prevPage}
-                    src="/img/niveless/lenguaje/flecha_libro_izquierda.png"
-                    alt="Anterior"
-                    title="Anterior"
-                    className="w-8 h-8 transition-transform cursor-pointer hover:scale-110"
-                  />
-                </div>
-              )}
             </div>
 
-            {/* Página derecha del libro */}
-            <div className="top-[35%] right-[10%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
-              <h3 className="mb-4 font-bold text-2xl story">Datos importantes:</h3>
-              <ul className="font-serif text-lg leading-relaxed list-disc list-inside">
-                {currentLeccion.ejemplos.map((ejemplo, index) => (
-                  <li key={index}>{ejemplo}</li>
-                ))}
-              </ul>
-
-              {/* Flecha derecha en la página derecha */}
-              <div className="right-10 bottom-[-1s0%] absolute"> {/* Ajustar bottom a 12 para acercarla */}
-                {currentPage < lecciones.length - 1 ? (
-                  <img
-                    onClick={nextPage}
-                    src="/img/niveless/lenguaje/flecha_libro_derecha.png"
-                    alt="Siguiente"
-                    title="Siguiente"
-                    className="w-8 h-8 transition-transform cursor-pointer hover:scale-110"
-                  />
-                ) : (
-                  <button
-                    onClick={handlePlayGame}
-                    className="bg-orange-700 hover:bg-orange-500 px-6 py-2 rounded-lg text-white text-xl transition duration-300 story"
-                  >
-                    Jugar
-                  </button>
-                )}
+            {/* Contenido de la lección en la pizarra */}
+            <div className="top-[12%] left-[15%] absolute p-6 w-[70%] h-[75%] overflow-auto story">
+              {/* Título de la lección */}
+              <p className="font-bold text-2xl text-blue-800">Lesson / Lección</p>
+              <div className="flex items-center">
+                <h2 className="font-bold text-3xl">{leccion.leccion.tituloIngles}</h2>
+                <audio controls className="ml-10">
+                  <source src={leccion.leccion.audioTituloIngles} type="audio/mp3" />
+                  Your browser does not support the audio element.
+                </audio>
               </div>
+              <p className="text-lg italic">{leccion.leccion.tituloEspanol}</p>
+
+              {/* Ejemplos */}
+              <p className="mt-6 font-bold text-2xl text-blue-800">Examples / Ejemplos</p>
+              {leccion.leccion.ejemplos.map((ejemplo, index) => (
+                <div key={index} className="my-2">
+                  {/* Contenedor de oración en inglés y audio */}
+                  <div className="flex items-center space-x-4">
+                    {/* Oración en inglés */}
+                    <p className="font-serif text-lg leading-relaxed">
+                      <strong>{ejemplo.oracionIngles}</strong>
+                    </p>
+
+                    {/* Audio en inglés */}
+                    <audio controls className="ml-10">
+                      <source src={ejemplo.audio} type="audio/mp3" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+
+                  {/* Oración en español */}
+                  <p className="mt-1 text-gray-600 italic">{ejemplo.oracionEspanol}</p>
+                </div>
+              ))}
+
             </div>
           </div>
         )}
       </div>
+
       <SeparadorAnaranjado />
     </main>
   );
