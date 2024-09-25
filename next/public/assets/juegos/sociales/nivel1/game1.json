@@ -12,53 +12,53 @@
         "Vuelve a intentarlo si no las consigues"
       ]
     },
-    "totalPuntos": 50,
-    "minPuntos": 30,
+    "totalPuntos": 75,
+    "minPuntos": 60,
     "limiteEscenas": 5,
     "escenas": [
       {
         "pregunta": "¿Con qué país limita El Salvador al norte?",
         "opciones": [
-          "Guatemala",
+          "Cuba",
           "Honduras",
           "México",
           "Costa Rica"
         ],
         "correcta": "Honduras",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál es el apodo de El Salvador debido a su pequeño tamaño?",
         "opciones": [
-          "La Joya de América",
           "El Pulgarcito de América",
+          "La Joya de América",
           "El Gigante de América",
           "La Tierra de los Volcanes"
         ],
         "correcta": "El Pulgarcito de América",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuándo es la estación lluviosa en El Salvador?",
         "opciones": [
           "Noviembre a abril",
-          "Mayo a octubre",
           "Enero a junio",
-          "Julio a diciembre"
+          "Julio a diciembre",
+          "Mayo a octubre"
         ],
         "correcta": "Mayo a octubre",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál volcán es conocido como 'El Faro del Pacífico'?",
         "opciones": [
           "Volcán de San Miguel",
-          "Volcán de Izalco",
           "Volcán de San Salvador",
+          "Volcán de Izalco",
           "Volcán Ilamatepec"
         ],
         "correcta": "Volcán de Izalco",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál es el río más importante de El Salvador?",
@@ -69,7 +69,7 @@
           "Río Paz"
         ],
         "correcta": "Río Lempa",
-        "puntos": 10
+        "puntos": 15
       }
     ]
   }
