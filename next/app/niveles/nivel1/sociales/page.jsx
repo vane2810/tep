@@ -7,7 +7,7 @@ import { SeparadorAzul } from '@/components/separador';
 
 // Importación dinámica de LevelMap
 const MapSociales = dynamic(() => import('@/components/templates/materias/mapSociales'), {
-    ssr: false,
+  ssr: false,
 });
 
 export default function SocialesPage() {

@@ -1,0 +1,47 @@
+{
+    "tituloGeneral": "Greetings / Saludos",
+    "imagenPortada": "/img/ingles/leccion1/greetings_portada.png",
+    "lecciones": {
+      "1": {
+        "titulo": "Hello / Hola",
+        "imagenLeccion": "/img/ingles/leccion1/hello.png",
+        "audio": "",
+        "ejemplos": [
+          "Hello! How are you? / ¡Hola! ¿Cómo estás?"
+        ]
+      },
+      "2": {
+        "titulo": "Good Morning / Buenos Días",
+        "imagenLeccion": "/img/ingles/leccion1/good_morning.png",
+        "audio": "",  
+        "ejemplos": [
+          "Good morning! Did you sleep well? / ¡Buenos días! ¿Dormiste bien?"
+        ]
+      },
+      "3": {
+        "titulo": "Good Afternoon / Buenas Tardes",
+        "imagenLeccion": "/img/ingles/leccion1/good_afternoon.png",
+        "audio": "",  
+        "ejemplos": [
+          "Good afternoon! How was your day? / ¡Buenas tardes! ¿Cómo fue tu día?"
+        ]
+      },
+      "4": {
+        "titulo": "Good Night / Buenas Noches",
+        "imagenLeccion": "/img/ingles/leccion1/good_night.png",
+        "audio": "",  
+        "ejemplos": [
+          "Good night! See you tomorrow. / ¡Buenas noches! Nos vemos mañana."
+        ]
+      },
+      "5": {
+        "titulo": "Goodbye / Adiós",
+        "imagenLeccion": "/img/ingles/leccion1/goodbye.png",
+        "audio": "",  
+        "ejemplos": [
+          "Goodbye! Take care! / ¡Adiós! Cuídate."
+        ]
+      }
+    }
+  }
+  
