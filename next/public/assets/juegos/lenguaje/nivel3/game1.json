@@ -12,8 +12,8 @@
         "Vuelve a intentarlo si no las consigues"
       ]
     },
-    "totalPuntos": 50,
-    "minPuntos": 30,
+    "totalPuntos": 75,
+    "minPuntos": 60,
     "limiteEscenas": 5,
     "escenas": [
       {
