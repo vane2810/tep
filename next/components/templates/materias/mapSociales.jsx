@@ -40,8 +40,8 @@ const MapSociales = ({ fondoUrl, fondoSize, areas, basePath, caricatura, subject
                     />
                 ))}
             </map>
-            <div className="bottom-[5%] left-[5%] absolute">
-                <img src={caricatura} alt="Caricatura" className="w-[6vw] h-auto" />
+            <div className="bottom-[5%] left-[3%] absolute">
+                <img src={caricatura} alt="Caricatura" className="mb-4 w-[8vw] h-auto" />
             </div>
         </section>
     );

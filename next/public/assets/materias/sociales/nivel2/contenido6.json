@@ -1,61 +1,61 @@
 {
-    "tituloGeneral": "Centro América: Honduras",
+    "tituloGeneral": "Centro América: Costa Rica",
     "imagenPortada": "",
     "lecciones": {
         "1": {
-            "titulo": "Ubicación de Honduras",
-            "descripcion": "Honduras está en el centro-norte de Centroamérica, limitando con Guatemala, El Salvador y Nicaragua.",
-            "imagenLeccion": "/img/centroamerica/mapa_honduras.png",
+            "titulo": "Ubicación de Costa Rica",
+            "descripcion": "Costa Rica está en el sur de Centroamérica, entre Nicaragua y Panamá.",
+            "imagenLeccion": "/img/centroamerica/mapa_costarica.png",
             "ejemplos": [
-                "Capital: Tegucigalpa",
-                "Al norte tiene costas en el mar Caribe.",
-                "Al sur limita con El Salvador y Nicaragua."
+                "Capital: San José",
+                "Al este tiene costas en el mar Caribe.",
+                "Al oeste tiene costas en el océano Pacífico."
             ]
         },
         "2": {
             "titulo": "Independencia",
-            "descripcion": "Honduras se independizó de España el 15 de septiembre de 1821.",
-            "imagenLeccion": "/img/centroamerica/independencia_honduras.png",
+            "descripcion": "Costa Rica se independizó de España el 15 de septiembre de 1821.",
+            "imagenLeccion": "/img/centroamerica/independencia_costarica.png",
             "ejemplos": [
-                "Fue parte de las Provincias Unidas de Centroamérica después de la independencia."
+                "Costa Rica fue parte de las Provincias Unidas de Centroamérica."
             ]
         },
         "3": {
             "titulo": "Cultura y Tradiciones",
-            "descripcion": "Honduras tiene una rica mezcla de cultura indígena, española y africana.",
-            "imagenLeccion": "/img/centroamerica/cultura_honduras.png",
+            "descripcion": "Costa Rica es conocida por su cultura de paz y respeto por el medio ambiente.",
+            "imagenLeccion": "/img/centroamerica/cultura_costarica.png",
             "ejemplos": [
-                "Las danzas de los Garífunas son importantes en la costa caribeña.",
+                "El lema de Costa Rica es 'Pura Vida', que refleja una vida sencilla y positiva.",
                 "El español es el idioma oficial."
             ]
         },
         "4": {
-            "titulo": "Símbolos Patrios de Honduras (Parte 1)",
-            "descripcion": "Honduras tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
-            "imagenLeccion": "/img/centroamerica/simbolos_honduras.png",
+            "titulo": "Símbolos Patrios de Costa Rica (Parte 1)",
+            "descripcion": "Costa Rica tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
+            "imagenLeccion": "/img/centroamerica/simbolos_costarica.png",
             "ejemplos": [
-                "La bandera tiene franjas azules y blancas con cinco estrellas.",
-                "El escudo tiene volcanes, montañas y herramientas de trabajo."
+                "La bandera tiene franjas azules, blancas y rojas con un escudo a la izquierda.",
+                "El escudo tiene tres montañas y dos océanos, simbolizando la ubicación entre el Pacífico y el Caribe."
             ]
         },
         "5": {
-            "titulo": "Símbolos Patrios de Honduras (Parte 2)",
-            "descripcion": "Otros símbolos patrios de Honduras reflejan su biodiversidad y riqueza natural.",
-            "imagenLeccion": "/img/centroamerica/simbolos_honduras.png",
+            "titulo": "Símbolos Patrios de Costa Rica (Parte 2)",
+            "descripcion": "Otros símbolos patrios de Costa Rica reflejan su biodiversidad y su riqueza natural.",
+            "imagenLeccion": "/img/centroamerica/simbolos_costarica.png",
             "ejemplos": [
-                "Flor Nacional: Orquídea.",
-                "Árbol Nacional: Pino.",
-                "Ave Nacional: Guacamaya Roja.",
-                "Comida Típica: Baleadas y tamales."
+                "Flor Nacional: Guaria Morada.",
+                "Árbol Nacional: Guanacaste.",
+                "Ave Nacional: Yigüirro.",
+                "Comida Típica: Gallo pinto y casado."
             ]
         },
         "6": {
-            "titulo": "Copán: Ciudad Maya",
-            "descripcion": "Copán es un antiguo centro maya en Honduras y uno de los sitios arqueológicos más importantes.",
-            "imagenLeccion": "/img/centroamerica/copan.png",
+            "titulo": "Parque Nacional Corcovado",
+            "descripcion": "El Parque Nacional Corcovado es una de las áreas naturales más importantes de Costa Rica.",
+            "imagenLeccion": "/img/centroamerica/corcovado.png",
             "ejemplos": [
-                "Copán fue una ciudad avanzada con monumentos y esculturas.",
-                "Es Patrimonio de la Humanidad por la UNESCO."
+                "Es conocido por su biodiversidad, siendo el hogar de muchas especies en peligro de extinción.",
+                "Es parte de la Reserva de la Biosfera del Pacífico de la UNESCO."
             ]
         }
     }
