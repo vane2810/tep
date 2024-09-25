@@ -1,51 +1,63 @@
 {
-    "tituloGeneral": "Centroamérica: Introducción",
+    "tituloGeneral": "Centro América: Belice",
     "imagenPortada": "",
     "lecciones": {
-        "1": {
-            "titulo": "Ubicación de Centroamérica",
-            "descripcion": "Centroamérica es una región que conecta América del Norte con América del Sur. Está rodeada por el océano Pacífico y el mar Caribe.",
-            "imagenLeccion": "/img/centroamerica/mapa.png",
-            "ejemplos": [
-                "Limita al norte con México.",
-                "Limita al sur con Colombia."
-            ]
-        },
-        "2": {
-            "titulo": "Los Países de Centroamérica",
-            "descripcion": "Centroamérica está formada por siete países: Guatemala, Belice, El Salvador, Honduras, Nicaragua, Costa Rica y Panamá.",
-            "imagenLeccion": "/img/centroamerica/paises.png",
-            "ejemplos": [
-                "El Salvador es el país más pequeño.",
-                "Belice es el único país donde se habla inglés como idioma oficial."
-            ]
-        },
-        "3": {
-            "titulo": "El Clima de Centroamérica",
-            "descripcion": "Centroamérica tiene un clima tropical. En la mayoría de los países hay dos estaciones: una seca y una lluviosa.",
-            "imagenLeccion": "/img/centroamerica/clima.png",
-            "ejemplos": [
-                "La estación seca va de noviembre a abril.",
-                "La estación lluviosa va de mayo a octubre."
-            ]
-        },
-        "4": {
-            "titulo": "Volcanes en Centroamérica",
-            "descripcion": "Centroamérica tiene muchos volcanes activos y es famosa por su actividad volcánica.",
-            "imagenLeccion": "/img/centroamerica/volcanes.png",
-            "ejemplos": [
-                "El Volcán de Fuego en Guatemala es uno de los más activos.",
-                "El volcán Irazú en Costa Rica es muy visitado por turistas."
-            ]
-        },
-        "5": {
-            "titulo": "La Comida Tradicional de Centroamérica",
-            "descripcion": "La comida en CA es variada y deliciosa. Platillos como pupusas, tamales y gallo pinto son populares.",
-            "imagenLeccion": "/img/centroamerica/comida.png",
-            "ejemplos": [
-                "Las pupusas son una comida típica de El Salvador.",
-                "El gallo pinto es muy popular en Costa Rica y Nicaragua."
-            ]
-        }
+      "1": {
+        "titulo": "Ubicación de Belice",
+        "descripcion": "Belice está en la costa este de Centroamérica, junto al mar Caribe.",
+        "imagenLeccion": "/img/centroamerica/mapa_belice.png",
+        "ejemplos": [
+          "Capital: Belmopán",
+          "Limita al norte con México y al oeste con Guatemala.",
+          "El mar Caribe está al este de Belice."
+        ]
+      },
+      "2": {
+        "titulo": "Independencia",
+        "descripcion": "Belice se independizó del Reino Unido el 21 de septiembre de 1981.",
+        "imagenLeccion": "/img/centroamerica/independencia_belice.png",
+        "ejemplos": [
+          "Antes de la independencia, Belice se llamaba Honduras Británica."
+        ]
+      },
+      "3": {
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Belice tiene una cultura diversa, con influencias mayas, africanas y británicas.",
+        "imagenLeccion": "/img/centroamerica/cultura_belice.png",
+        "ejemplos": [
+          "Las danzas garífunas son populares en Belice.",
+          "El inglés es el idioma oficial, pero también se habla español y criollo beliceño."
+        ]
+      },
+      "4": {
+        "titulo": "Símbolos Patrios de Belice (Parte 1)",
+        "descripcion": "Los símbolos patrios de Belice incluyen la bandera, el escudo y el himno nacional.",
+        "imagenLeccion": "/img/centroamerica/simbolos_belice.png",
+        "ejemplos": [
+          "La bandera tiene dos franjas rojas y un fondo azul con un escudo en el centro.",
+          "El escudo de armas muestra herramientas que representan la industria de la madera."
+        ]
+      },
+      "5": {
+        "titulo": "Símbolos Patrios de Belice (Parte 2)",
+        "descripcion": "Belice también tiene otros símbolos patrios importantes que representan su naturaleza y cultura.",
+        "imagenLeccion": "/img/centroamerica/simbolos_belice.png",
+        "ejemplos": [
+          "Flor Nacional: Orquídea Negra.",
+          "Árbol Nacional: Árbol de Caoba.",
+          "Ave Nacional: Tucán de Pico Arcoíris.",
+          "Comida Típica: Arroz con frijoles y pollo guisado."
+        ]
+      },
+      "6": {
+        "titulo": "El Gran Agujero Azul",
+        "descripcion": "El Gran Agujero Azul es un sumidero submarino famoso en Belice.",
+        "imagenLeccion": "/img/centroamerica/gran_agujero_azul.png",
+        "ejemplos": [
+          "Tiene más de 300 metros de ancho y es un popular sitio de buceo.",
+          "Es visitado por turistas de todo el mundo."
+        ]
+      }
     }
-}
+  }
+  

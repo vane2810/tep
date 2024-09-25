@@ -1,50 +1,61 @@
 {
-    "tituloGeneral": "Centroamérica: Cultura y Tradiciones",
+    "tituloGeneral": "Centro América: Honduras",
     "imagenPortada": "",
     "lecciones": {
         "1": {
-            "titulo": "La Música y el Baile",
-            "descripcion": "La música y el baile son muy importantes en Centroamérica, y cada país tiene sus propios ritmos.",
-            "imagenLeccion": "/img/centroamerica/musica_baile.png",
+            "titulo": "Ubicación de Honduras",
+            "descripcion": "Honduras está en el centro-norte de Centroamérica, limitando con Guatemala, El Salvador y Nicaragua.",
+            "imagenLeccion": "/img/centroamerica/mapa_honduras.png",
             "ejemplos": [
-                "El Punto Guanacasteco es un baile típico de Costa Rica.",
-                "La marimba es un instrumento popular en Guatemala."
+                "Capital: Tegucigalpa",
+                "Al norte tiene costas en el mar Caribe.",
+                "Al sur limita con El Salvador y Nicaragua."
             ]
         },
         "2": {
-            "titulo": "Las Festividades",
-            "descripcion": "Centroamérica celebra varias festividades, muchas relacionadas con su historia y religión.",
-            "imagenLeccion": "/img/centroamerica/festividades.png",
+            "titulo": "Independencia",
+            "descripcion": "Honduras se independizó de España el 15 de septiembre de 1821.",
+            "imagenLeccion": "/img/centroamerica/independencia_honduras.png",
             "ejemplos": [
-                "El Día de los Muertos se celebra en Guatemala y El Salvador.",
-                "La Semana Santa es muy importante en Nicaragua."
+                "Fue parte de las Provincias Unidas de Centroamérica después de la independencia."
             ]
         },
         "3": {
-            "titulo": "La Comida Típica",
-            "descripcion": "La comida en Centroamérica es variada y deliciosa, con platillos únicos en cada país.",
-            "imagenLeccion": "/img/centroamerica/comida_típica.png",
+            "titulo": "Cultura y Tradiciones",
+            "descripcion": "Honduras tiene una rica mezcla de cultura indígena, española y africana.",
+            "imagenLeccion": "/img/centroamerica/cultura_honduras.png",
             "ejemplos": [
-                "Las pupusas son famosas en El Salvador.",
-                "El gallo pinto es muy popular en Nicaragua y Costa Rica."
+                "Las danzas de los Garífunas son importantes en la costa caribeña.",
+                "El español es el idioma oficial."
             ]
         },
         "4": {
-            "titulo": "Vestimenta Tradicional",
-            "descripcion": "Cada país tiene su propia vestimenta tradicional, que usan en festivales y celebraciones.",
-            "imagenLeccion": "/img/centroamerica/vestimenta.png",
+            "titulo": "Símbolos Patrios de Honduras (Parte 1)",
+            "descripcion": "Honduras tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
+            "imagenLeccion": "/img/centroamerica/simbolos_honduras.png",
             "ejemplos": [
-                "En Guatemala, los trajes típicos tienen colores brillantes.",
-                "En Panamá, se usa la pollera en fiestas tradicionales."
+                "La bandera tiene franjas azules y blancas con cinco estrellas.",
+                "El escudo tiene volcanes, montañas y herramientas de trabajo."
             ]
         },
         "5": {
-            "titulo": "Artesanías",
-            "descripcion": "Las artesanías centroamericanas son famosas por su colorido y originalidad.",
-            "imagenLeccion": "/img/centroamerica/artesanias.png",
+            "titulo": "Símbolos Patrios de Honduras (Parte 2)",
+            "descripcion": "Otros símbolos patrios de Honduras reflejan su biodiversidad y riqueza natural.",
+            "imagenLeccion": "/img/centroamerica/simbolos_honduras.png",
             "ejemplos": [
-                "En Costa Rica, las carretas pintadas son muy conocidas.",
-                "En Nicaragua, se hacen cerámicas tradicionales."
+                "Flor Nacional: Orquídea.",
+                "Árbol Nacional: Pino.",
+                "Ave Nacional: Guacamaya Roja.",
+                "Comida Típica: Baleadas y tamales."
+            ]
+        },
+        "6": {
+            "titulo": "Copán: Ciudad Maya",
+            "descripcion": "Copán es un antiguo centro maya en Honduras y uno de los sitios arqueológicos más importantes.",
+            "imagenLeccion": "/img/centroamerica/copan.png",
+            "ejemplos": [
+                "Copán fue una ciudad avanzada con monumentos y esculturas.",
+                "Es Patrimonio de la Humanidad por la UNESCO."
             ]
         }
     }
