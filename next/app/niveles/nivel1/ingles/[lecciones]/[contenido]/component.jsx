@@ -104,11 +104,11 @@ export default function InglesLeccionComponent({ id }) {
             }}
           >
             {/* Imagen en la esquina superior derecha */}
-            <div className="top-38 right-8 absolute">
+            <div className="top-28 right-14 absolute">
               <img
                 src={imagenLeccion}
                 alt="Imagen de la lección"
-                className="w-[80px] h-[80px] object-contain"
+                className="w-[100px] h-[100px] object-contain"
               />
             </div>
 
