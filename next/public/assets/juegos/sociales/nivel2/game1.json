@@ -1,0 +1,76 @@
+{
+    "nombre": "Centro América: Belice",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/centroamerica/belice.png",
+    "modalData": {
+      "puntaje": "50 estrellas",
+      "imagenModal": "/img/centroamerica/belice.png",
+      "subtitulo": "Centro América: Belice",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Belice",
+        "El puntaje mínimo para pasar es de 30 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Con qué países limita Belice?",
+        "opciones": [
+          "Honduras y Guatemala",
+          "Nicaragua y Honduras",
+          "México y Guatemala",
+          "México y El Salvador"
+        ],
+        "correcta": "México y Guatemala",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo se independizó Belice del Reino Unido?",
+        "opciones": [
+          "21 de septiembre de 1981",
+          "15 de septiembre de 1970",
+          "12 de octubre de 1821",
+          "4 de julio de 1976"
+        ],
+        "correcta": "21 de septiembre de 1981",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué idioma es el oficial en Belice?",
+        "opciones": [
+          "Español",
+          "Inglés",
+          "Criollo beliceño",
+          "Francés"
+        ],
+        "correcta": "Inglés",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el símbolo patrio que muestra herramientas que representan la industria de la madera?",
+        "opciones": [
+          "La bandera",
+          "El himno nacional",
+          "La orquídea negra",
+          "El escudo de armas"
+        ],
+        "correcta": "El escudo de armas",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué lugar famoso en Belice es un sumidero submarino popular entre los buceadores?",
+        "opciones": [
+          "El Gran Agujero Azul",
+          "La Laguna de Alegría",
+          "El Cráter de Tecapa",
+          "El Lago Cocibolca"
+        ],
+        "correcta": "El Gran Agujero Azul",
+        "puntos": 15
+      }
+    ]
+  }
+  
