@@ -60,7 +60,7 @@ export default function Component({ id }) {
   };
 
   const handlePlayGame = () => {
-    router.push(`/niveles/nivel1/sociales/${id}/${id}`);
+    router.push(`/niveles/nivel2/sociales/${id}/${id}`);
   };
 
   if (!lecciones || lecciones.length === 0) {
