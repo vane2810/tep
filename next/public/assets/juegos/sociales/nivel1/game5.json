@@ -1,0 +1,131 @@
+{
+    "nombre": "Población y Costumbres de El Salvador",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/sociales/poblacion_costumbres.png",
+    "modalData": {
+      "puntaje": "100 estrellas",
+      "imagenModal": "/img/niveles/sociales/poblacion_costumbres.png",
+      "subtitulo": "Población y Costumbres de El Salvador",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre la población y las costumbres de El Salvador",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 100,
+    "minPuntos": 60,
+    "limiteEscenas": 10,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es la capital de El Salvador?",
+        "opciones": [
+          "San Salvador",
+          "Santa Ana",
+          "San Miguel",
+          "La Libertad"
+        ],
+        "correcta": "San Salvador",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es la lengua oficial de El Salvador?",
+        "opciones": [
+          "Inglés",
+          "Español",
+          "Nahuat",
+          "Francés"
+        ],
+        "correcta": "Español",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué es común en las reuniones familiares en El Salvador?",
+        "opciones": [
+          "Son siempre en restaurantes.",
+          "No incluyen comidas tradicionales.",
+          "Se celebran en centros comerciales.",
+          "Se realizan los fines de semana."
+        ],
+        "correcta": "Se realizan los fines de semana.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es un ejemplo de música tradicional de El Salvador?",
+        "opciones": [
+          "El Tango",
+          "El Xuc",
+          "Salsa",
+          "El Bolero"
+        ],
+        "correcta": "El Xuc",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué tipo de vestimenta es tradicional en las zonas rurales de El Salvador?",
+        "opciones": [
+          "Trajes de seda.",
+          "Trajes de algodón con colores vivos.",
+          "Vestidos largos de fiesta.",
+          "Pantalones vaqueros y camisetas."
+        ],
+        "correcta": "Trajes de algodón con colores vivos.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué artesanía es típica de El Salvador?",
+        "opciones": [
+          "Tejidos de seda.",
+          "Estatuas de mármol.",
+          "Productos de barro y cerámica.",
+          "Joyería de diamantes."
+        ],
+        "correcta": "Productos de barro y cerámica.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué otro nombre recibe El Salvador por su tamaño?",
+        "opciones": [
+          "La Joya de América.",
+          "El Pulgarcito de América.",
+          "El Gigante de América.",
+          "El Corazón de América."
+        ],
+        "correcta": "El Pulgarcito de América.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué instrumento se utiliza en la música tradicional salvadoreña?",
+        "opciones": [
+          "Marimba",
+          "Guitarra",
+          "Flauta",
+          "Violín"
+        ],
+        "correcta": "Marimba",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué elemento es común en las celebraciones familiares salvadoreñas?",
+        "opciones": [
+          "Regalos caros.",
+          "Decoración extravagante.",
+          "Comida típica.",
+          "Cenas formales."
+        ],
+        "correcta": "Comida típica.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué tipo de sombreros son típicos en las zonas rurales de El Salvador?",
+        "opciones": [
+          "Sombreros de paja.",
+          "Sombreros de fieltro.",
+          "Sombreros de lana.",
+          "Sombreros de vaquero."
+        ],
+        "correcta": "Sombreros de paja.",
+        "puntos": 10
+      }
+    ]
+  }
+  

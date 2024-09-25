@@ -25,7 +25,7 @@
           "Doz"
         ],
         "correcta": "Cruz",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál es el plural correcto de la palabra 'lápiz'?",
@@ -36,7 +36,7 @@
           "Lápizs"
         ],
         "correcta": "Lápices",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál palabra terminada en '-oso' o '-osa' está escrita correctamente con 's'?",
@@ -47,7 +47,7 @@
           "Dudozo"
         ],
         "correcta": "Hermoso",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál verbo terminado en '-cer' o '-cir' está escrito correctamente?",
@@ -58,7 +58,7 @@
           "Conozcer"
         ],
         "correcta": "Conducir",
-        "puntos": 10
+        "puntos": 15
       },
       {
         "pregunta": "¿Cuál palabra es correcta con el sufijo '-oso' que indica cualidad?",
@@ -69,7 +69,7 @@
           "Cariñoco"
         ],
         "correcta": "Gracioso",
-        "puntos": 10
+        "puntos": 15
       }
     ]
   }
