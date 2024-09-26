@@ -1,0 +1,76 @@
+{
+    "nombre": "Nouns",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/personajes/principe/principe.png",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/personajes/principe/principe.png",
+      "subtitulo": "Nouns",
+      "indicaciones": [
+        "Selecciona la respuesta correcta",
+        "El puntaje mínimo para pasar es de 50 estrellas",
+        "Vuelve a intentarlo si no lo consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué es un sustantivo?",
+        "opciones": [
+          "Una palabra que indica una acción.",
+          "Una palabra que describe un adjetivo.",
+          "Una palabra que nombra una persona, lugar o cosa.",
+          "Una palabra que muestra posesión."
+        ],
+        "correcta": "Una palabra que nombra una persona, lugar o cosa.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el sustantivo en la oración 'John es mi amigo'?",
+        "opciones": [
+          "amigo",
+          "John",
+          "es",
+          "mi"
+        ],
+        "correcta": "John",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el sustantivo en la oración 'Vamos al parque'?",
+        "opciones": [
+          "vamos",
+          "parque",
+          "al",
+          "nosotros"
+        ],
+        "correcta": "parque",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el sustantivo en la oración 'El libro está en la mesa'?",
+        "opciones": [
+          "libro",
+          "está",
+          "en",
+          "la"
+        ],
+        "correcta": "libro",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el sustantivo en la oración 'La mesa es roja'?",
+        "opciones": [
+          "mesa",
+          "roja",
+          "es",
+          "la"
+        ],
+        "correcta": "mesa",
+        "puntos": 15
+      }
+    ]
+  }
+  

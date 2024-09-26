@@ -1,0 +1,76 @@
+{
+    "nombre": "Prepositions",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/personajes/principe/principe.png",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/personajes/principe/principe.png",
+      "subtitulo": "Prepositions",
+      "indicaciones": [
+        "Selecciona la respuesta correcta",
+        "El puntaje mínimo para pasar es de 50 estrellas",
+        "Vuelve a intentarlo si no lo consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué es una preposición?",
+        "opciones": [
+          "Una palabra que describe una acción.",
+          "Una palabra que indica dónde o cuándo está algo.",
+          "Una palabra que describe un objeto.",
+          "Una palabra que muestra posesión."
+        ],
+        "correcta": "Una palabra que indica dónde o cuándo está algo.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué preposición está en la oración 'El libro está sobre la mesa'?",
+        "opciones": [
+          "in",
+          "on",
+          "under",
+          "next to"
+        ],
+        "correcta": "on",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué preposición está en la oración 'El gato está debajo de la cama'?",
+        "opciones": [
+          "next to",
+          "on",
+          "under",
+          "in front of"
+        ],
+        "correcta": "under",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué preposición está en la oración 'El perro está al lado de la silla'?",
+        "opciones": [
+          "on",
+          "next to",
+          "behind",
+          "under"
+        ],
+        "correcta": "next to",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué preposición está en la oración 'El coche está detrás de la casa'?",
+        "opciones": [
+          "on",
+          "in",
+          "behind",
+          "next to"
+        ],
+        "correcta": "behind",
+        "puntos": 15
+      }
+    ]
+  }
+  
