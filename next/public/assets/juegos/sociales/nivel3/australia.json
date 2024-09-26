@@ -1,0 +1,76 @@
+{
+    "nombre": "Australia",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Explora Australia",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Australia",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es la capital de Australia?",
+        "opciones": [
+          "Canberra",
+          "Sídney",
+          "Melbourne",
+          "Brisbane"
+        ],
+        "correcta": "Canberra",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué fecha se celebra el Día de Australia?",
+        "opciones": [
+          "4 de julio",
+          "1 de mayo",
+          "26 de enero",
+          "15 de septiembre"
+        ],
+        "correcta": "26 de enero",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el idioma oficial de Australia?",
+        "opciones": [
+          "Francés",
+          "Mandarín",
+          "Inglés",
+          "Alemán"
+        ],
+        "correcta": "Inglés",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué animales son símbolos nacionales de Australia?",
+        "opciones": [
+          "Koala y dingo",
+          "Tigre y león",
+          "Elefante y panda",
+          "Canguro y emú"
+        ],
+        "correcta": "Canguro y emú",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué paisaje es característico de Australia?",
+        "opciones": [
+          "Monte Everest",
+          "Selva Amazónica",
+          "Gran Barrera de Coral",  
+          "Cataratas del Niágara"
+        ],
+        "correcta": "Gran Barrera de Coral",
+        "puntos": 15
+      }
+    ]
+  }
+  

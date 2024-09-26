@@ -1,0 +1,76 @@
+{
+    "nombre": "Europa",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/sociales/nivel3/continentes/europa.png",
+    "modalData": {
+      "puntaje": "50 estrellas",
+      "imagenModal": "/img/niveles/sociales/nivel3/continentes/europa.png",
+      "subtitulo": "Europa",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre los países de Europa",
+        "El puntaje mínimo para pasar es de 30 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué país es famoso por la Torre Eiffel y su capital, París?",
+        "opciones": [
+          "Italia",
+          "Alemania",
+          "Grecia",
+          "Francia"
+        ],
+        "correcta": "Francia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el país conocido por monumentos históricos como el Coliseo y la Ciudad del Vaticano?",
+        "opciones": [
+          "España",
+          "Reino Unido",
+          "Italia",
+          "Francia"
+        ],
+        "correcta": "Italia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es uno de los principales motores económicos de Europa y tiene a Berlín como capital?",
+        "opciones": [
+          "Alemania",
+          "España",
+          "Francia",
+          "Grecia"
+        ],
+        "correcta": "Alemania",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es famoso por sus playas, su cultura vibrante y ciudades como Madrid y Barcelona?",
+        "opciones": [
+          "Italia",
+          "Reino Unido",
+          "Grecia",
+          "España"
+        ],
+        "correcta": "España",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es la cuna de la civilización occidental y alberga la Acrópolis de Atenas?",
+        "opciones": [
+          "Grecia",
+          "Italia",
+          "Francia",
+          "Reino Unido"
+        ],
+        "correcta": "Grecia",
+        "puntos": 15
+      }
+    ]
+  }
+  

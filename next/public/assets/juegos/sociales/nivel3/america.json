@@ -1,0 +1,76 @@
+{
+    "nombre": "Descubre América",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre América",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre América",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es el continente que se divide en Norte, Central y del Sur?",
+        "opciones": [
+          "Asia",
+          "África",
+          "América",
+          "Europa"
+        ],
+        "correcta": "América",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el río más caudaloso del mundo, ubicado en América del Sur?",
+        "opciones": [
+          "Río Amazonas",
+          "Río Nilo",
+          "Río Misisipi",
+          "Río Danubio"
+        ],
+        "correcta": "Río Amazonas",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué festivales destacados se celebran en América?",
+        "opciones": [
+          "Oktoberfest y Año Nuevo Chino",
+          "Carnaval de Venecia y San Fermín",
+          "Diwali y Holi",
+          "Día de los Muertos y Carnaval de Brasil"
+        ],
+        "correcta": "Día de los Muertos y Carnaval de Brasil",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué sitio emblemático en Estados Unidos es símbolo de libertad?",
+        "opciones": [
+          "La Torre Eiffel",
+          "El Big Ben",
+          "La Estatua de la Libertad",
+          "El Coliseo"
+        ],
+        "correcta": "La Estatua de la Libertad",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué maravilla del mundo moderno se encuentra en Perú?",
+        "opciones": [
+          "La Gran Muralla China",
+          "El Taj Mahal",
+          "Machu Picchu",
+          "El Cristo Redentor"
+        ],
+        "correcta": "Machu Picchu",
+        "puntos": 15
+      }
+    ]
+  }
+  

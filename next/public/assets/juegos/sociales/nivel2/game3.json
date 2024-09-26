@@ -1,0 +1,76 @@
+{
+    "nombre": "Centro América: Honduras",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/centroamerica/mapa_honduras.png",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/centroamerica/mapa_honduras.png",
+      "subtitulo": "Centro América: Honduras",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Honduras",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde está ubicada Honduras?",
+        "opciones": [
+          "Entre Guatemala, El Salvador y Nicaragua",
+          "Entre México y Belice",
+          "Entre Panamá y Costa Rica",
+          "Entre El Salvador y Costa Rica"
+        ],
+        "correcta": "Entre Guatemala, El Salvador y Nicaragua",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo se independizó Honduras de España?",
+        "opciones": [
+          "El 20 de julio de 1810",
+          "El 3 de noviembre de 1903",
+          "El 5 de mayo de 1862",
+          "El 15 de septiembre de 1821"
+        ],
+        "correcta": "El 15 de septiembre de 1821",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué mezcla cultural es importante en Honduras?",
+        "opciones": [
+          "Indígena, francesa y británica",
+          "Indígena, española y africana",
+          "Árabe y africana",
+          "Inca y portuguesa"
+        ],
+        "correcta": "Indígena, española y africana",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué flor es un símbolo patrio de Honduras?",
+        "opciones": [
+          "La Rosa",
+          "La Orquídea",
+          "El Tulipán",
+          "El Clavel"
+        ],
+        "correcta": "La Orquídea",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué ciudad maya es un sitio arqueológico importante en Honduras?",
+        "opciones": [
+          "Tikal",
+          "Chichen Itzá",
+          "Copán",
+          "Uxmal"
+        ],
+        "correcta": "Copán",
+        "puntos": 15
+      }
+    ]
+  }
+  

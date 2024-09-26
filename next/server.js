@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); 
 const { sequelize } = require('./models');
 const authRoutes = require('./routes/auth');
+const progresoRoutes = require('./routes/progreso'); 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors()); 
 app.use(bodyParser.json());
 app.use('/api/auth', authRoutes); // Ruta autenticación
+app.use('/api/progreso', progresoRoutes); // Ruta para progreso
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');
