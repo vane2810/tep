@@ -1,0 +1,76 @@
+{
+    "nombre": "África",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/sociales/nivel3/continentes/africa.png",
+    "modalData": {
+      "puntaje": "50 estrellas",
+      "imagenModal": "/img/niveles/sociales/nivel3/continentes/africa.png",
+      "subtitulo": "África",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre los países de África",
+        "El puntaje mínimo para pasar es de 30 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué país en África es famoso por sus antiguas pirámides y templos?",
+        "opciones": [
+          "Sudáfrica",
+          "Nigeria",
+          "Egipto",
+          "Marruecos"
+        ],
+        "correcta": "Egipto",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál país en África es conocido por su diversidad cultural y el Parque Nacional Kruger?",
+        "opciones": [
+          "Kenia",
+          "Etiopía",
+          "Nigeria",
+          "Sudáfrica"
+        ],
+        "correcta": "Sudáfrica",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país tiene la economía más grande de África y una importante industria cinematográfica llamada Nollywood?",
+        "opciones": [
+          "Nigeria",
+          "Egipto",
+          "Kenia",
+          "Etiopía"
+        ],
+        "correcta": "Nigeria",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es famoso por sus safaris y el Parque Nacional Masai Mara?",
+        "opciones": [
+          "Sudáfrica",
+          "Kenia",
+          "Egipto",
+          "Marruecos"
+        ],
+        "correcta": "Kenia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál país en África es conocido como uno de los lugares de origen de la humanidad?",
+        "opciones": [
+          "Etiopía",
+          "Sudáfrica",
+          "Marruecos",
+          "Nigeria"
+        ],
+        "correcta": "Etiopía",
+        "puntos": 15
+      }
+    ]
+  }
+  

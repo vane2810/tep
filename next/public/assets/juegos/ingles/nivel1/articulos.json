@@ -1,0 +1,76 @@
+{
+    "nombre": "Articles",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/personajes/principe/principe.png",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/personajes/principe/principe.png",
+      "subtitulo": "Articles",
+      "indicaciones": [
+        "Selecciona la respuesta correcta",
+        "El puntaje mínimo para pasar es de 50 estrellas",
+        "Vuelve a intentarlo si no lo consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué es un artículo?",
+        "opciones": [
+          "Un artículo es una palabra que describe algo.",
+          "Un artículo nos dice si hablamos de algo específico.",
+          "Un artículo es un tipo de verbo.",
+          "Un artículo es una palabra que muestra tiempo."
+        ],
+        "correcta": "Un artículo nos dice si hablamos de algo específico.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo usamos 'a' en inglés?",
+        "opciones": [
+          "Cuando la palabra empieza con un sonido de consonante.",
+          "Cuando la palabra empieza con un sonido de vocal.",
+          "Cuando la palabra es un nombre propio.",
+          "Cuando la palabra es un verbo."
+        ],
+        "correcta": "Cuando la palabra empieza con un sonido de consonante.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo usamos 'an' en inglés?",
+        "opciones": [
+          "Cuando la palabra empieza con un sonido de vocal.",
+          "Cuando la palabra empieza con un sonido de consonante.",
+          "Cuando la palabra es una acción.",
+          "Cuando la palabra es un adjetivo."
+        ],
+        "correcta": "Cuando la palabra empieza con un sonido de vocal.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo usamos 'the' en inglés?",
+        "opciones": [
+          "Cuando hablamos de algo específico.",
+          "Cuando hablamos de algo general.",
+          "Cuando hablamos de una acción.",
+          "Cuando hablamos de una persona."
+        ],
+        "correcta": "Cuando hablamos de algo específico.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué artículo se usa en la oración 'El sol está brillando' en inglés?",
+        "opciones": [
+          "A",
+          "An",
+          "The",
+          "No se necesita artículo"
+        ],
+        "correcta": "The",
+        "puntos": 15
+      }
+    ]
+  }
+  

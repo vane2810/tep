@@ -1,0 +1,76 @@
+{
+    "nombre": "Chile",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Explora Chile",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Chile",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es la capital de Chile?",
+        "opciones": [
+          "Valparaíso",
+          "Concepción",
+          "Santiago",
+          "La Serena"
+        ],
+        "correcta": "Santiago",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo celebra Chile su Día de la Independencia?",
+        "opciones": [
+          "18 de septiembre",
+          "4 de julio",
+          "25 de mayo",
+          "7 de agosto"
+        ],
+        "correcta": "18 de septiembre",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué idioma es el oficial en Chile?",
+        "opciones": [
+          "Mapudungun",
+          "Inglés",
+          "Español",
+          "Portugués"
+        ],
+        "correcta": "Español",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué simboliza la estrella en la bandera de Chile?",
+        "opciones": [
+          "La independencia",
+          "La guía hacia un mejor futuro",
+          "La unión del país",
+          "La fuerza del pueblo chileno"
+        ],
+        "correcta": "La guía hacia un mejor futuro",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el desierto más árido del mundo que se encuentra en Chile?",
+        "opciones": [
+          "Desierto de Atacama",
+          "Desierto del Sahara",
+          "Desierto de Gobi",
+          "Desierto de Kalahari"
+        ],
+        "correcta": "Desierto de Atacama",
+        "puntos": 15
+      }
+    ]
+  }
+  

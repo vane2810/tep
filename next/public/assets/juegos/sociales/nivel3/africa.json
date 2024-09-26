@@ -1,0 +1,76 @@
+{
+    "nombre": "Descubre África",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/lecciones/africa/geografia.jpg",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/lecciones/africa/geografia.jpg",
+      "subtitulo": "Descubre África",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre África",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es el desierto más grande del mundo ubicado en África?",
+        "opciones": [
+          "El Sahara",
+          "El Gobi",
+          "El Kalahari",
+          "El Desierto de Atacama"
+        ],
+        "correcta": "El Sahara",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuántos grupos étnicos se encuentran en África?",
+        "opciones": [
+          "Alrededor de 500",
+          "Más de 3,000",
+          "Menos de 1,000",
+          "Exactamente 2,500"
+        ],
+        "correcta": "Más de 3,000",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué idioma es el más hablado en África?",
+        "opciones": [
+          "Inglés",
+          "Francés",
+          "Suajili",
+          "Árabe"
+        ],
+        "correcta": "Árabe",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Dónde se encuentran las Pirámides de Giza?",
+        "opciones": [
+          "Sudáfrica",
+          "Tanzania",
+          "Egipto",
+          "Marruecos"
+        ],
+        "correcta": "Egipto",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el pico más alto de África?",
+        "opciones": [
+          "Monte Kenia",
+          "Monte Kilimanjaro",
+          "Montes Atlas",
+          "Monte Elgon"
+        ],
+        "correcta": "Monte Kilimanjaro",
+        "puntos": 15
+      }
+    ]
+  }
+  
