@@ -37,7 +37,7 @@ const guardarProgresoBackend = async (userId, nivel, puntaje, materia) => {
                 userId,
                 nivel,
                 puntaje,
-                materia  // Aquí enviamos la materia al backend
+                materia  
             })
         });
 

@@ -8,6 +8,7 @@ import RegistroModal from '@/components/modals/adm/registroModal';
 import RolModal from '@/components/modals/adm/rolesModal';
 import NivelModal from '@/components/modals/adm/nivelModal';
 import PersonajeModal from '@/components/modals/adm/personajeModal';
+import Volver from '@/components/botonVolver';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -202,68 +203,67 @@ export default function Register() {
   return (
     <div className="flex bg-pink-100">
       <Volver href="/" />
-      <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
+      <div className="lg:flex justify-center items-center hidden lg:w-1/2">
         <img src="/img/auth/registro.png" alt="Imagen de registro" className="max-w-full h-auto object-contain" />
       </div>
 
-      <div className="flex flex-col justify-center items-center w-full lg:w-1/2 p-20 shadow-none">
-        <h1 className="text-3xl font-bold mb-4 story">Registro</h1>
-        <img src="/img/personajes/starly/starly.png" alt="Logo" className="h-32 w-32 mb-10 animate-float" />
+      <div className="flex flex-col justify-center items-center shadow-none p-20 w-full lg:w-1/2">
+        <h1 className="mb-4 font-bold text-3xl story">Registro</h1>
+        <img src="/img/personajes/starly/starly.png" alt="Logo" className="mb-10 w-32 h-32 animate-float" />
         <form onSubmit={handleSubmit} className="w-full max-w-md">
           <div className="mb-6">
-            <label className="text-xl font-bold mb-2 story">Nombre:</label>
+            <label className="mb-2 font-bold text-xl story">Nombre:</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+              className="border-2 border-yellow-300 focus:bg-gray-100 px-4 rounded-md w-full h-12 text-lg"
             />
             {nameError && <p className="text-red-500">{nameError}</p>}
           </div>
           <div className="mb-6">
-            <label className="text-xl font-bold mb-2 story">Correo electrónico:</label>
+            <label className="mb-2 font-bold text-xl story">Correo electrónico:</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+              className="border-2 border-yellow-300 focus:bg-gray-100 px-4 rounded-md w-full h-12 text-lg"
             />
             {emailError && <p className="text-red-500">{emailError}</p>}
           </div>
           <div className="mb-6">
-            <label className="text-xl font-bold mb-2 story">Contraseña:</label>
+            <label className="mb-2 font-bold text-xl story">Contraseña:</label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+              className="border-2 border-yellow-300 focus:bg-gray-100 px-4 rounded-md w-full h-12 text-lg"
             />
             {passwordError && <p className="text-red-500">{passwordError}</p>}
           </div>
           <div className="mb-6">
-            <label className="text-xl font-bold mb-2 story">Confirmar contraseña:</label>
+            <label className="mb-2 font-bold text-xl story">Confirmar contraseña:</label>
             <input
               type="password"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+              className="border-2 border-yellow-300 focus:bg-gray-100 px-4 rounded-md w-full h-12 text-lg"
             />
             {confirmPasswordError && <p className="text-red-500">{confirmPasswordError}</p>}
           </div>
-          <button type="submit" className="w-full h-12 px-10 text-xl bg-yellow-300 rounded-md font-bold 
-            transition duration-300 ease-in-out hover:bg-yellow-500 flex justify-center items-center story">
+          <button type="submit" className="flex justify-center items-center bg-yellow-300 hover:bg-yellow-500 px-10 rounded-md w-full h-12 font-bold text-xl transition duration-300 ease-in-out story">
             Registrarme
           </button>
         </form>
-        <hr className="w-full border-0 border-t border-black my-8" />
+        <hr className="border-0 my-8 border-t border-black w-full" />
         <div className="text-lg story">
           <p>¿Ya tienes una cuenta? <Link href="/adm/login" className="text-blue-500 hover:text-blue-700">Inicia sesión</Link></p>
         </div>
