@@ -1,0 +1,76 @@
+{
+    "nombre": "Descubre Asia",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Explora Asia",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Asia",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es la superficie aproximada de Asia?",
+        "opciones": [
+          "50 millones de km²",
+          "25.3 millones de km²",
+          "12 millones de km²",
+          "44.58 millones de km²"
+        ],
+        "correcta": "44.58 millones de km²",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es la montaña más alta del mundo, ubicada en Asia?",
+        "opciones": [
+          "Monte Kilimanjaro",
+          "Montañas Rocosas",
+          "Mont Blanc",
+          "Monte Everest"
+        ],
+        "correcta": "Monte Everest",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuáles son algunos de los idiomas principales en Asia?",
+        "opciones": [
+          "Francés, Inglés, Español",
+          "Mandarín, Hindi, Árabe, Japonés",
+          "Ruso, Italiano, Portugués",
+          "Alemán, Sueco, Holandés"
+        ],
+        "correcta": "Mandarín, Hindi, Árabe, Japonés",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué festivales destacados se celebran en Asia?",
+        "opciones": [
+          "Año Nuevo Chino y Diwali",
+          "Carnaval y Oktoberfest",
+          "Día de los Muertos y Día del Trabajo",
+          "San Fermín y Mardi Gras"
+        ],
+        "correcta": "Año Nuevo Chino y Diwali",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué sitios emblemáticos se encuentran en Asia?",
+        "opciones": [
+          "El Coliseo y la Torre Eiffel",
+          "La Gran Muralla China y el Taj Mahal",
+          "Las Cataratas del Niágara y el Machu Picchu",
+          "La Torre de Pisa y el Big Ben"
+        ],
+        "correcta": "La Gran Muralla China y el Taj Mahal",
+        "puntos": 15
+      }
+    ]
+  }
+  

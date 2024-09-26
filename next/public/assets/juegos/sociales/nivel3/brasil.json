@@ -1,0 +1,76 @@
+{
+    "nombre": "Brasil",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Explora Brasil",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Brasil",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es la capital de Brasil?",
+        "opciones": [
+          "Río de Janeiro",
+          "Sao Paulo",
+          "Brasilia",
+          "Salvador"
+        ],
+        "correcta": "Brasilia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo celebra Brasil su Día de la Independencia?",
+        "opciones": [
+          "15 de noviembre",
+          "7 de septiembre",
+          "12 de octubre",
+          "22 de abril"
+        ],
+        "correcta": "7 de septiembre",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué idioma se habla en Brasil?",
+        "opciones": [
+          "Español",
+          "Inglés",
+          "Francés",
+          "Portugués"
+        ],
+        "correcta": "Portugués",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué lema aparece en la bandera de Brasil?",
+        "opciones": [
+          "Paz e União",
+          "Ordem e Progresso",
+          "Liberdade e Justiça",
+          "Força e Coragem"
+        ],
+        "correcta": "Ordem e Progresso",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el río más largo y caudaloso de Brasil?",
+        "opciones": [
+          "El Amazonas",
+          "El Paraná",
+          "El Río de la Plata",
+          "El Orinoco"
+        ],
+        "correcta": "El Amazonas",
+        "puntos": 15
+      }
+    ]
+  }
+  

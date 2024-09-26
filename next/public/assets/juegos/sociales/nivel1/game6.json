@@ -1,0 +1,131 @@
+{
+    "nombre": "Geografía de El Salvador: Montañas y Ríos",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/personajes/burbuja/burbuja.png",
+    "modalData": {
+      "puntaje": "100 estrellas",
+      "imagenModal": "/img/personajes/burbuja/burbuja.png",
+      "subtitulo": "Geografía de El Salvador",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre la geografía de El Salvador",
+        "El puntaje mínimo para pasar es de 70 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 100,
+    "minPuntos": 70,
+    "limiteEscenas": 10,
+    "escenas": [
+      {
+        "pregunta": "¿Qué cordillera atraviesa El Salvador?",
+        "opciones": [
+          "Cordillera de los Andes",
+          "Montes Urales",
+          "Sierra Nevada",
+          "Sierra Madre de Chiapas"
+        ],
+        "correcta": "Sierra Madre de Chiapas",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el río más largo de El Salvador?",
+        "opciones": [
+          "Río Nilo",
+          "Río Amazonas",
+          "Río Lempa",
+          "Río Bravo"
+        ],
+        "correcta": "Río Lempa",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de estos lagos en El Salvador es de origen volcánico?",
+        "opciones": [
+          "Lago Titicaca",
+          "Lago Victoria",
+          "Lago de Coatepeque",
+          "Lago Ontario"
+        ],
+        "correcta": "Lago de Coatepeque",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué playa es famosa en El Salvador para practicar surf?",
+        "opciones": [
+          "Playa Waikiki",
+          "Playa Copacabana",
+          "Playa El Tunco",
+          "Playa Bondi"
+        ],
+        "correcta": "Playa El Tunco",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué volcán en El Salvador es conocido por ser uno de los más activos?",
+        "opciones": [
+          "Monte Everest",
+          "Volcán Fuji",
+          "Volcán de San Miguel",
+          "Volcán de San Salvador"
+        ],
+        "correcta": "Volcán de San Miguel",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué cordillera se encuentra al oeste de El Salvador?",
+        "opciones": [
+          "Cordillera del Bálsamo",
+          "Montañas Rocosas",
+          "Cordillera de los Alpes",
+          "Montes Apalaches"
+        ],
+        "correcta": "Cordillera del Bálsamo",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué otro río importante cruza El Salvador además del río Lempa?",
+        "opciones": [
+          "Río Danubio",
+          "Río Rin",
+          "Río Grande de San Miguel",
+          "Río Yangtsé"
+        ],
+        "correcta": "Río Grande de San Miguel",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es otro lago importante en El Salvador además del Lago de Coatepeque?",
+        "opciones": [
+          "Lago Baikal",
+          "Lago Tahoe",
+          "Lago Superior",
+          "Lago de Ilopango"
+        ],
+        "correcta": "Lago de Ilopango",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué playa es un popular destino turístico en El Salvador?",
+        "opciones": [
+          "Playa El Zonte",
+          "Playa Malibú",
+          "Playa de Ipanema",
+          "Playa Miami"
+        ],
+        "correcta": "Playa El Zonte",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué volcán en El Salvador es famoso por su forma cónica perfecta?",
+        "opciones": [
+          "Volcán Arenal",
+          "Volcán Etna",
+          "Volcán de Izalco",
+          "Volcán Vesubio"
+        ],
+        "correcta": "Volcán de Izalco",
+        "puntos": 10
+      }
+    ]
+  }
+  

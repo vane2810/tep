@@ -1,0 +1,76 @@
+{
+    "nombre": "Argentina",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Argentina",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Argentina",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde está ubicada Argentina?",
+        "opciones": [
+          "En el norte de Europa",
+          "En el oeste de Asia",
+          "En el sur de América del Sur",
+          "En el este de África"
+        ],
+        "correcta": "En el sur de América del Sur",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo declaró Argentina su independencia?",
+        "opciones": [
+          "El 25 de mayo de 1810",
+          "El 12 de octubre de 1492",
+          "El 16 de septiembre de 1810",
+          "El 9 de julio de 1816"
+        ],
+        "correcta": "El 9 de julio de 1816",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el símbolo en el centro de la bandera de Argentina?",
+        "opciones": [
+          "Un cóndor",
+          "El Sol de Mayo",
+          "Una estrella",
+          "Una cruz"
+        ],
+        "correcta": "El Sol de Mayo",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es la montaña más alta de Argentina y de América?",
+        "opciones": [
+          "Himalaya",
+          "Everest",
+          "Alpes",
+          "Aconcagua"
+        ],
+        "correcta": "Aconcagua",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Por qué es famosa Argentina?",
+        "opciones": [
+          "Por el tango y su pasión por el fútbol",
+          "Por sus castillos medievales",
+          "Por sus desiertos",
+          "Por sus pirámides"
+        ],
+        "correcta": "Por el tango y su pasión por el fútbol",
+        "puntos": 15
+      }
+    ]
+  }
+  

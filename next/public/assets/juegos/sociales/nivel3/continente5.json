@@ -1,0 +1,76 @@
+{
+    "nombre": "Oceanía",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/sociales/nivel3/continentes/oceania.png",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/niveles/sociales/nivel3/continentes/oceania.png",
+      "subtitulo": "Oceanía",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre los países de Oceanía",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué país en Oceanía es famoso por la Gran Barrera de Coral y su fauna única?",
+        "opciones": [
+          "Australia",
+          "Nueva Zelanda",
+          "Fiyi",
+          "Papúa Nueva Guinea"
+        ],
+        "correcta": "Australia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país en Oceanía es conocido por sus paisajes que aparecen en El Señor de los Anillos?",
+        "opciones": [
+          "Australia",
+          "Tonga",
+          "Samoa",
+          "Nueva Zelanda"
+        ],
+        "correcta": "Nueva Zelanda",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país en Oceanía es famoso por su diversidad cultural y lingüística con más de 800 lenguas habladas?",
+        "opciones": [
+          "Fiyi",
+          "Papúa Nueva Guinea",
+          "Samoa",
+          "Tonga"
+        ],
+        "correcta": "Papúa Nueva Guinea",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es conocido por sus playas paradisíacas y arrecifes de coral en el Pacífico Sur?",
+        "opciones": [
+          "Nueva Zelanda",
+          "Samoa",
+          "Fiyi",
+          "Tonga"
+        ],
+        "correcta": "Fiyi",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país en Oceanía es un estado insular conocido por su cultura polinesia y su capital Apia?",
+        "opciones": [
+          "Samoa",
+          "Papúa Nueva Guinea",
+          "Tonga",
+          "Australia"
+        ],
+        "correcta": "Samoa",
+        "puntos": 15
+      }
+    ]
+  }
+  
