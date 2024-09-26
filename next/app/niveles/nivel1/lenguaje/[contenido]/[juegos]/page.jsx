@@ -1,6 +1,6 @@
 // Vista para juegos - Lenguaje - Nivel 1
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Volver from '@/components/botonVolver';
 import Loading from '@/components/loading';
@@ -8,38 +8,68 @@ import { SeparadorMorado } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 import Modal from '@/components/modals/games/instrucciones';
 import dynamic from 'next/dynamic';
+import { SessionContext } from '@/context/session'; // Importar el contexto de sesión
 
-// Importaciones de todos los juegos
+// Importar los diferentes tipos de juegos de forma dinámica
 const getGameComponent = (gameType) => {
     switch (gameType) {
         case "Seleccionar":
             return dynamic(() => import('@/components/minigame/game1'), { ssr: false });
-
         case "Arrastrar":
             return dynamic(() => import('@/components/minigame/game5'), { ssr: false });
-
         case "Memoria":
             return dynamic(() => import('@/components/minigame/game6'), { ssr: false });
-
         default:
             return null;
     }
 };
 
+// Función para guardar el progreso en el backend
+// Función para guardar el progreso en el backend
+const guardarProgresoBackend = async (userId, nivel, puntaje) => {
+    try {
+        console.log("Datos enviados al backend:", { userId, nivel, puntaje });  // Asegúrate de que puntaje no sea null
+
+        const response = await fetch('http://localhost:3001/api/progreso/guardar-progreso', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: JSON.stringify({
+                userId,
+                nivel,
+                puntaje  // Asegúrate de que se esté enviando un valor no null aquí
+            })
+        });
+
+        if (response.ok) {
+            console.log("Progreso guardado exitosamente en el backend");
+        } else {
+            console.error("Error al guardar el progreso:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error al hacer fetch para guardar el progreso:", error);
+    }
+};
+
+
+
 export default function JuegoPage() {
+    const { session } = useContext(SessionContext);  // Usar el contexto de sesión
     const pathname = usePathname();
-    const id = pathname.split('/').pop();
+    const id = pathname.split('/').pop();  // Obtener el ID del juego desde la URL
     const [gameComponent, setGameComponent] = useState(null);
     const [gameData, setGameData] = useState(null);
-    const [puntos, setScore] = useState(0); // Manejo del puntaje
-    const [feedback, setFeedback] = useState(''); // Manejo del feedback
-    const [currentScene, setCurrentScene] = useState(0); // Manejo de la escena actual
-    const [gameKey, setGameKey] = useState(0); // Clave para reiniciar el juego
-    const [showInstructions, setShowInstructions] = useState(false); // Estado para mostrar el modal
-    const [gameStarted, setGameStarted] = useState(false); // Estado para iniciar el juego
-    const [showRetry, setShowRetry] = useState(false); // Estado para mostrar el botón de reinicio
+    const [puntos, setScore] = useState(0);  // Estado para manejar el puntaje
+    const [feedback, setFeedback] = useState('');  // Estado para manejar el feedback
+    const [currentScene, setCurrentScene] = useState(0);  // Estado para manejar la escena actual
+    const [gameKey, setGameKey] = useState(0);  // Estado para manejar el reinicio del juego
+    const [showInstructions, setShowInstructions] = useState(false);  // Estado para mostrar el modal de instrucciones
+    const [gameStarted, setGameStarted] = useState(false);  // Estado para iniciar el juego
+    const [showRetry, setShowRetry] = useState(false);  // Estado para mostrar el botón de reinicio
 
-    // Busca json
+    // Cargar el archivo JSON del juego desde los assets
     useEffect(() => {
         if (id) {
             const loadGame = async () => {
@@ -58,43 +88,65 @@ export default function JuegoPage() {
                     console.error("Error cargando el juego:", error);
                 }
             };
-
             loadGame();
         }
     }, [id]);
 
+    // Actualizar puntaje
     const updateScore = (points) => {
         setScore(prevScore => prevScore + points);
     };
 
+    // Actualizar feedback
     const updateFeedback = (message, color) => {
         setFeedback(<span style={{ color }}>{message}</span>);
     };
 
+    // Desbloquear el siguiente nivel y actualizar localStorage y backend
+    // Desbloquear el siguiente nivel y actualizar localStorage y backend
+    const desbloquearSiguienteNivel = async () => {
+        const progresoGuardado = JSON.parse(localStorage.getItem('progresoLenguaje')) || [1];  // Cargar el progreso actual
+        const nivelActual = parseInt(id);  // Obtener el nivel actual desde la URL
+
+        // Si el siguiente nivel no está desbloqueado, añadirlo al progreso
+        if (!progresoGuardado.includes(nivelActual + 1)) {
+            const nuevoProgreso = [...progresoGuardado, nivelActual + 1];
+            localStorage.setItem('progresoLenguaje', JSON.stringify(nuevoProgreso));  // Guardar el nuevo progreso en localStorage
+
+            // Guardar el progreso en el backend con los puntos
+            if (session && session.user) {
+                try {
+                    await guardarProgresoBackend(session.user, nivelActual + 1, puntos);  // Pasa el valor de `puntos` aquí
+                } catch (error) {
+                    console.error("Error guardando el progreso en el backend:", error);
+                }
+            } else {
+                console.error('Error: No se encontró la sesión o el userId');
+            }
+        }
+    };
+
+
+    // Avanzar a la siguiente escena o finalizar el juego
     const proceedToNextScene = () => {
-        // Limpiar el feedback al pasar a la siguiente escena
-        setFeedback('');
-    
-        // Si no es la última escena, avanza a la siguiente
+        setFeedback('');  // Limpiar el feedback al pasar a la siguiente escena
+
         if (currentScene < gameData.escenas.length - 1) {
             setCurrentScene(prevScene => prevScene + 1);
             setGameKey(prevKey => prevKey + 1);
         } else {
             // Al final del juego, verifica el puntaje acumulado
-            if (puntos >= gameData.minPuntos) {  // Cambia el operador a >=
-                // Si el puntaje es mayor o igual al mínimo, muestra el mensaje de éxito
+            if (puntos >= gameData.minPuntos) {
                 setFeedback(<span style={{ color: '#6aa84f' }}>¡Felicidades! Has completado el juego con éxito</span>);
+                desbloquearSiguienteNivel();  // Desbloquear el siguiente nivel
             } else {
-                // Si el puntaje no alcanza el mínimo, muestra el mensaje de fallo
                 setFeedback(<span style={{ color: '#ff0000' }}>No alcanzaste el puntaje mínimo. ¡Inténtalo de nuevo!</span>);
                 setShowRetry(true);
             }
         }
     };
-    
 
-
-
+    // Reiniciar el juego
     const retryGame = () => {
         setScore(0);
         setCurrentScene(0);
@@ -103,21 +155,24 @@ export default function JuegoPage() {
         setShowRetry(false);
     };
 
+    // Mostrar el modal de instrucciones
     const openInstructions = () => {
         setShowInstructions(true);
     };
 
+    // Cerrar el modal de instrucciones
     const closeInstructions = () => {
         setShowInstructions(false);
     };
 
+    // Iniciar el juego después de cerrar el modal
     const startGame = () => {
         closeInstructions();
         setGameStarted(true);
     };
 
     if (!gameData || !gameComponent) {
-        return <Loading />;
+        return <Loading />;  // Mostrar una pantalla de carga mientras se carga el juego
     }
 
     const GameComponent = gameComponent;
@@ -136,7 +191,7 @@ export default function JuegoPage() {
                     </div>
                     <div className="flex flex-col">
                         <div className="mb-4 font-bold text-xl story">
-                            <Typewriter text="    Lee las indicaciones para comenzar" speed={40} />
+                            <Typewriter text="Lee las indicaciones para comenzar" speed={40} />
                         </div>
                         <button className="hover:bg-purple-700 mt-4 px-4 py-2 rounded font-bold text-white text-xl morado story" onClick={openInstructions}>
                             Indicaciones
@@ -145,6 +200,7 @@ export default function JuegoPage() {
                 </div>
             </div>
 
+            {/* Modal con instrucciones */}
             {showInstructions && (
                 <Modal show={showInstructions} onClose={closeInstructions} onStartGame={startGame} modalData={gameData.modalData} />
             )}
@@ -168,7 +224,7 @@ export default function JuegoPage() {
                             <p className="font-semibold text-xl">Resultado: {feedback}</p>
                             <p className="font-semibold text-xl">Estrellas: {puntos} / {gameData.totalPuntos}</p>
 
-                            {/* Botón si el puntaje no es suficiente */}
+                            {/* Botón para reiniciar si no alcanza el puntaje mínimo */}
                             {showRetry && (
                                 <button
                                     className="bg-red-500 hover:bg-red-700 mt-4 px-4 py-2 rounded font-bold text-white"

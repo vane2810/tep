@@ -32,7 +32,7 @@
         "4": {
             "titulo": "Signos de Puntuación: El Punto y Coma",
             "descripcion": "El punto y coma separa oraciones dentro de un mismo enunciado cuando ya se han usado comas.",
-            "imagenLeccion": "/img/niveles/lenguaje/punto_coma.png",
+            "imagenLeccion": "",
             "ejemplos": [
                 "Ejemplo 1: Tengo hambre; sin embargo, esperaré a la cena.",
                 "Ejemplo 2: Salimos a correr; luego, volvimos a casa."
@@ -41,7 +41,7 @@
         "5": {
             "titulo": "Signos de Puntuación: Puntos Suspensivos",
             "descripcion": "Los puntos suspensivos indican que una oración queda incompleta o que hay una pausa dramática.",
-            "imagenLeccion": "/img/niveles/lenguaje/puntos_supensivos.png",
+            "imagenLeccion": "",
             "ejemplos": [
                 "Ejemplo 1: Sabía que algo malo iba a pasar...",
                 "Ejemplo 2: No lo sé... tal vez más tarde."

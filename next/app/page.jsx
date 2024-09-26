@@ -5,7 +5,6 @@ import { SeparadorRosa } from "../components/separador";
 import Typewriter from "../components/typeWriter";
 import '../styles/animacion.css';
 import dynamic from 'next/dynamic';
-import Tabs from '../components/tabs'
 
 const Video = dynamic(() => import('../components/video'), { ssr: false });
 
@@ -47,8 +46,6 @@ export default function HomePage() {
         />
         <Carousel />
       </div>
-      
-      <Tabs/>
       <SeparadorRosa />
     </main>
   );

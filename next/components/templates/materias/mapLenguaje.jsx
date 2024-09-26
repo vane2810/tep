@@ -11,17 +11,27 @@ const MapLenguaje = ({ subject, basePath, levels, fondoUrl, decorativos, camino,
         {/* Muestra cada nivel */}
         {levels.map((level) => (
             <div key={level.id} className="absolute" style={{ top: level.position.top, left: level.position.left }}>
-                <Link href={`/${basePath}${subject}/${level.id}`}>
-                    <img
-                        src={camino}
-                        alt={`Nivel ${level.id}`}
-                        className="hover:shadow-lg rounded-full w-[4vw] h-[4vw] transform transition-transform cursor-pointer hover:scale-105"
-                        title={`${level.name}`}
-                    />
-                </Link>
+                {!level.bloqueado || level.id === 1 ? (  // Desbloquear siempre el primer nivel
+                    <Link href={`/${basePath}${subject}/${level.id}`}>
+                        <img
+                            src={camino}
+                            alt={`Nivel ${level.id}`}
+                            className="hover:shadow-lg rounded-full w-[4vw] h-[4vw] transform transition-transform cursor-pointer hover:scale-105"
+                            title={`${level.name}`}
+                        />
+                    </Link>
+                ) : (
+                    <div className="locked">
+                        <img
+                            src="/img/home/candado.png" // Icono de candado
+                            alt={`Nivel ${level.id} Bloqueado`}
+                            className="w-[4vw] h-[4vw] cursor-not-allowed"
+                            title="Nivel bloqueado"
+                        />
+                    </div>
+                )}
 
                 <span className="mt-2 font-bold text-[2vw]" style={{ color: level.color || 'inherit' }}>{level.id}</span>
-
             </div>
         ))}
 
