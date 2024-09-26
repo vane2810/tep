@@ -1,75 +1,75 @@
 {
-    "nombre": "Signos de Putuación",
-    "gameType": "Seleccionar",
-    "imageUrl": "/img/personajes/principe/principe.png",
-    "modalData": {
-      "puntaje": "75 estrellas",
-      "imagenModal": "/img/niveles/mate/introfig.png",
-      "subtitulo": "Signos de Putuación",
-      "indicaciones": [
-        "Selecciona la respuesta correcta",
-        "El puntaje mínimo para pasar es de 50 estrellas",
-        "Vuelva a intentarlo si no las consigues"
-      ]
-    },
-    "totalPuntos": 75,
-    "minPuntos": 60,
-    "limiteEscenas": 5,
-    "escenas": [
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usan correctamente los puntos suspensivos?",
-        "opciones": [
-          "No sé... tal vez",
-          "No sé; tal vez",
-          "No sé... tal vez!",
-          "No sé, tal vez..."
-        ],
-        "correcta": "No sé... tal vez",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto?",
-        "opciones": [
-          "Voy a la tienda.",
-          "Voy a la tienda,",
-          "Voy a la tienda:",
-          "Voy a la tienda..."
-        ],
-        "correcta": "Voy a la tienda.",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usan correctamente los dos puntos?",
-        "opciones": [
-          "Le dije: que vengas pronto",
-          "Le dije; que vengas pronto",
-          "Le dije: 'Ven pronto'",
-          "Le dije, 'Ven pronto'"
-        ],
-        "correcta": "Le dije: 'Ven pronto'",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente la coma?",
-        "opciones": [
-          "Compré manzanas peras y uvas",
-          "Compré manzanas, peras, y uvas",
-          "Compré manzanas, peras y uvas",
-          "Compré manzanas; peras, y uvas"
-        ],
-        "correcta": "Compré manzanas, peras y uvas",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto y coma?",
-        "opciones": [
-          "Salí temprano; porque tenía prisa",
-          "Salí temprano porque tenía prisa",
-          "Salí temprano; tenía prisa",
-          "Salí temprano: porque tenía prisa"
-        ],
-        "correcta": "Salí temprano; tenía prisa",
-        "puntos": 15
-      }
+  "nombre": "Sinónimos y Antónimos",
+  "gameType": "Seleccionar",
+  "imageUrl": "/img/personajes/principe/principe.png",
+  "modalData": {
+    "puntaje": "75 estrellas",
+    "imagenModal": "/img/niveles/lenguaje/sinonimosyantonimos.png",
+    "subtitulo": "Sinónimos y Antónimos",
+    "indicaciones": [
+      "Selecciona la respuesta correcta",
+      "El puntaje mínimo para pasar es de 50 estrellas",
+      "Vuelva a intentarlo si no las consigues"
     ]
-  }
+  },
+  "totalPuntos": 75,
+  "minPuntos": 60,
+  "limiteEscenas": 5,
+  "escenas": [
+    {
+      "pregunta": "¿Cuál es un sinónimo de 'feliz'?",
+      "opciones": [
+        "Contento",
+        "Triste",
+        "Molesto",
+        "Enojado"
+      ],
+      "correcta": "Contento",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Cuál es un antónimo de 'rápido'?",
+      "opciones": [
+        "Lento",
+        "Ágil",
+        "Velóz",
+        "Ligero"
+      ],
+      "correcta": "Lento",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Cuál es un sinónimo de 'pequeño'?",
+      "opciones": [
+        "Grande",
+        "Diminuto",
+        "Enorme",
+        "Gigante"
+      ],
+      "correcta": "Diminuto",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Cuál es un antónimo de 'oscuro'?",
+      "opciones": [
+        "Brillante",
+        "Negro",
+        "Sombrío",
+        "Apagado"
+      ],
+      "correcta": "Brillante",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Cuál es un sinónimo de 'enojado'?",
+      "opciones": [
+        "Molesto",
+        "Contento",
+        "Tranquilo",
+        "Alegre"
+      ],
+      "correcta": "Molesto",
+      "puntos": 15
+    }
+  ]
+}

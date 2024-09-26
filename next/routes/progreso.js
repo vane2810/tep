@@ -4,52 +4,49 @@ const { Progreso } = require('../models');  // Cambia Progress por Progreso
 
 // Ruta para guardar el progreso
 router.post('/guardar-progreso', async (req, res) => {
-    const { userId, nivel, puntaje } = req.body;
-
-    try {
-        console.log("Datos recibidos en el backend:", { userId, nivel, puntaje });
-
-        // Verifica si el progreso ya existe
-        let progreso = await Progreso.findOne({ where: { user_id: userId, nivel: nivel } });
-
-        if (!progreso) {
-            // Si no existe, crea un nuevo registro de progreso
-            progreso = await Progreso.create({
-                user_id: userId,
-                nivel: nivel,
-                puntaje: puntaje !== null && puntaje !== undefined ? puntaje : 0  // Asigna un valor por defecto para el puntaje
-            });
-        } else {
-            return res.status(200).json({ message: 'El progreso ya existe' });
-        }
-
-        res.status(200).json({ message: 'Progreso guardado correctamente' });
-    } catch (error) {
-        console.error("Error guardando el progreso:", error);
-        res.status(500).json({ message: 'Error guardando el progreso' });
-    }
-});
-
-
-
-// Ruta para obtener el progreso de un usuario
-router.get('/cargar-progreso/:userId', async (req, res) => {
-  const { userId } = req.params;
+  const { userId, nivel, puntaje, materia } = req.body;
 
   try {
-    const progreso = await Progreso.findAll({
-      where: { usuario_id: userId },
-      attributes: ['nivel', 'puntaje']
-    });
+    let progreso = await Progreso.findOne({ where: { user_id: userId, nivel: nivel, materia } });
 
-    const nivelesDesbloqueados = progreso.map(p => p.nivel);
+    if (!progreso) {
+      // Cambiar nivel_id a nivel
+      progreso = await Progreso.create({
+        user_id: userId,
+        nivel: nivel,  // Cambiado de nivel_id a nivel
+        puntaje: puntaje,
+        materia: materia
+      });
+    }
 
-    res.status(200).json({ nivelesDesbloqueados });
+    res.status(200).json({ message: 'Progreso guardado correctamente' });
   } catch (error) {
-    console.error('Error al cargar el progreso:', error);
-    res.status(500).json({ error: 'Error al cargar el progreso' });
+    console.error("Error guardando el progreso:", error);
+    res.status(500).json({ message: 'Error guardando el progreso' });
   }
 });
+
+
+// Ruta para obtener el progreso de un usuario filtrado por materia
+router.get('/obtener-progreso/:userId/:materia', async (req, res) => {
+  const { userId, materia } = req.params; // Obtener el userId y materia de los parámetros de la URL
+  console.log('Obteniendo progreso para el userId:', userId, 'y la materia:', materia);
+
+  try {
+    const progreso = await Progreso.findAll({ where: { user_id: userId, materia: materia } });
+    console.log('Progreso encontrado:', progreso);  // Verificar los resultados de la consulta
+
+    if (progreso.length > 0) {
+      res.status(200).json(progreso);
+    } else {
+      res.status(404).json({ message: 'No se encontró progreso para este usuario y materia.' });
+    }
+  } catch (error) {
+    console.error('Error al obtener el progreso:', error);
+    res.status(500).json({ message: 'Error al obtener el progreso' });
+  }
+});
+
 
 
 

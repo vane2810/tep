@@ -1,75 +1,75 @@
 {
-    "nombre": "Signos de Putuación",
-    "gameType": "Seleccionar",
-    "imageUrl": "/img/personajes/principe/principe.png",
-    "modalData": {
-      "puntaje": "75 estrellas",
-      "imagenModal": "/img/niveles/mate/introfig.png",
-      "subtitulo": "Signos de Putuación",
-      "indicaciones": [
-        "Selecciona la respuesta correcta",
-        "El puntaje mínimo para pasar es de 50 estrellas",
-        "Vuelva a intentarlo si no las consigues"
-      ]
-    },
-    "totalPuntos": 75,
-    "minPuntos": 60,
-    "limiteEscenas": 5,
-    "escenas": [
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usan correctamente los puntos suspensivos?",
-        "opciones": [
-          "No sé... tal vez",
-          "No sé; tal vez",
-          "No sé... tal vez!",
-          "No sé, tal vez..."
-        ],
-        "correcta": "No sé... tal vez",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto?",
-        "opciones": [
-          "Voy a la tienda.",
-          "Voy a la tienda,",
-          "Voy a la tienda:",
-          "Voy a la tienda..."
-        ],
-        "correcta": "Voy a la tienda.",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usan correctamente los dos puntos?",
-        "opciones": [
-          "Le dije: que vengas pronto",
-          "Le dije; que vengas pronto",
-          "Le dije: 'Ven pronto'",
-          "Le dije, 'Ven pronto'"
-        ],
-        "correcta": "Le dije: 'Ven pronto'",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente la coma?",
-        "opciones": [
-          "Compré manzanas peras y uvas",
-          "Compré manzanas, peras, y uvas",
-          "Compré manzanas, peras y uvas",
-          "Compré manzanas; peras, y uvas"
-        ],
-        "correcta": "Compré manzanas, peras y uvas",
-        "puntos": 15
-      },
-      {
-        "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto y coma?",
-        "opciones": [
-          "Salí temprano; porque tenía prisa",
-          "Salí temprano porque tenía prisa",
-          "Salí temprano; tenía prisa",
-          "Salí temprano: porque tenía prisa"
-        ],
-        "correcta": "Salí temprano; tenía prisa",
-        "puntos": 15
-      }
+  "nombre": "Tipos de Oraciones",
+  "gameType": "Seleccionar",
+  "imageUrl": "/img/personajes/principe/principe.png",
+  "modalData": {
+    "puntaje": "75 estrellas",
+    "imagenModal": "/img/niveles/lenguaje/tiposdeoraciones.png",
+    "subtitulo": "Tipos de Oraciones",
+    "indicaciones": [
+      "Selecciona la respuesta correcta",
+      "El puntaje mínimo para pasar es de 50 estrellas",
+      "Vuelva a intentarlo si no las consigues"
     ]
-  }
+  },
+  "totalPuntos": 75,
+  "minPuntos": 60,
+  "limiteEscenas": 5,
+  "escenas": [
+    {
+      "pregunta": "¿Qué tipo de oración es: '¿Cuándo es tu cumpleaños?'?",
+      "opciones": [
+        "Enunciativa",
+        "Interrogativa",
+        "Exclamativa",
+        "Imperativa"
+      ],
+      "correcta": "Interrogativa",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Qué tipo de oración es: '¡Qué bonita es esa flor!'?",
+      "opciones": [
+        "Exclamativa",
+        "Interrogativa",
+        "Imperativa",
+        "Enunciativa"
+      ],
+      "correcta": "Exclamativa",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Qué tipo de oración es: 'Abre la puerta, por favor'?",
+      "opciones": [
+        "Imperativa",
+        "Interrogativa",
+        "Exclamativa",
+        "Enunciativa"
+      ],
+      "correcta": "Imperativa",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Qué tipo de oración es: 'Hoy es un día soleado'?",
+      "opciones": [
+        "Enunciativa",
+        "Interrogativa",
+        "Exclamativa",
+        "Imperativa"
+      ],
+      "correcta": "Enunciativa",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Qué tipo de oración es: '¿Vas a venir a la fiesta?'?",
+      "opciones": [
+        "Interrogativa",
+        "Enunciativa",
+        "Exclamativa",
+        "Imperativa"
+      ],
+      "correcta": "Interrogativa",
+      "puntos": 15
+    }
+  ]
+}

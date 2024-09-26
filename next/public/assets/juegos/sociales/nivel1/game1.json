@@ -1,10 +1,10 @@
 {
     "nombre": "Ubicación Geográfica de El Salvador",
     "gameType": "Seleccionar",
-    "imageUrl": "/img/niveles/sociales/ubicacion_geografica.png",
+    "imageUrl": "",
     "modalData": {
       "puntaje": "50 estrellas",
-      "imagenModal": "/img/niveles/sociales/ubicacion_geografica.png",
+      "imagenModal": "",
       "subtitulo": "Ubicación Geográfica de El Salvador",
       "indicaciones": [
         "Selecciona la respuesta correcta sobre la ubicación geográfica de El Salvador",

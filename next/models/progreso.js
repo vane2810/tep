@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    materia: { // Nuevo campo para la materia
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     fecha: {
       type: DataTypes.DATE,
       allowNull: false,

@@ -1,11 +1,11 @@
 {
-  "nombre": "Signos de Putuación",
+  "nombre": "Los Sustantivos",
   "gameType": "Seleccionar",
   "imageUrl": "/img/personajes/principe/principe.png",
   "modalData": {
     "puntaje": "75 estrellas",
-    "imagenModal": "/img/niveles/mate/introfig.png",
-    "subtitulo": "Signos de Putuación",
+    "imagenModal": "/img/niveles/lenguaje/sustantivos.png",
+    "subtitulo": "Los Sustantivos",
     "indicaciones": [
       "Selecciona la respuesta correcta",
       "El puntaje mínimo para pasar es de 50 estrellas",
@@ -17,58 +17,58 @@
   "limiteEscenas": 5,
   "escenas": [
     {
-      "pregunta": "¿En cuál de las siguientes oraciones se usan correctamente los puntos suspensivos?",
+      "pregunta": "¿Cuál es el sustantivo en la frase: 'El gato duerme todo el día'?",
       "opciones": [
-        "No sé... tal vez",
-        "No sé; tal vez",
-        "No sé... tal vez!",
-        "No sé, tal vez..."
+        "gato",
+        "duerme",
+        "día",
+        "todo"
       ],
-      "correcta": "No sé... tal vez",
+      "correcta": "gato",
       "puntos": 15
     },
     {
-      "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto?",
+      "pregunta": "¿Cuál de las siguientes palabras es un sustantivo?",
       "opciones": [
-        "Voy a la tienda.",
-        "Voy a la tienda,",
-        "Voy a la tienda:",
-        "Voy a la tienda..."
+        "rápidamente",
+        "felicidad",
+        "hermoso",
+        "grande"
       ],
-      "correcta": "Voy a la tienda.",
+      "correcta": "felicidad",
       "puntos": 15
     },
     {
-      "pregunta": "¿En cuál de las siguientes oraciones se usan correctamente los dos puntos?",
+      "pregunta": "¿Qué tipo de sustantivo es 'ciudad'?",
       "opciones": [
-        "Le dije: que vengas pronto",
-        "Le dije; que vengas pronto",
-        "Le dije: 'Ven pronto'",
-        "Le dije, 'Ven pronto'"
+        "Propio",
+        "Común",
+        "Abstracto",
+        "Colectivo"
       ],
-      "correcta": "Le dije: 'Ven pronto'",
+      "correcta": "Común",
       "puntos": 15
     },
     {
-      "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente la coma?",
+      "pregunta": "¿Cuál es el sustantivo en la frase: 'El coche rojo está estacionado'?",
       "opciones": [
-        "Compré manzanas peras y uvas",
-        "Compré manzanas, peras, y uvas",
-        "Compré manzanas, peras y uvas",
-        "Compré manzanas; peras, y uvas"
+        "coche",
+        "rojo",
+        "estacionado",
+        "está"
       ],
-      "correcta": "Compré manzanas, peras y uvas",
+      "correcta": "coche",
       "puntos": 15
     },
     {
-      "pregunta": "¿En cuál de las siguientes oraciones se usa correctamente el punto y coma?",
+      "pregunta": "¿Qué sustantivo es un nombre propio?",
       "opciones": [
-        "Salí temprano; porque tenía prisa",
-        "Salí temprano porque tenía prisa",
-        "Salí temprano; tenía prisa",
-        "Salí temprano: porque tenía prisa"
+        "Perro",
+        "Madrid",
+        "Ciudad",
+        "Montaña"
       ],
-      "correcta": "Salí temprano; tenía prisa",
+      "correcta": "Madrid",
       "puntos": 15
     }
   ]
