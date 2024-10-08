@@ -14,7 +14,7 @@ export default function Component({ id }) {
   const [imagenPortada, setImagenPortada] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const router = useRouter();  // Inicializar useRouter correctamente
+  const router = useRouter();  
 
   useEffect(() => {
     const fetchLecciones = async () => {

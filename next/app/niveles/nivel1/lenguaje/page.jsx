@@ -7,22 +7,15 @@ import '@/styles/animacion.css';
 import { SeparadorMorado } from "@/components/separador";
 
 export default function LenguajePage() {
-  const [progreso, setProgreso] = useState([]);  // Estado para manejar el progreso del usuario
+  const [progreso, setProgreso] = useState([]);  
 
-  // Simulando el ID del usuario (lo ideal es obtenerlo desde la autenticación)
   const userId = 1;
 
-  // Cargar el progreso desde el backend o localStorage
+  // Cargar el progreso desde el backend 
   useEffect(() => {
     const cargarProgreso = async () => {
       try {
-        // Si tienes un backend, usa esta opción para hacer fetch al progreso del usuario
-        // const response = await fetch(`/api/progreso/cargar-progreso/${userId}`);
-        // const data = await response.json();
-        // setProgreso(data.nivelesDesbloqueados);
-
-        // Si solo usas localStorage:
-        const progresoGuardado = JSON.parse(localStorage.getItem('progresoLenguaje')) || [1]; // Desbloquear solo el primer nivel por defecto
+        const progresoGuardado = JSON.parse(localStorage.getItem('progresoLenguaje')) || [1]; 
         setProgreso(progresoGuardado);
 
       } catch (error) {
@@ -33,7 +26,7 @@ export default function LenguajePage() {
     cargarProgreso();
   }, [userId]);
 
-  // Configuración de los niveles con la lógica de bloqueo/desbloqueo
+  // Configuración de los niveles 
   const levels = [
     { id: 1, name: 'Contenido 1', position: { top: '85%', left: '10%' }, color: 'white', bloqueado: !progreso.includes(1) },
     { id: 2, name: 'Contenido 2', position: { top: '78%', left: '20%' }, color: 'white', bloqueado: !progreso.includes(2) },

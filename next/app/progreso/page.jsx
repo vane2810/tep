@@ -65,7 +65,7 @@ export default function ProgresoPage() {
 
     const options = {
         responsive: true,
-        maintainAspectRatio: false, // Para que el gráfico sea más responsivo
+        maintainAspectRatio: false, 
         plugins: {
             legend: {
                 display: true,
@@ -79,7 +79,7 @@ export default function ProgresoPage() {
         scales: {
             y: {
                 beginAtZero: true,
-                max: 100, // Máximo puntaje en los juegos
+                max: 100, 
             },
         },
     };

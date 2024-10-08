@@ -8,9 +8,9 @@ import { SeparadorMorado } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 import Modal from '@/components/modals/games/instrucciones';
 import dynamic from 'next/dynamic';
-import { SessionContext } from '@/context/session'; // Importar el contexto de sesión
+import { SessionContext } from '@/context/session'; 
 
-// Importar los diferentes tipos de juegos de forma dinámica
+// Importar los diferentes tipos de juegos 
 const getGameComponent = (gameType) => {
     switch (gameType) {
         case "Seleccionar":
@@ -53,18 +53,18 @@ const guardarProgresoBackend = async (userId, nivel, puntaje, materia) => {
 
 
 export default function JuegoPage() {
-    const { session } = useContext(SessionContext);  // Usar el contexto de sesión
+    const { session } = useContext(SessionContext);  
     const pathname = usePathname();
-    const id = pathname.split('/').pop();  // Obtener el ID del juego desde la URL
+    const id = pathname.split('/').pop();  
     const [gameComponent, setGameComponent] = useState(null);
     const [gameData, setGameData] = useState(null);
-    const [puntos, setScore] = useState(0);  // Estado para manejar el puntaje
-    const [feedback, setFeedback] = useState('');  // Estado para manejar el feedback
-    const [currentScene, setCurrentScene] = useState(0);  // Estado para manejar la escena actual
-    const [gameKey, setGameKey] = useState(0);  // Estado para manejar el reinicio del juego
-    const [showInstructions, setShowInstructions] = useState(false);  // Estado para mostrar el modal de instrucciones
-    const [gameStarted, setGameStarted] = useState(false);  // Estado para iniciar el juego
-    const [showRetry, setShowRetry] = useState(false);  // Estado para mostrar el botón de reinicio
+    const [puntos, setScore] = useState(0);  
+    const [feedback, setFeedback] = useState('');  
+    const [currentScene, setCurrentScene] = useState(0);  
+    const [gameKey, setGameKey] = useState(0);  
+    const [showInstructions, setShowInstructions] = useState(false);  
+    const [gameStarted, setGameStarted] = useState(false);  
+    const [showRetry, setShowRetry] = useState(false);  
     const [materia, setMateria] = useState('Lenguaje'); 
 
     // Cargar el archivo JSON del juego desde los assets
@@ -101,7 +101,7 @@ export default function JuegoPage() {
     const updateScore = (points) => {
         const newPuntaje = puntos + points;
         setScore(newPuntaje);
-        localStorage.setItem(`puntajeJuego-${id}`, newPuntaje);  // Guardar puntaje en localStorage
+        localStorage.setItem(`puntajeJuego-${id}`, newPuntaje);  
     };
 
     // Actualizar feedback
@@ -119,7 +119,7 @@ export default function JuegoPage() {
     
             if (session && session.user) {
                 try {
-                    // Pasamos el puntaje real (puntosTotales) en lugar del mínimo
+                    // Pasamos el puntaje real 
                     await guardarProgresoBackend(session.user, nivelActual + 1, puntosTotales, 'Lenguaje');  
                 } catch (error) {
                     console.error("Error guardando el progreso en el backend:", error);
@@ -133,12 +133,12 @@ export default function JuegoPage() {
     
 
     const proceedToNextScene = () => {
-        setFeedback('');  // Limpiar el feedback al pasar a la siguiente escena
+        setFeedback('');  
     
         if (currentScene < gameData.escenas.length - 1) {
             const nextScene = currentScene + 1;
             setCurrentScene(nextScene);
-            localStorage.setItem(`escenaJuego-${id}`, nextScene);  // Guardar la escena actual en localStorage
+            localStorage.setItem(`escenaJuego-${id}`, nextScene);  
             setGameKey(prevKey => prevKey + 1);
         } else {
             // Al final del juego, verifica el puntaje acumulado
@@ -146,7 +146,7 @@ export default function JuegoPage() {
                 setFeedback(<span style={{ color: '#6aa84f' }}>¡Felicidades! Has completado el juego con éxito</span>);
                 
                 // Aquí, en lugar de guardar el puntaje mínimo, pasamos los puntos reales acumulados
-                desbloquearSiguienteNivel(puntos);  // Pasamos 'puntos' en lugar de 'gameData.minPuntos'
+                desbloquearSiguienteNivel(puntos);  
     
                 // Limpiar el localStorage al finalizar
                 localStorage.removeItem(`puntajeJuego-${id}`);
