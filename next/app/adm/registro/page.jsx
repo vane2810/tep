@@ -67,10 +67,10 @@ export default function Register() {
     setNameError(!regex.test(name) ? 'El nombre solo puede contener letras.' : '');
   };
 
-  
+
   // CAMBIOS REALIZADOS EN LA VALIDACIÓN DEL CORREO
   const validateEmail = (email) => {
-    const MAX_LENGTH = 254; 
+    const MAX_LENGTH = 254;
     if (email.length > MAX_LENGTH) {
       setEmailError('El correo es demasiado largo.');
       return;
