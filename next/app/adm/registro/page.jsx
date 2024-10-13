@@ -32,6 +32,7 @@ export default function Register() {
   const [showNivelModal, setShowNivelModal] = useState(false);
   const [showPersonajeModal, setShowPersonajeModal] = useState(false);
 
+  const validator = require('validator');
   // Manejo del cambio en los inputs del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +40,7 @@ export default function Register() {
       ...formData,
       [name]: value,
     });
+
 
     // Validación de los campos
     switch (name) {
@@ -65,9 +67,16 @@ export default function Register() {
     setNameError(!regex.test(name) ? 'El nombre solo puede contener letras.' : '');
   };
 
+  
+  // CAMBIOS REALIZADOS EN LA VALIDACIÓN DEL CORREO
   const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setEmailError(!regex.test(email) ? 'Formato de correo inválido.' : '');
+    const MAX_LENGTH = 254; 
+    if (email.length > MAX_LENGTH) {
+      setEmailError('El correo es demasiado largo.');
+      return;
+    }
+
+    setEmailError(!validator.isEmail(email) ? 'Formato de correo inválido.' : '');
   };
 
   const validatePassword = (password) => {
@@ -83,7 +92,7 @@ export default function Register() {
     e.preventDefault();
 
     if (nameError || emailError || passwordError || confirmPasswordError) {
-      return; 
+      return;
     }
 
     try {
@@ -128,7 +137,7 @@ export default function Register() {
       if (res.ok) {
         if (role === 'estudiante') {
           setShowRolModal(false);
-          setShowNivelModal(true);  
+          setShowNivelModal(true);
         } else {
           setShowModal(true);
           setModalMessage('Registro completado');
