@@ -1,5 +1,6 @@
 // Estrucutura del contenedor de los botones de cada asignatura
-import Link from "next/link"
+import Link from "next/link";
+import PropTypes from "prop-types"; 
 
 const Botones = ({ mate, lenguaje, sociales, ingles }) => (
     <section className="mt-10">
@@ -19,6 +20,7 @@ const Botones = ({ mate, lenguaje, sociales, ingles }) => (
                     className="hover:shadow-lg mx-4 rounded-full w-40 md:w-48 lg:w-56 xl:w-64 transform transition-transform boton hover:scale-105"
                 />
             </Link>
+
             <Link href={sociales}>
                 <img
                     src="/img/personajes/burbuja/burbujaboton.png"
@@ -26,6 +28,7 @@ const Botones = ({ mate, lenguaje, sociales, ingles }) => (
                     className="hover:shadow-lg mx-4 rounded-full w-40 md:w-48 lg:w-56 xl:w-64 transform transition-transform boton hover:scale-105"
                 />
             </Link>
+
             <Link href={ingles}>
                 <img
                     src="/img/personajes/griffit/griffitboton.png"
@@ -37,4 +40,12 @@ const Botones = ({ mate, lenguaje, sociales, ingles }) => (
     </section>
 );
 
-export default Botones
+// Validación de las propiedades usando PropTypes
+Botones.propTypes = {
+    mate: PropTypes.string.isRequired,       // Validamos que 'mate' sea un string requerido
+    lenguaje: PropTypes.string.isRequired,   // Validamos que 'lenguaje' sea un string requerido
+    sociales: PropTypes.string.isRequired,   // Validamos que 'sociales' sea un string requerido
+    ingles: PropTypes.string.isRequired,     // Validamos que 'ingles' sea un string requerido
+};
+
+export default Botones;

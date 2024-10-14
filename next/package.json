@@ -23,6 +23,7 @@
     "next": "14.2.3",
     "next-videos": "^1.4.1",
     "phaser": "^3.80.1",
+    "prop-types": "^15.8.1",
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",

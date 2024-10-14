@@ -3,6 +3,7 @@ import React from 'react';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 import { SessionProvider } from '@/context/session';
+import '@/styles/globals.css';
 
 export const metadata = {
   title: "TechEduPlanet"

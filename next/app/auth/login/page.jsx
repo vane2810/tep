@@ -65,7 +65,10 @@ export default function Login() {
           setRedirectTo('/');
         } else if (data.role === 'padre') {
           setRedirectTo('/');
+        }else if (data.role === 'admin') {
+          setRedirectTo('/');
         }
+        
       } else {
         setModalMessage(data.error);
         setModalType('error');
@@ -94,47 +97,47 @@ export default function Login() {
     <div className="flex bg-pink-100">
       {/* Volver */}
       <Volver href="/" />
-      <div className="flex flex-col justify-center items-center w-full lg:w-1/2 p-20 shadow-none">
-        <h1 className="text-3xl font-bold mb-4 story">Inicio de sesión</h1>
+      <div className="flex flex-col justify-center items-center shadow-none p-20 w-full lg:w-1/2">
+        <h1 className="mb-4 font-bold text-3xl story">Inicio de sesión</h1>
         <img
           src="/img/personajes/starly/starly.png"
           alt="Logo"
-          className="h-32 w-32 mb-10 animate-tumble"
+          className="mb-10 w-32 h-32 animate-tumble"
         />
         <form onSubmit={handleSubmit} className="w-full max-w-md">
           <div className="mb-6">
-            <label className="text-xl font-bold mb-2 story">Correo electrónico:</label>
+            <label className="mb-2 font-bold text-xl story">Correo electrónico:</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+              className="border-2 border-yellow-300 focus:bg-gray-100 px-4 rounded-md w-full h-12 text-lg"
             />
           </div>
           <div className="mb-6">
-            <label className="text-xl font-bold mb-2 story">Contraseña:</label>
+            <label className="mb-2 font-bold text-xl story">Contraseña:</label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full h-12 px-4 text-lg border-2 border-yellow-300 rounded-md focus:bg-gray-100"
+              className="border-2 border-yellow-300 focus:bg-gray-100 px-4 rounded-md w-full h-12 text-lg"
             />
           </div>
-          <button type="submit" className="w-full h-12 px-10 text-xl bg-yellow-300 rounded-md font-bold transition duration-300 ease-in-out hover:bg-yellow-500 flex justify-center items-center story">
+          <button type="submit" className="flex justify-center items-center bg-yellow-300 hover:bg-yellow-500 px-10 rounded-md w-full h-12 font-bold text-xl transition duration-300 ease-in-out story">
             Iniciar sesión
           </button>
         </form>
-        <hr className="w-full border-0 border-t border-black my-8" />
+        <hr className="border-0 my-8 border-t border-black w-full" />
         <div className="text-lg story">
           <p>¿No tienes una cuenta? <Link href="/adm/registro" className="text-blue-500 hover:text-blue-700">Regístrate</Link></p>
         </div>
       </div>
       {/* Imagen decorativa  */}
-      <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
+      <div className="lg:flex justify-center items-center hidden lg:w-1/2">
         <img src="/img/auth/login.jpg" alt="Imagen de fondo" className="max-w-full h-auto object-contain" />
       </div>
       <LoginModal
