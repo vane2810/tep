@@ -1,0 +1,76 @@
+{
+    "nombre": "Sudáfrica",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Sudáfrica",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Sudáfrica.",
+        "El puntaje mínimo para pasar es de 60 estrellas.",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo."
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cuáles son las capitales de Sudáfrica?",
+        "opciones": [
+          "Pretoria, Durban y Johannesburgo.",
+          "Pretoria, Ciudad del Cabo y Bloemfontein.",
+          "Ciudad del Cabo, Johannesburgo y Durban.",
+          "Pretoria, Ciudad del Cabo y Durban."
+        ],
+        "correcta": "Pretoria, Ciudad del Cabo y Bloemfontein.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo se independizó Sudáfrica del Reino Unido?",
+        "opciones": [
+          "1910.",
+          "1945.",
+          "1961.",
+          "1980."
+        ],
+        "correcta": "1910.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuántos idiomas oficiales tiene Sudáfrica?",
+        "opciones": [
+          "11.",
+          "5.",
+          "3.",
+          "8."
+        ],
+        "correcta": "11.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué representa la bandera de Sudáfrica?",
+        "opciones": [
+          "La unión con el Reino Unido.",
+          "El patrimonio cultural.",
+          "La diversidad del país.",
+          "La fauna nacional."
+        ],
+        "correcta": "La diversidad del país.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué parque nacional de Sudáfrica es famoso por su biodiversidad?",
+        "opciones": [
+          "Parque Nacional Serengeti.",
+          "Parque Nacional Kalahari.",
+          "Parque Nacional Kruger.",
+          "Parque Nacional Table Mountain."
+        ],
+        "correcta": "Parque Nacional Kruger.",
+        "puntos": 15
+      }
+    ]
+  }
+  

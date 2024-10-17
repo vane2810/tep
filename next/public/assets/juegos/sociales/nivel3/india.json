@@ -1,0 +1,76 @@
+{
+    "nombre": "India",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre India",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre India",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde se encuentra India?",
+        "opciones": [
+          "Sur de Asia",
+          "Norte de África",
+          "Este de Europa",
+          "Oeste de América"
+        ],
+        "correcta": "Sur de Asia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo celebra India su Día de la Independencia?",
+        "opciones": [
+          "12 de octubre",
+          "1 de julio",
+          "26 de enero",
+          "15 de agosto"
+        ],
+        "correcta": "15 de agosto",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuáles son los idiomas oficiales de India?",
+        "opciones": [
+          "Francés y portugués",
+          "Árabe y mandarín",
+          "Hindi e inglés",
+          "Español e italiano"
+        ],
+        "correcta": "Hindi e inglés",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué representa el 'Ashoka Chakra' en la bandera de India?",
+        "opciones": [
+          "Libertad y paz",
+          "Unidad y diversidad",
+          "Poder y coraje",
+          "Justicia y progreso"
+        ],
+        "correcta": "Justicia y progreso",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es uno de los ríos más importantes y sagrados de India?",
+        "opciones": [
+          "Río Nilo",
+          "Río Ganges",
+          "Río Amazonas",
+          "Río Danubio"
+        ],
+        "correcta": "Río Ganges",
+        "puntos": 15
+      }
+    ]
+  }
+  

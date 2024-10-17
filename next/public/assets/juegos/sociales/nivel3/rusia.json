@@ -1,0 +1,76 @@
+{
+    "nombre": "Rusia",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Rusia",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Rusia.",
+        "El puntaje mínimo para pasar es de 60 estrellas.",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo."
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde se encuentra Rusia?",
+        "opciones": [
+          "En Europa Occidental.",
+          "En Asia del Sur.",
+          "En Europa del Este y Asia del Norte.",
+          "En América del Norte."
+        ],
+        "correcta": "En Europa del Este y Asia del Norte.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo se celebra el Día de Rusia?",
+        "opciones": [
+          "El 12 de junio.",
+          "El 15 de agosto.",
+          "El 1 de enero.",
+          "El 7 de octubre."
+        ],
+        "correcta": "El 12 de junio.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué idioma es oficial en Rusia?",
+        "opciones": [
+          "Inglés.",
+          "Chino.",
+          "Ruso.",
+          "Alemán."
+        ],
+        "correcta": "Ruso.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué animal aparece en el emblema nacional de Rusia?",
+        "opciones": [
+          "El león.",
+          "El oso polar.",
+          "El águila bicéfala.",
+          "El dragón."
+        ],
+        "correcta": "El águila bicéfala.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué cadena montañosa separa Europa y Asia en Rusia?",
+        "opciones": [
+          "El Himalaya.",
+          "Los Montes Urales.",
+          "Los Alpes.",
+          "Los Andes."
+        ],
+        "correcta": "Los Montes Urales.",
+        "puntos": 15
+      }
+    ]
+  }
+  

@@ -1,0 +1,76 @@
+{
+    "nombre": "Nueva Zelanda",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Nueva Zelanda",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Nueva Zelanda",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde se encuentra Nueva Zelanda?",
+        "opciones": [
+          "En América del Norte",
+          "En África",
+          "En Europa",
+          "En Oceanía"
+        ],
+        "correcta": "En Oceanía",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo se celebra el Día de Waitangi en Nueva Zelanda?",
+        "opciones": [
+          "El 25 de diciembre",
+          "El 14 de julio",
+          "El 6 de febrero",
+          "El 1 de enero"
+        ],
+        "correcta": "El 6 de febrero",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es uno de los idiomas oficiales de Nueva Zelanda?",
+        "opciones": [
+          "Francés",
+          "Español",
+          "Inglés",
+          "Mandarín"
+        ],
+        "correcta": "Inglés",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué simboliza el helecho plateado en Nueva Zelanda?",
+        "opciones": [
+          "Simboliza la independencia",
+          "Representa la fauna del país",
+          "Es el árbol nacional",
+          "Es un símbolo nacional"
+        ],
+        "correcta": "Es un símbolo nacional",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es la montaña más alta de Nueva Zelanda?",
+        "opciones": [
+          "El monte Cook",
+          "El Everest",
+          "El monte Fuji",
+          "El monte Kilimanjaro"
+        ],
+        "correcta": "El monte Cook",
+        "puntos": 15
+      }
+    ]
+  }
+  
