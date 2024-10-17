@@ -43,13 +43,47 @@ const Navbar = () => {
       <div className="relative flex items-center">
         {session ? (
           <>
+
+
+          {/* Mostrar el enlace al panel de administración solo si el usuario es admin */}
+          {session.role === 'admin' && (
+              <div className="mr-12">
+                <Link href="/admin">
+                  <button className="bg-purple-700 hover:bg-purple-500 px-4 py-2 rounded font-bold text-white">
+                    Panel de Administración
+                  </button>
+                </Link>
+              </div>
+            )}
+
+            {/* Mostrar el enlace al panel de administración solo si el usuario es padre */}
+            {session.role === 'padre' && (
+              <div className="mr-12">
+                <Link href="/padre">
+                  <button className="bg-purple-700 hover:bg-purple-500 px-4 py-2 rounded font-bold text-white">
+                    Ingresar usuarios
+                  </button>
+                </Link>
+              </div>
+            )}
+
+            {/* Mostrar el enlace al panel de administración solo si el usuario es docente */}
+            {session.role === 'docente' && (
+              <div className="mr-12">
+                <Link href="/docente">
+                  <button className="bg-purple-700 hover:bg-purple-500 px-4 py-2 rounded font-bold text-white">
+                    Ingresar estudiantes
+                  </button>
+                </Link>
+              </div>
+            )}
             <div className="relative sm:flex items-center hidden mr-12">
               <div className='mr-10 font-bold text-2xl text-center text-rosado story'>
                 <h1>Bienvenido</h1>
                 <span>{session.name}</span>
               </div>
 
-              {selectedCharacter && session.role === 'estudiante' && (
+              {selectedCharacter && (
                 <div className="relative hover:shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
                   <img
                     src={characterImages[selectedCharacter]}
@@ -61,8 +95,8 @@ const Navbar = () => {
                 </div>
               )}
 
-              {/* Dropdown para cerrar sesión en el perfil solo para estudiante */}
-              {isDropdownOpen && session.role === 'estudiante' && (
+              {/* Dropdown para cerrar sesión en el perfil para todos los roles */}
+              {isDropdownOpen && (
                 <div className="-right-12 z-50 absolute bg-white shadow-lg mt-2 border rounded-lg w-50 transform translate-y-24 story">
                   <button onClick={handleLogout} className="block hover:bg-red-500 px-4 py-2 w-full text-left text-lg">
                     Cerrar sesión
@@ -71,28 +105,7 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Mostrar el enlace al panel de administración solo si el usuario es admin */}
-            {session.role === 'admin' && (
-              <div className="mr-4">
-                <Link href="/admin">
-                  <button className="bg-red-500 hover:bg-red-700 px-4 py-2 rounded font-bold text-white">
-                    Panel de Administración
-                  </button>
-                </Link>
-              </div>
-            )}
-
-            {/* Botón de Cerrar sesión visible para roles diferentes a estudiante */}
-            {session.role !== 'estudiante' && (
-              <div className="mr-6 ml-6">
-                <button
-                  onClick={handleLogout}
-                  className="bg-gray-500 hover:bg-gray-700 px-4 py-2 rounded font-bold text-white"
-                >
-                  Cerrar sesión
-                </button>
-              </div>
-            )}
+            
           </>
         ) : (
           <div className="sm:block hidden">

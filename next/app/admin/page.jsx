@@ -30,13 +30,13 @@ export default function AdminPage() {
           </Link>
 
           {/* Administración de Contenido */}
-          <Link href="/contents" className="flex flex-col items-center group">
+          <Link href="/admin/contents" className="flex flex-col items-center group">
             <FaFileAlt className="group-hover:text-green-700 group-hover:scale-110 shadow-lg mb-6 text-9xl text-green-500 transform transition duration-300" />
             <span className="group-hover:text-green-700 font-semibold text-2xl text-black transition duration-300">Administración de Contenido</span>
           </Link>
 
           {/* Administración de Feedback */}
-          <Link href="/feedback" className="flex flex-col items-center group">
+          <Link href="/admin/feedback" className="flex flex-col items-center group">
             <FaComments className="group-hover:text-yellow-700 group-hover:scale-110 shadow-lg mb-6 text-9xl text-yellow-500 transform transition duration-300" />
             <span className="group-hover:text-yellow-700 font-semibold text-2xl text-black transition duration-300">Administración de Feedback</span>
           </Link>

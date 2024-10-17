@@ -123,37 +123,43 @@ export default function Register() {
     }
   };
 
-  // Manejo de la selección de rol
-  const handleRoleSelected = async (role) => {
-    try {
-      const res = await fetch('http://localhost:3001/api/auth/role', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId, role }),
-      });
+// Manejo de la selección de rol
+const handleRoleSelected = async (role) => {
+  try {
+    const res = await fetch('http://localhost:3001/api/auth/role', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId, role }),
+    });
 
-      if (res.ok) {
-        if (role === 'estudiante') {
-          setShowRolModal(false);
-          setShowNivelModal(true);
-        } else {
-          setShowModal(true);
-          setModalMessage('Registro completado');
-          setIsError(false);
-        }
+    if (res.ok) {
+      if (role === 'estudiante') {
+        setShowRolModal(false);
+        setShowNivelModal(true); // Mostrar modal de selección de nivel para los estudiantes
+      } else if (role === 'docente' || role === 'padre') {
+        // Asignar personaje automáticamente si el rol es docente o padre
+        const defaultCharacterId = role === 'docente' ? 14 : 15;
+        handleCharacterSelected(defaultCharacterId);
       } else {
-        setModalMessage('Error al asignar el rol');
-        setIsError(true);
+        // Si no es estudiante, docente o padre, mostrar mensaje de registro completado
+        setModalMessage('Registro completado');
+        setIsError(false);
         setShowModal(true);
       }
-    } catch (error) {
-      setModalMessage('Error al conectar con el servidor');
+    } else {
+      setModalMessage('Error al asignar el rol');
       setIsError(true);
       setShowModal(true);
     }
-  };
+  } catch (error) {
+    setModalMessage('Error al conectar con el servidor');
+    setIsError(true);
+    setShowModal(true);
+  }
+};
+
 
   // Manejo de la selección de nivel
   const handleLevelSelected = async (levelId) => {
@@ -274,7 +280,7 @@ export default function Register() {
         </form>
         <hr className="border-0 my-8 border-t border-black w-full" />
         <div className="text-lg story">
-          <p>¿Ya tienes una cuenta? <Link href="/adm/login" className="text-blue-500 hover:text-blue-700">Inicia sesión</Link></p>
+          <p>¿Ya tienes una cuenta? <Link href="/auth/login" className="text-blue-500 hover:text-blue-700">Inicia sesión</Link></p>
         </div>
       </div>
 

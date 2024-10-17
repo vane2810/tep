@@ -31,6 +31,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Mostrar usuario por roles
+router.get('/read-users', async (req, res) => {
+  try {
+    const users = await User.findAll();
+    console.log("Usuarios obtenidos:", users); 
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Error al obtener usuarios:", error);
+    res.status(500).json({ error: 'Error al obtener usuarios' });
+  }
+});
 
 
 
