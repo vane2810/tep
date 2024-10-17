@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Progreso } = require('../models');  // Cambia Progress por Progreso
+const { Progreso } = require('../models');
 
-// Ruta para guardar el progreso
 router.post('/guardar-progreso', async (req, res) => {
   const { userId, nivel, puntaje, materia } = req.body;
 
@@ -10,10 +9,9 @@ router.post('/guardar-progreso', async (req, res) => {
     let progreso = await Progreso.findOne({ where: { user_id: userId, nivel: nivel, materia } });
 
     if (!progreso) {
-      // Cambiar nivel_id a nivel
       progreso = await Progreso.create({
         user_id: userId,
-        nivel: nivel,  // Cambiado de nivel_id a nivel
+        nivel: nivel,
         puntaje: puntaje,
         materia: materia
       });
@@ -27,14 +25,13 @@ router.post('/guardar-progreso', async (req, res) => {
 });
 
 
-// Ruta para obtener el progreso de un usuario filtrado por materia
 router.get('/obtener-progreso/:userId/:materia', async (req, res) => {
-  const { userId, materia } = req.params; // Obtener el userId y materia de los parámetros de la URL
+  const { userId, materia } = req.params; 
   console.log('Obteniendo progreso para el userId:', userId, 'y la materia:', materia);
 
   try {
     const progreso = await Progreso.findAll({ where: { user_id: userId, materia: materia } });
-    console.log('Progreso encontrado:', progreso);  // Verificar los resultados de la consulta
+    console.log('Progreso encontrado:', progreso);
 
     if (progreso.length > 0) {
       res.status(200).json(progreso);

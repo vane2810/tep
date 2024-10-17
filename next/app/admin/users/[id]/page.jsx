@@ -1,4 +1,3 @@
-// Pagina de los datos de los usuarios 
 "use client";
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -49,7 +48,6 @@ export default function PaginaPerfilUsuario() {
     setModalEditar(false);
   };
 
-  // Obtener la URL de la imagen del personaje
   const characterImage = usuario.characterId
     ? characterImages[usuario.characterId]
     : '/profile.png';

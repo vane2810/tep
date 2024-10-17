@@ -6,12 +6,12 @@ export default function DetalleArchivoPage() {
   const [contenido, setContenido] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
-  const { id } = params; // Obtener el id del archivo desde la URL
+  const { id } = params;
 
   useEffect(() => {
     const fetchContenido = async () => {
       try {
-        const res = await fetch(`/api/contenidos/nivel1/contenido${id}`); // Cargar el archivo específico desde la API
+        const res = await fetch(`/api/contenidos/nivel1/contenido${id}`);
         if (!res.ok) throw new Error('Error al cargar el contenido del archivo');
         const data = await res.json();
         setContenido(data);

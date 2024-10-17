@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import ModalEliminarUsuario from '@/components/modals/admin/eliminarModal';
-import ModalAgregarUsuario from '@/components/modals/admin/crearModal'; // Asegúrate de importar el componente correcto
+import ModalAgregarUsuario from '@/components/modals/admin/crearModal';
 import Link from 'next/link';
 import Volver from '@/components/botonVolver';
 
@@ -10,12 +10,10 @@ export default function GestionUsuarios() {
   const [loading, setLoading] = useState(true);
   const [tabSeleccionada, setTabSeleccionada] = useState('estudiante');
 
-  // Estados para controlar los modales
   const [modalEliminar, setModalEliminar] = useState(false);
-  const [modalAgregar, setModalAgregar] = useState(false); // Estado para el modal de agregar usuario
+  const [modalAgregar, setModalAgregar] = useState(false);
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
-  // Simulación de obtención de usuarios desde el backend
   useEffect(() => {
     const obtenerUsuarios = async () => {
       try {
@@ -52,18 +50,16 @@ export default function GestionUsuarios() {
     return <div>Cargando usuarios...</div>;
   }
 
-  // Abrir modal para eliminar usuario
+
   const abrirModalEliminar = (usuario) => {
     setUsuarioSeleccionado(usuario);
     setModalEliminar(true);
   };
 
-  // Abrir modal para agregar usuario
   const abrirModalAgregar = () => {
     setModalAgregar(true);
   };
 
-  // Filtrar usuarios según la pestaña seleccionada
   const usuariosFiltrados = usuarios.filter(usuario => usuario.rol === tabSeleccionada);
 
   return (
