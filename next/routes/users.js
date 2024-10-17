@@ -1,31 +1,36 @@
 // routes/users.js
 const express = require('express');
 const router = express.Router();
-const { User, Character, Level, Progreso } = require('../models'); // Asegúrate de que estás importando el modelo User correctamente
+const { User, Character, Level } = require('../models'); // Asegúrate de que estás importando el modelo User correctamente
 
 // Crear un nuevo usuario
 router.post('/', async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role, characterId, levelId } = req.body;
 
   try {
-    const user = await User.create({ name, email, password, role });
-    res.status(201).json({ message: 'Usuario creado exitosamente', user });
+    // Validar si el usuario ya existe
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ error: 'El correo electrónico ya está en uso' });
+    }
+
+    // Crear un nuevo usuario
+    const newUser = await User.create({
+      name,
+      email,
+      password, // Asegúrate de que se guarde de manera segura (hasheado)
+      role,
+      characterId,
+      levelId,
+    });
+
+    res.status(201).json({ message: 'Usuario registrado exitosamente', user: newUser });
   } catch (error) {
-    console.error("Error al crear usuario:", error);
-    res.status(500).json({ error: 'Error al crear el usuario' });
+    console.error('Error al registrar usuario:', error);
+    res.status(500).json({ error: 'Error al registrar usuario' });
   }
 });
 
-router.get('/read-users', async (req, res) => {
-  try {
-    const users = await User.findAll();
-    console.log("Usuarios obtenidos:", users); // Verifica la estructura de los datos obtenidos
-    res.status(200).json(users);
-  } catch (error) {
-    console.error("Error al obtener usuarios:", error);
-    res.status(500).json({ error: 'Error al obtener usuarios' });
-  }
-});
 
 
 

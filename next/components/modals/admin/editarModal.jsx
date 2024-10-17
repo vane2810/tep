@@ -10,6 +10,7 @@ export default function ModalEditarUsuario({ onClose, usuario }) {
   const [characterId, setCharacterId] = useState('');
   const [levelId, setLevelId] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [mostrarMinimodal, setMostrarMinimodal] = useState(false);
 
   // Utiliza useEffect para inicializar los valores cuando `usuario` cambie
   useEffect(() => {
@@ -34,28 +35,39 @@ export default function ModalEditarUsuario({ onClose, usuario }) {
 
       if (response.ok) {
         setMensaje('Usuario actualizado exitosamente');
+        setMostrarMinimodal(true);
         setTimeout(() => {
+          setMostrarMinimodal(false);
           onClose(); // Cerrar el modal después de guardar con éxito
         }, 2000);
       } else {
         const errorData = await response.json();
         setMensaje(`Error: ${errorData.error || 'No se pudo actualizar el usuario'}`);
+        setMostrarMinimodal(true);
       }
     } catch (error) {
       console.error('Error al actualizar usuario:', error);
       setMensaje('Error al actualizar el usuario');
+      setMostrarMinimodal(true);
     }
   };
 
   return (
     <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-      <div className="z-60 bg-white shadow-lg p-6 rounded-lg w-96">
+      <div className="relative z-60 bg-white shadow-lg p-6 rounded-lg w-96">
         <h2 className="mb-4 font-bold text-2xl">Editar Datos de {usuario.name}</h2>
-        {mensaje && (
-          <div className={`mb-4 p-2 rounded text-center ${mensaje.startsWith('Error') ? 'bg-red-500' : 'bg-green-500'} text-white`}>
-            {mensaje}
+
+        {/* Minimodal de mensaje */}
+        {mostrarMinimodal && (
+          <div className="z-70 fixed inset-0 flex justify-center items-center">
+            <div className={`z-70 bg-white p-4 rounded-lg shadow-lg border ${mensaje.startsWith('Error') ? 'border-red-500' : 'border-green-500'} text-center`}>
+              <p className={`${mensaje.startsWith('Error') ? 'text-red-500' : 'text-green-500'} font-bold`}>
+                {mensaje}
+              </p>
+            </div>
           </div>
         )}
+
         <div className="mb-4">
           <label className="block mb-2 font-bold text-gray-700">Nombre</label>
           <input

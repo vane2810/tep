@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import ModalEliminarUsuario from '@/components/modals/admin/eliminarModal';
+import ModalAgregarUsuario from '@/components/modals/admin/crearModal'; // Asegúrate de importar el componente correcto
 import Link from 'next/link';
 import Volver from '@/components/botonVolver';
 
@@ -11,6 +12,7 @@ export default function GestionUsuarios() {
 
   // Estados para controlar los modales
   const [modalEliminar, setModalEliminar] = useState(false);
+  const [modalAgregar, setModalAgregar] = useState(false); // Estado para el modal de agregar usuario
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
   // Simulación de obtención de usuarios desde el backend
@@ -50,14 +52,16 @@ export default function GestionUsuarios() {
     return <div>Cargando usuarios...</div>;
   }
 
-  
-
+  // Abrir modal para eliminar usuario
   const abrirModalEliminar = (usuario) => {
     setUsuarioSeleccionado(usuario);
     setModalEliminar(true);
   };
 
-
+  // Abrir modal para agregar usuario
+  const abrirModalAgregar = () => {
+    setModalAgregar(true);
+  };
 
   // Filtrar usuarios según la pestaña seleccionada
   const usuariosFiltrados = usuarios.filter(usuario => usuario.rol === tabSeleccionada);
@@ -69,7 +73,10 @@ export default function GestionUsuarios() {
 
       {/* Botón para agregar un nuevo usuario */}
       <div className="flex justify-end mt-8">
-        <button className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
+          onClick={abrirModalAgregar}
+        >
           Agregar nuevo usuario
         </button>
       </div>
@@ -117,7 +124,6 @@ export default function GestionUsuarios() {
                     </Link>
                   </button>
 
-                  
                   <button
                     className="bg-red-500 hover:bg-red-700 px-2 py-1 rounded font-bold text-white"
                     onClick={() => abrirModalEliminar(usuario)}
@@ -129,7 +135,7 @@ export default function GestionUsuarios() {
             ))
           ) : (
             <tr>
-              <td colSpan="4" className="py-4 text-center">No se encontraron usuarios.</td>
+              <td colSpan="5" className="py-4 text-center">No se encontraron usuarios.</td>
             </tr>
           )}
         </tbody>
@@ -140,6 +146,12 @@ export default function GestionUsuarios() {
         <ModalEliminarUsuario
           usuario={usuarioSeleccionado}
           onClose={() => setModalEliminar(false)}
+        />
+      )}
+
+      {modalAgregar && (
+        <ModalAgregarUsuario
+          onClose={() => setModalAgregar(false)}
         />
       )}
     </div>
