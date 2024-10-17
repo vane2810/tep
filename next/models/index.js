@@ -12,16 +12,21 @@ const sequelize = new Sequelize('techeduplanet', 'root', '12345', {
 const User = require('./user')(sequelize, DataTypes);
 const Character = require('./character')(sequelize, DataTypes);
 const Progreso = require('./progreso')(sequelize, DataTypes);
+const Level = require('./level')(sequelize, DataTypes);  // Importar el modelo Level
 
 // Definir las relaciones entre los modelos
 User.belongsTo(Character, { foreignKey: 'characterId', as: 'character' });
-User.hasMany(Progreso, { foreignKey: 'usuario_id', as: 'progreso' });
+User.belongsTo(Level, { foreignKey: 'levelId', as: 'level' });  // Definir relación con Level
+User.hasMany(Progreso, { foreignKey: 'usuario_id', as: 'progreso', onDelete: 'CASCADE' });  // Agregar onDelete: 'CASCADE'
 
+// Relaciones inversas
 Progreso.belongsTo(User, { foreignKey: 'usuario_id', as: 'user' });
 Progreso.belongsTo(Character, { foreignKey: 'characterId', as: 'character' });
 
 Character.hasMany(User, { foreignKey: 'characterId', as: 'users' });
 Character.hasMany(Progreso, { foreignKey: 'characterId', as: 'progreso' });
+
+Level.hasMany(User, { foreignKey: 'levelId', as: 'users' });  // Definir relación inversa de Level con User
 
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
@@ -29,4 +34,5 @@ module.exports = {
   User,
   Character,
   Progreso,
+  Level,
 };

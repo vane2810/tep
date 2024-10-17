@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
-import RegistroModal from '@/components/modals/adm/registroModal';
-import RolModal from '@/components/modals/adm/rolesModal';
-import NivelModal from '@/components/modals/adm/nivelModal';
-import PersonajeModal from '@/components/modals/adm/personajeModal';
+import RegistroModal from '@/components/modals/auth/registroModal';
+import RolModal from '@/components/modals/auth/rolesModal';
+import NivelModal from '@/components/modals/auth/nivelModal';
+import PersonajeModal from '@/components/modals/auth/personajeModal';
 import Volver from '@/components/botonVolver';
 
 export default function Register() {

@@ -1,7 +1,7 @@
 // utils/characterImages.js
 
 const characterImages = {
-    1: '/img/personajes/estudiante/peppa.png',
+    1: '/img/personajes/estudiante/peppa.png', 
     2: '/img/personajes/estudiante/matatabi.png',
     3: '/img/personajes/estudiante/maomao.png',
     4: '/img/personajes/estudiante/estrella.png',

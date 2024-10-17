@@ -1,7 +1,7 @@
 // routes/users.js
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models'); // Asegúrate de que estás importando el modelo User correctamente
+const { User, Character, Level, Progreso } = require('../models'); // Asegúrate de que estás importando el modelo User correctamente
 
 // Crear un nuevo usuario
 router.post('/', async (req, res) => {
@@ -16,10 +16,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Obtener todos los usuarios
-router.get('/read-user', async (req, res) => {
+router.get('/read-users', async (req, res) => {
   try {
     const users = await User.findAll();
+    console.log("Usuarios obtenidos:", users); // Verifica la estructura de los datos obtenidos
     res.status(200).json(users);
   } catch (error) {
     console.error("Error al obtener usuarios:", error);
@@ -27,15 +27,24 @@ router.get('/read-user', async (req, res) => {
   }
 });
 
-// Obtener un solo usuario por ID
+
+
+// Obtener un solo usuario por ID con datos de character, level 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      include: [
+        { model: Character, as: 'character' },  // Incluir datos del modelo Character
+        { model: Level, as: 'level' },          // Incluir datos del modelo Level
+      ]
+    });
+
     if (!user) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
+
     res.status(200).json(user);
   } catch (error) {
     console.error("Error al obtener usuario:", error);
@@ -54,13 +63,25 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
+    // Actualizar el usuario con los datos proporcionados
     await user.update({ name, email, role, levelId, characterId });
-    res.status(200).json({ message: 'Usuario actualizado exitosamente', user });
+
+    // Volver a buscar el usuario actualizado e incluir los datos de los modelos relacionados
+    const updatedUser = await User.findByPk(id, {
+      include: [
+        { model: Character, as: 'character' },  // Incluir datos del modelo Character
+        { model: Level, as: 'level' },          // Incluir datos del modelo Level
+      ]
+    });
+
+    res.status(200).json({ message: 'Usuario actualizado exitosamente', user: updatedUser });
   } catch (error) {
     console.error("Error al actualizar usuario:", error);
     res.status(500).json({ error: 'Error al actualizar el usuario' });
   }
 });
+
+
 
 // Eliminar un usuario por ID
 router.delete('/:id', async (req, res) => {

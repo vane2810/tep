@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
-import LoginModal from '@/components/modals/adm/LoginModal';
+import LoginModal from '@/components/modals/auth/LoginModal';
 import Link from 'next/link';
 import Volver from '@/components/botonVolver';
 
@@ -133,7 +133,7 @@ export default function Login() {
         </form>
         <hr className="border-0 my-8 border-t border-black w-full" />
         <div className="text-lg story">
-          <p>¿No tienes una cuenta? <Link href="/adm/registro" className="text-blue-500 hover:text-blue-700">Regístrate</Link></p>
+          <p>¿No tienes una cuenta? <Link href="/auth/registro" className="text-blue-500 hover:text-blue-700">Regístrate</Link></p>
         </div>
       </div>
       {/* Imagen decorativa  */}
