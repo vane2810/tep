@@ -24,8 +24,20 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'usuario_id',
         as: 'history',
       });
+
+      User.hasMany(models.UserRelationship, {
+        foreignKey: 'studentId',
+        as: 'guardians'
+      });
+      
+      User.hasMany(models.UserRelationship, {
+        foreignKey: 'guardianId',
+        as: 'students'
+      });
+      
     }
   }
+
   User.init({
     name: {
       type: DataTypes.STRING,
@@ -51,6 +63,6 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
     timestamps: true,
   });
+
   return User;
 };
-

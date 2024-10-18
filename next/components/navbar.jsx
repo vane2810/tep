@@ -59,7 +59,7 @@ const Navbar = () => {
             {/* Mostrar el enlace al panel de administración solo si el usuario es padre */}
             {session.role === 'padre' && (
               <div className="mr-12">
-                <Link href="/padre">
+                <Link href="/docente">
                   <button className="bg-purple-700 hover:bg-purple-500 px-4 py-2 rounded font-bold text-white">
                     Ingresar usuarios
                   </button>

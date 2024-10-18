@@ -5,7 +5,7 @@ const { sequelize } = require('./models');
 const authRoutes = require('./routes/auth');
 const progresoRoutes = require('./routes/progreso'); 
 const userRoutes = require('./routes/users');
-const userRoutes = require('./routes/docente');
+const relationshipRoutes = require('./routes/relationships');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes); // Ruta autenticación
 app.use('/api/progreso', progresoRoutes); // Ruta para progreso
 app.use('/api/users', userRoutes); // Ruta para los usuarios
-app.use('/api/docente', userRoutes); // Ruta para los usuarios
+app.use('/api/relationships', relationshipRoutes); // Ruta para los usuarios
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');
