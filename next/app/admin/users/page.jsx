@@ -4,6 +4,8 @@ import ModalEliminarUsuario from '@/components/modals/admin/eliminarModal';
 import ModalAgregarUsuario from '@/components/modals/admin/crearModal';
 import Link from 'next/link';
 import Volver from '@/components/botonVolver';
+import { FaPlus, FaTrash, FaUserEdit, FaUser } from 'react-icons/fa';
+import { MdOutlinePersonSearch } from 'react-icons/md';
 
 export default function GestionUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -47,9 +49,8 @@ export default function GestionUsuarios() {
   }, []);
 
   if (loading) {
-    return <div>Cargando usuarios...</div>;
+    return <div className="flex justify-center items-center min-h-screen">Cargando usuarios...</div>;
   }
-
 
   const abrirModalEliminar = (usuario) => {
     setUsuarioSeleccionado(usuario);
@@ -63,79 +64,78 @@ export default function GestionUsuarios() {
   const usuariosFiltrados = usuarios.filter(usuario => usuario.rol === tabSeleccionada);
 
   return (
-    <div className="mx-auto p-4 container">
-      <Volver href='/admin'/>
-      <h1 className="mb-6 font-bold text-4xl text-center">Gestión de Usuarios</h1>
+    <div className="mx-auto p-6 container">
+      <Volver href='/admin' />
+      <h1 className="my-10 font-bold text-4xl text-center">Gestión de Usuarios</h1>
 
       {/* Botón para agregar un nuevo usuario */}
-      <div className="flex justify-end mt-8">
+      <div className="flex justify-end mb-6">
         <button
-          className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
+          className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 shadow-md px-5 py-3 rounded font-bold text-white transition duration-300 ease-in-out"
           onClick={abrirModalAgregar}
         >
-          Agregar nuevo usuario
+          <FaPlus /> Agregar Usuario
         </button>
       </div>
 
       {/* Pestañas para seleccionar el rol */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-10">
         {['estudiante', 'docente', 'padre'].map((rol) => (
           <button
             key={rol}
-            className={`px-4 py-2 mx-1 rounded font-bold ${tabSeleccionada === rol ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
+            className={`flex items-center gap-2 px-5 py-3 mx-2 rounded font-bold transition duration-300 ease-in-out ${tabSeleccionada === rol ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
             onClick={() => setTabSeleccionada(rol)}
           >
-            {rol.charAt(0).toUpperCase() + rol.slice(1)}
+            <FaUser /> {rol.charAt(0).toUpperCase() + rol.slice(1)}
           </button>
         ))}
       </div>
 
       {/* Tabla de usuarios filtrados */}
-      <table className="bg-white shadow-lg rounded-lg min-w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2 border-b-2">ID</th>
-            <th className="px-4 py-2 border-b-2">Nombre</th>
-            <th className="px-4 py-2 border-b-2">Correo electronico</th>
-            {tabSeleccionada === 'estudiante' && <th className="px-4 py-2 border-b-2">Nivel</th>}
-            {tabSeleccionada === 'padre' && <th className="px-4 py-2 border-b-2">Número de Hijos</th>}
-            {tabSeleccionada === 'docente' && <th className="px-4 py-2 border-b-2">Número de Estudiantes</th>}
-            <th className="px-4 py-2 border-b-2">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usuariosFiltrados.length > 0 ? (
-            usuariosFiltrados.map((usuario) => (
-              <tr key={usuario.id}>
-                <td className="px-4 py-2 border-b">{usuario.id}</td>
-                <td className="px-4 py-2 border-b">{usuario.name}</td>
-                <td className="px-4 py-2 border-b">{usuario.email}</td>
-                {tabSeleccionada === 'estudiante' && <td className="px-4 py-2 border-b">{usuario.levelId}</td>}
-                {tabSeleccionada === 'padre' && <td className="px-4 py-2 border-b">{usuario.numeroHijos}</td>}
-                {tabSeleccionada === 'docente' && <td className="px-4 py-2 border-b">{usuario.numeroEstudiantes}</td>}
-                <td className="flex gap-2 px-4 py-2 border-b">
-                  <button className="bg-green-500 hover:bg-green-700 px-2 py-1 rounded font-bold text-white">
-                    <Link href={`/admin/users/${usuario.id}`}>
-                      Perfil
-                    </Link>
-                  </button>
-
-                  <button
-                    className="bg-red-500 hover:bg-red-700 px-2 py-1 rounded font-bold text-white"
-                    onClick={() => abrirModalEliminar(usuario)}
-                  >
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
+      <div className="overflow-x-auto">
+        <table className="bg-white shadow-md rounded-lg min-w-full">
+          <thead className="bg-gray-100">
             <tr>
-              <td colSpan="5" className="py-4 text-center">No se encontraron usuarios.</td>
+              <th className="px-6 py-4 border-b-2 text-left">ID</th>
+              <th className="px-6 py-4 border-b-2 text-left">Nombre</th>
+              <th className="px-6 py-4 border-b-2 text-left">Correo electrónico</th>
+              {tabSeleccionada === 'estudiante' && <th className="px-6 py-4 border-b-2 text-left">Nivel</th>}
+              {tabSeleccionada === 'padre' && <th className="px-6 py-4 border-b-2 text-left">Número de Hijos</th>}
+              {tabSeleccionada === 'docente' && <th className="px-6 py-4 border-b-2 text-left">Número de Estudiantes</th>}
+              <th className="px-6 py-4 border-b-2 text-left">Acciones</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {usuariosFiltrados.length > 0 ? (
+              usuariosFiltrados.map((usuario) => (
+                <tr key={usuario.id} className="hover:bg-gray-50 transition duration-300 ease-in-out">
+                  <td className="px-6 py-4 border-b">{usuario.id}</td>
+                  <td className="px-6 py-4 border-b">{usuario.name}</td>
+                  <td className="px-6 py-4 border-b">{usuario.email}</td>
+                  {tabSeleccionada === 'estudiante' && <td className="px-6 py-4 border-b">{usuario.levelId}</td>}
+                  {tabSeleccionada === 'padre' && <td className="px-6 py-4 border-b">{usuario.numeroHijos}</td>}
+                  {tabSeleccionada === 'docente' && <td className="px-6 py-4 border-b">{usuario.numeroEstudiantes}</td>}
+                  <td className="flex gap-3 px-6 py-4 border-b">
+                    <Link href={`/admin/users/${usuario.id}`} className="flex items-center gap-2 bg-green-500 hover:bg-green-700 shadow-md px-3 py-2 rounded font-bold text-white transition duration-300 ease-in-out">
+                      <FaUserEdit /> Perfil
+                    </Link>
+                    <button
+                      className="flex items-center gap-2 bg-red-500 hover:bg-red-700 shadow-md px-3 py-2 rounded font-bold text-white transition duration-300 ease-in-out"
+                      onClick={() => abrirModalEliminar(usuario)}
+                    >
+                      <FaTrash /> Eliminar
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="py-6 text-center text-gray-500">No se encontraron usuarios.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
       {/* Modales */}
       {modalEliminar && (

@@ -1,17 +1,23 @@
-import { promises as fs } from 'fs';
+import fs from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
 
-export async function GET() {
-  const directoryPath = path.join(process.cwd(), 'public/assets/materias/lenguaje/nivel1');
-
+export default function handler(req, res) {
   try {
-    const files = await fs.readdir(directoryPath);
-    const jsonFiles = files.filter((file) => file.endsWith('.json'));
+    // Ruta del directorio de contenidos
+    const directoryPath = path.join(process.cwd(), 'public/assets/materias/lenguaje/nivel1');
 
-    return NextResponse.json({ files: jsonFiles });
+    // Leer archivos del directorio
+    fs.readdir(directoryPath, (err, files) => {
+      if (err) {
+        return res.status(500).json({ error: 'No se pudo listar los archivos.' });
+      }
+
+      // Filtrar solo los archivos con extensión válida, por ejemplo, `.json` o `.txt`
+      const filteredFiles = files.filter((file) => file.endsWith('.json') || file.endsWith('.txt'));
+
+      res.status(200).json({ archivos: filteredFiles });
+    });
   } catch (error) {
-    console.error('Error al leer el directorio:', error);
-    return NextResponse.json({ message: 'Error al leer los archivos del directorio.' }, { status: 500 });
+    res.status(500).json({ error: 'Error al listar archivos.' });
   }
 }

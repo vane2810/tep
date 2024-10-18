@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FiSave, FiXCircle } from 'react-icons/fi';
 import PersonajeModal from '@/components/modals/auth/personajeModal';
 import NivelModal from '@/components/modals/auth/nivelModal';
 import RolModal from '@/components/modals/auth/rolesModal';
@@ -124,172 +125,79 @@ export default function ModalAgregarUsuario({ onClose }) {
     }
   };
 
-  // Manejo de selección de rol
-  const handleRoleSelected = async (selectedRole) => {
-    setRole(selectedRole);
-    setMostrarModalRol(false);
-
-    try {
-      const res = await fetch('http://localhost:3001/api/auth/role', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId, role: selectedRole }),
-      });
-
-      if (res.ok) {
-        if (selectedRole === 'estudiante') {
-          setMostrarModalNivel(true); // Abrir modal de selección de nivel si es estudiante
-        } else {
-          setMensaje('Usuario creado exitosamente');
-          setMostrarMinimodal(true);
-          setTimeout(() => {
-            setMostrarMinimodal(false);
-            onClose();
-          }, 2000);
-        }
-      } else {
-        setMensaje('Error al asignar el rol');
-        setMostrarMinimodal(true);
-      }
-    } catch (error) {
-      console.error('Error al asignar rol:', error);
-      setMensaje('Error al conectar con el servidor');
-      setMostrarMinimodal(true);
-    }
-  };
-
-  // Manejo de selección de nivel
-  const handleLevelSelected = async (selectedLevelId) => {
-    setLevelId(selectedLevelId);
-    setMostrarModalNivel(false);
-    try {
-      const res = await fetch('http://localhost:3001/api/auth/level', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId, levelId: selectedLevelId }),
-      });
-
-      if (res.ok) {
-        setMostrarModalPersonaje(true); // Abrir modal de selección de personaje
-      } else {
-        setMensaje('Error al asignar el nivel');
-        setMostrarMinimodal(true);
-      }
-    } catch (error) {
-      console.error('Error al asignar nivel:', error);
-      setMensaje('Error al conectar con el servidor');
-      setMostrarMinimodal(true);
-    }
-  };
-
-  // Manejo de selección de personaje
-  const handleCharacterSelected = async (selectedCharacterId) => {
-    setCharacterId(selectedCharacterId);
-    setMostrarModalPersonaje(false);
-    try {
-      const res = await fetch('http://localhost:3001/api/auth/character', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId, characterId: selectedCharacterId }),
-      });
-
-      if (res.ok) {
-        setMensaje('Usuario creado exitosamente');
-        setMostrarMinimodal(true);
-        setTimeout(() => {
-          setMostrarMinimodal(false);
-          onClose();
-        }, 2000);
-      } else {
-        setMensaje('Error al asignar el personaje');
-        setMostrarMinimodal(true);
-      }
-    } catch (error) {
-      console.error('Error al asignar personaje:', error);
-      setMensaje('Error al conectar con el servidor');
-      setMostrarMinimodal(true);
-    }
-  };
-
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-      <div className="relative z-60 bg-white shadow-lg p-6 rounded-lg w-[600px] max-h-[90vh] overflow-y-auto">
-        <h2 className="mb-4 font-bold text-2xl">Agregar Nuevo Usuario</h2>
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-300">
+      <div className="relative z-60 bg-white shadow-2xl p-8 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
+        <h2 className="mb-6 font-bold text-2xl text-gray-800">Agregar Nuevo Usuario</h2>
 
         {/* Minimodal de mensaje */}
         {mostrarMinimodal && (
-          <div className="z-70 fixed inset-0 flex justify-center items-center">
-            <div className={`z-70 bg-white p-4 rounded-lg shadow-lg border ${mensaje.startsWith('Error') ? 'border-red-500' : 'border-green-500'} text-center`}>
-              <p className={`${mensaje.startsWith('Error') ? 'text-red-500' : 'text-green-500'} font-bold`}>
+          <div className="z-70 fixed inset-0 flex justify-center items-center transition-opacity duration-300">
+            <div className={`z-70 bg-white p-6 rounded-lg shadow-xl border ${mensaje.startsWith('Error') ? 'border-red-500' : 'border-green-500'} text-center`}>
+              <p className={`${mensaje.startsWith('Error') ? 'text-red-500' : 'text-green-500'} font-semibold text-lg`}>
                 {mensaje}
               </p>
             </div>
           </div>
         )}
 
-        <div className="mb-4">
-          <label className="block mb-2 font-bold text-gray-700">Nombre</label>
+        <div className="mb-6">
+          <label className="block mb-2 font-semibold text-gray-700">Nombre</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="border-gray-300 p-2 border rounded w-full"
+            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           {nameError && <p className="text-red-500">{nameError}</p>}
         </div>
-        <div className="mb-4">
-          <label className="block mb-2 font-bold text-gray-700">Correo Electrónico</label>
+        <div className="mb-6">
+          <label className="block mb-2 font-semibold text-gray-700">Correo Electrónico</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="border-gray-300 p-2 border rounded w-full"
+            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           {emailError && <p className="text-red-500">{emailError}</p>}
         </div>
-        <div className="mb-4">
-          <label className="block mb-2 font-bold text-gray-700">Contraseña</label>
+        <div className="mb-6">
+          <label className="block mb-2 font-semibold text-gray-700">Contraseña</label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="border-gray-300 p-2 border rounded w-full"
+            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           {passwordError && <p className="text-red-500">{passwordError}</p>}
         </div>
-        <div className="mb-4">
-          <label className="block mb-2 font-bold text-gray-700">Confirmar Contraseña</label>
+        <div className="mb-6">
+          <label className="block mb-2 font-semibold text-gray-700">Confirmar Contraseña</label>
           <input
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
-            className="border-gray-300 p-2 border rounded w-full"
+            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           {confirmPasswordError && <p className="text-red-500">{confirmPasswordError}</p>}
         </div>
 
-        <div className="flex justify-end gap-2 mt-4">
+        <div className="flex justify-end gap-4 mt-8">
           <button
-            className="bg-gray-500 hover:bg-gray-700 px-4 py-2 rounded font-bold text-white"
+            className="flex items-center gap-2 bg-gray-300 hover:bg-gray-400 px-5 py-3 rounded font-semibold text-gray-700 transform transition-transform hover:-translate-y-1 duration-200"
             onClick={onClose}
           >
-            Cancelar
+            <FiXCircle /> Cancelar
           </button>
           <button
-            className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
+            className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 px-5 py-3 rounded font-semibold text-white transform transition-transform hover:-translate-y-1 duration-200"
             onClick={handleSave}
           >
-            Guardar
+            <FiSave /> Guardar
           </button>
         </div>
 
