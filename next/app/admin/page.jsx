@@ -1,4 +1,3 @@
-// Página principal del PANEL DE ADMINISTRACIÓN
 import React from 'react';
 import Link from 'next/link';
 import { FaUsers, FaFileAlt, FaComments, FaTools } from 'react-icons/fa';

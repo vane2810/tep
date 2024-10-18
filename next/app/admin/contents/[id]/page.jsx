@@ -5,24 +5,22 @@ import { useParams } from "next/navigation";
 import { FaCalculator, FaBook, FaGlobe, FaLanguage } from "react-icons/fa";
 
 export default function AsignaturasPorNivelPage() {
-  const params = useParams(); // Obtenemos los parámetros de la URL
-  const id = params?.id; // Obtenemos el 'id' del nivel desde los parámetros
+  const params = useParams();
+  const id = params?.id;
 
-  // Validar si el 'id' es válido
+
   if (!id) {
     return <div>Error: No se ha encontrado el nivel especificado.</div>;
   }
 
   return (
     <div className="flex flex-col bg-gray-100 min-h-screen">
-      {/* Título centrado */}
       <div className="flex flex-col items-center mt-10 mb-10">
         <h1 className="font-semibold text-4xl text-black story">
           Asignaturas para el Nivel {id}
         </h1>
       </div>
-
-      {/* Contenedor de asignaturas */}
+      
       <div className="gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-10 mb-8 story">
         {/* Matemáticas */}
         <Link

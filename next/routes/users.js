@@ -1,24 +1,21 @@
-// routes/users.js
 const express = require('express');
 const router = express.Router();
-const { User, Character, Level } = require('../models'); // Asegúrate de que estás importando el modelo User correctamente
+const { User, Character, Level } = require('../models');
 
-// Crear un nuevo usuario
+
 router.post('/', async (req, res) => {
   const { name, email, password, role, characterId, levelId } = req.body;
 
   try {
-    // Validar si el usuario ya existe
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ error: 'El correo electrónico ya está en uso' });
     }
 
-    // Crear un nuevo usuario
     const newUser = await User.create({
       name,
       email,
-      password, // Asegúrate de que se guarde de manera segura (hasheado)
+      password,
       role,
       characterId,
       levelId,
@@ -31,7 +28,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Mostrar usuario por roles
 router.get('/read-users', async (req, res) => {
   try {
     const users = await User.findAll();
@@ -43,17 +39,14 @@ router.get('/read-users', async (req, res) => {
   }
 });
 
-
-
-// Obtener un solo usuario por ID con datos de character, level 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
     const user = await User.findByPk(id, {
       include: [
-        { model: Character, as: 'character' },  // Incluir datos del modelo Character
-        { model: Level, as: 'level' },          // Incluir datos del modelo Level
+        { model: Character, as: 'character' },
+        { model: Level, as: 'level' }, 
       ]
     });
 
@@ -68,7 +61,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Actualizar un usuario por ID
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, email, role, levelId, characterId } = req.body;
@@ -79,14 +71,12 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    // Actualizar el usuario con los datos proporcionados
     await user.update({ name, email, role, levelId, characterId });
 
-    // Volver a buscar el usuario actualizado e incluir los datos de los modelos relacionados
     const updatedUser = await User.findByPk(id, {
       include: [
-        { model: Character, as: 'character' },  // Incluir datos del modelo Character
-        { model: Level, as: 'level' },          // Incluir datos del modelo Level
+        { model: Character, as: 'character' },
+        { model: Level, as: 'level' },
       ]
     });
 
@@ -97,9 +87,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-
-
-// Eliminar un usuario por ID
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
 

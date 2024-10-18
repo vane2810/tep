@@ -1,12 +1,9 @@
-// Rutas de autenticación
-
 const express = require('express');
 const router = express.Router();
 const { User, Character } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// Ruta registro
 router.post('/register', async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
@@ -46,7 +43,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Ruta para actualizar el rol
+
 router.post('/role', async (req, res) => {
   const { userId, role } = req.body;
 
@@ -61,7 +58,7 @@ router.post('/role', async (req, res) => {
   }
 });
 
-// Ruta para actualizar el nivel
+
 router.post('/level', async (req, res) => {
   const { userId, levelId } = req.body;
 
@@ -76,7 +73,7 @@ router.post('/level', async (req, res) => {
   }
 });
 
-// Ruta para actualizar el personaje
+
 router.post('/character', async (req, res) => {
   const { userId, characterId } = req.body;
 
@@ -96,26 +93,22 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Encuentra al usuario por su correo electrónico
     const user = await User.findOne({ where: { email } });
     if (!user) {
       return res.status(400).json({ error: 'El correo electrónico no está registrado' });
     }
 
-    // Compara la contraseña proporcionada con la almacenada en la base de datos
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(400).json({ error: 'El correo electrónico o la contraseña son incorrectos.' });
     }
 
-    // Genera un token JWT que incluye el characterId
     const token = jwt.sign(
-      { id: user.id, name: user.name, role: user.role, nivel: user.levelId, characterId: user.characterId }, // Incluye el characterId aquí
+      { id: user.id, name: user.name, role: user.role, nivel: user.levelId, characterId: user.characterId }, 
       'your_jwt_secret',
       { expiresIn: '1h' }
     );
 
-    // Responde con el token y la información adicional necesaria
     res.status(200).json({ 
       message: 'Inicio de sesión exitoso', 
       token, 
@@ -134,14 +127,13 @@ router.post('/login', async (req, res) => {
 
 
 
-// Ruta cerrar sesión
+
 router.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       console.error(err);
       res.status(500).json({ message: 'Error al cerrar sesión' });
     } else {
-      // Devolver una respuesta exitosa
       res.status(200).json({ message: 'Sesión cerrada exitosamente.' });
     }
   });
