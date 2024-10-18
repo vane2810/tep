@@ -66,9 +66,6 @@ router.get('/guardians/:guardianId/students', async (req, res) => {
 
 
 
-
-
-
 // Eliminar una relación entre estudiante y guardián
 router.delete('/relationships/:relationshipId', async (req, res) => {
     const { relationshipId } = req.params;

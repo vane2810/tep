@@ -1,179 +1,121 @@
-// Página de Gestión de Estudiantes para Docentes y Padres
+// Página de Gestión de Estudiantes Simulada
 "use client"
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { SessionContext } from '@/context/session';
-import Link from 'next/link';
 
-export default function GestionEstudiantesPage() {
-    const { session } = useContext(SessionContext);
-    const [email, setEmail] = useState('');
-    const [mensaje, setMensaje] = useState('');
-    const [estudiantes, setEstudiantes] = useState([]);
+export default function GestionEstudiantesSimuladaPage() {
+  const { session } = useContext(SessionContext);
+  const [estudiantes, setEstudiantes] = useState([
+    { id: 1, nombre: 'Estudiante Simulado 1', email: 'estudiante1@example.com' },
+    { id: 2, nombre: 'Estudiante Simulado 2', email: 'estudiante2@example.com' },
+  ]);
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensaje, setMensaje] = useState('');
 
-    // Obtener la lista de estudiantes asociados al guardián (padre o docente)
-    useEffect(() => {
-        console.log('useEffect se ha ejecutado'); // Verifica que el useEffect está siendo llamado
+  // Simulación de agregar un nuevo estudiante
+  const handleAgregarEstudiante = () => {
+    if (!nombre || !email) {
+      setMensaje('Por favor, ingrese un nombre y correo electrónico válidos.');
+      return;
+    }
 
-        const obtenerEstudiantes = async () => {
-            try {
-                if (!session?.user?.id) {
-                    console.log('No se pudo obtener el ID del usuario');
-                    setMensaje('No se pudo obtener el ID del usuario.');
-                    return;
-                }
-
-                console.log('Llamando a la API con el guardianId:', session.user.id); // Verifica que el ID del usuario esté presente
-
-                const response = await fetch(`http://localhost:3001/api/guardians/${session.user.id}/students`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                    },
-                });
-
-                console.log('Respuesta del servidor recibida');  // Verifica si se obtiene respuesta del servidor
-
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Datos recibidos del backend:', data);  // Verifica los datos recibidos
-                    setEstudiantes(data);
-                } else {
-                    console.error('Error al obtener los estudiantes:', response.statusText);
-                    setMensaje('Error al obtener los estudiantes');
-                }
-            } catch (error) {
-                console.error('Error al obtener los estudiantes:', error);
-                setMensaje('Error al conectar con el servidor');
-            }
-        };
-
-        if (session?.user?.role === 'docente' || session?.user?.role === 'padre') {
-            obtenerEstudiantes();
-        }
-    }, [session]);
-
-
-
-
-    const handleAgregarEstudiante = async () => {
-        if (!email) {
-            setMensaje('Por favor, ingrese un correo electrónico válido.');
-            return;
-        }
-
-        if (!session?.user || !session?.role) {
-            setMensaje('Error en la sesión: No se pudo identificar al usuario logueado.');
-            return;
-        }
-
-        try {
-            const response = await fetch('http://localhost:3001/api/relationships', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-                body: JSON.stringify({
-                    email, // Enviamos el correo electrónico
-                    guardianId: session.user,  // ID del guardián, que es el usuario logueado
-                    role: session.role,        // El rol del usuario logueado (padre o docente)
-                }),
-            });
-
-            if (response.ok) {
-                const nuevoEstudiante = await response.json();
-                setEstudiantes([...estudiantes, nuevoEstudiante]);
-                setMensaje('Estudiante agregado con éxito');
-            } else {
-                const data = await response.json();
-                setMensaje(data.error || 'No se pudo agregar al estudiante');
-            }
-        } catch (error) {
-            setMensaje('Error al conectar con el servidor');
-        }
+    const nuevoEstudiante = {
+      id: estudiantes.length + 1,
+      nombre,
+      email,
     };
 
+    setEstudiantes([...estudiantes, nuevoEstudiante]);
+    setMensaje('Estudiante agregado con éxito.');
+    setNombre('');
+    setEmail('');
 
+    // Limpiar el mensaje después de unos segundos
+    setTimeout(() => setMensaje(''), 3000);
+  };
 
-    // Eliminar una relación de estudiante y guardián
-    const handleEliminarEstudiante = async (relationshipId) => {
-        try {
-            const response = await fetch(`http://localhost:3001/api/relationships/${relationshipId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            });
+  // Eliminar un estudiante de la lista simulada
+  const handleEliminarEstudiante = (estudianteId) => {
+    setEstudiantes(estudiantes.filter(est => est.id !== estudianteId));
+    setMensaje('Estudiante eliminado con éxito.');
+    setTimeout(() => setMensaje(''), 3000);
+  };
 
-            if (response.ok) {
-                setEstudiantes(estudiantes.filter(est => est.relationshipId !== relationshipId));
-                setMensaje('Estudiante eliminado con éxito');
-            } else {
-                const data = await response.json();
-                setMensaje(data.error || 'No se pudo eliminar al estudiante');
-            }
-        } catch (error) {
-            setMensaje('Error al conectar con el servidor');
-        }
-    };
+  return (
+    <main className="flex flex-col items-center bg-gray-50 p-6 min-h-screen">
+      <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-4xl">
+        <h2 className="mb-4 font-bold text-2xl text-blue-800 text-center">
+          Gestión de Estudiantes (Simulada)
+        </h2>
 
-    return (
-        <main className="p-4">
-            <h2 className="mb-4 font-bold text-2xl">Gestión de Estudiantes</h2>
+        {mensaje && (
+          <div className="relative border-green-400 bg-green-100 mb-4 px-4 py-3 border rounded text-green-700">
+            {mensaje}
+          </div>
+        )}
 
-            {/* Formulario para agregar estudiante */}
-            <div className="my-4">
-                <label className="block mb-2">Correo electrónico del estudiante:</label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mb-4 p-2 border"
-                />
-                <button
-                    onClick={handleAgregarEstudiante}
-                    className="bg-blue-500 hover:bg-blue-700 p-2 rounded text-white transition duration-300"
+        {/* Formulario para agregar un nuevo estudiante */}
+        <div className="mb-6">
+          <h3 className="mb-2 font-semibold">Agregar Estudiante</h3>
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            placeholder="Nombre del Estudiante"
+            className="border-gray-300 mb-2 p-2 border focus:border-blue-500 rounded-md w-full focus:outline-none"
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Correo Electrónico del Estudiante"
+            className="border-gray-300 mb-4 p-2 border focus:border-blue-500 rounded-md w-full focus:outline-none"
+          />
+          <button
+            onClick={handleAgregarEstudiante}
+            className="bg-blue-500 hover:bg-blue-700 p-3 rounded-md w-full text-white transition duration-300"
+          >
+            Agregar Estudiante
+          </button>
+        </div>
+
+        {/* Lista de estudiantes */}
+        {estudiantes.length > 0 ? (
+          <table className="border-collapse bg-white shadow-md mt-4 rounded-md w-full table-auto">
+            <thead className="bg-blue-600 text-white">
+              <tr>
+                <th className="px-6 py-3 text-left">ID</th>
+                <th className="px-6 py-3 text-left">Nombre</th>
+                <th className="px-6 py-3 text-left">Correo Electrónico</th>
+                <th className="px-6 py-3 text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {estudiantes.map((estudiante) => (
+                <tr
+                  key={estudiante.id}
+                  className="hover:bg-blue-50 even:bg-gray-100 transition duration-200"
                 >
-                    Agregar Estudiante
-                </button>
-            </div>
-            {mensaje && <p>{mensaje}</p>}
-
-            {/* Verificar si los datos están llegando */}
-            {estudiantes.length > 0 ? (
-                <table className="border-collapse bg-white shadow-lg mt-8 rounded-lg w-full">
-                    <thead className="bg-purple-600 text-white">
-                        <tr>
-                            <th className="px-4 py-2">Nombre</th>
-                            <th className="px-4 py-2">Correo Electrónico</th>
-                            <th className="px-4 py-2">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {estudiantes.map((estudiante, index) => (
-                            <tr key={index} className="odd:bg-gray-100 even:bg-white text-center">
-                                <td className="px-4 py-2 border">{estudiante.name}</td>
-                                <td className="px-4 py-2 border">{estudiante.email}</td>
-                                <td className="px-4 py-2 border">
-                                    <button
-                                        onClick={() => handleEliminarEstudiante(estudiante.relationshipId)}
-                                        className="bg-red-500 hover:bg-red-700 mr-2 px-3 py-1 rounded text-white transition duration-300"
-                                    >
-                                        Eliminar
-                                    </button>
-                                    <Link href={`/perfil-estudiante/${estudiante.id}`}>
-                                        <button className="bg-green-500 hover:bg-green-700 px-3 py-1 rounded text-white transition duration-300">
-                                            Ver Perfil
-                                        </button>
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            ) : (
-                <p>No hay estudiantes agregados aún.</p>
-            )}
-        </main>
-    );
-
+                  <td className="px-6 py-4 border-t">{estudiante.id}</td>
+                  <td className="px-6 py-4 border-t font-semibold">{estudiante.nombre}</td>
+                  <td className="px-6 py-4 border-t">{estudiante.email}</td>
+                  <td className="px-6 py-4 border-t text-center">
+                    <button
+                      onClick={() => handleEliminarEstudiante(estudiante.id)}
+                      className="text-red-500 hover:text-red-700 transition duration-200"
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className="mt-6 text-gray-600">No hay estudiantes agregados aún.</p>
+        )}
+      </div>
+    </main>
+  );
 }
