@@ -37,5 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 #conexion a la bd
-config/config.json
-models/index.js
+/models/index.js
