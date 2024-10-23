@@ -1,0 +1,72 @@
+{
+    "tituloGeneral": "Vowels",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "A",
+        "tituloEspanol": "A",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "A is for Apple.",
+            "oracionEspanol": "A es para Manzana.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "E",
+        "tituloEspanol": "E",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "E is for Elephant.",
+            "oracionEspanol": "E es para Elefante.",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "I",
+        "tituloEspanol": "I",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "I is for Ice cream.",
+            "oracionEspanol": "I es para Helado.",
+            "audio": ""
+          }
+        ]
+      },
+      "4": {
+        "tituloIngles": "O",
+        "tituloEspanol": "O",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "O is for Orange.",
+            "oracionEspanol": "O es para Naranja.",
+            "audio": ""
+          }
+        ]
+      },
+      "5": {
+        "tituloIngles": "U",
+        "tituloEspanol": "U",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "U is for Umbrella.",
+            "oracionEspanol": "U es para Paraguas.",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

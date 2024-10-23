@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Comidas Típicas de El Salvador",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Las Pupusas",
+            "descripcion": "Las pupusas son el plato más popular de El Salvador. Se hacen con masa de maíz y se rellenan con queso, frijoles o chicharrón.",
+            "imagenLeccion": "/img/niveles/sociales/pupusas.png",
+            "ejemplos": [
+                "Pupusas de queso.",
+                "Pupusas de chicharrón."
+            ]
+        },
+        "2": {
+            "titulo": "Elotes Locos",
+            "descripcion": "Son elotes asados cubiertos con mayonesa, salsa de tomate y queso rallado.",
+            "imagenLeccion": "/img/niveles/sociales/elotes.png",
+            "ejemplos": [
+                "Mayonesa y queso rallado.",
+                "Salsa picante al gusto."
+            ]
+        },
+        "3": {
+            "titulo": "Tamales",
+            "descripcion": "Los tamales se hacen de masa de maíz envuelta en hojas de plátano, con relleno de carne o frijoles.",
+            "imagenLeccion": "/img/niveles/sociales/tamales.png",
+            "ejemplos": [
+                "Tamales de elote.",
+                "Tamales de pollo."
+            ]
+        },
+        "4": {
+            "titulo": "Yuca Frita",
+            "descripcion": "La yuca frita se sirve con curtido y chicharrón.",
+            "imagenLeccion": "/img/niveles/sociales/yuca.png",
+            "ejemplos": [
+                "Yuca con chicharrón.",
+                "Yuca con salsa picante."
+            ]
+        },
+        "5": {
+            "titulo": "Empanadas de Leche",
+            "descripcion": "Las empanadas son fritas y rellenas de leche o frijoles.",
+            "imagenLeccion": "/img/niveles/sociales/empanadas.png",
+            "ejemplos": [
+                "Rellenas de leche.",
+                "Rellenas de frijol."
+            ]
+        }
+    }
+}

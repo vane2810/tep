@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Historia de El Salvador: Independencia",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Independencia de Centroamérica",
+            "descripcion": "El 15 de septiembre de 1821, El Salvador se independizó de España.",
+            "imagenLeccion": "/img/niveles/sociales/15sep.png",
+            "ejemplos": [
+                "Firmada en Guatemala.",
+                "Celebrada en toda la región."
+            ]
+        },
+        "2": {
+            "titulo": "Personajes Importantes",
+            "descripcion": "José Matías Delgado es considerado el Padre de la Patria en El Salvador.",
+            "imagenLeccion": "/img/niveles/sociales/delgado.png",
+            "ejemplos": [
+                "José Matías Delgado.",
+                "Manuel José Arce."
+            ]
+        },
+        "3": {
+            "titulo": "Celebración del Día de la Independencia",
+            "descripcion": "Cada 15 de septiembre, el país celebra con desfiles y actos cívicos.",
+            "imagenLeccion": "/img/niveles/sociales/celebracion.png",
+            "ejemplos": [
+                "Desfiles estudiantiles.",
+                "Actos cívicos en las plazas."
+            ]
+        },
+        "4": {
+            "titulo": "La Independencia Centroamericana",
+            "descripcion": "El Salvador fue parte de la Federación de Provincias Unidas de Centroamérica.",
+            "imagenLeccion": "/img/niveles/sociales/federacion.png",
+            "ejemplos": [
+                "Federación duró hasta 1841.",
+                "Manuel José Arce fue su primer presidente."
+            ]
+        },
+        "5": {
+            "titulo": "El Camino a la República",
+            "descripcion": "El Salvador se convirtió en una república independiente en 1841.",
+            "imagenLeccion": "/img/niveles/sociales/republica.png",
+            "ejemplos": [
+                "Independencia total en 1841.",
+                "Primer presidente: Juan Lindo."
+            ]
+        }
+    }
+}

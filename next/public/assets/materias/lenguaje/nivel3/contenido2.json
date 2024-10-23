@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Reglas de la Y y la LL",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Uso de la Y como conjunción",
+            "descripcion": "La letra 'y' se utiliza como conjunción para unir palabras o frases que no empiezan con 'i' o 'hi'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_y_conjuncion.png",
+            "ejemplos": [
+                "María 'y' Juan fueron al parque.",
+                "Compramos manzanas 'y' peras."
+            ]
+        },
+        "2": {
+            "titulo": "Uso de la Y en verbos terminados en -uir",
+            "descripcion": "Se escribe 'y' en las formas verbales que terminan en 'uir', excepto en nosotros y vosotros.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_y_uir.png",
+            "ejemplos": [
+                "Construir – Él construye.",
+                "Incluir – Ellos incluyen."
+            ]
+        },
+        "3": {
+            "titulo": "Uso de la LL en palabras que terminan en -illo y -illa",
+            "descripcion": "Las palabras que terminan en los diminutivos '-illo' o '-illa' se escriben con 'll'.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_ll_illo_illa.png",
+            "ejemplos": [
+                "Palo – Palillo.",
+                "Casa – Casilla."
+            ]
+        },
+        "4": {
+            "titulo": "Uso de la Y como vocal y sonido semivocálico",
+            "descripcion": "La 'y' actúa como vocal cuando está al final de una palabra o cuando forma parte de un diptongo o triptongo.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_y_vocal.png",
+            "ejemplos": [
+                "Ejemplo 1: Hoy.",
+                "Ejemplo 2: Rey."
+            ]
+        },
+        "5": {
+            "titulo": "Uso de la LL en palabras derivadas",
+            "descripcion": "Se usa 'll' en palabras derivadas de otras que ya llevan 'll' en su raíz.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_ll_derivadas.png",
+            "ejemplos": [
+                "Llave – Llavero.",
+                "Lluvia – Llovera."
+            ]
+        }
+    }
+}

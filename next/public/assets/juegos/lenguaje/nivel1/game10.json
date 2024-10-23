@@ -1,0 +1,75 @@
+{
+  "nombre": "Artículos",
+  "gameType": "Seleccionar",
+  "imageUrl": "/img/personajes/principe/principe.png",
+  "modalData": {
+    "puntaje": "75 estrellas",
+    "imagenModal": "/img/niveles/lenguaje/articulos.png",
+    "subtitulo": "Artículos",
+    "indicaciones": [
+      "Selecciona la respuesta correcta",
+      "El puntaje mínimo para pasar es de 50 estrellas",
+      "Vuelva a intentarlo si no las consigues"
+    ]
+  },
+  "totalPuntos": 75,
+  "minPuntos": 60,
+  "limiteEscenas": 5,
+  "escenas": [
+    {
+      "pregunta": "¿Cuál es un artículo definido?",
+      "opciones": [
+        "El",
+        "Un",
+        "Una",
+        "Algunos"
+      ],
+      "correcta": "El",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Cuál es un artículo indefinido?",
+      "opciones": [
+        "Unos",
+        "El",
+        "La",
+        "Los"
+      ],
+      "correcta": "Unos",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Qué tipo de artículo es 'la'?",
+      "opciones": [
+        "Definido",
+        "Indefinido",
+        "Neutro",
+        "Plural"
+      ],
+      "correcta": "Definido",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes palabras es un artículo indefinido?",
+      "opciones": [
+        "Un",
+        "La",
+        "Los",
+        "El"
+      ],
+      "correcta": "Un",
+      "puntos": 15
+    },
+    {
+      "pregunta": "¿Qué tipo de artículo es 'unas'?",
+      "opciones": [
+        "Indefinido",
+        "Definido",
+        "Singular",
+        "Neutro"
+      ],
+      "correcta": "Indefinido",
+      "puntos": 15
+    }
+  ]
+}

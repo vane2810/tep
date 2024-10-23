@@ -1,0 +1,52 @@
+{
+    "tituloGeneral": "Fiestas Tradicionales de El Salvador",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Las Fiestas Patronales",
+            "descripcion": "Cada ciudad en El Salvador celebra fiestas patronales en honor a su santo patrono.",
+            "imagenLeccion": "/img/niveles/sociales/fiestas_patronales.png",
+            "ejemplos": [
+                "San Salvador celebra al Divino Salvador del Mundo.",
+                "Santa Ana celebra a Nuestra Señora de Santa Ana."
+            ]
+        },
+        "2": {
+            "titulo": "Día de la Independencia",
+            "descripcion": "El 15 de septiembre se celebra la independencia de Centroamérica de España.",
+            "imagenLeccion": "/img/niveles/sociales/independencia.png",
+            "ejemplos": [
+                "Desfiles en las principales ciudades.",
+                "Bandas escolares participan en el desfile."
+            ]
+        },
+        "3": {
+            "titulo": "Semana Santa",
+            "descripcion": "Durante la Semana Santa, se celebran procesiones religiosas en todo el país.",
+            "imagenLeccion": "/img/niveles/sociales/semana_santa.png",
+            "ejemplos": [
+                "Procesiones de Viernes Santo.",
+                "Alfombras de aserrín."
+            ]
+        },
+        "4": {
+            "titulo": "Día de los Farolitos",
+            "descripcion": "El 7 de septiembre, en Ahuachapán, se celebra la festividad de los farolitos en honor a la Virgen Niña.",
+            "imagenLeccion": "/img/niveles/sociales/farolitos.png",
+            "ejemplos": [
+                "Decoración de calles con farolitos.",
+                "Concurso de farolitos creativos."
+            ]
+        },
+        "5": {
+            "titulo": "Día de los Difuntos",
+            "descripcion": "El 2 de noviembre se celebra el Día de los Difuntos, con visitas a los cementerios y altares.",
+            "imagenLeccion": "/img/sociales/salvador/difuntos.png",
+            "ejemplos": [
+                "Decoración de tumbas con flores.",
+                "Ofrendas y altares en memoria de los difuntos."
+            ]
+        }
+    }
+}
+

@@ -1,0 +1,56 @@
+{
+    "tituloGeneral": "Prepositions",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "What are Prepositions?",
+        "tituloEspanol": "¿Qué son las Preposiciones?",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "A preposition tells us where or when something is.",
+            "oracionEspanol": "Una preposición nos dice dónde o cuándo está algo.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "In, On, Under",
+        "tituloEspanol": "En, Sobre, Debajo",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "The book is on the table. (on is a preposition)",
+            "oracionEspanol": "El libro está sobre la mesa. (sobre es una preposición)",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "The cat is under the bed. (under is a preposition)",
+            "oracionEspanol": "El gato está debajo de la cama. (debajo es una preposición)",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "Next to, Behind, In front of",
+        "tituloEspanol": "Al lado de, Detrás de, En frente de",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "The dog is next to the chair. (next to is a preposition)",
+            "oracionEspanol": "El perro está al lado de la silla. (al lado de es una preposición)",
+            "audio": ""
+          },
+          {
+            "oracionIngles": "The car is behind the house. (behind is a preposition)",
+            "oracionEspanol": "El coche está detrás de la casa. (detrás es una preposición)",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

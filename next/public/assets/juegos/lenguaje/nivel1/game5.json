@@ -1,0 +1,131 @@
+{
+    "nombre": "Pronombres Personales",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/personajes/principe/principe.png",
+    "modalData": {
+      "puntaje": "100 estrellas",
+      "imagenModal": "/img/personajes/principe/principe.png",
+      "subtitulo": "Pronombres Personales",
+      "indicaciones": [
+        "Selecciona el pronombre correcto en cada oración",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 100,
+    "minPuntos": 80,
+    "limiteEscenas": 10,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ voy al mercado.'",
+        "opciones": [
+          "Yo",
+          "Él",
+          "Tú",
+          "Ella"
+        ],
+        "correcta": "Yo",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ juegas muy bien al fútbol.'",
+        "opciones": [
+          "Ellos",
+          "Tú",
+          "Nosotros",
+          "Él"
+        ],
+        "correcta": "Tú",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ corren rápido.'",
+        "opciones": [
+          "Ellos",
+          "Ella",
+          "Nosotros",
+          "Él"
+        ],
+        "correcta": "Ellos",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ vamos al cine esta noche.'",
+        "opciones": [
+          "Nosotros",
+          "Yo",
+          "Ellas",
+          "Tú"
+        ],
+        "correcta": "Nosotros",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ estudia mucho para los exámenes.'",
+        "opciones": [
+          "Él",
+          "Ellos",
+          "Tú",
+          "Nosotros"
+        ],
+        "correcta": "Él",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ escriben una carta.'",
+        "opciones": [
+          "Nosotros",
+          "Ellos",
+          "Yo",
+          "Tú"
+        ],
+        "correcta": "Ellos",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ estás estudiando para el examen.'",
+        "opciones": [
+          "Él",
+          "Yo",
+          "Tú",
+          "Nosotros"
+        ],
+        "correcta": "Tú",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ vamos a casa después de la escuela.'",
+        "opciones": [
+          "Nosotros",
+          "Ellas",
+          "Él",
+          "Yo"
+        ],
+        "correcta": "Nosotros",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ trabaja muy duro en el proyecto.'",
+        "opciones": [
+          "Él",
+          "Ellas",
+          "Nosotros",
+          "Tú"
+        ],
+        "correcta": "Él",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el pronombre correcto para completar esta oración? '___ vamos al parque esta tarde.'",
+        "opciones": [
+          "Nosotros",
+          "Yo",
+          "Él",
+          "Ellos"
+        ],
+        "correcta": "Nosotros",
+        "puntos": 10
+      }
+    ]
+  }
+  

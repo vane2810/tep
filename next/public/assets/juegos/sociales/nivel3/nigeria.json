@@ -1,0 +1,76 @@
+{
+    "nombre": "Nigeria",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Nigeria",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Nigeria",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde está ubicada Nigeria?",
+        "opciones": [
+          "En América del Sur",
+          "En Europa",
+          "En Asia",
+          "En el oeste de África"
+        ],
+        "correcta": "En el oeste de África",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo celebró Nigeria su independencia del Reino Unido?",
+        "opciones": [
+          "El 4 de julio de 1776",
+          "El 1 de octubre de 1960",
+          "El 20 de noviembre de 1952",
+          "El 15 de septiembre de 1821"
+        ],
+        "correcta": "El 1 de octubre de 1960",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuántos grupos étnicos principales tiene Nigeria?",
+        "opciones": [
+          "Más de 250",
+          "50",
+          "100",
+          "200"
+        ],
+        "correcta": "Más de 250",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué simboliza el verde en la bandera de Nigeria?",
+        "opciones": [
+          "La libertad",
+          "La independencia",
+          "La agricultura",
+          "La cultura"
+        ],
+        "correcta": "La agricultura",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es el recurso natural más importante de la economía de Nigeria?",
+        "opciones": [
+          "Oro",
+          "Petróleo",
+          "Café",
+          "Diamantes"
+        ],
+        "correcta": "Petróleo",
+        "puntos": 15
+      }
+    ]
+  }
+  

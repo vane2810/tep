@@ -1,0 +1,76 @@
+{
+    "nombre": "Francia",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Francia",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Francia",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde se encuentra Francia?",
+        "opciones": [
+          "Europa Oriental",
+          "América del Norte",
+          "Europa Occidental",
+          "Asia"
+        ],
+        "correcta": "Europa Occidental",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo ocurrió la Revolución Francesa?",
+        "opciones": [
+          "1789",
+          "1815",
+          "1776",
+          "1914"
+        ],
+        "correcta": "1789",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué idioma se habla oficialmente en Francia?",
+        "opciones": [
+          "Francés",
+          "Inglés",
+          "Alemán",
+          "Italiano"
+        ],
+        "correcta": "Francés",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué lema aparece en los símbolos patrios de Francia?",
+        "opciones": [
+          "Unité, Travail, Progrès",
+          "In God We Trust",
+          "Liberté, Égalité, Fraternité",
+          "E Pluribus Unum"
+        ],
+        "correcta": "Liberté, Égalité, Fraternité",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuáles son dos de las principales cadenas montañosas de Francia?",
+        "opciones": [
+          "Los Alpes y los Pirineos",
+          "Los Andes y el Himalaya",
+          "Las Montañas Rocosas y los Apeninos",
+          "El Cáucaso y los Urales"
+        ],
+        "correcta": "Los Alpes y los Pirineos",
+        "puntos": 15
+      }
+    ]
+  }
+  

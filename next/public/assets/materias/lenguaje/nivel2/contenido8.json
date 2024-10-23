@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "El Uso de los Sufijos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": " que forman sustantivos",
+            "descripcion": "Algunos sufijos se utilizan para formar sustantivos a partir de verbos o adjetivos.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_sustantivos.png",
+            "ejemplos": [
+                "Cantante (cantar + -ante).",
+                "Belleza (bello + -eza)."
+            ]
+        },
+        "2": {
+            "titulo": "Sufijos que forman adjetivos",
+            "descripcion": "Existen sufijos que se emplean para formar adjetivos a partir de sustantivos o verbos.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_adjetivos.png",
+            "ejemplos": [
+                "Amigable (amigo + -able).",
+                "Amoroso (amor + -oso)."
+            ]
+        },
+        "3": {
+            "titulo": "Sufijos diminutivos",
+            "descripcion": "Los sufijos diminutivos se utilizan para indicar pequeñez o afecto, y se agregan al final de la palabra base.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_diminutivos.png",
+            "ejemplos": [
+                "Perrito (perro + -ito).",
+                "Casita (casa + -ita)."
+            ]
+        },
+        "4": {
+            "titulo": "Sufijos aumentativos",
+            "descripcion": "Los sufijos aumentativos se utilizan para señalar algo grande o con mayor intensidad.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_aumentativos.png",
+            "ejemplos": [
+                "Grandote (grande + -ote).",
+                "Casona (casa + -ona)."
+            ]
+        },
+        "5": {
+            "titulo": "Sufijos despectivos",
+            "descripcion": "Los sufijos despectivos indican desprecio o menor valoración hacia lo que designa la palabra base.",
+            "imagenLeccion": "/img/niveles/lenguaje/sufijos_despectivos.png",
+            "ejemplos": [
+                "Librucho (libro + -ucho).",
+                "Pueblucho (pueblo + -ucho)."
+            ]
+        }
+    }
+}

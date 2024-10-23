@@ -1,0 +1,76 @@
+{
+    "nombre": "Greetings",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/personajes/principe/principe.png",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "/img/personajes/principe/principe.png",
+      "subtitulo": "Greetings",
+      "indicaciones": [
+        "Selecciona la respuesta correcta",
+        "El puntaje mínimo para pasar es de 50 estrellas",
+        "Vuelve a intentarlo si no lo consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Cómo se dice '¡Hola! ¿Cómo estás?' en inglés?",
+        "opciones": [
+          "Hello! How are you?",
+          "Goodbye! How are you?",
+          "Good night! How are you?",
+          "Good morning! How are you?"
+        ],
+        "correcta": "Hello! How are you?",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cómo se dice '¡Buenos días!' en inglés?",
+        "opciones": [
+          "Goodbye!",
+          "Good morning!",
+          "Hello!",
+          "Good night!"
+        ],
+        "correcta": "Good morning!",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cómo se dice '¡Buenas noches!' en inglés?",
+        "opciones": [
+          "Good morning!",
+          "Goodbye!",
+          "Good night!",
+          "Hello!"
+        ],
+        "correcta": "Good night!",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cómo se dice '¡Adiós! Nos vemos más tarde.' en inglés?",
+        "opciones": [
+          "Goodbye! See you later.",
+          "Good morning! See you later.",
+          "Good night! See you later.",
+          "Hello! See you later."
+        ],
+        "correcta": "Goodbye! See you later.",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cómo se dice '¿Cómo estás? Estoy bien.' en inglés?",
+        "opciones": [
+          "Goodbye! I'm doing well.",
+          "How are you? I'm doing well.",
+          "Hello! I'm doing well.",
+          "Good night! I'm doing well."
+        ],
+        "correcta": "How are you? I'm doing well.",
+        "puntos": 15
+      }
+    ]
+  }
+  

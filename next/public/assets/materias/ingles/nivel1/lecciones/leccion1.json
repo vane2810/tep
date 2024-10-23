@@ -1,0 +1,42 @@
+{
+    "nombreIngles": "Vocabulary",
+    "nombreEspañol": "Vocabulario",
+    "lecciones": [
+        {
+            "id": "saludos",
+            "nombreIngles": "Greetings",
+            "nombreEspañol": "Saludos",
+            "imagen": "/img/niveles/ingles/saludos.jpg"
+        },
+        {
+            "id": "colores",
+            "nombreIngles": "Colors",
+            "nombreEspañol": "Colores",
+            "imagen": "/img/niveles/ingles/colores.jpg"
+        },
+        {
+            "id": "dias",
+            "nombreIngles": "Days of the Week",
+            "nombreEspañol": "Días de la Semana",
+            "imagen": "/img/niveles/ingles/diassemana.jpg"
+        },
+        {
+            "id": "meses",
+            "nombreIngles": "Months of the Year",
+            "nombreEspañol": "Meses del Año",
+            "imagen": "/img/niveles/ingles/meses.jpg"
+        },
+        {
+            "id": "numeros",
+            "nombreIngles": "Basic Numbers",
+            "nombreEspañol": "Números Básicos",
+            "imagen": "/img/niveles/ingles/numeros.jpg"
+        },
+        {
+            "id": "vocales",
+            "nombreIngles": "Vowels",
+            "nombreEspañol": "Las Vocales",
+            "imagen": "/img/niveles/ingles/vocales.jpg"
+        }
+    ]
+}

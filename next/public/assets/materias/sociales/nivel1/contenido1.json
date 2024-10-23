@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Ubicación Geográfica de El Salvador",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "¿Dónde está El Salvador?",
+            "descripcion": "El Salvador está en América Central, limita con Honduras, Guatemala y el océano Pacífico.",
+            "imagenLeccion": "/img/niveles/sociales/mapa.png",
+            "ejemplos": [
+                "Norte - Honduras.",
+                "Sur - Océano Pacífico."
+            ]
+        },
+        "2": {
+            "titulo": "Extensión Territorial",
+            "descripcion": "El Salvador es el país más pequeño de América Central.",
+            "imagenLeccion": "/img/niveles/sociales/extension.png",
+            "ejemplos": [
+                "Área total de 21,041 km².",
+                "Conocido como 'El Pulgarcito de América'."
+            ]
+        },
+        "3": {
+            "titulo": "Clima",
+            "descripcion": "El clima de El Salvador es tropical, con una estación lluviosa y una seca.",
+            "imagenLeccion": "/img/niveles/sociales/clima.png",
+            "ejemplos": [
+                "Estación seca: noviembre a abril.",
+                "Estación lluviosa: mayo a octubre."
+            ]
+        },
+        "4": {
+            "titulo": "Volcanes",
+            "descripcion": "El Salvador es conocido por tener muchos volcanes, como el volcán de San Salvador.",
+            "imagenLeccion": "/img/niveles/sociales/volcan.png",
+            "ejemplos": [
+                "Volcán de San Miguel.",
+                "Volcán de Izalco."
+            ]
+        },
+        "5": {
+            "titulo": "Ríos Importantes",
+            "descripcion": "El Salvador cuenta con varios ríos importantes, como el río Lempa.",
+            "imagenLeccion": "/img/niveles/sociales/rio.png",
+            "ejemplos": [
+                "Río Lempa.",
+                "Río Grande de San Miguel."
+            ]
+        }
+    }
+}

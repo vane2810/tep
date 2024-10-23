@@ -1,0 +1,131 @@
+{
+    "nombre": "Centro América: Panamá",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/centroamerica/mapa_panama.png",
+    "modalData": {
+      "puntaje": "100 estrellas",
+      "imagenModal": "/img/centroamerica/mapa_panama.png",
+      "subtitulo": "Centro América: Panamá",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Panamá",
+        "El puntaje mínimo para pasar es de 70 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 100,
+    "minPuntos": 70,
+    "limiteEscenas": 10,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde está ubicada Panamá?",
+        "opciones": [
+          "Entre Honduras y El Salvador",
+          "Entre México y Guatemala",
+          "Entre Costa Rica y Colombia",
+          "Entre Nicaragua y Costa Rica"
+        ],
+        "correcta": "Entre Costa Rica y Colombia",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuándo se independizó Panamá de Colombia?",
+        "opciones": [
+          "El 15 de septiembre de 1821",
+          "El 20 de julio de 1810",
+          "El 3 de noviembre de 1903",
+          "El 5 de noviembre de 1823"
+        ],
+        "correcta": "El 3 de noviembre de 1903",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué influencia cultural tiene Panamá?",
+        "opciones": [
+          "Europea y asiática",
+          "Británica y francesa",
+          "Árabe y africana",
+          "Indígena, española y africana"
+        ],
+        "correcta": "Indígena, española y africana",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué lema aparece en el escudo de Panamá?",
+        "opciones": [
+          "Pura Vida",
+          "Pro Mundi Beneficio",
+          "Por la Patria",
+          "Unidos por la Paz"
+        ],
+        "correcta": "Pro Mundi Beneficio",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué flor es el símbolo nacional de Panamá?",
+        "opciones": [
+          "Guaria Morada",
+          "Flor de Izote",
+          "Flor de Ceibo",
+          "Flor del Espíritu Santo"
+        ],
+        "correcta": "Flor del Espíritu Santo",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué ave es el símbolo nacional de Panamá?",
+        "opciones": [
+          "Quetzal",
+          "Cóndor",
+          "Loro",
+          "Águila Harpía"
+        ],
+        "correcta": "Águila Harpía",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es uno de los platos típicos de Panamá?",
+        "opciones": [
+          "Gallo pinto y casado",
+          "Pupusas y tamales",
+          "Sancocho y arroz con coco",
+          "Ceviche y arroz con pollo"
+        ],
+        "correcta": "Sancocho y arroz con coco",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué conecta el Canal de Panamá?",
+        "opciones": [
+          "El océano Atlántico con el océano Pacífico",
+          "El río Amazonas con el océano Atlántico",
+          "El mar Caribe con el río Mississippi",
+          "El océano Índico con el océano Pacífico"
+        ],
+        "correcta": "El océano Atlántico con el océano Pacífico",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿En qué año se inauguró el Canal de Panamá?",
+        "opciones": [
+          "En 1914",
+          "En 1903",
+          "En 1821",
+          "En 2016"
+        ],
+        "correcta": "En 1914",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué país ayudó a Panamá en su independencia de Colombia?",
+        "opciones": [
+          "México",
+          "España",
+          "Estados Unidos",
+          "Francia"
+        ],
+        "correcta": "Estados Unidos",
+        "puntos": 10
+      }
+    ]
+  }
+  

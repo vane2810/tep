@@ -1,0 +1,186 @@
+{
+    "nombre": "El Género de la Novela",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/lenguaje/genero_novela.png",
+    "modalData": {
+      "puntaje": "150 estrellas",
+      "imagenModal": "/img/niveles/lenguaje/genero_novela.png",
+      "subtitulo": "El Género de la Novela",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre el género de la novela",
+        "El puntaje mínimo para pasar es de 90 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 150,
+    "minPuntos": 90,
+    "limiteEscenas": 15,
+    "escenas": [
+      {
+        "pregunta": "¿Qué es una novela?",
+        "opciones": [
+          "Una obra narrativa de ficción.",
+          "Un poema extenso en prosa.",
+          "Una obra teatral.",
+          "Un artículo periodístico."
+        ],
+        "correcta": "Una obra narrativa de ficción.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué característica es común en las novelas?",
+        "opciones": [
+          "Son siempre cortas.",
+          "Solo tienen un personaje.",
+          "Están escritas en prosa.",
+          "Están escritas en verso."
+        ],
+        "correcta": "Están escritas en prosa.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es un ejemplo de una novela histórica?",
+        "opciones": [
+          "'1984' de George Orwell.",
+          "'Guerra y paz' de León Tolstói.",
+          "'El principito' de Antoine de Saint-Exupéry.",
+          "'Drácula' de Bram Stoker."
+        ],
+        "correcta": "'Guerra y paz' de León Tolstói.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué tipo de novela es '1984' de George Orwell?",
+        "opciones": [
+          "Romántica.",
+          "Aventuras.",
+          "Policíaca.",
+          "Ciencia ficción."
+        ],
+        "correcta": "Ciencia ficción.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cómo se llama la parte final de una novela?",
+        "opciones": [
+          "Introducción.",
+          "Desenlace.",
+          "Capítulo.",
+          "Desarrollo."
+        ],
+        "correcta": "Desenlace.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué elemento no es característico de una novela?",
+        "opciones": [
+          "Verso.",
+          "Diálogos.",
+          "Capítulos.",
+          "Descripciones detalladas."
+        ],
+        "correcta": "Verso.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué novela es un ejemplo de literatura clásica?",
+        "opciones": [
+          "'Harry Potter y la piedra filosofal'.",
+          "'Los juegos del hambre'.",
+          "'Don Quijote de la Mancha'.",
+          "'Crepúsculo'."
+        ],
+        "correcta": "'Don Quijote de la Mancha'.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de estos géneros no es un tipo de novela?",
+        "opciones": [
+          "Novela romántica.",
+          "Novela policíaca.",
+          "Novela científica.",
+          "Novela de aventuras."
+        ],
+        "correcta": "Novela científica.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué diferencia una novela de un cuento?",
+        "opciones": [
+          "La novela es más extensa y compleja.",
+          "El cuento tiene más personajes.",
+          "La novela es más corta.",
+          "El cuento tiene más capítulos."
+        ],
+        "correcta": "La novela es más extensa y compleja.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué novela famosa fue escrita por Harper Lee?",
+        "opciones": [
+          "'El gran Gatsby'.",
+          "'Matar a un ruiseñor'.",
+          "'Cien años de soledad'.",
+          "'Crimen y castigo'."
+        ],
+        "correcta": "'Matar a un ruiseñor'.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es una característica común de las novelas?",
+        "opciones": [
+          "Lenguaje poético.",
+          "Brevedad en la narración.",
+          "Ausencia de diálogos.",
+          "Descripciones detalladas."
+        ],
+        "correcta": "Descripciones detalladas.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué novela sigue la historia de varias generaciones de una familia?",
+        "opciones": [
+          "'Matar a un ruiseñor'.",
+          "'Orgullo y prejuicio'.",
+          "'Cien años de soledad'.",
+          "'Crimen y castigo'."
+        ],
+        "correcta": "'Cien años de soledad'.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué tipo de novela narra principalmente hechos históricos?",
+        "opciones": [
+          "Novela de aventuras.",
+          "Novela histórica.",
+          "Novela romántica.",
+          "Novela policíaca."
+        ],
+        "correcta": "Novela histórica.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué autor escribió 'Crimen y castigo'?",
+        "opciones": [
+          "León Tolstói.",
+          "Fiódor Dostoyevski.",
+          "Gabriel García Márquez.",
+          "Harper Lee."
+        ],
+        "correcta": "Fiódor Dostoyevski.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de estos elementos no es parte de la estructura de una novela?",
+        "opciones": [
+          "Versos.",
+          "Capítulos.",
+          "Introducción.",
+          "Desarrollo."
+        ],
+        "correcta": "Versos.",
+        "puntos": 10
+      }
+    ]
+}
+  

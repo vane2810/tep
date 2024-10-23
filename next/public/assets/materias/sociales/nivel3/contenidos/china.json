@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "China",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de China",
+        "descripcion": "China está en el este de Asia y es el país más poblado del mundo.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Pekín (Beijing).",
+          "Limita con 14 países, incluidos Rusia, India, y Mongolia."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "La República Popular China fue proclamada el 1 de octubre de 1949.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El 1 de octubre se celebra el Día Nacional de China.",
+          "Mao Zedong fue el líder de la revolución que estableció la República Popular."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "China es famosa por su historia milenaria, rica cultura y festivales tradicionales.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Idiomas: El mandarín es el idioma oficial.",
+          "Festividades importantes: Año Nuevo Chino y el Festival del Medio Otoño."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de China",
+        "descripcion": "La bandera de China es roja con cinco estrellas doradas en la esquina superior izquierda.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El rojo simboliza la revolución y las estrellas representan la unidad del pueblo bajo el liderazgo del Partido Comunista.",
+          "El dragón es uno de los símbolos tradicionales más representativos de la cultura china."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Geografía",
+        "descripcion": "China tiene una geografía diversa, que incluye montañas, ríos, desiertos y costas.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El río Yangtsé es el más largo de Asia.",
+          "La cordillera del Himalaya se encuentra en el suroeste de China."
+        ]
+      }
+    ]
+  }
+  

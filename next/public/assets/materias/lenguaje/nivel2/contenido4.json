@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "El Uso de las Comillas",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Citas textuales",
+            "descripcion": "Las comillas se utilizan para reproducir exactamente lo que ha dicho o escrito otra persona.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_cita_textual.png",
+            "ejemplos": [
+                "El autor señaló: \"La vida es como un viaje sin mapa.\"",
+                "El profesor dijo: \"Estudien para el examen del lunes.\""
+            ]
+        },
+        "2": {
+            "titulo": "Títulos de obras",
+            "descripcion": "Se usan comillas para los títulos de artículos, capítulos de libros, poemas, canciones, y películas.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_titulos.png",
+            "ejemplos": [
+                "Mi poema favorito es \"La canción del pirata\" de Espronceda.",
+                "Vimos la película \"El Padrino\" el fin de semana."
+            ]
+        },
+        "3": {
+            "titulo": "Para destacar palabras o expresiones",
+            "descripcion": "Las comillas se utilizan para resaltar palabras o expresiones que se quieren destacar o que tienen un significado especial.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_destacar_palabras.png",
+            "ejemplos": [
+                "El término \"software\" proviene del inglés.",
+                "El coche era muy \"moderno\" para su época."
+            ]
+        },
+        "4": {
+            "titulo": "Uso irónico o sarcástico",
+            "descripcion": "Se emplean las comillas para marcar un uso irónico o sarcástico de una palabra o expresión.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_ironico.png",
+            "ejemplos": [
+                "Seguro que es muy \"trabajador\", nunca lo veo hacer nada.",
+                "¡Qué \"inteligente\" resultó ser!"
+            ]
+        },
+        "5": {
+            "titulo": "Diálogos en textos literarios",
+            "descripcion": "En algunos textos literarios se emplean comillas para marcar los diálogos de los personajes.",
+            "imagenLeccion": "/img/niveles/lenguaje/comillas_dialogo.png",
+            "ejemplos": [
+                "\"¿Dónde estás?\", preguntó María.",
+                "Juan respondió: \"Estoy en la biblioteca.\""
+            ]
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "tituloGeneral": "Verbs",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "What are Verbs?",
+        "tituloEspanol": "¿Qué son los Verbos?",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "A verb is a word that shows an action.",
+            "oracionEspanol": "Un verbo es una palabra que indica una acción.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "Action Verbs",
+        "tituloEspanol": "Verbos de Acción",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "I run every day. (Run is a verb)",
+            "oracionEspanol": "Yo corro todos los días. (Correr es un verbo)",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "Verbs We Do",
+        "tituloEspanol": "Verbos que Hacemos",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "She eats an apple. (Eats is a verb)",
+            "oracionEspanol": "Ella come una manzana. (Comer es un verbo)",
+            "audio": ""
+          }
+        ]
+      },
+      "4": {
+        "tituloIngles": "More Action Verbs",
+        "tituloEspanol": "Más Verbos de Acción",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "They play soccer. (Play is a verb)",
+            "oracionEspanol": "Ellos juegan fútbol. (Jugar es un verbo)",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

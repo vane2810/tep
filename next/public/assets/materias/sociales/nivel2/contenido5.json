@@ -1,0 +1,63 @@
+{
+    "tituloGeneral": "Centro América: Nicaragua",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "titulo": "Ubicación de Nicaragua",
+        "descripcion": "Nicaragua está en el centro-norte de Centroamérica, entre Honduras y Costa Rica.",
+        "imagenLeccion": "/img/centroamerica/mapa_nicaragua.png",
+        "ejemplos": [
+          "Capital: San José",
+          "Al oeste limita con el océano Pacífico.",
+          "Al este tiene costas en el mar Caribe."
+        ]
+      },
+      "2": {
+        "titulo": "Independencia",
+        "descripcion": "Nicaragua se independizó de España el 15 de septiembre de 1821.",
+        "imagenLeccion": "/img/centroamerica/independencia_nicaragua.png",
+        "ejemplos": [
+          "Nicaragua fue parte de las Provincias Unidas de Centroamérica."
+        ]
+      },
+      "3": {
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Nicaragua tiene una cultura influenciada por las tradiciones indígenas, españolas y africanas.",
+        "imagenLeccion": "/img/centroamerica/cultura_nicaragua.png",
+        "ejemplos": [
+          "La Purísima es una de las celebraciones religiosas más importantes en Nicaragua.",
+          "El español es el idioma oficial, pero en la costa caribeña también se habla inglés y lenguas indígenas."
+        ]
+      },
+      "4": {
+        "titulo": "Símbolos Patrios de Nicaragua (Parte 1)",
+        "descripcion": "Nicaragua tiene símbolos patrios que incluyen la bandera, el escudo y el himno nacional.",
+        "imagenLeccion": "/img/centroamerica/simbolos_nicaragua.png",
+        "ejemplos": [
+          "La bandera tiene franjas azules y blancas con un escudo en el centro.",
+          "El escudo de armas tiene un triángulo con cinco volcanes que representan la unión centroamericana."
+        ]
+      },
+      "5": {
+        "titulo": "Símbolos Patrios de Nicaragua (Parte 2)",
+        "descripcion": "Otros símbolos patrios incluyen la flora y fauna que representan la naturaleza de Nicaragua.",
+        "imagenLeccion": "/img/centroamerica/simbolos_nicaragua.png",
+        "ejemplos": [
+          "Flor Nacional: Sacuanjoche.",
+          "Árbol Nacional: Madroño.",
+          "Ave Nacional: Guardabarranco.",
+          "Comida Típica: Gallo pinto y nacatamales."
+        ]
+      },
+      "6": {
+        "titulo": "Lago de Nicaragua",
+        "descripcion": "El Lago de Nicaragua es el lago más grande de Centroamérica y uno de los más importantes del país.",
+        "imagenLeccion": "/img/centroamerica/lago_nicaragua.png",
+        "ejemplos": [
+          "Tiene varias islas, incluyendo la Isla de Ometepe, formada por dos volcanes.",
+          "Es uno de los pocos lagos de agua dulce donde viven tiburones."
+        ]
+      }
+    }
+  }
+  

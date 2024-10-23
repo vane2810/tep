@@ -1,0 +1,59 @@
+{
+    "tituloGeneral": "Nouns",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "What are Nouns?",
+        "tituloEspanol": "¿Qué son los Sustantivos?",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "A noun is a word that names a person, place, or thing.",
+            "oracionEspanol": "Un sustantivo es una palabra que nombra una persona, lugar o cosa.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "Person Nouns",
+        "tituloEspanol": "Sustantivos de Personas",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "John is my friend. (John is a noun)",
+            "oracionEspanol": "John es mi amigo. (John es un sustantivo)",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "Place Nouns",
+        "tituloEspanol": "Sustantivos de Lugares",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We are going to the park. (Park is a noun)",
+            "oracionEspanol": "Vamos al parque. (Parque es un sustantivo)",
+            "audio": ""
+          }
+        ]
+      },
+      "4": {
+        "tituloIngles": "Thing Nouns",
+        "tituloEspanol": "Sustantivos de Cosas",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "The book is on the table. (Book and table are nouns)",
+            "oracionEspanol": "El libro está en la mesa. (Libro y mesa son sustantivos)",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  
