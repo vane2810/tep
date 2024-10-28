@@ -42,10 +42,10 @@ const Botones = ({ mate, lenguaje, sociales, ingles }) => (
 
 // Validación de las propiedades usando PropTypes
 Botones.propTypes = {
-    mate: PropTypes.string.isRequired,       // Validamos que 'mate' sea un string requerido
-    lenguaje: PropTypes.string.isRequired,   // Validamos que 'lenguaje' sea un string requerido
-    sociales: PropTypes.string.isRequired,   // Validamos que 'sociales' sea un string requerido
-    ingles: PropTypes.string.isRequired,     // Validamos que 'ingles' sea un string requerido
+    mate: PropTypes.string.isRequired,    
+    lenguaje: PropTypes.string.isRequired,   
+    sociales: PropTypes.string.isRequired,   
+    ingles: PropTypes.string.isRequired,     
 };
 
 export default Botones;

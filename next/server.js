@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); 
-const { sequelize } = require('./db/database'); // Importa la instancia de sequelize
+const { sequelize } = require('./config/database'); 
 const authRoutes = require('./routes/auth');
 const progresoRoutes = require('./routes/progreso'); 
 const userRoutes = require('./routes/users');

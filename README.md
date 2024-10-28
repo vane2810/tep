@@ -4,8 +4,12 @@
 Aplicación web orientada a juegos educativos para estudiantes de segundo ciclo de educación básica 
 
 ## Integrantes 
-- Hazel Brendaly Granados Ramos (SMSS041722)
-- Olga Vanessa Sorto Fuentes (SMSS055722)
+- Hazel Brendaly Granados Ramos 
+- Olga Vanessa Sorto Fuentes 
+- Diego Alejandro Rodríguez Valencia
+- Rony Josué Sorto Villalta
+- Lindys Arely Martínez Herrera
+- Cristian Yahir Campos Aparicio
 
 ## Tecnologías Utilizadas
 
