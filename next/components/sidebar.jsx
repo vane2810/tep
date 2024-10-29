@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React from 'react';
 import Link from "next/link";
+import RecesoLayout from '/components/breaksection';
 
 export default function Sidebar({ isOpen, onClose, session }) {
   const levelLink = session ? `/niveles/nivel${session.nivel}` : '/';
@@ -90,7 +91,18 @@ export default function Sidebar({ isOpen, onClose, session }) {
             Historial
           </Link>
         </li>
+
+        {/* Sección de Receso */}
+        <li className="py-2">
+          <Link href="/receso" className="flex items-center hover:bg-[#F06292] px-3 py-2 rounded text-black transition-colors duration-200 rosado" style={{ fontFamily: 'Story, sans-serif', fontWeight: 'bold' }}>
+            <img src="/img/receso/estrella.png" alt="Receso" className="mr-2 w-5 h-5" />
+            Receso
+          </Link>
+        </li>
       </ul>
     </div>
   );
 }
+
+
+
