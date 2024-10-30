@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
-import LoginModal from '@/components/modals/auth/LoginModal';
+import LoginModal from '@/components/modals/auth/loginModal';
 import Link from 'next/link';
 import Volver from '@/components/botonVolver';
 

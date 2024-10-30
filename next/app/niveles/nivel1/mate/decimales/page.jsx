@@ -63,11 +63,11 @@ export default function MatematicaPage() {
       </section>
 
       {/* Introduccion */}
-      <section className="my-10 px-4">
+      <section className="my-10 px-4 letters">
         <div className="flex md:flex-row flex-col items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
             <h2 className="font-semibold text-xl md:text-2xl">Introducción a los números decimales</h2>
-            <p className="mt-2 text-black text-sm md:text-base">
+            <p className="mt-2 text-2xl">
             Los números decimales son una forma de representar números que no son enteros. Se utilizan para mostrar partes de un todo, como, por ejemplo, 0.5 (que representa la mitad).
             </p>
             <Link href="/niveles/nivel1/mate/decimales/intro">
@@ -97,7 +97,7 @@ export default function MatematicaPage() {
       </section>
 
       {/* Suma y resta */}
-      <section className="my-10 px-4">
+      <section className="my-10 px-4 letters">
         <div className="flex md:flex-row flex-col items-center text-center">
           <div className="flex-1 mb-4 md:mb-0">
             <h2 className="font-semibold text-xl md:text-2xl">Suma y resta de números decimales</h2>

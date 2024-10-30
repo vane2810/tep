@@ -152,8 +152,8 @@ export default function Component({ id }) {
 
             {/* Página derecha del libro */}
             <div className="top-[35%] right-[10%] absolute p-6 w-[40%] h-[65%] overflow-auto story">
-              <h3 className="mb-4 font-bold text-2xl story">Datos importantes:</h3>
-              <ul className="font-serif text-lg leading-relaxed list-disc list-inside">
+              <h3 className="mb-4 font-bold text-xl wonder">Datos importantes:</h3>
+              <ul className="font-serif text-lg leading-relaxed list-disc list-inside yagora">
                 {currentLeccion.ejemplos.map((ejemplo, index) => (
                   <li key={index}>{ejemplo}</li>
                 ))}

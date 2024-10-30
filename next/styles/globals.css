@@ -8,16 +8,25 @@
 }
 
 @font-face {
-    font-family: 'Story'; 
-    src: url('/fonts/Info-Story.woff') format('woff'); 
+    font-family: 'Wonder'; 
+    src: url('/fonts/Wondercity.woff') format('woff'); 
+}
+
+@font-face {
+    font-family: 'Yagora'; 
+    src: url('/fonts/Yagora.woff') format('woff'); 
 }
 
 .super {
     font-family: 'Super', sans-serif;
 }
 
-.story {
-    font-family: 'Story', sans-serif;
+.wonder {
+    font-family: 'Wonder', sans-serif;
+}
+
+.yagora {
+    font-family: 'Yagora', sans-serif;
 }
 
 
