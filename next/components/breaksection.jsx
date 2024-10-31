@@ -4,58 +4,58 @@ import Link from 'next/link';
 
 const BreakSection = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-200">
+    <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-b from-blue-100 to-blue-200 px-4 lg:px-8">
       
-      {/* Fondo de decoración espacial */}
-      <div className="absolute inset-0 z-0">
+      {/* Fondo de decoración espacial responsivo */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/img/receso/fondor4.png"
           alt="Fondo Espacial"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-50"
         />
         
-        {/* Imágenes decorativas posicionadas en las esquinas */}
+        {/* Imágenes decorativas en las esquinas */}
         <img
           src="/img/receso/planet1.png"
           alt="Planeta 1"
-          className="absolute top-4 left-4 w-16 md:w-24 lg:w-28"
+          className="absolute top-2 left-2 w-10 sm:w-12 md:w-16 lg:w-20"
         />
         <img
           src="/img/receso/planet2.png"
           alt="Planeta 2"
-          className="absolute top-4 right-4 w-20 md:w-28 lg:w-32"
+          className="absolute top-2 right-2 w-10 sm:w-12 md:w-16 lg:w-20"
         />
         <img
           src="/img/receso/libro.png"
           alt="Libro"
-          className="absolute bottom-4 left-4 w-20 md:w-28 lg:w-32"
+          className="absolute bottom-2 left-2 w-10 sm:w-12 md:w-16 lg:w-20"
         />
         <img
           src="/img/receso/planet3.png"
           alt="Planeta 3"
-          className="absolute bottom-4 right-4 w-16 md:w-24 lg:w-28"
+          className="absolute bottom-2 right-2 w-10 sm:w-12 md:w-16 lg:w-20"
         />
       </div>
 
       {/* Contenedor de contenido principal */}
-      <div className="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-300 w-11/12 max-w-5xl relative z-10 backdrop-opacity-100">
+      <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-3xl shadow-2xl border border-gray-300 w-full max-w-md sm:max-w-lg lg:max-w-3xl relative z-10 text-center">
         
-        <header className="flex flex-col items-center mb-8">
+        <header className="flex flex-col items-center mb-6 sm:mb-8">
           <img
             src="/img/receso/estrella.png"
             alt="Estrella"
-            className="w-24 md:w-32 lg:w-40 mb-6"
+            className="w-12 sm:w-16 md:w-20 lg:w-24 mb-4"
           />
-          <h1 className="text-3xl md:text-4xl font-extrabold text-blue-700 mb-2 text-center">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-700 mb-2">
             ¡Tiempo de Receso!
           </h1>
-          <p className="text-base md:text-lg text-gray-600 text-center">
+          <p className="text-xs sm:text-sm md:text-base text-gray-600">
             Elige una actividad para disfrutar tu tiempo de descanso.
           </p>
         </header>
 
-        {/* Tarjetas de actividades en formato 2x2 con enlaces */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {/* Tarjetas de actividades en formato de cuadrícula ajustado */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           <ActivityCard
             imgSrc="/img/receso/juegos.png"
             title="Juegos"
@@ -94,15 +94,15 @@ const BreakSection = () => {
 function ActivityCard({ imgSrc, title, description, buttonText, linkUrl }) {
   return (
     <Link href={linkUrl} passHref>
-      <div className="flex flex-col items-center bg-pink-100 p-4 md:p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 relative cursor-pointer">
-        <img src={imgSrc} alt={title} className="w-12 md:w-16 mb-4" />
-        <h2 className="text-lg md:text-2xl font-semibold text-blue-800 mb-2 text-center">
+      <div className="flex flex-col items-center bg-pink-100 p-4 rounded-2xl shadow-md hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer">
+        <img src={imgSrc} alt={title} className="w-8 sm:w-10 md:w-12 mb-2" />
+        <h2 className="text-sm sm:text-base md:text-lg font-semibold text-blue-800 mb-1 text-center">
           {title}
         </h2>
-        <p className="text-sm md:text-base text-gray-500 text-center mb-4">
+        <p className="text-xs sm:text-sm md:text-base text-gray-500 mb-2 text-center">
           {description}
         </p>
-        <button className="px-4 py-2 bg-yellow-500 text-black rounded-full border-2 border-black hover:bg-yellow-600 transition-colors duration-200">
+        <button className="px-2 py-1 bg-yellow-500 text-black rounded-full border-2 border-black hover:bg-yellow-600 transition-colors duration-200 text-xs sm:text-sm md:text-base">
           {buttonText}
         </button>
       </div>
