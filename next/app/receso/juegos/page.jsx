@@ -25,44 +25,44 @@ const GamesPage = () => {
       {/* Contenedor principal de tarjetas de juegos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl px-4">
         <GameCard
-          imgSrc="/img/juegos/rocket.png"
-          title="Educational Rocket"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego1/game1.png"
+          title="Caza de monstruos"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/astronaut1.png"
-          title="Space Adventure"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego2/game2.png"
+          title="Revienta globos"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/astronaut2.png"
-          title="Math Skills"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego3/game3.png"
+          title="Cuadrado escapista"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/rocket2.png"
-          title="Space Race"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego4/game4.png"
+          title="Memoria rapida"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/puzzle.png"
-          title="Puzzle Challenge"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego5/game5.png"
+          title="Saltarín evasor"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/memory.png"
-          title="Memory Match"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego6/game6.png"
+          title="Caza estrellas"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/logic.png"
-          title="Logic Quest"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego7/game7.png"
+          title="Color manía"
+          buttonText="Jugar"
         />
         <GameCard
-          imgSrc="/img/juegos/quiz.png"
-          title="Quiz Time"
-          buttonText="Play Now"
+          imgSrc="/img/receso/juego8/game8.png"
+          title="Simon dice"
+          buttonText="Jugar"
         />
       </div>
     </div>
