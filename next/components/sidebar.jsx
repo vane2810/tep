@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
-import RecesoLayout from '/components/breaksection';
 
 export default function Sidebar({ isOpen, onClose, session }) {
   const levelLink = session ? `/niveles/nivel${session.nivel}` : '/';
