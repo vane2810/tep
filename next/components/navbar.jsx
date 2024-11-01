@@ -48,7 +48,7 @@ const Navbar = () => {
           <img
             src="/img/home/logoTEP.png"
             alt="Logo de la aplicación"
-            className="mr-4 lg:mr-10 ml-4 lg:ml-10 w-auto h-14 sm:h-20 lg:h-24"
+            className="mr-2 lg:mr-6 ml-2 lg:ml-6 w-auto h-10 sm:h-16 lg:h-20"
           />
           <span className="md:block hidden text-lg sm:text-2xl lg:text-3xl super">
             TechEduPlanet
@@ -103,7 +103,7 @@ const Navbar = () => {
             <Link href="/auth/login" className="bg-blue-500 hover:bg-blue-700 px-2 lg:px-4 py-1 lg:py-2 rounded font-bold text-sm text-white lg:text-base yagora">
               Iniciar sesión
             </Link>
-            <Link href="/auth/registro" className="bg-green-500 hover:bg-green-700 px-2 lg:px-4 py-1 lg:py-2 rounded font-bold text-sm text-white lg:text-base yagora">
+            <Link href="/auth/register" className="bg-green-500 hover:bg-green-700 px-2 lg:px-4 py-1 lg:py-2 rounded font-bold text-sm text-white lg:text-base yagora">
               Registrarse
             </Link>
           </div>
