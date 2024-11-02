@@ -5,7 +5,6 @@ import { SeparadorRosa } from "../components/separador";
 import Typewriter from "../components/typeWriter";
 import dynamic from 'next/dynamic';
 
-
 const Video = dynamic(() => import('../components/video'), { ssr: false });
 
 export default function HomePage() {
