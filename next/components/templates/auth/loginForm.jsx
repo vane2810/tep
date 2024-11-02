@@ -5,19 +5,18 @@ import Link from 'next/link';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 // Clases reutilizables
-const containerClasses = "flex flex-col justify-center items-center bg-white shadow-lg rounded-lg p-8 sm:p-10 lg:p-12 w-full max-w-md mx-4"; // Contenedor elevado con sombra
 const inputClasses = "border-2 border-yellow-300 focus:bg-yellow-50 px-3 py-2 rounded-md w-full text-base sm:text-lg";
-const labelClasses = "mb-1 sm:mb-2 font-bold text-lg sm:text-xl story";
+const labelClasses = "mb-1 sm:mb-2 font-bold text-lg sm:text-xl";
 
 export default function LoginForm({ formData, handleChange, handleSubmit }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [focusedField, setFocusedField] = useState(null); // Estado para el campo enfocado
+  const [focusedField, setFocusedField] = useState(null); 
 
   // Determina qué imagen mostrar según el campo actualmente enfocado
   const getStarlyImage = () => {
     if (focusedField === "password") return '/img/personajes/starly/starly_contra.png';
     if (focusedField === "email") return '/img/personajes/starly/starly_correo.png';
-    return '/img/personajes/starly/starly.png'; // Imagen neutral
+    return '/img/personajes/starly/starly2.png'; 
   };
 
   const togglePasswordVisibility = () => {
@@ -27,7 +26,7 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
   return (
     <div className="flex lg:flex-row flex-col justify-center items-center bg-gradient-to-r from-pink-100 to-yellow-100 px-4 py-12 w-full min-h-screen yagora">
       {/* Contenedor principal del formulario */}
-      <div className={containerClasses}>
+      <div className="flex flex-col justify-center items-center bg-white shadow-lg mx-4 p-8 sm:p-10 lg:p-12 rounded-lg w-full max-w-md">
         <h1 className="mb-4 font-bold text-2xl text-yellow-600 sm:text-3xl lg:text-4xl">Inicio de sesión</h1>
 
         {/* Imagen dinámica de Starly */}
@@ -48,8 +47,8 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              onFocus={() => setFocusedField("email")}   // Al enfocar, establece el campo activo
-              onBlur={() => setFocusedField(null)}       // Al desenfocar, restablece el campo activo
+              onFocus={() => setFocusedField("email")}   
+              onBlur={() => setFocusedField(null)}          
               required
               className={inputClasses}
             />

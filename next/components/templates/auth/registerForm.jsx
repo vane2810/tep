@@ -9,6 +9,7 @@ const labelClasses = "mb-2 font-bold text-xl story";
 export default function RegisterForm({ formData, handleChange, handleSubmit, errors }) {
   return (
     <div className="flex flex-col justify-center items-center shadow-none p-20 w-full lg:w-1/2">
+      
       <h1 className="mb-4 font-bold text-3xl story">Registro</h1>
       <img src="/img/personajes/starly/starly.png" alt="Logo" className="mb-10 w-32 h-32 animate-float" />
 

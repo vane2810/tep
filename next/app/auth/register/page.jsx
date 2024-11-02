@@ -184,7 +184,7 @@ export default function Register() {
 
   return (
     <div className="flex bg-pink-100">
-      <Volver href="/" />
+      <Volver href="/" img="/img/home/regresar/amarillo.png" />
       <div className="lg:flex justify-center items-center hidden lg:w-1/2">
         <img src="/img/auth/registro.png" alt="Imagen de registro" className="max-w-full h-auto object-contain" />
       </div>

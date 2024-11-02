@@ -3,8 +3,8 @@ import React from "react";
 import Carousel from "../components/carousel";
 import { SeparadorRosa } from "../components/separador";
 import Typewriter from "../components/typeWriter";
-import '../styles/animacion.css';
 import dynamic from 'next/dynamic';
+
 
 const Video = dynamic(() => import('../components/video'), { ssr: false });
 

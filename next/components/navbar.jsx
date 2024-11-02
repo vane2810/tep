@@ -50,7 +50,7 @@ const Navbar = () => {
             alt="Logo de la aplicación"
             className="mr-2 lg:mr-6 ml-2 lg:ml-6 w-auto h-10 sm:h-16 lg:h-20"
           />
-          <span className="md:block hidden text-lg sm:text-2xl lg:text-3xl super">
+          <span className="md:block hidden text-black text-lg sm:text-2xl lg:text-3xl super">
             TechEduPlanet
           </span>
         </Link>

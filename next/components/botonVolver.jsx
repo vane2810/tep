@@ -1,14 +1,22 @@
 // Botón reutilizable de volver a la página anterior 
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
-function Volver({ href, title = "Volver", imgSrc = "/img/home/regresar.png" }) {
+function Volver({ href, title = "Volver", img = "/img/home/regresar/azul.png" }) { 
   return (
-    <div className="mt-6 ml-10 inline-block">
+    <div className="inline-block mt-6 ml-10">
       <Link href={href}>
-        <img src={imgSrc} alt={title} className="w-10 h-auto" title={title} />
+        <img src={img} alt={title} className="w-14 h-auto" title={title} />
       </Link>
     </div>
   );
 }
+
+Volver.propTypes = {
+  href: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  img: PropTypes.string,
+};
+
 export default Volver;

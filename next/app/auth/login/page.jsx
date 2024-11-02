@@ -80,7 +80,7 @@ export default function Login() {
 
   return (
     <div className="flex bg-pink-100">
-      <Volver href="/" />
+      <Volver href="/" img="/img/home/regresar/amarillo.png" />
       <LoginForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
       <LoginModal
         show={showModal}
