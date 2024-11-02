@@ -36,11 +36,7 @@ export default function HomePage() {
       
       {/* Starly */}
       <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10">
-        <img
-          src="/img/personajes/starly/starly_explorador.png"
-          alt="Starly"
-          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-flyIn"
-        />
+
         <Carousel />
       </div>
     </main>
