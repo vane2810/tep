@@ -1,4 +1,4 @@
-// Página de Inicio
+// Página de Inicio djwidwierjerjweio
 import React from "react";
 import Carousel from "../components/carousel";
 import { SeparadorRosa } from "../components/separador";
