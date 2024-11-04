@@ -7,7 +7,6 @@ import RegistroModal from '@/components/modals/auth/registroModal';
 import RolModal from '@/components/modals/auth/rolesModal';
 import NivelModal from '@/components/modals/auth/nivelModal';
 import PersonajeModal from '@/components/modals/auth/personajeModal';
-import Volver from '@/components/botonVolver';
 import RegisterForm from '@/components/templates/auth/registerForm';
 
 export default function Register() {
@@ -183,23 +182,24 @@ export default function Register() {
   };
 
   return (
-    <div className="flex bg-pink-100">
-      <Volver href="/" img="/img/home/regresar/amarillo.png" />
-      <div className="lg:flex justify-center items-center hidden lg:w-1/2">
-        <img src="/img/auth/registro.png" alt="Imagen de registro" className="max-w-full h-auto object-contain" />
-      </div>
-
-      <RegisterForm 
+    <main
+      style={{
+        backgroundImage: 'url(/img/fondos/fondo_register.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <RegisterForm
         formData={formData}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         errors={errors}
       />
-
       {showModal && <RegistroModal show={showModal} message={modalMessage} isError={isError} onClose={() => setShowModal(false)} />}
       <RolModal show={showRolModal} onClose={() => setShowRolModal(false)} onRoleSelected={handleRoleSelected} />
       <NivelModal show={showNivelModal} onClose={() => setShowNivelModal(false)} onLevelSelected={handleLevelSelected} />
       <PersonajeModal show={showPersonajeModal} onClose={() => setShowPersonajeModal(false)} onCharacterSelected={handleCharacterSelected} />
-    </div>
+    </main>
   );
 }

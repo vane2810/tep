@@ -25,20 +25,16 @@ export default function HomePage() {
           />
         </div>
       </div>
-
-    
-      
+      <SeparadorRosa/>
       <div className="flex justify-center">
         {/* Botones (Planetas) */}
         <Video />
       </div>
+      <SeparadorRosa/>
       
       
-      {/* Starly */}
-      <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10">
-
-        <Carousel />
-      </div>
+      {/* Carrusel */}
+      <Carousel />
     </main>
   );
 }

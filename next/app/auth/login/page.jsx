@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import LoginModal from '@/components/modals/auth/loginModal';
-import Volver from '@/components/botonVolver';
 import LoginForm from '@/components/templates/auth/loginForm';
 
 export default function Login() {
@@ -79,8 +78,14 @@ export default function Login() {
   };
 
   return (
-    <div className="flex bg-pink-100">
-      <Volver href="/" img="/img/home/regresar/amarillo.png" />
+    <main
+      style={{
+        backgroundImage: 'url(/img/fondos/fondo_login.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <LoginForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
       <LoginModal
         show={showModal}
@@ -89,6 +94,6 @@ export default function Login() {
         onClose={closeModal}
         redirectTo={redirectTo}
       />
-    </div>
+    </main>
   );
 }
