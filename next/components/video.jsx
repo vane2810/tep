@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 "use client"
 import React, { useState } from "react";
-=======
-// Botones de inicio para cada nivel mejorados
-import React from "react";
->>>>>>> 938ec80b75805a081ed513563dc489dffd9bfa9c
 import Link from 'next/link';
 import Typewriter from "../components/typeWriter";
 
@@ -18,7 +13,6 @@ export default function Video() {
     };
 
     return (
-<<<<<<< HEAD
         <div className="relative bg-gradient-to-br from-blue-900 via-purple-800 to-indigo-900 p-10 w-full overflow-hidden">
             {/* Contenedor de Starly */}
             <div className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center">
@@ -46,16 +40,12 @@ export default function Video() {
                 {/* Contenedor de niveles (aparecen al hacer clic en la varita) */}
                 {showLevels && (
                     <div className="flex flex-wrap justify-center items-center gap-12 opacity-100 mt-8 transition-opacity duration-700">
-                        {[
-                            { href: "/niveles/nivel1", src: "/img/personajes/niveles/tierran1.png", label: "Nivel 1, Cuarto Grado" },
-                            { href: "/niveles/nivel2", src: "/img/personajes/niveles/marten2.png", label: "Nivel 2, Quinto Grado" },
-                            { href: "/niveles/nivel3", src: "/img/personajes/niveles/jupitern3.png", label: "Nivel 3, Sexto Grado" }
-                        ].map((nivel, index) => (
+                        {levels.map((nivel, index) => (
                             <div key={index} className="relative w-48 text-center group">
-                                <Link href={nivel.href} aria-label={nivel.label}>
+                                <Link href={nivel.link} aria-label={nivel.label} passHref>
                                     <div className="group-hover:scale-110 group-hover:rotate-3 bg-white shadow-xl hover:shadow-2xl p-3 rounded-lg transform transition-all duration-300 overflow-hidden">
                                         <img
-                                            src={nivel.src}
+                                            src={nivel.imgSrc}
                                             alt={nivel.label}
                                             className="rounded-lg w-full h-auto object-cover"
                                         />
@@ -68,29 +58,13 @@ export default function Video() {
                         ))}
                     </div>
                 )}
-=======
-        <div className="relative w-full overflow-hidden yagora">
-            {/* Video */}
-            <video autoPlay loop muted className="w-full h-auto md:h-96 object-cover">
-                <source src="/img/home/galaxia.mp4" type="video/mp4" />
-            </video>
-            {/* Botones de niveles */}
-            <div className="top-1/2 left-1/2 z-20 absolute flex md:flex-row flex-col items-center md:gap-12 gap-6 transform -translate-x-1/2 -translate-y-1/2">
-                {levels.map((level) => (
-                    <div key={level.id} className="relative">
-                        <Link href={level.link} passHref>
-                            <img
-                                src={level.imgSrc}
-                                alt={level.altText}
-                                className="hover:shadow-xl w-full md:w-auto lg:w-auto lg:max-w-xs transition-transform duration-300 ease-out hover:scale-110 rounded-full border-4 border-transparent hover:border-yellow-400"
-                            />
-                        </Link>
-                        <div className="top-0 left-1/2 absolute p-2 rounded-md font-bold text-white bg-black bg-opacity-70 whitespace-nowrap transform -translate-x-1/2 -translate-y-full">
-                            {level.label}
-                        </div>
-                    </div>
-                ))}
->>>>>>> 938ec80b75805a081ed513563dc489dffd9bfa9c
+            </div>
+
+            {/* Video de fondo */}
+            <div className="relative w-full overflow-hidden">
+                <video autoPlay loop muted className="w-full h-auto md:h-96 object-cover">
+                    <source src="/img/home/galaxia.mp4" type="video/mp4" />
+                </video>
             </div>
         </div>
     );
