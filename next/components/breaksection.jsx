@@ -1,4 +1,4 @@
-// components/BreakSection.js
+// Vista principal de receso
 import React from 'react';
 import Link from 'next/link';
 
@@ -68,22 +68,17 @@ const BreakSection = () => {
             title="Videos"
             description="Mira videos divertidos."
             buttonText="Ver Videos"
-            linkUrl="/videos"
+            linkUrl="/receso/videos"
           />
-          <ActivityCard
-            imgSrc="/img/receso/actividades.png"
-            title="Actividades"
-            description="Realiza actividades creativas."
-            buttonText="Explorar"
-            linkUrl="/actividades"
-          />
-          <ActivityCard
-            imgSrc="/img/receso/relajacion.png"
-            title="Relajación"
-            description="Tómate un momento para relajarte."
-            buttonText="Relajarse"
-            linkUrl="/relajacion"
-          />
+          <div className="col-span-2 flex justify-center">
+            <ActivityCard
+              imgSrc="/img/receso/relajacion.png"
+              title="Relajación"
+              description="Tómate un momento para relajarte."
+              buttonText="Relajarse"
+              linkUrl="/relajacion"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -111,3 +106,4 @@ function ActivityCard({ imgSrc, title, description, buttonText, linkUrl }) {
 }
 
 export default BreakSection;
+
