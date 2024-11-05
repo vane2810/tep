@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 export default function Video() {
     return (
-        <div className="relative w-full overflow-hidden">
-            {/* Video de fondo */}
-            <video autoPlay loop muted className="w-full h-auto md:h-screen object-cover brightness-75">
+        <div className="relative w-full overflow-hidden yagora">
+            {/* Video */}
+            <video autoPlay loop muted className="w-full h-auto md:h-96 object-cover">
                 <source src="/img/home/galaxia.mp4" type="video/mp4" />
             </video>
             {/* Botones de niveles */}

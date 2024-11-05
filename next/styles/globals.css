@@ -36,9 +36,6 @@
 .rosado {
     background-color: #ED1566;
 }
-.rojo {
-    background-color:darkred;
-}
 .amarillo {
     background-color: #FFF65A;
 }
@@ -49,21 +46,21 @@
     background-color: #A74DB5;
 }
 .azul{
-    background-color: rgb(59 130 246);
+    background-color: #094FC2;
 }
 .anaranjado{
-    background-color: rgb(237, 151, 38);
+    background-color: #ED9726;
 }
+
 .text-rosado{
     color: #ED1566;
 }
 .text-verde{
     color: #46C334;
 }
-.text-rojo{
-    color: darkred
-}
-
 .text-azul{
-    color:  rgb(59 130 246);
+    color:  #094FC2;
+}
+.text-naranja{
+    color: #ED9726;
 }

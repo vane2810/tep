@@ -1,61 +1,60 @@
 // Modal de Elección de Nivel
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const NivelModal = ({ show, onClose, onLevelSelected }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
 
   if (!show) return null;
 
+  const levels = [
+    { id: '1', color: 'bg-purple-600', hoverColor: 'hover:bg-purple-500', imgSrc: '/img/personajes/niveles/tierran1.png', text: 'Nivel 1', grade: '4° Grado', confirmColor: 'bg-purple-600 hover:bg-purple-500' },
+    { id: '2', color: 'bg-indigo-600', hoverColor: 'hover:bg-indigo-500', imgSrc: '/img/personajes/niveles/marten2.png', text: 'Nivel 2', grade: '5° Grado', confirmColor: 'bg-indigo-600 hover:bg-indigo-500' },
+    { id: '3', color: 'bg-teal-600', hoverColor: 'hover:bg-teal-500', imgSrc: '/img/personajes/niveles/jupitern3.png', text: 'Nivel 3', grade: '6° Grado', confirmColor: 'bg-teal-600 hover:bg-teal-500' }
+  ];
+
   const handleSelectLevel = (levelId) => {
-    setSelectedLevel(levelId); 
+    setSelectedLevel(levelId);
   };
 
   const handleConfirmSelection = () => {
     if (selectedLevel !== null) {
-      onLevelSelected(selectedLevel); 
-      onClose(); 
+      onLevelSelected(selectedLevel);
+      onClose();
     }
   };
 
+  // Obtener el color del botón "Confirmar" según el nivel seleccionado
+  const confirmButtonColor = selectedLevel
+    ? levels.find((level) => level.id === selectedLevel)?.confirmColor
+    : 'bg-blue-500 hover:bg-green-600';
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-2xl p-12 w-3/5 max-w-lg">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-800 story">Selecciona tu nivel</h2>
-        <div className="flex justify-around story">
-          <button
-            onClick={() => handleSelectLevel('1')}
-            className={`p-6 rounded-full flex flex-col items-center transition-transform transform hover:scale-110 ${
-              selectedLevel === '1' ? 'ring-4 ring-blue-500' : ''
-            } bg-purple-500 text-white hover:bg-purple-600`}
-          >
-            <img src="/img/personajes/niveles/tierran1.png" alt="Nivel 1" className="h-16 w-16 mb-2" />
-            <span className="text-xl">Nivel 1 <br/> 4° Grado</span>
-          </button>
-          <button
-            onClick={() => handleSelectLevel('2')}
-            className={`p-6 rounded-full flex flex-col items-center transition-transform transform hover:scale-110 ${
-              selectedLevel === '2' ? 'ring-4 ring-blue-500' : ''
-            } bg-indigo-500 text-white hover:bg-indigo-600`}
-          >
-            <img src="/img/personajes/niveles/marten2.png" alt="Nivel 2" className="h-16 w-16 mb-2" />
-            <span className="text-xl">Nivel 2 <br/> 5° Grado</span>
-          </button>
-          <button
-            onClick={() => handleSelectLevel('3')}
-            className={`p-6 rounded-full flex flex-col items-center transition-transform transform hover:scale-110 ${
-              selectedLevel === '3' ? 'ring-4 ring-blue-500' : ''
-            } bg-teal-500 text-white hover:bg-teal-600`}
-          >
-            <img src="/img/personajes/niveles/jupitern3.png" alt="Nivel 3" className="h-16 w-16 mb-2" />
-            <span className="text-xl">Nivel 3 <br/> 6° Grado</span>
-          </button>
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 yagora">
+      <div className="bg-white shadow-2xl p-8 md:p-12 rounded-lg w-11/12 md:w-4/5 max-w-4xl">
+        <h2 className="mb-6 md:mb-8 font-bold text-2xl text-center text-gray-800 md:text-3xl">Selecciona tu nivel</h2>
+        <div className="gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-3">
+          {levels.map((level) => (
+            <button
+              key={level.id}
+              onClick={() => handleSelectLevel(level.id)}
+              className={`p-6 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 shadow-md ${
+                selectedLevel === level.id ? 'ring-4 ring-black' : ''
+              } ${level.color} text-white ${level.hoverColor}`}
+            >
+              <img src={level.imgSrc} alt={`Nivel ${level.id}`} className="mb-4 w-16 h-16" />
+              <span className="font-semibold text-center text-xl">
+                {level.text} <br /> {level.grade}
+              </span>
+            </button>
+          ))}
         </div>
 
         {selectedLevel && (
-          <div className="mt-8 flex justify-center story text-xl">
+          <div className="flex justify-center mt-8 text-2xl">
             <button
               onClick={handleConfirmSelection}
-              className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-transform transform hover:scale-105"
+              className={`${confirmButtonColor} px-8 py-3 rounded-lg text-white transform transition-transform hover:scale-105 shadow-lg`}
             >
               Confirmar
             </button>
@@ -64,6 +63,12 @@ const NivelModal = ({ show, onClose, onLevelSelected }) => {
       </div>
     </div>
   );
+};
+
+NivelModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onLevelSelected: PropTypes.func.isRequired,
 };
 
 export default NivelModal;
