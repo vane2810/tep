@@ -1,4 +1,4 @@
-// pages/GamesPage.js
+// Vista principal juegos de receso
 import React from 'react';
 
 const GamesPage = () => {
