@@ -1,5 +1,5 @@
 // Página principal para el NIVEL 1
-import NivelTemplate from "@/components/templates/niveles/nivelStructure";
+import NivelTemplate from "@/components/templates/levels/nivelStructure";
 
 export default function Nivel1() {
   return (

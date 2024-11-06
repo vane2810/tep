@@ -22,13 +22,14 @@ export default function NivelPtepage() {
 
   return (
     <NivelTemplate
-      fullText={nivelData.fullText}
-      images={nivelData.images}
-      planetName={nivelData.planetName}
-      planetNumber={nivelData.planetNumber}
-      gameIntroLink={nivelData.gameIntroLink}
-      buttonLinks={nivelData.buttonLinks}
-      separadorColor={nivelData.separadorColor}
-    />
+    fullText={nivelData.fullText}
+    images={nivelData.images}
+    planetName={nivelData.planetName}
+    planetNumber={nivelData.planetNumber}
+    gameIntroLink={nivelData.gameIntroLink}
+    buttonLinks={nivelData.buttonLinks}
+    separadorColor={nivelData.separadorColor}
+  />
   );
 }
+
