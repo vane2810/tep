@@ -184,7 +184,7 @@ export default function Register() {
   return (
     <main
       style={{
-        backgroundImage: 'url(/img/fondos/fondo_register.png)',
+        backgroundImage: 'url(/img/fondos/fondo_login.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

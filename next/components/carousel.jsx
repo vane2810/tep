@@ -63,32 +63,24 @@ export default function AutoCarousel() {
     return (
         <>
             {/* Carrusel Pequeño */}
-            <div className="flex flex-col items-center py-8 md:py-16">
-                <div className="relative flex items-center justify-center space-x-2 md:space-x-4 overflow-hidden">
+            <div className="flex flex-col items-center px-4 sm:px-8 lg:px-16 py-8 md:py-16">
+                <div className="relative flex justify-center items-center space-x-2 md:space-x-4 w-full max-w-7xl overflow-hidden">
                     {items.map((item, index) => {
                         const distance = Math.abs(currentIndex - index);
-                        
-                        // Configuración de borde: grosor y color
-                        const borderColor = distance === 0 ? 'border-blue-500' : 'border-gray-300';
-                        const borderThickness = 'border-4'; // Cambia esto a "border-2" o "border-8" según el grosor deseado
-                        
-                        let scale;
-                        if (distance === 0) {
-                            scale = 'scale-100';
-                        } else if (distance === 1) {
-                            scale = 'scale-90';
-                        } else {
-                            scale = 'scale-75';
-                        }
+                        const isCurrent = currentIndex === index;
+
+                        // Configuración de borde y escala para la tarjeta seleccionada
+                        const borderColor = isCurrent ? 'border-blue-500' : 'border-gray-300';
+                        const borderThickness = 'border-2 md:border-4';
+                        const scale = isCurrent ? 'scale-100' : 'scale-90';
 
                         return (
                             <button
                                 key={index}
                                 onClick={() => selectSlide(index)}
                                 aria-label={`Seleccionar tarjeta ${index + 1}`}
-                                className={`relative transition-transform transform ${scale} ${borderColor} ${borderThickness} cursor-pointer w-44 h-64 md:w-56 md:h-72 lg:w-72 lg:h-96 rounded-xl shadow-lg overflow-hidden flex flex-col`}
+                                className={`relative transition-transform transform ${scale} ${borderColor} ${borderThickness} cursor-pointer w-36 h-48 sm:w-40 sm:h-56 md:w-56 md:h-72 lg:w-64 lg:h-80 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300`}
                                 style={{
-                                    transition: 'transform 0.5s ease, opacity 0.5s ease',
                                     zIndex: items.length - distance,
                                 }}
                             >
@@ -97,21 +89,21 @@ export default function AutoCarousel() {
                                     alt={item.title}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4 text-left text-white">
-                                    <h3 className="text-lg font-bold">{item.title}</h3>
-                                    <p className="text-sm">{item.description}</p>
+                                <div className="bottom-0 absolute bg-gradient-to-t from-black to-transparent p-4 w-full text-left text-white text-xs sm:text-sm">
+                                    <h3 className="font-bold text-base sm:text-lg">{item.title}</h3>
+                                    <p className="sm:block hidden">{item.description}</p>
                                 </div>
                             </button>
                         );
                     })}
                 </div>
-                <div className="flex space-x-1 md:space-x-2 mt-4 md:mt-6">
+                <div className="flex space-x-2 mt-4">
                     {items.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => selectSlide(index)}
                             aria-label={`Seleccionar punto ${index + 1}`}
-                            className={`w-2 h-2 md:w-3 md:h-3 rounded-full cursor-pointer transition ${
+                            className={`w-3 h-3 rounded-full cursor-pointer transition ${
                                 index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
                             }`}
                         ></button>
@@ -123,52 +115,52 @@ export default function AutoCarousel() {
             {isModalOpen && (
                 <div
                     id="modal-overlay"
-                    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+                    className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-80 p-4"
                 >
                     <button
                         onClick={closeModal}
-                        className="absolute inset-0 w-full h-full cursor-default opacity-0"
+                        className="absolute inset-0 opacity-0 w-full h-full cursor-default"
                         aria-label="Cerrar modal"
                         onKeyDown={(e) => {
                             if (e.key === 'Escape') closeModal();
                         }}
                     ></button>
 
-                    <div className="relative w-full max-w-3xl flex items-center justify-center z-50 pointer-events-auto">
+                    <div className="relative z-50 flex justify-center items-center w-full max-w-3xl pointer-events-auto">
                         <button
                             onClick={prevSlide}
-                            className="absolute left-4 z-50 focus:outline-none hover:opacity-70 transition"
+                            className="left-4 z-50 absolute focus:outline-none hover:opacity-70 transition"
                             style={{ background: 'none', border: 'none' }}
                         >
                             <img
                                 src="/img/carousel/flecha_i.png"
                                 alt="Flecha izquierda"
-                                className="w-8 h-8 md:w-10 md:h-10"
+                                className="w-8 sm:w-10 h-8 sm:h-10"
                             />
                         </button>
 
                         {/* Contenedor de la Tarjeta Ampliada con Borde */}
-                        <div className="w-full h-96 md:h-[500px] relative flex justify-center items-center rounded-lg shadow-lg overflow-hidden border-4 border-blue-500">
+                        <div className="relative flex justify-center items-center border-4 shadow-lg p-2 md:p-0 border-blue-500 rounded-lg w-full max-w-lg h-[60vh] md:h-[500px] overflow-hidden">
                             <img
                                 src={items[currentIndex].image}
                                 alt={items[currentIndex].title}
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4 text-left text-white">
-                                <h3 className="text-2xl font-bold">{items[currentIndex].title}</h3>
-                                <p className="text-lg">{items[currentIndex].description}</p>
+                            <div className="bottom-0 absolute bg-gradient-to-t from-black to-transparent p-4 w-full text-left text-white">
+                                <h3 className="font-bold text-lg md:text-2xl">{items[currentIndex].title}</h3>
+                                <p className="text-sm md:text-lg">{items[currentIndex].description}</p>
                             </div>
                         </div>
 
                         <button
                             onClick={nextSlide}
-                            className="absolute right-4 z-50 focus:outline-none hover:opacity-70 transition"
+                            className="right-4 z-50 absolute focus:outline-none hover:opacity-70 transition"
                             style={{ background: 'none', border: 'none' }}
                         >
                             <img
                                 src="/img/carousel/flecha_d.png"
                                 alt="Flecha derecha"
-                                className="w-8 h-8 md:w-10 md:h-10"
+                                className="w-8 sm:w-10 h-8 sm:h-10"
                             />
                         </button>
                     </div>
