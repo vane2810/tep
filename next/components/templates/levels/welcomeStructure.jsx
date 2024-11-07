@@ -2,7 +2,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Typewriter from "@/components/elements/typeWriter";
+import Typewriter from "@/components/typeWriter";
 
 export default function WelcomeMessage({ images, fullText, onWelcomeEnd }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

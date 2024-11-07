@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Game1Modal from '@/components/modals/games/mate/decimales/game4Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/elements/typeWriter";
+import Typewriter from "@/components/typeWriter";
 
 //Importación de juego
 const Game4 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/division/game4'), { ssr: false });

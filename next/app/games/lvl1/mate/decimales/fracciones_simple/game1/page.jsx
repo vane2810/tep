@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/elements/typeWriter";
+import Typewriter from "@/components/typeWriter";
 import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal';
 
 // Importación del juego

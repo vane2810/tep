@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import Volver from '@/components/elements/botonVolver';
 import Loading from '@/components/loading';
 import { SeparadorMorado } from "@/components/separador";
-import Typewriter from "@/components/elements/typeWriter";
+import Typewriter from "@/components/typeWriter";
 import Modal from '@/components/modals/games/instrucciones';
 
 // Función para cargar el componente de juego según el gameType
