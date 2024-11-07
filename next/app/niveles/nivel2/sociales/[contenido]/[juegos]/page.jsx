@@ -2,10 +2,10 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import Loading from '@/components/loading';
 import { SeparadorAzul} from "@/components/separador";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elemets/typeWriter";
 import Modal from '@/components/modals/games/instrucciones';
 import dynamic from 'next/dynamic';
 

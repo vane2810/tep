@@ -154,6 +154,29 @@
   }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+      transform: rotate(-5deg);
+  }
+  50% {
+      transform: rotate(5deg);
+  }
+}
 /* Clases de animación para llamar a toda la app */
 
 /* Desvanecer */
@@ -208,10 +231,9 @@
 }
 
 .planet-animation {
-  animation: float 3s ease-in-out infinite;
+  animation: float 2s ease-in-out infinite;
 }
 
-/* styles/animacion.css */
 
 .animate-spin-slow {
   animation: spin 20s linear infinite;
@@ -225,29 +247,6 @@
   animation: bounce 3s infinite;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes twinkle {
-  0%, 100% {
-      transform: rotate(-5deg);
-  }
-  50% {
-      transform: rotate(5deg);
-  }
-}
 .animate-twinkle {
   animation: twinkle 1.5s infinite alternate;
 }

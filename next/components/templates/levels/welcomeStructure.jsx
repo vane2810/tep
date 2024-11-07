@@ -2,7 +2,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elemets/typeWriter";
 
 export default function WelcomeMessage({ images, fullText, onWelcomeEnd }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -24,7 +24,7 @@ export default function WelcomeMessage({ images, fullText, onWelcomeEnd }) {
   }, [images, onWelcomeEnd]);
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-r from-purple-900 via-indigo-900 to-black h-screen text-white">
+    <div className="flex justify-center items-center bg-gradient-to-r from-purple-900 via-indigo-900 to-black h-screen text-white yagora">
       <div className="text-center">
         {images.length > 0 && (
           <img

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ModalEliminarUsuario from '@/components/modals/admin/eliminarModal';
 import ModalAgregarUsuario from '@/components/modals/admin/crearModal';
 import Link from 'next/link';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 
 export default function GestionUsuarios() {
   const [usuarios, setUsuarios] = useState([]);

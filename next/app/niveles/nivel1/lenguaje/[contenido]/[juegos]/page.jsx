@@ -2,10 +2,10 @@
 "use client";
 import React, { useContext, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import Loading from '@/components/loading';
 import { SeparadorMorado } from "@/components/separador";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elemets/typeWriter";
 import Modal from '@/components/modals/games/instrucciones';
 import dynamic from 'next/dynamic';
 import { SessionContext } from '@/context/session'; 

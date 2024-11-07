@@ -15,6 +15,7 @@ const RootLayout = ({ children }) => {
   return (
     <SessionProvider>
       <html lang="en">
+        <head></head>
         <body>
           <header><Navbar /></header>
           {children}

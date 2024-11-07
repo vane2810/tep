@@ -5,7 +5,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Game2Modal from '@/components/modals/games/mate/ob/game2Modal';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elemets/typeWriter";
 
 //Importación del juego
 const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/ob/multiplicacion/game2'), { ssr: false });
@@ -58,30 +58,30 @@ const MultiGamePage2 = () => {
   return (
     <main className="bg-gray-100">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap">
+      <div className="flex flex-wrap justify-between items-center">
         {/* Botón de Volver */}
-        <div className="ml-8 inline-block mb-20">
+        <div className="inline-block mb-20 ml-8">
           <Link href="/niveles/nivel1/mate/operaciones_basicas/multiplicacion/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
         {/* Contenedor del Typewriter, la imagen y el botón */}
-        <div className="flex items-center my-6 mx-auto">
+        <div className="flex items-center mx-auto my-6">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/signomultiplicacion.png" alt="multi" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/signomultiplicacion.png" alt="multi" className="w-auto h-40" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
-            <div className="story font-bold text-xl mb-4">
+            <div className="mb-4 font-bold text-xl story">
               <Typewriter
                 text="   Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
             {/* Botón de Indicaciones */}
-            <button className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+            <button className="hover:bg-blue-700 px-4 py-2 rounded text-white text-xl transition duration-300 story verde"
               onClick={toggleInstructions}> Indicaciones
             </button>
           </div>
@@ -99,15 +99,15 @@ const MultiGamePage2 = () => {
 
       {/* Escena del juego */}
       {gameStarted && (
-        <section className='min-h-screen flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Multiplicaciones de Decenas y Unidades</h1>
-            <div className="flex justify-between text-2xl mb-4">
+        <section className='flex flex-col items-center min-h-screen'>
+          <div className="bg-white shadow-lg my-16 p-6 rounded-lg w-[850px] story">
+            <h1 className="mb-4 font-bold text-3xl text-center">Multiplicaciones de Decenas y Unidades</h1>
+            <div className="flex justify-between mb-4 text-2xl">
               <p className="text-2xl">Pregunta: {questionCount}/10</p>
               <p className="text-2xl">Estrellas: {score}/100</p>
             </div>
-            <div className="mb-6 p-4 bg-blue-100 rounded-lg">
-              <h2 className="text-xl font-semibold">Resultado: {feedback}</h2>
+            <div className="bg-blue-100 mb-6 p-4 rounded-lg">
+              <h2 className="font-semibold text-xl">Resultado: {feedback}</h2>
             </div>
             <Game2 
               setFeedback={setFeedback} 
@@ -117,13 +117,13 @@ const MultiGamePage2 = () => {
               onGameEnd={handleGameEnd} 
             />
             {questionCount >= 10 && (
-              <div className="mt-6 p-4 bg-green-100 rounded-lg">
-                <h2 className="text-xl font-semibold text-center">Fin del Juego</h2>
-                <p className='text-lg text-center'>{finalMessage}</p>
+              <div className="bg-green-100 mt-6 p-4 rounded-lg">
+                <h2 className="font-semibold text-center text-xl">Fin del Juego</h2>
+                <p className='text-center text-lg'>{finalMessage}</p>
                 {score < 70 && ( 
                   <button
                     onClick={retryGame}
-                    className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
+                    className="bg-red-500 hover:bg-red-700 mt-4 px-6 py-2 rounded text-white transition duration-300"
                   >
                     Volver a Intentarlo
                   </button>
