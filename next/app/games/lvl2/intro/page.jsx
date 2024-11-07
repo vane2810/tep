@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
 import '@/styles/animacion.css';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 
 // Carga dinámica del componente del juego sin renderizado en el servidor (SSR)
 const Game = dynamic(() => import('@/components/minigame/lvl2/intro/game'), { ssr: false });
@@ -12,22 +12,22 @@ const Game = dynamic(() => import('@/components/minigame/lvl2/intro/game'), { ss
 // Componente modal para mostrar las instrucciones del juego
 const InstructionsModal = ({ onClose, onPlay }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-lg p-8 max-w-lg mx-auto">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="bg-white mx-auto p-8 rounded-lg max-w-lg">
 
-        <h2 className="text-2xl font-bold mb-4 text-center">Instrucciones del Juego</h2>
-        <img src="/img/games/mate/ob/intrucciones.png" alt="Instrucciones" className="w-1/2 mx-auto mb-4" />
+        <h2 className="mb-4 font-bold text-2xl text-center">Instrucciones del Juego</h2>
+        <img src="/img/games/mate/ob/intrucciones.png" alt="Instrucciones" className="mx-auto mb-4 w-1/2" />
         <p className="mb-4 text-center">
           Bienvenido al juego. Debes mover la nave espacial para evitar los asteroides y obtener la máxima puntuación posible. Usa las teclas de flecha hacia arriba y hacia abajo para moverte.
         </p>
         <div className="flex justify-center space-x-4">
           <button
-            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
             onClick={onClose}>
             Cerrar
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded text-white"
             onClick={onPlay}>
             Jugar
           </button>
@@ -64,23 +64,23 @@ const IntroGame2 = () => {
       <Volver href="/niveles/nivel2"/>
       {/* Sección de bienvenida */}
       <div className="flex flex-col justify-center items-center mt-2">
-        <h1 className="ml-10 story text-2xl font-bold text-center">Bienvenidos/as a Juegos Introductorios</h1>
+        <h1 className="ml-10 font-bold text-2xl text-center story">Bienvenidos/as a Juegos Introductorios</h1>
         <img
           src="/img/personajes/starly/starly.png"
           alt="Starly"
-          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
+          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-tumble"
         />
       </div>
 
       <SeparadorRosa />
 
       {/* Zona del juego */}
-      <div className="flex-grow flex flex-col justify-center items-center w-full">
+      <div className="flex flex-col flex-grow justify-center items-center w-full">
         {!showGame && (
           <div className="flex flex-col items-center my-20">
-            <img src="/img/games/mate/ob/pre-game-image.png" alt="Pre-Game" className="w-64 mb-4" />
+            <img src="/img/games/mate/ob/pre-game-image.png" alt="Pre-Game" className="mb-4 w-64" />
             <button
-              className="px-6 py-3 bg-green-500 text-white rounded-full"
+              className="bg-green-500 px-6 py-3 rounded-full text-white"
               onClick={handleOpenModal}
             >
               Leer Indicaciones
@@ -96,7 +96,7 @@ const IntroGame2 = () => {
         {/* Juego */}
         {showGame && (
           <div className="flex justify-center items-center w-full h-full">
-            <div className="w-full max-w-[800px] h-[600px] flex justify-center items-center">
+            <div className="flex justify-center items-center w-full max-w-[800px] h-[600px]">
               <Game />
             </div>
           </div>

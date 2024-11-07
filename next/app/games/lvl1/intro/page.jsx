@@ -4,7 +4,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
 import '@/styles/animacion.css'
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 
 const Game = dynamic(() => import('@/components/minigame/lvl1/intro/game'), { ssr: false });
 
@@ -14,12 +14,12 @@ const IntroGame1 = () => {
             <SeparadorRosa />
             {/* Volver */}
             <Volver href="/niveles/nivel1" />
-            <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
-                <h1 className="ml-10 story text-2xl font-bold text-center">Bienvenido a Juegos Introductorios</h1>
+            <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10">
+                <h1 className="ml-10 font-bold text-2xl text-center story">Bienvenido a Juegos Introductorios</h1>
                 <img
                     src="/img/personajes/starly/starly.png"
                     alt="Starly"
-                    className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
+                    className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-tumble"
                 />
             </div>
 

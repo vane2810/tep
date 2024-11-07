@@ -1,8 +1,7 @@
-// Carousel.jsx
 "use client";
 import { useState, useEffect } from 'react';
 
-export default function AutoCarousel() {
+export default function Carousel() {
     const items = [
         {
             image: '/img/carousel/img5.png',
@@ -64,7 +63,7 @@ export default function AutoCarousel() {
         <>
             {/* Carrusel Pequeño */}
             <div className="flex flex-col items-center px-4 sm:px-8 lg:px-16 py-8 md:py-16">
-                <div className="relative flex justify-center items-center space-x-2 md:space-x-4 w-full max-w-7xl overflow-hidden">
+                <div className="relative flex justify-center items-center space-x-2 md:space-x-4 w-full max-w-5xl overflow-hidden">
                     {items.map((item, index) => {
                         const distance = Math.abs(currentIndex - index);
                         const isCurrent = currentIndex === index;
@@ -79,7 +78,7 @@ export default function AutoCarousel() {
                                 key={index}
                                 onClick={() => selectSlide(index)}
                                 aria-label={`Seleccionar tarjeta ${index + 1}`}
-                                className={`relative transition-transform transform ${scale} ${borderColor} ${borderThickness} cursor-pointer w-36 h-48 sm:w-40 sm:h-56 md:w-56 md:h-72 lg:w-64 lg:h-80 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300`}
+                                className={`relative transition-transform transform ${scale} ${borderColor} ${borderThickness} cursor-pointer w-28 h-36 sm:w-32 sm:h-44 md:w-44 md:h-60 lg:w-52 lg:h-68 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300`}
                                 style={{
                                     zIndex: items.length - distance,
                                 }}
@@ -126,7 +125,7 @@ export default function AutoCarousel() {
                         }}
                     ></button>
 
-                    <div className="relative z-50 flex justify-center items-center w-full max-w-3xl pointer-events-auto">
+                    <div className="relative z-50 flex justify-center items-center w-full max-w-2xl pointer-events-auto">
                         <button
                             onClick={prevSlide}
                             className="left-4 z-50 absolute focus:outline-none hover:opacity-70 transition"
@@ -135,12 +134,12 @@ export default function AutoCarousel() {
                             <img
                                 src="/img/carousel/flecha_i.png"
                                 alt="Flecha izquierda"
-                                className="w-8 sm:w-10 h-8 sm:h-10"
+                                className="w-6 sm:w-8 h-6 sm:h-8"
                             />
                         </button>
 
                         {/* Contenedor de la Tarjeta Ampliada con Borde */}
-                        <div className="relative flex justify-center items-center border-4 shadow-lg p-2 md:p-0 border-blue-500 rounded-lg w-full max-w-lg h-[60vh] md:h-[500px] overflow-hidden">
+                        <div className="relative flex justify-center items-center border-4 shadow-lg p-2 md:p-0 border-blue-500 rounded-lg w-full max-w-md h-[50vh] md:h-[400px] overflow-hidden">
                             <img
                                 src={items[currentIndex].image}
                                 alt={items[currentIndex].title}
@@ -160,7 +159,7 @@ export default function AutoCarousel() {
                             <img
                                 src="/img/carousel/flecha_d.png"
                                 alt="Flecha derecha"
-                                className="w-8 sm:w-10 h-8 sm:h-10"
+                                className="w-6 sm:w-8 h-6 sm:h-8"
                             />
                         </button>
                     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaLayerGroup } from 'react-icons/fa';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 
 export default function ContenidosPage() {
   return (

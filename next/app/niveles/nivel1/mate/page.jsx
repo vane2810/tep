@@ -1,10 +1,8 @@
 // Inicio Matemáticas - Nivel 1
-
 import React from "react";
 import Link from 'next/link';
 import { SeparadorRosa } from "@/components/separador";
-import '@/styles/globals.css';
-import '@/styles/animacion.css';
+import Volver from "@/components/elements/botonVolver";
 
 export default function MatematicaPage() {
 
@@ -14,11 +12,7 @@ export default function MatematicaPage() {
       <section>
         <SeparadorRosa />
         {/* Volver */}
-        <div className="inline-block mt-6 ml-10">
-          <Link href="/niveles/nivel1">
-            <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-          </Link>
-        </div>
+        <Volver href="/niveles/nivel1"/>
         <div className="flex md:flex-row flex-col justify-center items-center mb-5">
           <div className="flex flex-col items-center md:mr-8 mb-4 md:mb-0 md:ml-2.5">
             <img src="/img/personajes/donkey/donkey.png" alt="Donkey" className="mx-2.5 md:mr-8 md:ml-2.5 w-auto h-64" />

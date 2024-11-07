@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Game1Modal from '@/components/modals/games/mate/decimales/game3Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elements/typeWriter";
 
 // Importación de juego
 const Game3 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/comparacion/game3'), { ssr: false });
@@ -44,7 +44,7 @@ const GamePage3 = () => {
   return (
     <main className="bg-gray-100 min-h-screen">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap mb-8">
+      <div className="flex flex-wrap justify-between items-center mb-8">
         {/* Botón de Volver */}
         <div className="ml-8">
           <Link href="/niveles/nivel1/mate/decimales/comparacion/juegos">
@@ -55,12 +55,12 @@ const GamePage3 = () => {
         <div className="flex items-center mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/compafig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/compafig.png" alt="Decimales" className="w-auto h-40" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
-            <div className="story font-bold text-xl mb-4">
+            <div className="mb-4 font-bold text-xl story">
               <Typewriter
                 text="   Lee las indicaciones antes de comenzar"
                 speed={40}
@@ -68,7 +68,7 @@ const GamePage3 = () => {
             </div>
             {/* Botón de Indicaciones */}
             <button 
-              className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+              className="hover:bg-blue-700 px-4 py-2 rounded text-white text-xl transition duration-300 story verde"
               onClick={toggleInstructions}
             > 
               Indicaciones
@@ -89,16 +89,16 @@ const GamePage3 = () => {
       {/* Escena del juego */}
       {gameStarted && (
         <section className='flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[1250px]"> {/* Ancho ajustado a 1000px */}
-            <h1 className="text-3xl font-bold mb-4 text-center">Organiza los decimales de mayor a menor</h1>
+          <div className="bg-white shadow-lg my-16 p-6 rounded-lg w-[1250px] story"> {/* Ancho ajustado a 1000px */}
+            <h1 className="mb-4 font-bold text-3xl text-center">Organiza los decimales de mayor a menor</h1>
             <Game3 
               updateFeedback={updateFeedback} 
               updateScore={updateScore} 
               onCompleteGame={onCompleteGame}
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}/200</p>
+              <p className="font-semibold text-xl" style={{ color: feedbackColor }}>Feedback: {feedback}</p>
+              <p className="font-semibold text-xl">Estrellas: {score}/200</p>
             </div>
           </div>
         </section>

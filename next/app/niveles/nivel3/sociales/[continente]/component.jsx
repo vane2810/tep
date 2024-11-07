@@ -1,7 +1,7 @@
 // Página principal para cada continente
 "use client";
 import React, { useState, useEffect } from 'react';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
 import { useRouter } from 'next/navigation';
 import Loading from '@/components/loading';

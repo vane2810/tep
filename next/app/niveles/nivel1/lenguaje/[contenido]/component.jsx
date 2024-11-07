@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
 
 export default function Component({ id }) {

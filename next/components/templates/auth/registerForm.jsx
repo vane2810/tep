@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FiEye, FiEyeOff, FiMail, FiLock, FiUser } from 'react-icons/fi';
-import Volver from '@/components/botonVolver';
-import ErrorMessage from '@/components/mensajesError'; // Importa el componente de error
+import Volver from '@/components/elements/botonVolver';
+import ErrorMessage from '@/components/menssages/mensajesError'; 
 
 const inputClasses = "border-2 border-yellow-300 bg-white px-3 py-2 rounded-full w-full text-base sm:text-lg pl-10";
 const labelClasses = "mb-1 sm:mb-2 font-bold text-lg sm:text-xl";

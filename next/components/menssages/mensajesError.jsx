@@ -1,5 +1,6 @@
 // Componente para mensajes de error
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FiAlertCircle } from 'react-icons/fi';
 
 const ErrorMessage = ({ message }) => {
@@ -11,6 +12,10 @@ const ErrorMessage = ({ message }) => {
       <span>{message}</span>
     </div>
   );
+};
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string, // `message` es opcional y debe ser un string
 };
 
 export default ErrorMessage;

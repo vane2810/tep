@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Game1Modal from '@/components/modals/games/mate/decimales/game2Modal';
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elements/typeWriter";
 
 const Game2 = dynamic(() => import('@/components/minigame/lvl1/mate/decimales/intro/game2'), { ssr: false });
 
@@ -72,24 +72,24 @@ const GamePage2 = () => {
   return (
     <main className="bg-gray-100">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap">
-        <div className="ml-8 inline-block mb-20">
+      <div className="flex flex-wrap justify-between items-center">
+        <div className="inline-block mb-20 ml-8">
           <Link href="/niveles/nivel1/mate/decimales/intro/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
-        <div className="flex items-center my-6 mx-auto">
+        <div className="flex items-center mx-auto my-6">
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="w-auto h-40" />
           </div>
           <div className="flex flex-col">
-            <div className="story font-bold text-xl mb-4">
+            <div className="mb-4 font-bold text-xl story">
               <Typewriter
                 text="   Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
-            <button className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+            <button className="hover:bg-blue-700 px-4 py-2 rounded text-white text-xl transition duration-300 story verde"
               onClick={toggleInstructions}> Indicaciones
             </button>
           </div>
@@ -105,9 +105,9 @@ const GamePage2 = () => {
       />
 
       {gameStarted && (
-        <section className='min-h-screen flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">¿Cuál es mayor?</h1>
+        <section className='flex flex-col items-center min-h-screen'>
+          <div className="bg-white shadow-lg my-16 p-6 rounded-lg w-[850px] story">
+            <h1 className="mb-4 font-bold text-3xl text-center">¿Cuál es mayor?</h1>
             <Game2
               updateFeedback={updateFeedback} 
               updateScore={setScore}  
@@ -115,14 +115,14 @@ const GamePage2 = () => {
               incrementCorrectCount={incrementCorrectCount} 
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score} / 100</p>
-              <p className="text-xl font-semibold">Respuestas correctas: {correctCount} de 5</p>
+              <p className="font-semibold text-xl">Feedback: {feedback}</p>
+              <p className="font-semibold text-xl">Estrellas: {score} / 100</p>
+              <p className="font-semibold text-xl">Respuestas correctas: {correctCount} de 5</p>
             </div>
 
             {showRetryButton && (
               <button 
-                className="mt-4 bg-red-500  story text-xl text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
+                className="bg-red-500 hover:bg-red-700 mt-4 px-4 py-2 rounded text-white text-xl transition duration-300 story"
                 onClick={resetGame}
               >
                 Volver a Intentar

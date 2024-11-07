@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Game1Modal from '@/components/modals/games/mate/decimales/game1Modal'; 
 import dynamic from 'next/dynamic';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/typeWriter";
+import Typewriter from "@/components/elements/typeWriter";
 
 // Importación del juego
 const Game1 = dynamic(() => import('@/components/minigame/lvl2/mate/decimales/equivalente/game1'), { ssr: false });
@@ -67,30 +67,30 @@ const GamePage1 = () => {
   return (
     <main className="bg-gray-100">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap">
+      <div className="flex flex-wrap justify-between items-center">
         {/* Botón de Volver */}
-        <div className="ml-8 inline-block mb-20">
+        <div className="inline-block mb-20 ml-8">
           <Link href="/niveles/nivel2/mate/decimales/equivalentes/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
         {/* Contenedor del Typewriter, la imagen y el botón */}
-        <div className="flex items-center my-6 mx-auto">
+        <div className="flex items-center mx-auto my-6">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Equivalentes" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Equivalentes" className="w-auto h-40" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
-            <div className="story font-bold text-xl mb-4">
+            <div className="mb-4 font-bold text-xl story">
               <Typewriter
                 text="   Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
             {/* Botón de Indicaciones */}
-            <button className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+            <button className="hover:bg-blue-700 px-4 py-2 rounded text-white text-xl transition duration-300 story verde"
               onClick={toggleInstructions}> Indicaciones
             </button>
           </div>
@@ -108,9 +108,9 @@ const GamePage1 = () => {
 
       {/* Escena del juego */}
       {gameStarted && (
-        <section className='min-h-screen flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Fracciones Equivalentes</h1>
+        <section className='flex flex-col items-center min-h-screen'>
+          <div className="bg-white shadow-lg my-16 p-6 rounded-lg w-[850px] story">
+            <h1 className="mb-4 font-bold text-3xl text-center">Fracciones Equivalentes</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 
@@ -121,13 +121,13 @@ const GamePage1 = () => {
               restartGame={handleRetry}
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Ejercicio {currentScene} de 5</p>
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
+              <p className="font-semibold text-xl">Ejercicio {currentScene} de 5</p>
+              <p className="font-semibold text-xl">Feedback: {feedback}</p>
+              <p className="font-semibold text-xl">Estrellas: {score}</p>
               {showRetry && (
                 <button 
                   onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
+                  className="bg-red-500 hover:bg-red-700 mt-4 px-6 py-2 rounded text-white transition duration-300"
                 >
                   Volver a Intentarlo
                 </button>
