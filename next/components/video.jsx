@@ -25,7 +25,7 @@ export default function Video() {
       <div className="flex gap-16 mt-60">
         
         {/* Imagen Izquierda (cohete1) */}
-        <button onClick={() => router.push('/nivel1')} className="focus:outline-none flex flex-col items-center">
+        <button onClick={() => router.push('/niveles/nivel1')} className="focus:outline-none flex flex-col items-center">
           <p className="mb-10 px-2 py-1 bg-white border border-black rounded-lg text-lg font-bold text-center text-blue-500">
             Nivel 1, Cuarto Grado
           </p>
@@ -41,7 +41,7 @@ export default function Video() {
         </button>
 
         {/* Imagen Central (cohete2) */}
-        <button onClick={() => router.push('/nivel2')} className="focus:outline-none flex flex-col items-center">
+        <button onClick={() => router.push('/niveles/nivel2')} className="focus:outline-none flex flex-col items-center">
           <p className="mb-10 px-2 py-1 bg-white border border-black rounded-lg text-lg font-bold text-center text-red-500">
             Nivel 2, Quinto Grado
           </p>
@@ -57,7 +57,7 @@ export default function Video() {
         </button>
 
         {/* Imagen Derecha (cohete3) */}
-        <button onClick={() => router.push('/nivel3')} className="focus:outline-none flex flex-col items-center">
+        <button onClick={() => router.push('/niveles/nivel3')} className="focus:outline-none flex flex-col items-center">
           <p className="mb-10 px-2 py-1 bg-white border border-black rounded-lg text-lg font-bold text-center text-yellow-600">
             Nivel 3, Sexto Grado
           </p>
