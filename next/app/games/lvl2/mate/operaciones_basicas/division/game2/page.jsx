@@ -5,7 +5,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Game2Modal from '@/components/modals/games/mate/ob/suma/game2Modal';
 import { SeparadorVerde } from "@/components/separador";
-import Typewriter from "@/components/elemets/typeWriter";
+import Typewriter from "@/components/elements/typeWriter";
 
 const Game2 = dynamic(() => import('@/components/minigame/lvl2/mate/division/game2'), { ssr: false });
 
