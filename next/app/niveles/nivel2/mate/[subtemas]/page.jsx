@@ -1,4 +1,4 @@
-// Página principal de subtemas nivel1 - mate
+// Página principal de subtemas nivel2 - mate
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
@@ -13,40 +13,40 @@ const SubtemasPage = () => {
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
     ob: {
-      titulo: "OPERACIONES BÁSICAS | NIVEL I",
+      titulo: "OPERACIONES BÁSICAS | NIVEL II",
       descripcion: "¡Explora el fascinante mundo de las operaciones básicas! Elige tu tema y sumérgete en números y diversión.",
-      imagen: "/img/materias/mate/obn1.png",
-      volverUrl: "/niveles/nivel1/mate",
+      imagen: "/img/materias/mate/obn2.jpg",
+      volverUrl: "/niveles/nivel2/mate",
       buttonColor: "morado",
       temas: [
         {
           title: "Sumas Básicas",
           description: "Aprende sobre sumas simples con números decimales.",
-          link: "/niveles/nivel1/mate/ob/sumas",
+          link: "/niveles/nivel2/mate/ob/sumas",
           buttonLabel: "Comenzar Suma",
           imgSrc: "/img/niveles/mate/N1.png",
         },
         {
           title: "Restas Básicas",
           description: "Conceptos básicos de resta con decimales.",
-          link: "/niveles/nivel1/mate/ob/restas",
+          link: "/niveles/nivel2/mate/ob/restas",
           buttonLabel: "Comenzar Resta",
           imgSrc: "/img/niveles/mate/N2.png",
         },
       ],
     },
     decimale: {
-      titulo: "NÚMEROS DECIMALES | NIVEL I",
+      titulo: "NÚMEROS DECIMALES | NIVEL II",
       descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
-      imagen: "/img/materias/mate/decimalesn1.png",
-      volverUrl: "/niveles/nivel1/mate",
+      imagen: "/img/materias/mate/decimalesn2.png",
+      volverUrl: "/niveles/nivel2/mate",
       buttonColor: "morado",
     },
     geometri: {
-      titulo: "GEOMETRÍA | NIVEL I",
+      titulo: "GEOMETRÍA | NIVEL III",
       descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
-      imagen: "/img/materias/mate/geon1.png",
-      volverUrl: "/niveles/nivel1/mate",
+      imagen: "/img/materias/mate/geon2.png",
+      volverUrl: "/niveles/nivel2/mate",
       buttonColor: "morado",
     },
   };
@@ -58,7 +58,7 @@ const SubtemasPage = () => {
   }
 
   return (
-    // Página principal de subtemas nivel1 - mate
+    // Página principal de subtemas nivel2 - mate
     <main>
       <SeparadorMorado />
       {/* Encabezado del subtema */}

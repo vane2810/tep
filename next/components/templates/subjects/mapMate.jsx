@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-export default function MateMap({ mostrarCabeza, cabezaSrc, segmentos }) {
+export default function MateMap({ mostrarCabeza, cabezaSrc, segmentos, nivel }) {
   return (
     <section>
       <div className="flex justify-center mt-10 overflow-x-auto">
@@ -20,7 +20,7 @@ export default function MateMap({ mostrarCabeza, cabezaSrc, segmentos }) {
 
         {/* Segmentos del gusano */}
         {segmentos.map((segmento) => (
-          <Link href={`/niveles/nivel1/mate/${segmento.id}`} key={segmento.id}>
+          <Link href={`/niveles/${nivel}/mate/${segmento.id}`} key={segmento.id}>
             <img
               src={segmento.imgSrc}
               alt={segmento.alt}
@@ -45,6 +45,7 @@ MateMap.propTypes = {
       marginTop: PropTypes.string,
     })
   ).isRequired,
+  nivel: PropTypes.string,
 };
 
 // Valores predeterminados para props opcionales

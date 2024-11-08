@@ -6,12 +6,11 @@ import Volver from "@/components/elements/botonVolver";
 
 export default function MatematicaPage() {
   const segmentos = [
-    { id: "ob", imgSrc: "/img/niveles/mate/nivel1/ob.png", alt: "Operaciones Básicas" },
-    { id: "decimale", imgSrc: "/img/niveles/mate/nivel1/NDYF.png", alt: "Números Decimales" },
-    { id: "geometria", imgSrc: "/img/niveles/mate/nivel1/geo.png", alt: "Geometría" },
-    { id: "multimedia", imgSrc: "/img/niveles/mate/nivel1/refuerzof.png", alt: "Resolución de Problemas" },
+    { id: "ob", imgSrc: "/img/materias/mate/ob_n1.png", alt: "Operaciones Básicas" },
+    { id: "decimale", imgSrc: "/img/materias/mate/decimales_n1.png", alt: "Números Decimales" },
+    { id: "geometri", imgSrc: "/img/materias/mate/geometria_n1.png", alt: "Geometría" },
+    { id: "multimedia", imgSrc: "/img/materias/mate/multimedia_n1.png", alt: "Resolución de Problemas" },
   ];
-
 
   return (
     <main className="flex flex-col min-h-screen">
@@ -25,8 +24,9 @@ export default function MatematicaPage() {
       {/* Gusano con cabeza y segmentos */}
       <MateMap
         mostrarCabeza={true}
-        cabezaSrc="/img/niveles/mate/nivel1/cabeza.png"
+        cabezaSrc="/img/materias/mate/cabeza_n1.png"
         segmentos={segmentos}
+        nivel="nivel1"
       />
     </main>
   );

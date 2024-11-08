@@ -80,7 +80,7 @@ export default function Login() {
   return (
     <main
       style={{
-        backgroundImage: 'url(/img/fondos/fondo_login.png)',
+        backgroundImage: 'url(/img/auth/fondo_auth.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

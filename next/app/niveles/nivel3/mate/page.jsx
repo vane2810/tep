@@ -1,47 +1,32 @@
-// Mate - Nivel 3
+// pages/niveles/nivel1/matematica.js
 import React from "react";
-import Link from 'next/link';
-import { SeparadorRosa } from "@/components/separador";
+import WelcomeSection from "@/components/templates/subjects/welcomeSection";
+import MateMap from "@/components/templates/subjects/mapMate";
+import Volver from "@/components/elements/botonVolver";
 
 export default function MatematicaPage() {
+  const segmentos = [
+    { id: "ob", imgSrc: "/img/materias/mate/ob_n3.png", alt: "Operaciones Básicas" },
+    { id: "decimale", imgSrc: "/img/materias/mate/decimales_n3.png" , alt: "Números Decimales" },
+    { id: "geometri", imgSrc: "/img/materias/mate/geometria_n3.png", alt: "Geometría" },
+    { id: "multimedia", imgSrc: "/img/materias/mate/multimedia_n3.png", alt: "Resolución de Problemas" },
+  ];
+
   return (
-    <main>
-      {/* Bienvenida de Donkey */}
-      <section>
-        <SeparadorRosa />
-        {/* Volver */}
-        <div className="mt-6 ml-10 inline-block">
-          <Link href="/niveles/nivel3">
-            <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
-          </Link>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-center mb-5">
-          <div className="flex flex-col items-center md:mr-8 md:ml-2.5 mb-4 md:mb-0">
-            <img src="/img/personajes/donkey/donkeysaludo.png" alt="Donkey" className="h-64 w-auto mx-2.5 md:mr-8 md:ml-2.5" />
-          </div>
-          <p className="text-black super text-4xl md:text-6xl md:ml-8">MATEMÁTICA</p>
-        </div>
-        <SeparadorRosa />
-      </section>
+    <main className="flex flex-col min-h-screen">
+      <Volver href="/niveles/nivel3" img="/img/home/regresar/amarillo.png" />
+      <WelcomeSection
+        personajeImg="/img/personajes/donkey/donkey.png"
+        personaje="Donkey"
+        titulo="¡Matemática!"
+      />
 
-      {/* Temas */}
-      <section className="my-20">
-        <div className="flex flex-wrap justify-center gap-4 mt-5 mx-2.5">
-          <Link href="/niveles/nivel3/mate/operaciones_basicas">
-            <img src="/img/niveles/mate/nivel3/opebasicas.png" alt="Operaciones" className="w-36 md:w-64 h-36 md:h-64 md:mr-3" />
-          </Link>
-          <Link href="/niveles/nivel3/mate/decimales">
-            <img src="/img/niveles/mate/nivel3/Numerosdyf.png" alt="Numeros decimales" className="w-36 md:w-64 h-36 md:h-64 md:mr-3" />
-          </Link>
-          <Link href="/niveles/nivel3/mate/geometria">
-            <img src="/img/niveles/mate/nivel3/geometri.png" alt="Geografia" className="w-36 md:w-64 h-36 md:h-64 md:mr-3" />
-          </Link>
-          <Link href="/niveles/nivel3/mate/multimedia">
-            <img src="/img/niveles/mate/nivel3/repaso.png" alt="Resolucion de problemas" className="w-36 md:w-64 h-36 md:h-64 md:mr-3" />
-          </Link>
-        </div>
-      </section>
-
+      {/* Gusano con cabeza y segmentos */}
+      <MateMap
+        mostrarCabeza={false}
+        segmentos={segmentos}
+        nivel="nivel3"
+      />
     </main>
   );
 }

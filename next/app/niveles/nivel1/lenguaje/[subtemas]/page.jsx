@@ -12,10 +12,10 @@ const SubtemasPage = () => {
 
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
-    ob: {
+    ortografia: {
       titulo: "OPERACIONES BÁSICAS | NIVEL I",
       descripcion: "¡Explora el fascinante mundo de las operaciones básicas! Elige tu tema y sumérgete en números y diversión.",
-      imagen: "/img/materias/mate/obn1.png",
+      imagen: "/img/niveles/mate/figuritamate1.png",
       volverUrl: "/niveles/nivel1/mate",
       buttonColor: "morado",
       temas: [
@@ -35,17 +35,24 @@ const SubtemasPage = () => {
         },
       ],
     },
-    decimale: {
+    gramatica: {
       titulo: "NÚMEROS DECIMALES | NIVEL I",
       descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
-      imagen: "/img/materias/mate/decimalesn1.png",
+      imagen: "/img/niveles/mate/estrellita.png",
       volverUrl: "/niveles/nivel1/mate",
       buttonColor: "morado",
     },
-    geometri: {
+    generos_literarios: {
       titulo: "GEOMETRÍA | NIVEL I",
       descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
-      imagen: "/img/materias/mate/geon1.png",
+      imagen: "/img/niveles/mate/figuras.png",
+      volverUrl: "/niveles/nivel1/mate",
+      buttonColor: "morado",
+    },
+    lectura: {
+      titulo: "GEOMETRÍA | NIVEL I",
+      descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
+      imagen: "/img/niveles/mate/figuras.png",
       volverUrl: "/niveles/nivel1/mate",
       buttonColor: "morado",
     },
@@ -73,7 +80,7 @@ const SubtemasPage = () => {
         <TextHeader
           titulo="Elige un tema"
           descripcion="Selecciona uno de los siguientes temas para comenzar"
-          imagenSrc="/img/personajes/starly/starly_mate.png"
+          imagenSrc="/img/personajes/starly/starly_lenguaje.png"
         />
 
         {/* Contenedor de tarjetas en el mismo div levantado */}
