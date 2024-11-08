@@ -59,9 +59,9 @@ const GamePage2 = () => {
   };
 
   return (
-    <main className="bg-gray-100 min-h-screen flex flex-col">
+    <main className="flex flex-col bg-gray-100 min-h-screen">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap px-8 mt-8">
+      <div className="flex flex-wrap justify-between items-center mt-8 px-8">
         {/* Botón de Volver */}
         <div className="inline-block mb-20">
           <Link href="/niveles/nivel3/mate/decimales/operaciones/juegos">
@@ -72,19 +72,19 @@ const GamePage2 = () => {
         <div className="flex items-center mx-auto">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/introfig.png" alt="Decimales" className="w-auto h-40" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
-            <div className="story font-bold text-xl mb-4">
+            <div className="mb-4 font-bold text-xl story">
               <Typewriter
                 text="   Lee las indicaciones para comenzar"
                 speed={40}
               />
             </div>
             {/* Botón de Indicaciones */}
-            <button className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+            <button className="hover:bg-blue-700 px-4 py-2 rounded text-white text-xl transition duration-300 story verde"
               onClick={toggleInstructions}> Indicaciones
             </button>
           </div>
@@ -102,9 +102,9 @@ const GamePage2 = () => {
 
       {/* Escena del juego */}
       {gameStarted && (
-        <section className="flex-grow flex flex-col items-center">
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Sumemos las fracciones</h1>
+        <section className="flex flex-col flex-grow items-center">
+          <div className="bg-white shadow-lg my-16 p-6 rounded-lg w-[850px] story">
+            <h1 className="mb-4 font-bold text-3xl text-center">Sumemos las fracciones</h1>
             <Game2 
               key={gameKey} 
               updateFeedback={updateFeedback} 
@@ -116,12 +116,12 @@ const GamePage2 = () => {
               restartGame={handleRetry}
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score}</p>
+              <p className="font-semibold text-xl">Feedback: {feedback}</p>
+              <p className="font-semibold text-xl">Estrellas: {score}</p>
               {showRetry && (
                 <button 
                   onClick={handleRetry} 
-                  className="mt-4 py-2 px-6 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300"
+                  className="bg-red-500 hover:bg-red-700 mt-4 px-6 py-2 rounded text-white transition duration-300"
                 >
                   Volver a Intentarlo
                 </button>

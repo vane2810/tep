@@ -1,9 +1,8 @@
 // Página principal de Lenguaje - Nivel 1
 "use client";
 import React, { useState, useEffect } from "react";
-import WelcomeSection from '@/components/templates/materias/welcomeSection';
-import MapLenguaje from '@/components/templates/materias/mapLenguaje';
-import '@/styles/animacion.css';
+import WelcomeSection from '@/components/templates/subjects/welcomeSection';
+import MapLenguaje from '@/components/templates/subjects/mapLenguaje';
 import { SeparadorMorado } from "@/components/separador";
 
 export default function LenguajePage() {

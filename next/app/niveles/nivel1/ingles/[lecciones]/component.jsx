@@ -1,7 +1,7 @@
 // Página principal para las lecciones de inglés
 "use client";
 import React, { useState, useEffect, useContext } from 'react';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import { SeparadorAnaranjado } from '@/components/separador';
 import { useRouter } from 'next/navigation';
 import Loading from '@/components/loading';

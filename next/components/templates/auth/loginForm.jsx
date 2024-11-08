@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FiEye, FiEyeOff, FiMail, FiLock } from 'react-icons/fi';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 
 // Clases reutilizables
 const inputClasses = "border-2 border-yellow-300 bg-white focus:bg-white px-3 py-2 rounded-full w-full text-base sm:text-lg pl-10";

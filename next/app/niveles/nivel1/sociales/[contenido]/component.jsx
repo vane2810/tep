@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';  // Asegúrate de usar la importación correcta
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
 
 

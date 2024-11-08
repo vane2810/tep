@@ -63,23 +63,23 @@ const GamePage1 = () => {
   return (
     <main className="bg-gray-100">
       <SeparadorVerde />
-      <div className="flex items-center justify-between flex-wrap">
+      <div className="flex flex-wrap justify-between items-center">
         {/* Botón de Volver */}
-        <div className="ml-8 inline-block mb-20">
+        <div className="inline-block mb-20 ml-8">
           <Link href="/niveles/nivel1/mate/decimales/fracciones_simples/juegos">
             <img src="/img/home/regresar.png" alt="Volver" className="w-10 h-auto" title="Volver a la página anterior" />
           </Link>
         </div>
         {/* Contenedor del Typewriter, la imagen y el botón */}
-        <div className="flex items-center my-6 mx-auto">
+        <div className="flex items-center mx-auto my-6">
           {/* Imagen */}
           <div className="flex-shrink-0 mr-4">
-            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Simples" className="h-40 w-auto" />
+            <img src="/img/niveles/mate/figfrasim.png" alt="Fracciones Simples" className="w-auto h-40" />
           </div>
           {/* Typewriter y botón */}
           <div className="flex flex-col">
             {/* Texto */}
-            <div className="story font-bold text-xl mb-4">
+            <div className="mb-4 font-bold text-xl story">
               <Typewriter
                 text="  Lee las indicaciones para comenzar"
                 speed={40}
@@ -87,7 +87,7 @@ const GamePage1 = () => {
             </div>
             {/* Botón de Indicaciones */}
             <button 
-              className="verde story text-xl text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
+              className="hover:bg-blue-700 px-4 py-2 rounded text-white text-xl transition duration-300 story verde"
               onClick={toggleInstructions}
             >
               Indicaciones
@@ -107,9 +107,9 @@ const GamePage1 = () => {
 
       {/* Escena del juego */}
       {gameStarted && (
-        <section className='min-h-screen flex flex-col items-center'>
-          <div className="my-16 p-6 story bg-white rounded-lg shadow-lg w-[850px]">
-            <h1 className="text-3xl font-bold mb-4 text-center">Identificación de Fracciones Simples</h1>
+        <section className='flex flex-col items-center min-h-screen'>
+          <div className="bg-white shadow-lg my-16 p-6 rounded-lg w-[850px] story">
+            <h1 className="mb-4 font-bold text-3xl text-center">Identificación de Fracciones Simples</h1>
             <Game1 
               key={gameKey} 
               updateFeedback={updateFeedback} 
@@ -120,9 +120,9 @@ const GamePage1 = () => {
               restartGame={restartGame} // Función para reiniciar el juego
             />
             <div className="mt-8">
-              <p className="text-xl font-semibold">Ejercicio {currentScene}</p>
-              <p className="text-xl font-semibold">Feedback: {feedback}</p>
-              <p className="text-xl font-semibold">Estrellas: {score} / 75</p>
+              <p className="font-semibold text-xl">Ejercicio {currentScene}</p>
+              <p className="font-semibold text-xl">Feedback: {feedback}</p>
+              <p className="font-semibold text-xl">Estrellas: {score} / 75</p>
             </div>
           </div>
         </section>

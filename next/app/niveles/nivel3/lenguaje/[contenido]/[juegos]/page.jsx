@@ -2,7 +2,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import Loading from '@/components/loading';
 import { SeparadorMorado } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";

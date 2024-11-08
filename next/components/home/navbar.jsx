@@ -99,14 +99,21 @@ const Navbar = () => {
           </>
         ) : (
           // Botones para iniciar sesión o registrarse
-          <div className="sm:flex space-x-2 md:space-x-4 hidden">
-            <Link href="/auth/login" className="bg-blue-500 hover:bg-blue-700 px-2 lg:px-4 py-1 lg:py-2 rounded font-bold text-sm text-white lg:text-base yagora">
+          <div className="flex space-x-2 md:space-x-4">
+            <Link
+              href="/auth/login"
+              className="bg-blue-500 hover:bg-blue-700 px-2 md:px-3 lg:px-4 py-1 md:py-1 lg:py-2 rounded font-bold text-white text-xs md:text-sm lg:text-base yagora"
+            >
               Iniciar sesión
             </Link>
-            <Link href="/auth/register" className="bg-green-500 hover:bg-green-700 px-2 lg:px-4 py-1 lg:py-2 rounded font-bold text-sm text-white lg:text-base yagora">
+            <Link
+              href="/auth/register"
+              className="bg-green-500 hover:bg-green-700 px-2 md:px-3 lg:px-4 py-1 md:py-1 lg:py-2 rounded font-bold text-white text-xs md:text-sm lg:text-base yagora"
+            >
               Registrarse
             </Link>
           </div>
+
         )}
 
         {/* Icono para abrir la barra lateral */}

@@ -1,5 +1,5 @@
 // Componente de bienvenida del personaje, reutilizable para todos los niveles y asignaturas
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import '@/styles/animacion.css';
 
 const WelcomeSection = ({ volverUrl, personajeImg, personajeAlt, titulo, mensajeBienvenida }) => (

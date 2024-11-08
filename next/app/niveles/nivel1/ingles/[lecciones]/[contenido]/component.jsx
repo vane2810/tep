@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Volver from '@/components/botonVolver';
+import Volver from '@/components/elements/botonVolver';
 import { SeparadorAnaranjado } from '@/components/separador';
 import Loading from '@/components/loading';
 
