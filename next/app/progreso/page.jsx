@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { SessionContext } from '@/context/session';
 import Loading from '@/components/loading';
 import { SeparadorRosa } from '@/components/separador';
-import WelcomeSection from '@/components/templates/materias/welcomeSection';
+import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 

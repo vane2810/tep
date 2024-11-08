@@ -1,7 +1,7 @@
 // Página principal de Lenguaje - Nivel 3
 "use client"
 import React, { useEffect, useState, useContext } from "react";
-import WelcomeSection from '@/components/templates/materias/welcomeSection';
+import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import MapLenguaje from '@/components/templates/materias/mapLenguaje';
 import '@/styles/animacion.css';
 import { SeparadorMorado } from "@/components/separador";

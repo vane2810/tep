@@ -1,6 +1,6 @@
 // Página principal de inglés - Nivel 3
 import React from "react";
-import WelcomeSection from '@/components/templates/materias/welcomeSection';
+import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import MapIngles from '@/components/templates/materias/mapIngles';
 import '@/styles/animacion.css';
 import { SeparadorAnaranjado } from "@/components/separador";

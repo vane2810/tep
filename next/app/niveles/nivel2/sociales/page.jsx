@@ -1,7 +1,7 @@
 // Página principal de Sociales - Nivel 2
 "use client"
 import React, { useEffect, useState, useContext } from 'react';
-import WelcomeSection from '@/components/templates/materias/welcomeSection';
+import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import dynamic from 'next/dynamic';
 import '@/styles/animacion.css';
 import { SeparadorAzul } from '@/components/separador';

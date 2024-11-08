@@ -1,14 +1,14 @@
 // Página principal de Sociales - Nivel 1
 "use client"
 import React, { useContext, useEffect, useState } from 'react';
-import WelcomeSection from '@/components/templates/materias/welcomeSection';
+import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import dynamic from 'next/dynamic';
 import '@/styles/animacion.css';
 import { SeparadorAzul } from '@/components/separador';
 import { SessionContext } from '@/context/session';
 
 // Importación dinámica de LevelMap
-const MapSociales = dynamic(() => import('@/components/templates/materias/mapSociales'), {
+const MapSociales = dynamic(() => import('@/components/templates/subjects/mapSociales'), {
   ssr: false,
 });
 

@@ -1,20 +1,27 @@
-// Componente de bienvenida del personaje, reutilizable para todos los niveles y asignaturas
-import Volver from '@/components/elements/botonVolver';
-import '@/styles/animacion.css';
+// Componente de bienvenida para todos las asignaturas de cada materia
+import React from "react";
+import PropTypes from "prop-types";
 
-const WelcomeSection = ({ volverUrl, personajeImg, personajeAlt, titulo, mensajeBienvenida }) => (
-  <section className="mb-2 p-5 rounded-lg w-full">
-    {/* Volver */}
-    <Volver href={volverUrl} />
+const WelcomeSection = ({ personajeImg, personaje, titulo }) => (
+  <section className="mb-4 p-5 rounded-lg w-full">
     <div className="flex md:flex-row flex-col justify-center items-center mb-5">
       <div className="flex flex-col items-center md:mr-8 mb-4 md:mb-0 md:ml-2.5">
-        <img src={personajeImg} alt={personajeAlt} className="mx-2 w-auto h-64 planet-animation" />
+        <img
+          src={personajeImg}
+          alt={personaje}
+          className="mx-2 w-32 md:w-auto h-32 md:h-64 planet-animation"
+        />
       </div>
-      <p className="md:ml-8 text-4xl text-center md:text-6xl super">{titulo}</p>
-      
+      <p className="text-2xl text-center md:text-4xl lg:text-6xl super">{titulo}</p>
     </div>
-    <p className="text-3xl text-center story">{mensajeBienvenida}</p>
+    <p className="text-center text-lg md:text-2xl lg:text-3xl story">¡Bienvenidos a mi clase, soy el Profesor {personaje} y te guiaré en esta aventura!</p>
   </section>
 );
+
+WelcomeSection.propTypes = {
+  personajeImg: PropTypes.string.isRequired,
+  personaje: PropTypes.string.isRequired,
+  titulo: PropTypes.string.isRequired,
+};
 
 export default WelcomeSection;

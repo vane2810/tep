@@ -8,26 +8,26 @@ const GuestModal = ({ show }) => {
   };
 
   return (
-    <div className="fixed inset-0 story bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full text-center">
-        <h2 className="text-3xl font-semibold mb-4">¡Hola!</h2>
-        <img src="/img/personajes/starly/starly.png" className="w-20 h-18 mx-auto mb-4" alt="Starly" />
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-75 story">
+      <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-md text-center">
+        <h2 className="mb-4 font-semibold text-3xl">¡Hola!</h2>
+        <img src="/img/personajes/starly/starly.png" className="mx-auto mb-4 w-20 h-18" alt="Starly" />
 
         <p className="mb-6">Para tener acceso a esta funcionalidad, debes crear una cuenta o iniciar sesión.</p>
         <div className="flex justify-around">
           <button 
             onClick={handleClose} 
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition duration-200">
+            className="bg-red-500 hover:bg-red-700 px-4 py-2 rounded text-white transition duration-200">
             Cerrar
           </button>
           <a 
-            href="/adm/login" 
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-200">
+            href="/auth/login" 
+            className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded text-white transition duration-200">
             Iniciar sesión
           </a>
           <a 
-            href="/adm/registro" 
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition duration-200">
+            href="/auth/register" 
+            className="bg-green-500 hover:bg-green-700 px-4 py-2 rounded text-white transition duration-200">
             Registrarse
           </a>
         </div>
