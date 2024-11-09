@@ -1,0 +1,22 @@
+{
+  "title": "Sonidos de la Naturaleza",
+  "description": "Sumérgete en el poder relajante de los sonidos naturales. Selecciona uno de los ambientes a continuación y cierra los ojos para disfrutarlo.",
+  "sounds": [
+    {
+      "name": "Lluvia en el Bosque",
+      "description": "Escucha la suave lluvia caer entre los árboles del bosque.",
+      "audioUrl": "https://www.example.com/lluvia-bosque.mp3"
+    },
+    {
+      "name": "Olas del Mar",
+      "description": "Relájate con el sonido rítmico de las olas golpeando la orilla.",
+      "audioUrl": "https://www.example.com/olas-mar.mp3"
+    },
+    {
+      "name": "Canto de los Pájaros",
+      "description": "Imagina un día soleado en un bosque, donde los pájaros cantan alegremente.",
+      "audioUrl": "https://www.example.com/canto-pajaros.mp3"
+    }
+  ]
+}
+

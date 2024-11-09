@@ -1,11 +1,124 @@
-// Vista principal juegos de receso
-import React from 'react';
+// pages/games/index.jsx
+"use client";
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import InstruccionesModal from '/components/modals/receso/instrucciones';
 
 const GamesPage = () => {
+  const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(null);
+
+  // Datos de los juegos
+  const games = [
+    {
+      imgSrc: "/img/receso/juego1/game1.png",
+      title: "Caza de monstruos",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Caza de Monstruos",
+        text: "En este juego, debes cazar monstruos antes de que se escapen.¡Haz clic en cada monstruo para atraparlo!",
+        text2: "¡Algunos monstruos por su tamaño te quitan puntos!",
+        text3: "¡Llega a 200 puntos antes del tiempo!",
+        imageSrc: "/img/receso/juego1/juego1m.png"
+      },
+      gameRoute: "/receso/juegos/juego1"
+    },
+    {
+      imgSrc: "/img/receso/juego2/game2.png",
+      title: "Revienta globos",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Revienta Globos",
+        text: "En este juego, debes reventar globos antes de que suban demasiado alto. ¡Haz clic rápido para ganar!",
+      },
+      gameRoute: "/receso/juegos/juego2"
+    },
+    {
+      imgSrc: "/img/receso/juego3/game3.png",
+      title: "Cuadrado escapista",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Cuadrado Escapista",
+        text: "Ayuda al cuadrado a escapar de los obstáculos. Usa las flechas para moverlo y evitar las trampas.",
+      },
+      gameRoute: "/receso/juegos/juego3"
+    },
+    {
+      imgSrc: "/img/receso/juego4/game4.png",
+      title: "Memoria rápida",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Memoria Rápida",
+        text: "Encuentra los pares de cartas iguales lo más rápido posible. ¡Pon a prueba tu memoria!",
+      },
+      gameRoute: "/receso/juegos/juego4"
+    },
+    {
+      imgSrc: "/img/receso/juego5/game5.png",
+      title: "Saltarín evasor",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Saltarín Evasor",
+        text: "Salta sobre los obstáculos y evita caer en las trampas. ¡Sé rápido y preciso!",
+      },
+      gameRoute: "/receso/juegos/juego5"
+    },
+    {
+      imgSrc: "/img/receso/juego6/game6.png",
+      title: "Caza estrellas",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Caza Estrellas",
+        text: "Recoge todas las estrellas en el menor tiempo posible. ¡Compite contra el reloj!",
+      },
+      gameRoute: "/receso/juegos/juego6"
+    },
+    {
+      imgSrc: "/img/receso/juego7/game7.png",
+      title: "Color manía",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Color Manía",
+        text: "Selecciona los colores correctos para completar el desafío. ¡Muestra tu creatividad!",
+      },
+      gameRoute: "/receso/juegos/juego7"
+    },
+    {
+      imgSrc: "/img/receso/juego8/game8.png",
+      title: "Simon dice",
+      buttonText: "Jugar",
+      instructions: {
+        title: "Simon Dice",
+        text: "Repite la secuencia de colores que Simon te muestre. ¡Pon a prueba tu memoria y concentración!",
+      },
+      gameRoute: "/receso/juegos/juego8"
+    },
+  ];
+
+  // Función para abrir el modal con las instrucciones del juego seleccionado
+  const openInstructionModal = (game) => {
+    setSelectedGame(game);
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const closeInstructionModal = () => {
+    setIsModalOpen(false);
+    setSelectedGame(null);
+  };
+
+  // Función para iniciar el juego
+  const handleStartGame = () => {
+    if (selectedGame && selectedGame.gameRoute) {
+      closeInstructionModal();
+      router.push(selectedGame.gameRoute);
+    }
+  };
+
   return (
-    
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-200 flex flex-col items-center py-10 relative">
-      {/* Título de Bienvenida */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 text-center">
         ¡Bienvenido a la Zona de Juegos!
       </h1>
@@ -13,7 +126,6 @@ const GamesPage = () => {
         Explora y disfruta de juegos interactivos para aprender y divertirte.
       </p>
 
-      {/* Imagen Central */}
       <div className="mb-10">
         <img
           src="/img/receso/juegosp.png"
@@ -22,60 +134,40 @@ const GamesPage = () => {
         />
       </div>
 
-      {/* Contenedor principal de tarjetas de juegos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl px-4">
-        <GameCard
-          imgSrc="/img/receso/juego1/game1.png"
-          title="Caza de monstruos"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego2/game2.png"
-          title="Revienta globos"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego3/game3.png"
-          title="Cuadrado escapista"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego4/game4.png"
-          title="Memoria rapida"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego5/game5.png"
-          title="Saltarín evasor"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego6/game6.png"
-          title="Caza estrellas"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego7/game7.png"
-          title="Color manía"
-          buttonText="Jugar"
-        />
-        <GameCard
-          imgSrc="/img/receso/juego8/game8.png"
-          title="Simon dice"
-          buttonText="Jugar"
-        />
+        {games.map((game, index) => (
+          <GameCard
+            key={index}
+            imgSrc={game.imgSrc}
+            title={game.title}
+            buttonText={game.buttonText}
+            onClick={() => openInstructionModal(game)}
+          />
+        ))}
       </div>
+
+      {selectedGame && (
+        <InstruccionesModal
+          isOpen={isModalOpen}
+          onClose={closeInstructionModal}
+          instructions={selectedGame.instructions}
+          handleStartGame={handleStartGame}
+        />
+      )}
     </div>
   );
 };
 
 // Componente de Tarjeta de Juego
-function GameCard({ imgSrc, title, buttonText }) {
+function GameCard({ imgSrc, title, buttonText, onClick }) {
   return (
     <div className="flex flex-col items-center bg-gradient-to-r from-pink-100 to-pink-200 p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-transform duration-300 transform hover:-translate-y-1 relative border border-gray-200">
       <img src={imgSrc} alt={title} className="w-24 h-24 mb-4 rounded-full" />
       <h2 className="text-2xl font-semibold text-blue-800 mb-2 text-center">{title}</h2>
-      <button className="px-6 py-2 mt-4 bg-blue-600 text-white rounded-full border-2 border-blue-700 hover:bg-blue-700 transition-colors duration-200">
+      <button
+        onClick={onClick}
+        className="px-6 py-2 mt-4 bg-blue-600 text-white rounded-full border-2 border-blue-700 hover:bg-blue-700 transition-colors duration-200"
+      >
         {buttonText}
       </button>
     </div>
