@@ -76,7 +76,7 @@ const BreakSection = () => {
               title="Relajación"
               description="Tómate un momento para relajarte."
               buttonText="Relajarse"
-              linkUrl="/relajacion"
+              linkUrl="/receso/relajacion"
             />
           </div>
         </div>
