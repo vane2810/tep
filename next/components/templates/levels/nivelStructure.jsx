@@ -14,7 +14,7 @@ function ButtonLink({ href, label, imgSrc, alt }) {
       <Link href={href}>
         {/* Contenedor externo con el color principal como borde */}
         <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105 mb-2">
-          {/* Contenedor interno con fondo blanco y tamaño reducido para agrandar el borde */}
+          {/* Contenedor interno con fondo blanco */}
           <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
             {/* Imagen centrada dentro del círculo blanco */}
             <img
