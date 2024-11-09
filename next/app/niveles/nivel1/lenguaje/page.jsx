@@ -35,6 +35,7 @@ export default function LenguajePage() {
             segmentos={segmentos}
             fondoUrl="/img/materias/lenguaje/fondon1.jpg"
             planetaImg="/img/personajes/niveles/tierran1.png"
+            nivel="nivel1"
           />
         </div>
       </div>

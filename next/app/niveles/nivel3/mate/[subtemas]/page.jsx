@@ -15,7 +15,7 @@ const SubtemasPage = () => {
     ob: {
       titulo: "OPERACIONES BÁSICAS | NIVEL III",
       descripcion: "¡Explora el fascinante mundo de las operaciones básicas! Elige tu tema y sumérgete en números y diversión.",
-      imagen: "/img/materias/mate/obn3.png",
+      imagen: "/img/materias/mate/obn.png",
       volverUrl: "/niveles/nivel3/mate",
       buttonColor: "morado",
       temas: [
@@ -38,14 +38,14 @@ const SubtemasPage = () => {
     decimale: {
       titulo: "NÚMEROS DECIMALES | NIVEL III",
       descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
-      imagen: "/img/materias/mate/decimalesn3.png",
+      imagen: "/img/materias/mate/decimalesn.png",
       volverUrl: "/niveles/nivel3/mate",
       buttonColor: "morado",
     },
     geometri: {
       titulo: "GEOMETRÍA | NIVEL III",
       descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
-      imagen: "/img/materias/mate/geon3.png",
+      imagen: "/img/materias/mate/geon.png",
       volverUrl: "/niveles/nivel3/mate",
       buttonColor: "morado",
     },
