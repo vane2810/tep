@@ -8,7 +8,7 @@ import { SeparadorAzul } from '@/components/separador';
 import { SessionContext } from '@/context/session';
 
 // Importación dinámica de LevelMap
-const MapSociales = dynamic(() => import('@/components/templates/materias/mapSociales'), {
+const MapSociales = dynamic(() => import('@/components/templates/subjects/mapSociales'), {
     ssr: false,
 });
 
