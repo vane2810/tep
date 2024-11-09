@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-const MapLenguaje = ({ segmentos, fondoUrl, planetaImg }) => {
+const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
     // Elementos decorativos específicos de Lenguaje (excepto el planeta)
     const decorativos = [
         { img: "/img/materias/lenguaje/cohete.png", alt: "Cohete", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
@@ -32,7 +32,7 @@ const MapLenguaje = ({ segmentos, fondoUrl, planetaImg }) => {
                 const positionClass = positionClasses[index % positionClasses.length];
 
                 return (
-                    <Link href={`/niveles/nivel1/lenguaje/${segmento.id}`} key={segmento.id}>
+                    <Link href={`/niveles/${nivel}/lenguaje/${segmento.id}`} key={segmento.id}>
                         <img
                             src={segmento.imgSrc}
                             alt={segmento.alt}
@@ -65,6 +65,7 @@ MapLenguaje.propTypes = {
     ).isRequired,
     fondoUrl: PropTypes.string.isRequired,
     planetaImg: PropTypes.string.isRequired, 
+    nivel: PropTypes.string.isRequired, 
 };
 
 export default MapLenguaje;

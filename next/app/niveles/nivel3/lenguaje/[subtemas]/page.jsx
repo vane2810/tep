@@ -1,4 +1,4 @@
-// Página principal de subtemas nivel1 - lenguaje
+// Página principal de subtemas nivel3 - lenguaje
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
@@ -13,47 +13,47 @@ const SubtemasPage = () => {
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
     ortografia: {
-      titulo: "ORTOGRAFÍA | NIVEL I",
+      titulo: "ORTOGRAFÍA | NIVEL III",
       descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
       imagen: "/img/materias/lenguaje/ortografian.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
+      volverUrl: "/niveles/nivel3/lenguaje",
       buttonColor: "morado",
       temas: [
         {
           title: "Sumas Básicas",
           description: "Aprende sobre sumas simples con números decimales.",
-          link: "/niveles/nivel1/lenguaje/ob/sumas",
+          link: "/niveles/nivel3/lenguaje/ob/sumas",
           buttonLabel: "Comenzar Suma",
           imgSrc: "/img/niveles/lenguaje/N1.png",
         },
         {
           title: "Restas Básicas",
           description: "Conceptos básicos de resta con decimales.",
-          link: "/niveles/nivel1/lenguaje/ob/restas",
+          link: "/niveles/nivel3/lenguaje/ob/restas",
           buttonLabel: "Comenzar Resta",
           imgSrc: "/img/niveles/lenguaje/N2.png",
         },
       ],
     },
     gramatica: {
-      titulo: "GRAMÁTICA | NIVEL I",
+      titulo: "GRAMÁTICA | NIVEL III",
       descripcion: "¡Aventúrate en el intrigante universo de la gramática! Explora las reglas y estructuras de nuestra lengua para mejorar tu comprensión y expresión escrita",
       imagen: "/img/materias/lenguaje/gramatican.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
+      volverUrl: "/niveles/nivel3/lenguaje",
       buttonColor: "morado",
     },
     generos_literarios: {
-      titulo: "GÉNEROS LITERARIOS | NIVEL I",
+      titulo: "GÉNEROS LITERARIOS | NIVEL III",
       descripcion: "Sumérgete en la diversidad de los géneros literarios y descubre el encanto de las distintas formas narrativas. Desde cuentos hasta poesía, explora cada género y aprende sus características únicas mientras te diviertes con actividades interactivas",
       imagen: "/img/materias/lenguaje/generosn.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
+      volverUrl: "/niveles/nivel3/lenguaje",
       buttonColor: "morado",
     },
     lectura: {
-      titulo: "LECTURA | NIVEL I",
+      titulo: "LECTURA | NIVEL III",
       descripcion: "Sumérgete en el maravilloso mundo de la lectura. Mejora tu comprensión lectora y disfruta de textos especialmente seleccionados para enriquecer tu vocabulario y comprensión",
       imagen: "/img/materias/lenguaje/lecturan.jpg",
-      volverUrl: "/niveles/nivel1/lenguaje",
+      volverUrl: "/niveles/nivel3/lenguaje",
       buttonColor: "morado",
     },
   };
@@ -65,7 +65,7 @@ const SubtemasPage = () => {
   }
 
   return (
-    // Página principal de subtemas nivel1 - lenguaje
+    // Página principal de subtemas nivel3 - lenguaje
     <main>
       <SeparadorMorado />
       {/* Encabezado del subtema */}
