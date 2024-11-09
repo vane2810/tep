@@ -12,8 +12,8 @@ export default function Nivel3() {
         "/img/personajes/niveles/bienvenida/mundito3.png",
       ]}
       planetImg="/img/personajes/niveles/jupitern3.png"
-      planetName="CELESTIA"
-      planetNumber="I"
+      planetName="COSMO"
+      planetNumber="III"
       buttonLinks={{
         mate: "/niveles/nivel3/mate",
         lenguaje: "/niveles/nivel3/lenguaje",

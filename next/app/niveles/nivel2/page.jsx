@@ -12,8 +12,8 @@ export default function Nivel2() {
         "/img/personajes/niveles/bienvenida/mundito3.png",
       ]}
       planetImg="/img/personajes/niveles/marten2.png"
-      planetName="CELESTIA"
-      planetNumber="I"
+      planetName="KAORI"
+      planetNumber="II"
       buttonLinks={{
         mate: "/materias/1",
         lenguaje: "/niveles/nivel2/lenguaje",
