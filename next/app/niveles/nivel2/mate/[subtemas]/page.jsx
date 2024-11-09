@@ -20,6 +20,7 @@ const SubtemasPage = () => {
       buttonColor: "morado",
       temas: [
         {
+          id:"1",
           title: "Sumas Básicas",
           description: "Aprende sobre sumas simples con números decimales.",
           link: "/niveles/nivel2/mate/ob/sumas",
@@ -27,6 +28,7 @@ const SubtemasPage = () => {
           imgSrc: "/img/niveles/mate/N1.png",
         },
         {
+          id:"2",
           title: "Restas Básicas",
           description: "Conceptos básicos de resta con decimales.",
           link: "/niveles/nivel2/mate/ob/restas",
@@ -78,9 +80,9 @@ const SubtemasPage = () => {
 
         {/* Contenedor de tarjetas en el mismo div levantado */}
         <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {subtemaData.temas && subtemaData.temas.map((tema, index) => (
+          {subtemaData.temas?.map((tema) => (
             <SubtemaCard
-              key={index}
+              key={tema.id} 
               title={tema.title}
               description={tema.description}
               link={tema.link}
