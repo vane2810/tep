@@ -6,8 +6,8 @@ import Link from "next/link";
 const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
     // Elementos decorativos específicos de Lenguaje (excepto el planeta)
     const decorativos = [
-        { img: "/img/materias/lenguaje/cohete.png", alt: "Cohete", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
-        { img: "/img/materias/lenguaje/nave.png", alt: "Cometa", className: "absolute right-[5%] bottom-[3%] w-[6vw] comet-animation" },
+        { id: "cohete", img: "/img/materias/lenguaje/cohete.png", alt: "Cohete", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
+        { id: "nave", img: "/img/materias/lenguaje/nave.png", alt: "Cometa", className: "absolute right-[5%] bottom-[3%] w-[6vw] comet-animation" },
     ];
 
     return (
@@ -47,8 +47,8 @@ const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
             <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[12vw] planet-animation" />
 
             {/* Otros elementos decorativos específicos de Lenguaje */}
-            {decorativos.map((item, index) => (
-                <img key={index} src={item.img} alt={item.alt} className={item.className} />
+            {decorativos.map((item) => (
+                <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
             ))}
         </section>
     );
@@ -58,14 +58,14 @@ MapLenguaje.propTypes = {
     segmentos: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
             imgSrc: PropTypes.string.isRequired,
             alt: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
         })
     ).isRequired,
     fondoUrl: PropTypes.string.isRequired,
-    planetaImg: PropTypes.string.isRequired, 
-    nivel: PropTypes.string.isRequired, 
+    planetaImg: PropTypes.string.isRequired,
+    nivel: PropTypes.string.isRequired,
 };
 
 export default MapLenguaje;

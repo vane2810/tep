@@ -28,7 +28,7 @@ export default function MatematicaPage() {
           cabezaSrc="/img/materias/mate/cabeza_n1.png"
           segmentos={segmentos}
           nivel="nivel1"
-          fondoUrl="/img/materias/lenguaje/fondon1.jpg"
+          fondoUrl="/img/materias/mate/fondon1.jpg"
           planetaImg="/img/personajes/niveles/tierran1.png"
         />
       </div>

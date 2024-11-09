@@ -27,7 +27,7 @@ export default function MatematicaPage() {
           mostrarCabeza={false}
           segmentos={segmentos}
           nivel="nivel2"
-          fondoUrl="/img/materias/lenguaje/fondon1.jpg"
+          fondoUrl="/img/materias/mate/fondon2.jpg"
           planetaImg="/img/personajes/niveles/marten2.png"
         />
       </div>

@@ -26,7 +26,7 @@ export default function LenguajePage() {
           {/* Bienvenida para Lenguaje */}
           <WelcomeSection
             personajeImg="/img/personajes/principe/principe.png"
-            personajeAlt="Principe"
+            personaje="Principe"
             titulo="¡Lenguaje!"
           />
 

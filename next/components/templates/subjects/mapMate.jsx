@@ -3,10 +3,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-export default function MateMap({ mostrarCabeza, fondoUrl, cabezaSrc, segmentos, nivel, planetaImg, title }) {
+export default function MateMap({ mostrarCabeza, fondoUrl, cabezaSrc, segmentos, nivel, planetaImg }) {
   const decorativos = [
-    { img: "/img/materias/mate/cohete.png", alt: "Cohete", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
-    { img: "/img/materias/mate/nave.png", alt: "Cometa", className: "absolute right-[5%] bottom-[3%] w-[6vw] comet-animation" },
+    { id: "pajaro", img: "/img/materias/mate/pajaro.png", alt: "Pajaro", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
+    { id: "caracol", img: "/img/materias/mate/caracol.png", alt: "Caracol", className: "absolute right-[5%] bottom-[3%] w-[6vw] comet-animation" },
   ];
   return (
     <section
@@ -15,7 +15,7 @@ export default function MateMap({ mostrarCabeza, fondoUrl, cabezaSrc, segmentos,
     >
       {/* Personaje principal al inicio */}
       <div className="bottom-[1%] left-[1%] absolute">
-        <img src="/img/materias/mate/astronauta.png" alt="Personaje" className="w-[14vw] h-auto animate-tambaleo" />
+        <img src="/img/materias/mate/exploradora.png" alt="Personaje" className="w-[10vw] h-auto" />
       </div>
       <div className="flex justify-center mt-10 overflow-x-auto">
         {/* Cabeza del gusano, opcional */}
@@ -46,8 +46,8 @@ export default function MateMap({ mostrarCabeza, fondoUrl, cabezaSrc, segmentos,
       <img src={planetaImg} alt="Planeta" className="top-[5%] left-[86%] absolute w-[12vw] planet-animation" />
 
       {/* Otros elementos decorativos específicos de Lenguaje */}
-      {decorativos.map((item, index) => (
-        <img key={index} src={item.img} alt={item.alt} className={item.className} />
+      {decorativos.map((item) => (
+        <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
       ))}
     </section>
   );
@@ -60,6 +60,7 @@ MateMap.propTypes = {
   segmentos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
+      name: PropTypes.string,
       imgSrc: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
       marginTop: PropTypes.string,

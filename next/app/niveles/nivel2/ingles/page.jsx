@@ -1,43 +1,39 @@
-// Página principal de inglés - Nivel 2
+// pages/niveles/nivel2/ingles.js
+"use client";
 import React from "react";
-import WelcomeSection from '@/components/templates/subjects/welcomeSection';
-import MapIngles from '@/components/templates/subjects/mapIngles';
-import '@/styles/animacion.css';
+import WelcomeSection from "@/components/templates/subjects/welcomeSection";
+import MapIngles from "@/components/templates/subjects/mapIngles";
 import { SeparadorAnaranjado } from "@/components/separador";
+import Volver from "@/components/elements/botonVolver";
 
 export default function InglesPage() {
-  const levels = [
-    { id: 1, name: 'Vocabulario', img: '/img/niveless/ingles/cohete_vocabulario.png' },
-    { id: 2, name: 'Gramática', img: '/img/niveless/ingles/cohete_gramatica.png' },
-  ];
-  
-  const decorativos = [
-    { img: '/img/niveless/lenguaje/lvl1/planetan1.png', alt: 'Planeta', className: 'planet-animation', style: { top: '9%', left: '90%', width: '8vw' } },
-    { img: '/img/niveless/lenguaje/lvl1/coheten1.png', alt: 'Cohete', className: 'rocket-animation', style: { top: '5%', left: '5%', width: '8vw' } },
+  // Configuración de los segmentos principales para cada subtema de ingles
+  const segmentos = [
+    { id: "vocabulary", name: "Vocabulario", imgSrc: "/img/materias/ingles/cohete_vocabulario.png", alt: "Ortografía" },
+    { id: "grammar", name: "Gramática", imgSrc: "/img/materias/ingles/cohete_gramatica.png", alt: "Gramática" },
+    { id: "grammar", name: "Multimedia", imgSrc: "/img/materias/ingles/cohete_multimedia.png", alt: "Gramática" },
   ];
 
   return (
     <main>
-      <SeparadorAnaranjado/>
+      <SeparadorAnaranjado />
+      
       <div className="flex justify-center items-center w-full">
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-          {/* Bienvenida para Lenguaje */}
+          <Volver href="/niveles/nivel2" img="/img/home/regresar/naranja.png" />
+          {/* Bienvenida para ingles */}
           <WelcomeSection
-            volverUrl="/niveles/nivel2"
             personajeImg="/img/personajes/griffit/griffit.png"
-            personajeAlt="Griffit"
-            titulo="¡INGLÉS!"
-            mensajeBienvenida="¡Bienvenidos a mi clase, soy el Profesor Griffit y te guiaré en esta aventura!"
+            personaje="Griffit"
+            titulo="¡Inglés!"
           />
 
-          {/* Mapa de niveles para Lenguaje */}
+          {/* Mapa de subtemas para ingles */}
           <MapIngles
-            subject="ingles"
-            basePath="niveles/nivel2/"
-            levels={levels}
-            decorativos={decorativos}
-            caricatura="/img/niveless/lenguaje/lvl1/astronautan1.png"
-            fondoUrl="/img/niveless/ingles/fondo_ingles2.jpg" 
+            segmentos={segmentos}
+            fondoUrl="/img/materias/ingles/fondon2.png"
+            planetaImg="/img/personajes/niveles/marten2.png"
+            nivel="nivel2"
           />
         </div>
       </div>
