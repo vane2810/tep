@@ -11,7 +11,7 @@ export default function InglesPage() {
   const segmentos = [
     { id: "vocabulary", name: "Vocabulario", imgSrc: "/img/materias/ingles/cohete_vocabulario.png", alt: "Ortografía" },
     { id: "grammar", name: "Gramática", imgSrc: "/img/materias/ingles/cohete_gramatica.png", alt: "Gramática" },
-    { id: "grammar", name: "Multimedia", imgSrc: "/img/materias/ingles/cohete_multimedia.png", alt: "Gramática" },
+    { id: "multimedia", name: "Multimedia", imgSrc: "/img/materias/ingles/cohete_multimedia.png", alt: "Multimedia" },
   ];
 
   return (

@@ -12,7 +12,7 @@ const SubtemasPage = () => {
 
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
-    ortografia: {
+    vocabulary: {
       titulo: "ORTOGRAFÍA | NIVEL I",
       descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
       imagen: "/img/materias/lenguaje/ortografian.png",
@@ -37,24 +37,17 @@ const SubtemasPage = () => {
         },
       ],
     },
-    gramatica: {
+    grammar: {
       titulo: "GRAMÁTICA | NIVEL I",
       descripcion: "¡Aventúrate en el intrigante universo de la gramática! Explora las reglas y estructuras de nuestra lengua para mejorar tu comprensión y expresión escrita",
       imagen: "/img/materias/lenguaje/gramatican.png",
       volverUrl: "/niveles/nivel1/lenguaje",
       buttonColor: "morado",
     },
-    generos_literarios: {
+    multimedia: {
       titulo: "GÉNEROS LITERARIOS | NIVEL I",
       descripcion: "Sumérgete en la diversidad de los géneros literarios y descubre el encanto de las distintas formas narrativas. Desde cuentos hasta poesía, explora cada género y aprende sus características únicas mientras te diviertes con actividades interactivas",
       imagen: "/img/materias/lenguaje/generosn.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
-      buttonColor: "morado",
-    },
-    lectura: {
-      titulo: "LECTURA | NIVEL I",
-      descripcion: "Sumérgete en el maravilloso mundo de la lectura. Mejora tu comprensión lectora y disfruta de textos especialmente seleccionados para enriquecer tu vocabulario y comprensión",
-      imagen: "/img/materias/lenguaje/lecturan.jpg",
       volverUrl: "/niveles/nivel1/lenguaje",
       buttonColor: "morado",
     },

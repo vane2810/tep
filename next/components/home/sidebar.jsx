@@ -10,7 +10,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
     <div 
       className={`fixed top-0 right-0 h-full w-1/2 md:w-64 celeste text-gray-800 transform 
       ${isOpen ? "translate-x-0" : "translate-x-full"} 
-      transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto z-[10] border-l-4 border-[#F06292]`}
+      transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto z-[10] border-l-4`}
     >
       {/* Icono salir */}
       <div className="flex justify-end p-4">
@@ -35,7 +35,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
       {/* Lista de elementos */}
       <ul className="space-y-2 px-4">
         <li className="py-2">
-          <Link href={levelLink} className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded text-black transition-transform duration-200 rosado w-full" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+          <Link href={levelLink} className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
             <img src="/img/personajes/starly/starly.png" alt="Inicio" className="mr-2 w-5 h-5" />
             Inicio
           </Link>
@@ -43,7 +43,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
 
         {/* Otros elementos del sidebar */}
         <li className="py-2">
-          <Link href="/progreso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded text-black transition-transform duration-200 rosado w-full" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+          <Link href="/progreso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
             <img src="/img/home/barra/progreso.png" alt="Progreso" className="mr-2 w-5 h-5" />
             Progreso
           </Link>
@@ -51,7 +51,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
         
         {/* Sección de Receso */}
         <li className="py-2">
-          <Link href="/receso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded text-black transition-transform duration-200 rosado w-full" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+          <Link href="/receso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
             <img src="/img/receso/estrella.png" alt="Receso" className="mr-2 w-5 h-5" />
             Receso
           </Link>

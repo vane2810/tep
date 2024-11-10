@@ -15,7 +15,7 @@ export default function MatematicaPage() {
   return (
     <div className="flex justify-center items-center w-full">
       <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-        <Volver href="/niveles/nivel1" img="/img/home/regresar/morado.png" />
+        <Volver href="/niveles/nivel1" img="/img/home/regresar/verde.png" />
         <WelcomeSection
           personajeImg="/img/personajes/donkey/donkey.png"
           personaje="Donkey"

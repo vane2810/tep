@@ -33,7 +33,7 @@ export default function LenguajePage() {
           {/* Mapa de subtemas para Lenguaje */}
           <MapLenguaje
             segmentos={segmentos}
-            fondoUrl="/img/materias/lenguaje/fondon3.jpg"
+            fondoUrl="/img/materias/lenguaje/fondon3.jpeg"
             planetaImg="/img/personajes/niveles/jupitern3.png"
             nivel="nivel3"
           />

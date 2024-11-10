@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from 'react';
 import { SessionContext } from '@/context/session';
-import Loading from '@/components/loading';
+import Loading from '@/components/elements/loading';
 import { SeparadorRosa } from '@/components/separador';
 import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import { Bar } from 'react-chartjs-2';

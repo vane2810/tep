@@ -62,12 +62,11 @@ export default function SocialesPage() {
                     {/* Mapa interactivo de continentes */}
                     <MapSociales
                         fondoUrl="/img/niveless/sociales/mapa_mundi.jpg"
-                        subject="sociales"
-                        basePath="niveles/nivel3/"
+                        nivel="nivel3"
                         areas={area}
                         fondoSize="contain"
-                        caricatura="/img/niveles/sociales/pirata.png"
                         medida="w-full h-auto"
+                        planetaImg="/img/personajes/niveles/jupitern3.png"
                         progreso={progreso}  // Pasamos el progreso para manejar el bloqueo de niveles
                     />
                 </div>

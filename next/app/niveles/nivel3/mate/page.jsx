@@ -3,6 +3,7 @@ import React from "react";
 import WelcomeSection from "@/components/templates/subjects/welcomeSection";
 import MateMap from "@/components/templates/subjects/mapMate";
 import Volver from "@/components/elements/botonVolver";
+import { SeparadorVerde } from "@/components/separador";
 
 export default function MatematicaPage() {
   const segmentos = [
@@ -13,24 +14,28 @@ export default function MatematicaPage() {
   ];
 
   return (
-    <div className="flex justify-center items-center w-full">
-      <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-        <Volver href="/niveles/nivel3" img="/img/home/regresar/amarillo.png" />
-        <WelcomeSection
-          personajeImg="/img/personajes/donkey/donkey.png"
-          personaje="Donkey"
-          titulo="¡Matemática!"
-        />
+    <main>
+      <SeparadorVerde />
+      <div className="flex justify-center items-center w-full">
+        <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
+          <Volver href="/niveles/nivel3" img="/img/home/regresar/verde.png" />
+          <WelcomeSection
+            personajeImg="/img/personajes/donkey/donkey.png"
+            personaje="Donkey"
+            titulo="¡Matemática!"
+          />
 
-        {/* Gusano con cabeza y segmentos */}
-        <MateMap
-          mostrarCabeza={false}
-          segmentos={segmentos}
-          nivel="nivel3"
-          fondoUrl="/img/materias/mate/fondon3.jpg"
-          planetaImg="/img/personajes/niveles/jupitern3.png"
-        />
+          {/* Gusano con cabeza y segmentos */}
+          <MateMap
+            mostrarCabeza={false}
+            segmentos={segmentos}
+            nivel="nivel3"
+            fondoUrl="/img/materias/mate/fondon3.jpg"
+            planetaImg="/img/personajes/niveles/jupitern3.png"
+          />
+        </div>
       </div>
-    </div>
+      <SeparadorVerde />
+    </main>
   );
 }

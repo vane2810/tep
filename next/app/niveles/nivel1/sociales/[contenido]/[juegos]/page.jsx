@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import Volver from '@/components/elements/botonVolver';
-import Loading from '@/components/loading';
+import Loading from '@/components/elements/loading';
 import { SeparadorAzul } from "@/components/separador";
 import Typewriter from "@/components/typeWriter";
 import Modal from '@/components/modals/games/instrucciones';

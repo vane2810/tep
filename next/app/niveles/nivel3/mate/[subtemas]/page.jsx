@@ -4,8 +4,7 @@ import React from "react";
 import { useParams } from "next/navigation";
 import SubtemaHeader from "@/components/templates/subtopics/mateHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards";
-import { SeparadorAzul, SeparadorMorado } from "@/components/separador";
-import TextHeader from "@/components/templates/subtopics/textHeader";
+import { SeparadorVerde } from "@/components/separador";
 
 const SubtemasPage = () => {
   const { subtemas } = useParams();
@@ -13,7 +12,7 @@ const SubtemasPage = () => {
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
     ob: {
-      titulo: "OPERACIONES BÁSICAS | NIVEL III",
+      titulo: "OPERACIONES BÁSICAS",
       descripcion: "¡Explora el fascinante mundo de las operaciones básicas! Elige tu tema y sumérgete en números y diversión.",
       imagen: "/img/materias/mate/obn.png",
       volverUrl: "/niveles/nivel3/mate",
@@ -61,23 +60,21 @@ const SubtemasPage = () => {
 
   return (
     // Página principal de subtemas nivel3 - mate
-    <main>
-      <SeparadorMorado />
+    <main className="relative bg-gray-50">
+      <SeparadorVerde />
       {/* Encabezado del subtema */}
       <SubtemaHeader
         titulo={subtemaData.titulo}
         descripcion={subtemaData.descripcion}
         imagen={subtemaData.imagen}
         volverUrl={subtemaData.volverUrl}
+        tituloText="Elige un tema"
+        descripcionText="Selecciona uno de los siguientes temas para comenzar"
+        imagenText="/img/personajes/starly/starly_mate.png"
+          
       />
-      <div className="bg-white shadow-lg mx-auto my-8 p-8 rounded-lg max-w-7xl">
-        {/* Título de la sección de tarjetas con imagen en el lado derecho */}
-        <TextHeader
-          titulo="Elige un tema"
-          descripcion="Selecciona uno de los siguientes temas para comenzar"
-          imagenSrc="/img/personajes/starly/starly_mate.png"
-        />
 
+      <div className="bg-white shadow-lg mx-auto my-8 p-8 rounded-lg max-w-7xl">
         {/* Contenedor de tarjetas en el mismo div levantado */}
         <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {subtemaData.temas?.map((tema) => (
@@ -93,7 +90,7 @@ const SubtemasPage = () => {
           ))}
         </div>
       </div>
-      <SeparadorAzul />
+      <SeparadorVerde />
     </main>
   );
 };

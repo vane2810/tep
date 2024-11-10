@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Volver from '@/components/elements/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
-import Loading from '@/components/loading';
+import Loading from '@/components/elements/loading';
 
 export default function Component({ id }) {
   const [lecciones, setLecciones] = useState([]);

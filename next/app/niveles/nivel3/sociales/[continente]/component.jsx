@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Volver from '@/components/elements/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
 import { useRouter } from 'next/navigation';
-import Loading from '@/components/loading';
+import Loading from '@/components/elements/loading';
 
 export default function SocialesComponent({ id }) { // Usar id recibido desde las props
   const [continente, setContinente] = useState(null);
