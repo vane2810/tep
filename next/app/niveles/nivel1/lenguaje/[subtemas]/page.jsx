@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import SubtemaHeader from "@/components/templates/subtopics/lenguajeHeader";
-import SubtemaCard from "@/components/templates/subtopics/subtemasCards";
+import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
 import { SeparadorMorado} from "@/components/separador";
 
 const SubtemasPage = () => {
@@ -15,7 +15,7 @@ const SubtemasPage = () => {
       titulo: "Ortografía",
       descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
       imagen: "/img/materias/lenguaje/ortografian.png",
-      buttonColor: "morado",
+      buttonColor: "amarillo",
       temas: [
         {
           id: "1",

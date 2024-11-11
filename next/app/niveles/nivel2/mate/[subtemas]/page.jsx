@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import SubtemaHeader from "@/components/templates/subtopics/mateHeader";
-import SubtemaCard from "@/components/templates/subtopics/subtemasCards";
+import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
 import { SeparadorVerde} from "@/components/separador";
 
 const SubtemasPage = () => {

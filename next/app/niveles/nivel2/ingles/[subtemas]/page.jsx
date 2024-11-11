@@ -1,27 +1,28 @@
-// Página principal de subtemas nivel3 - mate
+// Página principal de subtemas nivel2 - mate
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
-import SubtemaHeader from "@/components/templates/subtopics/lenguajeHeader";
+import SubtemaHeader from "@/components/templates/subtopics/inglesHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
-import { SeparadorMorado} from "@/components/separador";
+import { SeparadorAnaranjado} from "@/components/separador";
 
 const SubtemasPage = () => {
   const { subtemas } = useParams();
 
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
-    ortografia: {
-      titulo: "Ortografía",
-      descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
-      imagen: "/img/materias/lenguaje/ortografian.png",
+    vocabulary: {
+      titulo: "Vocabulary",
+      subtitulo: "Vocabulario",
+      descripcion: "¡Desarrolla tu vocabulario y dale poder a tus habilidades de comunicación en inglés! Amplía tu dominio del inglés aprendiendo nuevas palabras y expresiones",
+      imagen: "/img/materias/ingles/vocabulario.png",
       buttonColor: "morado",
       temas: [
         {
           id: "1",
           title: "Sumas Básicas",
           description: "Aprende sobre sumas simples con números decimales.",
-          link: "/niveles/nivel3/lenguaje/ob/sumas",
+          link: "/niveles/nivel2/lenguaje/ob/sumas",
           buttonLabel: "Comenzar Suma",
           imgSrc: "/img/niveles/lenguaje/N1.png",
         },
@@ -29,28 +30,17 @@ const SubtemasPage = () => {
           id: "2",
           title: "Restas Básicas",
           description: "Conceptos básicos de resta con decimales.",
-          link: "/niveles/nivel3/lenguaje/ob/restas",
+          link: "/niveles/nivel2/lenguaje/ob/restas",
           buttonLabel: "Comenzar Resta",
           imgSrc: "/img/niveles/lenguaje/N2.png",
         },
       ],
     },
-    gramatica: {
-      titulo: "Gramática",
-      descripcion: "¡Aventúrate en el intrigante universo de la gramática! Explora las reglas y estructuras de nuestra lengua para mejorar tu comprensión y expresión escrita",
-      imagen: "/img/materias/lenguaje/gramatican.png",
-      buttonColor: "morado",
-    },
-    generos_literarios: {
-      titulo: "Géneros Literarios",
-      descripcion: "Sumérgete en la diversidad de los géneros literarios y descubre el encanto de las distintas formas narrativas. Desde cuentos hasta poesía, explora cada género y aprende sus características únicas mientras te diviertes con actividades interactivas",
-      imagen: "/img/materias/lenguaje/generosn.png",
-      buttonColor: "morado",
-    },
-    lectura: {
-      titulo: "Lectura",
-      descripcion: "Sumérgete en el maravilloso mundo de la lectura. Mejora tu comprensión lectora y disfruta de textos especialmente seleccionados para enriquecer tu vocabulario y comprensión",
-      imagen: "/img/materias/lenguaje/lecturan.jpg",
+    grammar: {
+      titulo: "Grammar",
+      subtitulo: "Gramática",
+      descripcion: "Explora las reglas y estructuras que forman el idioma inglés. En esta sección, aprenderás sobre tiempos verbales, formación de oraciones, uso correcto de las palabras, y otros conceptos ",
+      imagen: "/img/materias/ingles/gramatica.png",
       buttonColor: "morado",
     },
   };
@@ -63,15 +53,16 @@ const SubtemasPage = () => {
 
 
   return (
-    // Página principal de subtemas nivel3 - mate
+    // Página principal de subtemas nivel2 - mate
     <main className="bg-gray-50">
-      <SeparadorMorado />
+      <SeparadorAnaranjado />
       {/* Encabezado del subtema */}
       <SubtemaHeader
         titulo={subtemaData.titulo}
+        subtitulo={subtemaData.subtitulo}
         descripcion={subtemaData.descripcion}
         imagen={subtemaData.imagen}
-        volverUrl="/niveles/nivel3/lenguaje"
+        volverUrl= "/niveles/nivel2/ingles"
       />
 
       {/* Contenedor de tarjetas en el mismo div levantado */}
@@ -89,7 +80,7 @@ const SubtemasPage = () => {
         ))}
       </div>
 
-      <SeparadorMorado />
+      <SeparadorAnaranjado />
     </main>
   );
 };

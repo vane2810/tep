@@ -16,7 +16,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
                     alt="Explorador"
                     className="mr-4 w-24 md:w-32 h-auto"
                 />
-                <h1 className="font-bold text-4xl text-purple-900 md:text-4xl yagora">
+                <h1 className="font-bold text-5xl text-purple-900 md:text-5xl wonder">
                     Bienvenidos a {titulo}
                 </h1>
             </div>
@@ -37,7 +37,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
 
             {/* Sección de título adicional y descripción */}
             <div className="flex md:flex-row flex-col justify-center items-center my-8 text-center md:text-left">
-                <h3 className="my-4 md:my-10 font-bold text-2xl text-purple-900 md:text-3xl yagora">
+                <h3 className="my-4 md:my-10 font-bold text-4xl text-purple-900 md:text-4xl wonder">
                     Explora los contenidos para acumular estrellas
                 </h3>
                 <img

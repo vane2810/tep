@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import SubtemaHeader from "@/components/templates/subtopics/inglesHeader";
-import SubtemaCard from "@/components/templates/subtopics/subtemasCards";
+import SubtemaCard from "@/components/templates/subtopics/subtemasCards2";
 import { SeparadorAnaranjado} from "@/components/separador";
 
 const SubtemasPage = () => {
@@ -14,17 +14,17 @@ const SubtemasPage = () => {
     vocabulary: {
       titulo: "Vocabulary",
       subtitulo: "Vocabulario",
-      descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
-      imagen: "/img/materias/lenguaje/ortografian.png",
-      buttonColor: "morado",
+      descripcion: "¡Desarrolla tu vocabulario y dale poder a tus habilidades de comunicación en inglés! Amplía tu dominio del inglés aprendiendo nuevas palabras y expresiones",
+      imagen: "/img/materias/ingles/vocabulario.png",
+      buttonColor: "anaranjado",
       temas: [
         {
           id: "1",
           title: "Sumas Básicas",
           description: "Aprende sobre sumas simples con números decimales.",
           link: "/niveles/nivel1/lenguaje/ob/sumas",
-          buttonLabel: "Comenzar Suma",
-          imgSrc: "/img/niveles/lenguaje/N1.png",
+          buttonLabel: "Comenzar",
+          imgSrc: "/img/materias/ingles/vocabulario.png",
         },
         {
           id: "2",
@@ -39,8 +39,8 @@ const SubtemasPage = () => {
     grammar: {
       titulo: "Grammar",
       subtitulo: "Gramática",
-      descripcion: "¡Aventúrate en el intrigante universo de la gramática! Explora las reglas y estructuras de nuestra lengua para mejorar tu comprensión y expresión escrita",
-      imagen: "/img/materias/lenguaje/gramatican.png",
+      descripcion: "Explora las reglas y estructuras que forman el idioma inglés. En esta sección, aprenderás sobre tiempos verbales, formación de oraciones, uso correcto de las palabras, y otros conceptos ",
+      imagen: "/img/materias/ingles/gramatica.png",
       buttonColor: "morado",
     },
   };

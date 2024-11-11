@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import SubtemaHeader from "@/components/templates/subtopics/mateHeader";
-import SubtemaCard from "@/components/templates/subtopics/subtemasCards";
+import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
 import { SeparadorVerde} from "@/components/separador";
 
 const SubtemasPage = () => {
@@ -15,7 +15,7 @@ const SubtemasPage = () => {
       titulo: "Operaciones Básicas",
       descripcion: "En este contenido aprenderás y reforzarás las operaciones básicas de la aritmética: suma,resta, multiplicación y división.",
       imagen: "/img/materias/mate/obn.png",
-      buttonColor: "morado",
+      buttonColor: "verde",
       temas: [
         {
           id: "1",
@@ -55,13 +55,13 @@ const SubtemasPage = () => {
       titulo: "Números Decimales",
       descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
       imagen: "/img/materias/mate/decimalesn.png",
-      buttonColor: "morado",
+      buttonColor: "verde",
     },
     geometri: {
       titulo: "Geometría",
       descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
       imagen: "/img/materias/mate/geon.png",
-      buttonColor: "morado",
+      buttonColor: "verde",
     },
   };
 
