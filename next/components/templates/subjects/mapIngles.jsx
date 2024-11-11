@@ -30,7 +30,7 @@ const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
         const positionClass = positionClasses[index % positionClasses.length];
 
         return (
-          <Link href={`/niveles/${nivel}/lenguaje/${segmento.id}`} key={segmento.id}>
+          <Link href={`/niveles/${nivel}/ingles/${segmento.id}`} key={segmento.id}>
             <img
               src={segmento.imgSrc}
               alt={segmento.alt}

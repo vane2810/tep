@@ -1,11 +1,10 @@
-// Página principal de subtemas nivel1 - lenguaje
+// Página principal de subtemas nivel1 - mate
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
-import SubtemaHeader from "@/components/templates/subtopics/lenguajeHeader";
+import SubtemaHeader from "@/components/templates/subtopics/inglesHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards";
-import { SeparadorAzul, SeparadorMorado } from "@/components/separador";
-import TextHeader from "@/components/templates/subtopics/textHeader";
+import { SeparadorAnaranjado} from "@/components/separador";
 
 const SubtemasPage = () => {
   const { subtemas } = useParams();
@@ -13,14 +12,14 @@ const SubtemasPage = () => {
   // Datos específicos para cada subtema, incluyendo el campo volverUrl
   const subtemasData = {
     vocabulary: {
-      titulo: "ORTOGRAFÍA | NIVEL I",
+      titulo: "Vocabulary",
+      subtitulo: "Vocabulario",
       descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
       imagen: "/img/materias/lenguaje/ortografian.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
       buttonColor: "morado",
       temas: [
         {
-          id:"1",
+          id: "1",
           title: "Sumas Básicas",
           description: "Aprende sobre sumas simples con números decimales.",
           link: "/niveles/nivel1/lenguaje/ob/sumas",
@@ -28,7 +27,7 @@ const SubtemasPage = () => {
           imgSrc: "/img/niveles/lenguaje/N1.png",
         },
         {
-          id:"2",
+          id: "2",
           title: "Restas Básicas",
           description: "Conceptos básicos de resta con decimales.",
           link: "/niveles/nivel1/lenguaje/ob/restas",
@@ -38,17 +37,10 @@ const SubtemasPage = () => {
       ],
     },
     grammar: {
-      titulo: "GRAMÁTICA | NIVEL I",
+      titulo: "Grammar",
+      subtitulo: "Gramática",
       descripcion: "¡Aventúrate en el intrigante universo de la gramática! Explora las reglas y estructuras de nuestra lengua para mejorar tu comprensión y expresión escrita",
       imagen: "/img/materias/lenguaje/gramatican.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
-      buttonColor: "morado",
-    },
-    multimedia: {
-      titulo: "GÉNEROS LITERARIOS | NIVEL I",
-      descripcion: "Sumérgete en la diversidad de los géneros literarios y descubre el encanto de las distintas formas narrativas. Desde cuentos hasta poesía, explora cada género y aprende sus características únicas mientras te diviertes con actividades interactivas",
-      imagen: "/img/materias/lenguaje/generosn.png",
-      volverUrl: "/niveles/nivel1/lenguaje",
       buttonColor: "morado",
     },
   };
@@ -59,41 +51,36 @@ const SubtemasPage = () => {
     return <p>Este subtema no existe.</p>;
   }
 
+
   return (
-    // Página principal de subtemas nivel1 - lenguaje
-    <main>
-      <SeparadorMorado />
+    // Página principal de subtemas nivel1 - mate
+    <main className="bg-gray-50">
+      <SeparadorAnaranjado />
       {/* Encabezado del subtema */}
       <SubtemaHeader
         titulo={subtemaData.titulo}
+        subtitulo={subtemaData.subtitulo}
         descripcion={subtemaData.descripcion}
         imagen={subtemaData.imagen}
-        volverUrl={subtemaData.volverUrl}
+        volverUrl= "/niveles/nivel1/ingles"
       />
-      <div className="bg-white shadow-lg mx-auto my-8 p-8 rounded-lg max-w-7xl">
-        {/* Título de la sección de tarjetas con imagen en el lado derecho */}
-        <TextHeader
-          titulo="Elige un tema"
-          descripcion="Selecciona uno de los siguientes temas para comenzar"
-          imagenSrc="/img/personajes/starly/starly_lenguaje.png"
-        />
 
-        {/* Contenedor de tarjetas en el mismo div levantado */}
-        <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {subtemaData.temas?.map((tema) => (
-            <SubtemaCard
-              key={tema.id} 
-              title={tema.title}
-              description={tema.description}
-              link={tema.link}
-              buttonLabel={tema.buttonLabel}
-              imgSrc={tema.imgSrc}
-              buttonColor={subtemaData.buttonColor}
-            />
-          ))}
-        </div>
+      {/* Contenedor de tarjetas en el mismo div levantado */}
+      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-6 mb-10">
+        {subtemaData.temas?.map((tema) => (
+          <SubtemaCard
+            key={tema.id}
+            title={tema.title}
+            description={tema.description}
+            link={tema.link}
+            buttonLabel={tema.buttonLabel}
+            imgSrc={tema.imgSrc}
+            buttonColor={subtemaData.buttonColor}
+          />
+        ))}
       </div>
-      <SeparadorAzul />
+
+      <SeparadorAnaranjado />
     </main>
   );
 };

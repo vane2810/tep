@@ -1,4 +1,4 @@
-// pages/niveles/nivel3/lenguaje.js
+// Página Principal de Lenguaje - NIvel 3
 "use client";
 import React from "react";
 import WelcomeSection from "@/components/templates/subjects/welcomeSection";
@@ -26,7 +26,7 @@ export default function LenguajePage() {
           {/* Bienvenida para Lenguaje */}
           <WelcomeSection
             personajeImg="/img/personajes/principe/principe.png"
-            personaje="Principe"
+            personaje="Profesor Principe"
             titulo="¡Lenguaje!"
           />
 

@@ -21,7 +21,7 @@ export default function MatematicaPage() {
           <Volver href="/niveles/nivel3" img="/img/home/regresar/verde.png" />
           <WelcomeSection
             personajeImg="/img/personajes/donkey/donkey.png"
-            personaje="Donkey"
+            personaje="Profesor Donkey"
             titulo="¡Matemática!"
           />
 

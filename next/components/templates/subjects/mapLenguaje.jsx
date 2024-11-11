@@ -11,46 +11,50 @@ const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
     ];
 
     return (
-        <section
-            className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[100vh]"
-            style={{ backgroundImage: `url(${fondoUrl})` }}
-        >
-            {/* Personaje principal al inicio */}
-            <div className="bottom-[3%] left-[3%] absolute">
-                <img src="/img/materias/lenguaje/astronauta.png" alt="Personaje" className="w-[8vw] h-auto animate-tambaleo" />
-            </div>
+        <div className="bg-white shadow-lg mx-auto p-4 rounded-xl w-full">
+            {/* Contenedor de Título */}
+            <h1 className="my-4 font-bold text-center md:text-4xl yagora">Explora la Galaxia de Lenguaje Y Literatura</h1>
+            <section
+                className="relative flex justify-center items-center bg-cover bg-center rounded-xl w-full h-[100vh]"
+                style={{ backgroundImage: `url(${fondoUrl})` }}
+            >
+                {/* Personaje principal al inicio */}
+                <div className="bottom-[3%] left-[3%] absolute">
+                    <img src="/img/materias/lenguaje/astronauta.png" alt="Personaje" className="w-[8vw] h-auto animate-tambaleo" />
+                </div>
 
-            {/* Segmentos del mapa en un camino curvo */}
-            {segmentos.map((segmento, index) => {
-                const positionClasses = [
-                    "absolute top-[52%] left-[8%]",
-                    "absolute top-[15%] left-[25%]",
-                    "absolute top-[52%] left-[41%]",
-                    "absolute top-[15%] left-[59%]",
-                    "absolute top-[52%] left-[72%]",
-                ];
-                const positionClass = positionClasses[index % positionClasses.length];
+                {/* Segmentos del mapa en un camino curvo */}
+                {segmentos.map((segmento, index) => {
+                    const positionClasses = [
+                        "absolute top-[52%] left-[8%]",
+                        "absolute top-[15%] left-[25%]",
+                        "absolute top-[52%] left-[41%]",
+                        "absolute top-[15%] left-[59%]",
+                        "absolute top-[52%] left-[72%]",
+                    ];
+                    const positionClass = positionClasses[index % positionClasses.length];
 
-                return (
-                    <Link href={`/niveles/${nivel}/lenguaje/${segmento.id}`} key={segmento.id}>
-                        <img
-                            src={segmento.imgSrc}
-                            alt={segmento.alt}
-                            className={`${positionClass} w-64 lg:w-72 h-auto transform transition-transform hover:scale-150`}
-                            title={segmento.name}
-                        />
-                    </Link>
-                );
-            })}
+                    return (
+                        <Link href={`/niveles/${nivel}/lenguaje/${segmento.id}`} key={segmento.id}>
+                            <img
+                                src={segmento.imgSrc}
+                                alt={segmento.alt}
+                                className={`${positionClass} w-64 lg:w-72 h-auto transform transition-transform hover:scale-150`}
+                                title={segmento.name}
+                            />
+                        </Link>
+                    );
+                })}
 
-            {/* Decorativo específico del planeta */}
-            <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[12vw] planet-animation" />
+                {/* Decorativo específico del planeta */}
+                <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[12vw] planet-animation" />
 
-            {/* Otros elementos decorativos específicos de Lenguaje */}
-            {decorativos.map((item) => (
-                <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
-            ))}
-        </section>
+                {/* Otros elementos decorativos específicos de Lenguaje */}
+                {decorativos.map((item) => (
+                    <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
+                ))}
+            </section>
+        </div>
     );
 };
 

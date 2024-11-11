@@ -1,20 +1,25 @@
-// Componente de bienvenida para todos las asignaturas de cada materia
+// Componente de bienvenida para todas las asignaturas de cada materia
 import React from "react";
 import PropTypes from "prop-types";
 
 const WelcomeSection = ({ personajeImg, personaje, titulo }) => (
-  <section className="mb-4 p-5 rounded-lg w-full">
-    <div className="flex md:flex-row flex-col justify-center items-center mb-5">
-      <div className="flex flex-col items-center md:mr-8 mb-4 md:mb-0 md:ml-2.5">
+  <section className="bg-white shadow-lg my-8 p-4 rounded-lg w-full">
+    {/* Contenedor de Bienvenida */}
+    <div className="flex md:flex-row flex-col justify-center items-center mb-6">
+      {/* Imagen del personaje */}
+      <div className="flex flex-col items-center md:mr-8 mb-4 md:mb-0">
         <img
           src={personajeImg}
-          alt={personaje}
-          className="mx-2 w-32 md:w-auto h-32 md:h-64 planet-animation"
+          alt={`Imagen de ${personaje}`}
+          className="w-40 md:w-64 h-40 md:h-64 animate-bounce-slow object-contain"
         />
       </div>
-      <p className="text-2xl text-center md:text-4xl lg:text-6xl super">{titulo}</p>
+      {/* Título y mensaje adicional */}
+      <div className="text-center">
+        <p className="mb-6 text-3xl md:text-5xl lg:text-6xl tracking-wide super">{titulo}</p>
+        <p className="text-xl md:text-3xl lg:text-2xl italic yagora">¡Bienvenidos a mi clase, soy el {personaje} y te guiaré en esta aventura!</p>
+      </div>
     </div>
-    <p className="text-center text-lg md:text-2xl lg:text-3xl story">¡Bienvenidos a mi clase, soy el Profesor {personaje} y te guiaré en esta aventura!</p>
   </section>
 );
 

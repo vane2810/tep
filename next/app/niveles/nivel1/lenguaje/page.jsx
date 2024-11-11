@@ -1,4 +1,4 @@
-// pages/niveles/nivel1/lenguaje.js
+// Página Principal de Lenguaje - NIvel 1
 "use client";
 import React from "react";
 import WelcomeSection from "@/components/templates/subjects/welcomeSection";
@@ -19,21 +19,20 @@ export default function LenguajePage() {
   return (
     <main>
       <SeparadorMorado />
-      
       <div className="flex justify-center items-center w-full">
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
           <Volver href="/niveles/nivel1" img="/img/home/regresar/morado.png" />
           {/* Bienvenida para Lenguaje */}
           <WelcomeSection
             personajeImg="/img/personajes/principe/principe.png"
-            personaje="Principe"
+            personaje="Profesor Principe"
             titulo="¡Lenguaje!"
           />
 
           {/* Mapa de subtemas para Lenguaje */}
           <MapLenguaje
             segmentos={segmentos}
-            fondoUrl="/img/materias/lenguaje/fondon1.jpg"
+            fondoUrl="/img/materias/lenguaje/fondon1.jpeg"
             planetaImg="/img/personajes/niveles/tierran1.png"
             nivel="nivel1"
           />
