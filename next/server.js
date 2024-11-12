@@ -9,6 +9,8 @@ const userRoutes = require('./routes/users');
 const relationshipRoutes = require('./routes/relationships');
 const topicsRoutes = require('./routes/topics');
 const subtopicRoutes = require('./routes/subtopics');
+const contentsRoutes = require('./routes/contents');
+const stepsRoutes = require('./routes/steps');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,6 +23,8 @@ app.use('/api/users', userRoutes); // Ruta para los usuarios
 app.use('/api/relationships', relationshipRoutes); // Ruta para las relaciones
 app.use('/api/topics', topicsRoutes);
 app.use('/api/subtopics', subtopicRoutes);
+app.use('/api/contents', contentsRoutes);
+app.use('/api/steps', stepsRoutes);
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');

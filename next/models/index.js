@@ -23,6 +23,7 @@ const Subject = require('./subject')(sequelize, DataTypes);
 const Topic = require('./topic')(sequelize, DataTypes);
 const Subtopic = require('./subtopic')(sequelize, DataTypes);
 const Content = require('./content')(sequelize, DataTypes);
+const Step = require('./step')(sequelize, DataTypes); // Importar el modelo Step
 
 // Definir relaciones entre los modelos
 
@@ -57,6 +58,10 @@ Subtopic.hasMany(Content, { foreignKey: 'subtopicId', as: 'contents', onDelete: 
 
 // Relaciones de Content
 Content.belongsTo(Subtopic, { foreignKey: 'subtopicId', as: 'subtopic' });
+Content.hasMany(Step, { foreignKey: 'contentId', as: 'steps', onDelete: 'CASCADE' }); // Relación entre Content y Step
+
+// Relaciones de Step
+Step.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
 
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
@@ -69,4 +74,5 @@ module.exports = {
   Topic,
   Subtopic,
   Content,
+  Step, 
 };

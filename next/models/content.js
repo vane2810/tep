@@ -22,14 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT, // Tipo TEXT para permitir contenido extenso
       allowNull: true,
     },
-    img_url: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    audio_url: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     aditional: {
       type: DataTypes.TEXT, // Tipo TEXT para contenido adicional extenso
       allowNull: true,
