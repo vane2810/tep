@@ -17,7 +17,6 @@ export const SessionProvider = ({ children }) => {
         if (decoded) {
           setSession({ user: decoded.id, name: decoded.name, role: decoded.role, nivel: decoded.nivel });
           setSelectedCharacter(decoded.characterId || null); // Asigna el personaje si está en el token
-          console.log('Decoded JWT:', decoded);
         }
       } catch (error) {
         console.error('Error decodificando el token:', error);

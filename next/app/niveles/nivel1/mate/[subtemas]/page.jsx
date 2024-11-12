@@ -1,104 +1,202 @@
-// Página principal de subtemas nivel1 - mate
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import SubtemaHeader from "@/components/templates/subtopics/mateHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
-import { SeparadorVerde} from "@/components/separador";
+import SubtemasModal from "@/components/modals/admin/contenido/subtemasModal";
+import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
+import { SeparadorVerde } from "@/components/separador";
+import useSession from "@/hooks/useSession";
+import AddButton from "@/components/elements/botonAdd";
+
+// Definir los datos de subtemas al inicio
+const subtemasData = {
+  ob: {
+    id: 1,
+    titulo: "Operaciones Básicas",
+    descripcion: "En este contenido aprenderás y reforzarás las operaciones básicas de la aritmética: suma, resta, multiplicación y división.",
+    imagen: "/img/materias/mate/obn.png",
+    buttonColor: "verde",
+  },
+  decimale: {
+    id: 2,
+    titulo: "Números Decimales",
+    descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones!",
+    imagen: "/img/materias/mate/decimalesn.png",
+    buttonColor: "verde",
+  },
+  geometri: {
+    id: 3,
+    titulo: "Geometría",
+    descripcion: "Sumérgete en la increíble aventura de la geometría!",
+    imagen: "/img/materias/mate/geon.png",
+    buttonColor: "verde",
+  },
+};
 
 const SubtemasPage = () => {
   const { subtemas } = useParams();
+  const { session } = useSession(); // Obtener la sesión
+  const [subtemasList, setSubtemasList] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [deleteSubtemaId, setDeleteSubtemaId] = useState(null);
+  const [newSubtema, setNewSubtema] = useState({ title: "", description: "", imgSrc: "" });
+  const [editSubtemaId, setEditSubtemaId] = useState(null);
 
-  // Datos específicos para cada subtema, incluyendo el campo volverUrl
-  const subtemasData = {
-    ob: {
-      titulo: "Operaciones Básicas",
-      descripcion: "En este contenido aprenderás y reforzarás las operaciones básicas de la aritmética: suma,resta, multiplicación y división.",
-      imagen: "/img/materias/mate/obn.png",
-      buttonColor: "verde",
-      temas: [
-        {
-          id: "1",
-          title: "Sumas Básicas",
-          description: "Aprende sobre sumas simples con números decimales.",
-          link: "/niveles/nivel1/mate/ob/sumas",
-          buttonLabel: "Comenzar Suma",
-          imgSrc: "/img/niveles/mate/N1.png",
-        },
-        {
-          id: "2",
-          title: "Restas Básicas",
-          description: "Conceptos básicos de resta con decimales.",
-          link: "/niveles/nivel1/mate/ob/restas",
-          buttonLabel: "Comenzar Resta",
-          imgSrc: "/img/niveles/mate/N2.png",
-        },
-        {
-          id: "3",
-          title: "Sumas Básicas",
-          description: "Aprende sobre sumas simples con números decimales.",
-          link: "/niveles/nivel1/mate/ob/sumas",
-          buttonLabel: "Comenzar Suma",
-          imgSrc: "/img/niveles/mate/N1.png",
-        },
-        {
-          id: "4",
-          title: "Restas Básicas",
-          description: "Conceptos básicos de resta con decimales.",
-          link: "/niveles/nivel1/mate/ob/restas",
-          buttonLabel: "Comenzar Resta",
-          imgSrc: "/img/niveles/mate/N2.png",
-        },
-      ],
-    },
-    decimale: {
-      titulo: "Números Decimales",
-      descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
-      imagen: "/img/materias/mate/decimalesn.png",
-      buttonColor: "verde",
-    },
-    geometri: {
-      titulo: "Geometría",
-      descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
-      imagen: "/img/materias/mate/geon.png",
-      buttonColor: "verde",
-    },
-  };
-
-  const subtemaData = subtemasData[subtemas];
-
-  if (!subtemaData) {
-    return <p>Este subtema no existe.</p>;
+  // Obtener los datos del subtema actual
+  const currentSubtema = subtemasData[subtemas];
+  if (!currentSubtema) {
+    console.error("Tema no encontrado");
+    return <p>Este tema no existe.</p>;
   }
 
+  const currentTopicId = currentSubtema.id;
+
+  // Definir `fetchSubtemas` como una función reutilizable
+  const fetchSubtemas = async () => {
+    if (currentTopicId) {
+      try {
+        const response = await fetch(`http://localhost:3001/api/subtopics/byTopic/${currentTopicId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setSubtemasList(data);
+        } else {
+          console.error("Error al obtener los subtemas");
+        }
+      } catch (error) {
+        console.error("Error de red:", error);
+      }
+    }
+  };
+
+  // Obtener los subtemas por topicId al montar el componente
+  useEffect(() => {
+    fetchSubtemas();
+  }, [currentTopicId]);
+
+  const handleAddSubtema = () => setIsModalOpen(true);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setNewSubtema({ title: "", description: "", imgSrc: "" });
+    setEditSubtemaId(null);
+  };
+
+  const handleInputChange = (e) => setNewSubtema((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSaveSubtema = async (updatedSubtema) => {
+    const url = editSubtemaId
+      ? `http://localhost:3001/api/subtopics/${editSubtemaId}`
+      : "http://localhost:3001/api/subtopics/";
+    const method = editSubtemaId ? "PUT" : "POST";
+
+    try {
+      const response = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: updatedSubtema.title,
+          description: updatedSubtema.description,
+          img_url: updatedSubtema.imgSrc,
+          topicId: currentTopicId,
+        }),
+      });
+
+      if (response.ok) {
+        handleModalClose();
+        fetchSubtemas(); // Vuelve a cargar los subtemas después de guardar uno nuevo
+      } else {
+        console.error("Error al guardar el subtema");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
+  };
+
+  const handleEditSubtema = (subtema) => {
+    setNewSubtema({
+      title: subtema.title,
+      description: subtema.description,
+      imgSrc: subtema.img_url || "", // Asegúrate de que imgSrc sea un string vacío si no existe la URL
+    });
+    setEditSubtemaId(subtema.id);
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteSubtema = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/subtopics/${id}`, { method: "DELETE" });
+      if (response.ok) {
+        setSubtemasList((prev) => prev.filter((subtema) => subtema.id !== id));
+      } else {
+        console.error("Error al eliminar el subtema");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
+  };
+
+  const openDeleteModal = (id) => {
+    setDeleteSubtemaId(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDeleteSubtema = () => {
+    if (deleteSubtemaId) {
+      handleDeleteSubtema(deleteSubtemaId);
+      setDeleteSubtemaId(null);
+      setIsDeleteModalOpen(false);
+    }
+  };
+
   return (
-    // Página principal de subtemas nivel1 - mate
     <main className="bg-gray-50">
       <SeparadorVerde />
-      {/* Encabezado del subtema */}
+
       <SubtemaHeader
-        titulo={subtemaData.titulo}
-        descripcion={subtemaData.descripcion}
-        imagen={subtemaData.imagen}
-        volverUrl= "/niveles/nivel1/mate"
+        titulo={currentSubtema.titulo}
+        descripcion={currentSubtema.descripcion}
+        imagen={currentSubtema.imagen}
+        volverUrl="/niveles/nivel1/mate"
       />
 
-        {/* Contenedor de tarjetas en el mismo div levantado */}
-        <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-6 mb-10">
-          {subtemaData.temas?.map((tema) => (
+      {session?.role === "admin" && (
+        <AddButton text="Agregar Subtema" onClick={handleAddSubtema} />
+      )}
+
+      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-6 mb-10">
+        {subtemasList.map((tema) => (
+          <div key={tema.id} className="relative">
             <SubtemaCard
-              key={tema.id}   
               title={tema.title}
               description={tema.description}
-              link={tema.link}
-              buttonLabel={tema.buttonLabel}
-              imgSrc={tema.imgSrc}
-              buttonColor={subtemaData.buttonColor}
+              link={`/niveles/nivel1/mate/${subtemas}/${tema.id}`}
+              imgSrc={tema.img_url}
+              buttonColor={currentSubtema.buttonColor}
+              role={session?.role}
+              onEdit={() => handleEditSubtema(tema)}
+              onDelete={() => openDeleteModal(tema.id)}
             />
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
 
       <SeparadorVerde />
+
+      <SubtemasModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onSave={handleSaveSubtema}
+        newSubtema={newSubtema}
+        onInputChange={handleInputChange}
+      />
+
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDeleteSubtema}
+      />
     </main>
   );
 };

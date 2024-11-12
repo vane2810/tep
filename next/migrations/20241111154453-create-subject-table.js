@@ -1,9 +1,9 @@
-/* Tabla de usuarios */
+/* Tabla de relacion estudiantes */
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Subjects', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,18 +14,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
-      },
-      password: {
+      description: {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      role: {
-        type: Sequelize.ENUM('estudiante', 'docente', 'padre'),
-        allowNull: true
       },
       levelId: {
         type: Sequelize.INTEGER,
@@ -33,15 +24,7 @@ module.exports = {
           model: 'Levels',
           key: 'id'
         },
-        allowNull: true
-      },
-      characterId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Characters',
-          key: 'id'
-        },
-        allowNull: true
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -56,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Subjects');
   }
 };

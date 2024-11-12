@@ -7,6 +7,8 @@ const authRoutes = require('./routes/auth');
 const progresoRoutes = require('./routes/progreso'); 
 const userRoutes = require('./routes/users');
 const relationshipRoutes = require('./routes/relationships');
+const topicsRoutes = require('./routes/topics');
+const subtopicRoutes = require('./routes/subtopics');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,6 +19,8 @@ app.use('/api/auth', authRoutes); // Ruta autenticación
 app.use('/api/progreso', progresoRoutes); // Ruta para progreso
 app.use('/api/users', userRoutes); // Ruta para los usuarios
 app.use('/api/relationships', relationshipRoutes); // Ruta para las relaciones
+app.use('/api/topics', topicsRoutes);
+app.use('/api/subtopics', subtopicRoutes);
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');

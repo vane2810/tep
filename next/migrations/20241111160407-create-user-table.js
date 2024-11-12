@@ -1,9 +1,9 @@
-/* Tabla de personajes */
+/* Tabla de usuarios */
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Characters', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,12 +14,34 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      img_url: {
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
+      password: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      description: {
-        type: Sequelize.STRING
+      role: {
+        type: Sequelize.ENUM('estudiante', 'docente', 'padre', 'admin'),
+        allowNull: true
+      },
+      levelId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Levels',
+          key: 'id'
+        },
+        allowNull: true
+      },
+      characterId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Characters',
+          key: 'id'
+        },
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +56,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Characters');
+    await queryInterface.dropTable('Users');
   }
 };

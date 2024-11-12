@@ -1,35 +1,31 @@
+/* Tabla de relación estudiantes y guardianes */
 'use strict';
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('user_relationships', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('UsersRelations', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: false
+        type: Sequelize.INTEGER
       },
       studentId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'Users',
           key: 'id'
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE', // Borra la relación si se elimina el estudiante
+        allowNull: false
       },
       guardianId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'Users',
           key: 'id'
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
-      role: {
-        type: Sequelize.ENUM('padre', 'docente'),
+        onDelete: 'CASCADE', // Borra la relación si se elimina el guardián
         allowNull: false
       },
       createdAt: {
@@ -44,8 +40,7 @@ module.exports = {
       }
     });
   },
-
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('user_relationships');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('UsersRelations');
   }
 };

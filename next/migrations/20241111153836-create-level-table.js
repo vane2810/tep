@@ -1,9 +1,9 @@
-/* Tabla de personajes */
+/* Tabla de niveles */
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Characters', {
+    await queryInterface.createTable('Levels', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,10 +11,6 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      img_url: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -34,6 +30,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Characters');
+    await queryInterface.dropTable('Levels');
   }
 };
