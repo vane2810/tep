@@ -46,16 +46,16 @@ const BreakSection = () => {
             alt="Estrella"
             className="w-12 sm:w-16 md:w-20 lg:w-24 mb-4"
           />
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-700 mb-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-700 mb-2 super">
             ¡Tiempo de Receso!
           </h1>
-          <p className="text-xs sm:text-sm md:text-base text-gray-600">
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 wonder">
             Elige una actividad para disfrutar tu tiempo de descanso.
           </p>
         </header>
 
         {/* Tarjetas de actividades en formato de cuadrícula ajustado */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 wonder">
           <ActivityCard
             imgSrc="/img/receso/juegos.png"
             title="Juegos"

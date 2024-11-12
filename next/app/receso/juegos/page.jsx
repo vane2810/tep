@@ -32,6 +32,7 @@ const GamesPage = () => {
       instructions: {
         title: "Revienta Globos",
         text: "En este juego, debes reventar globos antes de que suban demasiado alto. ¡Haz clic rápido para ganar!",
+        imageSrc: "/img/receso/juego2/juego2m.png"
       },
       gameRoute: "/receso/juegos/juego2"
     },
@@ -42,6 +43,7 @@ const GamesPage = () => {
       instructions: {
         title: "Cuadrado Escapista",
         text: "Ayuda al cuadrado a escapar de los obstáculos. Usa las flechas para moverlo y evitar las trampas.",
+        imageSrc: "/img/receso/juego3/juego3m.png"
       },
       gameRoute: "/receso/juegos/juego3"
     },
@@ -52,49 +54,10 @@ const GamesPage = () => {
       instructions: {
         title: "Memoria Rápida",
         text: "Encuentra los pares de cartas iguales lo más rápido posible. ¡Pon a prueba tu memoria!",
+        imageSrc: "/img/receso/juego4/juego4m.png"
       },
       gameRoute: "/receso/juegos/juego4"
-    },
-    {
-      imgSrc: "/img/receso/juego5/game5.png",
-      title: "Saltarín evasor",
-      buttonText: "Jugar",
-      instructions: {
-        title: "Saltarín Evasor",
-        text: "Salta sobre los obstáculos y evita caer en las trampas. ¡Sé rápido y preciso!",
-      },
-      gameRoute: "/receso/juegos/juego5"
-    },
-    {
-      imgSrc: "/img/receso/juego6/game6.png",
-      title: "Caza estrellas",
-      buttonText: "Jugar",
-      instructions: {
-        title: "Caza Estrellas",
-        text: "Recoge todas las estrellas en el menor tiempo posible. ¡Compite contra el reloj!",
-      },
-      gameRoute: "/receso/juegos/juego6"
-    },
-    {
-      imgSrc: "/img/receso/juego7/game7.png",
-      title: "Color manía",
-      buttonText: "Jugar",
-      instructions: {
-        title: "Color Manía",
-        text: "Selecciona los colores correctos para completar el desafío. ¡Muestra tu creatividad!",
-      },
-      gameRoute: "/receso/juegos/juego7"
-    },
-    {
-      imgSrc: "/img/receso/juego8/game8.png",
-      title: "Simon dice",
-      buttonText: "Jugar",
-      instructions: {
-        title: "Simon Dice",
-        text: "Repite la secuencia de colores que Simon te muestre. ¡Pon a prueba tu memoria y concentración!",
-      },
-      gameRoute: "/receso/juegos/juego8"
-    },
+    },   
   ];
 
   // Función para abrir el modal con las instrucciones del juego seleccionado
@@ -119,10 +82,10 @@ const GamesPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-200 flex flex-col items-center py-10 relative">
-      <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 text-center">
+      <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 text-center super">
         ¡Bienvenido a la Zona de Juegos!
       </h1>
-      <p className="text-lg md:text-xl text-gray-600 text-center mb-6">
+      <p className="text-lg md:text-xl text-gray-600 text-center mb-6 wonder">
         Explora y disfruta de juegos interactivos para aprender y divertirte.
       </p>
 
