@@ -23,7 +23,8 @@ const Subject = require('./subject')(sequelize, DataTypes);
 const Topic = require('./topic')(sequelize, DataTypes);
 const Subtopic = require('./subtopic')(sequelize, DataTypes);
 const Content = require('./content')(sequelize, DataTypes);
-const Step = require('./step')(sequelize, DataTypes); // Importar el modelo Step
+const Step = require('./step')(sequelize, DataTypes);
+const Game = require('./game')(sequelize, DataTypes); // Importar el modelo Game
 
 // Definir relaciones entre los modelos
 
@@ -58,10 +59,14 @@ Subtopic.hasMany(Content, { foreignKey: 'subtopicId', as: 'contents', onDelete: 
 
 // Relaciones de Content
 Content.belongsTo(Subtopic, { foreignKey: 'subtopicId', as: 'subtopic' });
-Content.hasMany(Step, { foreignKey: 'contentId', as: 'steps', onDelete: 'CASCADE' }); // Relación entre Content y Step
+Content.hasMany(Step, { foreignKey: 'contentId', as: 'steps', onDelete: 'CASCADE' });
+Content.hasMany(Game, { foreignKey: 'contentId', as: 'games', onDelete: 'CASCADE' }); 
 
 // Relaciones de Step
 Step.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
+
+// Relaciones de Game
+Game.belongsTo(Content, { foreignKey: 'contentId', as: 'content' }); 
 
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
@@ -74,5 +79,6 @@ module.exports = {
   Topic,
   Subtopic,
   Content,
-  Step, 
+  Step,
+  Game, 
 };

@@ -11,6 +11,7 @@ const topicsRoutes = require('./routes/topics');
 const subtopicRoutes = require('./routes/subtopics');
 const contentsRoutes = require('./routes/contents');
 const stepsRoutes = require('./routes/steps');
+const gamesRoutes = require('./routes/games');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,6 +26,7 @@ app.use('/api/topics', topicsRoutes);
 app.use('/api/subtopics', subtopicRoutes);
 app.use('/api/contents', contentsRoutes);
 app.use('/api/steps', stepsRoutes);
+app.use('/api/games', gamesRoutes);
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');

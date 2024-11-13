@@ -10,11 +10,11 @@ import AddButton from "@/components/elements/botonAdd";
 import Volver from "@/components/elements/botonVolver";
 import ContentModal from "@/components/modals/admin/contenido/contentModal";
 import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
-import ContentStructure1 from "@/components/templates/contents/contentStructure1"; // Vista de lista
-import ContentStructure2 from "@/components/templates/contents/contentStructure2"; // Vista de libro
+import ContentStructure1 from "@/components/templates/contents/contentStructure1"; 
+import ContentStructure2 from "@/components/templates/contents/contentStructure2"; 
 import Loading from "@/components/elements/loading";
 import EmptyContentMessage from "@/components/menssages/mensajeVacio";
-import BotonContent from "@/components/elements/botonContent"; // Componente de botón para cambiar vista
+import BotonContent from "@/components/elements/botonContent"; 
 
 const ContenidoPage = () => {
     const params = useParams();
@@ -279,7 +279,7 @@ const ContenidoPage = () => {
                                 onEdit={handleEditContent}
                                 onDelete={handleDeleteContent}
                                 isAdmin={session?.role === "admin"}
-                                playLink={`/niveles/nivel1/mate/${subtemas}`}
+                                playLink={`/niveles/nivel1/mate/${subtemas}/${content.id}/juegos`}
                             />
                         ) : (
                             <ContentStructure2

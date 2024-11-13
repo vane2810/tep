@@ -33,7 +33,7 @@ export default function WelcomeMessage({ images, fullText, onWelcomeEnd }) {
             className="mx-auto mb-4 w-auto h-64"
           />
         )}
-        <div className="font-bold text-3xl story">
+        <div className="font-bold text-3xl wonder">
           <Typewriter text={fullText} speed={80} />
         </div>
       </div>

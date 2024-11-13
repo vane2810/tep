@@ -1,10 +1,10 @@
 // ./components/elements/EmptyContentMessage.js
 import React from "react";
 
-const EmptyContentMessage = () => {
+const Carga = () => {
     return (
         <div className="flex flex-col justify-center items-center mt-12 text-center">
-            <p className="font-bold text-2xl yagora">Parece que aquí está vacío ...</p>
+            <p className="font-bold text-2xl yagora">No se pudo cargar el contenido  ...</p>
             <img
                 src="/img/personajes/starly/starly_triste.png"
                 alt="Sin contenido"
@@ -14,4 +14,4 @@ const EmptyContentMessage = () => {
     );
 };
 
-export default EmptyContentMessage;
+export default Carga;
