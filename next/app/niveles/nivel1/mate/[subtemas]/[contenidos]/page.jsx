@@ -285,7 +285,7 @@ const ContenidoPage = () => {
                             <ContentStructure2
                                 key={content.id}
                                 content={content}
-                                playLink={`/niveles/nivel1/mate/${subtemas}`}
+                                playLink={`/niveles/nivel1/mate/${subtemas}/${content.id}/juegos`}
                             />
                         )
                     ))
