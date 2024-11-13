@@ -1,5 +1,6 @@
 // components/NivelTemplate.jsx
-"use client";
+"use client"; // Asegúrate de que esto esté en la primera línea del archivo
+
 import React, { useState, useEffect } from "react";
 import Volver from "@/components/elements/botonVolver";
 import Link from "next/link";
@@ -10,7 +11,7 @@ import PropTypes from "prop-types";
 // Subcomponente para un botón individual con imagen y texto personalizado
 function ButtonLink({ href, label, imgSrc, alt }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center max-w-xs">
       <Link href={href}>
         <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105 mb-2">
           <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
@@ -85,7 +86,7 @@ export default function NivelTemplate({
         </div>
       </section>
 
-      <section className="flex md:flex-row flex-col justify-center items-center space-y-6 md:space-y-0 mt-2 p-6 rounded-lg w-full max-w-5xl">
+      <section className="flex md:flex-nowrap flex-wrap justify-center items-center space-y-6 md:space-y-0 mt-2 p-6 rounded-lg w-full max-w-5xl overflow-x-auto">
         <div className="flex flex-col items-center space-y-6 md:space-y-6 md:mr-6">
           <ButtonLink href={buttonLinks.mate} label="Matemáticas" imgSrc="/img/personajes/donkey/donkey.png" alt="Matemática" />
           <ButtonLink href={buttonLinks.lenguaje} label="Lenguaje" imgSrc="/img/personajes/principe/principe.png" alt="Lenguaje" />
@@ -103,7 +104,7 @@ export default function NivelTemplate({
           {/* Botón de enlace al juego introductorio debajo del planeta */}
           {gameIntroLink && (
             <div className="mt-4 flex flex-col items-center">
-              <Link href={gameIntroLink}>
+              <Link href={buttonLinks.juegointro}>
                 <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105">
                   <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
                     <img
