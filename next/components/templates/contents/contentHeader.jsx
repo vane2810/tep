@@ -16,7 +16,7 @@ const ContentHeader = ({ title, imgSrc }) => {
 
       {/* Contenido a la derecha */}
       <div className="flex justify-center items-center ml-6 w-2/3">
-        <h1 className="font-bold text-4xl text-center wonder">Bienvenidos a {title}</h1>
+        <h1 className="font-bold text-5xl text-center wonder">Contenido: {title}</h1>
       </div>
     </div>
   );

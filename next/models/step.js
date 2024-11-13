@@ -14,10 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     Step.init({
-        order: {
-            type: DataTypes.INTEGER, // Número de orden del paso
-            allowNull: false,
-        },
         title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -34,11 +30,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING, // URL de audio asociado al paso (si aplica)
             allowNull: true,
         },
+        aditional: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
         contentId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Contents', // Nombre de la tabla relacionada
+                model: 'Content', // Nombre de la tabla relacionada
                 key: 'id',
             },
             onDelete: 'CASCADE', // Eliminación en cascada al borrar el contenido relacionado

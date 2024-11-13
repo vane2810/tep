@@ -1,3 +1,4 @@
+// ./app/niveles/nivel1/mate/[subtemas]/[contenidos]/page.jsx
 "use client";
 
 import { useParams } from "next/navigation";
@@ -6,28 +7,32 @@ import SubtemaContent from "@/components/templates/contents/contentHeader";
 import { SeparadorVerde } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
-import Volver from "@/components/elements/botonVolver"; // Importar el componente Volver
-import ContentModal from "@/components/modals/admin/contenido/contentModal"; // Importar el modal para contenido
-import DeleteModal from "@/components/modals/admin/contenido/deleteModal"; // Importar el modal para eliminación
+import Volver from "@/components/elements/botonVolver";
+import ContentModal from "@/components/modals/admin/contenido/contentModal";
+import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
+import ContentStructure1 from "@/components/templates/contents/contentStructure1"; // Vista de lista
+import ContentStructure2 from "@/components/templates/contents/contentStructure2"; // Vista de libro
+import Loading from "@/components/elements/loading";
+import EmptyContentMessage from "@/components/menssages/mensajeVacio";
+import BotonContent from "@/components/elements/botonContent"; // Componente de botón para cambiar vista
 
 const ContenidoPage = () => {
     const params = useParams();
-    const { subtemas, contenidos } = params; // Obtener `subtemas` y `contenido` desde los parámetros
-    const { session } = useSession(); // Obtener la sesión actual
+    const { subtemas, contenidos } = params;
+    const { session } = useSession();
 
     const [subtemaData, setSubtemaData] = useState(null);
-    const [contenidoData, setContenidoData] = useState([]); // Estado para gestionar los contenidos del subtema
+    const [contenidoData, setContenidoData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal de agregar/editar contenido
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // Estado para controlar el modal de eliminar contenido
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [editContentId, setEditContentId] = useState(null);
     const [deleteContentId, setDeleteContentId] = useState(null);
+    const [viewType, setViewType] = useState('list'); // Nueva variable de estado para el tipo de vista
     const [newContent, setNewContent] = useState({
         title: "",
         description: "",
-        img_url: "",
-        audio_url: "",
-        aditional: ""
+        steps: []
     });
 
     // Obtener los datos del subtema actual
@@ -60,7 +65,20 @@ const ContenidoPage = () => {
                 const response = await fetch(`http://localhost:3001/api/contents/bySubtopic/${contenidos}`);
                 if (response.ok) {
                     const data = await response.json();
-                    setContenidoData(data);
+
+                    // Obtener los pasos asociados a cada contenido
+                    const contenidoWithSteps = await Promise.all(
+                        data.map(async (content) => {
+                            const stepsResponse = await fetch(`http://localhost:3001/api/steps/byContent/${content.id}`);
+                            const steps = stepsResponse.ok ? await stepsResponse.json() : [];
+                            return {
+                                ...content,
+                                steps,
+                            };
+                        })
+                    );
+
+                    setContenidoData(contenidoWithSteps);
                 } else {
                     console.error("Error al obtener los contenidos del subtema");
                 }
@@ -80,22 +98,28 @@ const ContenidoPage = () => {
         setNewContent({
             title: "",
             description: "",
-            img_url: "",
-            audio_url: "",
-            aditional: ""
+            steps: []
         });
         setIsModalOpen(true);
     };
 
-    const handleEditContent = (content) => {
+    const handleEditContent = async (content) => {
         setEditContentId(content.id);
-        setNewContent({
-            title: content.title,
-            description: content.description,
-            img_url: content.img_url || "",
-            audio_url: content.audio_url || "",
-            aditional: content.aditional || ""
-        });
+        try {
+            const response = await fetch(`http://localhost:3001/api/steps/byContent/${content.id}`);
+            if (response.ok) {
+                const steps = await response.json();
+                setNewContent({
+                    title: content.title,
+                    description: content.description,
+                    steps: steps
+                });
+            } else {
+                console.error("Error al obtener los pasos del contenido");
+            }
+        } catch (error) {
+            console.error("Error de red al obtener los pasos:", error);
+        }
         setIsModalOpen(true);
     };
 
@@ -128,13 +152,39 @@ const ContenidoPage = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    ...newContentData,
-                    subtopicId: contenidos, // Relacionar con el subtema actual
+                    title: newContentData.title,
+                    description: newContentData.description,
+                    subtopicId: contenidos,
                 }),
             });
 
             if (response.ok) {
                 const savedContent = await response.json();
+
+                // Luego, guardar o actualizar los pasos
+                for (const step of newContentData.steps) {
+                    const stepUrl = step.id
+                        ? `http://localhost:3001/api/steps/${step.id}`
+                        : "http://localhost:3001/api/steps/";
+                    const stepMethod = step.id ? "PUT" : "POST";
+
+                    await fetch(stepUrl, {
+                        method: stepMethod,
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            title: step.title,
+                            description: step.description,
+                            img_url: step.img_url,
+                            audio_url: step.audio_url,
+                            aditional: step.aditional,
+                            contentId: savedContent.id,
+                        }),
+                    });
+                }
+
+                // Actualizar el estado de contenidos en el frontend
                 if (editContentId) {
                     setContenidoData((prev) =>
                         prev.map((content) => (content.id === editContentId ? savedContent : content))
@@ -172,32 +222,27 @@ const ContenidoPage = () => {
     };
 
     if (loading) {
-        return <p>Cargando contenido...</p>;
+        return <Loading />;
     }
 
     if (!subtemaData) {
         return <p>No se pudo cargar el contenido.</p>;
     }
 
-    // Construir el enlace para volver de forma dinámica
     const volverHref = `/niveles/nivel1/mate/${subtemas}`;
 
     return (
         <main className="bg-gray-100">
             <SeparadorVerde />
 
-            {/* Botón "Volver" usando el componente Volver */}
             <Volver href={volverHref} img="/img/home/regresar/verde.png" />
 
-            {/* Contenido del Subtema */}
             <SubtemaContent title={subtemaData.title} imgSrc={subtemaData.img_url} />
 
-            {/* Botón para agregar contenido (solo si el usuario es admin) */}
             {session?.role === "admin" && (
                 <AddButton text="Agregar Contenido" onClick={handleAddContent} />
             )}
 
-            {/* Modal para agregar o editar contenido */}
             {isModalOpen && (
                 <ContentModal
                     isOpen={isModalOpen}
@@ -207,7 +252,6 @@ const ContenidoPage = () => {
                 />
             )}
 
-            {/* Modal de confirmación de eliminación */}
             {isDeleteModalOpen && (
                 <DeleteModal
                     isOpen={isDeleteModalOpen}
@@ -216,39 +260,34 @@ const ContenidoPage = () => {
                 />
             )}
 
-            {/* Mostrar los contenidos */}
+            {/* Botones para cambiar la vista */}
+            <BotonContent
+                onListViewClick={() => setViewType('list')}
+                onBookViewClick={() => setViewType('book')}
+            />
+
+            {/* Mostrar los contenidos usando la vista seleccionada */}
             <div className="mt-6">
                 {contenidoData.length === 0 ? (
-                    <p>No hay contenidos disponibles para este subtema.</p>
+                    <EmptyContentMessage />
                 ) : (
                     contenidoData.map((content) => (
-                        <div key={content.id} className="shadow-md my-4 p-4 border rounded-lg">
-                            <h2 className="font-bold text-2xl">{content.title}</h2>
-                            <p className="mt-2">{content.description}</p>
-                            {content.img_url && (
-                                <img
-                                    src={content.img_url}
-                                    alt={content.title}
-                                    className="mt-4 rounded-lg w-full max-w-md object-cover"
-                                />
-                            )}
-                            {session?.role === "admin" && (
-                                <div className="flex space-x-4 mt-4">
-                                    <button
-                                        className="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded font-bold text-white"
-                                        onClick={() => handleEditContent(content)}
-                                    >
-                                        Editar
-                                    </button>
-                                    <button
-                                        className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-bold text-white"
-                                        onClick={() => handleDeleteContent(content.id)}
-                                    >
-                                        Eliminar
-                                    </button>
-                                </div>
-                            )}
-                        </div>
+                        viewType === 'list' ? (
+                            <ContentStructure1
+                                key={content.id}
+                                content={content}
+                                onEdit={handleEditContent}
+                                onDelete={handleDeleteContent}
+                                isAdmin={session?.role === "admin"}
+                                playLink={`/niveles/nivel1/mate/${subtemas}`}
+                            />
+                        ) : (
+                            <ContentStructure2
+                                key={content.id}
+                                content={content}
+                                playLink={`/niveles/nivel1/mate/${subtemas}`}
+                            />
+                        )
                     ))
                 )}
             </div>

@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT, // Tipo TEXT para permitir contenido extenso
       allowNull: true,
     },
-    aditional: {
-      type: DataTypes.TEXT, // Tipo TEXT para contenido adicional extenso
-      allowNull: true,
-    },
     subtopicId: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -1,12 +1,12 @@
 // ./routes/contents.js
 const express = require('express');
 const router = express.Router();
-const { Content } = require('../models'); // Importar el modelo de Content
-const upload = require('../config/multerConfig'); // Para manejar la subida de imágenes
+const { Content } = require('../models'); 
+const upload = require('../config/multerConfig'); 
 
 // Obtener contenidos específicos por subtopicId
 router.get('/bySubtopic/:subtopicId', async (req, res) => {
-    const { subtopicId } = req.params; // Obtener topicId de los parámetros de la URL
+    const { subtopicId } = req.params; 
     try {
         const contents = await Content.findAll({ where: { subtopicId } });
         if (contents) {
@@ -36,9 +36,9 @@ router.get('/:id', async (req, res) => {
 
 // Crear un nuevo contenido
 router.post('/', async (req, res) => {
-    const { title, description, img_url, audio_url, aditional, subtopicId } = req.body;
+    const { title, description, subtopicId } = req.body;
     try {
-        const newContent = await Content.create({ title, description, img_url, audio_url, aditional, subtopicId });
+        const newContent = await Content.create({ title, description, subtopicId });
         res.status(201).json(newContent);
     } catch (error) {
         res.status(500).json({ message: 'Error al crear el contenido', error });
@@ -47,11 +47,11 @@ router.post('/', async (req, res) => {
 
 // Actualizar un contenido existente
 router.put('/:id', async (req, res) => {
-    const { title, description, img_url, audio_url, aditional, subtopicId } = req.body;
+    const { title, description, subtopicId } = req.body;
     try {
         const content = await Content.findByPk(req.params.id);
         if (content) {
-            await subtopic.update({ title, description, img_url, audio_url, aditional, subtopicId });
+            await content.update({ title, description, subtopicId });
             res.status(200).json(content);
         } else {
             res.status(404).json({ message: 'contenido no encontrado' });
