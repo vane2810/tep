@@ -30,7 +30,7 @@ export default function MatematicaPage() {
             mostrarCabeza={false}
             segmentos={segmentos}
             nivel="nivel3"
-            fondoUrl="/img/materias/mate/fondon3.jpg"
+            fondoUrl="/img/materias/mate/selva.jpg"
             planetaImg="/img/personajes/niveles/jupitern3.png"
           />
         </div>

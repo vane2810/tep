@@ -12,21 +12,20 @@ function ButtonLink({ href, label, imgSrc, alt }) {
   return (
     <div className="flex flex-col items-center">
       <Link href={href}>
-        {/* Contenedor externo con el color principal como borde */}
         <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105 mb-2">
-          {/* Contenedor interno con fondo blanco */}
           <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
-            {/* Imagen centrada dentro del círculo blanco */}
-            <img
-              src={imgSrc}
-              alt={alt}
-              className="w-2/3 h-2/3 object-contain"
-            />
+            <img src={imgSrc} alt={alt} className="w-2/3 h-2/3 object-contain" />
           </button>
         </div>
       </Link>
-      {/* Texto debajo del botón con color y fuente personalizada */}
-      <span className="text-lg md:text-xl font-semibold text-center text-black mt-1" style={{ fontFamily: 'wonder' }}>
+      <span
+        className="text-3xl md:text-4xl font-semibold text-center mt-1"
+        style={{
+          color: 'black',
+          fontFamily: 'wonder',
+          textShadow: '2px 2px 4px rgba(255, 255, 255, 1), -2px -2px 4px rgba(255, 255, 255, 1), 2px -2px 4px rgba(255, 255, 255, 1), -2px 2px 4px rgba(255, 255, 255, 1)',
+        }}
+      >
         {label}
       </span>
     </div>
@@ -48,6 +47,7 @@ export default function NivelTemplate({
   buttonLinks,
   planetImg,
   fondoImg,
+  gameIntroLink = "/", // Valor por defecto para gameIntroLink
 }) {
   const [showWelcome, setShowWelcome] = useState(false);
   const { session } = useSession();
@@ -91,12 +91,41 @@ export default function NivelTemplate({
           <ButtonLink href={buttonLinks.lenguaje} label="Lenguaje" imgSrc="/img/personajes/principe/principe.png" alt="Lenguaje" />
         </div>
 
-        <div className="flex justify-center items-center mx-6">
+        <div className="flex flex-col justify-center items-center mx-6">
           <img
             src={planetImg}
             alt={`Nivel ${planetNumber}`}
             className="w-48 md:w-64 lg:w-80 animate-float"
+            style={{
+              filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(0, 0, 0, 0.5))',
+            }}
           />
+          {/* Botón de enlace al juego introductorio debajo del planeta */}
+          {gameIntroLink && (
+            <div className="mt-4 flex flex-col items-center">
+              <Link href={gameIntroLink}>
+                <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105">
+                  <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/img/home/juego_intro.png"
+                      alt="Juego Introductorio"
+                      className="w-2/3 h-2/3 object-contain"
+                    />
+                  </button>
+                </div>
+              </Link>
+              <span
+                className="text-3xl md:text-4xl font-semibold text-center mt-1"
+                style={{
+                  color: 'black',
+                  fontFamily: 'wonder',
+                  textShadow: '2px 2px 4px rgba(255, 255, 255, 1), -2px -2px 4px rgba(255, 255, 255, 1), 2px -2px 4px rgba(255, 255, 255, 1), -2px 2px 4px rgba(255, 255, 255, 1)',
+                }}
+              >
+                Juego Introductorio
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col items-center space-y-6 md:space-y-6 md:ml-6">
@@ -121,4 +150,5 @@ NivelTemplate.propTypes = {
     sociales: PropTypes.string.isRequired,
     ingles: PropTypes.string.isRequired,
   }).isRequired,
+  gameIntroLink: PropTypes.string, // Propiedad añadida para el enlace
 };
