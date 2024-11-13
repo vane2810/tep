@@ -67,7 +67,7 @@ const ContentStructure2 = ({ content, playLink }) => {
                         key={`page-step-${index}`}
                         className="flex flex-col justify-center items-center border-gray-300 bg-white shadow-lg p-6 border rounded-lg page"
                     >
-                        <h4 className="mt-6 mb-4 font-bold text-blue-700 text-center text-xl wonder">
+                        <h4 className="mt-6 mb-4 font-bold text-2xl text-blue-700 text-center wonder">
                             {step.title}
                         </h4>
 
