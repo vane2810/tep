@@ -1,23 +1,23 @@
-// components/MapLenguaje.js
+// components/MapIngles.js
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
 const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
-  // Elementos decorativos específicos de Lenguaje (excepto el planeta)
+  // Elementos decorativos específicos de Inglés (excepto el planeta)
   const decorativos = [
-    { id: "avion", img: "/img/materias/ingles/avion.png", alt: "Avion", className: "absolute top-[5%] left-[5%] w-[10vw] rocket-animation" },
-    { id: "globo",img: "/img/materias/ingles/globo.png", alt: "Globo", className: "absolute right-[5%] bottom-[3%] w-[8vw] comet-animation" },
+    { id: "avion", img: "/img/materias/ingles/avion.png", alt: "Avion", className: "absolute top-[5%] left-[5%] w-[12vw] sm:w-[8vw] rocket-animation" },
+    { id: "globo", img: "/img/materias/ingles/globo.png", alt: "Globo", className: "absolute right-[5%] bottom-[3%] w-[10vw] sm:w-[6vw] comet-animation" },
   ];
 
   return (
     <section
-      className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[100vh]"
+      className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[85vh] sm:h-[100vh]"
       style={{ backgroundImage: `url(${fondoUrl})` }}
     >
-      {/* Personaje principal al inicio */}
+      {/* Personaje principal al inicio ajustado a un tamaño más pequeño */}
       <div className="bottom-[3%] left-[3%] absolute">
-        <img src="/img/materias/ingles/avioneta.png" alt="Personaje" className="w-[14vw] h-auto" />
+        <img src="/img/materias/ingles/avioneta.png" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto" />
       </div>
 
       {/* Segmentos del mapa en un camino curvo */}
@@ -34,7 +34,7 @@ const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
             <img
               src={segmento.imgSrc}
               alt={segmento.alt}
-              className={`${positionClass} w-64 lg:w-72 h-auto transform transition-transform hover:scale-110`}
+              className={`${positionClass} w-36 sm:w-52 md:w-64 lg:w-72 h-auto transform transition-transform hover:scale-110`}
               title={segmento.name}
             />
           </Link>
@@ -42,9 +42,9 @@ const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
       })}
 
       {/* Decorativo específico del planeta */}
-      <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[12vw] planet-animation" />
+      <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[18vw] sm:w-[12vw] planet-animation" />
 
-      {/* Otros elementos decorativos específicos de Lenguaje */}
+      {/* Otros elementos decorativos específicos de Inglés */}
       {decorativos.map((item) => (
         <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
       ))}
