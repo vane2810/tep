@@ -15,7 +15,7 @@ export default function Nivel2() {
       planetName="KAORI"
       planetNumber="II"
       buttonLinks={{
-        mate: "/materias/1",
+        mate: "/niveles/nivel2/mate",
         lenguaje: "/niveles/nivel2/lenguaje",
         sociales: "/niveles/nivel2/sociales",
         ingles: "/niveles/nivel2/ingles",
