@@ -12,6 +12,7 @@ import GamesContainer from "@/components/templates/games/gamesContainer";
 import InstructionsModal from "@/components/modals/admin/contenido/instrutionModal";
 import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
+import JuegoOpciones from "@/components/minigame/juegoOpciones";
 
 const GamePage = () => {
     const params = useParams();
@@ -217,11 +218,16 @@ const GamePage = () => {
             />
 
             <GamesContainer
-                gameName={gameData.title}
+                gameName={gameData?.title || "Juego sin título"}
                 exercise="Ejercicio 1"
                 result="Pendiente"
                 stars={0}
             />
+
+            {gameData && (
+                <JuegoOpciones gameData={gameData} currentScene={0} puntos={0} />
+            )}
+
 
             <InstruccionesModal
                 isOpen={isInstruccionesModalOpen}

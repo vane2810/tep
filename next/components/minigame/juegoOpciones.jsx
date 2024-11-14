@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from 'react';
 import * as Phaser from 'phaser';
 
@@ -6,6 +5,15 @@ const JuegoOpciones = ({ gameData, currentScene, puntos }) => {
   const [gameInstance, setGameInstance] = useState(null);
 
   useEffect(() => {
+    // Verificar si `gameData` está bien estructurado
+    console.log("Game Data recibido:", gameData);
+
+    // Destruir cualquier instancia anterior de Phaser
+    if (gameInstance) {
+      gameInstance.destroy(true);
+      setGameInstance(null);
+    }
+
     const config = {
       type: Phaser.AUTO,
       width: 800,
@@ -39,8 +47,17 @@ const JuegoOpciones = ({ gameData, currentScene, puntos }) => {
     }
 
     function generateQuestion() {
-      // Cambiar los nombres de propiedades a las que están en el JSON proporcionado
-      const { text, options, correct, points } = gameData.questions[currentScene];
+      if (!gameData || !gameData.questions || gameData.questions.length === 0) {
+        console.error("Las preguntas no están definidas en `gameData`.");
+        return;
+      }
+    
+      const { text, options, correct } = gameData.questions[currentScene] || {};
+
+      if (!text || !options) {
+        console.error("Pregunta o opciones no definidas en la pregunta actual.");
+        return;
+      }
 
       this.add.text(400, 50, text, {
         fontSize: '22px',
@@ -61,21 +78,19 @@ const JuegoOpciones = ({ gameData, currentScene, puntos }) => {
           padding: { x: 10, y: 5 },
         }).setInteractive().setOrigin(0.5);
 
-        button.on('pointerdown', () => checkAnswer(index, button, points));
+        button.on('pointerdown', () => checkAnswer(index, button, correct));
       });
     }
 
-    function checkAnswer(selectedIndex, button, points) {
+    function checkAnswer(selectedIndex, button, correctIndex) {
       let feedbackMessage = '';
 
-      if (selectedIndex === gameData.questions[currentScene].correct) {
+      if (selectedIndex === correctIndex) {
         feedbackMessage = `¡Correcto! La respuesta es: ${gameData.questions[currentScene].options[selectedIndex]}`;
-        // Aquí podrías añadir lógica para aumentar los puntos del jugador
       } else {
-        feedbackMessage = `Incorrecto. La respuesta correcta es: ${gameData.questions[currentScene].options[gameData.questions[currentScene].correct]}`;
+        feedbackMessage = `Incorrecto. La respuesta correcta es: ${gameData.questions[currentScene].options[correctIndex]}`;
       }
 
-      // Mostrar feedback (puedes implementar lógica aquí para avanzar de escena si es correcto)
       console.log(feedbackMessage);
     }
 
