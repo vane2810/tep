@@ -279,13 +279,13 @@ const ContenidoPage = () => {
                                 onEdit={handleEditContent}
                                 onDelete={handleDeleteContent}
                                 isAdmin={session?.role === "admin"}
-                                playLink={`/niveles/nivel1/mate/${subtemas}/${content.id}/juegos`}
+                                playLink={`/niveles/nivel1/mate/${subtemas}/${content.id}/${content.id}`}
                             />
                         ) : (
                             <ContentStructure2
                                 key={content.id}
                                 content={content}
-                                playLink={`/niveles/nivel1/mate/${subtemas}/${content.id}/juegos`}
+                                playLink={`/niveles/nivel1/mate/${subtemas}/${content.id}/${content.id}`}
                             />
                         )
                     ))

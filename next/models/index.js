@@ -24,7 +24,10 @@ const Topic = require('./topic')(sequelize, DataTypes);
 const Subtopic = require('./subtopic')(sequelize, DataTypes);
 const Content = require('./content')(sequelize, DataTypes);
 const Step = require('./step')(sequelize, DataTypes);
-const Game = require('./game')(sequelize, DataTypes); // Importar el modelo Game
+const Game = require('./game')(sequelize, DataTypes);
+const GameDetail = require('./gamedetail')(sequelize, DataTypes); // Nuevo Modelo GameDetail
+const GameType = require('./gametype')(sequelize, DataTypes); // Nuevo Modelo GameType
+const Instruction = require('./instruction')(sequelize, DataTypes); // Nuevo Modelo Instruction
 
 // Definir relaciones entre los modelos
 
@@ -60,13 +63,25 @@ Subtopic.hasMany(Content, { foreignKey: 'subtopicId', as: 'contents', onDelete: 
 // Relaciones de Content
 Content.belongsTo(Subtopic, { foreignKey: 'subtopicId', as: 'subtopic' });
 Content.hasMany(Step, { foreignKey: 'contentId', as: 'steps', onDelete: 'CASCADE' });
-Content.hasMany(Game, { foreignKey: 'contentId', as: 'games', onDelete: 'CASCADE' }); 
+Content.hasMany(Game, { foreignKey: 'contentId', as: 'games', onDelete: 'CASCADE' });
 
 // Relaciones de Step
 Step.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
 
 // Relaciones de Game
-Game.belongsTo(Content, { foreignKey: 'contentId', as: 'content' }); 
+Game.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
+Game.hasMany(GameDetail, { foreignKey: 'gameId', as: 'details', onDelete: 'CASCADE' });
+Game.hasMany(Instruction, { foreignKey: 'game_id', as: 'instructions', onDelete: 'CASCADE' });
+
+// Relaciones de GameDetail
+GameDetail.belongsTo(Game, { foreignKey: 'gameId', as: 'game', onDelete: 'CASCADE' });
+GameDetail.belongsTo(GameType, { foreignKey: 'gameTypeId', as: 'gameType', onDelete: 'CASCADE' });
+
+// Relaciones de GameType
+GameType.hasMany(GameDetail, { foreignKey: 'gameTypeId', as: 'games', onDelete: 'SET NULL', onUpdate: 'CASCADE' });
+
+// Relaciones de Instruction
+Instruction.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });
 
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
@@ -80,5 +95,8 @@ module.exports = {
   Subtopic,
   Content,
   Step,
-  Game, 
+  Game,
+  GameDetail,
+  GameType,
+  Instruction,
 };

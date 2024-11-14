@@ -2,7 +2,7 @@
 "use client"
 import React, { useState } from "react";
 import { MdDelete } from 'react-icons/md'; 
-import Volver from "@/components/botonVolver";
+import Volver from "@/components/elements/botonVolver";
 
 export default function AdminFeedbackPage() {
   // Datos simulados para los comentarios

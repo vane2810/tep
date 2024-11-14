@@ -12,6 +12,8 @@ const subtopicRoutes = require('./routes/subtopics');
 const contentsRoutes = require('./routes/contents');
 const stepsRoutes = require('./routes/steps');
 const gamesRoutes = require('./routes/games');
+const instructionsRoutes = require('./routes/instructions');
+const gamRoutes = require('./routes/gamecomponent');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,6 +29,9 @@ app.use('/api/subtopics', subtopicRoutes);
 app.use('/api/contents', contentsRoutes);
 app.use('/api/steps', stepsRoutes);
 app.use('/api/games', gamesRoutes);
+app.use('/api/instructions', instructionsRoutes);
+app.use('/api/gamecomponent', gamRoutes);
+
 
 app.get('/', (req, res) => {
   res.send('¡Hola desde Express!');

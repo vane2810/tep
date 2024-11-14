@@ -191,7 +191,7 @@ const JuegosPage = () => {
                             key={game.id}
                             title={game.title}
                             imageSrc={game.img_url}
-                            href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/juegos/${game.id}`} 
+                            href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${game.id}/${game.id}`} 
                             isAdmin={session?.role === "admin"} // Añadir prop isAdmin para mostrar botones de editar/eliminar solo para el admin
                             onEdit={() => handleEditGame(game)} // Añadir prop onEdit
                             onDelete={() => openDeleteModal(game.id)} // Añadir prop onDelete

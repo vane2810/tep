@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from 'next/navigation';
-import Volver from "@/components/botonVolver";
+import Volver from "@/components/elements/botonVolver";
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 

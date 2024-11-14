@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     class GameType extends Model {
         static associate(models) {
             // Relación con el modelo Game (un GameType puede tener muchos juegos)
-            GameType.hasMany(models.Game, {
+            GameType.hasMany(models.GameDetail, {
                 foreignKey: 'game_type_id',
                 as: 'games',
                 onDelete: 'SET NULL',

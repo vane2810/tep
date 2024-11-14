@@ -1,17 +1,39 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Phaser from "phaser";
 
-const JuegoOpciones = () => {
+const JuegoArrastrar = ({ gameDetailId }) => {
     const gameContainerRef = useRef(null);
+    const [gameData, setGameData] = useState(null);
 
     useEffect(() => {
+        // Fetch para obtener los datos del juego
+        const fetchGameDetails = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/api/gameDetails/${gameDetailId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setGameData(data);
+                } else {
+                    console.error("Error al obtener los detalles del juego:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Error al realizar la solicitud:", error);
+            }
+        };
+
+        fetchGameDetails();
+    }, [gameDetailId]);
+
+    useEffect(() => {
+        if (!gameData) return;
+
         // Configuración básica de Phaser
         const config = {
             type: Phaser.AUTO,
             width: 800,
             height: 600,
-            backgroundColor: "#87CEEB", // Color de fondo (cielo claro)
+            backgroundColor: "#87CEEB",
             parent: gameContainerRef.current,
             scene: {
                 preload: preload,
@@ -27,20 +49,21 @@ const JuegoOpciones = () => {
         return () => {
             game.destroy(true);
         };
-    }, []);
+    }, [gameData]);
 
     // Función de precarga para cargar los recursos
     const preload = function () {
-        this.load.image("option", "/img/juego/option.png"); // Cargar imagen de opción (debes tenerla en tu carpeta pública)
+        this.load.image("option", "/img/juego/option.png");
     };
 
     // Función para crear la escena
     const create = function () {
-        const options = [
-            { x: 150, y: 300, correct: false },
-            { x: 400, y: 300, correct: true },
-            { x: 650, y: 300, correct: false },
-        ];
+        const options = gameData.questions.map((question, index) => ({
+            x: 150 + index * 250,
+            y: 300,
+            correct: question.correct,
+            text: question.text,
+        }));
 
         // Crear las opciones con una iteración
         options.forEach((option) => {
@@ -73,10 +96,17 @@ const JuegoOpciones = () => {
             button.on("pointerout", () => {
                 button.setScale(0.5);
             });
+
+            // Agregar texto sobre la opción
+            this.add.text(option.x, option.y + 50, option.text, {
+                fontSize: "20px",
+                fill: "#000",
+                fontFamily: "Arial",
+            }).setOrigin(0.5);
         });
 
         // Agregar un título al juego
-        this.add.text(400, 100, "Selecciona la opción correcta", {
+        this.add.text(400, 100, gameData.title, {
             fontSize: "40px",
             fill: "#ffffff",
             fontFamily: "Arial",
@@ -96,4 +126,4 @@ const JuegoOpciones = () => {
     );
 };
 
-export default JuegoOpciones;
+export default JuegoArrastrar;

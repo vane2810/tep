@@ -2,7 +2,7 @@
 import React, { useState, useContext } from "react";
 import { useRouter } from 'next/navigation'; // Importar useRouter
 import { SessionContext } from '@/context/session';
-import Volver from "@/components/botonVolver";
+import Volver from "@/components/elements/botonVolver";
 import { MdDelete, MdVisibility, MdPersonAdd } from 'react-icons/md';
 
 export default function GestionEstudiantesSimuladaPage() {
