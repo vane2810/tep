@@ -7,8 +7,9 @@ const { GameDetail } = require('../models');
 router.get('/byGame/:gameId', async (req, res) => {
     const { gameId } = req.params;
     try {
-        const gameDetails = await GameDetail.findAll({ where: { gameId } });
-        if (gameDetails.length > 0) {
+        const gameDetails = await GameDetail.findOne({ where: { gameId } });
+        if (gameDetails) {
+            // Enviar `json_url` junto con los detalles del juego
             res.status(200).json(gameDetails);
         } else {
             res.status(404).json({ message: 'No se encontraron detalles para el gameId especificado' });

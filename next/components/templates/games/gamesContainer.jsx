@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const GamesContainer = ({ gameName, exercise, result, stars }) => {
+const GamesContainer = ({ gameName, exercise, result, stars, GameComponent, gameDetailId }) => {
     return (
         <div className="relative flex flex-col justify-between items-center bg-white shadow-xl mx-auto my-20 p-8 rounded-xl w-full max-w-4xl text-center">
             {/* Información del juego */}
@@ -13,8 +13,11 @@ const GamesContainer = ({ gameName, exercise, result, stars }) => {
 
             {/* Canvas del juego */}
             <div className="flex justify-center items-center bg-gray-100 shadow-inner mb-8 rounded-lg w-full h-[400px]">
-                {/* Aquí irá el canvas del juego */}
-                <p className="text-gray-500">[El canvas del juego se cargará aquí]</p>
+                {GameComponent ? (
+                    <GameComponent gameDetailId={gameDetailId} />
+                ) : (
+                    <p className="text-gray-500">[El canvas del juego se cargará aquí]</p>
+                )}
             </div>
 
             {/* Resultado */}
@@ -34,6 +37,8 @@ GamesContainer.propTypes = {
     exercise: PropTypes.string.isRequired,
     result: PropTypes.string,
     stars: PropTypes.number.isRequired,
+    GameComponent: PropTypes.func,
+    gameDetailId: PropTypes.number,
 };
 
 export default GamesContainer;
