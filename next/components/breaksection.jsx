@@ -106,4 +106,3 @@ function ActivityCard({ imgSrc, title, description, buttonText, linkUrl }) {
 }
 
 export default BreakSection;
-
