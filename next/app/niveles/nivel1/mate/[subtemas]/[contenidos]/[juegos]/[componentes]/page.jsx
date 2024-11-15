@@ -12,7 +12,6 @@ import GamesContainer from "@/components/templates/games/gamesContainer";
 import InstructionsModal from "@/components/modals/admin/contenido/instrutionModal";
 import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
-import JuegoOpciones from "@/components/minigame/juegoOpciones";
 
 const GamePage = () => {
     const params = useParams();
@@ -84,7 +83,6 @@ const GamePage = () => {
         }
     }, [gameId]);
 
-    // Función para manejar cambios en los campos de entrada del modal de instrucciones
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setCurrentInstruction((prev) => ({
@@ -93,35 +91,29 @@ const GamePage = () => {
         }));
     };
 
-    // Función para abrir el modal de instrucciones
     const handleOpenInstruccionesModal = () => {
         setIsInstruccionesModalOpen(true);
     };
 
-    // Función para agregar una nueva instrucción
     const handleAddInstruction = () => {
         setCurrentInstruction(null);
         setIsInstructionsModalOpen(true);
     };
 
-    // Función para abrir el formulario de configuración del juego
     const handleConfigureGame = () => {
         router.push(`/niveles/nivel1/mate/${subtemas}/${contenidos}/${gameId}/${gameId}/configuration`);
     };
 
-    // Función para editar una instrucción existente
     const handleEditInstruction = (instruction) => {
         setCurrentInstruction(instruction);
         setIsInstructionsModalOpen(true);
     };
 
-    // Función para eliminar una instrucción existente
     const handleDeleteInstruction = (id) => {
         setDeleteInstructionId(id);
         setIsDeleteModalOpen(true);
     };
 
-    // Función para confirmar la eliminación de una instrucción
     const confirmDeleteInstruction = async () => {
         if (!deleteInstructionId) return;
 
@@ -141,14 +133,12 @@ const GamePage = () => {
         }
     };
 
-    // Función para cerrar los modales
     const handleModalClose = () => {
         setIsInstructionsModalOpen(false);
         setIsInstruccionesModalOpen(false);
         setCurrentInstruction(null);
     };
 
-    // Función para manejar la adición o edición de instrucciones
     const handleAddInstructionSubmit = async (instruction) => {
         if (!instruction.points || !instruction.instructions || isNaN(gameId)) {
             console.error('Todos los campos son obligatorios para agregar una instrucción o el ID del juego no es válido.');
@@ -223,11 +213,6 @@ const GamePage = () => {
                 result="Pendiente"
                 stars={0}
             />
-
-            {gameData && (
-                <JuegoOpciones gameData={gameData} currentScene={0} puntos={0} />
-            )}
-
 
             <InstruccionesModal
                 isOpen={isInstruccionesModalOpen}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 import Volver from '@/components/elements/botonVolver';
 
 const RevientaGlobos = () => {
