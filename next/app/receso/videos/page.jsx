@@ -1,5 +1,6 @@
 // components/VideoGallery.js
 import React from 'react';
+import Volver from '@/components/elements/botonVolver';
 
 const VideoGallery = () => {
   // Lista de videos, cada uno con título y enlace
@@ -13,23 +14,29 @@ const VideoGallery = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center p-4">
-      <h1 className="text-3xl font-bold text-blue-700 mb-8" style={{ fontFamily: 'super, sans-serif' }}>
+    <div className="relative flex flex-col justify-center items-center bg-blue-50 p-4 min-h-screen yagora">
+      {/* Botón Volver en la esquina superior izquierda */}
+      <div className="top-4 left-4 absolute">
+        <Volver href="/receso" />
+      </div>
+
+      <h1 className="my-8 font-bold text-3xl text-blue-700" style={{ fontFamily: 'super, sans-serif' }}>
         GALERÍA DE VIDEOS
       </h1>
-      <p className="text-gray-600 mb-6 text-center" style={{ fontFamily: 'wonder, sans-serif' }}>
-        Disfruta de una selección de videos divertidos y educativos para tu receso.
+      <p className="mb-6 text-center text-gray-600" style={{ fontFamily: 'wonder, sans-serif' }}>
+        Disfruta de una selección de videos divertidos y educativos para tu receso
       </p>
+
       {/* Imagen Central */}
       <div className="mb-10">
         <img
           src="/img/receso/videosr.png"
           alt="Zona de Juegos"
-          className="w-40 md:w-60 lg:w-72 mx-auto"
+          className="mx-auto w-40 md:w-60 lg:w-72"
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-8 w-full max-w-6xl">
         {videos.map((video, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
             <iframe
@@ -41,7 +48,7 @@ const VideoGallery = () => {
               allowFullScreen
             ></iframe>
             <div className="p-4">
-              <h2 className="text-lg font-semibold text-blue-700">{video.title}</h2>
+              <h2 className="font-semibold text-blue-700 text-lg">{video.title}</h2>
             </div>
           </div>
         ))}
@@ -51,4 +58,3 @@ const VideoGallery = () => {
 };
 
 export default VideoGallery;
-

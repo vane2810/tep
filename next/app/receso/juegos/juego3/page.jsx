@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
+import Volver from '@/components/elements/botonVolver';
 
 const CuadradoEscapista = () => {
   const gameContainerRef = useRef(null);
@@ -144,33 +145,37 @@ const CuadradoEscapista = () => {
     setTimeout(handleStartGame, 500);
   };
 
-  
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-100 via-blue-200 to-blue-300 relative px-4">
-      <h1 className="text-4xl font-bold text-blue-700 mb-4">Cuadrado Escapista</h1>
-
-      {/* Imagen Decorativa */}
-      <div className="mb-4">
-        <img src="/img/receso/juego3/decoracionj3.png" alt="Decoración" className="w-24 h-24 mx-auto" />
+    <div className="relative flex flex-col justify-center items-center space-y-8 bg-gradient-to-b from-blue-100 via-blue-200 to-blue-300 px-4 py-8 min-h-screen yagora">
+      {/* Botón Volver en la esquina superior izquierda */}
+      <div className="top-4 left-4 absolute">
+        <Volver href="/receso/juegos" />
       </div>
 
-      <div className="flex items-center space-x-6 mb-4">
-        <div className="bg-blue-700 text-white px-4 py-2 rounded-full text-lg">
+      <h1 className="mt-12 font-bold text-4xl text-blue-700">Cuadrado Escapista</h1>
+
+      {/* Imagen Decorativa */}
+      <div className="mb-8">
+        <img src="/img/receso/juego3/decoracionj3.png" alt="Decoración" className="mx-auto w-24 h-24" />
+      </div>
+
+      <div className="flex items-center space-x-8 mb-8">
+        <div className="bg-blue-700 px-6 py-3 rounded-full text-lg text-white">
           Tiempo: {timeLeft}s
         </div>
       </div>
 
       <div
         ref={gameContainerRef}
-        className={`w-full max-w-2xl h-[600px] bg-white shadow-2xl border-4 border-blue-500 rounded-lg overflow-hidden relative ${
+        className={`w-full max-w-2xl h-[600px] bg-white shadow-2xl border-4 border-blue-500 rounded-lg overflow-hidden relative mb-12 ${
           (isGameLost || isGameWon) && 'backdrop-blur-sm'
         }`}
       >
         {!isGameStarted && !isGameLost && !isGameWon && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+          <div className="z-10 absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
             <button
               onClick={handleStartGame}
-              className="px-8 py-4 bg-blue-600 text-white rounded-lg text-2xl font-bold hover:bg-blue-700"
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-bold text-2xl text-white"
             >
               Iniciar Juego
             </button>
@@ -178,11 +183,11 @@ const CuadradoEscapista = () => {
         )}
 
         {isGameLost && !isGameWon && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-white z-20">
-            <h2 className="text-4xl font-bold mb-4">¡Perdiste!</h2>
+          <div className="z-20 absolute inset-0 flex flex-col justify-center items-center space-y-4 bg-black bg-opacity-70 text-white">
+            <h2 className="font-bold text-4xl">¡Perdiste!</h2>
             <button
               onClick={handleRestartGame}
-              className="px-8 py-4 bg-red-600 rounded-lg text-2xl font-bold hover:bg-red-700"
+              className="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-bold text-2xl"
             >
               Volver a Intentar
             </button>
@@ -190,11 +195,11 @@ const CuadradoEscapista = () => {
         )}
 
         {isGameWon && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-white z-20">
-            <h2 className="text-4xl font-bold mb-4">¡Felicidades lo lograste!</h2>
+          <div className="z-20 absolute inset-0 flex flex-col justify-center items-center space-y-4 bg-black bg-opacity-70 text-white">
+            <h2 className="font-bold text-4xl">¡Felicidades lo lograste!</h2>
             <button
               onClick={handleRestartGame}
-              className="px-8 py-4 bg-blue-600 rounded-lg text-2xl font-bold hover:bg-blue-700"
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-bold text-2xl"
             >
               Volver a Jugar
             </button>
@@ -206,4 +211,3 @@ const CuadradoEscapista = () => {
 };
 
 export default CuadradoEscapista;
-

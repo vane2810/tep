@@ -1,6 +1,6 @@
 {
     "sonarlint.connectedMode.project": {
         "connectionId": "http-localhost-9000",
-        "projectKey": "tep-v1"
+        "projectKey": "tep-v3"
     }
 }

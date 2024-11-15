@@ -3,7 +3,6 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut } from 'react-icons/fa';
 import { BiArrowBack } from 'react-icons/bi';
-import Volver from '@/components/elements/botonVolver';
 import characterImages from '@/utils/characterImages';
 import ModalEditarUsuario from '@/components/modals/admin/editarModal';
 

@@ -8,7 +8,6 @@ import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Lege
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 export default function EstudiantePage() {
-    const router = useRouter();
     const { id } = useParams();
     const [estudiante, setEstudiante] = useState(null);
     const [cargando, setCargando] = useState(true);
