@@ -29,7 +29,7 @@ export default function AdminFeedbackPage() {
         <Volver href='/admin'/>
       </div>
       
-      <div className="bg-white shadow-lg mt-18 p-6 rounded-lg w-full max-w-6xl">
+      <div className="bg-white shadow-lg mt-18 p-6 rounded-lg w-full max-w-6xl yagora">
         <h2 className="mb-4 font-bold text-3xl text-blue-800 text-center">
           Administración de Feedback de Usuarios
         </h2>

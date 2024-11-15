@@ -125,6 +125,28 @@ export default function ModalAgregarUsuario({ onClose }) {
     }
   };
 
+  // Definir las funciones de selección para los modales
+  const handleRoleSelected = (selectedRole) => {
+    setRole(selectedRole);
+    setMostrarModalRol(false);
+    if (selectedRole === 'estudiante') {
+      setMostrarModalNivel(true);
+    } else {
+      setMostrarModalPersonaje(true);
+    }
+  };
+
+  const handleLevelSelected = (selectedLevel) => {
+    setLevelId(selectedLevel);
+    setMostrarModalNivel(false);
+    setMostrarModalPersonaje(true);
+  };
+
+  const handleCharacterSelected = (selectedCharacter) => {
+    setCharacterId(selectedCharacter);
+    setMostrarModalPersonaje(false);
+  };
+
   return (
     <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-300">
       <div className="relative z-60 bg-white shadow-2xl p-8 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto">

@@ -123,24 +123,24 @@ export default function MatematicaPage() {
         <SeparadorAzul />
         <div className="bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200 py-8">
           {/* Volver */}
-          <div className="mt-6 ml-10 inline-block">
+          <div className="inline-block mt-6 ml-10">
             <Link href="/niveles/nivel1/mate">
               <img 
-                src="/img/home/regresar.png" 
+                src="/img/home/regresar/azul.png" 
                 alt="Volver" 
                 className="w-10 h-auto transform hover:scale-110 transition-transform" 
                 title="Volver a la página anterior" 
               />
             </Link>
           </div>
-          <div className="flex flex-col items-center justify-center mb-5 text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center">
+          <div className="flex flex-col justify-center items-center mb-5 text-center">
+            <div className="flex md:flex-row flex-col justify-center items-center">
               <img 
                 src="/img/niveles/mate/starlyvideo1.png" 
                 alt="Animated Image" 
-                className="h-40 md:h-64 w-auto mb-4 md:mb-0 md:mr-4 animate-tambaleo" 
+                className="md:mr-4 mb-4 md:mb-0 w-auto h-40 md:h-64 animate-tambaleo" 
               />
-              <p className="text-black super text-lg md:text-4xl max-w-lg ">
+              <p className="max-w-lg text-black text-lg md:text-4xl super">
               BIENVENIDA/O A NUESTRA GALERIA MULTIMEDIA, DONDE CADA VIDEO ES UNA PUERTA HACIA EL CONOCIMIENTO.¡HAZ CLIC Y DEJA QUE LA EDUCACIÓN TE SORPRENDA!.
               </p>
             </div>
@@ -150,10 +150,10 @@ export default function MatematicaPage() {
       </section>
 
       {/* Sección de temas */}
-      <section className="py-8 bg-gray-100">
-        <div className="container mx-auto px-4">
+      <section className="bg-gray-100 py-8">
+        <div className="mx-auto px-4 container">
           <p className="instrucciones story">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {temas.map((tema) => (
               <div 
                 key={tema.id}
@@ -166,8 +166,8 @@ export default function MatematicaPage() {
                   className="w-full h-28 sm:h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-bold">{tema.title}</h3>
-                  <p className="text-gray-600 mt-2">{tema.description}</p>
+                  <h3 className="font-bold text-lg">{tema.title}</h3>
+                  <p className="mt-2 text-gray-600">{tema.description}</p>
                 </div>
               </div>
             ))}
@@ -184,7 +184,7 @@ export default function MatematicaPage() {
               <iframe 
                 src={videoUrl}
                 title="YouTube Video"
-                className="absolute top-0 left-0 w-full h-full"
+                className="top-0 left-0 absolute w-full h-full"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen

@@ -11,28 +11,49 @@ import AddButton from "@/components/elements/botonAdd";
 
 // Definir los datos de subtemas al inicio
 const subtemasData = {
-  ortografia: {
+  belice: {
     id: 10,
     titulo: "Ortografía Básica",
     descripcion: "Aprende las reglas esenciales de la ortografía para escribir correctamente y evitar errores comunes. ¡Un paso fundamental para dominar el lenguaje!",
     imagen: "/img/personajes/principe/principe.png",
     buttonColor: "morado",
   },
-  gramatica: {
+  guatemala: {
     id: 11,
     titulo: "Gramática y Sintaxis",
     descripcion: "Descubre la estructura del lenguaje con temas de gramática y sintaxis. Aprende a construir oraciones correctamente y a usar las palabras adecuadas en cada contexto.",
     imagen: "/img/personajes/principe/principe.png",
     buttonColor: "morado",
   },
-  generos_literarios: {
+  honduras: {
     id: 12,
     titulo: "Géneros Literarios",
     descripcion: "Explora los diferentes géneros literarios, desde la narrativa hasta la poesía. Aprende sus características y cómo se expresan en distintos tipos de textos.",
     imagen: "/img/lenguajerias/lenguaje/geon.png",
     buttonColor: "morado",
   },
-  lectura: {
+  el_salvador: {
+    id: 13,
+    titulo: "Comprensión Lectora",
+    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
+    imagen: "/img/personajes/principe/principe.png",
+    buttonColor: "morado",
+  },
+  nicaragua: {
+    id: 13,
+    titulo: "Comprensión Lectora",
+    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
+    imagen: "/img/personajes/principe/principe.png",
+    buttonColor: "morado",
+  },
+  costa_rica: {
+    id: 13,
+    titulo: "Comprensión Lectora",
+    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
+    imagen: "/img/personajes/principe/principe.png",
+    buttonColor: "morado",
+  },
+  panama: {
     id: 13,
     titulo: "Comprensión Lectora",
     descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
