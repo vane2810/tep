@@ -6,12 +6,14 @@ import Sidebar from './sidebar';
 import useSession from '@/hooks/useSession';
 import characterImages from '@/utils/characterImages';
 import { HiMenu } from 'react-icons/hi';
+import GuestModal from '@/components/modals/guestModal';
 
 const Navbar = () => {
   // Estado para la barra lateral y el menú desplegable
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { session, logout, selectedCharacter } = useSession();
+  const [showGuestModal, setShowGuestModal] = useState(false);
 
   // Función para alternar la barra lateral
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -121,7 +123,13 @@ const Navbar = () => {
       </div>
 
       {/* Barra lateral */}
-      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} session={session} />
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        session={session}
+        onShowGuestModal={() => setShowGuestModal(true)} // Controla el modal desde aquí
+      />
+      <GuestModal show={showGuestModal} />
     </nav>
   );
 };

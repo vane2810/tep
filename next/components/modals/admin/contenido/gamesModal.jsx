@@ -1,13 +1,32 @@
-// ./components/modals/admin/games/gameModal.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FiX, FiFileText, FiImage, FiSave, FiXCircle } from "react-icons/fi";
 
 const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
     const [selectedFile, setSelectedFile] = useState(null);
+    const [gameTypes, setGameTypes] = useState([]); // Estado para guardar los tipos de juegos
     const [errors, setErrors] = useState({}); // Estado para manejar errores
+    const [isLoadingGameTypes, setIsLoadingGameTypes] = useState(false); // Cargar los tipos de juego
 
-    if (!isOpen) return null;
+    // Cargar los tipos de juegos al abrir el modal
+    useEffect(() => {
+        const fetchGameTypes = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/api/gametypes/'); // Endpoint correcto
+                if (!response.ok) {
+                    throw new Error('Error al cargar los tipos de juegos.');
+                }
+                const data = await response.json();
+                setGameTypes(data); // Guarda los datos en el estado
+            } catch (error) {
+                console.error('Error al cargar los tipos de juegos:', error);
+                setGameTypes([]); // Manejo de error: asigna un arreglo vacío
+            }
+        };
+
+        if (isOpen) fetchGameTypes(); // Cargar datos solo si el modal está abierto
+    }, [isOpen]);
+
 
     // Función para manejar la selección de archivo
     const handleFileChange = (e) => {
@@ -16,13 +35,14 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
 
     // Función para manejar la carga de imagen y guardado
     const handleSave = async () => {
-        // Validar que los campos obligatorios no estén vacíos
         const validationErrors = {};
         if (!newGame.title.trim()) {
             validationErrors.title = "El título es obligatorio.";
         }
+        if (!newGame.gametype_id) {
+            validationErrors.gametype_id = "El tipo de juego es obligatorio.";
+        }
 
-        // Si hay errores, establecer el estado de errores y salir de la función
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
@@ -30,7 +50,6 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
 
         let imgUrl = newGame.imgSrc;
 
-        // Subir la nueva imagen si hay una nueva imagen seleccionada
         if (selectedFile) {
             const formData = new FormData();
             formData.append("file", selectedFile);
@@ -44,7 +63,7 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
 
                 const data = await response.json();
                 if (data.secure_url) {
-                    imgUrl = data.secure_url; // Actualiza la URL de la imagen
+                    imgUrl = data.secure_url;
                 } else {
                     console.error("No se encontró la URL en la respuesta.");
                     return;
@@ -53,28 +72,25 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                 console.error("Error al cargar la imagen:", error);
                 return;
             }
-        } else {
-            // Usar una imagen predeterminada si no se ha seleccionado ninguna imagen
-            imgUrl = "/img/personajes/starly/starly_gorro.png"; // Ruta de la imagen predeterminada
         }
 
-        // Llamar a la función onSave con todos los datos del juego, incluyendo la URL de la imagen actualizada
+        // Llamamos a la función para guardar el juego
         onSave({
             ...newGame,
             imgSrc: imgUrl,
-            contentId: newGame.contentId, // Asegúrate de incluir el contentId
+            contentId: newGame.contentId,
         });
 
-        // Limpiar los errores después de un guardado exitoso
         setErrors({});
-        onClose(); // Cerrar el modal después de guardar
+        onClose();
     };
 
-    return (
-        <div className="z-50 fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-70 yagora">
-            <div className="relative bg-white shadow-lg p-6 rounded-lg w-full max-w-lg">
+    // Verificamos si el modal está abierto
+    if (!isOpen) return null;
 
-                {/* Icono de cierre en la esquina superior derecha */}
+    return (
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-70">
+            <div className="relative bg-white shadow-lg p-6 rounded-lg w-full max-w-lg">
                 <button
                     className="top-4 right-4 absolute text-gray-500 hover:text-gray-800"
                     onClick={onClose}
@@ -86,7 +102,7 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                     {newGame.id ? "Editar Juego" : "Agregar Juego"}
                 </h2>
 
-                {/* Campo de Título con Icono y Asterisco Rojo */}
+                {/* Campo de Título */}
                 <div className="relative mb-4">
                     <FiFileText className="top-3 left-3 absolute text-gray-400" />
                     <input
@@ -96,16 +112,44 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                         value={newGame.title}
                         onChange={(e) => {
                             onInputChange(e);
-                            setErrors((prev) => ({ ...prev, title: "" })); // Limpiar error al escribir
+                            setErrors((prev) => ({ ...prev, title: "" }));
                         }}
-                        className={`border p-3 pl-10 rounded-lg focus:ring-2 w-full focus:outline-none ${
-                            errors.title ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-500"
-                        }`}
+                        className={`border p-3 pl-10 rounded-lg focus:ring-2 w-full focus:outline-none ${errors.title ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-500"
+                            }`}
                     />
                     {errors.title && <p className="mt-1 text-red-500 text-sm">{errors.title}</p>}
                 </div>
 
-                {/* Campo de Carga de Imagen */}
+                {/* Selector de Tipo de Juego */}
+                <div className="relative mb-4">
+                    {isLoadingGameTypes ? (
+                        <p className="text-gray-500">Cargando tipos de juego...</p>
+                    ) : (
+                        <select
+                            name="gametype_id"
+                            value={newGame.gametype_id || ''}
+                            onChange={(e) => {
+                                onInputChange(e);
+                                setErrors((prev) => ({ ...prev, gametype_id: "" }));
+                            }}
+                            className={`border p-3 rounded-lg w-full ${errors.gametype_id ? "border-red-500" : "border-gray-300"}`}
+                        >
+                            <option value="" disabled>
+                                Selecciona un tipo de juego *
+                            </option>
+                            {gameTypes.map((type) => (
+                                <option key={type.id} value={type.id}>
+                                    {type.type_name}
+                                </option>
+                            ))}
+                        </select>
+
+                    )}
+                    {errors.gametype_id && <p className="mt-1 text-red-500 text-sm">{errors.gametype_id}</p>}
+                </div>
+
+
+                {/* Campo para subir la imagen */}
                 <div className="relative mb-6">
                     <FiImage className="top-3 left-3 absolute text-gray-400" />
                     <input
@@ -116,17 +160,17 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                     />
                 </div>
 
-                {/* Botones con Iconos */}
+                {/* Botones */}
                 <div className="flex justify-end space-x-4">
                     <button
-                        className="flex items-center space-x-2 bg-gray-500 hover:bg-gray-600 px-6 py-2 rounded-lg font-semibold text-white transform transition duration-200 ease-in-out hover:scale-105"
+                        className="flex items-center space-x-2 bg-gray-500 hover:bg-gray-600 px-6 py-2 rounded-lg font-semibold text-white"
                         onClick={onClose}
                     >
                         <FiXCircle className="text-xl" />
                         <span>Cancelar</span>
                     </button>
                     <button
-                        className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg font-semibold text-white transform transition duration-200 ease-in-out hover:scale-105"
+                        className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg font-semibold text-white"
                         onClick={handleSave}
                     >
                         <FiSave className="text-xl" />
@@ -146,6 +190,7 @@ GameModal.propTypes = {
         title: PropTypes.string,
         imgSrc: PropTypes.string,
         contentId: PropTypes.string,
+        gametype_id: PropTypes.string,
     }).isRequired,
     onInputChange: PropTypes.func.isRequired,
 };

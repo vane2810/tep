@@ -3,8 +3,9 @@ import React from 'react';
 import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
 
-export default function Sidebar({ isOpen, onClose, session }) {
+export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) {
   const levelLink = session ? `/niveles/nivel${session.nivel}` : '/';
+  const isLoggedIn = !!session; // Verifica si hay sesión
 
   return (
     <div 
@@ -34,6 +35,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
 
       {/* Lista de elementos */}
       <ul className="space-y-2 px-4">
+        {/* Inicio */}
         <li className="py-2">
           <Link href={levelLink} className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
             <img src="/img/personajes/starly/starly.png" alt="Inicio" className="mr-2 w-5 h-5" />
@@ -41,21 +43,55 @@ export default function Sidebar({ isOpen, onClose, session }) {
           </Link>
         </li>
 
-        {/* Otros elementos del sidebar */}
+        {/* Progreso */}
         <li className="py-2">
-          <Link href="/progreso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
-            <img src="/img/home/barra/progreso.png" alt="Progreso" className="mr-2 w-5 h-5" />
-            Progreso
-          </Link>
+          {isLoggedIn ? (
+            <Link href="/progreso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+              <img src="/img/home/barra/progreso.png" alt="Progreso" className="mr-2 w-5 h-5" />
+              Progreso
+            </Link>
+          ) : (
+            <button onClick={onShowGuestModal} className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+              <img src="/img/home/barra/progreso.png" alt="Progreso" className="mr-2 w-5 h-5" />
+              Progreso
+            </button>
+          )}
         </li>
-        
-        {/* Sección de Receso */}
+
+        {/* Receso */}
         <li className="py-2">
-          <Link href="/receso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
-            <img src="/img/receso/estrella.png" alt="Receso" className="mr-2 w-5 h-5" />
-            Receso
-          </Link>
+          {isLoggedIn ? (
+            <Link href="/receso" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+              <img src="/img/receso/estrella.png" alt="Receso" className="mr-2 w-5 h-5" />
+              Receso
+            </Link>
+          ) : (
+            <button onClick={onShowGuestModal} className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+              <img src="/img/receso/estrella.png" alt="Receso" className="mr-2 w-5 h-5" />
+              Receso
+            </button>
+          )}
         </li>
+
+        {/* Juegos Introductorios */}
+        {isLoggedIn && (
+          <li className="py-2">
+            <Link href="/juegos-introductorios" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+              <img src="/img/receso/estrella.png" alt="Juegos Introductorios" className="mr-2 w-5 h-5" />
+              Juegos Introductorios
+            </Link>
+          </li>
+        )}
+
+        {/* Configurar Cuenta */}
+        {isLoggedIn && (
+          <li className="py-2">
+            <Link href="/configuracion-cuenta" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+              <img src="/img/receso/estrella.png" alt="Configurar Cuenta" className="mr-2 w-5 h-5" />
+              Configurar Cuenta
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   );

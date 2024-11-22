@@ -100,7 +100,8 @@ const JuegosPage = () => {
                     title: gameToSave.title,
                     img_url: gameToSave.imgSrc,
                     contentId: gameToSave.contentId,
-                }),
+                    gametype_id: gameToSave.gametype_id, // Agrega este campo
+                })                
             });
 
             if (response.ok) {

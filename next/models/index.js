@@ -70,6 +70,7 @@ Step.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
 
 // Relaciones de Game
 Game.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
+Game.belongsTo(GameType, { foreignKey: 'gametype_id', as: 'gameType', onDelete: 'CASCADE' });
 Game.hasMany(GameDetail, { foreignKey: 'gameId', as: 'details', onDelete: 'CASCADE' });
 Game.hasMany(Instruction, { foreignKey: 'game_id', as: 'instructions', onDelete: 'CASCADE' });
 
@@ -78,7 +79,9 @@ GameDetail.belongsTo(Game, { foreignKey: 'gameId', as: 'game', onDelete: 'CASCAD
 GameDetail.belongsTo(GameType, { foreignKey: 'gameTypeId', as: 'gameType', onDelete: 'CASCADE' });
 
 // Relaciones de GameType
-GameType.hasMany(GameDetail, { foreignKey: 'gameTypeId', as: 'games', onDelete: 'SET NULL', onUpdate: 'CASCADE' });
+GameType.hasMany(Game, { foreignKey: 'gametype_id', as: 'games', onDelete: 'SET NULL', onUpdate: 'CASCADE' });
+GameType.hasMany(GameDetail, { foreignKey: 'gameTypeId', as: 'details', onDelete: 'SET NULL', onUpdate: 'CASCADE' });
+
 
 // Relaciones de Instruction
 Instruction.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });

@@ -12,13 +12,13 @@ export default function HomePage() {
     <main>
       
 {/* Bienvenida de Starly */}
-<div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10 px-4 md:px-0">
+<div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10 px-4 md:px-0">
     <img
         src="/img/personajes/starly/starlycohete.png"
         alt="Starly"
-        className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-6 md:mb-0 md:mr-10 animate-tumble"
+        className="md:mr-10 mb-6 md:mb-0 w-24 sm:w-32 md:w-40 lg:w-48 h-24 sm:h-32 md:h-40 lg:h-48 animate-tumble"
     />
-    <div className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl wonder text-center md:text-left">
+    <div className="font-bold text-center text-lg sm:text-xl md:text-2xl md:text-left lg:text-3xl wonder">
         <Typewriter
             text="  ¡Hola! Soy Starly y te estaré acompañando en esta aventura"
             speed={40}
