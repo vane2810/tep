@@ -1,11 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaYoutube, FaEdit, FaTrash } from "react-icons/fa"; // Importar íconos de react-icons
+import InstructionsModal from "../admin/contenido/instrutionModal";
 
-const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, onEdit, onDelete }) => {
+const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, onSave }) => {
+    const [isEditing, setIsEditing] = useState(false);
+    const [currentPoints, setCurrentPoints] = useState({ points_max: "", points_min: "" });
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     const [videoUrl, setVideoUrl] = useState("");
+
+    useEffect(() => {
+        if (instructions && instructions.length > 0) {
+            // Inicializar puntos máximos y mínimos con los valores de las instrucciones predeterminadas
+            setCurrentPoints({
+                points_max: instructions[0].points_max || "",
+                points_min: instructions[0].points_min || "",
+            });
+        }
+    }, [instructions]);
 
     if (!isOpen) {
         return null;
@@ -39,6 +52,22 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
         }
     };
 
+    const handleEditClick = () => {
+        setIsEditing(true);
+    };
+
+    const handleSavePoints = (updatedPoints) => {
+        onSave(updatedPoints);
+        setIsEditing(false);
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setCurrentPoints((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
 
     return (
         <>
@@ -52,7 +81,9 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                         &times;
                     </button>
 
-                    <h2 className="mb-3 font-bold text-2xl text-center text-green-600 wonder">Instrucciones del Juego</h2>
+                    <h2 className="mb-3 font-bold text-2xl text-center text-green-600 wonder">
+                        Instrucciones del Juego
+                    </h2>
 
                     {/* Imagen decorativa */}
                     <div className="flex justify-center mb-4">
@@ -67,10 +98,16 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                     {instructions && instructions.length > 0 ? (
                         <div className="bg-gray-100 shadow-md p-3 rounded-lg yagora">
                             {/* Puntaje */}
-                            <h3 className="mb-2 text-center text-lg wonder">Puntaje: {instructions[0].points} estrellas</h3>
+                            <h3 className="mb-2 text-center text-lg wonder">
+                                Puntos Máximos: {currentPoints.points_max || "0"}
+                            </h3>
+                            <h3 className="mb-2 text-center text-lg wonder">
+                                Puntos Mínimos: {currentPoints.points_min || "0"}
+                            </h3>
+
                             {/* Lista de instrucciones ordenada */}
                             <ol className="space-y-1 pl-6 text-gray-800 text-sm list-decimal">
-                                {instructions[0].instructions.split('\n').map((step, index) => (
+                                {instructions[0].instructions.split("\n").map((step, index) => (
                                     <li key={`instruction-step-${index}`}>{step.trim()}</li>
                                 ))}
                             </ol>
@@ -88,26 +125,22 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                                 </div>
                             )}
 
-                            {/* Íconos de edición y eliminación, solo para el administrador */}
+                            {/* Ícono de edición, solo para el administrador */}
                             {isAdmin && (
-                                <div className="flex justify-end space-x-3 mt-4">
+                                <div className="flex justify-end mt-4">
                                     <button
-                                        onClick={() => onEdit(instructions[0])} // Abre el modal de edición
+                                        onClick={handleEditClick} // Abre el modal de edición
                                         className="text-blue-600 hover:text-blue-800"
                                     >
                                         <FaEdit className="w-5 h-5" />
-                                    </button>
-                                    <button
-                                        onClick={() => onDelete(instructions[0].id)}
-                                        className="text-red-600 hover:text-red-800"
-                                    >
-                                        <FaTrash className="w-5 h-5" />
                                     </button>
                                 </div>
                             )}
                         </div>
                     ) : (
-                        <p className="mt-4 text-base text-center text-gray-600">No hay instrucciones disponibles.</p>
+                        <p className="mt-4 text-base text-center text-gray-600">
+                            No hay instrucciones disponibles.
+                        </p>
                     )}
 
                     {/* Botones de acción */}
@@ -128,6 +161,17 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                 </div>
             </div>
 
+            {/* Modal para editar los puntos máximos y mínimos */}
+            {isEditing && (
+                <InstructionsModal
+                    isOpen={isEditing}
+                    onClose={() => setIsEditing(false)}
+                    onSave={handleSavePoints}
+                    newInstruction={currentPoints}
+                    onInputChange={handleInputChange}
+                />
+            )}
+
             {/* Modal del video de YouTube */}
             {isVideoOpen && (
                 <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-75">
@@ -140,7 +184,7 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                         </button>
                         <div className="aspect-w-16 aspect-h-9">
                             <iframe
-                                src={`${convertToEmbedUrl(videoUrl)}?rel=0`} 
+                                src={`${convertToEmbedUrl(videoUrl)}?rel=0`}
                                 title="YouTube Video"
                                 className="rounded-lg w-full h-56 md:h-80"
                                 frameBorder="0"
@@ -151,8 +195,6 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                     </div>
                 </div>
             )}
-
-
         </>
     );
 };
@@ -164,14 +206,14 @@ InstruccionesModal.propTypes = {
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             instructions: PropTypes.string.isRequired,
-            points: PropTypes.string.isRequired,
+            points_max: PropTypes.string.isRequired,
+            points_min: PropTypes.string.isRequired,
             video_url: PropTypes.string,
         })
     ).isRequired,
     onPlay: PropTypes.func.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    onEdit: PropTypes.func.isRequired, // Asegúrate de pasar esta prop
-    onDelete: PropTypes.func.isRequired, // Asegúrate de pasar esta prop
+    onSave: PropTypes.func.isRequired,
 };
 
 export default InstruccionesModal;

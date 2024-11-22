@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             });
         }
     }
+
     Instruction.init(
         {
             id: {
@@ -20,21 +21,21 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false
             },
-            points: {
-                type: DataTypes.STRING,  // Cambiado de INTEGER a STRING
-                allowNull: false
-            },
-            instructions: {
-                type: DataTypes.TEXT,  // Cambiado de JSON a TEXT
-                allowNull: false
-            },
-            video_url: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
             game_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
+            },
+            points_max: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
+                defaultValue: null,
+                comment: 'Puntos máximos para completar el juego'
+            },
+            points_min: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
+                defaultValue: null,
+                comment: 'Puntos mínimos requeridos para aprobar'
             }
         },
         {

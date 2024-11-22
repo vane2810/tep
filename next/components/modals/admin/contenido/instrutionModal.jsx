@@ -18,11 +18,19 @@ const InstructionsModal = ({ isOpen, onClose, onSave, newInstruction, onInputCha
     const handleSave = async () => {
         // Validar que los campos obligatorios no estén vacíos
         const validationErrors = {};
-        if (newInstruction?.points === undefined || newInstruction.points === null || newInstruction.points === "") {
-            validationErrors.points = "Los puntos son obligatorios.";
+        if (
+            newInstruction?.points_max === undefined ||
+            newInstruction.points_max === null ||
+            newInstruction.points_max === ""
+        ) {
+            validationErrors.points_max = "Los puntos máximos son obligatorios.";
         }
-        if (!newInstruction?.instructions?.trim()) {
-            validationErrors.instructions = "Las instrucciones son obligatorias.";
+        if (
+            newInstruction?.points_min === undefined ||
+            newInstruction.points_min === null ||
+            newInstruction.points_min === ""
+        ) {
+            validationErrors.points_min = "Los puntos mínimos son obligatorios.";
         }
 
         // Si hay errores, establecer el estado de errores y salir de la función
@@ -31,7 +39,7 @@ const InstructionsModal = ({ isOpen, onClose, onSave, newInstruction, onInputCha
             return;
         }
 
-        // Llamar a la función onSave con todos los datos de la instrucción
+        // Llamar a la función onSave con todos los datos de los puntos
         await onSave({
             ...newInstruction,
         });
@@ -54,57 +62,45 @@ const InstructionsModal = ({ isOpen, onClose, onSave, newInstruction, onInputCha
                 </button>
 
                 <h2 className="mb-6 font-semibold text-3xl text-center text-purple-700">
-                    {newInstruction?.id ? "Editar Instrucciones" : "Agregar Instrucciones"}
+                    {newInstruction?.id ? "Editar Puntos Máximos y Mínimos" : "Agregar Puntos Máximos y Mínimos"}
                 </h2>
 
-                {/* Campo de Puntos con Icono y Asterisco Rojo */}
+                {/* Campo de Puntos Máximos con Icono y Asterisco Rojo */}
                 <div className="relative mb-4">
                     <FiFileText className="top-3 left-3 absolute text-gray-400" />
                     <input
                         type="number"
-                        name="points"
-                        placeholder="Puntos *"
-                        value={newInstruction?.points || ''}
+                        name="points_max"
+                        placeholder="Puntos Máximos *"
+                        value={newInstruction?.points_max || ''}
                         onChange={(e) => {
                             onInputChange(e);
-                            setErrors((prev) => ({ ...prev, points: "" })); // Limpiar error al escribir
+                            setErrors((prev) => ({ ...prev, points_max: "" })); // Limpiar error al escribir
                         }}
                         className={`border p-3 pl-10 rounded-lg focus:ring-2 w-full focus:outline-none ${
-                            errors.points ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-500"
+                            errors.points_max ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-500"
                         }`}
                     />
-                    {errors.points && <p className="mt-1 text-red-500 text-sm">{errors.points}</p>}
+                    {errors.points_max && <p className="mt-1 text-red-500 text-sm">{errors.points_max}</p>}
                 </div>
 
-                {/* Campo de Instrucciones */}
-                <div className="relative mb-6">
-                    <FiFileText className="top-3 left-3 absolute text-gray-400" />
-                    <textarea
-                        name="instructions"
-                        placeholder="Instrucciones *"
-                        value={newInstruction?.instructions || ''}
-                        onChange={(e) => {
-                            onInputChange(e);
-                            setErrors((prev) => ({ ...prev, instructions: "" })); // Limpiar error al escribir
-                        }}
-                        className={`border p-3 pl-10 rounded-lg focus:ring-2 w-full focus:outline-none ${
-                            errors.instructions ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-500"
-                        }`}
-                    />
-                    {errors.instructions && <p className="mt-1 text-red-500 text-sm">{errors.instructions}</p>}
-                </div>
-
-                {/* Campo de URL del Video */}
+                {/* Campo de Puntos Mínimos con Icono y Asterisco Rojo */}
                 <div className="relative mb-6">
                     <FiFileText className="top-3 left-3 absolute text-gray-400" />
                     <input
-                        type="text"
-                        name="video_url"
-                        placeholder="URL del video"
-                        value={newInstruction?.video_url || ''}
-                        onChange={onInputChange}
-                        className="border-gray-300 p-3 pl-10 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
+                        type="number"
+                        name="points_min"
+                        placeholder="Puntos Mínimos *"
+                        value={newInstruction?.points_min || ''}
+                        onChange={(e) => {
+                            onInputChange(e);
+                            setErrors((prev) => ({ ...prev, points_min: "" })); // Limpiar error al escribir
+                        }}
+                        className={`border p-3 pl-10 rounded-lg focus:ring-2 w-full focus:outline-none ${
+                            errors.points_min ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-purple-500"
+                        }`}
                     />
+                    {errors.points_min && <p className="mt-1 text-red-500 text-sm">{errors.points_min}</p>}
                 </div>
 
                 {/* Botones con Iconos */}
@@ -135,9 +131,8 @@ InstructionsModal.propTypes = {
     onSave: PropTypes.func.isRequired,
     newInstruction: PropTypes.shape({
         id: PropTypes.number,
-        points: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        instructions: PropTypes.string,
-        video_url: PropTypes.string,
+        points_max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        points_min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }).isRequired,
     onInputChange: PropTypes.func.isRequired,
 };

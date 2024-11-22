@@ -37,6 +37,17 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.JSON, // Campo para las claves requeridas
                 allowNull: false, // Aseguramos que no pueda estar vacío
             },
+            default_instructions: {
+                type: DataTypes.TEXT, 
+                allowNull: true, 
+            },
+            default_video_url: {
+                type: DataTypes.STRING, // URL del video tutorial
+                allowNull: true, // Opcional
+                validate: {
+                    isUrl: true, // Asegura que sea una URL válida
+                },
+            },
         },
         {
             sequelize,
