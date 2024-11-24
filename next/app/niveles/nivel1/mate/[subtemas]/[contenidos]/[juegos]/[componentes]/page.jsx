@@ -18,11 +18,13 @@ const GamePage = () => {
     const [gameData, setGameData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [instructions, setInstructions] = useState([]);
+    const [defaultInstructions, setDefaultInstructions] = useState(null);
+    const [adminInstructions, setAdminInstructions] = useState([]);
     const [isInstruccionesModalOpen, setIsInstruccionesModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
-    const [currentPoints, setCurrentPoints] = useState({ points_max: "", points_min: "" });
+    const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
 
+    // Función para obtener los datos del juego
     useEffect(() => {
         const fetchGame = async () => {
             try {
@@ -30,15 +32,12 @@ const GamePage = () => {
                 const response = await fetch(`http://localhost:3001/api/games/${gameId}`);
                 if (response.ok) {
                     const data = await response.json();
-                    console.log("Game Data:", data);
                     setGameData(data);
                 } else {
                     setError(true);
-                    console.error("Error al obtener los datos del juego:", response.statusText);
                 }
             } catch (error) {
                 setError(true);
-                console.error("Error de red:", error);
             } finally {
                 setLoading(false);
             }
@@ -47,64 +46,82 @@ const GamePage = () => {
         if (gameId) fetchGame();
     }, [gameId]);
 
-    useEffect(() => {
-        const fetchInstructions = async () => {
-            try {
-                const response = await fetch(`http://localhost:3001/api/gametypes/default/${gameId}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log("Fetched Instructions:", data);
-
-                    // Asegurarnos de que data contiene las instrucciones y la URL en el formato adecuado
-                    if (data && typeof data.instructions === "string") {
-                        setInstructions([{
-                            instructions: data.instructions,
-                            video_url: data.video_url
-                        }]);
-                    } else {
-                        console.error("El formato de las instrucciones no es correcto:", data);
-                    }
-                } else {
-                    console.error("Error al obtener las instrucciones predeterminadas:", response.statusText);
-                }
-            } catch (error) {
-                console.error("Error de red al obtener instrucciones:", error);
+    // Función para obtener las instrucciones predeterminadas
+    const fetchDefaultInstructions = async () => {
+        try {
+            const response = await fetch(`http://localhost:3001/api/gametypes/default/${gameId}`);
+            if (response.ok) {
+                const data = await response.json();
+                setDefaultInstructions(data);
+            } else {
+                console.error("Error al obtener las instrucciones predeterminadas");
             }
-        };
+        } catch (error) {
+            console.error("Error al obtener instrucciones predeterminadas:", error);
+        }
+    };
 
-        if (gameId) fetchInstructions();
+    // Función para obtener las instrucciones personalizadas
+    const fetchAdminInstructions = async () => {
+        try {
+            const response = await fetch(`http://localhost:3001/api/instructions/byGame/${gameId}`);
+            if (response.ok) {
+                const data = await response.json();
+                setAdminInstructions(data);
+            } else {
+                console.error("Error al obtener las instrucciones personalizadas");
+            }
+        } catch (error) {
+            console.error("Error al obtener instrucciones personalizadas:", error);
+        }
+    };
+
+    useEffect(() => {
+        if (gameId) {
+            fetchDefaultInstructions();
+            fetchAdminInstructions();
+        }
     }, [gameId]);
 
-    const handleEditClick = () => {
+    const handleEditClick = (instruction) => {
         setIsEditing(true);
         setIsInstruccionesModalOpen(true);
+        setCurrentPoints({
+            id: instruction.id || null,
+            points_max: instruction.points_max || "",
+            points_min: instruction.points_min || ""
+        });
     };
 
     const handleModalClose = () => {
         setIsInstruccionesModalOpen(false);
         setIsEditing(false);
-        setCurrentPoints({ points_max: "", points_min: "" });
+        setCurrentPoints({ id: null, points_max: "", points_min: "" });
     };
 
     const handleSavePoints = async (updatedPoints) => {
         try {
-            const response = await fetch(
-                `http://localhost:3001/api/instructions/${gameId}`,
-                {
+            const { id, points_max, points_min } = updatedPoints;
+            let response;
+
+            if (!id) {
+                response = await fetch(`http://localhost:3001/api/instructions`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ points_max, points_min, game_id: gameId }),
+                });
+            } else {
+                response = await fetch(`http://localhost:3001/api/instructions/${id}`, {
                     method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(updatedPoints),
-                }
-            );
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ points_max, points_min }),
+                });
+            }
 
             if (response.ok) {
-                const data = await response.json();
-                console.log("Saved Points Data:", data);
-                setCurrentPoints(data);
+                await fetchAdminInstructions();
             } else {
-                console.error("Error al guardar los puntos:", response.statusText);
+                console.error("Error al guardar los puntos");
             }
         } catch (error) {
             console.error("Error al guardar los puntos:", error);
@@ -126,7 +143,8 @@ const GamePage = () => {
             <InstruccionesModal
                 isOpen={isInstruccionesModalOpen}
                 onClose={handleModalClose}
-                instructions={instructions}
+                instructions={adminInstructions}
+                defaultInstructions={defaultInstructions}
                 points={currentPoints}
                 isAdmin={session?.role === "admin"}
                 onSave={handleSavePoints}

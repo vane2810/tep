@@ -17,6 +17,8 @@ router.get('/byGame/:gameId', async (req, res) => {
     }
 });
 
+
+
 // Crear una nueva instrucción
 router.post('/', async (req, res) => {
     const { points_max, points_min, game_id } = req.body;
@@ -55,21 +57,6 @@ router.put('/:id', async (req, res) => {
     } catch (error) {
         console.error('Error al editar la instrucción:', error);
         res.status(500).json({ message: 'Error al editar la instrucción.', error });
-    }
-});
-
-// Eliminar una instrucción
-router.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const instruction = await Instruction.findByPk(id);
-        if (!instruction) {
-            return res.status(404).json({ message: 'Instrucción no encontrada' });
-        }
-        await instruction.destroy();
-        res.status(200).json({ message: 'Instrucción eliminada correctamente' });
-    } catch (error) {
-        res.status(500).json({ message: 'Error al eliminar la instrucción', error });
     }
 });
 

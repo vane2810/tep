@@ -21,10 +21,6 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false
             },
-            game_id: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
             points_max: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
@@ -36,7 +32,11 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: true,
                 defaultValue: null,
                 comment: 'Puntos mínimos requeridos para aprobar'
-            }
+            },
+            game_id: {
+                type: DataTypes.INTEGER,
+                allowNull: false
+            },
         },
         {
             sequelize,

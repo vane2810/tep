@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { GameType } = require('../models');
+const { Game, GameType } = require('../models');
 
 // Ruta para obtener todos los tipos de juegos
 router.get('/', async (req, res) => {
