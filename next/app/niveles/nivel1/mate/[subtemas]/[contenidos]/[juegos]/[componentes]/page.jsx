@@ -24,7 +24,7 @@ const GamePage = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
 
-    // Función para obtener los datos del juego
+    // Obtener los datos del juego
     useEffect(() => {
         const fetchGame = async () => {
             try {
@@ -37,6 +37,7 @@ const GamePage = () => {
                     setError(true);
                 }
             } catch (error) {
+                console.error("Error al obtener datos del juego:", error);
                 setError(true);
             } finally {
                 setLoading(false);
@@ -46,22 +47,33 @@ const GamePage = () => {
         if (gameId) fetchGame();
     }, [gameId]);
 
-    // Función para obtener las instrucciones predeterminadas
-    const fetchDefaultInstructions = async () => {
-        try {
-            const response = await fetch(`http://localhost:3001/api/gametypes/default/${gameId}`);
-            if (response.ok) {
-                const data = await response.json();
-                setDefaultInstructions(data);
-            } else {
-                console.error("Error al obtener las instrucciones predeterminadas");
+    // Obtener las instrucciones predeterminadas basadas en el gameType
+    useEffect(() => {
+        const fetchDefaultInstructions = async () => {
+            if (!gameData?.gameType?.id) {
+                console.error("No se encontró el ID del tipo de juego asociado al juego.");
+                return;
             }
-        } catch (error) {
-            console.error("Error al obtener instrucciones predeterminadas:", error);
-        }
-    };
 
-    // Función para obtener las instrucciones personalizadas
+            try {
+                const response = await fetch(`http://localhost:3001/api/gametypes/default/${gameData.gameType.id}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setDefaultInstructions(data);
+                } else {
+                    console.error("Error al obtener las instrucciones predeterminadas");
+                }
+            } catch (error) {
+                console.error("Error al obtener instrucciones predeterminadas:", error);
+            }
+        };
+
+        if (gameData?.gameType?.id) {
+            fetchDefaultInstructions();
+        }
+    }, [gameData]);
+
+    // Obtener las instrucciones personalizadas
     const fetchAdminInstructions = async () => {
         try {
             const response = await fetch(`http://localhost:3001/api/instructions/byGame/${gameId}`);
@@ -78,7 +90,6 @@ const GamePage = () => {
 
     useEffect(() => {
         if (gameId) {
-            fetchDefaultInstructions();
             fetchAdminInstructions();
         }
     }, [gameId]);
@@ -89,7 +100,7 @@ const GamePage = () => {
         setCurrentPoints({
             id: instruction.id || null,
             points_max: instruction.points_max || "",
-            points_min: instruction.points_min || ""
+            points_min: instruction.points_min || "",
         });
     };
 

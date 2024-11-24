@@ -42,12 +42,13 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: true, 
             },
             default_video_url: {
-                type: DataTypes.STRING, // URL del video tutorial
-                allowNull: true, // Opcional
+                type: DataTypes.STRING,
+                allowNull: true,
                 validate: {
                     isUrl: true, // Asegura que sea una URL válida
                 },
             },
+            
         },
         {
             sequelize,
