@@ -25,9 +25,9 @@ const Subtopic = require('./subtopic')(sequelize, DataTypes);
 const Content = require('./content')(sequelize, DataTypes);
 const Step = require('./step')(sequelize, DataTypes);
 const Game = require('./game')(sequelize, DataTypes);
-const GameDetail = require('./gamedetail')(sequelize, DataTypes); // Nuevo Modelo GameDetail
-const GameType = require('./gametype')(sequelize, DataTypes); // Nuevo Modelo GameType
-const Instruction = require('./instruction')(sequelize, DataTypes); // Nuevo Modelo Instruction
+const GameDetail = require('./gamedetail')(sequelize, DataTypes); // Modelo actualizado de GameDetail
+const GameType = require('./gametype')(sequelize, DataTypes);
+const Instruction = require('./instruction')(sequelize, DataTypes);
 
 // Definir relaciones entre los modelos
 
@@ -76,12 +76,9 @@ Game.hasMany(Instruction, { foreignKey: 'game_id', as: 'instructions', onDelete:
 
 // Relaciones de GameDetail
 GameDetail.belongsTo(Game, { foreignKey: 'gameId', as: 'game', onDelete: 'CASCADE' });
-GameDetail.belongsTo(GameType, { foreignKey: 'gameTypeId', as: 'gameType', onDelete: 'CASCADE' });
 
 // Relaciones de GameType
 GameType.hasMany(Game, { foreignKey: 'gametype_id', as: 'games', onDelete: 'SET NULL', onUpdate: 'CASCADE' });
-GameType.hasMany(GameDetail, { foreignKey: 'gameTypeId', as: 'details', onDelete: 'SET NULL', onUpdate: 'CASCADE' });
-
 
 // Relaciones de Instruction
 Instruction.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });

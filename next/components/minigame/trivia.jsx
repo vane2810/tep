@@ -7,6 +7,15 @@ const Trivia = ({ gameData }) => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [feedback, setFeedback] = useState("");
 
+  // Asegurarse de que gameData está definido y tiene preguntas
+  if (!gameData || !gameData.preguntas || gameData.preguntas.length === 0) {
+    return (
+      <div className="text-center text-gray-800 text-lg">
+        No hay preguntas configuradas para este juego. Por favor, configura las preguntas.
+      </div>
+    );
+  }
+
   // Extraer datos del juego
   const { preguntas, points, points_questions, points_min } = gameData;
 

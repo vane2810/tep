@@ -13,7 +13,7 @@ const contentsRoutes = require('./routes/contents');
 const stepsRoutes = require('./routes/steps');
 const gamesRoutes = require('./routes/games');
 const instructionsRoutes = require('./routes/instructions');
-const gamRoutes = require('./routes/gamecomponent');
+const gameDetailsRoutes = require('./routes/gamedetails');
 const gametypeRoutes = require('./routes/gametypes');
 
 const app = express();
@@ -31,7 +31,7 @@ app.use('/api/contents', contentsRoutes);
 app.use('/api/steps', stepsRoutes);
 app.use('/api/games', gamesRoutes);
 app.use('/api/instructions', instructionsRoutes);
-app.use('/api/gamecomponent', gamRoutes);
+app.use('/api/gamedetails', gameDetailsRoutes);
 app.use('/api/gametypes', gametypeRoutes);
 
 
