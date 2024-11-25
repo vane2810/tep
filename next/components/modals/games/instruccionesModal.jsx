@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaYoutube, FaEdit, FaPlus } from "react-icons/fa"; // Importar íconos de react-icons
@@ -6,7 +5,7 @@ import InstructionsModal from "../admin/contenido/instrutionModal";
 
 const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, onSave, defaultInstructions }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
+    const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "0", points_min: "0" });
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     const [videoUrl, setVideoUrl] = useState("");
 
@@ -14,8 +13,8 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
         if (instructions && instructions.length > 0) {
             setCurrentPoints({
                 id: instructions[0].id || null,
-                points_max: instructions[0].points_max || "",
-                points_min: instructions[0].points_min || "",
+                points_max: instructions[0].points_max || "0",
+                points_min: instructions[0].points_min || "0",
             });
         }
     }, [instructions]);
@@ -35,7 +34,7 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
 
     const handleCreateClick = () => {
         setIsEditing(true);
-        setCurrentPoints({ id: null, points_max: "", points_min: "" }); // Limpiar los valores para crear nuevos puntos
+        setCurrentPoints({ id: null, points_max: "0", points_min: "0" }); // Limpiar los valores para crear nuevos puntos
     };
 
     const handleSavePoints = () => {
@@ -78,8 +77,6 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
         }
     };
 
-
-
     return (
         <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-60">
             <div className="relative bg-white shadow-2xl p-6 rounded-2xl w-full max-w-md transform transition-all scale-100 md:scale-105">
@@ -104,22 +101,18 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                     />
                 </div>
 
-                {instructions && instructions.length > 0 && (
-                    <>
-                        <h3 className="text-center text-green-700 text-lg wonder">
-                            Puntuación Total: {currentPoints.points_max || "0"} Estrellas
-                        </h3>
-                        <h3 className="mb-2 text-center text-lg text-red-600 wonder">
-                            Puntuación Mínima: {currentPoints.points_min || "0"} Estrellas
-                        </h3>
-                    </>
-                )}
+                {/* Puntuación Total y Mínima Personalizadas */}
+                <div className="mb-4 text-center">
+                    <h3 className="text-green-700 text-lg wonder">
+                        Puntuación Total: {currentPoints.points_max || "0"} Estrellas
+                    </h3>
+                    <h3 className="text-lg text-red-600 wonder">
+                        Puntuación Mínima: {currentPoints.points_min || "0"} Estrellas
+                    </h3>
+                </div>
 
-                {/* Contenedor gris con ambas instrucciones */}
+                {/* Contenedor gris con instrucciones */}
                 <div className="bg-gray-100 shadow-md p-4 rounded-lg yagora">
-                    {/* Mostrar puntos si hay personalizadas */}
-
-                    {/* Lista de instrucciones personalizadas o predeterminadas */}
                     {(
                         instructions?.[0]?.instructions ||
                         defaultInstructions?.instructions ||
@@ -213,12 +206,10 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                             ></iframe>
-
                         </div>
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

@@ -81,10 +81,10 @@ const GamePage = () => {
                 const data = await response.json();
                 setAdminInstructions(data);
             } else {
-                console.error("Error al obtener las instrucciones personalizadas");
+                console.error("Insertar instrucciones personalizadas");
             }
         } catch (error) {
-            console.error("Error al obtener instrucciones personalizadas:", error);
+            console.error("Insertar instrucciones personalizadas:", error);
         }
     };
 
@@ -113,32 +113,42 @@ const GamePage = () => {
     const handleSavePoints = async (updatedPoints) => {
         try {
             const { id, points_max, points_min } = updatedPoints;
+            const payload = {
+                points_max, 
+                points_min, 
+                game_id: gameId, 
+            };
+    
             let response;
-
+    
+            // Si no existe ID, hacemos un POST (crear), de lo contrario un PUT (editar)
             if (!id) {
-                response = await fetch(`http://localhost:3001/api/instructions`, {
+                response = await fetch(`http://localhost:3001/api/instructions/`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ points_max, points_min, game_id: gameId }),
+                    body: JSON.stringify(payload),
                 });
             } else {
                 response = await fetch(`http://localhost:3001/api/instructions/${id}`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ points_max, points_min }),
+                    body: JSON.stringify(payload),
                 });
             }
-
+    
             if (response.ok) {
-                await fetchAdminInstructions();
+                console.log("Instrucciones guardadas correctamente");
+                await fetchAdminInstructions(); // Actualizamos las instrucciones personalizadas
             } else {
-                console.error("Error al guardar los puntos");
+                console.error("Error al guardar las instrucciones:", await response.text());
             }
         } catch (error) {
-            console.error("Error al guardar los puntos:", error);
+            console.error("Error al guardar las instrucciones:", error);
+        } finally {
+            handleModalClose();
         }
-        handleModalClose();
     };
+    
 
     if (loading) return <Loading />;
     if (error) return <Carga />;
@@ -159,6 +169,7 @@ const GamePage = () => {
                 points={currentPoints}
                 isAdmin={session?.role === "admin"}
                 onSave={handleSavePoints}
+                onEdit={handleEditClick} // Vinculado al flujo de edición
                 isEditing={isEditing}
             />
             <SeparadorVerde />

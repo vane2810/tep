@@ -7,10 +7,14 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
     const [gameTypes, setGameTypes] = useState([]); // Estado para guardar los tipos de juegos
     const [errors, setErrors] = useState({}); // Estado para manejar errores
     const [isLoadingGameTypes, setIsLoadingGameTypes] = useState(false); // Cargar los tipos de juego
+    const [isSaving, setIsSaving] = useState(false); // Estado para manejar la carga del guardado
+    const [successMessage, setSuccessMessage] = useState(""); // Mensaje de confirmación
+    const [errorMessage, setErrorMessage] = useState(""); // Mensaje de error
 
     // Cargar los tipos de juegos al abrir el modal
     useEffect(() => {
         const fetchGameTypes = async () => {
+            setIsLoadingGameTypes(true);
             try {
                 const response = await fetch('http://localhost:3001/api/gametypes/'); // Endpoint correcto
                 if (!response.ok) {
@@ -21,12 +25,18 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
             } catch (error) {
                 console.error('Error al cargar los tipos de juegos:', error);
                 setGameTypes([]); // Manejo de error: asigna un arreglo vacío
+                setErrorMessage("No se pudo cargar los tipos de juego.");
+            } finally {
+                setIsLoadingGameTypes(false);
             }
         };
 
-        if (isOpen) fetchGameTypes(); // Cargar datos solo si el modal está abierto
+        if (isOpen) {
+            fetchGameTypes(); // Cargar datos solo si el modal está abierto
+            setSuccessMessage(""); // Limpiar el mensaje de éxito cuando se abra el modal
+            setErrorMessage(""); // Limpiar el mensaje de error cuando se abra el modal
+        }
     }, [isOpen]);
-
 
     // Función para manejar la selección de archivo
     const handleFileChange = (e) => {
@@ -35,16 +45,18 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
 
     // Función para manejar la carga de imagen y guardado
     const handleSave = async () => {
+        setIsSaving(true);
+        setSuccessMessage(""); // Limpiar el mensaje de éxito previo
+        setErrorMessage(""); // Limpiar el mensaje de error previo
+
         const validationErrors = {};
         if (!newGame.title.trim()) {
             validationErrors.title = "El título es obligatorio.";
         }
-        if (!newGame.gametype_id) {
-            validationErrors.gametype_id = "El tipo de juego es obligatorio.";
-        }
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
+            setIsSaving(false);
             return;
         }
 
@@ -66,10 +78,14 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                     imgUrl = data.secure_url;
                 } else {
                     console.error("No se encontró la URL en la respuesta.");
+                    setErrorMessage("No se pudo cargar la imagen correctamente.");
+                    setIsSaving(false);
                     return;
                 }
             } catch (error) {
                 console.error("Error al cargar la imagen:", error);
+                setErrorMessage("Error al cargar la imagen. Intenta nuevamente.");
+                setIsSaving(false);
                 return;
             }
         }
@@ -82,7 +98,9 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
         });
 
         setErrors({});
-        onClose();
+        setIsSaving(false);
+        setSuccessMessage("Juego guardado exitosamente.");
+        setSelectedFile(null);
     };
 
     // Verificamos si el modal está abierto
@@ -135,7 +153,7 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                             className={`border p-3 rounded-lg w-full ${errors.gametype_id ? "border-red-500" : "border-gray-300"}`}
                         >
                             <option value="" disabled>
-                                Selecciona un tipo de juego *
+                                {newGame.gametype_id ? "Selecciona el tipo de juego actual o elige otro" : "Selecciona un tipo de juego"}
                             </option>
                             {gameTypes.map((type) => (
                                 <option key={type.id} value={type.id}>
@@ -143,11 +161,21 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                                 </option>
                             ))}
                         </select>
-
                     )}
                     {errors.gametype_id && <p className="mt-1 text-red-500 text-sm">{errors.gametype_id}</p>}
                 </div>
 
+                {/* Vista previa de la imagen actual si existe */}
+                {newGame.imgSrc && (
+                    <div className="mb-4">
+                        <p className="mb-1 text-gray-700">Imagen Actual:</p>
+                        <img
+                            src={newGame.imgSrc}
+                            alt="Imagen del juego"
+                            className="rounded-md w-full h-40 object-cover"
+                        />
+                    </div>
+                )}
 
                 {/* Campo para subir la imagen */}
                 <div className="relative mb-6">
@@ -158,6 +186,7 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                         onChange={handleFileChange}
                         className="border-gray-300 p-3 pl-10 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
                     />
+                    {errors.imgSrc && <p className="mt-1 text-red-500 text-sm">{errors.imgSrc}</p>}
                 </div>
 
                 {/* Botones */}
@@ -172,12 +201,32 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                     <button
                         className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg font-semibold text-white"
                         onClick={handleSave}
+                        disabled={isSaving}
                     >
                         <FiSave className="text-xl" />
-                        <span>Guardar</span>
+                        <span>{isSaving ? "Guardando..." : "Guardar"}</span>
                     </button>
                 </div>
             </div>
+
+            {/* Minimodal para Mensajes */}
+            {isSaving && (
+                <div className="top-10 right-10 z-60 fixed bg-yellow-300 shadow-md p-4 rounded-lg text-yellow-800">
+                    Guardando el juego, por favor espera...
+                </div>
+            )}
+
+            {successMessage && (
+                <div className="top-10 right-10 z-60 fixed bg-green-300 shadow-md p-4 rounded-lg text-green-800">
+                    {successMessage}
+                </div>
+            )}
+
+            {errorMessage && (
+                <div className="top-10 right-10 z-60 fixed bg-red-300 shadow-md p-4 rounded-lg text-red-800">
+                    {errorMessage}
+                </div>
+            )}
         </div>
     );
 };

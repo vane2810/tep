@@ -39,4 +39,25 @@ router.get('/default/:gametypeId', async (req, res) => {
     }
 });
 
+// routes/gametypes.js
+router.get('/configurations/:gametypeId', async (req, res) => {
+    const { gametypeId } = req.params;
+
+    try {
+        const gameType = await GameType.findByPk(gametypeId, {
+            attributes: ['id', 'type_name', 'required_data'],
+        });
+
+        if (!gameType) {
+            return res.status(404).json({ message: 'Tipo de juego no encontrado.' });
+        }
+
+        res.status(200).json(gameType.required_data || {});
+    } catch (error) {
+        console.error('Error al obtener configuraciones del tipo de juego:', error);
+        res.status(500).json({ message: 'Error al obtener configuraciones del tipo de juego.' });
+    }
+});
+
+
 module.exports = router;
