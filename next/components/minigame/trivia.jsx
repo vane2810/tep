@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-const Trivia = ({ gameData }) => {
+const Trivia = ({ gameData, config }) => {
   // Estado para manejar las preguntas y el progreso del juego
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [feedback, setFeedback] = useState("");
 
-  // Asegurarse de que gameData está definido y tiene preguntas
-  if (!gameData || !gameData.preguntas || gameData.preguntas.length === 0) {
+  // Asegurarse de que config está definido y tiene preguntas
+  if (!config || !config.preguntas || config.preguntas.length === 0) {
     return (
       <div className="text-center text-gray-800 text-lg">
         No hay preguntas configuradas para este juego. Por favor, configura las preguntas.
@@ -16,8 +16,8 @@ const Trivia = ({ gameData }) => {
     );
   }
 
-  // Extraer datos del juego
-  const { preguntas, points, points_questions, points_min } = gameData;
+  // Extraer datos del juego desde la configuración
+  const { preguntas, points, points_questions, points_min } = config;
 
   // Manejar la selección de una opción
   const handleOptionClick = (selectedOption) => {
@@ -54,7 +54,7 @@ const Trivia = ({ gameData }) => {
   // Mostrar pantalla de finalización
   if (isGameOver) {
     return (
-      <div>
+      <div className="text-center">
         <h1>Juego Finalizado</h1>
         <p>Puntaje obtenido: {score}</p>
         {score >= points_min ? (
@@ -62,7 +62,9 @@ const Trivia = ({ gameData }) => {
         ) : (
           <p>No alcanzaste el puntaje mínimo. Inténtalo de nuevo.</p>
         )}
-        <button onClick={resetGame}>Reintentar</button>
+        <button onClick={resetGame} className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded text-white">
+          Reintentar
+        </button>
       </div>
     );
   }
@@ -71,19 +73,25 @@ const Trivia = ({ gameData }) => {
   const currentQuestion = preguntas[currentQuestionIndex];
 
   return (
-    <div>
-      <h1>Trivia</h1>
-      <p>Puntaje: {score}</p>
-      <p>
+    <div className="text-center">
+      <h1 className="mb-4 font-bold text-2xl">Trivia</h1>
+      <p className="mb-2 text-lg">Puntaje: {score}</p>
+      <p className="mb-2 text-lg">
         Pregunta {currentQuestionIndex + 1} de {preguntas.length}
       </p>
-      <h2>{currentQuestion.texto}</h2>
-      {currentQuestion.opciones.map((option, index) => (
-        <button key={index} onClick={() => handleOptionClick(option)}>
-          {option}
-        </button>
-      ))}
-      {feedback && <p>{feedback}</p>}
+      <h2 className="mb-4 font-semibold text-xl">{currentQuestion.texto}</h2>
+      <div className="mb-4">
+        {currentQuestion.opciones.map((option, index) => (
+          <button
+            key={index}
+            onClick={() => handleOptionClick(option)}
+            className="bg-purple-500 hover:bg-purple-600 m-2 px-4 py-2 rounded text-white"
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+      {feedback && <p className={`text-lg ${feedback === "¡Correcto!" ? "text-green-600" : "text-red-600"}`}>{feedback}</p>}
     </div>
   );
 };

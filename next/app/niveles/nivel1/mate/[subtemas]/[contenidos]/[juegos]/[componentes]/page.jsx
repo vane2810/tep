@@ -36,6 +36,7 @@ const GamePage = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
     const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
+    const [gameConfig, setGameConfig] = useState(null); // Nuevo estado para manejar la configuración del juego
 
     // Mapas de tipos de juegos y formularios de configuración
     const gameComponents = {
@@ -143,6 +144,27 @@ const GamePage = () => {
         setCurrentPoints({ id: null, points_max: "", points_min: "" });
     };
 
+    useEffect(() => {
+        const fetchGameConfig = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/api/gamedetails/${gameId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setGameConfig(data.config); // Actualizar el estado `gameConfig` con la configuración recibida
+                } else {
+                    console.error("Error al obtener la configuración del juego");
+                }
+            } catch (error) {
+                console.error("Error al obtener la configuración del juego:", error);
+            }
+        };
+
+        if (gameId) {
+            fetchGameConfig();
+        }
+    }, [gameId]);
+
+
     const handleSavePoints = async (updatedPoints) => {
         try {
             const { id, points_max, points_min } = updatedPoints;
@@ -181,6 +203,29 @@ const GamePage = () => {
         }
     };
 
+    const handleSaveGameConfig = async (configData) => {
+        try {
+            const response = await fetch(`http://localhost:3001/api/gamedetails`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ gameId, config: configData }), // Incluye el gameId
+            });
+
+            if (response.ok) {
+                console.log("Configuración del juego guardada correctamente");
+                setGameConfig(configData);
+            } else {
+                console.error("Error al guardar la configuración del juego:", await response.text());
+            }
+        } catch (error) {
+            console.error("Error al guardar la configuración del juego:", error);
+        }
+    };
+
+
+
     if (loading) return <Loading />;
     if (error) return <Carga />;
 
@@ -189,7 +234,7 @@ const GamePage = () => {
     const ConfigFormComponent = gameData?.gameType?.id && configForms[gameData.gameType.id.toString()];
 
     // Verificar si el juego está configurado completamente antes de intentar mostrarlo
-    const isGameConfigured = adminInstructions.length > 0;
+    const isGameConfigured = adminInstructions.length > 0 && gameConfig;
 
     return (
         <main className="bg-gray-100">
@@ -208,12 +253,13 @@ const GamePage = () => {
                 </p>
 
                 {isGameConfigured && GameComponent ? (
-                    <GameComponent gameData={gameData} />
+                    <GameComponent gameData={gameData} config={gameConfig} />
                 ) : (
                     <p className="text-center text-gray-800 text-lg">
                         El juego no está configurado. Por favor configure el juego antes de jugar.
                     </p>
                 )}
+
 
                 {session?.role === "admin" && (
                     <div className="flex justify-center mt-6">
@@ -244,6 +290,7 @@ const GamePage = () => {
                     isOpen={isConfigModalOpen}
                     onClose={handleModalClose}
                     gameData={gameData}
+                    onSave={handleSaveGameConfig}
                 />
             )}
 

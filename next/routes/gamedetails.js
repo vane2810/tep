@@ -21,16 +21,24 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Obtener todos los detalles de juegos
-router.get('/', async (req, res) => {
+
+// Obtener un detalle de juego por gameId
+router.get('/:gameId', async (req, res) => {
     try {
-        const gameDetails = await GameDetail.findAll();
-        return res.status(200).json(gameDetails);
+        const { gameId } = req.params;
+        const gameDetail = await GameDetail.findOne({ where: { gameId } });
+
+        if (!gameDetail) {
+            return res.status(404).json({ message: 'Detalle del juego no encontrado.' });
+        }
+
+        return res.status(200).json(gameDetail);
     } catch (error) {
-        console.error('Error al obtener los detalles de los juegos:', error);
-        return res.status(500).json({ message: 'Error al obtener los detalles de los juegos.' });
+        console.error('Error al obtener el detalle del juego:', error);
+        return res.status(500).json({ message: 'Error al obtener el detalle del juego.' });
     }
 });
+
 
 // Obtener un detalle de juego por ID
 router.get('/:id', async (req, res) => {
@@ -50,17 +58,17 @@ router.get('/:id', async (req, res) => {
 });
 
 // Actualizar un detalle de juego por ID
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
-        const { id } = req.params;
-        const { config } = req.body;
+        const { gameId, config } = req.body;
 
         // Validación básica
-        if (!config) {
-            return res.status(400).json({ message: 'La configuración (config) es obligatoria.' });
+        if (!gameId || !config) {
+            return res.status(400).json({ message: 'El gameId y la configuración (config) son obligatorios.' });
         }
 
-        const gameDetail = await GameDetail.findByPk(id);
+        const gameDetail = await GameDetail.findOne({ where: { gameId } });
+
         if (!gameDetail) {
             return res.status(404).json({ message: 'Detalle del juego no encontrado.' });
         }
@@ -75,6 +83,8 @@ router.put('/:id', async (req, res) => {
         return res.status(500).json({ message: 'Error al actualizar el detalle del juego.' });
     }
 });
+
+
 
 // Eliminar un detalle de juego por ID
 router.delete('/:id', async (req, res) => {
