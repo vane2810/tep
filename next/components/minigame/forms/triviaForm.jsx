@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaPlus, FaTrashAlt, FaArrowRight, FaSave, FaTimes, FaExclamationTriangle, FaInfoCircle, FaCheckCircle } from "react-icons/fa";
 
-const TriviaForm = ({ isOpen, onClose, gameData, onSave }) => {
+const TriviaForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingConfig }) => {
   const [activeTab, setActiveTab] = useState("general");
   const [preguntas, setPreguntas] = useState([]);
   const [points, setPoints] = useState(0);
@@ -14,14 +14,18 @@ const TriviaForm = ({ isOpen, onClose, gameData, onSave }) => {
   const [tooltip, setTooltip] = useState({ visible: false, message: "", position: { x: 0, y: 0 } });
 
   useEffect(() => {
-    if (gameData?.config) {
-      const config = JSON.parse(gameData.config);
-      setPreguntas(config.preguntas || []);
-      setPoints(config.points || 0);
-      setPointsQuestions(config.points_questions || 0);
-      setPointsMin(config.points_min || 0);
+    if (isEditing && existingConfig) {
+      try {
+        const config = typeof existingConfig === 'string' ? JSON.parse(existingConfig) : existingConfig;
+        setPreguntas(config.preguntas || []);
+        setPoints(config.points || 0);
+        setPointsQuestions(config.points_questions || 0);
+        setPointsMin(config.points_min || 0);
+      } catch (error) {
+        console.error("Error al analizar la configuración existente:", error);
+      }
     }
-  }, [gameData]);
+  }, [isEditing, existingConfig]);
 
   const handleAddQuestion = () => {
     setPreguntas([
@@ -125,7 +129,7 @@ const TriviaForm = ({ isOpen, onClose, gameData, onSave }) => {
   return (
     <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 yagora">
       <div className="bg-white shadow-lg p-8 rounded-lg w-full max-w-3xl max-h-screen text-black overflow-auto">
-        <h2 className="mb-4 font-bold text-2xl text-center">Configurar Trivia</h2>
+        <h2 className="mb-4 font-bold text-2xl text-center">{isEditing ? "Editar Trivia" : "Configurar Trivia"}</h2>
 
         {/* Minimodal para mostrar errores */}
         {showErrorModal && (
@@ -386,6 +390,8 @@ TriviaForm.propTypes = {
     config: PropTypes.string,
   }),
   onSave: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool,
+  existingConfig: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
 
 export default TriviaForm;

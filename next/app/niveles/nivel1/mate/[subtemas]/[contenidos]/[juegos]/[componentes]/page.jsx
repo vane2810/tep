@@ -8,6 +8,7 @@ import Volver from "@/components/elements/botonVolver";
 import { SeparadorVerde } from "@/components/separador";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
 import Carga from "@/components/menssages/mensajeCarga";
+import { FaEdit, FaCog } from "react-icons/fa";
 
 // Importar todos los componentes de juegos disponibles
 import Trivia from "@/components/minigame/trivia";
@@ -164,7 +165,6 @@ const GamePage = () => {
         }
     }, [gameId]);
 
-
     const handleSavePoints = async (updatedPoints) => {
         try {
             const { id, points_max, points_min } = updatedPoints;
@@ -224,8 +224,6 @@ const GamePage = () => {
         }
     };
 
-
-
     if (loading) return <Loading />;
     if (error) return <Carga />;
 
@@ -246,7 +244,7 @@ const GamePage = () => {
             />
 
             {/* Renderizar el contenedor de configuración del juego */}
-            <div className="bg-white shadow-md mx-auto my-8 p-6 rounded-lg container">
+            <div className="relative bg-white shadow-md mx-auto my-8 p-6 rounded-lg container">
                 <h2 className="mb-4 font-bold text-3xl text-center text-purple-700">{gameData.title}</h2>
                 <p className="mb-6 text-center text-gray-700 text-xl">
                     Tipo de Juego: {gameData?.gameType?.type_name}
@@ -260,14 +258,15 @@ const GamePage = () => {
                     </p>
                 )}
 
-
                 {session?.role === "admin" && (
-                    <div className="flex justify-center mt-6">
+                    <div className="top-4 right-4 absolute flex space-x-4">
+                        {/* Botón para editar el juego */}
                         <button
                             onClick={handleConfigClick}
-                            className="bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-full font-bold text-white transform transition-transform hover:scale-105"
+                            className="flex items-center bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-full font-bold text-white transform transition-transform hover:scale-105"
                         >
-                            Configurar Juego
+                            <FaEdit className="mr-2" />
+                            {isGameConfigured ? 'Editar Juego' : 'Configurar Juego'}
                         </button>
                     </div>
                 )}
@@ -291,6 +290,8 @@ const GamePage = () => {
                     onClose={handleModalClose}
                     gameData={gameData}
                     onSave={handleSaveGameConfig}
+                    isEditing={true} // Indicar que estamos en modo de edición
+                    existingConfig={gameConfig} // Pasar la configuración existente
                 />
             )}
 
