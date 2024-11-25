@@ -207,7 +207,7 @@ const TriviaForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingConf
                 Puntos Totales:
                 <FaInfoCircle
                   className="inline ml-2 text-purple-500 cursor-pointer"
-                  onClick={(e) => handleTooltip(e, "Define el total de puntos para la trivia.")}
+                  onClick={(e) => handleTooltip(e, "Deben ser la misma cantidad de puntos totales configurados en las instrucciones")}
                   onMouseLeave={hideTooltip}
                 />
               </label>
@@ -224,7 +224,7 @@ const TriviaForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingConf
                 Puntos por Pregunta Correcta:
                 <FaInfoCircle
                   className="inline ml-2 text-purple-500 cursor-pointer"
-                  onClick={(e) => handleTooltip(e, "Define cuántos puntos vale cada respuesta correcta.")}
+                  onClick={(e) => handleTooltip(e, "La cantidad de preguntas dependerá de los puntos insertados aquí")}
                   onMouseLeave={hideTooltip}
                 />
               </label>
@@ -241,7 +241,7 @@ const TriviaForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingConf
                 Puntos Mínimos para Aprobar:
                 <FaInfoCircle
                   className="inline ml-2 text-purple-500 cursor-pointer"
-                  onClick={(e) => handleTooltip(e, "Define el puntaje mínimo necesario para aprobar la trivia.")}
+                  onClick={(e) => handleTooltip(e, "Deben ser la misma cantidad de puntos mínimos configurados en las instrucciones")}
                   onMouseLeave={hideTooltip}
                 />
               </label>

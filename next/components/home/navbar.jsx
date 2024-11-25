@@ -23,7 +23,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('hasSeenWelcome');
     logout();
-    window.location.href = '/';
+    window.location.href = '/auth/login';
   };
 
   // Enlace del logo dependiendo de la sesión

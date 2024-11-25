@@ -84,28 +84,6 @@ router.put('/', async (req, res) => {
     }
 });
 
-
-
-// Eliminar un detalle de juego por ID
-router.delete('/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        console.log("ID recibido para eliminar el detalle del juego:", id);
-        const gameDetail = await GameDetail.findByPk(id);
-
-        if (!gameDetail) {
-            return res.status(404).json({ message: 'Detalle del juego no encontrado.' });
-        }
-
-        await gameDetail.destroy();
-        return res.status(200).json({ message: 'Detalle del juego eliminado correctamente.' });
-    } catch (error) {
-        console.error('Error al eliminar el detalle del juego:', error);
-        return res.status(500).json({ message: 'Error al eliminar el detalle del juego.' });
-    }
-});
-
-
 // Ruta para obtener un detalle de juego por gameId
 router.get('/byGame/:gameId', async (req, res) => {
     try {

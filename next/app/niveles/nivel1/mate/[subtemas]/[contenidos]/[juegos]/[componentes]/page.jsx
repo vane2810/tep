@@ -8,7 +8,7 @@ import Volver from "@/components/elements/botonVolver";
 import { SeparadorVerde } from "@/components/separador";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
 import Carga from "@/components/menssages/mensajeCarga";
-import { FaEdit, FaCog } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 // Importar todos los componentes de juegos disponibles
 import Trivia from "@/components/minigame/trivia";
@@ -205,13 +205,26 @@ const GamePage = () => {
 
     const handleSaveGameConfig = async (configData) => {
         try {
-            const response = await fetch(`http://localhost:3001/api/gamedetails`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ gameId, config: configData }), // Incluye el gameId
-            });
+            let response;
+            if (gameConfig) {
+                // Si existe una configuración previa, actualizamos (PUT)
+                response = await fetch(`http://localhost:3001/api/gamedetails`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ gameId, config: configData }),
+                });
+            } else {
+                // Si no existe, creamos una nueva configuración (POST)
+                response = await fetch(`http://localhost:3001/api/gamedetails`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ gameId, config: configData }),
+                });
+            }
 
             if (response.ok) {
                 console.log("Configuración del juego guardada correctamente");
@@ -223,6 +236,7 @@ const GamePage = () => {
             console.error("Error al guardar la configuración del juego:", error);
         }
     };
+
 
     if (loading) return <Loading />;
     if (error) return <Carga />;
@@ -244,17 +258,14 @@ const GamePage = () => {
             />
 
             {/* Renderizar el contenedor de configuración del juego */}
-            <div className="relative bg-white shadow-md mx-auto my-8 p-6 rounded-lg container">
-                <h2 className="mb-4 font-bold text-3xl text-center text-purple-700">{gameData.title}</h2>
-                <p className="mb-6 text-center text-gray-700 text-xl">
-                    Tipo de Juego: {gameData?.gameType?.type_name}
-                </p>
+            <div className="relative bg-white shadow-md mx-auto my-10 px-12 py-8 rounded-md max-w-5xl container yagora">
+                <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
 
                 {isGameConfigured && GameComponent ? (
                     <GameComponent gameData={gameData} config={gameConfig} />
                 ) : (
                     <p className="text-center text-gray-800 text-lg">
-                        El juego no está configurado. Por favor configure el juego antes de jugar.
+                        El juego no está configurado. Por favor configure el juego.
                     </p>
                 )}
 
@@ -263,7 +274,7 @@ const GamePage = () => {
                         {/* Botón para editar el juego */}
                         <button
                             onClick={handleConfigClick}
-                            className="flex items-center bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-full font-bold text-white transform transition-transform hover:scale-105"
+                            className="flex items-center bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-md font-bold text-white transform transition-transform hover:scale-105"
                         >
                             <FaEdit className="mr-2" />
                             {isGameConfigured ? 'Editar Juego' : 'Configurar Juego'}
@@ -271,6 +282,7 @@ const GamePage = () => {
                     </div>
                 )}
             </div>
+
 
             <InstruccionesModal
                 isOpen={isInstruccionesModalOpen}
@@ -290,8 +302,8 @@ const GamePage = () => {
                     onClose={handleModalClose}
                     gameData={gameData}
                     onSave={handleSaveGameConfig}
-                    isEditing={true} // Indicar que estamos en modo de edición
-                    existingConfig={gameConfig} // Pasar la configuración existente
+                    isEditing={true}
+                    existingConfig={gameConfig}
                 />
             )}
 
