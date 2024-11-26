@@ -1,0 +1,45 @@
+{
+  "id": "europa",
+  "name": "Europa",
+  "descripcion": "Europa es un continente que se extiende desde el océano Atlántico en el oeste hasta los Montes Urales en el este. Es conocido por su rica historia, diversidad cultural y su influencia en la civilización occidental.",
+  "imagenPortada": "/img/niveles/sociales/nivel3/continentes/europa.png",
+  "paises": [
+    {
+      "id": "francia",
+      "nombre": "Francia",
+      "descripcion": "Francia es conocida por su cultura, gastronomía y monumentos emblemáticos como la Torre Eiffel y el Louvre. París, su capital, es un centro global de arte, moda y cultura.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/europa/francia.png"
+    },
+    {
+      "id": "alemania",
+      "nombre": "Alemania",
+      "descripcion": "Alemania es una de las principales economías de Europa y es famosa por su historia, ingeniería y cultura. Berlín, la capital, es un centro de innovación y creatividad.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/europa/alemania.png"
+    },
+    {
+      "id": "italia",
+      "nombre": "Italia",
+      "descripcion": "Italia es famosa por su historia antigua, la moda y la cocina. Roma, la capital, alberga monumentos históricos como el Coliseo y la Ciudad del Vaticano.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/europa/italia.png"
+    },
+    {
+      "id": "españa",
+      "nombre": "España",
+      "descripcion": "España es conocida por sus playas, cultura vibrante, y su gastronomía. Madrid y Barcelona son dos de sus principales ciudades y destinos turísticos.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/europa/españa.png"
+    },
+    {
+      "id": "reino_unido",
+      "nombre": "Reino Unido",
+      "descripcion": "El Reino Unido está compuesto por Inglaterra, Escocia, Gales e Irlanda del Norte. Londres, su capital, es famosa por monumentos como el Big Ben y el Palacio de Buckingham.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/europa/reino_unido.png"
+    },
+    {
+      "id": "grecia",
+      "nombre": "Grecia",
+      "descripcion": "Grecia es conocida como la cuna de la civilización occidental y es famosa por su historia antigua, incluida la Acrópolis de Atenas y su herencia en la filosofía y democracia.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/europa/grecia.png"
+    }
+  ]
+}
+

@@ -1,0 +1,49 @@
+{
+    "tituloGeneral": "El Uso de las Palabras Polisémicas",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "¿Qué son las palabras polisémicas?",
+            "descripcion": "Las palabras polisémicas son aquellas que tienen varios significados o acepciones, dependiendo del contexto en el que se utilicen.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_polisemicas_que_es.png",
+            "ejemplos": [
+                "La palabra 'banco' puede referirse a una entidad financiera o a un asiento."
+            ]
+        },
+        "2": {
+            "titulo": "Importancia del contexto en palabras polisémicas",
+            "descripcion": "El significado de una palabra polisémica depende del contexto en el que se emplee. La misma palabra puede tener un significado diferente según cómo se use en una oración.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_polisemicas_contexto.png",
+            "ejemplos": [
+                "'El banco cerró a las 5.' (Entidad financiera).",
+                "'Nos sentamos en el banco del parque.' (Asiento)."
+            ]
+        },
+        "3": {
+            "titulo": "Palabras polisémicas comunes en español",
+            "descripcion": "En español, existen muchas palabras polisémicas que usamos frecuentemente. Es importante conocer los diferentes significados para evitar confusiones.",
+            "imagenLeccion": "/img/niveles/lenguaje/palabras_polisemicas_comunes.png",
+            "ejemplos": [
+                "'Luz' puede referirse a la iluminación o al nombre propio de una persona.",
+                "'Hoja' puede referirse a la parte de una planta o a una página de un cuaderno."
+            ]
+        },
+        "4": {
+            "titulo": "Diferencia entre palabras polisémicas y homónimas",
+            "descripcion": "Las palabras polisémicas tienen varios significados relacionados entre sí, mientras que las palabras homónimas son aquellas que se escriben o pronuncian igual, pero tienen significados diferentes.",
+            "imagenLeccion": "/img/niveles/lenguaje/polisemicas_vs_homonimas.png",
+            "ejemplos": [
+                "Ejemplo de palabra polisémica: 'Copa' (competición deportiva o vaso).",
+                "Ejemplo de palabra homónima: 'Vino' (verbo venir y bebida alcohólica)."
+            ]
+        },
+        "5": {
+            "titulo": "Cómo identificar palabras polisémicas",
+            "descripcion": "Para identificar una palabra polisémica, debemos analizar los diferentes significados que puede tener dependiendo del contexto. Esto se hace a través de la lectura o escucha atenta.",
+            "imagenLeccion": "/img/niveles/lenguaje/identificar_polisemicas.png",
+            "ejemplos": [
+                "'Clave' puede ser una contraseña, una nota musical o algo esencial para resolver un problema."
+            ]
+        }
+    }
+}

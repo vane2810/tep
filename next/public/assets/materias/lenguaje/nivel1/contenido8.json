@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Sinónimos y Antónimos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Sinónimos y Antónimos: ¿Qué son?",
+            "descripcion": "Los sinónimos son palabras que tienen un significado similar, mientras que los antónimos son palabras con significado opuesto.",
+            "imagenLeccion": "/img/niveles/lenguaje/sinonimos_antonimos.png",
+            "ejemplos": [
+                "Ejemplo 1 (sinónimos): bonito - hermoso.",
+                "Ejemplo 2 (antónimos): grande - pequeño."
+            ]
+        },
+        "2": {
+            "titulo": "Sinónimos",
+            "descripcion": "Los sinónimos son palabras diferentes que tienen el mismo o un significado muy parecido.",
+            "imagenLeccion": "/img/niveles/lenguaje/sinonimos.png",
+            "ejemplos": [
+                "Ejemplo 1: rápido - veloz.",
+                "Ejemplo 2: feliz - contento."
+            ]
+        },
+        "3": {
+            "titulo": "Antónimos",
+            "descripcion": "Los antónimos son palabras que expresan ideas contrarias o significados opuestos.",
+            "imagenLeccion": "/img/niveles/lenguaje/antonimos.png",
+            "ejemplos": [
+                "Ejemplo 1: frío - caliente.",
+                "Ejemplo 2: alto - bajo."
+            ]
+        },
+        "4": {
+            "titulo": "Sinónimos Contextuales",
+            "descripcion": "Algunas palabras son sinónimas solo en ciertos contextos, cambiando su significado en otros.",
+            "imagenLeccion": "/img/niveles/lenguaje/sinonimos_contextuales.png",
+            "ejemplos": [
+                "Ejemplo 1: Claro (sinónimo de evidente en 'Es claro que llegará').",
+                "Ejemplo 2: Claro (sinónimo de luminoso en 'El día está claro')."
+            ]
+        },
+        "5": {
+            "titulo": "Usos de Sinónimos y Antónimos",
+            "descripcion": "Los sinónimos y antónimos se usan para enriquecer el vocabulario y mejorar la precisión en la comunicación.",
+            "imagenLeccion": "/img/niveles/lenguaje/uso_sinonimos_antonimos.png",
+            "ejemplos": [
+                "Ejemplo 1 (sinónimos): En lugar de repetir 'bonito', se puede decir 'hermoso'.",
+                "Ejemplo 2 (antónimos): En lugar de decir 'es grande', se puede decir 'no es pequeño'."
+            ]
+        }
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "nombre": "Asia",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/sociales/nivel3/continentes/asia.png",
+    "modalData": {
+      "puntaje": "50 estrellas",
+      "imagenModal": "/img/niveles/sociales/nivel3/continentes/asia.png",
+      "subtitulo": "Asia",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre los países de Asia",
+        "El puntaje mínimo para pasar es de 30 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Qué país en Asia es famoso por la Gran Muralla y su rápido desarrollo económico?",
+        "opciones": [
+          "Japón",
+          "India",
+          "China",
+          "Rusia"
+        ],
+        "correcta": "China",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país en Asia es conocido por su tecnología avanzada y su gastronomía como el sushi?",
+        "opciones": [
+          "Japón",
+          "Corea del Sur",
+          "Tailandia",
+          "China"
+        ],
+        "correcta": "Japón",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es la cuna de religiones como el hinduismo y el budismo y alberga el Taj Mahal?",
+        "opciones": [
+          "China",
+          "Japón",
+          "Rusia",
+          "India"
+        ],
+        "correcta": "India",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es el más grande del mundo, con gran parte de su territorio en Asia?",
+        "opciones": [
+          "China",
+          "Corea del Sur",
+          "Tailandia",
+          "Rusia"
+        ],
+        "correcta": "Rusia",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué país es famoso por su cultura pop (K-pop) y su capital, Seúl?",
+        "opciones": [
+          "Japón",
+          "Corea del Sur",
+          "India",
+          "China"
+        ],
+        "correcta": "Corea del Sur",
+        "puntos": 15
+      }
+    ]
+  }
+  

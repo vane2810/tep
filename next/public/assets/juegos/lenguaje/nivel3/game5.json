@@ -1,0 +1,131 @@
+{
+    "nombre": "El Uso de las Palabras Monosémicas",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/lenguaje/palabras_monosemicas.png",
+    "modalData": {
+      "puntaje": "100 estrellas",
+      "imagenModal": "/img/niveles/lenguaje/palabras_monosemicas.png",
+      "subtitulo": "El Uso de las Palabras Monosémicas",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre el uso de las palabras monosémicas",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 100,
+    "minPuntos": 60,
+    "limiteEscenas": 10,
+    "escenas": [
+      {
+        "pregunta": "¿Qué es una palabra monosémica?",
+        "opciones": [
+          "Una palabra con un solo significado.",
+          "Una palabra con varios significados.",
+          "Una palabra sin significado.",
+          "Una palabra que cambia según el contexto."
+        ],
+        "correcta": "Una palabra con un solo significado.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes palabras es monosémica?",
+        "opciones": [
+          "Reloj",
+          "Banco",
+          "Luz",
+          "Tierra"
+        ],
+        "correcta": "Reloj",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué característica describe mejor a una palabra monosémica?",
+        "opciones": [
+          "Tiene varios significados en diferentes contextos.",
+          "No tiene ningún significado claro.",
+          "Tiene un significado fijo y claro.",
+          "Cambia de significado en cada oración."
+        ],
+        "correcta": "Tiene un significado fijo y claro.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de los siguientes es un ejemplo de una palabra monosémica?",
+        "opciones": [
+          "Planta",
+          "Microscopio",
+          "Banco",
+          "Copa"
+        ],
+        "correcta": "Microscopio",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué distingue a una palabra monosémica de una polisémica?",
+        "opciones": [
+          "La monosémica tiene un único significado.",
+          "La polisémica tiene un solo significado.",
+          "Ambas palabras tienen múltiples significados.",
+          "La monosémica cambia de significado según el contexto."
+        ],
+        "correcta": "La monosémica tiene un único significado.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál palabra siempre tiene un significado único y claro?",
+        "opciones": [
+          "Llave",
+          "Bomba",
+          "Mesa",
+          "Termómetro"
+        ],
+        "correcta": "Termómetro",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes palabras NO es monosémica?",
+        "opciones": [
+          "Banco",
+          "Telescopio",
+          "Bicicleta",
+          "Microscopio"
+        ],
+        "correcta": "Banco",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué palabra es un ejemplo de monosémica?",
+        "opciones": [
+          "Bomba",
+          "Aguja",
+          "Luz",
+          "Planta"
+        ],
+        "correcta": "Aguja",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Qué significa la palabra 'bicicleta' en un contexto común?",
+        "opciones": [
+          "Un asiento de una bicicleta.",
+          "Un tipo de carrera.",
+          "Un juguete pequeño.",
+          "Un vehículo de dos ruedas."
+        ],
+        "correcta": "Un vehículo de dos ruedas.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes NO es una característica de una palabra monosémica?",
+        "opciones": [
+          "Es fácil de entender.",
+          "Tiene múltiples significados.",
+          "No varía según el contexto.",
+          "Tiene un solo significado."
+        ],
+        "correcta": "Tiene múltiples significados.",
+        "puntos": 10
+      }
+    ]
+  }
+  

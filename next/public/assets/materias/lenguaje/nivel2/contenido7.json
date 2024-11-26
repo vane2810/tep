@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "El Uso de los Prefijos",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Prefijos unidos a una sola palabra",
+            "descripcion": "Los prefijos se escriben unidos a la palabra base sin guion cuando esta es una sola palabra.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_unidos.png",
+            "ejemplos": [
+                "Subterráneo (sub + terráneo).",
+                "Prehistoria (pre + historia)."
+            ]
+        },
+        "2": {
+            "titulo": "Regla 2: Prefijos con palabras compuestas",
+            "descripcion": "Cuando el prefijo se une a una palabra compuesta, se separa por medio de un guion para evitar ambigüedades.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_guion.png",
+            "ejemplos": [
+                "Ex-director (ex + director).",
+                "Vice-alcalde (vice + alcalde)."
+            ]
+        },
+        "3": {
+            "titulo": "Prefijos ante nombres propios",
+            "descripcion": "Cuando un prefijo precede a un nombre propio, debe separarse por guion.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_nombres_propios.png",
+            "ejemplos": [
+                "Anti-Europa (anti + Europa).",
+                "Pro-América (pro + América)."
+            ]
+        },
+        "4": {
+            "titulo": "Prefijos y palabras con tildes",
+            "descripcion": "Las palabras con prefijo conservan la tilde de la palabra base, si esta la lleva, ya que el prefijo no afecta la acentuación.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_tilde.png",
+            "ejemplos": [
+                "Sobreúso (sobre + uso).",
+                "Kilómetro (Kilo + metro)."
+            ]
+        },
+        "5": {
+            "titulo": "Prefijos y uso de preposiciones",
+            "descripcion": "Algunos prefijos como 'contra-', 'pre-' o 'pro-' pueden formar locuciones con preposiciones, que deben escribirse separadas.",
+            "imagenLeccion": "/img/niveles/lenguaje/prefijos_preposiciones.png",
+            "ejemplos": [
+                "Contra viento (contra + viento).",
+                "Pro vida (pro + vida)."
+            ]
+        }
+    }
+}

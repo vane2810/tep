@@ -1,0 +1,48 @@
+{
+    "tituloGeneral": "El Género de la Novela",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "¿Qué es una novela?",
+            "descripcion": "Una novela es una obra narrativa de ficción, escrita en prosa, que relata sucesos a lo largo de una estructura compleja con múltiples personajes y eventos. Generalmente es más extensa que un cuento.",
+            "imagenLeccion": "/img/niveles/lenguaje/que_es_novela.png",
+            "ejemplos": [
+                "'Don Quijote de la Mancha' es una de las novelas más importantes de la literatura universal."
+            ]
+        },
+        "2": {
+            "titulo": "Características de las novelas",
+            "descripcion": "Las novelas suelen tener una estructura dividida en capítulos, con una trama extensa y desarrollada, personajes complejos, y pueden explorar diferentes temas, emociones y conflictos humanos.",
+            "imagenLeccion": "/img/niveles/lenguaje/caracteristicas_novela.png",
+            "ejemplos": [
+                "Las novelas incluyen descripciones detalladas, diálogos entre personajes y pueden abarcar largos periodos de tiempo."
+            ]
+        },
+        "3": {
+            "titulo": "Tipos de novelas",
+            "descripcion": "Existen diferentes tipos de novelas según su temática o enfoque. Entre los más comunes están la novela histórica, la novela romántica, la novela policíaca, la novela de ciencia ficción y la novela de aventuras.",
+            "imagenLeccion": "/img/niveles/lenguaje/tipos_novela.png",
+            "ejemplos": [
+                "Novela histórica – 'Guerra y paz' de León Tolstói.",
+                "Novela de ciencia ficción – '1984' de George Orwell."
+            ]
+        },
+        "4": {
+            "titulo": "Estructura de una novela",
+            "descripcion": "La estructura de una novela generalmente se compone de introducción, desarrollo y desenlace. Puede estar dividida en capítulos, que permiten un avance gradual de la trama y el desarrollo de los personajes.",
+            "imagenLeccion": "/img/niveles/lenguaje/estructura_novela.png",
+            "ejemplos": [
+                "En 'Cien años de soledad', la estructura sigue la historia de varias generaciones de una familia."
+            ]
+        },
+        "5": {
+            "titulo": "Novelas famosas en la literatura",
+            "descripcion": "Algunas novelas han marcado hitos en la historia de la literatura por su calidad narrativa y por abordar temas universales como el amor, la guerra, la libertad y la justicia.",
+            "imagenLeccion": "/img/niveles/lenguaje/novelas_famosas.png",
+            "ejemplos": [
+                "'Matar a un ruiseñor' de Harper Lee.",
+                "'Crimen y castigo' de Fiódor Dostoyevski."
+            ]
+        }
+    }
+}

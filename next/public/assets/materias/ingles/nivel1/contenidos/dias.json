@@ -1,0 +1,98 @@
+{
+    "tituloGeneral": "Days of the Week",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "Monday",
+        "tituloEspanol": "Lunes",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "I have a meeting on Monday.",
+            "oracionEspanol": "Tengo una reunión el lunes.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "Tuesday",
+        "tituloEspanol": "Martes",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We play soccer on Tuesday.",
+            "oracionEspanol": "Jugamos fútbol el martes.",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "Wednesday",
+        "tituloEspanol": "Miércoles",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "The party is on Wednesday.",
+            "oracionEspanol": "La fiesta es el miércoles.",
+            "audio": ""
+          }
+        ]
+      },
+      "4": {
+        "tituloIngles": "Thursday",
+        "tituloEspanol": "Jueves",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "I go to the gym on Thursday.",
+            "oracionEspanol": "Voy al gimnasio el jueves.",
+            "audio": ""
+          }
+        ]
+      },
+      "5": {
+        "tituloIngles": "Friday",
+        "tituloEspanol": "Viernes",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We go out on Friday.",
+            "oracionEspanol": "Salimos el viernes.",
+            "audio": ""
+          }
+        ]
+      },
+      "6": {
+        "tituloIngles": "Saturday",
+        "tituloEspanol": "Sábado",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "I rest on Saturday.",
+            "oracionEspanol": "Descanso el sábado.",
+            "audio": ""
+          }
+        ]
+      },
+      "7": {
+        "tituloIngles": "Sunday",
+        "tituloEspanol": "Domingo",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We go to church on Sunday.",
+            "oracionEspanol": "Vamos a la iglesia el domingo.",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

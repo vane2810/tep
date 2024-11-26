@@ -1,0 +1,137 @@
+{
+    "tituloGeneral": "Basic Numbers",
+    "imagenPortada": "",
+    "lecciones": {
+      "1": {
+        "tituloIngles": "One",
+        "tituloEspanol": "Uno",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "I have one apple.",
+            "oracionEspanol": "Tengo una manzana.",
+            "audio": ""
+          }
+        ]
+      },
+      "2": {
+        "tituloIngles": "Two",
+        "tituloEspanol": "Dos",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "She has two dogs.",
+            "oracionEspanol": "Ella tiene dos perros.",
+            "audio": ""
+          }
+        ]
+      },
+      "3": {
+        "tituloIngles": "Three",
+        "tituloEspanol": "Tres",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "They bought three books.",
+            "oracionEspanol": "Ellos compraron tres libros.",
+            "audio": ""
+          }
+        ]
+      },
+      "4": {
+        "tituloIngles": "Four",
+        "tituloEspanol": "Cuatro",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We saw four birds.",
+            "oracionEspanol": "Vimos cuatro pájaros.",
+            "audio": ""
+          }
+        ]
+      },
+      "5": {
+        "tituloIngles": "Five",
+        "tituloEspanol": "Cinco",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "He has five pencils.",
+            "oracionEspanol": "Él tiene cinco lápices.",
+            "audio": ""
+          }
+        ]
+      },
+      "6": {
+        "tituloIngles": "Six",
+        "tituloEspanol": "Seis",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "There are six chairs.",
+            "oracionEspanol": "Hay seis sillas.",
+            "audio": ""
+          }
+        ]
+      },
+      "7": {
+        "tituloIngles": "Seven",
+        "tituloEspanol": "Siete",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We walked seven miles.",
+            "oracionEspanol": "Caminamos siete millas.",
+            "audio": ""
+          }
+        ]
+      },
+      "8": {
+        "tituloIngles": "Eight",
+        "tituloEspanol": "Ocho",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "She has eight toys.",
+            "oracionEspanol": "Ella tiene ocho juguetes.",
+            "audio": ""
+          }
+        ]
+      },
+      "9": {
+        "tituloIngles": "Nine",
+        "tituloEspanol": "Nueve",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "There are nine flowers.",
+            "oracionEspanol": "Hay nueve flores.",
+            "audio": ""
+          }
+        ]
+      },
+      "10": {
+        "tituloIngles": "Ten",
+        "tituloEspanol": "Diez",
+        "audioTituloIngles": "",
+        "imagenLeccion": "",
+        "ejemplos": [
+          {
+            "oracionIngles": "We have ten friends.",
+            "oracionEspanol": "Tenemos diez amigos.",
+            "audio": ""
+          }
+        ]
+      }
+    }
+  }
+  

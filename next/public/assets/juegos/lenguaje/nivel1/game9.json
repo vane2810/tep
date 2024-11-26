@@ -1,0 +1,186 @@
+{
+    "nombre": "Ortografía Básica",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/mate/ortografia.png",
+    "modalData": {
+      "puntaje": "150 estrellas",
+      "imagenModal": "/img/niveles/mate/ortografia.png",
+      "subtitulo": "Ortografía Básica",
+      "indicaciones": [
+        "Selecciona la opción correcta en cada pregunta",
+        "El puntaje mínimo para pasar es de 90 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 150,
+    "minPuntos": 90,
+    "limiteEscenas": 15,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con mayúsculas?",
+        "opciones": [
+          "me gusta el helado.",
+          "Me gusta el helado.",
+          "ME gusta el helado.",
+          "Me gusta El Helado."
+        ],
+        "correcta": "Me gusta el helado.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Dónde debe ir el punto en la siguiente oración? 'Voy al cine mañana'",
+        "opciones": [
+          "Voy. al cine mañana",
+          "Voy al cine mañana.",
+          "Voy al. cine mañana",
+          "Voy al cine. mañana"
+        ],
+        "correcta": "Voy al cine mañana.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Dónde debe ir la coma en la siguiente oración? 'Compré pan leche y huevos'",
+        "opciones": [
+          "Compré, pan leche y huevos",
+          "Compré pan leche, y huevos",
+          "Compré pan, leche y huevos",
+          "Compré pan leche y, huevos"
+        ],
+        "correcta": "Compré pan, leche y huevos",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con signos de interrogación?",
+        "opciones": [
+          "¿Cómo estas?",
+          "¿Cómo estás?",
+          "¿como estás?",
+          "¿Cómo estas"
+        ],
+        "correcta": "¿Cómo estás?",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con signos de exclamación?",
+        "opciones": [
+          "¡Qué sorpresa!",
+          "Qué sorpresa!",
+          "¡Qué sorpresa",
+          "¡que sorpresa!"
+        ],
+        "correcta": "¡Qué sorpresa!",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es la forma correcta de usar las mayúsculas al inicio de una carta?",
+        "opciones": [
+          "querido amigo:",
+          "Querido Amigo:",
+          "Querido amigo:",
+          "querido Amigo:"
+        ],
+        "correcta": "Querido amigo:",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita?",
+        "opciones": [
+          "El perro, y el gato juegan juntos.",
+          "El perro y el gato, juegan juntos.",
+          "El perro y el gato juegan juntos.",
+          "El perro y el gato juegan, juntos."
+        ],
+        "correcta": "El perro y el gato juegan juntos.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el uso correcto del punto?",
+        "opciones": [
+          "Después de cada palabra.",
+          "Al final de una oración completa.",
+          "Después de cada coma.",
+          "Entre sujeto y verbo."
+        ],
+        "correcta": "Al final de una oración completa.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el uso correcto de los signos de exclamación?",
+        "opciones": [
+          "Al principio de una frase.",
+          "Al final de una frase.",
+          "Al principio y al final de una frase.",
+          "Entre el sujeto y el verbo."
+        ],
+        "correcta": "Al principio y al final de una frase.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con coma?",
+        "opciones": [
+          "Después de correr, me sentí cansado.",
+          "Después de correr me, sentí cansado.",
+          "Después de correr me sentí, cansado.",
+          "Después, de correr me sentí cansado."
+        ],
+        "correcta": "Después de correr, me sentí cansado.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con punto?",
+        "opciones": [
+          "Hoy es lunes.",
+          "Hoy es lunes",
+          "Hoy, es lunes.",
+          "Hoy es, lunes."
+        ],
+        "correcta": "Hoy es lunes.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con signos de interrogación?",
+        "opciones": [
+          "¿Cuándo llegas?",
+          "Cuando llegas?",
+          "¿Cuándo llegas",
+          "Cuándo llegas"
+        ],
+        "correcta": "¿Cuándo llegas?",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Dónde va la coma en la siguiente oración? 'Fuimos al cine y luego a cenar'",
+        "opciones": [
+          "Fuimos, al cine y luego a cenar",
+          "Fuimos al cine y, luego a cenar",
+          "Fuimos al cine, y luego a cenar",
+          "Fuimos al cine y luego, a cenar"
+        ],
+        "correcta": "Fuimos al cine, y luego a cenar",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el uso correcto del punto en una oración?",
+        "opciones": [
+          "Al final de una oración declarativa.",
+          "Al principio de la oración.",
+          "En medio de la oración.",
+          "Entre palabras consecutivas."
+        ],
+        "correcta": "Al final de una oración declarativa.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración está correctamente escrita con mayúsculas?",
+        "opciones": [
+          "ayer fuimos al parque.",
+          "Ayer fuimos al parque.",
+          "Ayer fuimos Al Parque.",
+          "Ayer Fuimos Al Parque."
+        ],
+        "correcta": "Ayer fuimos al parque.",
+        "puntos": 10
+      }
+    ]
+  }
+  

@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "El Uso de las Abreviaturas",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Abreviaturas con punto final",
+            "descripcion": "Las abreviaturas deben llevar un punto al final para indicar que la palabra ha sido acortada.",
+            "imagenLeccion": "/img/niveles/lenguaje/abreviaturas_punto_final.png",
+            "ejemplos": [
+                "El Sr. García asistió a la reunión.",
+                "El paquete fue enviado a la c/ Mayor."
+            ]
+        },
+        "2": {
+            "titulo": "Uso de mayúsculas y minúsculas",
+            "descripcion": "Las abreviaturas mantienen la mayúscula inicial si la palabra original la lleva, y usan minúsculas cuando se abrevia una palabra común.",
+            "imagenLeccion": "/img/niveles/lenguaje/abreviaturas_mayusculas_minusculas.png",
+            "ejemplos": [
+                "Dr. (Doctor) y prof. (profesor).",
+                "Sra. (Señora) y pág. (página)."
+            ]
+        },
+        "3": {
+            "titulo": "Abreviaturas con barra inclinada",
+            "descripcion": "Algunas abreviaturas utilizan una barra inclinada (/) para separar partes de la palabra abreviada.",
+            "imagenLeccion": "/img/niveles/lenguaje/abreviaturas_barra_inclinada.png",
+            "ejemplos": [
+                "c/ (calle).",
+                "c/c (cuenta corriente)."
+            ]
+        },
+        "4": {
+            "titulo": " Uso de abreviaturas en documentos formales",
+            "descripcion": "En documentos formales, como cartas o escritos legales, se utilizan abreviaturas estandarizadas, respetando el uso correcto del punto final y las mayúsculas.",
+            "imagenLeccion": "/img/niveles/lenguaje/abreviaturas_documentos_formales.png",
+            "ejemplos": [
+                "Ejemplo 1: Atte. (Atentamente) en una carta formal.",
+                "Ejemplo 2: Sr. (Señor) y Sra. (Señora) en invitaciones formales."
+            ]
+        },
+        "5": {
+            "titulo": "Uso de abreviaturas en direcciones y espacios limitados",
+            "descripcion": "En situaciones donde el espacio es limitado, como en direcciones postales o formularios, las abreviaturas se emplean para simplificar la escritura.",
+            "imagenLeccion": "/img/niveles/lenguaje/abreviaturas_direcciones.png",
+            "ejemplos": [
+                "Ejemplo 1: C/ (calle) en las direcciones postales.",
+                "Ejemplo 2: Avda. (Avenida) en carteles de tráfico."
+            ]
+        }
+    }
+}

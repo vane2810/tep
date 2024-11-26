@@ -1,0 +1,46 @@
+{
+  "id": "america",
+  "name": "América",
+  "descripcion": "América es un continente que se extiende desde el norte del círculo polar ártico hasta el sur del círculo polar antártico. Incluye una diversa gama de climas y ecosistemas, desde tundras en Canadá hasta selvas tropicales en Brasil.",
+  "imagenPortada": "/img/niveles/sociales/nivel3/continentes/america.png",
+  "paises": [
+    {
+      "id": "mexico",
+      "nombre": "México",
+      "descripcion": "México es conocido por sus ricas tradiciones culturales, la comida picante, y su historia azteca y maya. Las playas de Cancún y los sitios arqueológicos como Teotihuacán son solo algunos de sus atractivos turísticos.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/america/mexico.png"
+    },
+    {
+      "id": "usa",
+      "nombre": "Estados Unidos",
+      "descripcion": "Estados Unidos es un país diverso y vasto, conocido por su economía influyente y su cultura popular dominante. Desde los rascacielos de Nueva York hasta los parques naturales como Yellowstone, ofrece una amplia variedad de experiencias.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/america/usa.png"
+    },
+    {
+      "id": "brasil",
+      "nombre": "Brasil",
+      "descripcion": "Brasil, famoso por su carnaval de Río de Janeiro, el fútbol y su selva amazónica, es un país vibrante con una rica diversidad cultural y natural.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/america/brasil.png"
+    },
+    {
+      "id": "canada",
+      "nombre": "Canadá",
+      "descripcion": "Canadá es conocido por su vasto territorio, desde las Montañas Rocosas hasta las praderas, y por sus inviernos fríos. Es un destino popular para actividades al aire libre como el esquí y el senderismo, y su multiculturalismo es una de sus principales características.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/america/canada.png"
+    },
+    {
+      "id": "argentina",
+      "nombre": "Argentina",
+      "descripcion": "Argentina es famosa por el tango, el fútbol y la carne asada. Desde la vibrante ciudad de Buenos Aires hasta las maravillas naturales como las Cataratas del Iguazú y la región de la Patagonia, ofrece una rica mezcla de cultura y naturaleza.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/america/argentina.png"
+    },
+    {
+      "id": "chile",
+      "nombre": "Chile",
+      "descripcion": "Chile es conocido por su forma alargada que cubre una variedad de paisajes, desde el desierto de Atacama, el más árido del mundo, hasta los glaciares de la Patagonia. Su capital, Santiago, está rodeada de montañas, y es famoso por sus vinos.",
+      "imagen": "/img/niveles/sociales/nivel3/paises/america/chile.png"
+    }
+  ]
+}
+
+  

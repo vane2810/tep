@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Pronombres Personales",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Pronombres Personales: ¿Qué son?",
+            "descripcion": "Los pronombres personales son palabras que reemplazan a los sustantivos para referirse a las personas, animales o cosas sin mencionarlas directamente.",
+            "imagenLeccion": "/img/niveles/lenguaje/pronombres.png",
+            "ejemplos": [
+                "Ejemplo 1: Yo soy estudiante.",
+                "Ejemplo 2: Él juega fútbol."
+            ]
+        },
+        "2": {
+            "titulo": "Pronombres Personales en Primera Persona",
+            "descripcion": "Los pronombres de primera persona se usan para hablar de uno mismo o de un grupo al que se pertenece.",
+            "imagenLeccion": "/img/niveles/lenguaje/primera_persona.png",
+            "ejemplos": [
+                "Ejemplo 1: yo, nosotros.",
+                "Ejemplo 2: nosotras."
+            ]
+        },
+        "3": {
+            "titulo": "Pronombres Personales en Segunda Persona",
+            "descripcion": "Los pronombres de segunda persona se usan para dirigirse a la persona o personas con las que se habla.",
+            "imagenLeccion": "/img/niveles/lenguaje/segunda_persona.png",
+            "ejemplos": [
+                "Ejemplo 1: tú, ustedes.",
+                "Ejemplo 2: vos."
+            ]
+        },
+        "4": {
+            "titulo": "Pronombres Personales en Tercera Persona",
+            "descripcion": "Los pronombres de tercera persona se usan para hablar de alguien o algo que no es la persona que habla ni a quien se dirige.",
+            "imagenLeccion": "/img/niveles/lenguaje/tercera_persona.png",
+            "ejemplos": [
+                "Ejemplo 1: él, ella, ellos.",
+                "Ejemplo 2: ellas."
+            ]
+        },
+        "5": {
+            "titulo": "Pronombres Personales: Género y Número",
+            "descripcion": "Los pronombres personales también cambian según el género (masculino o femenino) y el número (singular o plural).",
+            "imagenLeccion": "/img/niveles/lenguaje/genero_numero_pronombres.png",
+            "ejemplos": [
+                "Ejemplo 1 (género): él (masculino), ella (femenino).",
+                "Ejemplo 2 (número): nosotros (plural), yo (singular)."
+            ]
+        }
+    }
+}

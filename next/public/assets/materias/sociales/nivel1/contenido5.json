@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Población y Costumbres de El Salvador",
+    "imagenPortada": "/img/personajes/burbuja/burbuja.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Población de El Salvador",
+            "descripcion": "El Salvador tiene una población de más de 6 millones de personas, con una alta densidad poblacional.",
+            "imagenLeccion": "/img/niveles/sociales/densidad.png",
+            "ejemplos": [
+                "Capital: San Salvador.",
+                "Lengua oficial: español."
+            ]
+        },
+        "2": {
+            "titulo": "Costumbres Familiares",
+            "descripcion": "La familia es muy importante en la vida de los salvadoreños.",
+            "imagenLeccion": "/img/niveles/sociales/familia.png",
+            "ejemplos": [
+                "Reuniones familiares los fines de semana.",
+                "Ejemplo 2: Celebraciones de cumpleaños con comida típica."
+            ]
+        },
+        "3": {
+            "titulo": "Música Tradicional",
+            "descripcion": "La música folclórica es parte de las tradiciones salvadoreñas.",
+            "imagenLeccion": "/img/niveles/sociales/musica.png",
+            "ejemplos": [
+                "El Xuc, música tradicional.",
+                "Bailes típicos como el torito pinto."
+            ]
+        },
+        "4": {
+            "titulo": "Vestimenta Tradicional",
+            "descripcion": "En las zonas rurales, aún se conservan trajes típicos como el traje de los campesinos.",
+            "imagenLeccion": "/img/niveles/sociales/vestimenta.png",
+            "ejemplos": [
+                "Trajes de algodón con colores vivos.",
+                "Sombreros de paja."
+            ]
+        },
+        "5": {
+            "titulo": "Artesanías",
+            "descripcion": "El Salvador es conocido por sus artesanías de barro, tejidos y madera.",
+            "imagenLeccion": "/img/niveles/sociales/artesania.png",
+            "ejemplos": [
+                "Joyería hecha a mano.",
+                "Productos de barro y cerámica."
+            ]
+        }
+    }
+}

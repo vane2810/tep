@@ -1,0 +1,131 @@
+{
+    "nombre": "El Uso de las Abreviaturas",
+    "gameType": "Seleccionar",
+    "imageUrl": "/img/niveles/lenguaje/abreviaturas.png",
+    "modalData": {
+      "puntaje": "100 estrellas",
+      "imagenModal": "/img/niveles/lenguaje/abreviaturas.png",
+      "subtitulo": "El Uso de las Abreviaturas",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre el uso de las abreviaturas",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no las consigues"
+      ]
+    },
+    "totalPuntos": 100,
+    "minPuntos": 60,
+    "limiteEscenas": 10,
+    "escenas": [
+      {
+        "pregunta": "¿Cuál de las siguientes oraciones utiliza correctamente una abreviatura con punto final?",
+        "opciones": [
+          "El Sr Garcia asistió a la reunión.",
+          "El señor. García asistió a la reunión.",
+          "El Sr. García asistió a la reunión.",
+          "El Ser. García asistió a la reunión."
+        ],
+        "correcta": "El Sr. García asistió a la reunión.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes abreviaturas usa correctamente la mayúscula inicial?",
+        "opciones": [
+          "Prof. (Profesor)",
+          "dr. (doctor)",
+          "sra. (señora)",
+          "Págn. (Página)"
+        ],
+        "correcta": "Prof. (Profesor)",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál oración utiliza correctamente una abreviatura con barra inclinada?",
+        "opciones": [
+          "El paquete fue enviado a c. Mayor.",
+          "El paquete fue enviado a calle Mayor.",
+          "El paquete fue enviado a c\\ Mayor.",
+          "El paquete fue enviado a c/ Mayor."
+        ],
+        "correcta": "El paquete fue enviado a c/ Mayor.",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál abreviatura se utiliza correctamente en documentos formales?",
+        "opciones": [
+          "Atte. (Atentamente)",
+          "Ate. (Atentamente)",
+          "Atte (Atentamente)",
+          "Att. (Atentamente)"
+        ],
+        "correcta": "Atte. (Atentamente)",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿En qué situación es común usar la abreviatura 'C/'?",
+        "opciones": [
+          "En textos literarios",
+          "En correos electrónicos",
+          "En direcciones postales",
+          "En libros escolares"
+        ],
+        "correcta": "En direcciones postales",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes abreviaturas se utiliza correctamente en una invitación formal?",
+        "opciones": [
+          "Sra (Señora)",
+          "Sr. (Señor)",
+          "Sra. (Señora)",
+          "Sñr. (Señor)"
+        ],
+        "correcta": "Sr. (Señor)",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes abreviaturas es correcta para referirse a 'calle'?",
+        "opciones": [
+          "cl.",
+          "c/",
+          "ca.",
+          "cal."
+        ],
+        "correcta": "c/",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál de estas abreviaturas es correcta para una dirección postal?",
+        "opciones": [
+          "Aven. (Avenida)",
+          "Avida. (Avenida)",
+          "Avda. (Avenida)",
+          "Ave. (Avenida)"
+        ],
+        "correcta": "Avda. (Avenida)",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿Cuál es el uso correcto de abreviaturas en una carta formal?",
+        "opciones": [
+          "Estimado Sr. Pérez,",
+          "Estimado Sr Pérez",
+          "Estimado ser. Pérez,",
+          "Estimado sr Pérez,"
+        ],
+        "correcta": "Estimado Sr. Pérez,",
+        "puntos": 10
+      },
+      {
+        "pregunta": "¿En qué contexto es más apropiado usar la abreviatura 'c/c'?",
+        "opciones": [
+          "En libros de texto",
+          "En correos electrónicos",
+          "En cuentas bancarias",
+          "En documentos legales"
+        ],
+        "correcta": "En cuentas bancarias",
+        "puntos": 10
+      }
+    ]
+  }
+  

@@ -1,0 +1,57 @@
+{
+    "tituloGeneral": "Etiopía",
+    "imagenPortada": "",
+    "lecciones": [
+      {
+        "id": "1",
+        "titulo": "Ubicación de Etiopía",
+        "descripcion": "Etiopía está en el Cuerno de África, sin acceso directo al mar.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Capital: Adís Abeba.",
+          "Limita con Eritrea, Yibuti, Somalia, Kenia, Sudán y Sudán del Sur."
+        ]
+      },
+      {
+        "id": "2",
+        "titulo": "Independencia",
+        "descripcion": "Etiopía es uno de los pocos países africanos que nunca fue colonizado, aunque fue ocupado brevemente por Italia en la década de 1930.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "Etiopía resistió la colonización europea.",
+          "El emperador Haile Selassie es una figura importante en su historia."
+        ]
+      },
+      {
+        "id": "3",
+        "titulo": "Cultura y Tradiciones",
+        "descripcion": "Etiopía tiene una rica herencia cultural y es el hogar de la Iglesia Ortodoxa Etíope.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El café es una parte importante de la vida cotidiana.",
+          "El idioma principal es el amárico."
+        ]
+      },
+      {
+        "id": "4",
+        "titulo": "Símbolos Patrios de Etiopía",
+        "descripcion": "La bandera de Etiopía tiene franjas verdes, amarillas y rojas, con un emblema azul en el centro.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "El verde representa la tierra, el amarillo la paz y el rojo el sacrificio.",
+          "El emblema azul simboliza la unidad del pueblo."
+        ]
+      },
+      {
+        "id": "5",
+        "titulo": "Montañas y Ríos",
+        "descripcion": "Etiopía es conocida por su terreno montañoso y es el origen del Nilo Azul.",
+        "imagenLeccion": "",
+        "ejemplos": [
+          "La cordillera de las Montañas Simien es famosa por su biodiversidad.",
+          "El Nilo Azul nace en el lago Tana, en el noroeste de Etiopía."
+        ]
+      }
+    ]
+  }
+  

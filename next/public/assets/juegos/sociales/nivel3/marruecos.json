@@ -1,0 +1,76 @@
+{
+    "nombre": "Marruecos",
+    "gameType": "Seleccionar",
+    "imageUrl": "",
+    "modalData": {
+      "puntaje": "75 estrellas",
+      "imagenModal": "",
+      "subtitulo": "Descubre Marruecos",
+      "indicaciones": [
+        "Selecciona la respuesta correcta sobre Marruecos",
+        "El puntaje mínimo para pasar es de 60 estrellas",
+        "Vuelve a intentarlo si no alcanzas el puntaje mínimo"
+      ]
+    },
+    "totalPuntos": 75,
+    "minPuntos": 60,
+    "limiteEscenas": 5,
+    "escenas": [
+      {
+        "pregunta": "¿Dónde se encuentra Marruecos?",
+        "opciones": [
+          "En el sur de Europa",
+          "En el norte de África",
+          "En el este de Asia",
+          "En el oeste de América"
+        ],
+        "correcta": "En el norte de África",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuándo obtuvo Marruecos su independencia?",
+        "opciones": [
+          "En 1956",
+          "En 1776",
+          "En 1947",
+          "En 1963"
+        ],
+        "correcta": "En 1956",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es uno de los idiomas oficiales de Marruecos?",
+        "opciones": [
+          "Inglés",
+          "Español",
+          "Portugués",
+          "Árabe"
+        ],
+        "correcta": "Árabe",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Qué simboliza la estrella verde en la bandera de Marruecos?",
+        "opciones": [
+          "La paz mundial",
+          "La independencia del país",
+          "El comercio y la agricultura",
+          "La conexión con el Islam"
+        ],
+        "correcta": "La conexión con el Islam",
+        "puntos": 15
+      },
+      {
+        "pregunta": "¿Cuál es una característica geográfica de Marruecos?",
+        "opciones": [
+          "La cordillera del Atlas",
+          "La selva amazónica",
+          "El río Nilo",
+          "El monte Fuji"
+        ],
+        "correcta": "La cordillera del Atlas",
+        "puntos": 15
+      }
+    ]
+  }
+  

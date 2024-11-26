@@ -1,0 +1,51 @@
+{
+    "tituloGeneral": "Signos de Puntuación",
+    "imagenPortada": "/img/personajes/principe/principe.png",
+    "lecciones": {
+        "1": {
+            "titulo": "Signos de Puntuación: La Coma",
+            "descripcion": "La coma se usa para separar elementos en una lista, para marcar una pausa breve dentro de una oración, o para aislar aclaraciones.",
+            "imagenLeccion": "/img/niveles/lenguaje/coma.png",
+            "ejemplos": [
+                "Ejemplo 1: Me gustan las frutas, las verduras y los cereales.",
+                "Ejemplo 2: Después de correr, me senté a descansar."
+            ]
+        },
+        "2": {
+            "titulo": "Signos de Puntuación: El Punto",
+            "descripcion": "El punto indica el final de una oración. Existen tres tipos de punto: el punto y seguido, el punto y aparte, y el punto final.",
+            "imagenLeccion": "/img/niveles/lenguaje/punto.png",
+            "ejemplos": [
+                "Ejemplo 1: Me llamo Juan. Vivo en Madrid.",
+                "Ejemplo 2: Llegamos tarde al cine. No alcanzamos a ver la película."
+            ]
+        },
+        "3": {
+            "titulo": "Signos de Puntuación: Los Dos Puntos",
+            "descripcion": "Los dos puntos se usan para introducir una explicación, una lista, una cita o un resumen de lo que se ha dicho antes.",
+            "imagenLeccion": "/img/niveles/lenguaje/dos_puntos.png",
+            "ejemplos": [
+                "Ejemplo 1: Estos son los ingredientes: harina, azúcar y huevos.",
+                "Ejemplo 2: El profesor dijo: 'Estudien para el examen de mañana.'"
+            ]
+        },
+        "4": {
+            "titulo": "Signos de Puntuación: El Punto y Coma",
+            "descripcion": "El punto y coma separa oraciones dentro de un mismo enunciado cuando ya se han usado comas.",
+            "imagenLeccion": "",
+            "ejemplos": [
+                "Ejemplo 1: Tengo hambre; sin embargo, esperaré a la cena.",
+                "Ejemplo 2: Salimos a correr; luego, volvimos a casa."
+            ]
+        },
+        "5": {
+            "titulo": "Signos de Puntuación: Puntos Suspensivos",
+            "descripcion": "Los puntos suspensivos indican que una oración queda incompleta o que hay una pausa dramática.",
+            "imagenLeccion": "",
+            "ejemplos": [
+                "Ejemplo 1: Sabía que algo malo iba a pasar...",
+                "Ejemplo 2: No lo sé... tal vez más tarde."
+            ]
+        }
+    }
+}
