@@ -3,7 +3,6 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut } from 'react-icons/fa';
 import { BiArrowBack } from 'react-icons/bi';
-import Volver from '@/components/elements/botonVolver';
 import characterImages from '@/utils/characterImages';
 import ModalEditarUsuario from '@/components/modals/admin/editarModal';
 
@@ -55,7 +54,7 @@ export default function PaginaPerfilUsuario() {
     : '/profile.png';
 
   return (
-    <div className="bg-white shadow-lg mx-auto my-10 p-6 rounded-lg max-w-4xl container">
+    <div className="bg-white shadow-lg mx-auto my-10 p-6 rounded-lg max-w-4xl container yagora">
       <div className="flex items-center mb-8">
         <button onClick={() => window.history.back()} className="flex items-center text-blue-500 hover:text-blue-700">
           <BiArrowBack className="mr-2" /> Volver

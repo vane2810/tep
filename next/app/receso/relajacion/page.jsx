@@ -2,7 +2,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import Modal from '/components/modals/receso/relajacion';
+import Modal from '@/components/modals/receso/relajacion';
+import Volver from '@/components/elements/botonVolver';
 
 const RelaxationSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,13 +16,13 @@ const RelaxationSection = () => {
 
     try {
       if (topic === 'Sonidos de la Naturaleza') {
-        content = await import('/components/receso/sonidos.json');
+        content = await import('@/components/receso/sonidos.json');
         imageSrc = "/img/receso/sonidos.png";
       } else if (topic === 'Ejercicio de Respiración') {
-        content = await import('/components/receso/respiracion.json');
+        content = await import('@/components/receso/respiracion.json');
         imageSrc = "/img/receso/respiracion.png";
       } else if (topic === 'Meditación Guiada') {
-        content = await import('/components/receso/meditacion.json');
+        content = await import('@/components/receso/meditacion.json');
         imageSrc = "/img/receso/meditacion.png";
       }
 
@@ -40,50 +41,55 @@ const RelaxationSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center p-4">
-      <h1 className="text-3xl font-bold text-blue-700 mb-8 super">ZONA DE RELAJACIÓN</h1>
-      <p className="text-gray-600 mb-6 text-center wonder">Elige una actividad para relajarte y encontrar la calma.</p>
+    <div className="relative flex flex-col justify-center items-center bg-blue-50 p-4 min-h-screen">
+      {/* Botón Volver en la esquina superior izquierda */}
+      <div className="top-4 left-4 absolute">
+        <Volver href="/receso" />
+      </div>
+
+      <h1 className="mb-8 font-bold text-3xl text-blue-700 super">ZONA DE RELAJACIÓN</h1>
+      <p className="mb-6 text-center text-gray-600 wonder">Elige una actividad para relajarte y encontrar la calma.</p>
 
       {/* Imagen Central */}
       <div className="mb-10">
         <img
           src="/img/receso/relajacion2.png"
           alt="Zona de Juegos"
-          className="w-40 md:w-40 lg:w-70 mx-auto"
+          className="mx-auto w-40 md:w-40 lg:w-70"
         />
       </div>
 
       {/* Contenedor de tarjetas centradas */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl justify-center">
+      <div className="justify-center gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-4xl yagora">
         
-        <div className="bg-pink-200 shadow-lg rounded-xl overflow-hidden transform hover:scale-105 transition-transform p-4 flex flex-col items-center">
-          <img src="/img/receso/sonidos.png" alt="Sonidos de la Naturaleza" className="w-20 h-20 object-cover rounded-full mb-4" />
-          <h2 className="text-lg font-semibold text-blue-700 mb-2 text-center">Sonidos de la Naturaleza</h2>
+        <div className="flex flex-col items-center bg-pink-200 shadow-lg p-4 rounded-xl transform overflow-hidden hover:scale-105 transition-transform">
+          <img src="/img/receso/sonidos.png" alt="Sonidos de la Naturaleza" className="mb-4 rounded-full w-20 h-20 object-cover" />
+          <h2 className="mb-2 font-semibold text-blue-700 text-center text-lg">Sonidos de la Naturaleza</h2>
           <button
             onClick={() => openModal('Sonidos de la Naturaleza')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+            className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full text-white"
           >
             Jugar
           </button>
         </div>
 
-        <div className="bg-pink-200 shadow-lg rounded-xl overflow-hidden transform hover:scale-105 transition-transform p-4 flex flex-col items-center">
-          <img src="/img/receso/respiracion.png" alt="Ejercicio de Respiración" className="w-20 h-20 object-cover rounded-full mb-4" />
-          <h2 className="text-lg font-semibold text-blue-700 mb-2 text-center">Ejercicio de Respiración</h2>
+        <div className="flex flex-col items-center bg-pink-200 shadow-lg p-4 rounded-xl transform overflow-hidden hover:scale-105 transition-transform">
+          <img src="/img/receso/respiracion.png" alt="Ejercicio de Respiración" className="mb-4 rounded-full w-20 h-20 object-cover" />
+          <h2 className="mb-2 font-semibold text-blue-700 text-center text-lg">Ejercicio de Respiración</h2>
           <button
             onClick={() => openModal('Ejercicio de Respiración')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+            className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full text-white"
           >
             Jugar
           </button>
         </div>
 
-        <div className="bg-pink-200 shadow-lg rounded-xl overflow-hidden transform hover:scale-105 transition-transform p-4 flex flex-col items-center">
-          <img src="/img/receso/meditacion.png" alt="Meditación Guiada" className="w-20 h-20 object-cover rounded-full mb-4" />
-          <h2 className="text-lg font-semibold text-blue-700 mb-2 text-center">Meditación Guiada</h2>
+        <div className="flex flex-col items-center bg-pink-200 shadow-lg p-4 rounded-xl transform overflow-hidden hover:scale-105 transition-transform">
+          <img src="/img/receso/meditacion.png" alt="Meditación Guiada" className="mb-4 rounded-full w-20 h-20 object-cover" />
+          <h2 className="mb-2 font-semibold text-blue-700 text-center text-lg">Meditación Guiada</h2>
           <button
             onClick={() => openModal('Meditación Guiada')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+            className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full text-white"
           >
             Jugar
           </button>
@@ -102,4 +108,3 @@ const RelaxationSection = () => {
 };
 
 export default RelaxationSection;
-

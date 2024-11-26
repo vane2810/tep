@@ -4,12 +4,20 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class GameType extends Model {
         static associate(models) {
-            // Relación con el modelo Game (un GameType puede tener muchos juegos)
-            GameType.hasMany(models.GameDetail, {
-                foreignKey: 'game_type_id',
+            // Relación con Game
+            GameType.hasMany(models.Game, {
+                foreignKey: 'gametype_id', // Relación inversa con Game
                 as: 'games',
                 onDelete: 'SET NULL',
-                onUpdate: 'CASCADE'
+                onUpdate: 'CASCADE',
+            });
+
+            // Relación con GameDetail
+            GameType.hasMany(models.GameDetail, {
+                foreignKey: 'gameTypeId',
+                as: 'details',
+                onDelete: 'SET NULL',
+                onUpdate: 'CASCADE',
             });
         }
     }
@@ -19,19 +27,35 @@ module.exports = (sequelize, DataTypes) => {
             type_name: {
                 type: DataTypes.STRING(50),
                 allowNull: false,
-                unique: true
+                unique: true,
             },
             description: {
                 type: DataTypes.TEXT,
-                allowNull: true
-            }
+                allowNull: true,
+            },
+            required_data: {
+                type: DataTypes.JSON, // Campo para las claves requeridas
+                allowNull: false, // Aseguramos que no pueda estar vacío
+            },
+            default_instructions: {
+                type: DataTypes.TEXT, 
+                allowNull: true, 
+            },
+            default_video_url: {
+                type: DataTypes.STRING,
+                allowNull: true,
+                validate: {
+                    isUrl: true, // Asegura que sea una URL válida
+                },
+            },
+            
         },
         {
             sequelize,
             modelName: 'GameType',
             tableName: 'gametypes',
             timestamps: true,
-            underscored: true // Utiliza snake_case para los nombres de las columnas
+            underscored: true,
         }
     );
 

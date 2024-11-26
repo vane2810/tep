@@ -1,257 +1,311 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import useSession from "@/hooks/useSession";
 import ComponentHeader from "@/components/templates/games/componentHeader";
 import Loading from "@/components/elements/loading";
 import Volver from "@/components/elements/botonVolver";
-import Carga from "@/components/menssages/mensajeCarga";
-import AddButton from "@/components/elements/botonAdd";
 import { SeparadorVerde } from "@/components/separador";
-import GamesContainer from "@/components/templates/games/gamesContainer";
-import InstructionsModal from "@/components/modals/admin/contenido/instrutionModal";
-import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
-import JuegoOpciones from "@/components/minigame/juegoOpciones";
+import Carga from "@/components/menssages/mensajeCarga";
+import { FaEdit } from "react-icons/fa";
+
+// Importar todos los componentes de juegos disponibles
+import Trivia from "@/components/minigame/trivia";
+import Emparejar from "@/components/minigame/emparejar";
+import Ordenar from "@/components/minigame/ordenar";
+import Arrastrar from "@/components/minigame/arrastrar_soltar";
+
+// Importar formularios de configuración para los juegos
+import TriviaForm from "@/components/minigame/forms/triviaForm";
+import EmparejarForm from "@/components/minigame/forms/emparejarForm";
+import OrdenarForm from "@/components/minigame/forms/ordenarForm";
+import ArrastrarForm from "@/components/minigame/forms/arrastrarForm";
 
 const GamePage = () => {
     const params = useParams();
-    const router = useRouter(); // Use useRouter para navegar a otra página
     const { subtemas, contenidos, juegos } = params;
     const { session } = useSession();
 
     const gameId = Number(juegos);
-    if (isNaN(gameId)) {
-        console.error("Error: El ID del juego no es un número válido. Valor recibido:", juegos);
-    }
-
     const [gameData, setGameData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [instructions, setInstructions] = useState([]);
-    const [currentInstruction, setCurrentInstruction] = useState(null);
-    const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(false);
+    const [defaultInstructions, setDefaultInstructions] = useState(null);
+    const [adminInstructions, setAdminInstructions] = useState([]);
     const [isInstruccionesModalOpen, setIsInstruccionesModalOpen] = useState(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-    const [deleteInstructionId, setDeleteInstructionId] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
+    const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
+    const [gameConfig, setGameConfig] = useState(null); // Nuevo estado para manejar la configuración del juego
 
+    // Mapas de tipos de juegos y formularios de configuración
+    const gameComponents = {
+        "1": Trivia,
+        "2": Emparejar,
+        "3": Ordenar,
+        "4": Arrastrar,
+    };
+
+    const configForms = {
+        "1": TriviaForm,
+        "2": EmparejarForm,
+        "3": OrdenarForm,
+        "4": ArrastrarForm,
+    };
+
+    // Obtener los datos del juego
     useEffect(() => {
-        if (!isNaN(gameId)) {
-            console.log("ID del juego procesado:", gameId);
-        } else {
-            console.error("Error: El ID del juego no es válido. Detenido el fetch.");
-            return;
-        }
-
         const fetchGame = async () => {
-            setLoading(true);
             try {
-                const response = await fetch(`http://localhost:3001/api/games/byContent/${contenidos}`);
+                setLoading(true);
+                const response = await fetch(`http://localhost:3001/api/games/${gameId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setGameData(data);
                 } else {
                     setError(true);
-                    console.error("Error al obtener los datos del juego:", response.statusText);
                 }
             } catch (error) {
+                console.error("Error al obtener datos del juego:", error);
                 setError(true);
-                console.error("Error de red:", error);
             } finally {
                 setLoading(false);
             }
         };
 
-        const fetchInstructions = async () => {
+        if (gameId) fetchGame();
+    }, [gameId]);
+
+    // Obtener las instrucciones predeterminadas basadas en el gameType
+    useEffect(() => {
+        const fetchDefaultInstructions = async () => {
+            if (!gameData?.gameType?.id) {
+                console.error("No se encontró el ID del tipo de juego asociado al juego.");
+                return;
+            }
+
             try {
-                const response = await fetch(`http://localhost:3001/api/instructions/byGame/${gameId}`);
+                const response = await fetch(`http://localhost:3001/api/gametypes/default/${gameData.gameType.id}`);
                 if (response.ok) {
                     const data = await response.json();
-                    setInstructions(data);
+                    setDefaultInstructions(data);
                 } else {
-                    console.error("Error al obtener las instrucciones:", response.statusText);
+                    console.error("Error al obtener las instrucciones predeterminadas");
                 }
             } catch (error) {
-                console.error("Error de red:", error);
+                console.error("Error al obtener instrucciones predeterminadas:", error);
             }
         };
 
-        if (!isNaN(gameId) && gameId > 0) {
-            fetchGame();
-            fetchInstructions();
-        } else {
-            console.error("El ID del juego no es válido, no se realiza la petición de datos.");
+        if (gameData?.gameType?.id) {
+            fetchDefaultInstructions();
+        }
+    }, [gameData]);
+
+    // Obtener las instrucciones personalizadas
+    const fetchAdminInstructions = async () => {
+        try {
+            const response = await fetch(`http://localhost:3001/api/instructions/byGame/${gameId}`);
+            if (response.ok) {
+                const data = await response.json();
+                setAdminInstructions(data);
+            } else {
+                console.error("Error al obtener instrucciones personalizadas");
+            }
+        } catch (error) {
+            console.error("Error al obtener instrucciones personalizadas:", error);
+        }
+    };
+
+    useEffect(() => {
+        if (gameId) {
+            fetchAdminInstructions();
         }
     }, [gameId]);
 
-    // Función para manejar cambios en los campos de entrada del modal de instrucciones
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setCurrentInstruction((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
-
-    // Función para abrir el modal de instrucciones
-    const handleOpenInstruccionesModal = () => {
+    const handleEditClick = (instruction) => {
+        setIsEditing(true);
         setIsInstruccionesModalOpen(true);
+        setCurrentPoints({
+            id: instruction.id || null,
+            points_max: instruction.points_max || "",
+            points_min: instruction.points_min || "",
+        });
     };
 
-    // Función para agregar una nueva instrucción
-    const handleAddInstruction = () => {
-        setCurrentInstruction(null);
-        setIsInstructionsModalOpen(true);
+    const handleConfigClick = () => {
+        setIsConfigModalOpen(true);
     };
 
-    // Función para abrir el formulario de configuración del juego
-    const handleConfigureGame = () => {
-        router.push(`/niveles/nivel1/mate/${subtemas}/${contenidos}/${gameId}/${gameId}/configuration`);
-    };
-
-    // Función para editar una instrucción existente
-    const handleEditInstruction = (instruction) => {
-        setCurrentInstruction(instruction);
-        setIsInstructionsModalOpen(true);
-    };
-
-    // Función para eliminar una instrucción existente
-    const handleDeleteInstruction = (id) => {
-        setDeleteInstructionId(id);
-        setIsDeleteModalOpen(true);
-    };
-
-    // Función para confirmar la eliminación de una instrucción
-    const confirmDeleteInstruction = async () => {
-        if (!deleteInstructionId) return;
-
-        try {
-            const response = await fetch(`http://localhost:3001/api/instructions/${deleteInstructionId}`, {
-                method: 'DELETE',
-            });
-
-            if (response.ok) {
-                setInstructions((prev) => prev.filter((instruction) => instruction.id !== deleteInstructionId));
-                setIsDeleteModalOpen(false);
-            } else {
-                console.error('Error al eliminar la instrucción:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error de red:', error);
-        }
-    };
-
-    // Función para cerrar los modales
     const handleModalClose = () => {
-        setIsInstructionsModalOpen(false);
         setIsInstruccionesModalOpen(false);
-        setCurrentInstruction(null);
+        setIsEditing(false);
+        setIsConfigModalOpen(false);
+        setCurrentPoints({ id: null, points_max: "", points_min: "" });
     };
 
-    // Función para manejar la adición o edición de instrucciones
-    const handleAddInstructionSubmit = async (instruction) => {
-        if (!instruction.points || !instruction.instructions || isNaN(gameId)) {
-            console.error('Todos los campos son obligatorios para agregar una instrucción o el ID del juego no es válido.');
-            return;
+    useEffect(() => {
+        const fetchGameConfig = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/api/gamedetails/${gameId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setGameConfig(data.config); // Actualizar el estado `gameConfig` con la configuración recibida
+                } else {
+                    console.error("Error al obtener la configuración del juego");
+                }
+            } catch (error) {
+                console.error("Error al obtener la configuración del juego:", error);
+            }
+        };
+
+        if (gameId) {
+            fetchGameConfig();
         }
+    }, [gameId]);
 
-        const isEditing = !!instruction?.id;
-
-        const url = isEditing
-            ? `http://localhost:3001/api/instructions/${instruction.id}`
-            : 'http://localhost:3001/api/instructions/';
-        const method = isEditing ? 'PUT' : 'POST';
-
+    const handleSavePoints = async (updatedPoints) => {
         try {
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    ...instruction,
-                    game_id: gameId,
-                }),
-            });
+            const { id, points_max, points_min } = updatedPoints;
+            const payload = {
+                points_max,
+                points_min,
+                game_id: gameId,
+            };
+
+            let response;
+
+            if (!id) {
+                response = await fetch(`http://localhost:3001/api/instructions/`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+            } else {
+                response = await fetch(`http://localhost:3001/api/instructions/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+            }
 
             if (response.ok) {
-                const updatedInstruction = await response.json();
-                if (isEditing) {
-                    setInstructions((prev) =>
-                        prev.map((instr) => (instr.id === updatedInstruction.id ? updatedInstruction : instr))
-                    );
-                } else {
-                    setInstructions((prev) => [...prev, updatedInstruction]);
-                }
-                setIsInstructionsModalOpen(false);
+                console.log("Instrucciones guardadas correctamente");
+                await fetchAdminInstructions();
             } else {
-                console.error('Error al guardar la instrucción:', response.statusText);
+                console.error("Error al guardar las instrucciones:", await response.text());
             }
         } catch (error) {
-            console.error('Error de red:', error);
+            console.error("Error al guardar las instrucciones:", error);
+        } finally {
+            handleModalClose();
         }
     };
 
-    if (loading) {
-        return <Loading />;
-    }
+    const handleSaveGameConfig = async (configData) => {
+        try {
+            let response;
+            if (gameConfig) {
+                // Si existe una configuración previa, actualizamos (PUT)
+                response = await fetch(`http://localhost:3001/api/gamedetails`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ gameId, config: configData }),
+                });
+            } else {
+                // Si no existe, creamos una nueva configuración (POST)
+                response = await fetch(`http://localhost:3001/api/gamedetails`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ gameId, config: configData }),
+                });
+            }
 
-    if (error || !gameData) {
-        return <Carga />;
-    }
+            if (response.ok) {
+                console.log("Configuración del juego guardada correctamente");
+                setGameConfig(configData);
+            } else {
+                console.error("Error al guardar la configuración del juego:", await response.text());
+            }
+        } catch (error) {
+            console.error("Error al guardar la configuración del juego:", error);
+        }
+    };
+
+
+    if (loading) return <Loading />;
+    if (error) return <Carga />;
+
+    // Determinar si los datos del juego están configurados
+    const GameComponent = gameData?.gameType?.id && gameComponents[gameData.gameType.id.toString()];
+    const ConfigFormComponent = gameData?.gameType?.id && configForms[gameData.gameType.id.toString()];
+
+    // Verificar si el juego está configurado completamente antes de intentar mostrarlo
+    const isGameConfigured = adminInstructions.length > 0 && gameConfig;
 
     return (
         <main className="bg-gray-100">
             <SeparadorVerde />
             <Volver href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${gameId}`} img="/img/home/regresar/verde.png" />
-
-            {session?.role === "admin" && (
-                <div className="flex flex-wrap justify-end gap-4 mt-4 mr-4 md:mr-8">
-                    <AddButton text="Agregar Instrucción" onClick={handleAddInstruction} />
-                    <AddButton text="Configurar Juego" onClick={handleConfigureGame} />
-                </div>
-            )}
-
             <ComponentHeader
                 imageSrc="/img/personajes/donkey/donkey.png"
-                onInstructionsClick={handleOpenInstruccionesModal}
+                onInstructionsClick={() => setIsInstruccionesModalOpen(true)}
             />
 
-            <GamesContainer
-                gameName={gameData?.title || "Juego sin título"}
-                exercise="Ejercicio 1"
-                result="Pendiente"
-                stars={0}
-            />
+            {/* Renderizar el contenedor de configuración del juego */}
+            <div className="relative bg-white shadow-md mx-auto my-10 px-12 py-8 rounded-md max-w-5xl container yagora">
+                <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
 
-            {gameData && (
-                <JuegoOpciones gameData={gameData} currentScene={0} puntos={0} />
-            )}
+                {isGameConfigured && GameComponent ? (
+                    <GameComponent gameData={gameData} config={gameConfig} />
+                ) : (
+                    <p className="text-center text-gray-800 text-lg">
+                        El juego no está configurado. Por favor configure el juego.
+                    </p>
+                )}
+
+                {session?.role === "admin" && (
+                    <div className="top-4 right-4 absolute flex space-x-4">
+                        {/* Botón para editar el juego */}
+                        <button
+                            onClick={handleConfigClick}
+                            className="flex items-center bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-md font-bold text-white transform transition-transform hover:scale-105"
+                        >
+                            <FaEdit className="mr-2" />
+                            {isGameConfigured ? 'Editar Juego' : 'Configurar Juego'}
+                        </button>
+                    </div>
+                )}
+            </div>
 
 
             <InstruccionesModal
                 isOpen={isInstruccionesModalOpen}
                 onClose={handleModalClose}
-                instructions={instructions}
-                onPlay={() => console.log('Jugar')}
-                onEdit={handleEditInstruction}
-                onDelete={handleDeleteInstruction}
+                instructions={adminInstructions}
+                defaultInstructions={defaultInstructions}
+                points={currentPoints}
                 isAdmin={session?.role === "admin"}
+                onSave={handleSavePoints}
+                onEdit={handleEditClick}
+                isEditing={isEditing}
             />
 
-            <InstructionsModal
-                isOpen={isInstructionsModalOpen}
-                onClose={handleModalClose}
-                onSave={handleAddInstructionSubmit}
-                newInstruction={currentInstruction || { points: '', instructions: '', video_url: '', game_id: gameId }}
-                onInputChange={handleInputChange}
-            />
-
-            <DeleteModal
-                isOpen={isDeleteModalOpen}
-                onClose={() => setIsDeleteModalOpen(false)}
-                onConfirm={confirmDeleteInstruction}
-            />
+            {isConfigModalOpen && ConfigFormComponent && (
+                <ConfigFormComponent
+                    isOpen={isConfigModalOpen}
+                    onClose={handleModalClose}
+                    gameData={gameData}
+                    onSave={handleSaveGameConfig}
+                    isEditing={true}
+                    existingConfig={gameConfig}
+                />
+            )}
 
             <SeparadorVerde />
         </main>

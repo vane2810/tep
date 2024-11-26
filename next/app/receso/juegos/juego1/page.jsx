@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
+import Volver from '@/components/elements/botonVolver';
 
 const CazaDeMonstruos = () => {
   const gameContainerRef = useRef(null);
@@ -140,28 +141,32 @@ const CazaDeMonstruos = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-200 via-purple-200 to-blue-200 relative px-4">
-      {/* Título del Juego */}
-      <h1 className="text-4xl font-bold text-purple-700 mb-4">Caza de Monstruos</h1>
-
-      {/* Imagen Decorativa Debajo del Título */}
-      <div className="mb-4">
-        <img src="/img/receso/juego1/decoracionj1.png" alt="Decoración" className="w-24 h-24 mx-auto" />
+    <div className="relative flex flex-col items-center bg-gradient-to-b from-pink-200 via-purple-200 to-blue-200 px-4 min-h-screen yagora">
+      <div className="top-4 left-4 absolute">
+        <Volver href="/receso/juegos" />
       </div>
 
-      <div className="flex items-center space-x-6">
+      {/* Título del Juego */}
+      <h1 className="mt-16 mb-8 font-bold text-4xl text-purple-700">Caza de Monstruos</h1>
+
+      {/* Imagen Decorativa Debajo del Título */}
+      <div className="mb-8">
+        <img src="/img/receso/juego1/decoracionj1.png" alt="Decoración" className="mx-auto w-24 h-24" />
+      </div>
+
+      <div className="flex items-center space-x-8 mb-8">
         {/* Puntaje y Temporizador */}
-        <div className="bg-purple-700 text-white px-4 py-2 rounded-full text-lg">
+        <div className="bg-purple-700 px-6 py-3 rounded-full text-lg text-white">
           Puntaje: {score}
         </div>
-        <div className="bg-red-700 text-white px-4 py-2 rounded-full text-lg">
+        <div className="bg-red-700 px-6 py-3 rounded-full text-lg text-white">
           Tiempo: {timeLeft}s
         </div>
       </div>
 
       <div
         ref={gameContainerRef}
-        className={`w-full max-w-2xl h-[600px] bg-white shadow-2xl border-4 border-purple-500 rounded-lg overflow-hidden relative ${
+        className={`w-full max-w-2xl h-[600px] bg-white shadow-2xl border-4 border-purple-500 rounded-lg overflow-hidden relative mb-12 ${
           (isGameWon || isGameLost) && 'backdrop-blur-sm'
         }`}
         style={{
@@ -171,10 +176,10 @@ const CazaDeMonstruos = () => {
         }}
       >
         {!isGameStarted && !isGameWon && !isGameLost && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+          <div className="z-10 absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
             <button
               onClick={handleStartGame}
-              className="px-8 py-4 bg-purple-600 text-white rounded-lg text-2xl font-bold hover:bg-purple-700"
+              className="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-lg font-bold text-2xl text-white"
             >
               Iniciar Juego
             </button>
@@ -182,11 +187,11 @@ const CazaDeMonstruos = () => {
         )}
 
         {isGameWon && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-white z-20">
-            <h2 className="text-4xl font-bold mb-4">¡Lo lograste!</h2>
+          <div className="z-20 absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-70 text-white">
+            <h2 className="mb-6 font-bold text-4xl">¡Lo lograste!</h2>
             <button
               onClick={handleRestartGame}
-              className="px-8 py-4 bg-purple-600 rounded-lg text-2xl font-bold hover:bg-purple-700"
+              className="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-lg font-bold text-2xl"
             >
               Volver a Jugar
             </button>
@@ -194,11 +199,11 @@ const CazaDeMonstruos = () => {
         )}
 
         {isGameLost && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-white z-20">
-            <h2 className="text-4xl font-bold mb-4">¡Perdiste!</h2>
+          <div className="z-20 absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-70 text-white">
+            <h2 className="mb-6 font-bold text-4xl">¡Perdiste!</h2>
             <button
               onClick={handleRestartGame}
-              className="px-8 py-4 bg-red-600 rounded-lg text-2xl font-bold hover:bg-red-700"
+              className="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-bold text-2xl"
             >
               Volver a Intentar
             </button>

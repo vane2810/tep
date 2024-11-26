@@ -1,7 +1,7 @@
-// Hooks - use sesion
-import React, { useContext } from 'react';
-import { SessionContext } from '../context/session'; 
- 
+// hooks/useSession.js
+import { useContext } from 'react';
+import { SessionContext } from '@/context/session';
+
 const useSession = () => {
   const context = useContext(SessionContext);
   if (!context) {

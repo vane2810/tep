@@ -5,28 +5,28 @@ export default function Carousel() {
     const items = [
         {
             image: '/img/carousel/img5.png',
-            title: 'Naturaleza 1',
-            description: 'Disfruta de la paz y serenidad de la naturaleza.',
+            title: 'Starly',
+            description: 'Bienvenidos a mi galaxia',
         },
         {
             image: '/img/carousel/img4.png',
-            title: 'Naturaleza 2',
-            description: 'Explora lugares tranquilos y llenos de vida.',
+            title: 'Planetas',
+            description: 'Explora los planetas',
         },
         {
             image: '/img/carousel/img1.png',
-            title: 'Naturaleza 3',
-            description: 'Encuentra tu calma entre los árboles y el aire fresco.',
+            title: 'Juegos',
+            description: 'Aprende jugando',
         },
         {
-            image: '/img/carousel/gojo.png',
-            title: 'Naturaleza 4',
-            description: 'Conéctate con la naturaleza y siéntete libre.',
+            image: '/img/carousel/img2.png',
+            title: 'Juegos',
+            description: 'Diviertete aprendiendo',
         },
         {
             image: '/img/carousel/img6.png',
-            title: 'Naturaleza 5',
-            description: 'Experimenta la belleza de la naturaleza.',
+            title: 'Asignaturas',
+            description: 'Conoce nuevos personajes',
         },
     ];
 

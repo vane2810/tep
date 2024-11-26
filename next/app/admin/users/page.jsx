@@ -4,6 +4,8 @@ import ModalEliminarUsuario from '@/components/modals/admin/eliminarModal';
 import ModalAgregarUsuario from '@/components/modals/admin/crearModal';
 import Link from 'next/link';
 import Volver from '@/components/elements/botonVolver';
+import { FaUserPlus, FaTrash, FaUserEdit, FaUserAlt } from 'react-icons/fa';
+import { BiUser } from 'react-icons/bi';
 
 export default function GestionUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -50,7 +52,6 @@ export default function GestionUsuarios() {
     return <div>Cargando usuarios...</div>;
   }
 
-
   const abrirModalEliminar = (usuario) => {
     setUsuarioSeleccionado(usuario);
     setModalEliminar(true);
@@ -63,16 +64,17 @@ export default function GestionUsuarios() {
   const usuariosFiltrados = usuarios.filter(usuario => usuario.rol === tabSeleccionada);
 
   return (
-    <div className="mx-auto p-4 container">
-      <Volver href='/admin'/>
+    <div className="mx-auto p-4 container yagora">
+      <Volver href='/admin' />
       <h1 className="mb-6 font-bold text-4xl text-center">Gestión de Usuarios</h1>
 
       {/* Botón para agregar un nuevo usuario */}
       <div className="flex justify-end mt-8">
         <button
-          className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
+          className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
           onClick={abrirModalAgregar}
         >
+          <FaUserPlus />
           Agregar nuevo usuario
         </button>
       </div>
@@ -82,9 +84,10 @@ export default function GestionUsuarios() {
         {['estudiante', 'docente', 'padre'].map((rol) => (
           <button
             key={rol}
-            className={`px-4 py-2 mx-1 rounded font-bold ${tabSeleccionada === rol ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
+            className={`flex items-center gap-2 px-4 py-2 mx-1 rounded font-bold ${tabSeleccionada === rol ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
             onClick={() => setTabSeleccionada(rol)}
           >
+            <BiUser />
             {rol.charAt(0).toUpperCase() + rol.slice(1)}
           </button>
         ))}
@@ -96,7 +99,7 @@ export default function GestionUsuarios() {
           <tr>
             <th className="px-4 py-2 border-b-2">ID</th>
             <th className="px-4 py-2 border-b-2">Nombre</th>
-            <th className="px-4 py-2 border-b-2">Correo electronico</th>
+            <th className="px-4 py-2 border-b-2">Correo electrónico</th>
             {tabSeleccionada === 'estudiante' && <th className="px-4 py-2 border-b-2">Nivel</th>}
             {tabSeleccionada === 'padre' && <th className="px-4 py-2 border-b-2">Número de Hijos</th>}
             {tabSeleccionada === 'docente' && <th className="px-4 py-2 border-b-2">Número de Estudiantes</th>}
@@ -106,26 +109,28 @@ export default function GestionUsuarios() {
         <tbody>
           {usuariosFiltrados.length > 0 ? (
             usuariosFiltrados.map((usuario) => (
-              <tr key={usuario.id}>
-                <td className="px-4 py-2 border-b">{usuario.id}</td>
-                <td className="px-4 py-2 border-b">{usuario.name}</td>
-                <td className="px-4 py-2 border-b">{usuario.email}</td>
-                {tabSeleccionada === 'estudiante' && <td className="px-4 py-2 border-b">{usuario.levelId}</td>}
-                {tabSeleccionada === 'padre' && <td className="px-4 py-2 border-b">{usuario.numeroHijos}</td>}
-                {tabSeleccionada === 'docente' && <td className="px-4 py-2 border-b">{usuario.numeroEstudiantes}</td>}
-                <td className="flex gap-2 px-4 py-2 border-b">
-                  <button className="bg-green-500 hover:bg-green-700 px-2 py-1 rounded font-bold text-white">
-                    <Link href={`/admin/users/${usuario.id}`}>
+              <tr key={usuario.id} className="text-center">
+                <td className="px-4 py-2 border-b align-middle">{usuario.id}</td>
+                <td className="px-4 py-2 border-b align-middle">{usuario.name}</td>
+                <td className="px-4 py-2 border-b align-middle">{usuario.email}</td>
+                {tabSeleccionada === 'estudiante' && <td className="px-4 py-2 border-b align-middle">{usuario.levelId}</td>}
+                {tabSeleccionada === 'padre' && <td className="px-4 py-2 border-b align-middle">{usuario.numeroHijos}</td>}
+                {tabSeleccionada === 'docente' && <td className="px-4 py-2 border-b align-middle">{usuario.numeroEstudiantes}</td>}
+                <td className="flex justify-center items-center gap-2 px-4 py-2 border-b">
+                  <button className="flex items-center gap-2 bg-green-500 hover:bg-green-700 px-4 py-2 rounded font-bold text-white">
+                    <Link href={`/admin/users/${usuario.id}`} className="flex items-center gap-2">
+                      <FaUserEdit className="text-lg" /> {/* Asegura un tamaño consistente */}
                       Perfil
                     </Link>
                   </button>
-
                   <button
-                    className="bg-red-500 hover:bg-red-700 px-2 py-1 rounded font-bold text-white"
+                    className="flex items-center gap-2 bg-red-500 hover:bg-red-700 px-4 py-2 rounded font-bold text-white"
                     onClick={() => abrirModalEliminar(usuario)}
                   >
+                    <FaTrash className="text-lg" /> {/* Asegura un tamaño consistente */}
                     Eliminar
                   </button>
+
                 </td>
               </tr>
             ))
@@ -135,6 +140,7 @@ export default function GestionUsuarios() {
             </tr>
           )}
         </tbody>
+
       </table>
 
       {/* Modales */}

@@ -10,26 +10,17 @@ module.exports = (sequelize, DataTypes) => {
                 onDelete: 'CASCADE',
                 onUpdate: 'CASCADE',
             });
-            GameDetail.belongsTo(models.GameType, {
-                foreignKey: 'gameTypeId',
-                onDelete: 'CASCADE',
-                onUpdate: 'CASCADE',
-            });
         }
     }
     GameDetail.init(
         {
-            gameTypeId: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-            },
             gameId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
-            json_url: {
-                type: DataTypes.STRING,
-                allowNull: true,
+            config: {
+                type: DataTypes.JSONB, 
+                allowNull: false,
             },
         },
         {

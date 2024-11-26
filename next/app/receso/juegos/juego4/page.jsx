@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
+import Volver from '@/components/elements/botonVolver';
 
 // Imágenes de objetos para las cartas
 const cardImages = [
@@ -125,16 +126,21 @@ const MemoryGame = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 via-yellow-200 to-yellow-300 relative px-4">
-      <h1 className="text-4xl font-bold text-yellow-700 mb-4">Juego de Memoria</h1>
-
-      {/* Imagen Decorativa Debajo del Título */}
-      <div className="mb-4">
-        <img src="/img/receso/juego4/decoracionj4.png" alt="Decoración" className="w-24 h-24 mx-auto" />
+    <div className="relative flex flex-col justify-center items-center space-y-8 bg-gradient-to-b from-yellow-100 via-yellow-200 to-yellow-300 px-4 py-8 min-h-screen yagora">
+      {/* Botón Volver en la esquina superior izquierda */}
+      <div className="top-4 left-4 absolute">
+        <Volver href="/receso/juegos" img='/img/home/regresar/amarillo.png'/>
       </div>
 
-      <div className="flex items-center space-x-6">
-        <div className="bg-yellow-500 text-black px-4 py-2 rounded-full text-lg">
+      <h1 className="mt-12 font-bold text-4xl text-yellow-700">Juego de Memoria</h1>
+
+      {/* Imagen Decorativa Debajo del Título */}
+      <div className="mb-8">
+        <img src="/img/receso/juego4/decoracionj4.png" alt="Decoración" className="mx-auto w-24 h-24" />
+      </div>
+
+      <div className="flex items-center space-x-8 mb-8">
+        <div className="bg-yellow-500 px-6 py-3 rounded-full text-black text-lg">
           Pares encontrados: {pairsFound}
         </div>
       </div>
@@ -146,10 +152,10 @@ const MemoryGame = () => {
         }`}
       >
         {!isGameStarted && !isGameFinished && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+          <div className="z-10 absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
             <button
               onClick={handleStartGame}
-              className="px-8 py-4 bg-yellow-600 text-white rounded-lg text-2xl font-bold hover:bg-yellow-700"
+              className="bg-yellow-600 hover:bg-yellow-700 px-8 py-4 rounded-lg font-bold text-2xl text-white"
             >
               Iniciar Juego
             </button>
@@ -157,11 +163,11 @@ const MemoryGame = () => {
         )}
 
         {isGameFinished && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 text-white z-20">
-            <h2 className="text-4xl font-bold mb-4">¡Felicidades, encontraste todos los pares!</h2>
+          <div className="z-20 absolute inset-0 flex flex-col justify-center items-center space-y-4 bg-black bg-opacity-70 text-white">
+            <h2 className="font-bold text-4xl">¡Felicidades, encontraste todos los pares!</h2>
             <button
               onClick={handleRestartGame}
-              className="px-8 py-4 bg-yellow-600 rounded-lg text-2xl font-bold hover:bg-yellow-700"
+              className="bg-yellow-600 hover:bg-yellow-700 px-8 py-4 rounded-lg font-bold text-2xl"
             >
               Volver a Jugar
             </button>

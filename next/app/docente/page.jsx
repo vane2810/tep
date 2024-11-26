@@ -30,7 +30,9 @@ export default function GestionEstudiantesSimuladaPage() {
         }
 
         // Validar si el correo tiene un formato válido
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Expresión regular optimizada para evitar backtracking excesivo
+        const emailRegex = /^[\w\.-]+@[a-zA-Z\d-]+\.[a-zA-Z]{2,}$/;
+
         if (!emailRegex.test(email)) {
             setMensaje('El formato del correo no es válido.');
             return;

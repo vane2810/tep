@@ -1,44 +1,75 @@
-// ./models/gamecard.js
-
 'use strict';
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    class GameCard extends Model {
+    class Game extends Model {
         static associate(models) {
-            GameCard.belongsTo(models.Content, {
+            // Relación con Content
+            Game.belongsTo(models.Content, {
                 foreignKey: 'contentId',
                 as: 'content',
                 onDelete: 'SET NULL',
-                onUpdate: 'CASCADE'
+                onUpdate: 'CASCADE',
+            });
+
+            // Relación con GameType
+            Game.belongsTo(models.GameType, {
+                foreignKey: 'gametype_id', // Nuevo campo para GameType
+                as: 'gameType',
+                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE',
+            });
+
+            // Relación con GameDetail
+            Game.hasMany(models.GameDetail, {
+                foreignKey: 'gameId',
+                as: 'details',
+                onDelete: 'CASCADE',
+            });
+
+            // Relación con Instruction
+            Game.hasMany(models.Instruction, {
+                foreignKey: 'game_id',
+                as: 'instructions',
+                onDelete: 'CASCADE',
             });
         }
     }
-    GameCard.init(
+
+    Game.init(
         {
             title: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
             },
             img_url: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: true,
             },
             contentId: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {
                     model: 'Content',
-                    key: 'id'
-                }
-            }
+                    key: 'id',
+                },
+            },
+            gametype_id: { // Relación directa con GameType
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'GameType',
+                    key: 'id',
+                },
+            },
         },
         {
             sequelize,
             modelName: 'Game',
-            tableName: 'Games',
-            timestamps: true
+            tableName: 'games',
+            timestamps: true,
         }
     );
-    return GameCard;
+
+    return Game;
 };
