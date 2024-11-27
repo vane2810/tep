@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Sidebar from './sidebar';
 import useSession from '@/hooks/useSession';
 import characterImages from '@/utils/characterImages';
-import { HiMenu } from 'react-icons/hi';
+import { HiMenu, HiOutlineLogout } from 'react-icons/hi';
 import GuestModal from '@/components/modals/guestModal';
 
 const Navbar = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
     session.role === role && (
       <div className="md:block hidden mr-2 lg:mr-6">
         <Link href={href}>
-          <button className="bg-purple-700 hover:bg-purple-500 px-2 lg:px-4 py-1 lg:py-2 rounded font-bold text-sm text-white lg:text-base">
+          <button className="bg-purple-700 hover:bg-purple-500 px-2 lg:px-4 py-1 lg:py-2 rounded-full font-bold text-sm text-white lg:text-base yagora">
             {text}
           </button>
         </Link>
@@ -69,34 +69,45 @@ const Navbar = () => {
 
             {/* Información del usuario y avatar del personaje */}
             <div className="flex items-center">
-              <div className="md:block hidden mr-4 lg:mr-8 text-center text-rosado text-sm lg:text-xl wonder">
-                <h1 className="sm:block hidden">Bienvenido</h1>
-                <span>{session.name}</span>
+              <div className="md:block hidden mr-4 lg:mr-8 text-base text-center text-rosado lg:text-2xl wonder">
+                <h1 className="sm:block hidden text-lg lg:text-2xl">Bienvenido</h1>
+                <span className="block text-lg lg:text-2xl">{session.name}</span>
               </div>
 
+
               {selectedCharacter && (
-                <button
-                  onClick={toggleDropdown}
-                  type="button"
-                  title="Personaje"
-                  className="relative border-2 hover:shadow-lg border-black rounded-xl transform transition duration-300 ease-in-out hover:scale-105 mr-2 lg:mr-4 cursor-pointer focus:outline-none"
-                >
-                  <img
-                    src={characterImages[selectedCharacter]}
-                    alt="Personaje"
-                    className="w-10 sm:w-14 lg:w-20 h-10 sm:h-14 lg:h-20 object-cover"
-                  />
-                </button>
+                <div className="flex items-center space-x-4 ml-4">
+                  <button
+                    onClick={toggleDropdown}
+                    type="button"
+                    title="Personaje"
+                    className="relative bg-white shadow-lg p-1 rounded-full transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none"
+                  >
+                    <img
+                      src={characterImages[selectedCharacter]}
+                      alt="Personaje"
+                      className="rounded-full w-14 h-14 object-cover"
+                    />
+                  </button>
+                </div>
               )}
+
+
+
 
               {/* Menú desplegable para cerrar sesión */}
               {isDropdownOpen && (
-                <div className="right-0 z-50 absolute bg-white shadow-lg mt-2 border rounded-lg w-36 md:w-48 story">
-                  <button onClick={handleLogout} className="block hover:bg-red-500 px-4 py-2 w-full text-base text-left">
+                <div className="top-14 lg:top-20 right-0 z-50 absolute border-gray-200 bg-white shadow-md mt-2 border rounded-lg w-36 md:w-48">
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center px-4 py-2 w-full text-base text-left duration-300"
+                  >
+                    <HiOutlineLogout className="mr-2 w-5 h-5" />
                     Cerrar sesión
                   </button>
                 </div>
               )}
+
             </div>
           </>
         ) : (

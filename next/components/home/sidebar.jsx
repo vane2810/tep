@@ -86,7 +86,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
         {/* Configurar Cuenta */}
         {isLoggedIn && (
           <li className="py-2">
-            <Link href="/configuracion-cuenta" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
+            <Link href="/auth/account" className="flex items-center hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" style={{ fontFamily: 'wonder', fontWeight: 'bold' }}>
               <img src="/img/receso/estrella.png" alt="Configurar Cuenta" className="mr-2 w-5 h-5" />
               Configurar Cuenta
             </Link>

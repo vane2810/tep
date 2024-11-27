@@ -1,8 +1,10 @@
+// Rutas para mostrar datos del usuario | Panel del Admin, Conf. Cuenta
 const express = require('express');
 const router = express.Router();
 const { User, Character, Level } = require('../models');
+const jwt = require('jsonwebtoken');
 
-
+// Creación de usuario | Admin
 router.post('/', async (req, res) => {
   const { name, email, password, role, characterId, levelId } = req.body;
 
@@ -28,10 +30,11 @@ router.post('/', async (req, res) => {
   }
 });
 
+// LLamado para todos los usuario
 router.get('/read-users', async (req, res) => {
   try {
     const users = await User.findAll();
-    console.log("Usuarios obtenidos:", users); 
+    console.log("Usuarios obtenidos:", users);
     res.status(200).json(users);
   } catch (error) {
     console.error("Error al obtener usuarios:", error);
@@ -39,6 +42,7 @@ router.get('/read-users', async (req, res) => {
   }
 });
 
+// Datos de usuario por id
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -46,7 +50,7 @@ router.get('/:id', async (req, res) => {
     const user = await User.findByPk(id, {
       include: [
         { model: Character, as: 'character' },
-        { model: Level, as: 'level' }, 
+        { model: Level, as: 'level' },
       ]
     });
 
@@ -61,6 +65,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Editar datos de usuario por id
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, email, role, levelId, characterId } = req.body;
@@ -87,6 +92,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Eliminar un usuario del sistema
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -103,5 +109,45 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar el usuario' });
   }
 });
+
+
+const verifyToken = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Extrae el token de los encabezados
+  if (!token) {
+    return res.status(403).json({ error: 'No se proporcionó un token de autenticación' });
+  }
+
+  jwt.verify(token, 'your_jwt_secret', (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ error: 'Token inválido' });
+    }
+    req.userId = decoded.id; // Extrae el id del usuario del token y lo guarda en el objeto de la solicitud
+    next();
+  });
+};
+
+// Ruta para obtener los datos del usuario autenticado
+router.get('/user', verifyToken, async (req, res) => {
+  try {
+    // Utilizamos el `req.userId` que se obtuvo en `verifyToken` para buscar al usuario autenticado
+    const user = await User.findByPk(req.userId, {
+      attributes: ['id', 'name', 'email', 'role'],
+      include: [
+        { model: Character, as: 'character' },
+        { model: Level, as: 'level' },
+      ],
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error('Error al obtener los datos del usuario:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 module.exports = router;
