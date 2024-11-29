@@ -22,7 +22,7 @@ const AccountSettings = () => {
         apellido: "Pérez",
         nivel: "Avanzado",
         rol: "Estudiante",
-        fotoPerfil: "/img/personajes/starly/starly_explorador.png"
+        fotoPerfil: "/img/personajes/estudiante/maomao.png"
     };
 
     // Función para manejar el cambio de correo electrónico

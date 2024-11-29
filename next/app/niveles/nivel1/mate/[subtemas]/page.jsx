@@ -18,14 +18,14 @@ const subtemasData = {
     imagen: "/img/materias/mate/obn.png",
     buttonColor: "verde",
   },
-  decimale: {
+  decimales: {
     id: 2,
     titulo: "Números Decimales",
     descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones!",
     imagen: "/img/materias/mate/decimalesn.png",
     buttonColor: "verde",
   },
-  geometri: {
+  geometria: {
     id: 3,
     titulo: "Geometría",
     descripcion: "Sumérgete en la increíble aventura de la geometría!",
