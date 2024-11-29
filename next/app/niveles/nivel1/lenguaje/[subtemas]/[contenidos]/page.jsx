@@ -235,7 +235,7 @@ const ContenidoPage = () => {
         <main className="bg-gray-100">
             <SeparadorMorado />
 
-            <Volver href={volverHref} img="/img/home/regresar/morado.png" />
+            <Volver href={volverHref} img="/img/home/regresar/morado.webp" />
 
             <SubtemaContent title={subtemaData.title} imgSrc={subtemaData.img_url} />
 

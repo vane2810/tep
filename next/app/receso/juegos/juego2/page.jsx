@@ -135,7 +135,7 @@ const RevientaGlobos = () => {
   return (
     <div className="relative flex flex-col justify-center items-center space-y-8 bg-gradient-to-b from-green-100 via-red-100 to-yellow-100 px-4 py-8 min-h-screen yagora">
       <div className="top-4 left-4 absolute">
-        <Volver href="/receso/juegos" img='/img/home/regresar/verde.png'/>
+        <Volver href="/receso/juegos" img='/img/home/regresar/verde.webp'/>
       </div>
 
       <h1 className="mt-8 mb-6 font-bold text-4xl text-green-700">Revienta Globos</h1>

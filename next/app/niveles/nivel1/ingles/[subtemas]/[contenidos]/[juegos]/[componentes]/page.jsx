@@ -203,7 +203,7 @@ const GamePage = () => {
     return (
         <main className="bg-gray-100">
             <SeparadorMorado />
-            <Volver href={`/niveles/nivel1/ingles/${subtemas}/${contenidos}/${gameId}`} img="/img/home/regresar/morado.png" />
+            <Volver href={`/niveles/nivel1/ingles/${subtemas}/${contenidos}/${gameId}`} img="/img/home/regresar/morado.webp" />
 
             {session?.role === "admin" && (
                 <div className="flex flex-wrap justify-end gap-4 mt-4 mr-4 md:mr-8">

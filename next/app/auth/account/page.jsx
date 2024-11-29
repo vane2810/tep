@@ -50,7 +50,7 @@ const AccountSettings = () => {
     return (
         <main className="bg-gray-50">
             <SeparadorMorado />
-            <Volver href="/" img="/img/home/regresar/morado.png" className="mb-1" />
+            <Volver href="/" img="/img/home/regresar/morado.webp" className="mb-1" />
             <div className="flex flex-col items-center mb-8 p-4 min-h-screen yagora">
                 {/* Título general de la sección de configuración */}
                 <div className="flex flex-col items-center mt-2 mb-4 text-center">

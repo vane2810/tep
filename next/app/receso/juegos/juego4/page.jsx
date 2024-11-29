@@ -129,7 +129,7 @@ const MemoryGame = () => {
     <div className="relative flex flex-col justify-center items-center space-y-8 bg-gradient-to-b from-yellow-100 via-yellow-200 to-yellow-300 px-4 py-8 min-h-screen yagora">
       {/* Botón Volver en la esquina superior izquierda */}
       <div className="top-4 left-4 absolute">
-        <Volver href="/receso/juegos" img='/img/home/regresar/amarillo.png'/>
+        <Volver href="/receso/juegos" img='/img/home/regresar/amarillo.webp'/>
       </div>
 
       <h1 className="mt-12 font-bold text-4xl text-yellow-700">Juego de Memoria</h1>

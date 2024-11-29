@@ -6,8 +6,8 @@ import Link from "next/link";
 const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
   // Elementos decorativos específicos de Inglés (excepto el planeta)
   const decorativos = [
-    { id: "avion", img: "/img/materias/ingles/avion.png", alt: "Avion", className: "absolute top-[5%] left-[5%] w-[12vw] sm:w-[8vw] rocket-animation" },
-    { id: "globo", img: "/img/materias/ingles/globo.png", alt: "Globo", className: "absolute right-[5%] bottom-[3%] w-[10vw] sm:w-[6vw] comet-animation" },
+    { id: "avion", img: "/img/materias/ingles/avion.webp", alt: "Avion", className: "absolute top-[5%] left-[5%] w-[12vw] sm:w-[8vw] rocket-animation" },
+    { id: "globo", img: "/img/materias/ingles/globo.webp", alt: "Globo", className: "absolute right-[5%] bottom-[3%] w-[10vw] sm:w-[6vw] comet-animation" },
   ];
 
   return (
@@ -17,7 +17,7 @@ const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
     >
       {/* Personaje principal al inicio ajustado a un tamaño más pequeño */}
       <div className="bottom-[3%] left-[3%] absolute">
-        <img src="/img/materias/ingles/avioneta.png" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto" />
+        <img src="/img/materias/ingles/avioneta.wepb" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto" />
       </div>
 
       {/* Segmentos del mapa en un camino curvo */}

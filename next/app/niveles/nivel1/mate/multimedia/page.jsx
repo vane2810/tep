@@ -126,7 +126,7 @@ export default function MatematicaPage() {
           <div className="inline-block mt-6 ml-10">
             <Link href="/niveles/nivel1/mate">
               <img 
-                src="/img/home/regresar/azul.png" 
+                src="/img/home/regresar/azul.webp" 
                 alt="Volver" 
                 className="w-10 h-auto transform hover:scale-110 transition-transform" 
                 title="Volver a la página anterior" 
