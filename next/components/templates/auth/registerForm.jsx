@@ -34,14 +34,14 @@ export default function RegisterForm({ formData, handleChange, handleSubmit, err
       <div className="relative flex lg:flex-row flex-col bg-white shadow-lg rounded-3xl w-full max-w-4xl overflow-hidden">
         {/* Imagen decorativa - alineada a la izquierda */}
         <div className="lg:flex justify-center items-center hidden bg-transparent p-8 lg:w-1/2">
-          <img src="/img/auth/register.png" alt="Imagen de registro" className="max-w-sm h-auto object-contain" />
+          <img src="/img/auth/register.webp" alt="Imagen de registro" className="max-w-sm h-auto object-contain" />
         </div>
 
         {/* Contenedor principal del formulario - alineado a la derecha */}
         <div className="flex flex-col justify-center items-center p-8 sm:p-10 lg:p-12 w-full lg:w-1/2">
           {/* Botón Volver */}
           <div className="top-4 left-4 absolute">
-            <Volver href="/" img="/img/home/regresar/amarillo.png" title="Volver al Inicio" />
+            <Volver href="/" img="/img/home/regresar/amarillo.webp" title="Volver al Inicio" />
           </div>
 
           <h1 className="mb-4 font-bold text-2xl text-yellow-600 sm:text-3xl lg:text-4xl">Registro</h1>

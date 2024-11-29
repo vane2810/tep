@@ -25,7 +25,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
       <div className="flex justify-center items-center mb-4 p-4">
         <Link href={levelLink}>
           <img
-            src="/img/home/logoTEP.png"
+            src="/img/home/logoTEP.webp"
             alt="Logo"
             className="md:mr-10 mb-8 md:mb-0 md:ml-10 w-auto h-20 md:h-30"
           />
@@ -74,7 +74,7 @@ export default function Sidebar({ isOpen, onClose, session }) {
         {/* Otros elementos del sidebar */}
         <li className="py-2">
           <Link href="/progreso" className="flex items-center hover:bg-[#F06292] px-3 py-2 rounded text-black transition-colors duration-200 rosado" style={{ fontFamily: 'Story, sans-serif', fontWeight: 'bold' }}>
-            <img src="/img/home/barra/progreso.png" alt="Progreso" className="mr-2 w-5 h-5" />
+            <img src="/img/home/barra/progreso.webp" alt="Progreso" className="mr-2 w-5 h-5" />
             Progreso
           </Link>
         </li>

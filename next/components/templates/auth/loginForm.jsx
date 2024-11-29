@@ -30,7 +30,7 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
       <div className="relative flex lg:flex-row flex-col bg-white shadow-lg rounded-3xl w-full max-w-4xl overflow-hidden">
         {/* Botón Volver */}
         <div className="top-4 z-20 absolute">
-          <Volver href="/" img="/img/home/regresar/amarillo.png" title='Volver al Inicio' />
+          <Volver href="/" img="/img/home/regresar/amarillo.webp" title='Volver al Inicio' />
         </div>
         {/* Contenedor principal del formulario - alineado a la izquierda */}
         <div className="flex flex-col justify-center items-center p-8 sm:p-10 lg:p-12 w-full lg:w-1/2">
@@ -109,7 +109,7 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
 
         {/* Imagen decorativa - alineada a la derecha */}
         <div className="lg:flex justify-center items-center hidden bg-transparent p-8 lg:w-1/2">
-          <img src="/img/auth/login.png" alt="Imagen de fondo" className="max-w-sm h-auto object-contain" />
+          <img src="/img/auth/login.webp" alt="Imagen de fondo" className="max-w-sm h-auto object-contain" />
         </div>
       </div>
     </div>

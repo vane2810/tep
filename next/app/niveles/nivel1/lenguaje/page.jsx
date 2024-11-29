@@ -21,7 +21,7 @@ export default function LenguajePage() {
       <SeparadorMorado />
       <div className="flex justify-center items-center w-full">
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-          <Volver href="/niveles/nivel1" img="/img/home/regresar/morado.png" />
+          <Volver href="/niveles/nivel1" img="/img/home/regresar/morado.webp" />
           {/* Bienvenida para Lenguaje */}
           <WelcomeSection
             personajeImg="/img/personajes/principe/principe.png"

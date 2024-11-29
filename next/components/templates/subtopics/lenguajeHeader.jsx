@@ -7,7 +7,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
     return (
         <section className="mx-auto p-2 max-w-6xl">
             {/* Botón de Volver */}
-            {volverUrl && (<Volver href={volverUrl} img="/img/home/regresar/morado.png" />)}
+            {volverUrl && (<Volver href={volverUrl} img="/img/home/regresar/morado.webp" />)}
 
             {/* Sección de Bienvenida */}
             <div className="flex md:flex-row flex-col justify-center items-center mb-2 text-center">

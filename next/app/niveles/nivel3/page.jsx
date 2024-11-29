@@ -4,7 +4,7 @@ import NivelTemplate from "@/components/templates/levels/nivelStructure";
 export default function Nivel3() {
   return (
     <NivelTemplate
-      fondoImg="/img/fondos/montana.jpeg"
+      fondoImg="/img/fondos/montana.webp"
       fullText="  ¡Hola, pequeños genios! Bienvenidos al Nivel 3. ¡Vamos a aprender y a jugar!"
       images={[
         "/img/personajes/niveles/bienvenida/mundito3.png",

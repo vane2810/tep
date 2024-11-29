@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 
 export default function SimpleCarousel() {
     const images = [
-        '/img/carousel/img5.png',
-        '/img/carousel/img4.png',
-        '/img/carousel/img6.png',
-        '/img/carousel/img7.png',
+        '/img/carousel/img5.webp',
+        '/img/carousel/img4.webp',
+        '/img/carousel/img6.webp',
+        '/img/carousel/img7.webp',
         '/img/carousel/img1.png',
         '/img/carousel/img2.png',
         '/img/carousel/img3.png',

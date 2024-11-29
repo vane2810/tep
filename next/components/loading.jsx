@@ -1,4 +1,4 @@
-// Componente reutilizabl de esperar
+// Componente reutilizabl de esperar dadjhsuidh
 export default function Loading() {
   return (
     <div className="flex justify-center items-center h-screen">

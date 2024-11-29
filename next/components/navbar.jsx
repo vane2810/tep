@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="flex items-center">
         <Link href={logoLink} className="flex items-center">
           <img
-            src="/img/home/logoTEP.png"
+            src="/img/home/logoTEP.webp"
             alt="Logo de la aplicación"
             className="mr-2 lg:mr-6 ml-2 lg:ml-6 w-auto h-10 sm:h-16 lg:h-20"
           />

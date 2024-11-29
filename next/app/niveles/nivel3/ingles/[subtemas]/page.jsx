@@ -15,7 +15,7 @@ const SubtemasPage = () => {
       titulo: "Vocabulary",
       subtitulo: "Vocabulario",
       descripcion: "¡Desarrolla tu vocabulario y dale poder a tus habilidades de comunicación en inglés! Amplía tu dominio del inglés aprendiendo nuevas palabras y expresiones",
-      imagen: "/img/materias/ingles/vocabulario.png",
+      imagen: "/img/materias/ingles/vocabulario.webp",
       buttonColor: "morado",
       temas: [
         {
@@ -40,7 +40,7 @@ const SubtemasPage = () => {
       titulo: "Grammar",
       subtitulo: "Gramática",
       descripcion: "Explora las reglas y estructuras que forman el idioma inglés. En esta sección, aprenderás sobre tiempos verbales, formación de oraciones, uso correcto de las palabras, y otros conceptos ",
-      imagen: "/img/materias/ingles/gramatica.png",
+      imagen: "/img/materias/ingles/gramatica.webp",
       buttonColor: "morado",
     },
   };

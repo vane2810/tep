@@ -184,7 +184,7 @@ export default function Register() {
   return (
     <main
       style={{
-        backgroundImage: 'url(/img/auth/fondo_auth.png)',
+        backgroundImage: 'url(/img/auth/fondo_auth.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

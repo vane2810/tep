@@ -7,12 +7,12 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl, subtitulo }) =>
     return (
         <section className="mx-auto p-6 max-w-6xl">
             {/* Botón de Volver */}
-            {volverUrl && (<Volver href={volverUrl} img="/img/home/regresar/naranja.png" />)}
+            {volverUrl && (<Volver href={volverUrl} img="/img/home/regresar/naranja.webp" />)}
 
             {/* Sección de Bienvenida */}
             <div className="flex md:flex-row flex-col justify-center items-center mb-6 text-center">
                 <img
-                    src="/img/materias/ingles/piloto.png"
+                    src="/img/materias/ingles/piloto.webp"
                     alt="Explorador"
                     className="mr-4 w-24 md:w-32 h-auto"
                 />
@@ -43,7 +43,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl, subtitulo }) =>
                     <p className="text-gray-600 text-xl italic">Selecciona una lección</p>
                 </div>
                 <img
-                    src="/img/materias/ingles/pilota.png"
+                    src="/img/materias/ingles/pilota.webp"
                     alt="Exploradora"
                     className="mt-4 md:mt-0 md:ml-8 w-24 md:w-32 h-auto"
                 />

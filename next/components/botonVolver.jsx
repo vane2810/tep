@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-function Volver({ href, title = "Volver", img = "/img/home/regresar/azul.png" }) { 
+function Volver({ href, title = "Volver", img = "/img/home/regresar/azul.webp" }) { 
   return (
     <div className="inline-block mt-6 ml-10">
       <Link href={href}>

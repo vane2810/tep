@@ -13,9 +13,9 @@ const characterImages = {
     10: '/img/personajes/estudiante/tify.png',
     11: '/img/personajes/estudiante/fifi.png',
     12: '/img/personajes/estudiante/pandita.png',
-    13: '/img/auth/roles/admin_rol.jpg',
-    14: '/img/auth/roles/docente_rol.jpg',
-    15: '/img/auth/roles/padre_rol.jpg',
+    13: '/img/auth/roles/admin_rol.webp',
+    14: '/img/auth/roles/docente_rol.webp',
+    15: '/img/auth/roles/padre_rol.webp',
 };
 
 export default characterImages;

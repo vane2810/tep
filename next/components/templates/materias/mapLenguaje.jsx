@@ -23,7 +23,7 @@ const MapLenguaje = ({ subject, basePath, levels, fondoUrl, decorativos, camino,
                 ) : (
                     <div className="locked">
                         <img
-                            src="/img/home/candado.png" 
+                            src="/img/home/candado.webp" 
                             alt={`Nivel ${level.id} Bloqueado`}
                             className="w-[4vw] h-[4vw] cursor-not-allowed"
                             title="Nivel bloqueado"

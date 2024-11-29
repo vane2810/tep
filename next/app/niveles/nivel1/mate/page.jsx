@@ -18,7 +18,7 @@ export default function MatematicaPage() {
       <SeparadorVerde/>
       <div className="flex justify-center items-center bg-gray-50 w-full">
         <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
-          <Volver href="/niveles/nivel1" img="/img/home/regresar/verde.png" />
+          <Volver href="/niveles/nivel1" img="/img/home/regresar/verde.webp" />
           <WelcomeSection
             personajeImg="/img/personajes/donkey/donkey.png"
             personaje="Profesor Donkey"

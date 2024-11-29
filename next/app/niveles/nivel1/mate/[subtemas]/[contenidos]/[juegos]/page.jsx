@@ -174,7 +174,7 @@ const JuegosPage = () => {
         <main className="bg-gray-100">
             <SeparadorVerde />
 
-            <Volver href={volverHref} img="/img/home/regresar/verde.png" />
+            <Volver href={volverHref} img="/img/home/regresar/verde.webp" />
 
             <GameHeader
                 title={subtemaData.title}

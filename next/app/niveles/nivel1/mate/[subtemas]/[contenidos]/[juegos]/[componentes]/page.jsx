@@ -209,7 +209,7 @@ const GamePage = () => {
     return (
         <main className="bg-gray-100">
             <SeparadorVerde />
-            <Volver href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${gameId}`} img="/img/home/regresar/verde.png" />
+            <Volver href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${gameId}`} img="/img/home/regresar/verde.webp" />
             <ComponentHeader
                 imageSrc="/img/personajes/donkey/donkey.webp"
                 onInstructionsClick={() => setIsInstruccionesModalOpen(true)}

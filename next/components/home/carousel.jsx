@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 export default function Carousel() {
     const items = [
         {
-            image: '/img/carousel/img5.png',
+            image: '/img/carousel/img5.webp',
             title: 'Starly',
             description: 'Bienvenidos a mi galaxia',
         },
         {
-            image: '/img/carousel/img4.png',
+            image: '/img/carousel/img4.webp',
             title: 'Planetas',
             description: 'Explora los planetas',
         },
@@ -24,7 +24,7 @@ export default function Carousel() {
             description: 'Diviertete aprendiendo',
         },
         {
-            image: '/img/carousel/img6.png',
+            image: '/img/carousel/img6.webp',
             title: 'Asignaturas',
             description: 'Conoce nuevos personajes',
         },
@@ -132,7 +132,7 @@ export default function Carousel() {
                             style={{ background: 'none', border: 'none' }}
                         >
                             <img
-                                src="/img/carousel/flecha_i.png"
+                                src="/img/carousel/flecha_i.webp"
                                 alt="Flecha izquierda"
                                 className="w-6 sm:w-8 h-6 sm:h-8"
                             />
@@ -157,7 +157,7 @@ export default function Carousel() {
                             style={{ background: 'none', border: 'none' }}
                         >
                             <img
-                                src="/img/carousel/flecha_d.png"
+                                src="/img/carousel/flecha_d.webp"
                                 alt="Flecha derecha"
                                 className="w-6 sm:w-8 h-6 sm:h-8"
                             />
