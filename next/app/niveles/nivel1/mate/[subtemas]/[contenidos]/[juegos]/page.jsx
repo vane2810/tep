@@ -178,7 +178,7 @@ const JuegosPage = () => {
 
             <GameHeader
                 title={subtemaData.title}
-                imageSrc="/img/personajes/donkey/donkey.png"
+                imageSrc="/img/personajes/donkey/donkey.webp"
             />
 
             {session?.role === "admin" && (

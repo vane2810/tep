@@ -8,8 +8,9 @@ import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
 import { SeparadorVerde } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
+import EmptyContentMessage from "@/components/menssages/mensajeVacio";
+import DataMessage from "@/components/menssages/mensajeDatos";
 
-// Definir los datos de subtemas al inicio
 const subtemasData = {
   ob: {
     id: 1,
@@ -43,8 +44,9 @@ const SubtemasPage = () => {
   const [deleteSubtemaId, setDeleteSubtemaId] = useState(null);
   const [newSubtema, setNewSubtema] = useState({ title: "", description: "", imgSrc: "" });
   const [editSubtemaId, setEditSubtemaId] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para manejar mensajes de error
+  const [isError, setIsError] = useState(false); // Estado para manejar errores de carga
 
-  // Obtener los datos del subtema actual
   const currentSubtema = subtemasData[subtemas];
   if (!currentSubtema) {
     console.error("Tema no encontrado");
@@ -53,24 +55,28 @@ const SubtemasPage = () => {
 
   const currentTopicId = currentSubtema.id;
 
-  // Definir `fetchSubtemas` como una función reutilizable
   const fetchSubtemas = async () => {
     if (currentTopicId) {
       try {
         const response = await fetch(`http://localhost:3001/api/subtopics/byTopic/${currentTopicId}`);
         if (response.ok) {
           const data = await response.json();
+          if (data.length === 0) {
+            setErrorMessage("No hay subtemas disponibles en este contenido.");
+          }
           setSubtemasList(data);
         } else {
-          console.error("Error al obtener los subtemas");
+          setIsError(true); // Activar mensaje de error en la carga
+          setErrorMessage("Hubo un problema al cargar los subtemas. Intenta de nuevo más tarde.");
         }
       } catch (error) {
         console.error("Error de red:", error);
+        setIsError(true); // Activar mensaje de error en la carga
+        setErrorMessage("Hubo un problema de red al intentar cargar los subtemas.");
       }
     }
   };
 
-  // Obtener los subtemas por topicId al montar el componente
   useEffect(() => {
     fetchSubtemas();
   }, [currentTopicId]);
@@ -105,7 +111,7 @@ const SubtemasPage = () => {
 
       if (response.ok) {
         handleModalClose();
-        fetchSubtemas(); // Vuelve a cargar los subtemas después de guardar uno nuevo
+        fetchSubtemas(); // Recargar los subtemas después de guardar uno nuevo
       } else {
         console.error("Error al guardar el subtema");
       }
@@ -118,7 +124,7 @@ const SubtemasPage = () => {
     setNewSubtema({
       title: subtema.title,
       description: subtema.description,
-      imgSrc: subtema.img_url || "", // Asegúrate de que imgSrc sea un string vacío si no existe la URL
+      imgSrc: subtema.img_url || "",
     });
     setEditSubtemaId(subtema.id);
     setIsModalOpen(true);
@@ -165,22 +171,28 @@ const SubtemasPage = () => {
         <AddButton text="Agregar Subtema" onClick={handleAddSubtema} />
       )}
 
-      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-6 mb-10">
-        {subtemasList.map((tema) => (
-          <div key={tema.id} className="relative">
-            <SubtemaCard
-              title={tema.title}
-              description={tema.description}
-              link={`/niveles/nivel1/mate/${subtemas}/${tema.id}`}
-              imgSrc={tema.img_url}
-              buttonColor={currentSubtema.buttonColor}
-              role={session?.role}
-              onEdit={() => handleEditSubtema(tema)}
-              onDelete={() => openDeleteModal(tema.id)}
-            />
-          </div>
-        ))}
-      </div>
+      {isError ? (
+        <DataMessage message={errorMessage} />
+      ) : subtemasList.length === 0 ? (
+        <EmptyContentMessage message={errorMessage || "No se ha creado contenido para este tema."} />
+      ) : (
+        <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-6 mb-10">
+          {subtemasList.map((tema) => (
+            <div key={tema.id} className="relative">
+              <SubtemaCard
+                title={tema.title}
+                description={tema.description}
+                link={`/niveles/nivel1/mate/${subtemas}/${tema.id}`}
+                imgSrc={tema.img_url}
+                buttonColor={currentSubtema.buttonColor}
+                role={session?.role}
+                onEdit={() => handleEditSubtema(tema)}
+                onDelete={() => openDeleteModal(tema.id)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       <SeparadorVerde />
 
