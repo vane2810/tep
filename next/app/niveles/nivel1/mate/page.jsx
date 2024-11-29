@@ -8,8 +8,8 @@ import { SeparadorVerde } from "@/components/separador";
 export default function MatematicaPage() {
   const segmentos = [
     { id: "ob", name: "Operaciones Básicas", imgSrc: "/img/materias/mate/ob_n1.png", alt: "Operaciones Básicas" },
-    { id: "decimale", name: "Decimales y Fracciones", imgSrc: "/img/materias/mate/decimales_n1.png", alt: "Números Decimales" },
-    { id: "geometri", name: "Geometria", imgSrc: "/img/materias/mate/geometria_n1.png", alt: "Geometría" },
+    { id: "decimales", name: "Decimales y Fracciones", imgSrc: "/img/materias/mate/decimales_n1.png", alt: "Números Decimales" },
+    { id: "geometria", name: "Geometria", imgSrc: "/img/materias/mate/geometria_n1.png", alt: "Geometría" },
     { id: "multimedia", name: "Contenido Multimedia", imgSrc: "/img/materias/mate/multimedia_n1.png", alt: "Resolución de Problemas" },
   ];
 

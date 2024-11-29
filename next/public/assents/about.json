@@ -1,0 +1,40 @@
+{
+    "members": [
+        {
+            "name": "Hazel Granados",
+            "role": "Scrum Master | Desarrollador Frontend",
+            "image": "/img/team_member1.jpg",
+            "description": "Apasionado por la educación y la tecnología, lidera el equipo con una visión clara y ambiciosa."
+        },
+        {
+            "name": "Vanessa Sorto",
+            "role": "Product Owner | Desarrollador Full-Stack",
+            "image": "/img/team_member2.jpg",
+            "description": "Especialista en crear experiencias de usuario intuitivas y atractivas."
+        },
+        {
+            "name": "Diego Valencia",
+            "role": "Desarrollador Frontend",
+            "image": "/img/team_member3.jpg",
+            "description": "Encargado de construir y optimizar la plataforma para un rendimiento óptimo."
+        },
+        {
+            "name": "Cristian Campos",
+            "role": "Desarrollador Frontend",
+            "image": "/img/team_member4.jpg",
+            "description": "Experta en pedagogía y diseño curricular, asegura la calidad del contenido educativo."
+        },
+        {
+            "name": "Rony Sorto",
+            "role": "Tester Lead",
+            "image": "/img/team_member5.jpg",
+            "description": "Se encarga de analizar datos para optimizar las estrategias educativas de la plataforma."
+        },
+        {
+            "name": "Lindys Martínez",
+            "role": "Tester",
+            "image": "/img/team_member6.jpg",
+            "description": "Responsable de promover la plataforma y conectar con nuestra comunidad educativa."
+        }
+    ]
+}
