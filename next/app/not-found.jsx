@@ -3,42 +3,45 @@
 
 import useSession from "@/hooks/useSession";
 import { SeparadorVerde } from "@/components/separador";
+import Volver from "@/components/elements/botonVolver";
 
 export default function Custom404() {
-    const { session } = useSession(); // Obtener la sesión actual
+    const { session } = useSession();
 
     // Determinar redirección según el nivel y el rol
-    const nivelId = session?.nivelId || 1; // Obtener el nivel del usuario o usar 1 por defecto
+    const nivelId = session?.nivelId || 1;
     const redirectPath =
         session?.role === "student" ? `/niveles/nivel${nivelId}` : "/";
 
-    const redirectMessage =
-        session?.role === "student"
-            ? `Volver al nivel ${nivelId}`
-            : "Volver al inicio";
-
     return (
-        <main className="bg-gray-50">
+        <main className="relative flex flex-col justify-between bg-gray-50 min-h-screen">
+            {/* Separador superior */}
             <SeparadorVerde />
-            <div className="bg-white shadow-md p-8 rounded-lg max-w-lg text-center">
+
+            {/* Botón de volver */}
+            <div className="top-4 left-4 absolute">
+                <Volver img="/img/home/regresar/verde.png" />
+            </div>
+
+            {/* Contenido principal */}
+            <div className="flex flex-col flex-grow justify-center items-center px-6">
                 <img
                     src="/img/404_image.png"
                     alt="Página no encontrada"
-                    className="mx-auto mb-6 w-48 h-auto"
+                    className="mb-6 w-64 h-auto"
                 />
-                <h1 className="mb-4 font-bold text-3xl text-red-600">
+                <h1 className="mb-4 font-bold text-4xl text-center text-red-600">
                     404 - Página no encontrada
                 </h1>
-                <p className="mb-6 text-gray-700 text-lg">
+                <p className="mb-4 text-center text-gray-700 text-lg">
                     Lo sentimos, la página que estás buscando no existe.
                 </p>
-                <a
-                    href={redirectPath}
-                    className="inline-block bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-md font-semibold text-white transition-colors duration-300"
-                >
-                    {redirectMessage}
-                </a>
+                <p className="text-center text-gray-500 text-sm">
+                    Por favor verifica la URL o utiliza el botón de volver.
+                </p>
             </div>
+
+            {/* Separador inferior */}
             <SeparadorVerde />
         </main>
     );

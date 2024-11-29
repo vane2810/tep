@@ -2,6 +2,7 @@
 
 import aboutData from "@/public/assents/about.json"; 
 import { SeparadorAzul } from "@/components/separador";
+import Volver from "@/components/elements/botonVolver";
 
 export default function AboutUs() {
     const teamMembers = aboutData.members; 
@@ -9,6 +10,8 @@ export default function AboutUs() {
     return (
         <main className="bg-gray-50">
             <SeparadorAzul/>
+            <Volver img="/img/home/regresar/azul.webp" />
+
             <div className="mx-auto px-6 sm:px-12 max-w-7xl">
                 <section className="mb-12 text-center">
                     <h1 className="mb-6 font-bold text-4xl text-blue-600">Sobre Nosotros</h1>

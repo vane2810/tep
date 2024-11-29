@@ -3,38 +3,38 @@
         {
             "name": "Hazel Granados",
             "role": "Scrum Master | Desarrollador Frontend",
-            "image": "/img/team_member1.jpg",
-            "description": "Apasionado por la educación y la tecnología, lidera el equipo con una visión clara y ambiciosa."
+            "image": "/img/personaje/maomao.webp",
+            "description": "Coordina el equipo con metodologías ágiles y desarrolla componentes frontend modernos"
         },
         {
             "name": "Vanessa Sorto",
             "role": "Product Owner | Desarrollador Full-Stack",
-            "image": "/img/team_member2.jpg",
-            "description": "Especialista en crear experiencias de usuario intuitivas y atractivas."
+            "image": "/img/personaje/maomao.webp",
+            "description": "Define prioridades del producto y desarrolla soluciones completas en frontend y backend"
         },
         {
             "name": "Diego Valencia",
             "role": "Desarrollador Frontend",
-            "image": "/img/team_member3.jpg",
-            "description": "Encargado de construir y optimizar la plataforma para un rendimiento óptimo."
+            "image": "/img/personaje/maomao.webp",
+            "description": "Desarrolla interfaces responsivas y funcionales para mejorar la experiencia de usuario"
         },
         {
             "name": "Cristian Campos",
             "role": "Desarrollador Frontend",
-            "image": "/img/team_member4.jpg",
-            "description": "Experta en pedagogía y diseño curricular, asegura la calidad del contenido educativo."
+            "image": "/img/personaje/maomao.webp",
+            "description": "Optimiza el rendimiento de la aplicación mediante componentes interactivos"
         },
         {
             "name": "Rony Sorto",
             "role": "Tester Lead",
-            "image": "/img/team_member5.jpg",
-            "description": "Se encarga de analizar datos para optimizar las estrategias educativas de la plataforma."
+            "image": "/img/personaje/maomao.webp",
+            "description": "Lidera el equipo de pruebas para garantizar la calidad y estabilidad del producto"
         },
         {
             "name": "Lindys Martínez",
             "role": "Tester",
-            "image": "/img/team_member6.jpg",
-            "description": "Responsable de promover la plataforma y conectar con nuestra comunidad educativa."
+            "image": "/img/personaje/maomao.webp",
+            "description": "Realiza pruebas detalladas para detectar y reportar posibles errores"
         }
     ]
 }
