@@ -19,7 +19,7 @@ export default function Nivel3() {
         lenguaje: "/niveles/nivel3/lenguaje",
         sociales: "/niveles/nivel3/sociales",
         ingles: "/niveles/nivel3/ingles",
-        juegointro:"/games/lvl2/intro",
+        juegointro:"/games/lvl3",
       }}
     />
   );

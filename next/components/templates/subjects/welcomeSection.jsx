@@ -11,7 +11,7 @@ const WelcomeSection = ({ personajeImg, personaje, titulo }) => (
         <img
           src={personajeImg}
           alt={`Imagen de ${personaje}`}
-          className="w-40 md:w-64 h-40 md:h-64 animate-bounce-slow object-contain"
+          className="w-36 md:w-60 h-36 md:h-64 object-contain"
         />
       </div>
       {/* Título y mensaje adicional */}

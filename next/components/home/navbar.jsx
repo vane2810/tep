@@ -1,26 +1,60 @@
-// Navbar
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Sidebar from './sidebar';
 import useSession from '@/hooks/useSession';
 import characterImages from '@/utils/characterImages';
 import { HiMenu, HiOutlineLogout } from 'react-icons/hi';
 import GuestModal from '@/components/modals/guestModal';
+import LogoutModal from '@/components/modals/logoutModal';
 
 const Navbar = () => {
   // Estado para la barra lateral y el menú desplegable
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { session, logout, selectedCharacter } = useSession();
   const [showGuestModal, setShowGuestModal] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const { session, logout, selectedCharacter } = useSession();
+  const [isSessionLoaded, setIsSessionLoaded] = useState(false);
+
+  // Ref para el dropdown, para manejar el clic fuera del área
+  const dropdownRef = useRef();
+
+  // Configuración para determinar cuándo la sesión está cargada
+  useEffect(() => {
+    if (session !== undefined) {
+      setIsSessionLoaded(true);
+    }
+  }, [session]);
+
+  // Manejar clic fuera del menú desplegable
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   // Función para alternar la barra lateral
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   // Función para alternar el menú desplegable
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-  // Función para manejar el cierre de sesión
-  const handleLogout = () => {
+  // Función para mostrar el modal de confirmación de cierre de sesión
+  const handleShowLogoutModal = () => setShowLogoutModal(true);
+  // Función para confirmar el cierre de sesión
+  const handleConfirmLogout = () => {
+    setShowLogoutModal(false);
     localStorage.removeItem('hasSeenWelcome');
     logout();
     window.location.href = '/auth/login';
@@ -60,7 +94,12 @@ const Navbar = () => {
 
       {/* Sección de navegación y acciones del usuario */}
       <div className="relative flex items-center">
-        {session ? (
+        {!isSessionLoaded ? (
+          // Mostrar un spinner de carga mientras se carga la sesión
+          <div className="flex justify-center items-center">
+            <div className="border-t-4 border-b-4 border-blue-500 rounded-full w-10 h-10 animate-spin"></div>
+          </div>
+        ) : session ? (
           <>
             {/* Botones específicos según el rol del usuario */}
             {renderRoleButton('admin', '/admin', 'Panel de Administración')}
@@ -74,32 +113,31 @@ const Navbar = () => {
                 <span className="block text-lg lg:text-2xl">{session.name}</span>
               </div>
 
-
               {selectedCharacter && (
                 <div className="flex items-center space-x-4 ml-4">
                   <button
                     onClick={toggleDropdown}
                     type="button"
                     title="Personaje"
-                    className="relative bg-white shadow-lg p-1 rounded-full transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none"
+                    className="relative bg-white shadow-lg p-2 rounded-full transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none"
                   >
                     <img
                       src={characterImages[selectedCharacter]}
                       alt="Personaje"
-                      className="rounded-full w-14 h-14 object-cover"
+                      className="w-14 h-14 object-cover"
                     />
                   </button>
                 </div>
               )}
 
-
-
-
               {/* Menú desplegable para cerrar sesión */}
               {isDropdownOpen && (
-                <div className="top-14 lg:top-20 right-0 z-50 absolute border-gray-200 bg-white shadow-md mt-2 border rounded-lg w-36 md:w-48">
+                <div
+                  ref={dropdownRef}
+                  className="top-14 lg:top-20 right-0 z-50 absolute border-gray-200 bg-white shadow-md mt-2 border rounded-lg w-36 md:w-48"
+                >
                   <button
-                    onClick={handleLogout}
+                    onClick={handleShowLogoutModal}
                     className="flex items-center px-4 py-2 w-full text-base text-left duration-300"
                   >
                     <HiOutlineLogout className="mr-2 w-5 h-5" />
@@ -107,7 +145,6 @@ const Navbar = () => {
                   </button>
                 </div>
               )}
-
             </div>
           </>
         ) : (
@@ -126,7 +163,6 @@ const Navbar = () => {
               Registrarse
             </Link>
           </div>
-
         )}
 
         {/* Icono para abrir la barra lateral */}
@@ -138,9 +174,14 @@ const Navbar = () => {
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
         session={session}
-        onShowGuestModal={() => setShowGuestModal(true)} // Controla el modal desde aquí
+        onShowGuestModal={() => setShowGuestModal(true)}
       />
-      <GuestModal show={showGuestModal} />
+      <GuestModal show={showGuestModal} onClose={() => setShowGuestModal(false)} />
+      <LogoutModal
+        show={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={handleConfirmLogout}
+      />
     </nav>
   );
 };

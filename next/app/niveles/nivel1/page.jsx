@@ -19,7 +19,7 @@ export default function Nivel1() {
         lenguaje: "/niveles/nivel1/lenguaje",
         sociales: "/niveles/nivel1/sociales",
         ingles: "/niveles/nivel1/ingles",
-        juegointro:"/games/lvl1/intro",
+        juegointro:"/games/lvl1",
       }}
     />
   );

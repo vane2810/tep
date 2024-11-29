@@ -1,4 +1,3 @@
-// components/NivelTemplate.jsx
 "use client"; // Asegúrate de que esto esté en la primera línea del archivo
 
 import React, { useState, useEffect } from "react";
@@ -13,14 +12,14 @@ function ButtonLink({ href, label, imgSrc, alt }) {
   return (
     <div className="flex flex-col items-center max-w-xs">
       <Link href={href}>
-        <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105 mb-2">
-          <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
+        <div className="flex justify-center items-center hover:shadow-lg mb-2 rounded-full w-32 md:w-40 lg:w-48 h-32 md:h-40 lg:h-48 transform transition-transform celeste hover:scale-105">
+          <button className="flex justify-center items-center bg-white rounded-full w-24 md:w-32 lg:w-40 h-24 md:h-32 lg:h-40 overflow-hidden">
             <img src={imgSrc} alt={alt} className="w-2/3 h-2/3 object-contain" />
           </button>
         </div>
       </Link>
       <span
-        className="text-3xl md:text-4xl font-semibold text-center mt-1"
+        className="mt-1 font-semibold text-3xl text-center md:text-4xl"
         style={{
           color: 'black',
           fontFamily: 'wonder',
@@ -76,7 +75,7 @@ export default function NivelTemplate({
       <section className="relative flex flex-col items-center bg-white bg-opacity-90 mt-6 mb-2 p-4 rounded-full w-full max-w-3xl text-center">
         {!session && (
           <div className="top-4 md:top-6 left-4 md:left-6 absolute">
-            <Volver href="/" title="Volver a la página de inicio" />
+            <Volver href="/" title="/" />
           </div>
         )}
 
@@ -86,7 +85,7 @@ export default function NivelTemplate({
         </div>
       </section>
 
-      <section className="flex md:flex-nowrap flex-wrap justify-center items-center space-y-6 md:space-y-0 mt-2 p-6 rounded-lg w-full max-w-5xl overflow-x-auto">
+      <section className="flex flex-wrap md:flex-nowrap justify-center items-center space-y-6 md:space-y-0 mt-2 p-6 rounded-lg w-full max-w-5xl overflow-x-auto">
         <div className="flex flex-col items-center space-y-6 md:space-y-6 md:mr-6">
           <ButtonLink href={buttonLinks.mate} label="Matemáticas" imgSrc="/img/personajes/donkey/donkey.png" alt="Matemática" />
           <ButtonLink href={buttonLinks.lenguaje} label="Lenguaje" imgSrc="/img/personajes/principe/principe.png" alt="Lenguaje" />
@@ -102,11 +101,11 @@ export default function NivelTemplate({
             }}
           />
           {/* Botón de enlace al juego introductorio debajo del planeta */}
-          {gameIntroLink && (
-            <div className="mt-4 flex flex-col items-center">
+          {!session && gameIntroLink && (
+            <div className="flex flex-col items-center mt-4">
               <Link href={buttonLinks.juegointro}>
-                <div className="rounded-full celeste w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center hover:shadow-lg transition-transform transform hover:scale-105">
-                  <button className="bg-white rounded-full w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
+                <div className="flex justify-center items-center hover:shadow-lg rounded-full w-32 md:w-40 lg:w-48 h-32 md:h-40 lg:h-48 transform transition-transform celeste hover:scale-105">
+                  <button className="flex justify-center items-center bg-white rounded-full w-24 md:w-32 lg:w-40 h-24 md:h-32 lg:h-40 overflow-hidden">
                     <img
                       src="/img/home/juego_intro.png"
                       alt="Juego Introductorio"
@@ -116,7 +115,7 @@ export default function NivelTemplate({
                 </div>
               </Link>
               <span
-                className="text-3xl md:text-4xl font-semibold text-center mt-1"
+                className="mt-1 font-semibold text-3xl text-center md:text-4xl"
                 style={{
                   color: 'black',
                   fontFamily: 'wonder',
@@ -150,6 +149,7 @@ NivelTemplate.propTypes = {
     lenguaje: PropTypes.string.isRequired,
     sociales: PropTypes.string.isRequired,
     ingles: PropTypes.string.isRequired,
+    juegointro: PropTypes.string, 
   }).isRequired,
-  gameIntroLink: PropTypes.string, // Propiedad añadida para el enlace
+  gameIntroLink: PropTypes.string, 
 };
