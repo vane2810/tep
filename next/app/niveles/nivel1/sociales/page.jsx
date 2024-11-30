@@ -37,7 +37,7 @@ export default function SocialesPage() {
 
                     {/* Mapa interactivo de continentes */}
                     <MapSociales
-                        fondoUrl="/img/materias/sociales/mapa_centroamerica.png"
+                        fondoUrl="/img/materias/sociales/mapa_centroamerica.webp"
                         nivel="nivel1"
                         areas={area}
                         fondoSize="contain"
