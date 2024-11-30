@@ -9,8 +9,9 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [searchQuery, setSearchQuery] = useState(""); // Estado para la búsqueda
 
-  const toggleAnswer = (index) => {
-    setActiveIndex(activeIndex === index ? null : index); // Alternar si la respuesta ya está abierta
+  // Función que maneja el clic en la pregunta
+  const handleQuestionClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   const handleSearchChange = (e) => {
@@ -76,14 +77,14 @@ const FAQ = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-100 via-purple-200 to-blue-300 px-4 py-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 via-pink-200 to-purple-300 px-4 py-8">
       <h1 className="text-4xl font-bold text-blue-700 mb-6 super">PREGUNTAS FRECUENTES</h1>
 
-      {/* Imagen decorativa */}
+      {/* Imagen decorativa con animación de tambaleo */}
       <img
         src="/img/help/faq/decoracionpf.webp"
         alt="Decoración"
-        className="w-32 h-32 mb-6"
+        className="w-40 h-40 mb-6 animate-tambaleo"
       />
 
       {/* Barra de búsqueda */}
@@ -105,8 +106,8 @@ const FAQ = () => {
           filteredQuestions.map((faq, index) => (
             <div
               key={index}
-              className="mb-6 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 cursor-pointer border-2 border-purple-600"
-              onClick={() => toggleAnswer(index)}
+              className="mb-6 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 cursor-pointer border-2 border-purple-700"
+              onClick={() => handleQuestionClick(index)}
             >
               <div className="text-xl font-semibold text-blue-700">{faq.question}</div>
               <div
