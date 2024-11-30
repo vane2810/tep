@@ -5,11 +5,16 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 router.post('/register', async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+  const { name, lastname, email, password, confirmPassword } = req.body;
 
   const validateName = (name) => {
     const regex = /^[a-zA-Z\s]+$/;
     return regex.test(name);
+  };
+
+  const validateLastname = (lastname) => {
+    const regex = /^[a-zA-Z\s]*$/; // Permitir vacío porque es opcional
+    return regex.test(lastname);
   };
 
   if (!name || !email || !password || !confirmPassword) {
@@ -17,6 +22,9 @@ router.post('/register', async (req, res) => {
   }
   if (!validateName(name)) {
     return res.status(400).json({ error: 'El nombre solo puede contener letras.' });
+  }
+  if (lastname && !validateLastname(lastname)) {
+    return res.status(400).json({ error: 'El apellido solo puede contener letras' });
   }
   if (password !== confirmPassword) {
     return res.status(400).json({ error: 'Las contraseñas no coinciden' });
@@ -31,7 +39,7 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       name,
-      lastname: null,
+      lastname,
       email,
       password: hashedPassword,
       role: null,
