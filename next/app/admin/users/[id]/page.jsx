@@ -1,12 +1,12 @@
 "use client";
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaExclamationTriangle, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut } from 'react-icons/fa';
-import { BiArrowBack } from 'react-icons/bi';
+import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaExclamationTriangle, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut, FaUserTie } from 'react-icons/fa';
 import characterImages from '@/utils/characterImages';
 import ModalEditarUsuario from '@/components/modals/admin/editarModal';
 import Volver from '@/components/elements/botonVolver';
 import Loading from '@/components/elements/loading';
+import { SeparadorAzul } from '@/components/separador';
 
 export default function PaginaPerfilUsuario() {
   const { id } = useParams();
@@ -36,13 +36,16 @@ export default function PaginaPerfilUsuario() {
   }, [id]);
 
   if (loading) {
-    return <Loading/>
+    return <Loading />
   }
 
   if (!usuario) {
-    return <div className="py-8 font-bold text-center text-red-500">
-    <FaExclamationTriangle className="inline-block mr-2 text-2xl" />
-    No se encontraron usuarios</div>;
+    return (
+      <div className="py-8 font-bold text-center text-red-500">
+        <FaExclamationTriangle className="inline-block mr-2 text-2xl" />
+        No se encontraron usuarios
+      </div>
+    );
   }
 
   const abrirModalEditar = () => {
@@ -55,96 +58,119 @@ export default function PaginaPerfilUsuario() {
 
   const characterImage = usuario.characterId
     ? characterImages[usuario.characterId]
-    : '/profile.png';
+    : '/img/personajes/starly/starly2.png';
 
   return (
-    <div className="bg-white shadow-lg mx-auto my-10 p-6 rounded-lg max-w-4xl container yagora">
-      <div className="flex items-center mb-8">
-        <Volver href='/admin/users'/>
-      </div>
+    <main>
+      <SeparadorAzul />
+      <div className="bg-white shadow-lg mx-auto my-4 p-10 rounded-lg max-w-4xl container yagora">
+        {/* Botón de Volver */}
+        <div className="flex items-start">
+          <Volver href='/admin/users' />
+        </div>
 
-      <div className="flex items-center mb-8">
-        <img
-          src={characterImage}
-          alt={`Foto de perfil de ${usuario.name}`}
-          className="border-2 border-gray-300 mr-6 rounded-full w-36 h-36 cursor-pointer object-cover"
-        />
-        <div>
-          <h2 className="flex items-center font-bold text-4xl text-gray-800">
-            {usuario.name} <FaUserEdit className="ml-4 text-yellow-500 cursor-pointer" onClick={abrirModalEditar} />
+        {/* Título de la Página */}
+        <h1 className="mb-10 font-bold text-4xl text-blue-800 text-center">
+          Información del Usuario
+        </h1>
+
+        {/* Sección de Imagen de Perfil y Nombre */}
+        <div className="flex flex-col items-center mb-8 text-center">
+          <div className="relative mb-4 w-32 h-32">
+            <div className="border-4 border-gray-300 rounded-lg w-full h-full overflow-hidden">
+              <img
+                src={characterImage}
+                alt={`Foto de perfil de ${usuario.name}`}
+                className="w-full h-full object-center object-cover"
+              />
+            </div>
+            <FaUserEdit
+              className="right-[-10px] bottom-[-10px] absolute border-2 border-gray-300 bg-white shadow-lg p-2 rounded-full text-white text-yellow-500 cursor-pointer hover:scale-110 transition-transform"
+              size={40} // Aumenta el tamaño del ícono para hacerlo más visible
+              onClick={abrirModalEditar}
+            />
+          </div>
+          <h2 className="font-bold text-4xl text-gray-800">
+            {usuario.name}
           </h2>
           <p className="flex items-center mt-2 text-gray-600">
             <FaEnvelope className="mr-2" /> {usuario.email}
           </p>
         </div>
-      </div>
 
-      <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
-        <div className="bg-blue-50 shadow-inner p-6 rounded-lg">
-          <h3 className="flex items-center mb-4 font-semibold text-blue-700 text-xl">
-            <FaUserCircle className="mr-2" /> Información Personal
-          </h3>
-          <p className="mb-2"><strong>Nombre:</strong> {usuario.name}</p>
-          <p className="mb-2"><strong>Correo electrónico:</strong> {usuario.email}</p>
+
+
+        {/* Información del Usuario */}
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
+          <div className="bg-blue-50 shadow-inner p-6 rounded-lg text-left">
+            <h3 className="flex items-center mb-4 font-semibold text-blue-700 text-xl">
+              <FaUserCircle className="mr-2" /> Información Personal
+            </h3>
+            <p className="mb-2"><strong>Nombre:</strong> {usuario.name}</p>
+            <p className="mb-2"><strong>Apellido:</strong> {usuario.lastname ? usuario.lastname : '-'}</p>
+            <p className="mb-2"><strong>Correo electrónico:</strong> {usuario.email}</p>
+            <p className="mb-2"><strong>Rol:</strong> {usuario.role ? usuario.role.charAt(0).toUpperCase() + usuario.role.slice(1) : '-'}</p>
+          </div>
+
+          {usuario.level && (
+            <div className="bg-green-50 shadow-inner p-6 rounded-lg text-left">
+              <h3 className="flex items-center mb-4 font-semibold text-green-700 text-xl">
+                <FaLayerGroup className="mr-2" /> Nivel
+              </h3>
+              <p className="mb-2"><strong>Nivel:</strong> {usuario.level.name}</p>
+              <p className="mb-2"><strong>Descripción del Nivel:</strong> {usuario.level.description}</p>
+            </div>
+          )}
+
+          {usuario.character && usuario.role === 'estudiante' && (
+            <div className="bg-yellow-50 shadow-inner p-6 rounded-lg text-left">
+              <h3 className="flex items-center mb-4 font-semibold text-xl text-yellow-700">
+                <FaUserAstronaut className="mr-2" /> Personaje
+              </h3>
+              <p className="mb-2"><strong>Personaje:</strong> {usuario.character.name}</p>
+              <p className="mb-2"><strong>Descripción del Personaje:</strong> {usuario.character.description}</p>
+            </div>
+          )}
+
+          {usuario.numeroHijos && (
+            <div className="bg-purple-50 shadow-inner p-6 rounded-lg text-left">
+              <h3 className="flex items-center mb-4 font-semibold text-purple-700 text-xl">
+                <FaChild className="mr-2" /> Familia
+              </h3>
+              <p className="mb-2"><strong>Número de Hijos:</strong> {usuario.numeroHijos}</p>
+            </div>
+          )}
+
+          {usuario.numeroEstudiantes && (
+            <div className="bg-pink-50 shadow-inner p-6 rounded-lg text-left">
+              <h3 className="flex items-center mb-4 font-semibold text-pink-700 text-xl">
+                <FaChalkboardTeacher className="mr-2" /> Docencia
+              </h3>
+              <p className="mb-2"><strong>Número de Estudiantes:</strong> {usuario.numeroEstudiantes}</p>
+            </div>
+          )}
+
+          {usuario.createdAt && (
+            <div className="bg-gray-50 shadow-inner p-6 rounded-lg text-left">
+              <h3 className="flex items-center mb-4 font-semibold text-gray-700 text-xl">
+                <FaCalendarAlt className="mr-2" /> Registro
+              </h3>
+              <p className="mb-2"><strong>Fecha de Registro:</strong> {new Date(usuario.createdAt).toLocaleDateString()}</p>
+              <p className="mb-2"><strong>Hora de Registro:</strong> {new Date(usuario.createdAt).toLocaleTimeString('es-ES', { timeZone: 'America/El_Salvador' })}</p>
+            </div>
+          )}
         </div>
 
-        {usuario.level && (
-          <div className="bg-green-50 shadow-inner p-6 rounded-lg">
-            <h3 className="flex items-center mb-4 font-semibold text-green-700 text-xl">
-              <FaLayerGroup className="mr-2" /> Nivel
-            </h3>
-            <p className="mb-2"><strong>Nivel:</strong> {usuario.level.nombre}</p>
-            <p className="mb-2"><strong>Descripción del Nivel:</strong> {usuario.level.descripcion}</p>
-          </div>
-        )}
-
-        {usuario.character && (
-          <div className="bg-yellow-50 shadow-inner p-6 rounded-lg">
-            <h3 className="flex items-center mb-4 font-semibold text-xl text-yellow-700">
-              <FaUserAstronaut className="mr-2" /> Personaje
-            </h3>
-            <p className="mb-2"><strong>Personaje:</strong> {usuario.character.nombre}</p>
-            <p className="mb-2"><strong>Descripción del Personaje:</strong> {usuario.character.descripcion}</p>
-          </div>
-        )}
-
-        {usuario.numeroHijos && (
-          <div className="bg-purple-50 shadow-inner p-6 rounded-lg">
-            <h3 className="flex items-center mb-4 font-semibold text-purple-700 text-xl">
-              <FaChild className="mr-2" /> Familia
-            </h3>
-            <p className="mb-2"><strong>Número de Hijos:</strong> {usuario.numeroHijos}</p>
-          </div>
-        )}
-
-        {usuario.numeroEstudiantes && (
-          <div className="bg-pink-50 shadow-inner p-6 rounded-lg">
-            <h3 className="flex items-center mb-4 font-semibold text-pink-700 text-xl">
-              <FaChalkboardTeacher className="mr-2" /> Docencia
-            </h3>
-            <p className="mb-2"><strong>Número de Estudiantes:</strong> {usuario.numeroEstudiantes}</p>
-          </div>
-        )}
-
-        {usuario.createdAt && (
-          <div className="bg-gray-50 shadow-inner p-6 rounded-lg">
-            <h3 className="flex items-center mb-4 font-semibold text-gray-700 text-xl">
-              <FaCalendarAlt className="mr-2" /> Registro
-            </h3>
-            <p className="mb-2"><strong>Fecha de Registro:</strong> {new Date(usuario.createdAt).toLocaleDateString()}</p>
-            <p className="mb-2"><strong>Hora de Registro:</strong> {new Date(usuario.createdAt).toLocaleTimeString('es-ES', { timeZone: 'America/El_Salvador' })}</p>
-          </div>
+        {modalEditar && (
+          <ModalEditarUsuario
+            onClose={handleCloseModal}
+            usuario={usuario}
+            characters={[]}
+            levels={[]}
+          />
         )}
       </div>
-
-      {modalEditar && (
-        <ModalEditarUsuario
-          onClose={handleCloseModal}
-          usuario={usuario}
-          characters={[]}
-          levels={[]}
-        />
-      )}
-    </div>
+      <SeparadorAzul />
+    </main>
   );
 }

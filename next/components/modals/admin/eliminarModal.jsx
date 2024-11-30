@@ -1,3 +1,4 @@
+// Modal de eliminación de usuarios -Admin
 import React, { useState } from 'react';
 import { FiTrash2, FiXCircle } from 'react-icons/fi'; // Usar iconos
 

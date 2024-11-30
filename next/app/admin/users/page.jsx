@@ -1,3 +1,4 @@
+// Pagina gestion de usuarios - Admin
 "use client";
 import React, { useState, useEffect } from "react";
 import ModalEliminarUsuario from "@/components/modals/admin/eliminarModal";
