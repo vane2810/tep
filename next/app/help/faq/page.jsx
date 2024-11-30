@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import "@/styles/animacion.css"; // Asegúrate de tener la animación incluida
+import Volver from "@/components/elements/botonVolver";
+import DataMessage from "@/components/menssages/mensajeDatos"
 
 // Aquí importamos el ícono de lupa
 import { FiSearch } from "react-icons/fi";
@@ -77,39 +78,45 @@ const FAQ = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-100 via-pink-200 to-purple-300 px-4 py-8">
-      <h1 className="text-4xl font-bold text-blue-700 mb-6 super">PREGUNTAS FRECUENTES</h1>
+    <div className="flex flex-col justify-center items-center bg-gradient-to-b from-yellow-100 via-pink-200 to-purple-300 px-4 py-8 min-h-screen">
+      <div className="flex justify-start items-center mb-6 w-full">
+        {/* Ícono de Volver */}
+        <Volver img="/img/home/regresar/morado.webp" className="mr-4" />
+      </div>
+      {/* Título */}
+      <h1 className="font-bold text-5xl text-blue-700 text-center super">PREGUNTAS FRECUENTES</h1>
+
 
       {/* Imagen decorativa con animación de tambaleo */}
       <img
         src="/img/help/faq/decoracionpf.webp"
         alt="Decoración"
-        className="w-40 h-40 mb-6 animate-tambaleo"
+        className="my-6 w-40 h-40 animate-tambaleo"
       />
 
       {/* Barra de búsqueda */}
-      <div className="flex items-center w-64 mb-6">
-        <FiSearch className="text-gray-500 mr-2" />
+      <div className="flex items-center mb-6 w-64">
+        <FiSearch className="mr-2 text-gray-500" />
         <input
           type="text"
           placeholder="Buscar pregunta..."
           value={searchQuery}
           onChange={handleSearchChange}
-          className="p-2 w-full rounded-lg border-2 border-gray-300"
+          className="border-2 border-gray-300 p-2 rounded-lg w-full"
         />
       </div>
 
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-4xl yagora">
         {filteredQuestions.length === 0 ? (
-          <div className="text-center text-gray-500">No se encontraron preguntas.</div>
+          <DataMessage />
         ) : (
           filteredQuestions.map((faq, index) => (
             <div
               key={index}
-              className="mb-6 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:-translate-y-1 cursor-pointer border-2 border-purple-700"
+              className="border-2 border-purple-700 bg-white shadow-lg hover:shadow-xl mb-6 p-6 rounded-lg transform transition-transform hover:-translate-y-1 cursor-pointer"
               onClick={() => handleQuestionClick(index)}
             >
-              <div className="text-xl font-semibold text-blue-700">{faq.question}</div>
+              <div className="font-semibold text-blue-700 text-xl">{faq.question}</div>
               <div
                 className={`mt-4 text-gray-600 ${activeIndex === index ? "block" : "hidden"}`}
               >

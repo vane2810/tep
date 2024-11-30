@@ -1,14 +1,21 @@
-// Vista principal de receso
+"use client";
 import React from 'react';
 import Link from 'next/link';
 import Volver from '@/components/elements/botonVolver';
 import PropTypes from 'prop-types';
+import useSession from '@/hooks/useSession';
 
 const BreakSection = () => {
+  const { session } = useSession(); // Obtener la sesión del usuario
+
+  // Determinar la ruta del botón Volver dependiendo del rol del usuario
+  const volverUrl =
+    session?.role === 'estudiante'
+      ? `/niveles/nivel${session.levelId}`
+      : '/'; // Si no es estudiante, redirigir al inicio
 
   return (
     <div className="relative flex flex-col justify-center items-center bg-gradient-to-b from-blue-100 to-blue-200 px-4 lg:px-8 min-h-screen overflow-hidden">
-      
       {/* Fondo de decoración espacial responsivo */}
       <div className="z-0 absolute inset-0 pointer-events-none">
         <img
@@ -16,7 +23,7 @@ const BreakSection = () => {
           alt="Fondo Espacial"
           className="opacity-50 w-full h-full object-cover"
         />
-        
+
         {/* Imágenes decorativas en las esquinas */}
         <img
           src="/img/receso/planet1.webp"
@@ -40,14 +47,13 @@ const BreakSection = () => {
         />
       </div>
 
-      {/* Botón Volver condicionado */}
-      <div className="top-4 left-4 absolute">
-        <Volver href="/" />
-      </div>
-
       {/* Contenedor de contenido principal */}
-      <div className="relative z-10 border-gray-300 bg-white shadow-2xl my-6 p-4 sm:p-6 md:p-8 lg:p-10 border rounded-3xl w-full max-w-md sm:max-w-lg lg:max-w-3xl text-center">
-        
+      <div className="relative border-gray-300 bg-white shadow-2xl my-6 p-4 sm:p-6 md:p-8 lg:p-10 border rounded-3xl w-full max-w-md sm:max-w-lg lg:max-w-3xl text-center">
+        {/* Botón Volver condicionado */}
+        <div className="top-4 left-4 absolute">
+          <Volver href={volverUrl} img='/img/home/regresar/rosa.webp' />
+        </div>
+
         <header className="flex flex-col items-center mb-6 sm:mb-8">
           <img
             src="/img/receso/estrella.webp"

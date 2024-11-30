@@ -1,18 +1,22 @@
 "use client";
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Loading from '@/components/elements/loading';
 import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaExclamationTriangle, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut, FaUserTie } from 'react-icons/fa';
 import characterImages from '@/utils/characterImages';
 import ModalEditarUsuario from '@/components/modals/admin/editarModal';
 import Volver from '@/components/elements/botonVolver';
-import Loading from '@/components/elements/loading';
 import { SeparadorAzul } from '@/components/separador';
+import useSession from '@/hooks/useSession';
+import MensajePermiso from '@/components/menssages/mensajePermiso';
 
 export default function PaginaPerfilUsuario() {
   const { id } = useParams();
   const [usuario, setUsuario] = useState(null);
   const [loading, setLoading] = useState(true);
   const [modalEditar, setModalEditar] = useState(false);
+
+  const { session } = useSession();
 
   useEffect(() => {
     if (id) {
@@ -36,7 +40,12 @@ export default function PaginaPerfilUsuario() {
   }, [id]);
 
   if (loading) {
-    return <Loading />
+    return <Loading />;
+  }
+
+  // Verificar si el usuario tiene permiso para acceder
+  if (!session || session.role !== 'admin') {
+    return <MensajePermiso />;
   }
 
   if (!usuario) {
@@ -58,7 +67,7 @@ export default function PaginaPerfilUsuario() {
 
   const characterImage = usuario.characterId
     ? characterImages[usuario.characterId]
-    : '/img/personajes/starly/starly2.png';
+    : '/img/personajes/starly/starly2.webp';
 
   return (
     <main>
@@ -97,8 +106,6 @@ export default function PaginaPerfilUsuario() {
             <FaEnvelope className="mr-2" /> {usuario.email}
           </p>
         </div>
-
-
 
         {/* Información del Usuario */}
         <div className="gap-8 grid grid-cols-1 md:grid-cols-2">

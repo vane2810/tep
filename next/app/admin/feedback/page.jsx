@@ -1,10 +1,14 @@
-// Página de Administración de Comentarios de Usuarios con Datos Simulados Mejorada
-"use client"
+"use client";
 import React, { useState } from "react";
 import { MdDelete } from 'react-icons/md'; 
 import Volver from "@/components/elements/botonVolver";
+import useSession from '@/hooks/useSession';
+import MensajePermiso from '@/components/menssages/mensajePermiso';
 
 export default function AdminFeedbackPage() {
+  // Obtener la sesión del contexto
+  const { session } = useSession();
+
   // Datos simulados para los comentarios
   const [comentarios, setComentarios] = useState([
     { id: 1, nombre: 'Juan Pérez', comentario: 'La aplicación es muy buena, pero podrían mejorar la navegación.' },
@@ -21,6 +25,11 @@ export default function AdminFeedbackPage() {
     setMensaje('Comentario eliminado con éxito');
     setTimeout(() => setMensaje(''), 3000); // Limpiar el mensaje después de 3 segundos
   };
+
+  // Verificar si el usuario tiene permiso para acceder
+  if (!session || session.role !== 'admin') {
+    return <MensajePermiso />;
+  }
 
   return (
     <main className="relative flex flex-col items-center bg-gray-50 p-6 w-full min-h-screen">

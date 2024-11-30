@@ -1,11 +1,14 @@
 // Pagina del panel de administación 
-
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { FaUsers, FaFileAlt, FaComments } from 'react-icons/fa';
 import Volver from '@/components/elements/botonVolver';
 import { SeparadorAzul } from '@/components/separador';
+import useSession from '@/hooks/useSession'; 
+import Loading from '@/components/elements/loading';
+import MensajePermiso from '@/components/menssages/mensajePermiso';
 
 const CardLink = ({ href, Icon, iconColor, hoverColor, title }) => (
   <Link
@@ -29,9 +32,33 @@ CardLink.propTypes = {
 };
 
 export default function AdminPage() {
+  const { session, loading } = useSession(); // Obtenemos la sesión y el estado de carga
+  const [isAuthorized, setIsAuthorized] = useState(false);
+
+  useEffect(() => {
+    // Verificar si el usuario tiene rol de 'admin'
+    if (session && session.role === 'admin') {
+      setIsAuthorized(true);
+    } else {
+      setIsAuthorized(false);
+    }
+  }, [session]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Loading />
+      </div>
+    );
+  }
+
+  if (!isAuthorized) {
+    return <MensajePermiso/>
+  }
+
   return (
     <main className="flex flex-col bg-gray-50 min-h-screen yagora">
-        <SeparadorAzul />
+      <SeparadorAzul />
       
       {/* Botón de Volver alineado a la izquierda */}
       <div className="mt-2 ml-4">
@@ -77,7 +104,8 @@ export default function AdminPage() {
           />
         </div>
       </div>
-        <SeparadorAzul />
+      <SeparadorAzul />
     </main>
   );
 }
+

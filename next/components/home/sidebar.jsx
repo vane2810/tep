@@ -9,6 +9,11 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
   const levelLink = session && session.role === 'estudiante' ? `/niveles/nivel${session.nivel}` : '/';
   const isLoggedIn = !!session; // Verifica si hay sesión
 
+  // Función para cerrar el Sidebar con un pequeño retraso
+  const handleCloseWithDelay = () => {
+    setTimeout(onClose, 300); // Espera 300ms antes de ejecutar onClose
+  };
+
   return (
     <>
       {/* Overlay para cerrar el sidebar al hacer clic fuera de él */}
@@ -22,7 +27,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
       <div 
         className={`fixed top-0 right-0 h-full w-1/2 md:w-64 celeste text-gray-800 transform 
         ${isOpen ? "translate-x-0" : "translate-x-full"} 
-        transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto z-[10] yagora font-bold `}
+        transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto z-[10] yagora font-bold`}
       >
         {/* Icono salir */}
         <div className="flex justify-end p-4">
@@ -35,7 +40,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
 
         {/* Logo */}
         <div className="flex justify-center items-center mb-4 p-4">
-          <Link href={levelLink}>
+          <Link href={levelLink} onClick={handleCloseWithDelay}>
             <img
               src="/img/home/logoTEP.webp"
               alt="Logo de TechEduPlanet"
@@ -48,7 +53,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
         <ul className="space-y-2 px-4">
           {/* Inicio */}
           <li className="py-2">
-            <Link href={levelLink} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
+            <Link href={levelLink} onClick={handleCloseWithDelay} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
               <img src="/img/personajes/starly/starly.webp" alt="Icono de Inicio" className="w-5 h-5" />
               <span>Inicio</span>
             </Link>
@@ -57,12 +62,12 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
           {/* Progreso */}
           <li className="py-2">
             {isLoggedIn ? (
-              <Link href="/progreso" className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" >
+              <Link href="/progreso" onClick={handleCloseWithDelay} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
                 <img src="/img/home/barra/progreso.webp" alt="Icono de Progreso" className="w-5 h-5" />
                 <span>Progreso</span>
               </Link>
             ) : (
-              <button onClick={onShowGuestModal} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado" >
+              <button onClick={onShowGuestModal} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
                 <img src="/img/home/barra/progreso.webp" alt="Icono de Progreso" className="w-5 h-5" />
                 <span>Progreso</span>
               </button>
@@ -72,7 +77,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
           {/* Receso */}
           <li className="py-2">
             {isLoggedIn ? (
-              <Link href="/receso" className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
+              <Link href="/receso" onClick={handleCloseWithDelay} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
                 <img src="/img/receso/estrella.webp" alt="Icono de Receso" className="w-5 h-5" />
                 <span>Receso</span>
               </Link>
@@ -87,7 +92,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
           {/* Juegos Introductorios */}
           {isLoggedIn && (
             <li className="py-2">
-              <Link href="/games" className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
+              <Link href="/games" onClick={handleCloseWithDelay} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
                 <img src="/img/home/barra/juegos.webp" alt="Icono de Juegos Introductorios" className="w-5 h-5" />
                 <span>Juegos Introductorios</span>
               </Link>
@@ -97,7 +102,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
           {/* Configurar Cuenta */}
           {isLoggedIn && (
             <li className="py-2">
-              <Link href="/auth/account" className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
+              <Link href="/auth/account" onClick={handleCloseWithDelay} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
                 <img src="/img/home/barra/cuenta.webp" alt="Icono de Configurar Cuenta" className="w-5 h-5" />
                 <span>Configurar Cuenta</span>
               </Link>
