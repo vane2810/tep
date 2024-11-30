@@ -12,7 +12,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
             {/* Sección de Bienvenida */}
             <div className="flex md:flex-row flex-col justify-center items-center mb-6 text-center">
                 <img
-                    src="/img/materias/mate/explorador.png"
+                    src="/img/materias/mate/explorador.webp"
                     alt="Explorador"
                     className="mr-4 w-24 md:w-32 h-auto"
                 />
@@ -41,7 +41,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
                     Explora los contenidos para acumular estrellas
                 </h3>
                 <img
-                    src="/img/materias/mate/exploradora.png"
+                    src="/img/materias/mate/exploradora.webp"
                     alt="Exploradora"
                     className="mt-4 md:mt-0 md:ml-8 w-24 md:w-32 h-auto"
                 />

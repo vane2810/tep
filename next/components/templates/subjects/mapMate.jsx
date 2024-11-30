@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function MateMap({ mostrarCabeza, fondoUrl, cabezaSrc, segmentos, nivel, planetaImg}) {
   const decorativos = [
-    { id: "pajaro", img: "/img/materias/mate/pajaro.png", alt: "Pajaro", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
-    { id: "caracol", img: "/img/materias/mate/caracol.png", alt: "Caracol", className: "absolute right-[5%] bottom-[3%] w-[6vw] comet-animation" },
+    { id: "pajaro", img: "/img/materias/mate/pajaro.webp", alt: "Pajaro", className: "absolute top-[5%] left-[5%] w-[8vw] rocket-animation" },
+    { id: "caracol", img: "/img/materias/mate/caracol.webp", alt: "Caracol", className: "absolute right-[5%] bottom-[3%] w-[6vw] comet-animation" },
   ];
 
   return (
@@ -21,7 +21,7 @@ export default function MateMap({ mostrarCabeza, fondoUrl, cabezaSrc, segmentos,
       >
         {/* Personaje principal al inicio */}
         <div className="bottom-[1%] left-[1%] absolute">
-          <img src="/img/materias/mate/exploradora.png" alt="Personaje" className="w-[10vw] h-auto" />
+          <img src="/img/materias/mate/exploradora.webp" alt="Personaje" className="w-[10vw] h-auto" />
         </div>
 
         <div className="flex justify-center mt-10 overflow-x-auto">
