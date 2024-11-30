@@ -30,19 +30,19 @@ export default function SocialesPage() {
                 <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
                     {/* Bienvenida para Sociales */}
                     <WelcomeSection
-                        personajeImg="/img/personajes/burbuja/burbuja.png"
+                        personajeImg="/img/personajes/burbuja/burbuja.webp"
                         personaje="Burbuja"
                         titulo="¡SOCIALES!"
                     />
 
                     {/* Mapa interactivo de continentes */}
                     <MapSociales
-                        fondoUrl="/img/materias/sociales/mapa_centroamerica.png"
+                        fondoUrl="/img/materias/sociales/mapa_centroamerica.webp"
                         nivel="nivel1"
                         areas={area}
                         fondoSize="contain"
                         medida="w-full h-auto"
-                        planetaImg="/img/personajes/niveles/tierran1.png"
+                        planetaImg="/img/personajes/niveles/tierran1.webp"
                     />
                 </div>
             </div>

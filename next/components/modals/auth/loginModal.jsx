@@ -11,7 +11,7 @@ const LoginModal = ({ show, message, type, onClose, redirectTo }) => {
   const title = isError ? 'Error al iniciar sesión' : '¡Inicio de sesión exitoso!';
   const titleColor = isError ? 'text-red-600' : 'text-green-600';
   const buttonColor = isError ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600';
-  const imageSrc = isError ? '/img/personajes/starly/starly_triste.png' : '/img/personajes/starly/starly2.png';
+  const imageSrc = isError ? '/img/personajes/starly/starly_triste.webp' : '/img/personajes/starly/starly2.webp';
   const buttonText = isError ? 'Intentar de nuevo' : 'Continuar';
 
   const handleContinue = () => {

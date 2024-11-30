@@ -14,7 +14,7 @@ export default function HomePage() {
 {/* Bienvenida de Starly */}
 <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10 px-4 md:px-0">
     <img
-        src="/img/personajes/starly/starlycohete.png"
+        src="/img/personajes/starly/starlycohete.webp"
         alt="Starly"
         className="md:mr-10 mb-6 md:mb-0 w-24 sm:w-32 md:w-40 lg:w-48 h-24 sm:h-32 md:h-40 lg:h-48 animate-tumble"
     />

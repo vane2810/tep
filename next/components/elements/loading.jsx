@@ -5,7 +5,7 @@ export default function Loading({ text = "Cargando ..." }) {
   return (
     <div className="flex sm:flex-row flex-col justify-center items-center h-screen yagora">
       <img
-        src="/img/personajes/starly/starly.png"
+        src="/img/personajes/starly/starly.webp"
         alt="Starly"
         className="border-purple-300 border-t-4 border-b-4 rounded-full w-20 sm:w-24 h-20 sm:h-24 animate-spin"
       />

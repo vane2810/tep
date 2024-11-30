@@ -24,9 +24,9 @@ export default function RegisterForm({ formData, handleChange, handleSubmit, err
 
   // Determina qué imagen mostrar según el campo actualmente enfocado
   const getStarlyImage = () => {
-    if (focusedField === "password" || focusedField === "confirmPassword") return '/img/personajes/starly/starly_contra.png';
-    if (focusedField === "email" || focusedField === "name") return '/img/personajes/starly/starly_correo.png';
-    return '/img/personajes/starly/starly2.png';
+    if (focusedField === "password" || focusedField === "confirmPassword") return '/img/personajes/starly/starly_contra.webp';
+    if (focusedField === "email" || focusedField === "name") return '/img/personajes/starly/starly_correo.webp';
+    return '/img/personajes/starly/starly2.webp';
   };
 
   return (

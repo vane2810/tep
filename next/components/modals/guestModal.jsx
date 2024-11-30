@@ -40,7 +40,7 @@ const GuestModal = ({ show, onClose }) => {
 
           {/* Imagen del Personaje */}
           <img
-            src="/img/personajes/starly/starly_gorro.png"
+            src="/img/personajes/starly/starly_gorro.webp"
             className="mx-auto mb-6 w-28 md:w-36 h-28 md:h-36"
             alt="Starly"
           />

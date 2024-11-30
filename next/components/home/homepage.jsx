@@ -17,7 +17,7 @@ export default function Video() {
                         </div>
                         <Link href="/niveles/nivel1">
                             <img
-                                src="/img/personajes/niveles/tierran1.png"
+                                src="/img/personajes/niveles/tierran1.webp"
                                 alt="Icono de Nivel 1, Tierra"
                                 className="hover:shadow-lg w-full transition-transform duration-200 hover:scale-105"
                             />
@@ -29,7 +29,7 @@ export default function Video() {
                         </div>
                         <Link href="/niveles/nivel2">
                             <img
-                                src="/img/personajes/niveles/marten2.png"
+                                src="/img/personajes/niveles/marten2.webp"
                                 alt="Icono de Nivel 2, Marte"
                                 className="hover:shadow-lg w-full transition-transform duration-200 hover:scale-105"
                             />
@@ -41,7 +41,7 @@ export default function Video() {
                         </div>
                         <Link href="/niveles/nivel3">
                             <img
-                                src="/img/personajes/niveles/jupitern3.png"
+                                src="/img/personajes/niveles/jupitern3.webp"
                                 alt="Icono de Nivel 3, Júpiter"
                                 className="hover:shadow-lg w-full transition-transform duration-200 hover:scale-105"
                             />

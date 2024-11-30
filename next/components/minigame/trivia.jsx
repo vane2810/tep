@@ -69,7 +69,7 @@ const Trivia = ({ gameData, config }) => {
           <p className="mb-4 text-2xl">Puntaje Obtenido: <span className="font-semibold">{score} Estrellas</span></p>
           {score >= points_min ? (
             <>
-              <img src="/img/personajes/starly/starly_globos.png" alt="Felicidades" className="mx-auto mb-6 w-40 h-40" />
+              <img src="/img/personajes/starly/starly_globos.webp" alt="Felicidades" className="mx-auto mb-6 w-40 h-40" />
               <p className="mb-6 font-bold text-2xl text-green-600">¡Felicidades, aprobaste el juego!</p>
               <div className="flex justify-center space-x-8 mt-6">
                 <button
@@ -90,7 +90,7 @@ const Trivia = ({ gameData, config }) => {
             </>
           ) : (
             <>
-              <img src="/img/personajes/starly/starly_llorando.png" alt="Inténtalo de nuevo" className="mx-auto mb-6 w-40 h-40" />
+              <img src="/img/personajes/starly/starly_llorando.webp" alt="Inténtalo de nuevo" className="mx-auto mb-6 w-40 h-40" />
               <p className="mb-6 font-bold text-2xl text-red-600">No alcanzaste el puntaje mínimo<br/> Inténtalo de nuevo</p>
               <button
                 onClick={resetGame}

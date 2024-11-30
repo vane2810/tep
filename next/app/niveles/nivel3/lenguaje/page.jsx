@@ -25,7 +25,7 @@ export default function LenguajePage() {
           <Volver href="/niveles/nivel3" img="/img/home/regresar/morado.webp" />
           {/* Bienvenida para Lenguaje */}
           <WelcomeSection
-            personajeImg="/img/personajes/principe/principe.png"
+            personajeImg="/img/personajes/principe/principe.webp"
             personaje="Profesor Principe"
             titulo="¡Lenguaje!"
           />
@@ -34,7 +34,7 @@ export default function LenguajePage() {
           <MapLenguaje
             segmentos={segmentos}
             fondoUrl="/img/materias/lenguaje/fondon3.webp"
-            planetaImg="/img/personajes/niveles/jupitern3.png"
+            planetaImg="/img/personajes/niveles/jupitern3.webp"
             nivel="nivel3"
           />
         </div>

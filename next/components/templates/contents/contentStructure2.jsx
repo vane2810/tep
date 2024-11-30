@@ -37,7 +37,7 @@ const ContentStructure2 = ({ content, playLink }) => {
                 <div className="flex justify-center items-center bg-amber-500 shadow-md p-8 border rounded-lg page">
                     <div className="flex flex-col justify-center items-center border-gray-300 bg-white shadow-lg my-20 p-6 border rounded-lg w-full max-w-xs">
                         <img
-                            src="/img/personajes/starly/starly_explorador.png" // Cambia esto por la ruta correcta de tu imagen
+                            src="/img/personajes/starly/starly_explorador.webp" // Cambia esto por la ruta correcta de tu imagen
                             alt="Portada del Contenido"
                             className="mb-6 w-32 h-32 object-contain"
                         />
@@ -99,7 +99,7 @@ const ContentStructure2 = ({ content, playLink }) => {
                 {/* Última página con el botón "Vamos a Jugar" */}
                 <div className="flex flex-col justify-center items-center bg-white shadow-md p-8 border rounded-lg page">
                     <img
-                        src="/img/personajes/starly/starly_explorador.png" // Cambia esto por la ruta correcta de tu imagen
+                        src="/img/personajes/starly/starly_explorador.webp" // Cambia esto por la ruta correcta de tu imagen
                         alt="Portada del Contenido"
                         className="w-32 h-32 object-contain"
                     />

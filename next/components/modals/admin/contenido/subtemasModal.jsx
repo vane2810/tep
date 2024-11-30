@@ -58,7 +58,7 @@ const SubtemasModal = ({ isOpen, onClose, onSave, newSubtema, onInputChange }) =
             }
         } else {
             // Usar una imagen predeterminada si no se ha seleccionado ninguna imagen
-            imgUrl = "/img/personajes/starly/starly2.png"; // Ruta de la imagen predeterminada
+            imgUrl = "/img/personajes/starly/starly2.webp"; // Ruta de la imagen predeterminada
         }
 
         // Llamar a la función onSave con todos los datos del subtema, incluyendo la URL de la imagen actualizada

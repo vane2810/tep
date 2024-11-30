@@ -4,11 +4,11 @@ export const nivelesData = {
     fondoImg: "",
     fullText: "¡Hola, pequeños genios! Bienvenidos al Nivel 1. ¡Vamos a aprender y a jugar!",
     images: [
-      "/img/personajes/niveles/bienvenida/mundito1.png",
-      "/img/personajes/niveles/bienvenida/mundito2.png",
-      "/img/personajes/niveles/bienvenida/mundito3.png",
+      "/img/personajes/niveles/bienvenida/mundito1.webp",
+      "/img/personajes/niveles/bienvenida/mundito2.webp",
+      "/img/personajes/niveles/bienvenida/mundito3.webp",
     ],
-    planetImg: "/img/personajes/niveles/tierran1.png",
+    planetImg: "/img/personajes/niveles/tierran1.webp",
     planetName: "CELESTIA",
     planetNumber: "I",
     buttonLinks: {
@@ -22,11 +22,11 @@ export const nivelesData = {
     fondoImg: "/img/fondos/lvl2.png", 
     fullText: "¡Hola, pequeños genios! Bienvenidos al Nivel 2. ¡Vamos a aprender y a jugar!",
     images: [
-      "/img/personajes/niveles/bienvenida/munditok1.png",
-      "/img/personajes/niveles/bienvenida/munditok2.png",
-      "/img/personajes/niveles/bienvenida/munditok3.png",
+      "/img/personajes/niveles/bienvenida/munditok1.webp",
+      "/img/personajes/niveles/bienvenida/munditok2.webp",
+      "/img/personajes/niveles/bienvenida/munditok3.webp",
     ],
-    planetImg: "/img/personajes/niveles/marten2.png", 
+    planetImg: "/img/personajes/niveles/marten2.webp", 
     planetName: "KAORI",
     planetNumber: "II",
     buttonLinks: {
@@ -40,11 +40,11 @@ export const nivelesData = {
     fondoImg: "/img/fondos/lvl3.png", 
     fullText: "¡Hola, pequeños genios! Bienvenidos al Nivel 3. ¡Vamos a aprender y a jugar!",
     images: [
-      "/img/personajes/niveles/bienvenida/munditoc1.png",
-      "/img/personajes/niveles/bienvenida/munditoc2.png",
-      "/img/personajes/niveles/bienvenida/munditoc3.png",
+      "/img/personajes/niveles/bienvenida/munditoc1.webp",
+      "/img/personajes/niveles/bienvenida/munditoc2.webp",
+      "/img/personajes/niveles/bienvenida/munditoc3.webp",
     ],
-    planetImg: "/img/personajes/niveles/jupitern3.png", 
+    planetImg: "/img/personajes/niveles/jupitern3.webp", 
     planetName: "COSMO",
     planetNumber: "III",
     buttonLinks: {

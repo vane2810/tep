@@ -15,14 +15,14 @@ const subtemasData = {
     id: 41,
     titulo: "Vocabulario",
     descripcion: "Aprende las reglas esenciales de la ortografía para escribir correctamente y evitar errores comunes. ¡Un paso fundamental para dominar el lenguaje!",
-    imagen: "/img/personajes/griffit/griffit.png",
+    imagen: "/img/personajes/griffit/griffit.webp",
     buttonColor: "morado",
   },
   grammar: {
     id: 42,
     titulo: "Gramática",
     descripcion: "Descubre la estructura del lenguaje con temas de gramática y sintaxis. Aprende a construir oraciones correctamente y a usar las palabras adecuadas en cada contexto.",
-    imagen: "/img/personajes/griffit/griffit.png",
+    imagen: "/img/personajes/griffit/griffit.webp",
     buttonColor: "morado",
   },
 };

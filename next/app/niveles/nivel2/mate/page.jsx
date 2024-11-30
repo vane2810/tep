@@ -17,7 +17,7 @@ export default function MatematicaPage() {
       <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
         <Volver href="/niveles/nivel2" img="/img/home/regresar/amarillo.webp" />
         <WelcomeSection
-          personajeImg="/img/personajes/donkey/donkey.png"
+          personajeImg="/img/personajes/donkey/donkey.webp"
           personaje="Profesor Donkey"
           titulo="¡Matemática!"
         />
@@ -28,7 +28,7 @@ export default function MatematicaPage() {
           segmentos={segmentos}
           nivel="nivel2"
           fondoUrl="/img/materias/mate/selva.webp"
-          planetaImg="/img/personajes/niveles/marten2.png"
+          planetaImg="/img/personajes/niveles/marten2.webp"
         />
       </div>
     </div>

@@ -7,11 +7,11 @@ export default function Nivel1() {
       fondoImg="/img/fondos/fondo2.webp"
       fullText="  ¡Hola, pequeños genios! Bienvenidos al Nivel 1. ¡Vamos a aprender y a jugar!"
       images={[
-        "/img/personajes/niveles/bienvenida/mundito1.png",
-        "/img/personajes/niveles/bienvenida/mundito2.png",
-        "/img/personajes/niveles/bienvenida/mundito3.png",
+        "/img/personajes/niveles/bienvenida/mundito1.webp",
+        "/img/personajes/niveles/bienvenida/mundito2.webp",
+        "/img/personajes/niveles/bienvenida/mundito3.webp",
       ]}
-      planetImg="/img/personajes/niveles/tierran1.png"
+      planetImg="/img/personajes/niveles/tierran1.webp"
       planetName="CELESTIA"
       planetNumber="I"
       buttonLinks={{

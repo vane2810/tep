@@ -7,11 +7,11 @@ export default function Nivel2() {
       fondoImg="/img/fondos/cueva_marte.webp"
       fullText="  ¡Hola, pequeños genios! Bienvenidos al Nivel 2. ¡Vamos a aprender y a jugar!"
       images={[
-        "/img/personajes/niveles/bienvenida/munditok2.png",
-        "/img/personajes/niveles/bienvenida/munditok2.png",
-        "/img/personajes/niveles/bienvenida/munditok3.png",
+        "/img/personajes/niveles/bienvenida/munditok1.webp",
+        "/img/personajes/niveles/bienvenida/munditok2.webp",
+        "/img/personajes/niveles/bienvenida/munditok3.webp",
       ]}
-      planetImg="/img/personajes/niveles/marten2.png"
+      planetImg="/img/personajes/niveles/marten2.webp"
       planetName="KAORI"
       planetNumber="II"
       buttonLinks={{

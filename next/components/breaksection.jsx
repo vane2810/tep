@@ -12,29 +12,29 @@ const BreakSection = () => {
       {/* Fondo de decoración espacial responsivo */}
       <div className="z-0 absolute inset-0 pointer-events-none">
         <img
-          src="/img/receso/fondor4.png"
+          src="/img/receso/fondor4.webp"
           alt="Fondo Espacial"
           className="opacity-50 w-full h-full object-cover"
         />
         
         {/* Imágenes decorativas en las esquinas */}
         <img
-          src="/img/receso/planet1.png"
+          src="/img/receso/planet1.webp"
           alt="Planeta 1"
           className="top-2 left-2 absolute w-10 sm:w-12 md:w-16 lg:w-20"
         />
         <img
-          src="/img/receso/planet2.png"
+          src="/img/receso/planet2.webp"
           alt="Planeta 2"
           className="top-2 right-2 absolute w-10 sm:w-12 md:w-16 lg:w-20"
         />
         <img
-          src="/img/receso/libro.png"
+          src="/img/receso/libro.webp"
           alt="Libro"
           className="bottom-2 left-2 absolute w-10 sm:w-12 md:w-16 lg:w-20"
         />
         <img
-          src="/img/receso/planet3.png"
+          src="/img/receso/planet3.webp"
           alt="Planeta 3"
           className="right-2 bottom-2 absolute w-10 sm:w-12 md:w-16 lg:w-20"
         />
@@ -50,7 +50,7 @@ const BreakSection = () => {
         
         <header className="flex flex-col items-center mb-6 sm:mb-8">
           <img
-            src="/img/receso/estrella.png"
+            src="/img/receso/estrella.webp"
             alt="Estrella"
             className="mb-4 w-12 sm:w-16 md:w-20 lg:w-24"
           />
@@ -65,14 +65,14 @@ const BreakSection = () => {
         {/* Tarjetas de actividades en formato de cuadrícula ajustado */}
         <div className="gap-4 sm:gap-6 md:gap-8 grid grid-cols-2 wonder">
           <ActivityCard
-            imgSrc="/img/receso/juegos.png"
+            imgSrc="/img/receso/juegos.webp"
             title="Juegos"
             description="Disfruta de juegos interactivos."
             buttonText="Jugar Ahora"
             linkUrl="/receso/juegos"
           />
           <ActivityCard
-            imgSrc="/img/receso/videos.png"
+            imgSrc="/img/receso/videos.webp"
             title="Videos"
             description="Mira videos divertidos."
             buttonText="Ver Videos"
@@ -80,7 +80,7 @@ const BreakSection = () => {
           />
           <div className="flex justify-center col-span-2">
             <ActivityCard
-              imgSrc="/img/receso/relajacion.png"
+              imgSrc="/img/receso/relajacion.webp"
               title="Relajación"
               description="Tómate un momento para relajarte."
               buttonText="Relajarse"

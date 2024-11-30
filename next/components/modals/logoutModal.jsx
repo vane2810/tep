@@ -18,7 +18,7 @@ const LogoutModal = ({ show, onClose, onConfirm }) => {
 
         {/* Imagen en el centro del modal */}
         <div className="flex justify-center mb-6">
-          <img src="/img/personajes/starly/starly_ve.png" alt="Cerrar sesión" className="w-38 h-32" />
+          <img src="/img/personajes/starly/starly_ve.webp" alt="Cerrar sesión" className="w-38 h-32" />
         </div>
 
         <p className="mb-6 text-center">

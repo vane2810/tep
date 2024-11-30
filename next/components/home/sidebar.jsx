@@ -49,7 +49,7 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
           {/* Inicio */}
           <li className="py-2">
             <Link href={levelLink} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
-              <img src="/img/personajes/starly/starly.png" alt="Icono de Inicio" className="w-5 h-5" />
+              <img src="/img/personajes/starly/starly.webp" alt="Icono de Inicio" className="w-5 h-5" />
               <span>Inicio</span>
             </Link>
           </li>
@@ -73,12 +73,12 @@ export default function Sidebar({ isOpen, onClose, session, onShowGuestModal }) 
           <li className="py-2">
             {isLoggedIn ? (
               <Link href="/receso" className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
-                <img src="/img/receso/estrella.png" alt="Icono de Receso" className="w-5 h-5" />
+                <img src="/img/receso/estrella.webp" alt="Icono de Receso" className="w-5 h-5" />
                 <span>Receso</span>
               </Link>
             ) : (
               <button onClick={onShowGuestModal} className="flex items-center space-x-2 hover:scale-105 focus:scale-105 hover:bg-[#F06292] px-3 py-2 rounded w-full text-black transition-transform duration-200 rosado">
-                <img src="/img/receso/estrella.png" alt="Icono de Receso" className="w-5 h-5" />
+                <img src="/img/receso/estrella.webp" alt="Icono de Receso" className="w-5 h-5" />
                 <span>Receso</span>
               </button>
             )}

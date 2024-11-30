@@ -7,11 +7,11 @@ export default function Nivel3() {
       fondoImg="/img/fondos/montana.webp"
       fullText="  ¡Hola, pequeños genios! Bienvenidos al Nivel 3. ¡Vamos a aprender y a jugar!"
       images={[
-        "/img/personajes/niveles/bienvenida/munditoc3.png",
-        "/img/personajes/niveles/bienvenida/munditoc3.png",
-        "/img/personajes/niveles/bienvenida/munditoc3.png",
+        "/img/personajes/niveles/bienvenida/munditoc3.webp",
+        "/img/personajes/niveles/bienvenida/munditoc3.webp",
+        "/img/personajes/niveles/bienvenida/munditoc3.webp",
       ]}
-      planetImg="/img/personajes/niveles/jupitern3.png"
+      planetImg="/img/personajes/niveles/jupitern3.webp"
       planetName="COSMO"
       planetNumber="III"
       buttonLinks={{

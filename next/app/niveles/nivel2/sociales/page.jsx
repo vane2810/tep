@@ -57,7 +57,7 @@ export default function SocialesPage() {
                     {/* Bienvenida para Sociales */}
                     <WelcomeSection
                         volverUrl="/niveles/nivel2"
-                        personajeImg="/img/personajes/burbuja/burbuja.png"
+                        personajeImg="/img/personajes/burbuja/burbuja.webp"
                         personajeAlt="Burbuja"
                         titulo="¡SOCIALES!"
                         mensajeBienvenida="¡Bienvenidos a mi clase, soy la Profesora Burbuja y te guiaré en esta aventura!"
