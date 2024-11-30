@@ -9,11 +9,11 @@ import Volver from "@/components/elements/botonVolver";
 export default function LenguajePage() {
   // Configuración de los segmentos principales para cada subtema de Lenguaje
   const segmentos = [
-    { id: "ortografia", name: "Ortografia", imgSrc: "/img/materias/lenguaje/ortografia.png", alt: "Ortografía" },
-    { id: "gramatica", name: "Gramática", imgSrc: "/img/materias/lenguaje/gramatica.png", alt: "Gramática" },
-    { id: "generos_literarios", name: "Lectura", imgSrc: "/img/materias/lenguaje/generos.png", alt: "Lectura" },
-    { id: "lectura", name: "Escritura", imgSrc: "/img/materias/lenguaje/lectura.png", alt: "Escritura" },
-    { id: "multimedia", name: "Multimedia", imgSrc: "/img/materias/lenguaje/multimedia.png", alt: "Multimedia" },
+    { id: "ortografia", name: "Ortografia", imgSrc: "/img/materias/lenguaje/ortografia.webp", alt: "Ortografía" },
+    { id: "gramatica", name: "Gramática", imgSrc: "/img/materias/lenguaje/gramatica.webp", alt: "Gramática" },
+    { id: "generos_literarios", name: "Lectura", imgSrc: "/img/materias/lenguaje/generos.webp", alt: "Lectura" },
+    { id: "lectura", name: "Escritura", imgSrc: "/img/materias/lenguaje/lectura.webp", alt: "Escritura" },
+    { id: "multimedia", name: "Multimedia", imgSrc: "/img/materias/lenguaje/multimedia.webp", alt: "Multimedia" },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function LenguajePage() {
           {/* Mapa de subtemas para Lenguaje */}
           <MapLenguaje
             segmentos={segmentos}
-            fondoUrl="/img/materias/lenguaje/fondon2.jpg"
+            fondoUrl="/img/materias/lenguaje/fondon2.webp"
             planetaImg="/img/personajes/niveles/marten2.png"
             nivel="nivel2"
           />
