@@ -53,7 +53,7 @@ export default function SocialesPage() {
                     {/* Bienvenida para Sociales */}
                     <WelcomeSection
                         volverUrl="/niveles/nivel3"
-                        personajeImg="/img/personajes/burbuja/burbuja.png"
+                        personajeImg="/img/personajes/burbuja/burbuja.webp"
                         personajeAlt="Burbuja"
                         titulo="¡SOCIALES!"
                         mensajeBienvenida="¡Bienvenidos a mi clase, soy la Profesora Burbuja y te guiaré en esta aventura!"
@@ -66,7 +66,7 @@ export default function SocialesPage() {
                         areas={area}
                         fondoSize="contain"
                         medida="w-full h-auto"
-                        planetaImg="/img/personajes/niveles/jupitern3.png"
+                        planetaImg="/img/personajes/niveles/jupitern3.webp"
                         progreso={progreso}  // Pasamos el progreso para manejar el bloqueo de niveles
                     />
                 </div>

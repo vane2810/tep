@@ -8,9 +8,9 @@ const NivelModal = ({ show, onClose, onLevelSelected }) => {
   if (!show) return null;
 
   const levels = [
-    { id: '1', color: 'bg-purple-600', hoverColor: 'hover:bg-purple-500', imgSrc: '/img/personajes/niveles/tierran1.png', text: 'Nivel 1', grade: '4° Grado', confirmColor: 'bg-purple-600 hover:bg-purple-500' },
-    { id: '2', color: 'bg-indigo-600', hoverColor: 'hover:bg-indigo-500', imgSrc: '/img/personajes/niveles/marten2.png', text: 'Nivel 2', grade: '5° Grado', confirmColor: 'bg-indigo-600 hover:bg-indigo-500' },
-    { id: '3', color: 'bg-teal-600', hoverColor: 'hover:bg-teal-500', imgSrc: '/img/personajes/niveles/jupitern3.png', text: 'Nivel 3', grade: '6° Grado', confirmColor: 'bg-teal-600 hover:bg-teal-500' }
+    { id: '1', color: 'bg-purple-600', hoverColor: 'hover:bg-purple-500', imgSrc: '/img/personajes/niveles/tierran1.webp', text: 'Nivel 1', grade: '4° Grado', confirmColor: 'bg-purple-600 hover:bg-purple-500' },
+    { id: '2', color: 'bg-indigo-600', hoverColor: 'hover:bg-indigo-500', imgSrc: '/img/personajes/niveles/marten2.webp', text: 'Nivel 2', grade: '5° Grado', confirmColor: 'bg-indigo-600 hover:bg-indigo-500' },
+    { id: '3', color: 'bg-teal-600', hoverColor: 'hover:bg-teal-500', imgSrc: '/img/personajes/niveles/jupitern3.webp', text: 'Nivel 3', grade: '6° Grado', confirmColor: 'bg-teal-600 hover:bg-teal-500' }
   ];
 
   const handleSelectLevel = (levelId) => {

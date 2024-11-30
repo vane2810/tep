@@ -8,7 +8,7 @@ export default function RegistroModal({ onClose, message, isError }) {
   const title = isError ? 'Error al registrar:' : '¡Registro exitoso!';
   const icon = isError ? <FiAlertCircle className="mr-2" size={24} /> : <FiCheckCircle className="mr-2" size={24} />;
   const titleColor = isError ? 'text-red-600' : 'text-green-600';
-  const imageSrc = isError ? '/img/personajes/starly/starly_triste.png' : '/img/personajes/starly/starly2.png';
+  const imageSrc = isError ? '/img/personajes/starly/starly_triste.webp' : '/img/personajes/starly/starly2.webp';
   const buttonColor = isError ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600';
 
   return (

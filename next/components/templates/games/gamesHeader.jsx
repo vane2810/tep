@@ -35,7 +35,7 @@ const GameHeader = ({ title, imageSrc }) => {
                     ¡Comienza a jugar y recolecta estrellas mientras te diviertes!
                 </h3>
                 <img
-                    src="/img/personajes/starly/starly_corona.png"
+                    src="/img/personajes/starly/starly_corona.webp"
                     alt="Juego"
                     className="mt-4 md:mt-0 md:ml-8 w-24 md:w-32 h-auto"
                 />

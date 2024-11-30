@@ -86,8 +86,8 @@ export default function NivelTemplate({
 
       <section className="flex flex-wrap md:flex-nowrap justify-center items-center space-y-6 md:space-y-0 mt-2 p-6 rounded-lg w-full max-w-5xl overflow-x-auto">
         <div className="flex flex-col items-center space-y-6 md:space-y-6 md:mr-6">
-          <ButtonLink href={buttonLinks.mate} label="Matemáticas" imgSrc="/img/personajes/donkey/donkey.png" alt="Matemática" />
-          <ButtonLink href={buttonLinks.lenguaje} label="Lenguaje" imgSrc="/img/personajes/principe/principe.png" alt="Lenguaje" />
+          <ButtonLink href={buttonLinks.mate} label="Matemáticas" imgSrc="/img/personajes/donkey/donkey.webp" alt="Matemática" />
+          <ButtonLink href={buttonLinks.lenguaje} label="Lenguaje" imgSrc="/img/personajes/principe/principe.webp" alt="Lenguaje" />
         </div>
 
         <div className="flex flex-col justify-center items-center mx-6">
@@ -128,8 +128,8 @@ export default function NivelTemplate({
         </div>
 
         <div className="flex flex-col items-center space-y-6 md:space-y-6 md:ml-6">
-          <ButtonLink href={buttonLinks.sociales} label="Sociales" imgSrc="/img/personajes/burbuja/burbujapng.png" alt="Sociales" />
-          <ButtonLink href={buttonLinks.ingles} label="Inglés" imgSrc="/img/personajes/griffit/griffit.png" alt="Inglés" />
+          <ButtonLink href={buttonLinks.sociales} label="Sociales" imgSrc="/img/personajes/burbuja/burbujapng.webp" alt="Sociales" />
+          <ButtonLink href={buttonLinks.ingles} label="Inglés" imgSrc="/img/personajes/griffit/griffit.webp" alt="Inglés" />
         </div>
       </section>
     </main>

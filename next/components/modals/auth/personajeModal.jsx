@@ -8,18 +8,18 @@ const PersonajeModal = ({ show, onCharacterSelected }) => {
   if (!show) return null;
 
   const characters = [
-    { id: 1, name: 'Peppa', imgSrc: '/img/personajes/estudiante/peppa.png' },
-    { id: 2, name: 'Matatabi', imgSrc: '/img/personajes/estudiante/matatabi.png' },
-    { id: 3, name: 'Maomao', imgSrc: '/img/personajes/estudiante/maomao.png' },
-    { id: 4, name: 'Estrella', imgSrc: '/img/personajes/estudiante/estrella.png' },
-    { id: 5, name: 'Kurama', imgSrc: '/img/personajes/estudiante/kurama.png' },
-    { id: 6, name: 'Ternura', imgSrc: '/img/personajes/estudiante/ternura.png' },
-    { id: 7, name: 'Lala', imgSrc: '/img/personajes/estudiante/lala.png' },
-    { id: 8, name: 'Leen', imgSrc: '/img/personajes/estudiante/leen.png' },
-    { id: 9, name: 'Yarichi', imgSrc: '/img/personajes/estudiante/yarichi.png' },
-    { id: 10, name: 'Tify', imgSrc: '/img/personajes/estudiante/tify.png' },
-    { id: 11, name: 'Fifi', imgSrc: '/img/personajes/estudiante/fifi.png' },
-    { id: 12, name: 'Pandita', imgSrc: '/img/personajes/estudiante/pandita.png' }
+    { id: 1, name: 'Peppa', imgSrc: '/img/personajes/estudiante/peppa.webp' },
+    { id: 2, name: 'Matatabi', imgSrc: '/img/personajes/estudiante/matatabi.webp' },
+    { id: 3, name: 'Maomao', imgSrc: '/img/personajes/estudiante/maomao.webp' },
+    { id: 4, name: 'Estrella', imgSrc: '/img/personajes/estudiante/estrella.webp' },
+    { id: 5, name: 'Kurama', imgSrc: '/img/personajes/estudiante/kurama.webp' },
+    { id: 6, name: 'Ternura', imgSrc: '/img/personajes/estudiante/ternura.webp' },
+    { id: 7, name: 'Lala', imgSrc: '/img/personajes/estudiante/lala.webp' },
+    { id: 8, name: 'Leen', imgSrc: '/img/personajes/estudiante/leen.webp' },
+    { id: 9, name: 'Yarichi', imgSrc: '/img/personajes/estudiante/yarichi.webp' },
+    { id: 10, name: 'Tify', imgSrc: '/img/personajes/estudiante/tify.webp' },
+    { id: 11, name: 'Fifi', imgSrc: '/img/personajes/estudiante/fifi.webp' },
+    { id: 12, name: 'Pandita', imgSrc: '/img/personajes/estudiante/pandita.webp' }
   ];
 
   const handleSelectCharacter = (characterId) => {

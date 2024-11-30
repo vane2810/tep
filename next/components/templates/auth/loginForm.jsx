@@ -15,9 +15,9 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
 
   // Determina qué imagen mostrar según el campo actualmente enfocado
   const getStarlyImage = () => {
-    if (focusedField === "password") return '/img/personajes/starly/starly_contra.png';
-    if (focusedField === "email") return '/img/personajes/starly/starly_correo.png';
-    return '/img/personajes/starly/starly2.png'; 
+    if (focusedField === "password") return '/img/personajes/starly/starly_contra.webp';
+    if (focusedField === "email") return '/img/personajes/starly/starly_correo.webp';
+    return '/img/personajes/starly/starly2.webp'; 
   };
 
   const togglePasswordVisibility = () => {

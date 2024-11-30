@@ -71,7 +71,7 @@ const IntroGame3 = () => {
       <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
         <h1 className="ml-10 story text-2xl font-bold text-center">Bienvenido a Juegos Introductorios</h1>
         <img
-          src="/img/personajes/starly/starly.png"
+          src="/img/personajes/starly/starly.webp"
           alt="Starly"
           className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
         />

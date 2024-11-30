@@ -30,7 +30,7 @@ export default function SocialesPage() {
                 <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
                     {/* Bienvenida para Sociales */}
                     <WelcomeSection
-                        personajeImg="/img/personajes/burbuja/burbuja.png"
+                        personajeImg="/img/personajes/burbuja/burbuja.webp"
                         personaje="Burbuja"
                         titulo="¡SOCIALES!"
                     />
@@ -42,7 +42,7 @@ export default function SocialesPage() {
                         areas={area}
                         fondoSize="contain"
                         medida="w-full h-auto"
-                        planetaImg="/img/personajes/niveles/tierran1.png"
+                        planetaImg="/img/personajes/niveles/tierran1.webp"
                     />
                 </div>
             </div>

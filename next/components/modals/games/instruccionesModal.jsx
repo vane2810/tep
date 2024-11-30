@@ -95,7 +95,7 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
                 {/* Imagen decorativa */}
                 <div className="flex justify-center mb-4">
                     <img
-                        src="/img/personajes/starly/starly_corona.png"
+                        src="/img/personajes/starly/starly_corona.webp"
                         alt="Instrucciones"
                         className="w-24 h-auto"
                     />

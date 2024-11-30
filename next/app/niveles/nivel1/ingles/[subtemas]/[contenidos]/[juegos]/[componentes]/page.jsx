@@ -213,7 +213,7 @@ const GamePage = () => {
             )}
 
             <ComponentHeader
-                imageSrc="/img/personajes/donkey/donkey.png"
+                imageSrc="/img/personajes/donkey/donkey.webp"
                 onInstructionsClick={handleOpenInstruccionesModal}
             />
 

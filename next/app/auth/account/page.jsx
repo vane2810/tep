@@ -22,7 +22,7 @@ const AccountSettings = () => {
         apellido: "Pérez",
         nivel: "Avanzado",
         rol: "Estudiante",
-        fotoPerfil: "/img/personajes/estudiante/maomao.png"
+        fotoPerfil: "/img/personajes/estudiante/maomao.webp"
     };
 
     // Función para manejar el cambio de correo electrónico
@@ -55,7 +55,7 @@ const AccountSettings = () => {
                 {/* Título general de la sección de configuración */}
                 <div className="flex flex-col items-center mt-2 mb-4 text-center">
                     <h2 className="font-bold text-3xl text-purple-800 sm:text-4xl">¡Bienvenido a tu Centro de Configuración!</h2>
-                    <img src="/img/personajes/starly/starly_explorador.png" alt="Bienvenida" className="mt-4 w-28 h-28 animate-float" />
+                    <img src="/img/personajes/starly/starly_explorador.webp" alt="Bienvenida" className="mt-4 w-28 h-28 animate-float" />
                 </div>
                 {/* Menú de navegación (pestañas) y contenido */}
                 <div className="flex md:flex-row flex-col mt-2 w-full max-w-5xl">

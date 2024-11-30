@@ -8,7 +8,7 @@ const ContentHeader = ({ title, imgSrc }) => {
       {/* Imagen del subtema a la izquierda */}
       <div className="flex justify-center items-center w-1/3">
         <img
-          src={imgSrc || "/img/personajes/starly/starly2.png"} // Imagen predeterminada si no hay ninguna
+          src={imgSrc || "/img/personajes/starly/starly2.webp"} // Imagen predeterminada si no hay ninguna
           alt={title}
           className="rounded-lg w-full max-w-xs h-auto object-cover"
         />

@@ -23,7 +23,7 @@ export default function InglesPage() {
           <Volver href="/niveles/nivel2" img="/img/home/regresar/naranja.webp" />
           {/* Bienvenida para ingles */}
           <WelcomeSection
-            personajeImg="/img/personajes/griffit/griffit.png"
+            personajeImg="/img/personajes/griffit/griffit.webp"
             personaje="Griffit"
             titulo="¡Inglés!"
           />
@@ -32,7 +32,7 @@ export default function InglesPage() {
           <MapIngles
             segmentos={segmentos}
             fondoUrl="/img/materias/ingles/fondon2.webp"
-            planetaImg="/img/personajes/niveles/marten2.png"
+            planetaImg="/img/personajes/niveles/marten2.webp"
             nivel="nivel2"
           />
         </div>
