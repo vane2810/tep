@@ -1,254 +1,244 @@
-import React, { useState, useEffect } from 'react';
-import { FiSave, FiXCircle } from 'react-icons/fi';
-import PersonajeModal from '@/components/modals/auth/personajeModal';
-import NivelModal from '@/components/modals/auth/nivelModal';
-import RolModal from '@/components/modals/auth/rolesModal';
+"use client";
+import React, { useState } from "react";
 
-export default function ModalAgregarUsuario({ onClose }) {
-  // Inicializar los valores para agregar un nuevo usuario
+export default function RegisterModal({ onClose }) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    role: "",
+    levelId: "",
+    characterId: "",
   });
-  const [role, setRole] = useState('');
-  const [characterId, setCharacterId] = useState('');
-  const [levelId, setLevelId] = useState('');
+
   const [userId, setUserId] = useState(null);
-  const [mensaje, setMensaje] = useState('');
-  const [mostrarMinimodal, setMostrarMinimodal] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [errors, setErrors] = useState({});
 
-  // Validaciones de campos
-  const [nameError, setNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [confirmPasswordError, setConfirmPasswordError] = useState('');
-
-  // Estados para abrir los modales de selección
-  const [mostrarModalRol, setMostrarModalRol] = useState(false);
-  const [mostrarModalPersonaje, setMostrarModalPersonaje] = useState(false);
-  const [mostrarModalNivel, setMostrarModalNivel] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
-
-  const validator = require('validator');
-
-  const validateName = (name) => {
-    const regex = /^[a-zA-Z\s]+$/;
-    setNameError(!regex.test(name) ? 'El nombre solo puede contener letras.' : '');
-  };
-
-  const validateEmail = (email) => {
-    const MAX_LENGTH = 254;
-    if (email.length > MAX_LENGTH) {
-      setEmailError('El correo es demasiado largo.');
-      return;
-    }
-    setEmailError(!validator.isEmail(email) ? 'Formato de correo inválido.' : '');
-  };
-
-  const validatePassword = (password) => {
-    setPasswordError(password.length < 8 ? 'La contraseña debe tener al menos 8 caracteres.' : '');
-  };
-
-  const validateConfirmPassword = (confirmPassword) => {
-    setConfirmPasswordError(confirmPassword !== formData.password ? 'Las contraseñas no coinciden.' : '');
-  };
-
-  // Manejo de cambios en los campos de texto
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-
-    // Validación dinámica de los campos
-    switch (name) {
-      case 'name':
-        validateName(value);
-        break;
-      case 'email':
-        validateEmail(value);
-        break;
-      case 'password':
-        validatePassword(value);
-        break;
-      case 'confirmPassword':
-        validateConfirmPassword(value);
-        break;
-      default:
-        break;
-    }
   };
 
-  const handleSave = async () => {
-    validateName(formData.name);
-    validateEmail(formData.email);
-    validatePassword(formData.password);
-    validateConfirmPassword(formData.confirmPassword);
+  const validateForm = () => {
+    const newErrors = {};
 
-    if (nameError || emailError || passwordError || confirmPasswordError) {
-      setMensaje('Por favor corrija los errores antes de continuar.');
-      setMostrarMinimodal(true);
-      return;
-    }
+    if (!formData.name) newErrors.name = "El nombre es obligatorio.";
+    if (!formData.email) newErrors.email = "El correo electrónico es obligatorio.";
+    if (!formData.password) newErrors.password = "La contraseña es obligatoria.";
+    if (formData.password !== formData.confirmPassword)
+      newErrors.confirmPassword = "Las contraseñas no coinciden.";
+    if (!formData.role) newErrors.role = "Debes seleccionar un rol.";
+    if (!formData.levelId && formData.role === "estudiante")
+      newErrors.levelId = "Debes seleccionar un nivel.";
+    if (!formData.characterId)
+      newErrors.characterId = "Debes seleccionar un personaje.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
 
     try {
-      // Registro inicial del usuario
-      const res = await fetch(`http://localhost:3001/api/auth/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      const registerRes = await fetch("http://localhost:3001/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          confirmPassword: formData.confirmPassword,
+        }),
       });
 
-      const data = await res.json();
-      if (res.ok) {
-        setUserId(data.userId); // Guardar el ID del usuario registrado
-        setMostrarModalRol(true); // Abrir modal de selección de rol
-      } else {
-        setMensaje(data.error || 'No se pudo crear el usuario');
-        setMostrarMinimodal(true);
+      const registerData = await registerRes.json();
+      if (!registerRes.ok) throw new Error(registerData.error);
+
+      setUserId(registerData.userId);
+
+      const roleRes = await fetch("http://localhost:3001/api/auth/role", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: registerData.userId,
+          role: formData.role,
+        }),
+      });
+
+      const roleData = await roleRes.json();
+      if (!roleRes.ok) throw new Error(roleData.error);
+
+      if (formData.role === "estudiante") {
+        const levelRes = await fetch("http://localhost:3001/api/auth/level", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: registerData.userId,
+            levelId: formData.levelId,
+          }),
+        });
+
+        const levelData = await levelRes.json();
+        if (!levelRes.ok) throw new Error(levelData.error);
       }
+
+      const characterRes = await fetch(
+        "http://localhost:3001/api/auth/character",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: registerData.userId,
+            characterId: formData.characterId,
+          }),
+        }
+      );
+
+      const characterData = await characterRes.json();
+      if (!characterRes.ok) throw new Error(characterData.error);
+
+      setMensaje("Registro completado exitosamente.");
     } catch (error) {
-      console.error('Error al crear usuario:', error);
-      setMensaje('Error al conectar con el servidor');
-      setMostrarMinimodal(true);
+      console.error("Error en el registro:", error);
+      setMensaje(error.message);
     }
-  };
-
-  // Definir las funciones de selección para los modales
-  const handleRoleSelected = (selectedRole) => {
-    setRole(selectedRole);
-    setMostrarModalRol(false);
-    if (selectedRole === 'estudiante') {
-      setMostrarModalNivel(true);
-    } else {
-      setMostrarModalPersonaje(true);
-    }
-  };
-
-  const handleLevelSelected = (selectedLevel) => {
-    setLevelId(selectedLevel);
-    setMostrarModalNivel(false);
-    setMostrarModalPersonaje(true);
-  };
-
-  const handleCharacterSelected = (selectedCharacter) => {
-    setCharacterId(selectedCharacter);
-    setMostrarModalPersonaje(false);
   };
 
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-300">
-      <div className="relative z-60 bg-white shadow-2xl p-8 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
-        <h2 className="mb-6 font-bold text-2xl text-gray-800">Agregar Nuevo Usuario</h2>
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-lg">
+        <h2 className="mb-4 font-bold text-2xl text-center">Registro</h2>
 
-        {/* Minimodal de mensaje */}
-        {mostrarMinimodal && (
-          <div className="z-70 fixed inset-0 flex justify-center items-center transition-opacity duration-300">
-            <div className={`z-70 bg-white p-6 rounded-lg shadow-xl border ${mensaje.startsWith('Error') ? 'border-red-500' : 'border-green-500'} text-center`}>
-              <p className={`${mensaje.startsWith('Error') ? 'text-red-500' : 'text-green-500'} font-semibold text-lg`}>
-                {mensaje}
-              </p>
-            </div>
+        {mensaje && <p className="mb-4 text-green-500">{mensaje}</p>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block">Nombre:</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="p-2 border w-full"
+            />
+            {errors.name && <p className="text-red-500">{errors.name}</p>}
           </div>
-        )}
 
-        <div className="mb-6">
-          <label className="block mb-2 font-semibold text-gray-700">Nombre</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          {nameError && <p className="text-red-500">{nameError}</p>}
-        </div>
-        <div className="mb-6">
-          <label className="block mb-2 font-semibold text-gray-700">Correo Electrónico</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          {emailError && <p className="text-red-500">{emailError}</p>}
-        </div>
-        <div className="mb-6">
-          <label className="block mb-2 font-semibold text-gray-700">Contraseña</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          {passwordError && <p className="text-red-500">{passwordError}</p>}
-        </div>
-        <div className="mb-6">
-          <label className="block mb-2 font-semibold text-gray-700">Confirmar Contraseña</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            className="border-gray-300 p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          {confirmPasswordError && <p className="text-red-500">{confirmPasswordError}</p>}
-        </div>
+          <div className="mb-4">
+            <label className="block">Correo Electrónico:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="p-2 border w-full"
+            />
+            {errors.email && <p className="text-red-500">{errors.email}</p>}
+          </div>
 
-        <div className="flex justify-end gap-4 mt-8">
-          <button
-            className="flex items-center gap-2 bg-gray-300 hover:bg-gray-400 px-5 py-3 rounded font-semibold text-gray-700 transform transition-transform hover:-translate-y-1 duration-200"
-            onClick={onClose}
-          >
-            <FiXCircle /> Cancelar
-          </button>
-          <button
-            className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 px-5 py-3 rounded font-semibold text-white transform transition-transform hover:-translate-y-1 duration-200"
-            onClick={handleSave}
-          >
-            <FiSave /> Guardar
-          </button>
-        </div>
+          <div className="mb-4">
+            <label className="block">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="p-2 border w-full"
+            />
+            {errors.password && <p className="text-red-500">{errors.password}</p>}
+          </div>
 
-        {/* Modal de selección de Rol */}
-        {mostrarModalRol && (
-          <RolModal
-            show={mostrarModalRol}
-            onClose={() => setMostrarModalRol(false)}
-            onRoleSelected={handleRoleSelected}
-          />
-        )}
+          <div className="mb-4">
+            <label className="block">Confirmar Contraseña:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              className="p-2 border w-full"
+            />
+            {errors.confirmPassword && (
+              <p className="text-red-500">{errors.confirmPassword}</p>
+            )}
+          </div>
 
-        {/* Modal de selección de Nivel */}
-        {mostrarModalNivel && (
-          <NivelModal
-            show={mostrarModalNivel}
-            onClose={() => setMostrarModalNivel(false)}
-            onLevelSelected={handleLevelSelected}
-          />
-        )}
+          <div className="mb-4">
+            <label className="block">Rol:</label>
+            <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className="p-2 border w-full"
+            >
+              <option value="">Seleccione un rol</option>
+              <option value="estudiante">Estudiante</option>
+              <option value="docente">Docente</option>
+              <option value="padre">Tutor</option>
+            </select>
+            {errors.role && <p className="text-red-500">{errors.role}</p>}
+          </div>
 
-        {/* Modal de selección de Personaje */}
-        {mostrarModalPersonaje && (
-          <PersonajeModal
-            show={mostrarModalPersonaje}
-            onClose={() => setMostrarModalPersonaje(false)}
-            onCharacterSelected={handleCharacterSelected}
-          />
-        )}
+          {formData.role === "estudiante" && (
+            <div className="mb-4">
+              <label className="block">Nivel:</label>
+              <select
+                name="levelId"
+                value={formData.levelId}
+                onChange={handleChange}
+                className="p-2 border w-full"
+              >
+                <option value="">Seleccione un nivel</option>
+                <option value="1">Nivel 1 | 4° Grado</option>
+                <option value="2">Nivel 2 | 5° Grado</option>
+                <option value="3">Nivel 3 | 6° Grado</option>
+              </select>
+              {errors.levelId && <p className="text-red-500">{errors.levelId}</p>}
+            </div>
+          )}
+
+          <div className="mb-4">
+            <label className="block">Personaje:</label>
+            <select
+              name="characterId"
+              value={formData.characterId}
+              onChange={handleChange}
+              className="p-2 border w-full"
+            >
+              <option value="">Seleccione un personaje</option>
+              <option value="1">Personaje 1</option>
+              <option value="2">Personaje 2</option>
+              <option value="3">Personaje 3</option>
+            </select>
+            {errors.characterId && (
+              <p className="text-red-500">{errors.characterId}</p>
+            )}
+          </div>
+
+          <div className="flex justify-between mt-4">
+            <button
+              type="button"
+              onClick={onClose}
+              className="bg-gray-500 px-4 py-2 rounded text-white"
+            >
+              Cancelar
+            </button>
+
+            <button
+              type="submit"
+              className="bg-blue-500 px-4 py-2 rounded text-white"
+            >
+              Registrar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

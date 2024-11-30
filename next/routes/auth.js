@@ -31,6 +31,7 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       name,
+      lastname: null,
       email,
       password: hashedPassword,
       role: null,
@@ -122,10 +123,6 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
-
-
-
-
 
 
 router.post('/logout', (req, res) => {

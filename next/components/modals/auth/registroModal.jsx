@@ -33,7 +33,7 @@ export default function RegistroModal({ onClose, message, isError }) {
           </>
         ) : (
           <Link href="/auth/login">
-            <button className={`${buttonColor} px-4 py-2 rounded-lg text-white transition duration-200`}>
+            <button className={`${buttonColor} px-4 py-2 rounded-full text-white transition duration-200`}>
               Continuar
             </button>
           </Link>

@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 // Creación de usuario | Admin
 router.post('/', async (req, res) => {
-  const { name, email, password, role, characterId, levelId } = req.body;
+  const { name, lastname, email, password, role, characterId, levelId } = req.body;
 
   try {
     const existingUser = await User.findOne({ where: { email } });
@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
 
     const newUser = await User.create({
       name,
+      lastname,
       email,
       password,
       role,
@@ -68,7 +69,7 @@ router.get('/:id', async (req, res) => {
 // Editar datos de usuario por id
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { name, email, role, levelId, characterId } = req.body;
+  const { name, lastname, email, role, levelId, characterId } = req.body;
 
   try {
     const user = await User.findByPk(id);
@@ -76,7 +77,7 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    await user.update({ name, email, role, levelId, characterId });
+    await user.update({ name, lastname, email, role, levelId, characterId });
 
     const updatedUser = await User.findByPk(id, {
       include: [

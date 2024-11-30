@@ -9,8 +9,8 @@ const RolModal = ({ show, onClose, onRoleSelected }) => {
 
   const roles = [
     { id: 'estudiante', label: 'Estudiante', color: 'bg-blue-500 hover:bg-blue-600', img: '/img/auth/roles/estudiante_rol.webp', confirmColor: 'bg-blue-500 hover:bg-blue-600' },
-    { id: 'docente', label: 'Docente', color: 'bg-green-500 hover:bg-green-600', img: '/img/auth/roles/docente_rol_1.webp', confirmColor: 'bg-green-500 hover:bg-green-600' },
-    { id: 'padre', label: 'Padre de Familia', color: 'bg-yellow-500 hover:bg-yellow-600', img: '/img/auth/roles/padre_rol_1.webp', confirmColor: 'bg-yellow-500 hover:bg-yellow-600' },
+    { id: 'docente', label: 'Docente', color: 'bg-green-500 hover:bg-green-600', img: '/img/auth/roles/docente_rol.webp', confirmColor: 'bg-green-500 hover:bg-green-600' },
+    { id: 'padre', label: 'Padre de Familia', color: 'bg-yellow-500 hover:bg-yellow-600', img: '/img/auth/roles/padre_rol.webp', confirmColor: 'bg-yellow-500 hover:bg-yellow-600' },
   ];
 
   const handleSelectRole = (role) => setSelectedRole(role);

@@ -1,11 +1,14 @@
-"use client";
+// Página de gestión de usuario -admin
+"use client"
 import React, { useState, useEffect } from 'react';
 import ModalEliminarUsuario from '@/components/modals/admin/eliminarModal';
 import ModalAgregarUsuario from '@/components/modals/admin/crearModal';
 import Link from 'next/link';
 import Volver from '@/components/elements/botonVolver';
-import { FaUserPlus, FaTrash, FaUserEdit, FaUserAlt } from 'react-icons/fa';
+import { FaUserPlus, FaTrash, FaUserEdit, FaExclamationTriangle } from 'react-icons/fa';
 import { BiUser } from 'react-icons/bi';
+import Loading from '@/components/elements/loading';
+import { SeparadorAzul } from '@/components/separador';
 
 export default function GestionUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -49,7 +52,11 @@ export default function GestionUsuarios() {
   }, []);
 
   if (loading) {
-    return <div>Cargando usuarios...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Loading />
+      </div>
+    );
   }
 
   const abrirModalEliminar = (usuario) => {
@@ -64,98 +71,105 @@ export default function GestionUsuarios() {
   const usuariosFiltrados = usuarios.filter(usuario => usuario.rol === tabSeleccionada);
 
   return (
-    <div className="mx-auto p-4 container yagora">
-      <Volver href='/admin' />
-      <h1 className="mb-6 font-bold text-4xl text-center">Gestión de Usuarios</h1>
+    <main className="yagora">
+      <SeparadorAzul />
+      <div className="mx-auto mb-14 px-6 container">
+        <Volver href='/admin' />
+        <h1 className="mb-8 font-bold text-5xl text-blue-800 text-center">Gestión de Usuarios</h1>
 
-      {/* Botón para agregar un nuevo usuario */}
-      <div className="flex justify-end mt-8">
-        <button
-          className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
-          onClick={abrirModalAgregar}
-        >
-          <FaUserPlus />
-          Agregar nuevo usuario
-        </button>
-      </div>
-
-      {/* Pestañas para seleccionar el rol */}
-      <div className="flex justify-center mb-8">
-        {['estudiante', 'docente', 'padre'].map((rol) => (
+        {/* Botón para agregar un nuevo usuario */}
+        <div className="flex justify-end mb-8">
           <button
-            key={rol}
-            className={`flex items-center gap-2 px-4 py-2 mx-1 rounded font-bold ${tabSeleccionada === rol ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
-            onClick={() => setTabSeleccionada(rol)}
+            className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 shadow-md hover:shadow-lg px-4 py-2 rounded-xl font-bold text-white transition duration-300"
+            onClick={abrirModalAgregar}
           >
-            <BiUser />
-            {rol.charAt(0).toUpperCase() + rol.slice(1)}
+            <FaUserPlus />
+            Agregar nuevo usuario
           </button>
-        ))}
-      </div>
+        </div>
 
-      {/* Tabla de usuarios filtrados */}
-      <table className="bg-white shadow-lg rounded-lg min-w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2 border-b-2">ID</th>
-            <th className="px-4 py-2 border-b-2">Nombre</th>
-            <th className="px-4 py-2 border-b-2">Correo electrónico</th>
-            {tabSeleccionada === 'estudiante' && <th className="px-4 py-2 border-b-2">Nivel</th>}
-            {tabSeleccionada === 'padre' && <th className="px-4 py-2 border-b-2">Número de Hijos</th>}
-            {tabSeleccionada === 'docente' && <th className="px-4 py-2 border-b-2">Número de Estudiantes</th>}
-            <th className="px-4 py-2 border-b-2">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usuariosFiltrados.length > 0 ? (
-            usuariosFiltrados.map((usuario) => (
-              <tr key={usuario.id} className="text-center">
-                <td className="px-4 py-2 border-b align-middle">{usuario.id}</td>
-                <td className="px-4 py-2 border-b align-middle">{usuario.name}</td>
-                <td className="px-4 py-2 border-b align-middle">{usuario.email}</td>
-                {tabSeleccionada === 'estudiante' && <td className="px-4 py-2 border-b align-middle">{usuario.levelId}</td>}
-                {tabSeleccionada === 'padre' && <td className="px-4 py-2 border-b align-middle">{usuario.numeroHijos}</td>}
-                {tabSeleccionada === 'docente' && <td className="px-4 py-2 border-b align-middle">{usuario.numeroEstudiantes}</td>}
-                <td className="flex justify-center items-center gap-2 px-4 py-2 border-b">
-                  <button className="flex items-center gap-2 bg-green-500 hover:bg-green-700 px-4 py-2 rounded font-bold text-white">
-                    <Link href={`/admin/users/${usuario.id}`} className="flex items-center gap-2">
-                      <FaUserEdit className="text-lg" /> {/* Asegura un tamaño consistente */}
-                      Perfil
-                    </Link>
-                  </button>
-                  <button
-                    className="flex items-center gap-2 bg-red-500 hover:bg-red-700 px-4 py-2 rounded font-bold text-white"
-                    onClick={() => abrirModalEliminar(usuario)}
-                  >
-                    <FaTrash className="text-lg" /> {/* Asegura un tamaño consistente */}
-                    Eliminar
-                  </button>
+        {/* Pestañas para seleccionar el rol */}
+        <div className="flex justify-center mb-12">
+          {['estudiante', 'docente', 'padre'].map((rol) => (
+            <button
+              key={rol}
+              className={`flex items-center gap-2 px-6 py-3 mx-2 rounded-xl font-bold shadow-md transition duration-300 ${tabSeleccionada === rol ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
+              onClick={() => setTabSeleccionada(rol)}
+            >
+              <BiUser />
+              {rol.charAt(0).toUpperCase() + rol.slice(1)}
+            </button>
+          ))}
+        </div>
 
-                </td>
+        {/* Tabla de usuarios filtrados */}
+        <div className="overflow-x-auto">
+          <table className="bg-white shadow-lg rounded-lg min-w-full">
+            <thead>
+              <tr>
+                <th className="px-6 py-4 border-b-2 text-center">ID</th>
+                <th className="px-6 py-4 border-b-2 text-center">Nombre</th>
+                <th className="px-6 py-4 border-b-2 text-center">Apellido</th>
+                <th className="px-6 py-4 border-b-2 text-center">Correo electrónico</th>
+                {tabSeleccionada === 'estudiante' && <th className="px-6 py-4 border-b-2 text-center">Nivel</th>}
+                {tabSeleccionada === 'padre' && <th className="px-6 py-4 border-b-2 text-center">Número de Hijos</th>}
+                {tabSeleccionada === 'docente' && <th className="px-6 py-4 border-b-2 text-center">Número de Estudiantes</th>}
+                <th className="px-6 py-4 border-b-2 text-center">Acciones</th>
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5" className="py-4 text-center">No se encontraron usuarios.</td>
-            </tr>
-          )}
-        </tbody>
+            </thead>
+            <tbody>
+              {usuariosFiltrados.length > 0 ? (
+                usuariosFiltrados.map((usuario) => (
+                  <tr key={usuario.id} className="hover:bg-gray-100 transition duration-200">
+                    <td className="px-6 py-4 border-b text-center align-middle">{usuario.id}</td>
+                    <td className="px-6 py-4 border-b text-center align-middle">{usuario.name}</td>
+                    <td className="px-6 py-4 border-b text-center align-middle">{usuario.lastname || '-'}</td>
+                    <td className="px-6 py-4 border-b text-center align-middle">{usuario.email}</td>
+                    {tabSeleccionada === 'estudiante' && <td className="px-6 py-4 border-b text-center align-middle">{usuario.levelId}</td>}
+                    {tabSeleccionada === 'padre' && <td className="px-6 py-4 border-b text-center align-middle">{usuario.numeroHijos}</td>}
+                    {tabSeleccionada === 'docente' && <td className="px-6 py-4 border-b text-center align-middle">{usuario.numeroEstudiantes}</td>}
+                    <td className="flex justify-center items-center gap-2 px-6 py-4 border-b">
+                      <Link href={`/admin/users/${usuario.id}`}>
+                        <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 shadow-md px-3 py-2 rounded-full font-bold text-white transition duration-300">
+                          <FaUserEdit className="text-lg" />
+                        </button>
+                      </Link>
+                      <button
+                        className="flex items-center gap-2 bg-red-500 hover:bg-red-600 shadow-md px-3 py-2 rounded-full font-bold text-white transition duration-300"
+                        onClick={() => abrirModalEliminar(usuario)}
+                      >
+                        <FaTrash className="text-lg" />
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="py-8 font-bold text-center text-red-500">
+                    <FaExclamationTriangle className="inline-block mr-2 text-2xl" />
+                    No se encontraron usuarios
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
 
-      </table>
+        {/* Modales */}
+        {modalEliminar && (
+          <ModalEliminarUsuario
+            usuario={usuarioSeleccionado}
+            onClose={() => setModalEliminar(false)}
+          />
+        )}
 
-      {/* Modales */}
-      {modalEliminar && (
-        <ModalEliminarUsuario
-          usuario={usuarioSeleccionado}
-          onClose={() => setModalEliminar(false)}
-        />
-      )}
-
-      {modalAgregar && (
-        <ModalAgregarUsuario
-          onClose={() => setModalAgregar(false)}
-        />
-      )}
-    </div>
+        {modalAgregar && (
+          <ModalAgregarUsuario
+            onClose={() => setModalAgregar(false)}
+          />
+        )}
+      </div>
+      <SeparadorAzul />
+    </main>
   );
 }

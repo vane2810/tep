@@ -1,5 +1,4 @@
-"use client"; // Asegúrate de que esto esté en la primera línea del archivo
-
+"use client"
 import React, { useState, useEffect } from "react";
 import Volver from "@/components/elements/botonVolver";
 import Link from "next/link";
@@ -53,7 +52,7 @@ export default function NivelTemplate({
   const { session } = useSession();
 
   useEffect(() => {
-    if (session && !localStorage.getItem("hasSeenWelcome")) {
+    if (session && session.role === "estudiante" && !localStorage.getItem("hasSeenWelcome")) {
       setShowWelcome(true);
     }
   }, [session]);
@@ -149,7 +148,7 @@ NivelTemplate.propTypes = {
     lenguaje: PropTypes.string.isRequired,
     sociales: PropTypes.string.isRequired,
     ingles: PropTypes.string.isRequired,
-    juegointro: PropTypes.string, 
+    juegointro: PropTypes.string,
   }).isRequired,
-  gameIntroLink: PropTypes.string, 
+  gameIntroLink: PropTypes.string,
 };

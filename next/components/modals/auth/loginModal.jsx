@@ -31,7 +31,7 @@ const LoginModal = ({ show, message, type, onClose, redirectTo }) => {
         {isError && <p className="mb-6 text-gray-700">{message}</p>}
         <button
           onClick={handleContinue}
-          className={`${buttonColor} px-4 py-2 rounded-lg text-base text-white transition duration-200`}
+          className={`${buttonColor} px-4 py-2 rounded-full text-base text-white transition duration-200`}
         >
           {buttonText}
         </button>

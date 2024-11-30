@@ -1,10 +1,12 @@
 "use client";
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut } from 'react-icons/fa';
+import { FaUserEdit, FaCalendarAlt, FaChild, FaChalkboardTeacher, FaExclamationTriangle, FaEnvelope, FaUserCircle, FaLayerGroup, FaUserAstronaut } from 'react-icons/fa';
 import { BiArrowBack } from 'react-icons/bi';
 import characterImages from '@/utils/characterImages';
 import ModalEditarUsuario from '@/components/modals/admin/editarModal';
+import Volver from '@/components/elements/botonVolver';
+import Loading from '@/components/elements/loading';
 
 export default function PaginaPerfilUsuario() {
   const { id } = useParams();
@@ -34,11 +36,13 @@ export default function PaginaPerfilUsuario() {
   }, [id]);
 
   if (loading) {
-    return <div>Cargando perfil...</div>;
+    return <Loading/>
   }
 
   if (!usuario) {
-    return <div>No se encontró el usuario.</div>;
+    return <div className="py-8 font-bold text-center text-red-500">
+    <FaExclamationTriangle className="inline-block mr-2 text-2xl" />
+    No se encontraron usuarios</div>;
   }
 
   const abrirModalEditar = () => {
@@ -56,9 +60,7 @@ export default function PaginaPerfilUsuario() {
   return (
     <div className="bg-white shadow-lg mx-auto my-10 p-6 rounded-lg max-w-4xl container yagora">
       <div className="flex items-center mb-8">
-        <button onClick={() => window.history.back()} className="flex items-center text-blue-500 hover:text-blue-700">
-          <BiArrowBack className="mr-2" /> Volver
-        </button>
+        <Volver href='/admin/users'/>
       </div>
 
       <div className="flex items-center mb-8">
