@@ -14,7 +14,7 @@ const SubtemasPage = () => {
     ob: {
       titulo: "Operaciones Básicas",
       descripcion: "En este contenido aprenderás y reforzarás las operaciones básicas de la aritmética: suma,resta, multiplicación y división.",
-      imagen: "/img/materias/mate/obn.png",
+      imagen: "/img/materias/mate/obn.webp",
       buttonColor: "morado",
       temas: [
         {
@@ -38,13 +38,13 @@ const SubtemasPage = () => {
     decimale: {
       titulo: "Números Decimales",
       descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
-      imagen: "/img/materias/mate/decimalesn.png",
+      imagen: "/img/materias/mate/decimalesn.webp",
       buttonColor: "morado",
     },
     geometri: {
       titulo: "Geometría",
       descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
-      imagen: "/img/materias/mate/geon.png",
+      imagen: "/img/materias/mate/geon.webp",
       buttonColor: "morado",
     },
   };

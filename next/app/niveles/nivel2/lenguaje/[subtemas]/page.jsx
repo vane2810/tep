@@ -14,7 +14,7 @@ const SubtemasPage = () => {
     ortografia: {
       titulo: "Ortografía",
       descripcion: "¡Explora el fascinante mundo de la ortografía! Aquí podrás fortalecer tus conocimientos en escritura correcta y precisión ortográfica",
-      imagen: "/img/materias/lenguaje/ortografian.png",
+      imagen: "/img/materias/lenguaje/ortografian.webp",
       buttonColor: "morado",
       temas: [
         {
@@ -38,20 +38,20 @@ const SubtemasPage = () => {
     gramatica: {
       titulo: "Gramática",
       descripcion: "¡Aventúrate en el intrigante universo de la gramática! Explora las reglas y estructuras de nuestra lengua para mejorar tu comprensión y expresión escrita",
-      imagen: "/img/materias/lenguaje/gramatican.png",
+      imagen: "/img/materias/lenguaje/gramatican.webp",
       volverUrl: "/niveles/nivel2/lenguaje",
       buttonColor: "morado",
     },
     generos_literarios: {
       titulo: "Géneros Literarios",
       descripcion: "Sumérgete en la diversidad de los géneros literarios y descubre el encanto de las distintas formas narrativas. Desde cuentos hasta poesía, explora cada género y aprende sus características únicas mientras te diviertes con actividades interactivas",
-      imagen: "/img/materias/lenguaje/generosn.png",
+      imagen: "/img/materias/lenguaje/generosn.webp",
       buttonColor: "morado",
     },
     lectura: {
       titulo: "Lectura",
       descripcion: "Sumérgete en el maravilloso mundo de la lectura. Mejora tu comprensión lectora y disfruta de textos especialmente seleccionados para enriquecer tu vocabulario y comprensión",
-      imagen: "/img/materias/lenguaje/lecturan.jpg",
+      imagen: "/img/materias/lenguaje/lecturan.webp",
       buttonColor: "morado",
     },
   };

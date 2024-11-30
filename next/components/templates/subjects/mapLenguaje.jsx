@@ -6,8 +6,8 @@ import Link from "next/link";
 const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
     // Elementos decorativos específicos de Lenguaje (excepto el planeta)
     const decorativos = [
-        { id: "cohete", img: "/img/materias/lenguaje/cohete.png", alt: "Cohete", className: "absolute top-[5%] left-[5%] w-[14vw] sm:w-[10vw] rocket-animation" },
-        { id: "nave", img: "/img/materias/lenguaje/nave.png", alt: "Cometa", className: "absolute right-[5%] bottom-[3%] w-[12vw] sm:w-[8vw] comet-animation" },
+        { id: "cohete", img: "/img/materias/lenguaje/cohete.webp", alt: "Cohete", className: "absolute top-[5%] left-[5%] w-[14vw] sm:w-[10vw] rocket-animation" },
+        { id: "nave", img: "/img/materias/lenguaje/nave.webp", alt: "Cometa", className: "absolute right-[5%] bottom-[3%] w-[12vw] sm:w-[8vw] comet-animation" },
     ];
 
     return (
@@ -22,7 +22,7 @@ const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
             >
                 {/* Personaje principal al inicio, ajustado a un tamaño más pequeño */}
                 <div className="bottom-[3%] left-[3%] absolute">
-                    <img src="/img/materias/lenguaje/astronauta.png" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto animate-tambaleo" />
+                    <img src="/img/materias/lenguaje/astronauta.webp" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto animate-tambaleo" />
                 </div>
 
                 {/* Segmentos del mapa en un camino curvo */}
