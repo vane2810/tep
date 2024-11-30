@@ -30,7 +30,7 @@ const VideoGallery = () => {
       {/* Imagen Central */}
       <div className="mb-10">
         <img
-          src="/img/receso/videosr.png"
+          src="/img/receso/videosr.webp"
           alt="Zona de Juegos"
           className="mx-auto w-40 md:w-60 lg:w-72"
         />

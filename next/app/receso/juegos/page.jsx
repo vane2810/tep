@@ -98,7 +98,7 @@ const GamesPage = () => {
 
       <div className="mb-10">
         <img
-          src="/img/receso/juegosp.png"
+          src="/img/receso/juegosp.webp"
           alt="Zona de Juegos"
           className="mx-auto w-40 md:w-60 lg:w-72"
         />

@@ -17,13 +17,13 @@ const RelaxationSection = () => {
     try {
       if (topic === 'Sonidos de la Naturaleza') {
         content = await import('@/components/receso/sonidos.json');
-        imageSrc = "/img/receso/sonidos.png";
+        imageSrc = "/img/receso/sonidos.webp";
       } else if (topic === 'Ejercicio de Respiración') {
         content = await import('@/components/receso/respiracion.json');
-        imageSrc = "/img/receso/respiracion.png";
+        imageSrc = "/img/receso/respiracion.webp";
       } else if (topic === 'Meditación Guiada') {
         content = await import('@/components/receso/meditacion.json');
-        imageSrc = "/img/receso/meditacion.png";
+        imageSrc = "/img/receso/meditacion.webp";
       }
 
       setModalContent(content.default);
@@ -53,7 +53,7 @@ const RelaxationSection = () => {
       {/* Imagen Central */}
       <div className="mb-10">
         <img
-          src="/img/receso/relajacion2.png"
+          src="/img/receso/relajacion2.webp"
           alt="Zona de Juegos"
           className="mx-auto w-40 md:w-40 lg:w-70"
         />
@@ -63,7 +63,7 @@ const RelaxationSection = () => {
       <div className="justify-center gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-4xl yagora">
         
         <div className="flex flex-col items-center bg-pink-200 shadow-lg p-4 rounded-xl transform overflow-hidden hover:scale-105 transition-transform">
-          <img src="/img/receso/sonidos.png" alt="Sonidos de la Naturaleza" className="mb-4 rounded-full w-20 h-20 object-cover" />
+          <img src="/img/receso/sonidos.webp" alt="Sonidos de la Naturaleza" className="mb-4 rounded-full w-20 h-20 object-cover" />
           <h2 className="mb-2 font-semibold text-blue-700 text-center text-lg">Sonidos de la Naturaleza</h2>
           <button
             onClick={() => openModal('Sonidos de la Naturaleza')}
@@ -74,7 +74,7 @@ const RelaxationSection = () => {
         </div>
 
         <div className="flex flex-col items-center bg-pink-200 shadow-lg p-4 rounded-xl transform overflow-hidden hover:scale-105 transition-transform">
-          <img src="/img/receso/respiracion.png" alt="Ejercicio de Respiración" className="mb-4 rounded-full w-20 h-20 object-cover" />
+          <img src="/img/receso/respiracion.webp" alt="Ejercicio de Respiración" className="mb-4 rounded-full w-20 h-20 object-cover" />
           <h2 className="mb-2 font-semibold text-blue-700 text-center text-lg">Ejercicio de Respiración</h2>
           <button
             onClick={() => openModal('Ejercicio de Respiración')}
@@ -85,7 +85,7 @@ const RelaxationSection = () => {
         </div>
 
         <div className="flex flex-col items-center bg-pink-200 shadow-lg p-4 rounded-xl transform overflow-hidden hover:scale-105 transition-transform">
-          <img src="/img/receso/meditacion.png" alt="Meditación Guiada" className="mb-4 rounded-full w-20 h-20 object-cover" />
+          <img src="/img/receso/meditacion.webp" alt="Meditación Guiada" className="mb-4 rounded-full w-20 h-20 object-cover" />
           <h2 className="mb-2 font-semibold text-blue-700 text-center text-lg">Meditación Guiada</h2>
           <button
             onClick={() => openModal('Meditación Guiada')}
