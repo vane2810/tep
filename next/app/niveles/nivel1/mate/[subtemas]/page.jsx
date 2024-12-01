@@ -10,6 +10,7 @@ import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
 import EmptyContentMessage from "@/components/menssages/mensajeVacio";
 import DataMessage from "@/components/menssages/mensajeDatos";
+import NoExiste from "@/components/menssages/mensajeNoExiste";
 
 const subtemasData = {
   ob: {
@@ -50,7 +51,7 @@ const SubtemasPage = () => {
   const currentSubtema = subtemasData[subtemas];
   if (!currentSubtema) {
     console.error("Tema no encontrado");
-    return <p>Este tema no existe.</p>;
+    return <NoExiste/>
   }
 
   const currentTopicId = currentSubtema.id;

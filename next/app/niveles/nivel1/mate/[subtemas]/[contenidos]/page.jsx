@@ -15,6 +15,7 @@ import ContentStructure2 from "@/components/templates/contents/contentStructure2
 import Loading from "@/components/elements/loading";
 import EmptyContentMessage from "@/components/menssages/mensajeVacio";
 import BotonContent from "@/components/elements/botonContent"; 
+import Carga from "@/components/menssages/mensajeCarga";
 
 const ContenidoPage = () => {
     const params = useParams();
@@ -226,7 +227,7 @@ const ContenidoPage = () => {
     }
 
     if (!subtemaData) {
-        return <p>No se pudo cargar el contenido.</p>;
+        return <Carga />;
     }
 
     const volverHref = `/niveles/nivel1/mate/${subtemas}`;
@@ -239,7 +240,8 @@ const ContenidoPage = () => {
 
             <SubtemaContent title={subtemaData.title} imgSrc={subtemaData.img_url} />
 
-            {session?.role === "admin" && (
+            {/* Mostrar el botón de "Agregar Contenido" solo si no hay contenido */}
+            {session?.role === "admin" && contenidoData.length === 0 && (
                 <AddButton text="Agregar Contenido" onClick={handleAddContent} />
             )}
 

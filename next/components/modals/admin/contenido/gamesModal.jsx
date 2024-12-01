@@ -38,6 +38,7 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
         }
     }, [isOpen]);
 
+
     // Función para manejar la selección de archivo
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);

@@ -17,6 +17,7 @@ const InstructionsModal = ({ isOpen, onClose, onSave, newInstruction, onInputCha
 
     if (!isOpen) return null;
 
+
     // Función para manejar la carga de datos y guardado
     const handleSave = async () => {
         if (isSaving) return; // Prevenir múltiples clics

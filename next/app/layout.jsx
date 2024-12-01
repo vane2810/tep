@@ -6,6 +6,7 @@ import Navbar from '../components/home/navbar';
 import { SessionProvider } from '@/context/session';
 import '@/styles/globals.css';
 import '@/styles/animacion.css';
+import SoporteButton from '@/components/elements/botonSoporte';
 
 export const metadata = {
   title: "TechEduPlanet"
@@ -19,6 +20,7 @@ const RootLayout = ({ children }) => {
         <body>
           <header><Navbar /></header>
           {children}
+          <SoporteButton/>
           <footer><Footer /></footer>
         </body>
       </html>
