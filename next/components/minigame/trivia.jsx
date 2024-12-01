@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
 
 const Trivia = ({ gameData, config }) => {
@@ -25,26 +26,26 @@ const Trivia = ({ gameData, config }) => {
     const currentQuestion = preguntas[currentQuestionIndex];
     if (selectedOption === currentQuestion.respuestaCorrecta) {
       setScore((prevScore) => prevScore + points_questions);
-      setFeedback({ message: "¡Respuesta Correcta! :D", correctAnswer: `La respuesta correcta era: ${currentQuestion.respuestaCorrecta}` });
+      setFeedback({
+        message: "¡Respuesta Correcta!",
+        correctAnswer: `La respuesta correcta era: ${currentQuestion.respuestaCorrecta}`,
+      });
     } else {
       setFeedback({
-        message: "Respuesta Incorrecta :c",
+        message: "Respuesta Incorrecta",
         correctAnswer: `La respuesta correcta era: ${currentQuestion.respuestaCorrecta}`,
       });
     }
 
     // Ir a la siguiente pregunta o finalizar el juego
-    if (currentQuestionIndex < preguntas.length - 1) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (currentQuestionIndex < preguntas.length - 1) {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-        setFeedback({ message: "", correctAnswer: "" });
-      }, 2000);
-    } else {
-      setTimeout(() => {
+      } else {
         setIsGameOver(true);
-        setFeedback({ message: "", correctAnswer: "" });
-      }, 2000);
-    }
+      }
+      setFeedback({ message: "", correctAnswer: "" });
+    }, 2000);
   };
 
   // Reiniciar el juego
@@ -63,13 +64,19 @@ const Trivia = ({ gameData, config }) => {
   // Mostrar pantalla de finalización
   if (isGameOver) {
     return (
-      <div className="flex justify-center items-center bg-gradient-to-br from-purple-100 to-blue-200 min-h-screen yagora">
+      <div className="flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo12.webp")' }}>
         <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl text-center">
           <h1 className="mb-4 font-bold text-4xl">Juego Finalizado</h1>
-          <p className="mb-4 text-2xl">Puntaje Obtenido: <span className="font-semibold">{score} Estrellas</span></p>
+          <p className="mb-4 text-2xl">
+            Puntaje Obtenido: <span className="font-semibold">{score} Estrellas</span>
+          </p>
           {score >= points_min ? (
             <>
-              <img src="/img/personajes/starly/starly_globos.webp" alt="Felicidades" className="mx-auto mb-6 w-40 h-40" />
+              <img
+                src="/img/personajes/starly/starly_globos.webp"
+                alt="Felicidades"
+                className="mx-auto mb-6 w-40 h-40"
+              />
               <p className="mb-6 font-bold text-2xl text-green-600">¡Felicidades, aprobaste el juego!</p>
               <div className="flex justify-center space-x-8 mt-6">
                 <button
@@ -90,8 +97,16 @@ const Trivia = ({ gameData, config }) => {
             </>
           ) : (
             <>
-              <img src="/img/personajes/starly/starly_llorando.webp" alt="Inténtalo de nuevo" className="mx-auto mb-6 w-40 h-40" />
-              <p className="mb-6 font-bold text-2xl text-red-600">No alcanzaste el puntaje mínimo<br/> Inténtalo de nuevo</p>
+              <img
+                src="/img/personajes/starly/starly_llorando.webp"
+                alt="Inténtalo de nuevo"
+                className="mx-auto mb-6 w-40 h-40"
+              />
+              <p className="mb-6 font-bold text-2xl text-red-600">
+                No alcanzaste el puntaje mínimo
+                <br />
+                Inténtalo de nuevo
+              </p>
               <button
                 onClick={resetGame}
                 className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
@@ -110,7 +125,7 @@ const Trivia = ({ gameData, config }) => {
   const currentQuestion = preguntas[currentQuestionIndex];
 
   return (
-    <div className="relative flex justify-center items-center bg-gradient-to-br from-purple-100 to-blue-200 min-h-screen yagora">
+    <div className="relative flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo12.webp")' }}>
       <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl">
         {/* Barra superior con el número de pregunta y el puntaje */}
         <div className="flex justify-between items-center mb-8">
@@ -118,9 +133,7 @@ const Trivia = ({ gameData, config }) => {
             <FaQuestionCircle className="mr-2" />
             Pregunta {currentQuestionIndex + 1} de {preguntas.length}
           </p>
-          <p className="font-semibold text-purple-700 text-xl">
-            Puntaje: {score} Estrellas
-          </p>
+          <p className="font-semibold text-purple-700 text-xl">Puntaje: {score} Estrellas</p>
         </div>
 
         {/* Pregunta y opciones */}
@@ -142,7 +155,7 @@ const Trivia = ({ gameData, config }) => {
           <div className="bg-white shadow-md mt-4 p-6 rounded-lg text-center">
             <p
               className={`text-xl font-bold mb-2 ${
-                feedback.message === "¡Respuesta Correcta! :D" ? "text-green-600" : "text-red-600"
+                feedback.message === "¡Respuesta Correcta!" ? "text-green-600" : "text-red-600"
               }`}
             >
               {feedback.message}
@@ -153,6 +166,25 @@ const Trivia = ({ gameData, config }) => {
       </div>
     </div>
   );
+};
+
+// Definición de PropTypes para validar los tipos de propiedades que el componente Trivia espera recibir
+Trivia.propTypes = {
+  gameData: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+  config: PropTypes.shape({
+    preguntas: PropTypes.arrayOf(
+      PropTypes.shape({
+        texto: PropTypes.string.isRequired,
+        opciones: PropTypes.arrayOf(PropTypes.string).isRequired,
+        respuestaCorrecta: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    points_questions: PropTypes.number.isRequired,
+    points_min: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default Trivia;

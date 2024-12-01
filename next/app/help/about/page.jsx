@@ -1,81 +1,91 @@
 "use client";
 
-import aboutData from "@/public/assents/about.json"; 
+import React from "react";
+import aboutData from "@/public/assents/about.json";
 import { SeparadorAzul } from "@/components/separador";
 import Volver from "@/components/elements/botonVolver";
+import { FiTarget, FiEye, FiUsers } from "react-icons/fi";
 
 export default function AboutUs() {
-    const teamMembers = aboutData.members; 
+    const teamMembers = aboutData.members;
 
     return (
         <main className="bg-gray-50">
-            <SeparadorAzul/>
-            <Volver img="/img/home/regresar/azul.webp" />
+            <SeparadorAzul />
+            <div className="my-8 px-4 sm:px-8 md:px-12 lg:px-24 yagora">
 
-            <div className="mx-auto px-6 sm:px-12 max-w-7xl">
-                <section className="mb-12 text-center">
-                    <h1 className="mb-6 font-bold text-4xl text-blue-600">Sobre Nosotros</h1>
-                    <p className="mx-auto max-w-2xl text-gray-700 text-lg leading-relaxed">
-                        <strong>Nombre de la Aplicación:</strong> Aprende Conectado
-                    </p>
-                    <p className="mx-auto mt-4 max-w-2xl text-gray-700 text-lg leading-relaxed">
-                        <strong>Descripción:</strong> Aprende Conectado es una plataforma educativa diseñada para transformar el aprendizaje
-                        mediante el uso de juegos interactivos, herramientas intuitivas y contenido personalizado.
-                    </p>
+                {/* Información General en Contenedor Elevado con Imagen */}
+                <section className="mb-16 text-center">
+                    <h1 className="flex justify-center items-center gap-2 mb-8 font-bold text-5xl text-blue-600 wonder">
+                        Acerca de Nosotros
+                    </h1>
+                    <div className="flex md:flex-row flex-col items-center md:items-start gap-8 bg-white shadow-xl mx-auto p-8 rounded-lg max-w-5xl">
+                        <Volver />
+                        <img
+                            src="/img/home/logoTEP.webp"
+                            alt="Aprende Conectado"
+                            className="rounded-lg w-full md:w-1/4 h-auto object-cover"
+                        />
+                        <div className="md:w-3/4 text-lg leading-relaxed">
+                            <p className="mb-6 font-bold text-xl">
+                                TechEduPlanet
+                            </p>
+                            <p>
+                                Es una plataforma educativa diseñada para transformar el aprendizaje mediante el uso de juegos interactivos, herramientas intuitivas y contenido personalizado.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
-                <section className="mb-12">
-                    <h2 className="mb-6 font-semibold text-3xl text-blue-500 text-center">Objetivo y Alcance</h2>
-                    <p className="mx-auto mb-6 max-w-4xl text-gray-700 text-lg leading-relaxed">
-                        <strong>Objetivo:</strong> Proporcionar a los estudiantes, docentes y administradores una herramienta innovadora
-                        que fomente el aprendizaje interactivo, mejore la retención de conocimiento y facilite el monitoreo del progreso académico.
-                    </p>
-                    <p className="mx-auto max-w-4xl text-gray-700 text-lg leading-relaxed">
-                        <strong>Alcance:</strong> Diseñada para estudiantes de nivel básico a intermedio, esta plataforma incluye actividades, juegos
-                        y evaluaciones adaptadas a las necesidades de aprendizaje, abarcando desde operaciones matemáticas hasta habilidades
-                        lingüísticas.
-                    </p>
-                </section>
-
-                <section className="items-center gap-10 grid grid-cols-1 md:grid-cols-2 mb-12">
-                    <img
-                        src="/img/vision.jpg"
-                        alt="Visión"
-                        className="shadow-lg rounded-lg w-full h-auto"
-                    />
-                    <div>
-                        <h2 className="mb-4 font-semibold text-3xl text-blue-500">Misión</h2>
-                        <p className="text-gray-600 text-lg leading-relaxed">
-                            Inspirar a las nuevas generaciones a través de la tecnología, fomentando el aprendizaje activo y colaborativo.
-                            Nuestra misión es transformar la educación en una experiencia enriquecedora y accesible para todos.
+                {/* Misión y Visión en Tarjetas */}
+                <section className="gap-8 grid grid-cols-1 md:grid-cols-2 mx-auto mb-16 max-w-5xl">
+                    {/* Misión */}
+                    <div className="bg-white shadow-md p-6 rounded-lg text-center">
+                        <h2 className="flex justify-center items-center gap-2 mb-4 font-semibold text-3xl text-blue-500 wonder">
+                            Misión
+                            <FiTarget className="text-blue-500" size={28} />
+                        </h2>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                            Proporcionar una plataforma educativa que haga del aprendizaje una experiencia accesible, interactiva y efectiva para todos los estudiantes
                         </p>
-                        <h2 className="mt-8 mb-4 font-semibold text-3xl text-blue-500">Visión</h2>
-                        <p className="text-gray-600 text-lg leading-relaxed">
-                            Ser líderes en la innovación educativa, utilizando herramientas tecnológicas para empoderar a estudiantes,
-                            docentes y comunidades educativas alrededor del mundo.
+                    </div>
+                    {/* Visión */}
+                    <div className="bg-white shadow-md p-6 rounded-lg text-center">
+                        <h2 className="flex justify-center items-center gap-2 mb-4 font-semibold text-3xl text-blue-500 wonder">
+                            Visión
+                            <FiEye className="text-blue-500" size={28} />
+                        </h2>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                            Ser una plataforma educativa reconocida por su capacidad de hacer el aprendizaje más atractivo y accesible para estudiantes de nivel básico 
                         </p>
                     </div>
                 </section>
 
-                <section className="mb-12">
-                    <h2 className="mb-6 font-semibold text-3xl text-blue-500 text-center">Nuestro Equipo</h2>
+                {/* Nuestro Equipo */}
+                <section className="mx-auto mt-16 mb-16 max-w-6xl">
+                    <h2 className="flex justify-center items-center gap-2 mb-8 font-semibold text-3xl text-blue-500 text-center wonder">
+                        Nuestro Equipo
+                        <FiUsers className="text-blue-500" size={28} />
+                    </h2>
                     <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                         {teamMembers.map((member, index) => (
-                            <div key={index} className="bg-white shadow-md p-6 rounded-lg text-center">
+                            <div key={index} className="bg-white shadow-md p-6 rounded-lg text-center transform hover:scale-105 transition-transform duration-300">
                                 <img
                                     src={member.image}
                                     alt={member.name}
-                                    className="mx-auto mb-4 rounded-full w-24 h-24 object-cover"
+                                    className="mx-auto mb-4 rounded-lg w-24 h-24 object-cover"
                                 />
-                                <h3 className="font-semibold text-gray-800 text-xl">{member.name}</h3>
+                                <h3 className="font-semibold text-gray-800 text-xl wonder">{member.name}</h3>
                                 <p className="text-gray-500">{member.role}</p>
-                                <p className="mt-4 text-gray-600 text-sm">{member.description}</p>
+                                <div className="mt-4 text-gray-600 text-sm leading-relaxed">
+                                    {member.description}
+                                </div>
                             </div>
                         ))}
                     </div>
                 </section>
             </div>
-            <SeparadorAzul/>
+            <SeparadorAzul />
         </main>
     );
 }

@@ -62,7 +62,7 @@ const SoporteButton = () => {
                             onClick={() => window.location.href = "/help/faq"}
                         >
                             <FiExternalLink size={20} />
-                            <span>Reportar un problema</span>
+                            <span>Resportar un problema</span>
                         </button>
                         <button
                             className="flex items-center space-x-2 w-full text-left hover:text-blue-300"

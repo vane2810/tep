@@ -1,3 +1,4 @@
+// Formulario para inserta datos Juego 1 - Trivia
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaPlus, FaTrashAlt, FaArrowRight, FaSave, FaTimes, FaExclamationTriangle, FaInfoCircle, FaCheckCircle } from "react-icons/fa";

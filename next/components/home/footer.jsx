@@ -2,7 +2,6 @@
 "use client"
 import React from "react";
 import { FiYoutube, FiMail } from "react-icons/fi";
-import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -11,12 +10,10 @@ export default function Footer() {
 
                 {/* Logo y Derechos Reservados */}
                 <div className="flex lg:flex-row flex-col items-center lg:items-center lg:space-x-4 space-y-2 lg:space-y-0 lg:w-1/3 text-center lg:text-left">
-                    <Image 
+                    <img
                         src="/img/home/logoTEP.webp" 
                         alt="Logo de TechEduPlanet"
-                        width={80}
-                        height={40}
-                        className="object-contain"
+                        className="w-24 h-24 object-contain"
                     />
                     <div className="text-base">
                         &copy; {new Date().getFullYear()} TechEduPlanet, Inc
@@ -45,7 +42,7 @@ export default function Footer() {
                     </a>
                 </div>
                 
-            </div>
+            </div>  
         </footer>
     );
 }
