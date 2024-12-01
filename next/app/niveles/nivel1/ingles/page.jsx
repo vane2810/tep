@@ -24,7 +24,7 @@ export default function InglesPage() {
           {/* Bienvenida para ingles */}
           <WelcomeSection
             personajeImg="/img/personajes/griffit/griffit.webp"
-            personaje="Griffit"
+            personaje="Profesor Griffit"
             titulo="¡Inglés!"
           />
 

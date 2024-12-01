@@ -55,8 +55,8 @@ const AccountSettings = () => {
       <Volver href={volverHref} img="/img/home/regresar/morado.webp"  />
       <div className="flex flex-col items-center mb-8 p-4 min-h-screen yagora">
         <div className="flex flex-col items-center mt-2 mb-4 text-center">
-          <h2 className="font-bold text-3xl text-purple-800 sm:text-4xl">
-            ¡Bienvenido a tu Centro de Configuración!
+          <h2 className="font-bold text-4xl text-purple-800 sm:text-5xl super">
+            CENTRO DE CONFIGURACIÓN
           </h2>
           <img src="/img/personajes/starly/starly_admin.webp" alt="Bienvenida" className="mt-4 w-40 h-36 animate-float" />
         </div>

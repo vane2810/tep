@@ -35,13 +35,13 @@ const SubtemasPage = () => {
         },
       ],
     },
-    decimale: {
+    decimales: {
       titulo: "Números Decimales",
       descripcion: "¡Aventúrate en el intrigante universo de los decimales y las fracciones! Selecciona tu tema y déjate llevar por el encanto de los números y el aprendizaje divertido.",
       imagen: "/img/materias/mate/decimalesn.webp",
       buttonColor: "morado",
     },
-    geometri: {
+    geometria: {
       titulo: "Geometría",
       descripcion: "Sumérgete en la increíble aventura de la geometría! Elige tu tema favorito y déjate sorprender por la magia de las formas, los ángulos y las figuras.",
       imagen: "/img/materias/mate/geon.webp",

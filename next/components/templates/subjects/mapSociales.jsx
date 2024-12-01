@@ -16,38 +16,42 @@ const MapSociales = ({ fondoUrl, fondoSize, areas, nivel, medida, planetaImg }) 
     }, []);
 
     return (
-        <section className="relative flex justify-center items-center border-gray-300 bg-white bg-center shadow-lg m-8 mx-auto p-8 border rounded-lg w-full h-auto"
-            style={{
-                backgroundSize: fondoSize,
-                backgroundRepeat: 'no-repeat',
-            }}
-        >
-            <img
-                src={fondoUrl}
-                useMap="#continente-map"
-                alt="Mapa"
-                ref={imgRef}
-                className={medida}
-            />
-            <map name="continente-map">
-                {areas.map((area, index) => (
-                    <area
-                        key={index}
-                        shape={area.shape}
-                        coords={area.coords}
-                        alt={area.name}
-                        href={`/niveles/${nivel}/sociales/${area.id}`}
-                        title={`Explorar ${area.name}`}
-                    />
-                ))}
-            </map>
-            <div className="bottom-[5%] left-[3%] absolute">
-                <img src="/img/niveles/sociales/pirata.png" alt="Caricatura" className="mb-4 w-[8vw] h-auto" />
-            </div>
+        <div className="bg-white shadow-lg mx-auto p-4 rounded-xl w-full">
+            {/* Contenedor de Título */}
+            <h1 className="my-4 font-bold text-center md:text-4xl yagora">Explora los países del mundo</h1>
+            <section className="relative flex justify-center items-center border-gray-300 bg-white bg-center shadow-lg m-8 mx-auto p-8 border rounded-lg w-full h-auto"
+                style={{
+                    backgroundSize: fondoSize,
+                    backgroundRepeat: 'no-repeat',
+                }}
+            >
+                <img
+                    src={fondoUrl}
+                    useMap="#continente-map"
+                    alt="Mapa"
+                    ref={imgRef}
+                    className={medida}
+                />
+                <map name="continente-map">
+                    {areas.map((area, index) => (
+                        <area
+                            key={index}
+                            shape={area.shape}
+                            coords={area.coords}
+                            alt={area.name}
+                            href={`/niveles/${nivel}/sociales/${area.id}`}
+                            title={`Explorar ${area.name}`}
+                        />
+                    ))}
+                </map>
+                <div className="bottom-[5%] left-[3%] absolute">
+                    <img src="/img/materias/sociales/pirata.png" alt="Caricatura" className="mb-4 w-[8vw] h-auto" />
+                </div>
 
-            {/* Decorativo específico del planeta */}
-            <img src={planetaImg} alt="Planeta" className="top-[8%] left-[82%] absolute w-[10vw] planet-animation" />
-        </section>
+                {/* Decorativo específico del planeta */}
+                <img src={planetaImg} alt="Planeta" className="top-[8%] left-[82%] absolute w-[10vw] planet-animation" />
+            </section>
+        </div>
     );
 };
 

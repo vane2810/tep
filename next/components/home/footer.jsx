@@ -5,7 +5,7 @@ import { FiYoutube, FiMail } from "react-icons/fi";
 
 export default function Footer() {
     return (
-        <footer className="shadow-md p-6 w-full text-black celeste">
+        <footer className="shadow-md p-2 w-full text-black celeste">
             <div className="flex lg:flex-row flex-col justify-between items-center lg:items-start lg:space-x-8 space-y-6 lg:space-y-0 mx-auto container yagora">
 
                 {/* Logo y Derechos Reservados */}
@@ -22,7 +22,7 @@ export default function Footer() {
 
                 {/* Información de Contacto */}
                 <div className="flex flex-col items-center lg:w-1/3 text-center">
-                    <h3 className="mb-2 font-semibold text-xl">Contacto</h3>
+                    <h3 className="mt-6 font-semibold text-xl">Contacto</h3>
                     <div className="flex items-center space-x-2">
                         <FiMail size={22} className="text-gray-700" />
                         <span className="text-base text-gray-700 hover:text-gray-900 transition duration-200">
@@ -33,7 +33,7 @@ export default function Footer() {
 
                 {/* Canales */}
                 <div className="flex flex-col items-center lg:w-1/3 text-center">
-                    <h3 className="mb-2 font-semibold text-xl">Canales</h3>
+                    <h3 className="mt-6 font-semibold text-xl">Canales</h3>
                     <a href="https://www.youtube.com/@TechEduPlanet" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
                         <FiYoutube size={22} className="text-red-600" />
                         <span className="text-base text-gray-700 hover:text-gray-900 transition duration-200">

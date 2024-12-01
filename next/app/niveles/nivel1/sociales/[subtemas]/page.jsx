@@ -1,66 +1,67 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import SubtemaHeader from "@/components/templates/subtopics/lenguajeHeader";
+import SubtemaHeader from "@/components/templates/subtopics/socialesHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
 import SubtemasModal from "@/components/modals/admin/contenido/subtemasModal";
 import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
-import { SeparadorMorado } from "@/components/separador";
+import { SeparadorAzul } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
 
 // Definir los datos de subtemas al inicio
 const subtemasData = {
   belice: {
-    id: 10,
-    titulo: "Ortografía Básica",
-    descripcion: "Aprende las reglas esenciales de la ortografía para escribir correctamente y evitar errores comunes. ¡Un paso fundamental para dominar el lenguaje!",
-    imagen: "/img/personajes/principe/principe.webp",
-    buttonColor: "morado",
+    id: 22,
+    titulo: "Belice",
+    descripcion: "Vamos a explorar Belice para conocer sus culturas, tradiciones y costumbres. Un país diverso con una mezcla de influencias caribeñas, mayas y europeas, que lo convierten en un lugar único con una rica herencia cultural.",
+    imagen: "/img/materias/sociales/belice.webp",
+    buttonColor: "azul",
   },
   guatemala: {
-    id: 11,
-    titulo: "Gramática y Sintaxis",
-    descripcion: "Descubre la estructura del lenguaje con temas de gramática y sintaxis. Aprende a construir oraciones correctamente y a usar las palabras adecuadas en cada contexto.",
-    imagen: "/img/personajes/principe/principe.webp",
-    buttonColor: "morado",
+    id: 23,
+    titulo: "Guatemala",
+    descripcion: "Vamos a explorar Guatemala para conocer sus culturas, tradiciones y costumbres. Con una rica herencia maya y una fuerte conexión con la naturaleza, este país ofrece una visión única de las tradiciones indígenas y coloniales.",
+    imagen: "/img/materias/sociales/guatemala.webp",
+    buttonColor: "azul",
   },
   honduras: {
-    id: 12,
-    titulo: "Géneros Literarios",
-    descripcion: "Explora los diferentes géneros literarios, desde la narrativa hasta la poesía. Aprende sus características y cómo se expresan en distintos tipos de textos.",
-    imagen: "/img/materias/lenguaje/geon.webp",
-    buttonColor: "morado",
+    id: 24,
+    titulo: "Honduras",
+    descripcion: "Vamos a explorar Honduras para conocer sus culturas, tradiciones y costumbres. Con una historia marcada por las culturas lenca y garífuna, Honduras ofrece una rica tradición de música, danza y arte que refleja su diversidad.",
+    imagen: "/img/materias/sociales/honduras.webp",
+    buttonColor: "azul",
   },
   el_salvador: {
-    id: 13,
-    titulo: "Comprensión Lectora",
-    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
-    imagen: "/img/personajes/principe/principe.webp",
-    buttonColor: "morado",
+    id: 25,
+    titulo: "El Salvador",
+    descripcion: "Vamos a explorar El Salvador para conocer sus culturas, tradiciones y costumbres. Con una rica historia de resistencia y resiliencia, el país tiene tradiciones culinarias, artísticas y festivas que reflejan su identidad única.",
+    imagen: "/img/materias/sociales/el_salvador.webp",
+    buttonColor: "azul",
   },
   nicaragua: {
-    id: 13,
-    titulo: "Comprensión Lectora",
-    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
-    imagen: "/img/personajes/principe/principe.webp",
-    buttonColor: "morado",
+    id: 26,
+    titulo: "Nicaragua",
+    descripcion: "Vamos a explorar Nicaragua para conocer sus culturas, tradiciones y costumbres. Este país es conocido por su biodiversidad, sus tradiciones indígenas y afrodescendientes, y su espíritu cálido y hospitalario.",
+    imagen: "/img/materias/sociales/nicaragua.webp",
+    buttonColor: "azul",
   },
   costa_rica: {
-    id: 13,
-    titulo: "Comprensión Lectora",
-    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
-    imagen: "/img/personajes/principe/principe.webp",
-    buttonColor: "morado",
+    id: 27,
+    titulo: "Costa Rica",
+    descripcion: "Vamos a explorar Costa Rica para conocer sus culturas, tradiciones y costumbres. Conocido por su amor por la naturaleza y su enfoque en la sostenibilidad, Costa Rica es un país de tradiciones vivas y una rica cultura popular.",
+    imagen: "/img/materias/sociales/costa_rica.webp",
+    buttonColor: "azul",
   },
   panama: {
-    id: 13,
-    titulo: "Comprensión Lectora",
-    descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
-    imagen: "/img/personajes/principe/principe.webp",
-    buttonColor: "morado",
+    id: 28,
+    titulo: "Panamá",
+    descripcion: "Vamos a explorar Panamá para conocer sus culturas, tradiciones y costumbres. Con su famosa historia del Canal, Panamá es un crisol de culturas que mezcla influencias indígenas, afrodescendientes y europeas, creando una identidad única.",
+    imagen: "/img/materias/sociales/panama.webp",
+    buttonColor: "azul",
   },
 };
+
 
 
 const SubtemasPage = () => {
@@ -181,13 +182,13 @@ const SubtemasPage = () => {
 
   return (
     <main className="bg-gray-50">
-      <SeparadorMorado />
+      <SeparadorAzul />
 
       <SubtemaHeader
         titulo={currentSubtema.titulo}
         descripcion={currentSubtema.descripcion}
         imagen={currentSubtema.imagen}
-        volverUrl="/niveles/nivel1/lenguaje"
+        volverUrl="/niveles/nivel1/sociales"
       />
 
       {session?.role === "admin" && (
@@ -211,7 +212,7 @@ const SubtemasPage = () => {
         ))}
       </div>
 
-      <SeparadorMorado />
+      <SeparadorAzul />
 
       <SubtemasModal
         isOpen={isModalOpen}

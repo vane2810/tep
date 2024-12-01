@@ -12,12 +12,12 @@ export default function AboutUs() {
     return (
         <main className="bg-gray-50">
             <SeparadorAzul />
-            <div className="my-8 px-4 sm:px-8 md:px-12 lg:px-24 yagora">
+            <div className="my-10 px-4 sm:px-8 md:px-12 lg:px-24 yagora">
 
                 {/* Información General en Contenedor Elevado con Imagen */}
                 <section className="mb-16 text-center">
-                    <h1 className="flex justify-center items-center gap-2 mb-8 font-bold text-5xl text-blue-600 wonder">
-                        Acerca de Nosotros
+                    <h1 className="flex justify-center items-center gap-2 mb-8 font-bold text-5xl text-blue-600 super">
+                        ACERCA DE NOSOTROS
                     </h1>
                     <div className="flex md:flex-row flex-col items-center md:items-start gap-8 bg-white shadow-xl mx-auto p-8 rounded-lg max-w-5xl">
                         <Volver />

@@ -4,14 +4,14 @@ import React, { useState, useEffect } from 'react';
 import * as Phaser from 'phaser';
 
 const planetImages = [
-  '/img/games/mate/ob/mercurio.png',
-  '/img/games/mate/ob/venus.png',
-  '/img/games/mate/ob/tierra.png',
-  '/img/games/mate/ob/marte.png',
-  '/img/games/mate/ob/jupiter.png',
-  '/img/games/mate/ob/saturno.png',
-  '/img/games/mate/ob/urano.png',
-  '/img/games/mate/ob/neptuno.png',
+  '/img/games/intro/mercurio.png',
+  '/img/games/intro/venus.png',
+  '/img/games/intro/tierra.png',
+  '/img/games/intro/marte.png',
+  '/img/games/intro/jupiter.png',
+  '/img/games/intro/saturno.png',
+  '/img/games/intro/urano.png',
+  '/img/games/intro/neptuno.png',
 ];
 
 const MemoryGame = () => {
@@ -40,9 +40,9 @@ const MemoryGame = () => {
       planetImages.forEach((image, index) => {
         this.load.image(`planet-${index}`, image);
       });
-      this.load.image('card-back', '/img/games/mate/ob/card-back.png');
-      this.load.image('congrats', '/img/games/mate/ob/congrats.png');
-      this.load.image('background', '/img/games/mate/ob/background.png'); 
+      this.load.image('card-back', '/img/games/intro/card-back.png');
+      this.load.image('congrats', '/img/games/intro/congrats.png');
+      this.load.image('background', '/img/games/intro/background.png'); 
 
       this.load.on('preloadcomplete', () => {
         setTimeout(() => {

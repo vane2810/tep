@@ -11,44 +11,48 @@ const MapIngles = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
   ];
 
   return (
-    <section
-      className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[85vh] sm:h-[100vh]"
-      style={{ backgroundImage: `url(${fondoUrl})` }}
-    >
-      {/* Personaje principal al inicio ajustado a un tamaño más pequeño */}
-      <div className="bottom-[3%] left-[3%] absolute">
-        <img src="/img/materias/ingles/avioneta.wepb" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto" />
-      </div>
+    <div className="bg-white shadow-lg mx-auto p-4 rounded-xl w-full">
+      {/* Contenedor de Título */}
+      <h1 className="my-4 font-bold text-center md:text-4xl yagora">Explora un nuevo idioma</h1>
+      <section
+        className="relative flex justify-center items-center bg-cover bg-center mx-auto px-8 rounded-lg w-full h-[85vh] sm:h-[100vh]"
+        style={{ backgroundImage: `url(${fondoUrl})` }}
+      >
+        {/* Personaje principal al inicio ajustado a un tamaño más pequeño */}
+        <div className="bottom-[3%] left-[3%] absolute">
+          <img src="/img/materias/ingles/avioneta.webp" alt="Personaje" className="w-[12vw] sm:w-[8vw] h-auto" />
+        </div>
 
-      {/* Segmentos del mapa en un camino curvo */}
-      {segmentos.map((segmento, index) => {
-        const positionClasses = [
-          "absolute top-[25%] left-[15%]",
-          "absolute top-[25%] left-[40%]",
-          "absolute top-[25%] left-[65%]",
-        ];
-        const positionClass = positionClasses[index % positionClasses.length];
+        {/* Segmentos del mapa en un camino curvo */}
+        {segmentos.map((segmento, index) => {
+          const positionClasses = [
+            "absolute top-[25%] left-[15%]",
+            "absolute top-[25%] left-[40%]",
+            "absolute top-[25%] left-[65%]",
+          ];
+          const positionClass = positionClasses[index % positionClasses.length];
 
-        return (
-          <Link href={`/niveles/${nivel}/ingles/${segmento.id}`} key={segmento.id}>
-            <img
-              src={segmento.imgSrc}
-              alt={segmento.alt}
-              className={`${positionClass} w-36 sm:w-52 md:w-64 lg:w-72 h-auto transform transition-transform hover:scale-110`}
-              title={segmento.name}
-            />
-          </Link>
-        );
-      })}
+          return (
+            <Link href={`/niveles/${nivel}/ingles/${segmento.id}`} key={segmento.id}>
+              <img
+                src={segmento.imgSrc}
+                alt={segmento.alt}
+                className={`${positionClass} w-36 sm:w-52 md:w-64 lg:w-72 h-auto transform transition-transform hover:scale-110`}
+                title={segmento.name}
+              />
+            </Link>
+          );
+        })}
 
-      {/* Decorativo específico del planeta */}
-      <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[18vw] sm:w-[12vw] planet-animation" />
+        {/* Decorativo específico del planeta */}
+        <img src={planetaImg} alt="Planeta" className="top-[9%] left-[86%] absolute w-[18vw] sm:w-[12vw] planet-animation" />
 
-      {/* Otros elementos decorativos específicos de Inglés */}
-      {decorativos.map((item) => (
-        <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
-      ))}
-    </section>
+        {/* Otros elementos decorativos específicos de Inglés */}
+        {decorativos.map((item) => (
+          <img key={item.id} src={item.img} alt={item.alt} className={item.className} />
+        ))}
+      </section>
+    </div>
   );
 };
 

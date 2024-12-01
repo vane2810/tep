@@ -1,9 +1,10 @@
-// Página principal de Sociales - Nivel 2
+// Página principal de Sociales - Nivel 1
 "use client"
 import React from 'react';
 import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import dynamic from 'next/dynamic';
 import { SeparadorAzul } from '@/components/separador';
+import Volver from "@/components/elements/botonVolver";
 
 // Importación dinámica de LevelMap
 const MapSociales = dynamic(() => import('@/components/templates/subjects/mapSociales'), {
@@ -28,10 +29,11 @@ export default function SocialesPage() {
             <SeparadorAzul />
             <div className="flex justify-center items-center w-full">
                 <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
+                <Volver href="/niveles/nivel1" />
                     {/* Bienvenida para Sociales */}
                     <WelcomeSection
                         personajeImg="/img/personajes/burbuja/burbuja.webp"
-                        personaje="Burbuja"
+                        personaje="Profesora Burbuja"
                         titulo="¡SOCIALES!"
                     />
 

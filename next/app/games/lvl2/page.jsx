@@ -3,20 +3,19 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
-import '@/styles/animacion.css';
 import Volver from '@/components/elements/botonVolver';
 
 // Carga dinámica del componente del juego sin renderizado en el servidor (SSR)
-const Game = dynamic(() => import('@/components/minigame/lvl2/intro/game'), { ssr: false });
+const Game = dynamic(() => import('@/components/minigame/introductorios/lvl2'), { ssr: false });
 
 // Componente modal para mostrar las instrucciones del juego
 const InstructionsModal = ({ onClose, onPlay }) => {
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 wonder">
       <div className="bg-white mx-auto p-8 rounded-lg max-w-lg">
 
-        <h2 className="mb-4 font-bold text-2xl text-center">Instrucciones del Juego</h2>
-        <img src="/img/games/mate/ob/intrucciones.png" alt="Instrucciones" className="mx-auto mb-4 w-1/2" />
+        <h2 className="mb-4 font-bold text-3xl text-center">Instrucciones del Juego</h2>
+        <img src="/img/personajes/starly/starly_corona.webp" alt="Instrucciones" className="mx-auto mb-4 w-1/2" />
         <p className="mb-4 text-center">
           Bienvenido al juego. Debes mover la nave espacial para evitar los asteroides y obtener la máxima puntuación posible. Usa las teclas de flecha hacia arriba y hacia abajo para moverte.
         </p>
@@ -59,32 +58,33 @@ const IntroGame2 = () => {
   };
 
   return (
-    <main>
+    <main className='bg-gray-50'>
+      <SeparadorRosa />
       {/* Volver */}
-      <Volver href="/niveles/nivel2"/>
+      <Volver href="/niveles/nivel2" img='/img/home/regresar/rosa.webp' />
       {/* Sección de bienvenida */}
-      <div className="flex flex-col justify-center items-center mt-2">
-        <h1 className="ml-10 font-bold text-2xl text-center story">Bienvenidos/as a Juegos Introductorios</h1>
+      <div className="flex md:flex-row flex-col justify-center items-center mb-10">
+        <h1 className="ml-10 font-bold text-4xl text-center text-pink-700 super">JUEGO INTRODUCTORIO NIVEL II</h1>
         <img
-          src="/img/personajes/starly/starly.png"
-          alt="Starly"
-          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-tumble"
+          src="/img/receso/planet2.webp"
+          alt="Planeta Kaori "
+          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-float"
         />
       </div>
 
-      <SeparadorRosa />
-
       {/* Zona del juego */}
       <div className="flex flex-col flex-grow justify-center items-center w-full">
+        {/* Zona del juego */}
         {!showGame && (
-          <div className="flex flex-col items-center my-20">
-            <img src="/img/games/mate/ob/pre-game-image.png" alt="Pre-Game" className="mb-4 w-64" />
+          <div className="flex flex-col items-center my-12">
+            <p>Lee las indicaciones para comenzar</p>
             <button
-              className="bg-green-500 px-6 py-3 rounded-full text-white"
+              className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full text-white text-xl wonder"
               onClick={handleOpenModal}
             >
-              Leer Indicaciones
+              Indicaciones
             </button>
+            <img src="/img/games/intro/n2.png" alt="Pre-Game" className="mb-4 w-32" />
           </div>
         )}
 

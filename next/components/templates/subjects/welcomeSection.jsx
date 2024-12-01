@@ -17,7 +17,7 @@ const WelcomeSection = ({ personajeImg, personaje, titulo }) => (
       {/* Título y mensaje adicional */}
       <div className="text-center">
         <p className="mb-6 text-3xl md:text-5xl lg:text-6xl tracking-wide super">{titulo}</p>
-        <p className="text-xl md:text-3xl lg:text-2xl italic yagora">¡Bienvenidos a mi clase, soy el {personaje} y te guiaré en esta aventura!</p>
+        <p className="text-xl md:text-3xl lg:text-2xl italic yagora">¡Bienvenidos a mi clase, soy  {personaje} y te guiaré en esta aventura!</p>
       </div>
     </div>
   </section>

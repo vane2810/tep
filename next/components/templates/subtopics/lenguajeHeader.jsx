@@ -22,7 +22,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
             </div>
 
             {/* Sección de imagen del continente y descripción */}
-            <div className="flex md:flex-row flex-col items-center bg-purple-200 shadow-lg mb-8 rounded-lg">
+            <div className="flex md:flex-row flex-col items-center bg-purple-200 shadow-lg mb-8 py-6 rounded-lg">
                 <div className="flex-1 p-6 text-center">
                     <p className="text-2xl super">{descripcion}</p>
                 </div>
@@ -30,7 +30,7 @@ const HeaderSection = ({ titulo, descripcion, imagen, volverUrl }) => {
                     <img
                         src={imagen}
                         alt="Figura Lenguaje"
-                        className="max-w-[150px] md:max-w-[200px] lg:max-w-[250px] h-auto"
+                        className="max-w-[150px] md:max-w-[180px] lg:max-w-[180px] h-auto"
                     />
                 </div>
             </div>

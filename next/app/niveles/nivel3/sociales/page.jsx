@@ -1,11 +1,9 @@
-// Página principal de Sociales - Nivel 3
+// Página principal de Sociales - Nivel 2
 "use client"
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
 import WelcomeSection from '@/components/templates/subjects/welcomeSection';
 import dynamic from 'next/dynamic';
-import '@/styles/animacion.css';
 import { SeparadorAzul } from '@/components/separador';
-import { SessionContext } from '@/context/session';
 
 // Importación dinámica de LevelMap
 const MapSociales = dynamic(() => import('@/components/templates/subjects/mapSociales'), {
@@ -13,30 +11,7 @@ const MapSociales = dynamic(() => import('@/components/templates/subjects/mapSoc
 });
 
 export default function SocialesPage() {
-    const { session } = useContext(SessionContext); // Para acceder a la sesión del usuario
-    const [progreso, setProgreso] = useState([]);
-
-    // Cargar el progreso del usuario desde el backend o localStorage
-    useEffect(() => {
-        const obtenerProgreso = async () => {
-            try {
-                if (session && session.user) {
-                    const res = await fetch(`http://localhost:3001/api/progreso/obtener-progreso/${session.user}/sociales`);
-                    const data = await res.json();
-                    setProgreso(data.map(item => item.nivel)); // Extraer los niveles desbloqueados
-                } else {
-                    // Si no hay sesión, intentar cargar desde localStorage
-                    const progresoLocal = JSON.parse(localStorage.getItem('progresoSociales')) || [1]; // Nivel 1 desbloqueado por defecto
-                    setProgreso(progresoLocal);
-                }
-            } catch (error) {
-                console.error('Error obteniendo el progreso:', error);
-            }
-        };
-
-        obtenerProgreso();
-    }, [session]);
-
+    
     const area = [
         { id: 1, name: 'África', shape: 'poly', coords: '703,527,827,485,956,535,1018,637,1056,642,1055,796,1039,844,977,841,943,882,899,896,708,640', nivel: 1 },
         { id: 2, name: 'América', shape: 'poly', coords: '425,550,412,469,501,366,358,204, 155,186,110, 184,50,219,64,327,126,298,214,523,381,841,377, 1008,414,1020,667,747,635,687,597,665,552,671,506,649,463,618,409,575', nivel: 2 },
@@ -52,22 +27,19 @@ export default function SocialesPage() {
                 <div className="mx-auto mb-10 px-8 w-full max-w-7xl">
                     {/* Bienvenida para Sociales */}
                     <WelcomeSection
-                        volverUrl="/niveles/nivel3"
                         personajeImg="/img/personajes/burbuja/burbuja.webp"
-                        personajeAlt="Burbuja"
+                        personaje="Burbuja"
                         titulo="¡SOCIALES!"
-                        mensajeBienvenida="¡Bienvenidos a mi clase, soy la Profesora Burbuja y te guiaré en esta aventura!"
                     />
 
                     {/* Mapa interactivo de continentes */}
                     <MapSociales
-                        fondoUrl="/img/niveless/sociales/mapa_mundi.jpg"
+                        fondoUrl="/img/materias/sociales/mapa_mundi.jpg"
                         nivel="nivel3"
                         areas={area}
                         fondoSize="contain"
                         medida="w-full h-auto"
                         planetaImg="/img/personajes/niveles/jupitern3.webp"
-                        progreso={progreso}  // Pasamos el progreso para manejar el bloqueo de niveles
                     />
                 </div>
             </div>

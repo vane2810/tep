@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import SubtemaHeader from "@/components/templates/subtopics/lenguajeHeader";
+import SubtemaHeader from "@/components/templates/subtopics/inglesHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
 import SubtemasModal from "@/components/modals/admin/contenido/subtemasModal";
 import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
-import { SeparadorMorado } from "@/components/separador";
+import { SeparadorAnaranjado } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
 
@@ -13,17 +13,19 @@ import AddButton from "@/components/elements/botonAdd";
 const subtemasData = {
   vocabulary: {
     id: 41,
+    title: "Vocabulary",
     titulo: "Vocabulario",
-    descripcion: "Aprende las reglas esenciales de la ortografía para escribir correctamente y evitar errores comunes. ¡Un paso fundamental para dominar el lenguaje!",
-    imagen: "/img/personajes/griffit/griffit.webp",
-    buttonColor: "morado",
+    descripcion: "Aprende nuevas palabras en un idioma nuevo, fortaleciendo también el vocabulario de tu idioma natal",
+    imagen: "/img/materias/ingles/vocabulary.webp",
+    buttonColor: "anaranjado",
   },
   grammar: {
     id: 42,
+    title: "Grammar",
     titulo: "Gramática",
-    descripcion: "Descubre la estructura del lenguaje con temas de gramática y sintaxis. Aprende a construir oraciones correctamente y a usar las palabras adecuadas en cada contexto.",
-    imagen: "/img/personajes/griffit/griffit.webp",
-    buttonColor: "morado",
+    descripcion: "Descubre la estructura de otros idiomas con temas de gramática y sintaxis. Aprende a construir oraciones correctamente y a usar las palabras adecuadas en cada contexto.",
+    imagen: "/img/materias/ingles/gramatica.webp",
+    buttonColor: "anaranjado",
   },
 };
 
@@ -146,10 +148,11 @@ const SubtemasPage = () => {
 
   return (
     <main className="bg-gray-50">
-      <SeparadorMorado />
+      <SeparadorAnaranjado />
 
       <SubtemaHeader
-        titulo={currentSubtema.titulo}
+        titulo={currentSubtema.title}
+        subtitulo={currentSubtema.titulo}
         descripcion={currentSubtema.descripcion}
         imagen={currentSubtema.imagen}
         volverUrl="/niveles/nivel1/ingles"
@@ -176,7 +179,7 @@ const SubtemasPage = () => {
         ))}
       </div>
 
-      <SeparadorMorado />
+      <SeparadorAnaranjado />
 
       <SubtemasModal
         isOpen={isModalOpen}

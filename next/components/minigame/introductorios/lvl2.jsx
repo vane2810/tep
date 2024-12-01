@@ -16,11 +16,11 @@ const Game = () => {
         }
 
         preload() {
-          this.load.image('space', '/img/games/mate/ob/space.png');
-          this.load.image('ship', '/img/games/mate/ob/ship.png');
-          this.load.image('asteroid', '/img/games/mate/ob/asteroid.png');
-          this.load.image('astronaut', '/img/games/mate/ob/astronaut.png');
-          this.load.image('gameover', '/img/games/mate/ob/gameover.png');
+          this.load.image('space', '/img/games/intro/space.png');
+          this.load.image('ship', '/img/games/intro/ship.png');
+          this.load.image('asteroid', '/img/games/intro/asteroid.png');
+          this.load.image('astronaut', '/img/games/intro/astronaut.png');
+          this.load.image('gameover', '/img/games/intro/gameover.png');
         }
 
         create() {

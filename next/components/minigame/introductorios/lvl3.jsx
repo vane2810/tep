@@ -16,10 +16,10 @@ const CoinCollectingGame = () => {
         }
 
         preload() {
-          this.load.image('background', '/img/games/mate/ob/background2.jpg'); 
-          this.load.image('player', '/img/games/mate/ob/player.png'); 
-          this.load.image('coin', '/img/games/mate/ob/coin.png'); 
-          this.load.image('obstacle', '/img/games/mate/ob/obstacle2.png'); 
+          this.load.image('background', '/img/games/intro/background2.jpg'); 
+          this.load.image('player', '/img/games/intro/player.png'); 
+          this.load.image('coin', '/img/games/intro/coin.png'); 
+          this.load.image('obstacle', '/img/games/intro/obstacle2.png'); 
         }
 
         create() {

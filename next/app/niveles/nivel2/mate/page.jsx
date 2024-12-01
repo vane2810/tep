@@ -7,8 +7,8 @@ import Volver from "@/components/elements/botonVolver";
 export default function MatematicaPage() {
   const segmentos = [
     { id: "ob", name: "Operaciones Básicas", imgSrc: "/img/materias/mate/ob_n2.webp", alt: "Operaciones Básicas" },
-    { id: "decimale", name: "Decimales y Fracciones", imgSrc: "/img/materias/mate/decimales_n2.webp", alt: "Números Decimales" },
-    { id: "geometri", name: "Geometria", imgSrc: "/img/materias/mate/geometria_n2.webp", alt: "Geometría" },
+    { id: "decimales", name: "Decimales y Fracciones", imgSrc: "/img/materias/mate/decimales_n2.webp", alt: "Números Decimales" },
+    { id: "geometria", name: "Geometria", imgSrc: "/img/materias/mate/geometria_n2.webp", alt: "Geometría" },
     { id: "multimedia", name: "Contenido Multimedia", imgSrc: "/img/materias/mate/multimedia_n2.webp", alt: "Resolución de Problemas" },
   ];
 
@@ -27,7 +27,7 @@ export default function MatematicaPage() {
           mostrarCabeza={false}
           segmentos={segmentos}
           nivel="nivel2"
-          fondoUrl="/img/materias/mate/selva.webp"
+          fondoUrl="/img/materias/mate/fondon1.webp"
           planetaImg="/img/personajes/niveles/marten2.webp"
         />
       </div>

@@ -3,33 +3,32 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
-import '@/styles/animacion.css';
-import Volver from '@/components/botonVolver'
+import Volver from '@/components/elements/botonVolver'
 
 
-const CoinCollectingGame = dynamic(() => import('@/components/minigame/lvl3/intro/game'), { ssr: false });
+const CoinCollectingGame = dynamic(() => import('@/components/minigame/introductorios/lvl3'), { ssr: false });
 
 // Componente modal para mostrar las instrucciones del juego
 const InstructionsModal = ({ onClose, onPlay }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-lg p-8 max-w-lg mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-center">Instrucciones del Juego</h2>
-        <img src="/img/games/mate/ob/intrucciones2.png" alt="Instrucciones" className="w-1/2 mx-auto mb-4" />
-        <p className="mb-4 text-center">
-          Mueve el personaje con las teclas de flecha para recoger las monedas y evitar los obstáculos.
-          Cada moneda te da puntos. ¡Intenta obtener la mayor cantidad posible sin chocar con los obstáculos!
-        </p>
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 wonder">
+      <div className="bg-white mx-auto p-8 rounded-lg max-w-lg">
+        <h2 className="mb-4 font-bold text-3xl text-center">Instrucciones del Juego</h2>
+        <img src="/img/personajes/starly/starly_corona.webp" alt="Instrucciones" className="mx-auto mb-4 w-1/2" />
+        <ul className="mb-4 text-center yagora">
+          <li>1. Mueve el personaje con las teclas de flecha para recoger las monedas y evitar los obstáculos</li>
+          <li>2. Cada moneda te da puntos. ¡Intenta obtener la mayor cantidad posible sin chocar con los obstáculos!</li>
+        </ul>
 
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 text-lg">
           <button
-            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            className="bg-gray-300 hover:bg-gray-200 px-4 py-2 rounded-full"
             onClick={onClose}
           >
             Cerrar
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-full text-white"
             onClick={onPlay}
           >
             Jugar
@@ -62,33 +61,31 @@ const IntroGame3 = () => {
   };
 
   return (
-    <main>
+    <main className='bg-gray-50'>
       <SeparadorRosa />
       {/* Volver */}
-      <Volver href="/niveles/nivel3" />
-
+      <Volver href="/niveles/nivel3" img='/img/home/regresar/rosa.webp' />
       {/* Sección de bienvenida */}
-      <div className="flex flex-col md:flex-row justify-center items-center mt-10 mb-10">
-        <h1 className="ml-10 story text-2xl font-bold text-center">Bienvenido a Juegos Introductorios</h1>
+      <div className="flex md:flex-row flex-col justify-center items-center mb-10">
+        <h1 className="ml-10 font-bold text-4xl text-center text-pink-700 super">JUEGO INTRODUCTORIO NIVEL III</h1>
         <img
-          src="/img/personajes/starly/starly.webp"
-          alt="Starly"
-          className="h-32 w-auto mb-6 md:mb-0 md:h-40 md:mr-10 md:ml-10 animate-tumble"
+          src="/img/receso/planet3.webp"
+          alt="Planeta Cosmmo"
+          className="md:mr-10 mb-6 md:mb-0 md:ml-10 w-auto h-32 md:h-40 animate-float"
         />
       </div>
-
-      <SeparadorRosa />
 
       {/* Zona del juego */}
       {!showGame && (
         <div className="flex flex-col items-center my-20">
-          <img src="/img/games/mate/ob/pre-game-image2.png" alt="Pre-Game" className="w-64 mb-4" />
           <button
-            className="px-6 py-3 bg-green-500 text-white rounded-full"
+            className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full text-white text-xl wonder"
             onClick={handleOpenModal}
           >
-            Leer Indicaciones
+            Indicaciones
           </button>
+          <p>Lee las indicaciones para comenzar</p>
+          <img src="/img/games/intro/n1.png" alt="Pre-Game" className="mb-4 w-32" />
         </div>
       )}
 
@@ -99,8 +96,8 @@ const IntroGame3 = () => {
 
       {/* Juego */}
       {showGame && (
-        <div className="flex-grow flex justify-center items-center w-full">
-          <div className="w-full max-w-[800px] h-[600px] flex justify-center items-center">
+        <div className="flex flex-grow justify-center items-center w-full">
+          <div className="flex justify-center items-center w-full max-w-[800px] h-[600px]">
             <CoinCollectingGame />
           </div>
         </div>

@@ -1,3 +1,4 @@
+// Pagina nivel lenguaje subtemas
 "use client";
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
@@ -8,6 +9,7 @@ import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
 import { SeparadorMorado } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
+import NoExiste from "@/components/menssages/mensajeNoExiste";
 
 // Definir los datos de subtemas al inicio
 const subtemasData = {
@@ -15,28 +17,28 @@ const subtemasData = {
     id: 10,
     titulo: "Ortografía Básica",
     descripcion: "Aprende las reglas esenciales de la ortografía para escribir correctamente y evitar errores comunes. ¡Un paso fundamental para dominar el lenguaje!",
-    imagen: "/img/personajes/principe/principe.webp",
+    imagen: "/img/materias/lenguaje/ortografian.webp",
     buttonColor: "morado",
   },
   gramatica: {
     id: 11,
     titulo: "Gramática y Sintaxis",
     descripcion: "Descubre la estructura del lenguaje con temas de gramática y sintaxis. Aprende a construir oraciones correctamente y a usar las palabras adecuadas en cada contexto.",
-    imagen: "/img/personajes/principe/principe.webp",
+    imagen: "/img/materias/lenguaje/gramatican.webp",
     buttonColor: "morado",
   },
   generos_literarios: {
     id: 12,
     titulo: "Géneros Literarios",
     descripcion: "Explora los diferentes géneros literarios, desde la narrativa hasta la poesía. Aprende sus características y cómo se expresan en distintos tipos de textos.",
-    imagen: "/img/materias/lenguaje/geon.webp",
+    imagen: "/img/materias/lenguaje/generosn.webp",
     buttonColor: "morado",
   },
   lectura: {
     id: 13,
     titulo: "Comprensión Lectora",
     descripcion: "Desarrolla tus habilidades de comprensión lectora para interpretar y analizar textos de manera eficaz. ¡Una habilidad clave para todo tipo de aprendizaje!",
-    imagen: "/img/personajes/principe/principe.webp",
+    imagen: "/img/materias/lenguaje/lecturan.webp",
     buttonColor: "morado",
   },
 };
@@ -56,7 +58,7 @@ const SubtemasPage = () => {
   const currentSubtema = subtemasData[subtemas];
   if (!currentSubtema) {
     console.error("Tema no encontrado");
-    return <p>Este tema no existe.</p>;
+    return <NoExiste/>
   }
 
   const currentTopicId = currentSubtema.id;
