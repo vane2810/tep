@@ -1,11 +1,12 @@
-//Pagina de repaso - Nivel 1
+//Pagina de Multimedia
 "use client";
 import React, { useState } from "react";
-import Link from 'next/link';
 import { SeparadorAzul, SeparadorMorado } from "@/components/separador";
+import Volver from "@/components/elements/botonVolver";
+import PropTypes from "prop-types";
 
-export default function MatematicaPage() {
-  const [unlocked, setUnlocked] = useState([1]); 
+const Multimedia = ({ href }) => {
+  const [unlocked, setUnlocked] = useState([1]);
   const [videoUrl, setVideoUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -122,26 +123,16 @@ export default function MatematicaPage() {
       <section>
         <SeparadorAzul />
         <div className="bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200 py-8">
-          {/* Volver */}
-          <div className="inline-block mt-6 ml-10">
-            <Link href="/niveles/nivel1/mate">
-              <img 
-                src="/img/home/regresar/azul.webp" 
-                alt="Volver" 
-                className="w-10 h-auto transform hover:scale-110 transition-transform" 
-                title="Volver a la página anterior" 
-              />
-            </Link>
-          </div>
+          <Volver href={href} img="/img/home/regresar/morado.webp"/>
           <div className="flex flex-col justify-center items-center mb-5 text-center">
             <div className="flex md:flex-row flex-col justify-center items-center">
-              <img 
-                src="/img/niveles/mate/starlyvideo1.png" 
-                alt="Animated Image" 
-                className="md:mr-4 mb-4 md:mb-0 w-auto h-40 md:h-64 animate-tambaleo" 
+              <img
+                src="/img/niveles/mate/starlyvideo1.png"
+                alt="Animated Image"
+                className="md:mr-4 mb-4 md:mb-0 w-auto h-40 md:h-64 animate-tambaleo"
               />
               <p className="max-w-lg text-black text-lg md:text-4xl super">
-              BIENVENIDA/O A NUESTRA GALERIA MULTIMEDIA, DONDE CADA VIDEO ES UNA PUERTA HACIA EL CONOCIMIENTO.¡HAZ CLIC Y DEJA QUE LA EDUCACIÓN TE SORPRENDA!.
+                BIENVENIDA/O A NUESTRA GALERIA MULTIMEDIA, DONDE CADA VIDEO ES UNA PUERTA HACIA EL CONOCIMIENTO ¡HAZ CLIC Y DEJA QUE LA EDUCACIÓN TE SORPRENDA!
               </p>
             </div>
           </div>
@@ -152,17 +143,17 @@ export default function MatematicaPage() {
       {/* Sección de temas */}
       <section className="bg-gray-100 py-8">
         <div className="mx-auto px-4 container">
-          <p className="instrucciones story">Empieza por el primer video. Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
+          <p className="instrucciones yagora">Cada tema desbloqueado te acercará al siguiente. ¡Disfruta aprendiendo!</p>
           <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {temas.map((tema) => (
-              <div 
+              <div
                 key={tema.id}
                 className={unlocked.includes(tema.id) ? "unlocked bg-white rounded-lg shadow-lg overflow-hidden" : "locked bg-white rounded-lg shadow-lg overflow-hidden"}
                 onClick={() => unlocked.includes(tema.id) && openModal(tema.videoUrl, tema.id)}
               >
-                <img 
-                  src={tema.img} 
-                  alt={tema.title} 
+                <img
+                  src={tema.img}
+                  alt={tema.title}
                   className="w-full h-28 sm:h-48 object-cover"
                 />
                 <div className="p-4">
@@ -181,12 +172,12 @@ export default function MatematicaPage() {
           <div className="modal-content">
             <button className="close-btn" onClick={closeModal}>X</button>
             <div className="relative" style={{ height: "90%" }}>
-              <iframe 
+              <iframe
                 src={videoUrl}
                 title="YouTube Video"
                 className="top-0 left-0 absolute w-full h-full"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
@@ -195,4 +186,10 @@ export default function MatematicaPage() {
       )}
     </main>
   );
+
 }
+
+Multimedia.propTypes = {
+  href: PropTypes.string.isRequired,
+};
+export default Multimedia;

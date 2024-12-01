@@ -13,7 +13,7 @@ const MapLenguaje = ({ segmentos, fondoUrl, planetaImg, nivel }) => {
     return (
         <div className="bg-white shadow-lg mx-auto p-4 rounded-xl w-full">
             {/* Contenedor de Título */}
-            <h1 className="my-4 font-bold text-center text-2xl sm:text-3xl md:text-4xl yagora">
+            <h1 className="my-4 font-bold text-2xl text-center sm:text-3xl md:text-4xl yagora">
                 Explora la Galaxia de Lenguaje y Literatura
             </h1>
             <section

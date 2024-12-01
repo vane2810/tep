@@ -8,6 +8,7 @@ import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
 import { SeparadorAzul } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
+import NoExiste from "@/components/menssages/mensajeNoExiste";
 
 // Definir los datos de subtemas al inicio
 const subtemasData = {
@@ -78,7 +79,7 @@ const SubtemasPage = () => {
   const currentSubtema = subtemasData[subtemas];
   if (!currentSubtema) {
     console.error("Tema no encontrado");
-    return <p>Este tema no existe.</p>;
+    return <NoExiste/>
   }
 
   const currentTopicId = currentSubtema.id;
