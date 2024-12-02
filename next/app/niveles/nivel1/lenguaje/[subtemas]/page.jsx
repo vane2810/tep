@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import PrivateRoute from "@/components/PrivateRoute";
 import SubtemaHeader from "@/components/templates/subtopics/lenguajeHeader";
 import SubtemaCard from "@/components/templates/subtopics/subtemasCards1";
 import SubtemasModal from "@/components/modals/admin/contenido/subtemasModal";
@@ -58,7 +59,7 @@ const SubtemasPage = () => {
   const currentSubtema = subtemasData[subtemas];
   if (!currentSubtema) {
     console.error("Tema no encontrado");
-    return <NoExiste/>
+    return <NoExiste />
   }
 
   const currentTopicId = currentSubtema.id;
@@ -161,53 +162,55 @@ const SubtemasPage = () => {
   };
 
   return (
-    <main className="bg-gray-50">
-      <SeparadorMorado />
+    <PrivateRoute>
+      <main className="bg-gray-50">
+        <SeparadorMorado />
 
-      <SubtemaHeader
-        titulo={currentSubtema.titulo}
-        descripcion={currentSubtema.descripcion}
-        imagen={currentSubtema.imagen}
-        volverUrl="/niveles/nivel1/lenguaje"
-      />
+        <SubtemaHeader
+          titulo={currentSubtema.titulo}
+          descripcion={currentSubtema.descripcion}
+          imagen={currentSubtema.imagen}
+          volverUrl="/niveles/nivel1/lenguaje"
+        />
 
-      {session?.role === "admin" && (
-        <AddButton text="Agregar Subtema" onClick={handleAddSubtema} />
-      )}
+        {session?.role === "admin" && (
+          <AddButton text="Agregar Subtema" onClick={handleAddSubtema} />
+        )}
 
-      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-6 mb-10">
-        {subtemasList.map((tema) => (
-          <div key={tema.id} className="relative">
-            <SubtemaCard
-              title={tema.title}
-              description={tema.description}
-              link={`/niveles/nivel1/lenguaje/${subtemas}/${tema.id}`}
-              imgSrc={tema.img_url}
-              buttonColor={currentSubtema.buttonColor}
-              role={session?.role}
-              onEdit={() => handleEditSubtema(tema)}
-              onDelete={() => openDeleteModal(tema.id)}
-            />
-          </div>
-        ))}
-      </div>
+        <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-6 mb-10">
+          {subtemasList.map((tema) => (
+            <div key={tema.id} className="relative">
+              <SubtemaCard
+                title={tema.title}
+                description={tema.description}
+                link={`/niveles/nivel1/lenguaje/${subtemas}/${tema.id}`}
+                imgSrc={tema.img_url}
+                buttonColor={currentSubtema.buttonColor}
+                role={session?.role}
+                onEdit={() => handleEditSubtema(tema)}
+                onDelete={() => openDeleteModal(tema.id)}
+              />
+            </div>
+          ))}
+        </div>
 
-      <SeparadorMorado />
+        <SeparadorMorado />
 
-      <SubtemasModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onSave={handleSaveSubtema}
-        newSubtema={newSubtema}
-        onInputChange={handleInputChange}
-      />
+        <SubtemasModal
+          isOpen={isModalOpen}
+          onClose={handleModalClose}
+          onSave={handleSaveSubtema}
+          newSubtema={newSubtema}
+          onInputChange={handleInputChange}
+        />
 
-      <DeleteModal
-        isOpen={isDeleteModalOpen}
-        onClose={() => setIsDeleteModalOpen(false)}
-        onConfirm={confirmDeleteSubtema}
-      />
-    </main>
+        <DeleteModal
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
+          onConfirm={confirmDeleteSubtema}
+        />
+      </main>
+    </PrivateRoute>
   );
 };
 

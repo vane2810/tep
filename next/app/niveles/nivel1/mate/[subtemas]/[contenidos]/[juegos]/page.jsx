@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import PrivateRoute from "@/components/PrivateRoute";
 import { SeparadorVerde } from "@/components/separador";
 import Volver from "@/components/elements/botonVolver";
 import useSession from "@/hooks/useSession";
@@ -101,7 +102,7 @@ const JuegosPage = () => {
                     img_url: gameToSave.imgSrc,
                     contentId: gameToSave.contentId,
                     gametype_id: gameToSave.gametype_id, // Agrega este campo
-                })                
+                })
             });
 
             if (response.ok) {
@@ -171,54 +172,56 @@ const JuegosPage = () => {
     }
 
     return (
-        <main className="bg-gray-100">
-            <SeparadorVerde />
+        <PrivateRoute>
+            <main className="bg-gray-100">
+                <SeparadorVerde />
 
-            <Volver href={volverHref} img="/img/home/regresar/verde.webp" />
+                <Volver href={volverHref} img="/img/home/regresar/verde.webp" />
 
-            <GameHeader
-                title={subtemaData.title}
-                imageSrc="/img/personajes/donkey/donkey.webp"
-            />
+                <GameHeader
+                    title={subtemaData.title}
+                    imageSrc="/img/personajes/donkey/donkey.webp"
+                />
 
-            {session?.role === "admin" && (
-                <AddButton text="Agregar Juego" onClick={handleAddGame} />
-            )}
-
-            <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 px-8 py-8">
-                {gamesList.length > 0 ? (
-                    gamesList.map((game) => (
-                        <GameCard
-                            key={game.id}
-                            title={game.title}
-                            imageSrc={game.img_url}
-                            href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${game.id}/${game.id}`} 
-                            isAdmin={session?.role === "admin"} // Añadir prop isAdmin para mostrar botones de editar/eliminar solo para el admin
-                            onEdit={() => handleEditGame(game)} // Añadir prop onEdit
-                            onDelete={() => openDeleteModal(game.id)} // Añadir prop onDelete
-                        />
-                    ))
-                ) : (
-                    <EmptyContentMessage />
+                {session?.role === "admin" && (
+                    <AddButton text="Agregar Juego" onClick={handleAddGame} />
                 )}
-            </div>
 
-            <SeparadorVerde />
+                <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 px-8 py-8">
+                    {gamesList.length > 0 ? (
+                        gamesList.map((game) => (
+                            <GameCard
+                                key={game.id}
+                                title={game.title}
+                                imageSrc={game.img_url}
+                                href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${game.id}/${game.id}`}
+                                isAdmin={session?.role === "admin"} // Añadir prop isAdmin para mostrar botones de editar/eliminar solo para el admin
+                                onEdit={() => handleEditGame(game)} // Añadir prop onEdit
+                                onDelete={() => openDeleteModal(game.id)} // Añadir prop onDelete
+                            />
+                        ))
+                    ) : (
+                        <EmptyContentMessage />
+                    )}
+                </div>
 
-            <GameModal
-                isOpen={isModalOpen}
-                onClose={handleModalClose}
-                onSave={handleSaveGame}
-                newGame={newGame}
-                onInputChange={handleInputChange}
-            />
+                <SeparadorVerde />
 
-            <DeleteModal
-                isOpen={isDeleteModalOpen}
-                onClose={() => setIsDeleteModalOpen(false)}
-                onConfirm={confirmDeleteGame}
-            />
-        </main>
+                <GameModal
+                    isOpen={isModalOpen}
+                    onClose={handleModalClose}
+                    onSave={handleSaveGame}
+                    newGame={newGame}
+                    onInputChange={handleInputChange}
+                />
+
+                <DeleteModal
+                    isOpen={isDeleteModalOpen}
+                    onClose={() => setIsDeleteModalOpen(false)}
+                    onConfirm={confirmDeleteGame}
+                />
+            </main>
+        </PrivateRoute>
     );
 };
 

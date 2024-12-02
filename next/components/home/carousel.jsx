@@ -74,7 +74,7 @@ export default function Carousel() {
     return (
         <>
             {/* Carrusel Pequeño */}
-            <div className="flex flex-col items-center md:mb-12 px-4 sm:px-8 lg:px-12 py-4">
+            <div className="flex flex-col items-center md:mb-12 px-4 sm:px-8 lg:px-12 py-4 yagora">
                 <div className="relative flex justify-center items-center space-x-2 md:space-x-4 w-full max-w-5xl overflow-hidden">
                     {items.map((item, index) => {
                         const distance = Math.abs(currentIndex - index);

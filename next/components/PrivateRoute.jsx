@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";  // Usamos este hook para redirigir
-import useSession from "@/hooks/useSession"; // Hook de sesión
-import Modal from "@/components/modals/privateRoute"; // Un modal que mostraría el mensaje de login
+import { useRouter } from "next/navigation";  
+import useSession from "@/hooks/useSession"; 
+import Modal from "@/components/modals/privateRoute";
 
 const PrivateRoute = ({ children }) => {
-  const { session } = useSession(); // Obtener la sesión
-  const router = useRouter(); // Hook para redirigir
+  const { session } = useSession(); 
+  const router = useRouter(); 
   const [showModal, setShowModal] = useState(false); // Estado para mostrar el modal
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import PrivateRoute from "@/components/PrivateRoute";
 import useSession from "@/hooks/useSession";
 import ComponentHeader from "@/components/templates/games/componentHeader";
 import Loading from "@/components/elements/loading";
@@ -208,57 +209,59 @@ const GamePage = () => {
     const isGameConfigured = adminInstructions.length > 0 && gameConfig;
 
     return (
-        <main className="bg-gray-100">
-            <SeparadorVerde />
-            <Volver img="/img/home/regresar/verde.webp" />
-            <ComponentHeader
-                imageSrc="/img/personajes/donkey/donkey.webp"
-                onInstructionsClick={() => setIsInstruccionesModalOpen(true)}
-            />
-            <div className="relative bg-white shadow-md mx-auto my-10 px-12 py-8 rounded-md max-w-5xl container yagora">
-                <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
-                {isGameConfigured && GameComponent ? (
-                    <GameComponent gameData={gameData} config={gameConfig} />
-                ) : (
-                    <p className="text-center text-gray-800 text-lg">
-                        <EmptyContentMessage/>
-                    </p>
-                )}
-                {session?.role === "admin" && (
-                    <div className="top-4 right-4 absolute flex space-x-4">
-                        <button
-                            onClick={handleConfigClick}
-                            className="flex items-center bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-md font-bold text-white transform transition-transform hover:scale-105"
-                        >
-                            <FaEdit className="mr-2" />
-                            {isGameConfigured ? "Editar Juego" : "Configurar Juego"}
-                        </button>
-                    </div>
-                )}
-            </div>
-            <InstruccionesModal
-                isOpen={isInstruccionesModalOpen}
-                onClose={handleModalClose}
-                instructions={adminInstructions}
-                defaultInstructions={defaultInstructions}
-                points={currentPoints}
-                isAdmin={session?.role === "admin"}
-                onSave={handleSavePoints}
-                onEdit={handleEditClick}
-                isEditing={isEditing}
-            />
-            {isConfigModalOpen && ConfigFormComponent && (
-                <ConfigFormComponent
-                    isOpen={isConfigModalOpen}
-                    onClose={handleModalClose}
-                    gameData={gameData}
-                    onSave={handleSaveGameConfig}
-                    isEditing={true}
-                    existingConfig={gameConfig}
+        <PrivateRoute>
+            <main className="bg-gray-100">
+                <SeparadorVerde />
+                <Volver img="/img/home/regresar/verde.webp" />
+                <ComponentHeader
+                    imageSrc="/img/personajes/donkey/donkey.webp"
+                    onInstructionsClick={() => setIsInstruccionesModalOpen(true)}
                 />
-            )}
-            <SeparadorVerde />
-        </main>
+                <div className="relative bg-white shadow-md mx-auto my-10 px-12 py-8 rounded-md max-w-5xl container yagora">
+                    <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
+                    {isGameConfigured && GameComponent ? (
+                        <GameComponent gameData={gameData} config={gameConfig} />
+                    ) : (
+                        <p className="text-center text-gray-800 text-lg">
+                            <EmptyContentMessage />
+                        </p>
+                    )}
+                    {session?.role === "admin" && (
+                        <div className="top-4 right-4 absolute flex space-x-4">
+                            <button
+                                onClick={handleConfigClick}
+                                className="flex items-center bg-blue-500 hover:bg-blue-600 shadow-md px-4 py-2 rounded-md font-bold text-white transform transition-transform hover:scale-105"
+                            >
+                                <FaEdit className="mr-2" />
+                                {isGameConfigured ? "Editar Juego" : "Configurar Juego"}
+                            </button>
+                        </div>
+                    )}
+                </div>
+                <InstruccionesModal
+                    isOpen={isInstruccionesModalOpen}
+                    onClose={handleModalClose}
+                    instructions={adminInstructions}
+                    defaultInstructions={defaultInstructions}
+                    points={currentPoints}
+                    isAdmin={session?.role === "admin"}
+                    onSave={handleSavePoints}
+                    onEdit={handleEditClick}
+                    isEditing={isEditing}
+                />
+                {isConfigModalOpen && ConfigFormComponent && (
+                    <ConfigFormComponent
+                        isOpen={isConfigModalOpen}
+                        onClose={handleModalClose}
+                        gameData={gameData}
+                        onSave={handleSaveGameConfig}
+                        isEditing={true}
+                        existingConfig={gameConfig}
+                    />
+                )}
+                <SeparadorVerde />
+            </main>
+        </PrivateRoute>
     );
 };
 

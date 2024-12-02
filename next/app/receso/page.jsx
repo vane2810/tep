@@ -1,10 +1,14 @@
 //Pagina principal receso
+"use client"
 import BreakSection from "@/components/breaksection";
+import PrivateRoute from "@/components/PrivateRoute";
 
 export default function Home() {
   return (
-    <div>
-      <BreakSection />
-    </div>
+    <PrivateRoute>
+      <div>
+        <BreakSection />
+      </div>
+    </PrivateRoute>
   );
 }
