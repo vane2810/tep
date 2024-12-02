@@ -93,29 +93,34 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Ruta para obtener los datos del usuario autenticado (sin autenticación)
-router.get('/user', async (req, res) => {
-  // Como no hay autenticación, esta ruta se ajusta para recibir el `userId` como un parámetro de consulta.
-  const { userId } = req.query;
+// Ruta para validar el ID antes de obtener los datos del usuario
+router.get('/validate-id/:id', async (req, res) => {
+  const { id } = req.params;
+
+  // Verificar si el id es un número o un UUID (dependiendo de cómo manejes los IDs en tu base de datos)
+  if (!isValidId(id)) {
+    return res.status(400).json({ error: 'El ID proporcionado no es válido' });
+  }
 
   try {
-    const user = await User.findByPk(userId, {
-      attributes: ['id', 'name', 'lastname', 'email', 'role'],
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ['password'] }, // Excluye la contraseña
       include: [
         { model: Character, as: 'character' },
         { model: Level, as: 'level' },
-      ],
+      ]
     });
 
     if (!user) {
-      return res.status(404).json({ error: 'Usuario no encontrado' });
+      return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
     res.status(200).json(user);
   } catch (error) {
-    console.error('Error al obtener los datos del usuario:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error("Error al obtener usuario:", error);
+    res.status(500).json({ error: 'Error al obtener el usuario' });
   }
 });
+
 
 module.exports = router;

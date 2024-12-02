@@ -34,9 +34,9 @@ const PasswordModal = ({ isOpen, onClose, onSave }) => {
     };
 
     return (
-        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 yagora">
             <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-md">
-                <h3 className="flex justify-center items-center mb-4 font-bold text-2xl text-center">
+                <h3 className="flex justify-center items-center mb-4 font-bold text-2xl text-center text-purple-700">
                     <FaKeyTitle className="mr-2" /> Cambiar Contraseña
                 </h3>
                 <div className="mb-4">

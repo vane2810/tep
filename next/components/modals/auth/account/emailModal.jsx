@@ -8,9 +8,9 @@ const EmailModal = ({ isOpen, onClose, email, onSave }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 yagora">
             <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-md">
-                <h3 className="mb-4 font-bold text-2xl text-center">Cambiar Correo Electrónico</h3>
+                <h3 className="mb-4 font-bold text-2xl text-center text-purple-700">Cambiar Correo Electrónico</h3>
                 <div className="mb-4">
                     <label className="block mb-2 font-semibold text-gray-700">Nuevo Correo Electrónico</label>
                     <input

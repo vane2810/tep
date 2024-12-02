@@ -1,4 +1,3 @@
-// Contexto - Session
 "use client";
 import React, { createContext, useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
@@ -9,28 +8,64 @@ export const SessionProvider = ({ children }) => {
   const [session, setSession] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null); // Estado para el personaje seleccionado
 
+  // Función para verificar la expiración del token
+  const checkTokenExpiration = (token) => {
+    try {
+      const decoded = jwt.decode(token);
+      if (decoded) {
+        const expirationTime = decoded.exp * 1000; // Convertir a milisegundos
+        const currentTime = Date.now();
+
+        // Si el token ha expirado
+        if (currentTime > expirationTime) {
+          // Eliminar token del localStorage y cerrar sesión
+          localStorage.removeItem('token');
+          return false;
+        }
+        return true; // El token es válido
+      }
+      return false; // El token no es válido
+    } catch (error) {
+      console.error('Error al verificar el token:', error);
+      return false;
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      try {
+      if (checkTokenExpiration(token)) {
         const decoded = jwt.decode(token);
-        if (decoded) {
-          setSession({ user: decoded.id, email: decoded.email, name: decoded.name, role: decoded.role, nivel: decoded.nivel });
-          setSelectedCharacter(decoded.characterId || null); // Asigna el personaje si está en el token
-        }
-      } catch (error) {
-        console.error('Error decodificando el token:', error);
-        setSession(null);
+        setSession({
+          user: decoded.id,
+          email: decoded.email,
+          name: decoded.name,
+          role: decoded.role,
+          nivel: decoded.nivel,
+        });
+        setSelectedCharacter(decoded.characterId || null);
+      } else {
+        setSession(null); // Si el token ha expirado, cerramos la sesión
       }
     }
   }, []);
 
+  // Función de login
   const login = (user) => {
     localStorage.setItem('token', user.token);
-    setSession({ user: user.id, name: user.name, email: user.email, role: user.role, nivel: user.nivel });
-    setSelectedCharacter(user.characterId || null); // Asigna el personaje después de iniciar sesión
+    if (checkTokenExpiration(user.token)) {
+      setSession({
+        user: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        nivel: user.nivel,
+      });
+      setSelectedCharacter(user.characterId || null);
+    }
   };
 
+  // Función de logout
   const logout = () => {
     localStorage.removeItem('token');
     setSession(null);
@@ -43,4 +78,3 @@ export const SessionProvider = ({ children }) => {
     </SessionContext.Provider>
   );
 };
-
