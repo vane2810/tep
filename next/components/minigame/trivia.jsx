@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
+import EmptyContentMessage from "../menssages/mensajeVacio";
+
 
 const Trivia = ({ gameData, config }) => {
   // Estado para manejar las preguntas y el progreso del juego
@@ -13,7 +15,7 @@ const Trivia = ({ gameData, config }) => {
   if (!config || !config.preguntas || config.preguntas.length === 0) {
     return (
       <div className="text-center text-gray-800 text-lg">
-        No hay preguntas configuradas para este juego. Por favor, configura las preguntas.
+        <EmptyContentMessage/>
       </div>
     );
   }

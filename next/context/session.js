@@ -15,7 +15,7 @@ export const SessionProvider = ({ children }) => {
       try {
         const decoded = jwt.decode(token);
         if (decoded) {
-          setSession({ user: decoded.id, name: decoded.name, role: decoded.role, nivel: decoded.nivel });
+          setSession({ user: decoded.id, email: decoded.email, name: decoded.name, role: decoded.role, nivel: decoded.nivel });
           setSelectedCharacter(decoded.characterId || null); // Asigna el personaje si está en el token
         }
       } catch (error) {
@@ -27,7 +27,7 @@ export const SessionProvider = ({ children }) => {
 
   const login = (user) => {
     localStorage.setItem('token', user.token);
-    setSession({ user: user.id, name: user.name, role: user.role, nivel: user.nivel });
+    setSession({ user: user.id, name: user.name, email: user.email, role: user.role, nivel: user.nivel });
     setSelectedCharacter(user.characterId || null); // Asigna el personaje después de iniciar sesión
   };
 

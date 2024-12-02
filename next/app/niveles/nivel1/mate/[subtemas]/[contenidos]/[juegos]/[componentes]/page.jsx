@@ -9,6 +9,7 @@ import { SeparadorVerde } from "@/components/separador";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
 import Carga from "@/components/menssages/mensajeCarga";
 import { FaEdit } from "react-icons/fa";
+import EmptyContentMessage from "@/components/menssages/mensajeVacio";
 
 // Importar dinámicamente los componentes de juegos y formularios
 import { gameComponents, configForms } from "@/utils/gameMappings";
@@ -220,7 +221,7 @@ const GamePage = () => {
                     <GameComponent gameData={gameData} config={gameConfig} />
                 ) : (
                     <p className="text-center text-gray-800 text-lg">
-                        El juego no está configurado. Por favor configure el juego.
+                        <EmptyContentMessage/>
                     </p>
                 )}
                 {session?.role === "admin" && (

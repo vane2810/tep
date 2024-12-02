@@ -5,7 +5,7 @@ export const gameComponents = {
     "1": dynamic(() => import("@/components/minigame/trivia")),
     "2": dynamic(() => import("@/components/minigame/emparejar")),
     "3": dynamic(() => import("@/components/minigame/ordenar")),
-    "4": dynamic(() => import("@/components/minigame/arrastrar_soltar")),
+    "4": dynamic(() => import("@/components/minigame/arrastrar")),
 };
 
 export const configForms = {

@@ -18,7 +18,6 @@ const MemoryGame = () => {
   const [game, setGame] = useState(null);
   const [matches, setMatches] = useState(0);
   const [isGameFinished, setIsGameFinished] = useState(false);
-  const [instructionsVisible, setInstructionsVisible] = useState(false);
 
   useEffect(() => {
     const config = {
@@ -137,39 +136,13 @@ const MemoryGame = () => {
     };
   }, []);
 
-  const toggleInstructions = () => {
-    setInstructionsVisible(!instructionsVisible);
-  };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '80vh' }}>
       <div id="memory-game" style={{ marginRight: '20px' }}></div>
-      <div>
-        <h2>Aciertos: {matches}</h2>
-        <button style={{ 
-          backgroundColor: instructionsVisible ? '#F8BBD0' : '#F06292 ',
-
-          border: 'none', 
-          color: 'white', 
-          padding: '10px 20px', 
-          borderRadius: '5px',
-          cursor: 'pointer',
-          transition: 'background-color 0.3s ease',
-          }}
-          onClick={toggleInstructions}>
-          {instructionsVisible ? 'Ocultar Instrucciones' : 'Mostrar Instrucciones'}
-        </button>
-        {instructionsVisible && (
-          <div style={{ backgroundColor: '#F9E79F', padding: '20px', borderRadius: '10px', marginTop: '10px' }}>
-            <h3>Instrucciones:</h3>
-            <p>¡Bienvenido al juego de memoria de planetas!</p>
-            <p>El objetivo es encontrar todas las parejas de planetas.</p>
-            <p>Para jugar, simplemente haz clic en las cartas para revelarlas.</p>
-            <p>Si encuentras dos cartas iguales, permanecerán visibles.</p>
-            <p>Si las cartas no coinciden, se ocultarán después de un segundo.</p>
-            <p>¡Intenta recordar la ubicación de los planetas para hacer coincidir las parejas!</p>
-          </div>
-        )}
+      <div className='bg-purple-200 px-4 text-center'>
+        <h1 className='font-bold text-3xl text-purple-900 wonder'>Aciertos: {matches}</h1>
+        
       </div>
     </div>
   );

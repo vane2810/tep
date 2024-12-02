@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight } from "react-icons/fa";
 
@@ -62,7 +62,7 @@ const Emparejar = ({ gameData, config }) => {
   // Mostrar pantalla de finalización
   if (isGameOver) {
     return (
-      <div className="flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo_bosque.webp")' }}>
+      <div className="flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo6.webp")' }}>
         <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl text-center">
           <h1 className="mb-4 font-bold text-4xl">Juego Finalizado</h1>
           <p className="mb-4 text-2xl">
@@ -109,7 +109,7 @@ const Emparejar = ({ gameData, config }) => {
 
   // Renderizar juego mientras no haya terminado
   return (
-    <div className="relative flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo_bosque.webp")' }}>
+    <div className="relative flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo6.webp")' }}>
       <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl">
         <p className="mb-4 text-3xl text-center text-green-700 wonder">Puntaje: {score} Estrellas</p>
 
