@@ -59,7 +59,7 @@ const Games = () => {
                             </h3>
 
                             {/* Imagen del nivel */}
-                            <div className="bg-gray-200 shadow-inner mb-8 rounded-lg w-full">
+                            <div className="bg-purple-100 shadow-inner mb-8 rounded-lg w-full">
                                 <img
                                     src={level.img}
                                     alt={level.title}

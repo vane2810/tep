@@ -1,32 +1,44 @@
+// Carrusel
 "use client";
 import { useState, useEffect } from 'react';
 
 export default function Carousel() {
     const items = [
         {
-            image: '/img/carousel/img5.webp',
+            image: '/img/carousel/img5.webp',      // Imagen pequeña
+            modalImage: '/img/carousel/img1_1.png',  // Imagen grande para el modal
             title: 'Starly',
             description: 'Bienvenidos a mi galaxia',
         },
         {
             image: '/img/carousel/img4.webp',
+            modalImage: '/img/carousel/img2_2.png', 
             title: 'Planetas',
             description: 'Explora los planetas',
         },
         {
+            image: '/img/carousel/img6.webp',
+            modalImage:  '/img/carousel/img6.webp',
+            title: 'Asignaturas',
+            description: 'Conoce nuevos personajes',
+        },
+        {
+            image: '/img/carousel/img7.webp',
+            modalImage:  '/img/carousel/img7.webp',
+            title: 'Asignaturas',
+            description: 'Conoce nuevos personajes',
+        },
+        {
             image: '/img/carousel/img1.png',
+            modalImage: '/img/carousel/img1.png',
             title: 'Juegos',
             description: 'Aprende jugando',
         },
         {
             image: '/img/carousel/img2.png',
-            title: 'Juegos',
-            description: 'Diviertete aprendiendo',
-        },
-        {
-            image: '/img/carousel/img6.webp',
-            title: 'Asignaturas',
-            description: 'Conoce nuevos personajes',
+            modalImage:  '/img/carousel/img2.png',
+            title: 'Receso',
+            description: 'Explora las actividades',
         },
     ];
 
@@ -62,7 +74,7 @@ export default function Carousel() {
     return (
         <>
             {/* Carrusel Pequeño */}
-            <div className="flex flex-col items-center px-4 sm:px-8 lg:px-16 py-8 md:py-16">
+            <div className="flex flex-col items-center md:mb-12 px-4 sm:px-8 lg:px-12 py-4">
                 <div className="relative flex justify-center items-center space-x-2 md:space-x-4 w-full max-w-5xl overflow-hidden">
                     {items.map((item, index) => {
                         const distance = Math.abs(currentIndex - index);
@@ -102,9 +114,8 @@ export default function Carousel() {
                             key={index}
                             onClick={() => selectSlide(index)}
                             aria-label={`Seleccionar punto ${index + 1}`}
-                            className={`w-3 h-3 rounded-full cursor-pointer transition ${
-                                index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
-                            }`}
+                            className={`w-3 h-3 rounded-full cursor-pointer transition ${index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'
+                                }`}
                         ></button>
                     ))}
                 </div>
@@ -139,17 +150,14 @@ export default function Carousel() {
                         </button>
 
                         {/* Contenedor de la Tarjeta Ampliada con Borde */}
-                        <div className="relative flex justify-center items-center border-4 shadow-lg p-2 md:p-0 border-blue-500 rounded-lg w-full max-w-md h-[50vh] md:h-[400px] overflow-hidden">
+                        <div className="relative flex justify-center items-center border-4 bg-white shadow-lg p-2 md:p-0 border-blue-500 rounded-lg w-full max-w-md h-[50vh] md:h-[400px] overflow-hidden">
                             <img
-                                src={items[currentIndex].image}
+                                src={items[currentIndex].modalImage}
                                 alt={items[currentIndex].title}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain"  // Ajusta la imagen al contenedor sin distorsionarla
                             />
-                            <div className="bottom-0 absolute bg-gradient-to-t from-black to-transparent p-4 w-full text-left text-white">
-                                <h3 className="font-bold text-lg md:text-2xl">{items[currentIndex].title}</h3>
-                                <p className="text-sm md:text-lg">{items[currentIndex].description}</p>
-                            </div>
                         </div>
+
 
                         <button
                             onClick={nextSlide}

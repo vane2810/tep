@@ -11,7 +11,7 @@ export default function SubtemaCard({ title, description, link, imgSrc, buttonCo
 
             {/* Descripción del subtema */}
             {description && (
-                <p className="mb-4 text-gray-600 text-sm italic yagoras">{description}</p>
+                <p className="mb-4 text-gray-600 text-sm italic yagora">{description}</p>
             )}
 
             {/* Imagen del subtema con borde */}

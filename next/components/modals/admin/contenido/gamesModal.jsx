@@ -11,6 +11,8 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
     const [successMessage, setSuccessMessage] = useState(""); // Mensaje de confirmación
     const [errorMessage, setErrorMessage] = useState(""); // Mensaje de error
 
+    const defaultImage = "/img/personajes/starly/starly2.webp"; // URL de la imagen predeterminada
+
     // Cargar los tipos de juegos al abrir el modal
     useEffect(() => {
         const fetchGameTypes = async () => {
@@ -38,7 +40,6 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
         }
     }, [isOpen]);
 
-
     // Función para manejar la selección de archivo
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);
@@ -54,6 +55,9 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
         if (!newGame.title.trim()) {
             validationErrors.title = "El título es obligatorio.";
         }
+        if (!newGame.gametype_id) {
+            validationErrors.gametype_id = "El tipo de juego es obligatorio.";
+        }
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -61,7 +65,7 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
             return;
         }
 
-        let imgUrl = newGame.imgSrc;
+        let imgUrl = newGame.imgSrc || defaultImage; // Si no hay imagen, usamos la predeterminada
 
         if (selectedFile) {
             const formData = new FormData();
@@ -165,18 +169,6 @@ const GameModal = ({ isOpen, onClose, onSave, newGame, onInputChange }) => {
                     )}
                     {errors.gametype_id && <p className="mt-1 text-red-500 text-sm">{errors.gametype_id}</p>}
                 </div>
-
-                {/* Vista previa de la imagen actual si existe */}
-                {newGame.imgSrc && (
-                    <div className="mb-4">
-                        <p className="mb-1 text-gray-700">Imagen Actual:</p>
-                        <img
-                            src={newGame.imgSrc}
-                            alt="Imagen del juego"
-                            className="rounded-md w-full h-40 object-cover"
-                        />
-                    </div>
-                )}
 
                 {/* Campo para subir la imagen */}
                 <div className="relative mb-6">
