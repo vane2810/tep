@@ -28,6 +28,7 @@ const Game = require('./game')(sequelize, DataTypes);
 const GameDetail = require('./gamedetail')(sequelize, DataTypes); // Modelo actualizado de GameDetail
 const GameType = require('./gametype')(sequelize, DataTypes);
 const Instruction = require('./instruction')(sequelize, DataTypes);
+const Report = require('./report')(sequelize, DataTypes);
 
 // Definir relaciones entre los modelos
 
@@ -36,6 +37,7 @@ User.belongsTo(Character, { foreignKey: 'characterId', as: 'character' });
 User.belongsTo(Level, { foreignKey: 'levelId', as: 'level' });
 User.hasMany(UserRelationship, { foreignKey: 'studentId', as: 'guardians' });
 User.hasMany(UserRelationship, { foreignKey: 'guardianId', as: 'students' });
+User.hasMany(Report, { foreignKey: 'user_id', as: 'problemReports' });
 
 // Relaciones de UserRelationship
 UserRelationship.belongsTo(User, { foreignKey: 'studentId', as: 'studentInfo' });
@@ -83,6 +85,9 @@ GameType.hasMany(Game, { foreignKey: 'gametype_id', as: 'games', onDelete: 'SET 
 // Relaciones de Instruction
 Instruction.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });
 
+// Relacines Report
+Report.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
   sequelize,
@@ -99,4 +104,5 @@ module.exports = {
   GameDetail,
   GameType,
   Instruction,
+  Report,
 };

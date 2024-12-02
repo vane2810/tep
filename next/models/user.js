@@ -1,4 +1,3 @@
-/* Modelo de la tabla users */
 'use strict';
 const { Model } = require('sequelize');
 
@@ -26,6 +25,12 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.UserRelationship, {
         foreignKey: 'guardianId',
         as: 'students',
+      });
+
+      // Relación con la tabla de reportes de problemas (ProblemReport)
+      User.hasMany(models.Report, {
+        foreignKey: 'user_id',  // La clave foránea en la tabla 'ProblemReport'
+        as: 'problemReports',  // Nombre del alias para la relación
       });
     }
   }
