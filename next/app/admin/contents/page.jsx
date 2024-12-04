@@ -23,9 +23,9 @@ export default function ContenidosPage() {
           icon: FaChalkboardTeacher,
           link: '/niveles/nivel1/mate',
           temas: [
-            { nombre: 'Operaciones Básicas', link: '/niveles/nivel1/matematicas/ob' },
-            { nombre: 'Decimales', link: '/niveles/nivel1/matematicas/decimales' },
-            { nombre: 'Geometría', link: '/niveles/nivel1/matematicas/geometria' },
+            { nombre: 'Operaciones Básicas', link: '/niveles/nivel1/mate/ob' },
+            { nombre: 'Decimales', link: '/niveles/nivel1/mate/decimales' },
+            { nombre: 'Geometría', link: '/niveles/nivel1/mate/geometria' },
           ],
         },
         {
@@ -75,9 +75,9 @@ export default function ContenidosPage() {
           icon: FaChalkboardTeacher,
           link: '/niveles/nivel2/mate',
           temas: [
-            { nombre: 'Operaciones Básicas', link: '/niveles/nivel2/matematicas/ob' },
-            { nombre: 'Decimales', link: '/niveles/nivel2/matematicas/decimales' },
-            { nombre: 'Geometría', link: '/niveles/nivel2/matematicas/geometria' },
+            { nombre: 'Operaciones Básicas', link: '/niveles/nivel2/mate/ob' },
+            { nombre: 'Decimales', link: '/niveles/nivel2/mate/decimales' },
+            { nombre: 'Geometría', link: '/niveles/nivel2/mate/geometria' },
           ],
         },
         {
@@ -123,9 +123,9 @@ export default function ContenidosPage() {
           icon: FaChalkboardTeacher,
           link: '/niveles/nivel3/mate',
           temas: [
-            { nombre: 'Operaciones Básicas', link: '/niveles/nivel3/matematicas/ob' },
-            { nombre: 'Decimales', link: '/niveles/nivel3/matematicas/decimales' },
-            { nombre: 'Geometría', link: '/niveles/nivel3/matematicas/geometria' },
+            { nombre: 'Operaciones Básicas', link: '/niveles/nivel3/mate/ob' },
+            { nombre: 'Decimales', link: '/niveles/nivel3/mate/decimales' },
+            { nombre: 'Geometría', link: '/niveles/nivel3/mate/geometria' },
           ],
         },
         {

@@ -15,6 +15,7 @@ const gamesRoutes = require('./routes/games');
 const instructionsRoutes = require('./routes/instructions');
 const gameDetailsRoutes = require('./routes/gamedetails');
 const gametypeRoutes = require('./routes/gametypes');
+const reportsRoutes = require('./routes/reports');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,6 +34,7 @@ app.use('/api/games', gamesRoutes);
 app.use('/api/instructions', instructionsRoutes);
 app.use('/api/gamedetails', gameDetailsRoutes);
 app.use('/api/gametypes', gametypeRoutes);
+app.use('/api/reports', reportsRoutes);
 
 
 

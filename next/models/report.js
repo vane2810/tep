@@ -4,18 +4,21 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Report extends Model {
         static associate(models) {
-            // Relación con el modelo User
-            Report.belongsTo(models.User, {
-                foreignKey: 'user_id',
-                as: 'user', // Asociación con el usuario
-                onDelete: 'CASCADE',
-            });
+            // Relación con otros modelos 
         }
     }
 
     Report.init({
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         title: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        type: {
+            type: DataTypes.ENUM('problema', 'sugerencia'),
             allowNull: false,
         },
         description: {
@@ -26,15 +29,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM('pendiente', 'en proceso', 'resuelto'),
             allowNull: false,
             defaultValue: 'pendiente',
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'Users',
-                key: 'id',
-            },
-            onDelete: 'CASCADE',
         },
     }, {
         sequelize,

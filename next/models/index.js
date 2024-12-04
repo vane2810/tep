@@ -37,7 +37,6 @@ User.belongsTo(Character, { foreignKey: 'characterId', as: 'character' });
 User.belongsTo(Level, { foreignKey: 'levelId', as: 'level' });
 User.hasMany(UserRelationship, { foreignKey: 'studentId', as: 'guardians' });
 User.hasMany(UserRelationship, { foreignKey: 'guardianId', as: 'students' });
-User.hasMany(Report, { foreignKey: 'user_id', as: 'problemReports' });
 
 // Relaciones de UserRelationship
 UserRelationship.belongsTo(User, { foreignKey: 'studentId', as: 'studentInfo' });
@@ -84,9 +83,6 @@ GameType.hasMany(Game, { foreignKey: 'gametype_id', as: 'games', onDelete: 'SET 
 
 // Relaciones de Instruction
 Instruction.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });
-
-// Relacines Report
-Report.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
