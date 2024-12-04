@@ -90,7 +90,7 @@ const Navbar = () => {
         <>
           {/* Botones específicos según el rol del usuario */}
           {renderRoleButton('admin', '/admin', 'Panel de Administración')}
-          {renderRoleButton('padre', '/docente', 'Ingresar usuarios')}
+          {renderRoleButton('padre', '/tutor', 'Ingresar estudiantes')}
           {renderRoleButton('docente', '/docente', 'Ingresar estudiantes')}
 
           {/* Información del usuario y avatar del personaje */}

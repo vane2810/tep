@@ -222,9 +222,9 @@ const GamePage = () => {
                     {isGameConfigured && GameComponent ? (
                         <GameComponent gameData={gameData} config={gameConfig} />
                     ) : (
-                        <p className="text-center text-gray-800 text-lg">
+                        <div className="text-center text-gray-800 text-lg">
                             <EmptyContentMessage />
-                        </p>
+                        </div>
                     )}
                     {session?.role === "admin" && (
                         <div className="top-4 right-4 absolute flex space-x-4">

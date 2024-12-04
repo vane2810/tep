@@ -1,172 +1,165 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
+import { FaRedoAlt, FaArrowRight } from "react-icons/fa";
 import EmptyContentMessage from "../menssages/mensajeVacio";
 
-const Arrastrar = ({ gameData, config }) => {
-  const [draggedElement, setDraggedElement] = useState(null);
-  const [droppedPositions, setDroppedPositions] = useState({});
-  const [isGameOver, setIsGameOver] = useState(false);
-  const [score, setScore] = useState(0);
-  const [feedback, setFeedback] = useState({ message: "", correctAnswer: "" });
+const ArrastrarSoltar = ({ gameData, config }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [feedback, setFeedback] = useState({ message: "", correctAnswer: "" });
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   // Asegurarse de que config está definido y tiene preguntas
-  if (!config || !config.preguntas || config.preguntas.length === 0) {
+  if (!config || !config.questions || config.questions.length === 0) {
     return (
       <div className="text-center text-gray-800 text-lg">
-        <EmptyContentMessage/>
+        <EmptyContentMessage />
       </div>
     );
   }
 
   // Extraer datos del juego desde la configuración
-  const { preguntas, points_questions, points_min } = config;
+  const { questions, points_questions, points_min } = config;
 
-  // Crear los elementos para arrastrar y las posiciones para soltar
-  const elementos = preguntas.flatMap((question) => question.opciones || []);
-  const posiciones = preguntas.map((question) => question.texto || "");
-
-  // Maneja el evento de arrastre
-  const handleDragStart = (element) => {
-    setDraggedElement(element);
-  };
-
-  // Maneja el evento de soltar
-  const handleDrop = (position) => {
-    if (draggedElement) {
-      setDroppedPositions((prev) => ({
-        ...prev,
-        [position]: draggedElement,
-      }));
-      setDraggedElement(null);
+  // Manejar la selección de una opción
+  const handleDrop = (correctOption) => {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedAnswer === correctOption) {
+      setScore((prevScore) => prevScore + points_questions);
+      setFeedback({
+        message: "¡Respuesta Correcta!",
+        correctAnswer: `La respuesta correcta era: ${correctOption}`,
+      });
+    } else {
+      setFeedback({
+        message: "Respuesta Incorrecta",
+        correctAnswer: `La respuesta correcta era: ${correctOption}`,
+      });
     }
-  };
 
-  // Validar el juego al finalizar
-  const validateGame = () => {
-    let correctCount = 0;
-
-    preguntas.forEach((question, index) => {
-      if (droppedPositions[question.texto] === question.respuestaCorrecta) {
-        correctCount++;
+    // Ir a la siguiente pregunta o finalizar el juego
+    setTimeout(() => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      } else {
+        setIsGameOver(true);
       }
-    });
-
-    const calculatedScore = (correctCount / preguntas.length) * points_questions;
-    setScore(calculatedScore);
-    setFeedback({
-      message: correctCount === preguntas.length ? "¡Felicidades, has completado el juego!" : "Respuesta Incorrecta",
-      correctAnswer: `La respuesta correcta es: ${correctCount === preguntas.length ? "Todas correctas" : "Revisa tus respuestas"}`,
-    });
-    setIsGameOver(true);
+      setFeedback({ message: "", correctAnswer: "" });
+      setSelectedAnswer(null);
+    }, 3000);
   };
 
   // Reiniciar el juego
   const resetGame = () => {
-    setDraggedElement(null);
-    setDroppedPositions({});
+    setCurrentQuestionIndex(0);
     setScore(0);
     setIsGameOver(false);
     setFeedback({ message: "", correctAnswer: "" });
-    setCurrentQuestionIndex(0);
+    setSelectedAnswer(null);
   };
 
-  // Continuar al siguiente nivel (aquí solo reinicia el juego)
+  // Continuar al siguiente nivel
   const continueGame = () => {
-    setIsGameOver(false);
-    setCurrentQuestionIndex(0);
+    console.log("Continuando al siguiente nivel...");
   };
 
+  // Mostrar pantalla de finalización
   if (isGameOver) {
     return (
-      <div className="flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo12.webp")' }}>
+      <div className="flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo2.webp")' }}>
         <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl text-center">
           <h1 className="mb-4 font-bold text-4xl">Juego Finalizado</h1>
-          <p className="mb-4 text-2xl">Puntaje: {score.toFixed(2)} Estrellas</p>
+          <p className="mb-4 text-2xl">
+            Puntaje Obtenido: <span className="font-semibold">{score} Estrellas</span>
+          </p>
           {score >= points_min ? (
-            <div>
-              <img src="/img/personajes/starly/starly_globos.webp" alt="Felicidades" className="mx-auto mb-6 w-40 h-40" />
+            <>
+              <img
+                src="/img/personajes/starly/starly_fuego.webp"
+                alt="Felicidades"
+                className="mx-auto mb-6 w-36 h-36"
+              />
               <p className="mb-6 font-bold text-2xl text-green-600">¡Felicidades, aprobaste el juego!</p>
               <div className="flex justify-center space-x-8 mt-6">
-                <button onClick={resetGame} className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105">
+                <button
+                  onClick={resetGame}
+                  className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
+                >
                   <FaRedoAlt className="mr-3" />
                   Reintentar
                 </button>
-                <button onClick={continueGame} className="flex items-center bg-green-500 hover:bg-green-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105">
+                <button
+                  onClick={continueGame}
+                  className="flex items-center bg-green-500 hover:bg-green-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
+                >
                   <FaArrowRight className="mr-3" />
                   Continuar
                 </button>
               </div>
-            </div>
+            </>
           ) : (
-            <div>
-              <img src="/img/personajes/starly/starly_llorando.webp" alt="Inténtalo de nuevo" className="mx-auto mb-6 w-40 h-40" />
-              <p className="mb-6 font-bold text-2xl text-red-600">No alcanzaste el puntaje mínimo. Inténtalo de nuevo.</p>
-              <button onClick={resetGame} className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105">
+            <>
+              <img
+                src="/img/personajes/starly/starly_llorando.webp"
+                alt="Inténtalo de nuevo"
+                className="mx-auto mb-6 w-36 h-36"
+              />
+              <p className="mb-6 font-bold text-2xl text-red-600">
+                No alcanzaste el puntaje mínimo
+                <br />
+                Inténtalo de nuevo
+              </p>
+              <button
+                onClick={resetGame}
+                className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
+              >
                 <FaRedoAlt className="mr-3" />
                 Reintentar
               </button>
-            </div>
+            </>
           )}
         </div>
       </div>
     );
   }
 
+  // Mostrar pregunta actual
+  const currentQuestion = questions[currentQuestionIndex];
+
   return (
-    <div className="relative flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo12.webp")' }}>
+    <div className="relative flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo2.webp")' }}>
       <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl">
-        {/* Barra superior */}
+        {/* Barra superior con el número de pregunta y el puntaje */}
         <div className="flex justify-between items-center mb-8">
-          <p className="flex items-center font-semibold text-purple-700 text-xl">
-            <FaQuestionCircle className="mr-2" />
-            Pregunta {currentQuestionIndex + 1} de {preguntas.length}
+          <p className="flex items-center font-semibold text-blue-700 text-xl">
+            Pregunta {currentQuestionIndex + 1} de {questions.length}
           </p>
-          <p className="font-semibold text-purple-700 text-xl">Puntaje: {score} Estrellas</p>
+          <p className="font-semibold text-blue-700 text-xl">Puntaje: {score} Estrellas</p>
         </div>
 
-        {/* Elementos para arrastrar */}
-        <h2 className="mb-8 font-semibold text-2xl text-center text-gray-800">{preguntas[currentQuestionIndex]?.texto}</h2>
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
-          {/* Elementos arrastrables */}
-          <div>
-            {elementos.map((element, index) => (
-              <div
-                key={index}
-                draggable
-                onDragStart={() => handleDragStart(element)}
-                style={{
-                  padding: "10px",
-                  margin: "10px",
-                  border: "1px solid black",
-                  cursor: "grab",
-                }}
-              >
-                {element}
-              </div>
-            ))}
-          </div>
+        {/* Pregunta y área para arrastrar y soltar */}
+        <h2 className="mb-8 font-semibold text-2xl text-center text-gray-800">{currentQuestion.texto}</h2>
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 mb-8">
+          {currentQuestion.opciones.map((option, index) => (
+            <div
+              key={index}
+              draggable
+              onDragStart={() => setSelectedAnswer(option)}
+              className="bg-blue-400 hover:bg-blue-500 px-6 py-4 rounded-lg font-bold text-center text-white cursor-pointer"
+            >
+              {option}
+            </div>
+          ))}
+        </div>
 
-          {/* Posiciones para soltar */}
-          <div>
-            {posiciones.map((position, index) => (
-              <div
-                key={index}
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={() => handleDrop(position)}
-                style={{
-                  padding: "10px",
-                  margin: "10px",
-                  border: "1px solid black",
-                  minHeight: "50px",
-                  backgroundColor: droppedPositions[position] ? "lightgreen" : "white",
-                }}
-              >
-                {droppedPositions[position] || position}
-              </div>
-            ))}
-          </div>
+        {/* Área de soltar */}
+        <div
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={() => handleDrop(currentQuestion.respuestaCorrecta)}
+          className="border-4 p-8 border-blue-500 border-dashed rounded-lg font-bold text-blue-700 text-center text-xl"
+        >
+          Suelta aquí la respuesta correcta
         </div>
 
         {/* Feedback */}
@@ -174,31 +167,26 @@ const Arrastrar = ({ gameData, config }) => {
           <div className="bg-white shadow-md mt-4 p-6 rounded-lg text-center">
             <p
               className={`text-xl font-bold mb-2 ${
-                feedback.message === "¡Felicidades, has completado el juego!" ? "text-green-600" : "text-red-600"
+                feedback.message === "¡Respuesta Correcta!" ? "text-green-600" : "text-red-600"
               }`}
             >
               {feedback.message}
             </p>
-            <p className="text-lg">{feedback.correctAnswer}</p>
+            <p className="font-bold text-xl">{feedback.correctAnswer}</p>
           </div>
         )}
-
-        {/* Validar juego */}
-        <button onClick={validateGame} style={{ marginTop: "20px" }}>
-          Validar
-        </button>
       </div>
     </div>
   );
 };
 
-Arrastrar.propTypes = {
+ArrastrarSoltar.propTypes = {
   gameData: PropTypes.shape({
     title: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
   }).isRequired,
   config: PropTypes.shape({
-    preguntas: PropTypes.arrayOf(
+    questions: PropTypes.arrayOf(
       PropTypes.shape({
         texto: PropTypes.string.isRequired,
         opciones: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -210,4 +198,4 @@ Arrastrar.propTypes = {
   }).isRequired,
 };
 
-export default Arrastrar;
+export default ArrastrarSoltar;

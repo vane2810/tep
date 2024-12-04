@@ -8,6 +8,7 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
   const [questions, setQuestions] = useState([]);
   const [points, setPoints] = useState(0);
   const [pointsMin, setPointsMin] = useState(0);
+  const [pointsQuestions, setPointsQuestions] = useState(0);
   const [errors, setErrors] = useState([]);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -20,6 +21,7 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
         setQuestions(config.questions || []);
         setPoints(config.points || 0);
         setPointsMin(config.points_min || 0);
+        setPointsQuestions(config.points_questions || 0);
       } catch (error) {
         console.error("Error al analizar la configuración existente:", error);
       }
@@ -27,7 +29,7 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
   }, [isEditing, existingConfig]);
 
   const handleAddQuestion = () => {
-    setQuestions([...questions, { texto: "", opciones: [""], respuestaCorrecta: "" }]);
+    setQuestions([...questions, { texto: "", opciones: ["", ""], respuestaCorrecta: "" }]);
   };
 
   const handleRemoveQuestion = (index) => {
@@ -55,8 +57,10 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
 
   const handleRemoveOption = (questionIndex, optionIndex) => {
     const updatedQuestions = [...questions];
-    updatedQuestions[questionIndex].opciones.splice(optionIndex, 1);
-    setQuestions(updatedQuestions);
+    if (updatedQuestions[questionIndex].opciones.length > 2) {
+      updatedQuestions[questionIndex].opciones.splice(optionIndex, 1);
+      setQuestions(updatedQuestions);
+    }
   };
 
   const validateForm = () => {
@@ -64,12 +68,20 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
 
     if (points <= 0) newErrors.push("Puntos totales deben ser mayores que 0.");
     if (pointsMin <= 0) newErrors.push("Puntos mínimos para aprobar deben ser mayores que 0.");
+    if (pointsQuestions <= 0) newErrors.push("Puntos por pregunta deben ser mayores que 0.");
     if (questions.length === 0) newErrors.push("Debe agregar al menos una pregunta.");
 
     questions.forEach((question, index) => {
       if (!question.texto) newErrors.push(`La pregunta #${index + 1} no tiene texto.`);
       if (question.opciones.length < 2) newErrors.push(`La pregunta #${index + 1} debe tener al menos dos opciones.`);
-      if (!question.respuestaCorrecta) newErrors.push(`La pregunta #${index + 1} no tiene respuesta correcta.`);
+      if (question.opciones.some((opcion) => opcion.trim() === "")) {
+        newErrors.push(`La pregunta #${index + 1} tiene opciones vacías.`);
+      }
+      if (!question.respuestaCorrecta) {
+        newErrors.push(`La pregunta #${index + 1} no tiene respuesta correcta.`);
+      } else if (!question.opciones.includes(question.respuestaCorrecta)) {
+        newErrors.push(`La respuesta correcta de la pregunta #${index + 1} debe coincidir con una de las opciones.`);
+      }
     });
 
     setErrors(newErrors);
@@ -83,6 +95,7 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
         questions,
         points,
         points_min: pointsMin,
+        points_questions: pointsQuestions,
       };
       console.log("Datos de configuración guardados:", configData);
       onSave(configData);
@@ -91,7 +104,7 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
   };
 
   const isGeneralConfigComplete = () => {
-    return points > 0 && pointsMin > 0;
+    return points > 0 && pointsMin > 0 && pointsQuestions > 0;
   };
 
   const handleTooltip = (event, message) => {
@@ -110,7 +123,7 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
   if (!isOpen) return null;
 
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 yagora">
       <div className="bg-white shadow-lg p-8 rounded-lg w-full max-w-3xl max-h-screen text-black overflow-auto">
         <h2 className="mb-4 font-bold text-2xl text-center">{isEditing ? "Editar Arrastrar y Soltar" : "Configurar Arrastrar y Soltar"}</h2>
 
@@ -218,6 +231,23 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
               />
             </div>
 
+            <div className="relative mb-4">
+              <label className="block mb-1 font-bold">
+                Puntos por Pregunta:
+                <FaInfoCircle
+                  className="inline ml-2 text-purple-500 cursor-pointer"
+                  onClick={(e) => handleTooltip(e, "Cantidad de puntos que se otorgan por cada pregunta correcta.")}
+                  onMouseLeave={hideTooltip}
+                />
+              </label>
+              <input
+                type="number"
+                value={pointsQuestions === 0 ? "" : pointsQuestions}
+                onChange={(e) => setPointsQuestions(Number(e.target.value) || 0)}
+                className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+
             {tooltip.visible && (
               <div
                 className="absolute border-purple-500 bg-purple-100 shadow-lg p-2 border-l-4 rounded text-purple-700"
@@ -253,64 +283,63 @@ const ArrastrarSoltarForm = ({ isOpen, onClose, gameData, onSave, isEditing, exi
           <div>
             <h3 className="mb-4 font-bold">Preguntas del Juego</h3>
             {questions.map((question, index) => (
-              <div key={index} className="mb-6">
-                <div className="mb-2">
-                  <label className="block mb-1 font-bold">Pregunta #{index + 1}:</label>
-                  <input
-                    type="text"
-                    value={question.texto}
-                    onChange={(e) => handleQuestionChange(index, "texto", e.target.value)}
-                    className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
-                <div className="mb-2">
-                  <label className="block mb-1 font-bold">Opciones:</label>
-                  {question.opciones.map((option, optionIndex) => (
-                    <div key={optionIndex} className="flex items-center mb-2">
-                      <input
-                        type="text"
-                        value={option}
-                        onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
-                        className="border-gray-300 p-2 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
-                      />
-                      <button
-                        onClick={() => handleRemoveOption(index, optionIndex)}
-                        className="bg-red-500 hover:bg-red-600 ml-2 p-2 rounded text-white"
-                      >
-                        <FaTrashAlt />
-                      </button>
-                    </div>
-                  ))}
-                  <button
-                    onClick={() => handleAddOption(index)}
-                    className="flex items-center bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded text-white"
-                  >
-                    <FaPlus className="mr-2" />
-                    Añadir Opción
-                  </button>
-                </div>
-                <div className="mb-4">
-                  <label className="block mb-1 font-bold">Respuesta Correcta:</label>
-                  <input
-                    type="text"
-                    value={question.respuestaCorrecta}
-                    onChange={(e) => handleQuestionChange(index, "respuestaCorrecta", e.target.value)}
-                    className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
+              <div key={index} className="border-gray-300 shadow-sm mb-6 p-4 border rounded-lg">
+                <label className="block mb-1 font-bold">Texto de la Pregunta:</label>
+                <input
+                  type="text"
+                  value={question.texto}
+                  onChange={(e) => handleQuestionChange(index, "texto", e.target.value)}
+                  className="border-gray-300 mb-2 p-2 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
+                />
+
+                <label className="block mb-1 font-bold">Opciones:</label>
+                {question.opciones.map((option, optionIndex) => (
+                  <div key={optionIndex} className="flex items-center mb-2">
+                    <input
+                      type="text"
+                      value={option}
+                      onChange={(e) => handleOptionChange(index, optionIndex, e.target.value)}
+                      className="border-gray-300 p-2 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
+                    />
+                    <button
+                      onClick={() => handleRemoveOption(index, optionIndex)}
+                      className="bg-red-500 hover:bg-red-600 ml-2 p-2 rounded text-white"
+                      disabled={question.opciones.length <= 2}
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </div>
+                ))}
+
+                <button
+                  onClick={() => handleAddOption(index)}
+                  className="flex items-center bg-blue-500 hover:bg-blue-600 mb-4 px-4 py-2 rounded text-white"
+                >
+                  <FaPlus className="mr-2" /> Añadir Opción
+                </button>
+
+                <label className="block mb-1 font-bold">
+                  Respuesta Correcta:
+                </label>
+                <input
+                  type="text"
+                  value={question.respuestaCorrecta}
+                  onChange={(e) => handleQuestionChange(index, "respuestaCorrecta", e.target.value)}
+                  className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+
                 <button
                   onClick={() => handleRemoveQuestion(index)}
-                  className="bg-red-500 hover:bg-red-600 p-2 rounded font-bold text-white"
+                  className="bg-red-500 hover:bg-red-600 mt-4 p-2 rounded text-white"
                 >
-                  <FaTrashAlt className="mr-2" />
-                  Eliminar Pregunta
+                  <FaTrashAlt />
                 </button>
               </div>
             ))}
 
             <button
               onClick={handleAddQuestion}
-              className="flex items-center bg-blue-500 hover:bg-blue-600 mt-4 px-4 py-2 rounded text-white"
+              className="flex items-center bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded text-white"
             >
               <FaPlus className="mr-2" />
               Añadir Pregunta

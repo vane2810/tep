@@ -6,17 +6,16 @@ const Emparejar = ({ gameData, config }) => {
   // Estados para manejar el juego
   const [selectedLeft, setSelectedLeft] = useState(null);
   const [matches, setMatches] = useState([]);
-  const [score, setScore] = useState(0);
+  const [incorrectMatches, setIncorrectMatches] = useState([]);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [feedback, setFeedback] = useState("");
 
   // Extraer datos de configuración del juego
-  const { pares, points_per_pair, points_min } = config;
+  const { pares, description, points } = config;
+  const pointsPerPair = Math.floor(points / pares.length); // Puntos por par correcto
 
   // Manejar la selección de un elemento en la columna izquierda
   const handleLeftSelect = (element) => {
     setSelectedLeft(element);
-    setFeedback(""); // Limpiar el feedback anterior al seleccionar un nuevo elemento
   };
 
   // Manejar la selección de un elemento en la columna derecha y validar el emparejamiento
@@ -28,80 +27,80 @@ const Emparejar = ({ gameData, config }) => {
     );
 
     if (isCorrect) {
-      setMatches((prev) => [...prev, selectedLeft]);
-      setScore((prevScore) => prevScore + points_per_pair);
-      setFeedback("¡Emparejamiento Correcto! :D");
+      setMatches((prev) => [...prev, { left: selectedLeft, right: element }]);
     } else {
-      setFeedback("Emparejamiento Incorrecto :c");
+      setIncorrectMatches((prev) => [...prev, { left: selectedLeft, right: element }]);
     }
 
     setSelectedLeft(null);
 
-    // Limpiar el feedback después de 2 segundos
-    setTimeout(() => {
-      setFeedback("");
-    }, 2000);
-
-    // Verificar si el juego ha terminado
-    if (matches.length + 1 === pares.length) {
+    // Verificar si el juego ha terminado (si todos los pares han sido emparejados)
+    if (matches.length + incorrectMatches.length + 1 === pares.length) {
       setTimeout(() => {
         setIsGameOver(true);
-      }, 2000);
+      }, 1000);
     }
   };
 
   // Reiniciar el juego
   const resetGame = () => {
     setMatches([]);
-    setScore(0);
+    setIncorrectMatches([]);
     setSelectedLeft(null);
     setIsGameOver(false);
-    setFeedback("");
   };
 
   // Mostrar pantalla de finalización
   if (isGameOver) {
+    const allCorrect = incorrectMatches.length === 0;
+    const totalScore = matches.length * pointsPerPair;
+
     return (
       <div className="flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo6.webp")' }}>
         <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl text-center">
           <h1 className="mb-4 font-bold text-4xl">Juego Finalizado</h1>
-          <p className="mb-4 text-2xl">
-            Puntaje Obtenido: <span className="font-semibold">{score} Estrellas</span>
-          </p>
-          {score >= points_min ? (
+          {allCorrect ? (
             <>
               <img src="/img/personajes/starly/starly_fuego.webp" alt="Felicidades" className="mx-auto mb-6 w-40 h-40" />
-              <p className="mb-6 font-bold text-2xl text-green-600">¡Felicidades, aprobaste el juego!</p>
-              <div className="flex justify-center space-x-8 mt-6">
-                <button
-                  onClick={resetGame}
-                  className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
-                >
-                  <FaRedoAlt className="mr-3" />
-                  Reintentar
-                </button>
-                <button
-                  onClick={() => console.log("Continuando al siguiente nivel...")}
-                  className="flex items-center bg-green-500 hover:bg-green-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
-                >
-                  <FaArrowRight className="mr-3" />
-                  Continuar
-                </button>
-              </div>
+              <p className="mb-6 font-bold text-2xl">
+                Puntaje Obtenido: <span className="text-green-600">{totalScore} Estrellas</span>
+              </p>
+              <p className="mb-6 font-bold text-2xl text-green-600">
+                ¡Felicidades, todos los emparejamientos son correctos!
+              </p>
             </>
           ) : (
             <>
               <img src="/img/personajes/starly/starly_triste.webp" alt="Inténtalo de nuevo" className="mx-auto mb-6 w-40 h-40" />
-              <p className="mb-6 font-bold text-2xl text-red-600">No alcanzaste el puntaje mínimo.<br />Inténtalo de nuevo.</p>
+              <p className="mb-6 font-bold text-2xl">
+                Puntaje Obtenido: <span className="text-red-600">{totalScore} Estrellas</span>
+              </p>
+              <p className="mb-6 font-bold text-2xl text-red-600">
+                No todos los emparejamientos fueron correctos <br />Inténtalo de nuevo
+              </p>
+            </>
+          )}
+
+          {/* Botones de Reintentar o Continuar */}
+          <div className="flex justify-center mt-6">
+            {allCorrect ? (
+              <button
+                onClick={() => console.log("Continuando al siguiente nivel...")}
+                className="flex items-center bg-green-500 hover:bg-green-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105 mx-2"
+              >
+                <FaArrowRight className="mr-3" />
+                Continuar
+              </button>
+            ) : (
               <button
                 onClick={resetGame}
-                className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
+                className="flex items-center bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105 mx-2"
               >
                 <FaRedoAlt className="mr-3" />
                 Reintentar
               </button>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </div>
     );
@@ -111,20 +110,28 @@ const Emparejar = ({ gameData, config }) => {
   return (
     <div className="relative flex justify-center items-center bg-cover bg-center min-h-screen yagora" style={{ backgroundImage: 'url("/img/games/fondo6.webp")' }}>
       <div className="bg-white shadow-lg p-12 rounded-lg w-full max-w-4xl">
-        <p className="mb-4 text-3xl text-center text-green-700 wonder">Puntaje: {score} Estrellas</p>
+        {/* Mostrar descripción del juego */}
+        {description && (
+          <p className="mb-8 font-bold text-2xl text-center text-green-700">{description}</p>
+        )}
 
         <div className="flex justify-between gap-16 mb-8">
           {/* Columna Izquierda */}
           <div>
-            <h2 className="mb-4 font-semibold text-center text-green-700 text-xl">Izquierda</h2>
+            <h2 className="mb-4 font-semibold text-center text-pink-700 text-xl">Izquierda</h2>
             {pares.map((pair, index) => (
               <button
-                key={index}
+                key={`left-${index}`}
                 onClick={() => handleLeftSelect(pair.elemento1)}
-                disabled={matches.includes(pair.elemento1)}
+                disabled={
+                  matches.some((match) => match.left === pair.elemento1) ||
+                  incorrectMatches.some((match) => match.left === pair.elemento1)
+                }
                 className={`w-full mb-4 p-4 rounded-lg ${
-                  matches.includes(pair.elemento1)
-                    ? "bg-yellow-300 border-yellow-400"
+                  matches.some((match) => match.left === pair.elemento1)
+                    ? "bg-green-300 border-green-400"
+                    : incorrectMatches.some((match) => match.left === pair.elemento1)
+                    ? "bg-red-300 border-red-400"
                     : selectedLeft === pair.elemento1
                     ? "bg-green-100"
                     : "bg-white"
@@ -140,12 +147,17 @@ const Emparejar = ({ gameData, config }) => {
             <h2 className="mb-4 font-semibold text-blue-700 text-center text-xl">Derecha</h2>
             {pares.map((pair, index) => (
               <button
-                key={index}
+                key={`right-${index}`}
                 onClick={() => handleRightSelect(pair.elemento2)}
-                disabled={matches.includes(pair.elemento1)}
+                disabled={
+                  matches.some((match) => match.right === pair.elemento2) ||
+                  incorrectMatches.some((match) => match.right === pair.elemento2)
+                }
                 className={`w-full mb-4 p-4 rounded-lg ${
-                  matches.includes(pair.elemento1)
-                    ? "bg-yellow-300 border-yellow-500"
+                  matches.some((match) => match.right === pair.elemento2)
+                    ? "bg-green-300 border-green-400"
+                    : incorrectMatches.some((match) => match.right === pair.elemento2)
+                    ? "bg-red-300 border-red-400"
                     : "bg-white"
                 } border border-gray-300 hover:bg-blue-100`}
               >
@@ -154,13 +166,6 @@ const Emparejar = ({ gameData, config }) => {
             ))}
           </div>
         </div>
-
-        {/* Feedback */}
-        {feedback && (
-          <div className={`text-xl font-bold text-center mb-4 ${feedback.includes("Correcto") ? "text-green-600" : "text-red-600"}`}>
-            {feedback}
-          </div>
-        )}
       </div>
     </div>
   );
@@ -179,8 +184,8 @@ Emparejar.propTypes = {
         elemento2: PropTypes.string.isRequired,
       })
     ).isRequired,
-    points_per_pair: PropTypes.number.isRequired,
-    points_min: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired, // Añadir descripción en la configuración
+    points: PropTypes.number.isRequired, // Puntos totales desde la configuración
   }).isRequired,
 };
 

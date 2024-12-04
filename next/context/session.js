@@ -13,7 +13,7 @@ export const SessionProvider = ({ children }) => {
     try {
       const decoded = jwt.decode(token);
       if (decoded) {
-        const expirationTime = decoded.exp * 1000; // Convertir a milisegundos
+        const expirationTime = decoded.exp * 1000;
         const currentTime = Date.now();
 
         // Si el token ha expirado

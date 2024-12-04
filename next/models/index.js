@@ -18,7 +18,7 @@ const sequelize = new Sequelize(
 const User = require('./user')(sequelize, DataTypes);
 const Character = require('./character')(sequelize, DataTypes);
 const Level = require('./level')(sequelize, DataTypes);
-const UserRelationship = require('./user_relationship')(sequelize, DataTypes);
+const UserRelation= require('./userRelation')(sequelize, DataTypes);
 const Subject = require('./subject')(sequelize, DataTypes);
 const Topic = require('./topic')(sequelize, DataTypes);
 const Subtopic = require('./subtopic')(sequelize, DataTypes);
@@ -35,12 +35,12 @@ const Report = require('./report')(sequelize, DataTypes);
 // Relaciones de User
 User.belongsTo(Character, { foreignKey: 'characterId', as: 'character' });
 User.belongsTo(Level, { foreignKey: 'levelId', as: 'level' });
-User.hasMany(UserRelationship, { foreignKey: 'studentId', as: 'guardians' });
-User.hasMany(UserRelationship, { foreignKey: 'guardianId', as: 'students' });
+User.hasMany(UserRelation, { foreignKey: 'studentId', as: 'guardians' });
+User.hasMany(UserRelation, { foreignKey: 'guardianId', as: 'students' });
 
 // Relaciones de UserRelationship
-UserRelationship.belongsTo(User, { foreignKey: 'studentId', as: 'studentInfo' });
-UserRelationship.belongsTo(User, { foreignKey: 'guardianId', as: 'guardianInfo' });
+UserRelation.belongsTo(User, { foreignKey: 'studentId', as: 'studentInfo' });
+UserRelation.belongsTo(User, { foreignKey: 'guardianId', as: 'guardianInfo' });
 
 // Relaciones de Character
 Character.hasMany(User, { foreignKey: 'characterId', as: 'users' });
@@ -90,7 +90,7 @@ module.exports = {
   User,
   Character,
   Level,
-  UserRelationship,
+  UserRelation,
   Subject,
   Topic,
   Subtopic,

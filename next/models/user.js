@@ -17,12 +17,12 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       // Relación con la tabla de relaciones de usuarios (estudiantes y guardianes)
-      User.hasMany(models.UserRelationship, {
+      User.hasMany(models.UserRelation, {
         foreignKey: 'studentId',
         as: 'guardians',
       });
 
-      User.hasMany(models.UserRelationship, {
+      User.hasMany(models.UserRelation, {
         foreignKey: 'guardianId',
         as: 'students',
       });
@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Level',  // En singular, como el modelo
+        model: 'Level', 
         key: 'id',
       },
     },
@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Character',  // En singular, como el modelo
+        model: 'Character',  
         key: 'id',
       },
     },
@@ -72,7 +72,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
-    tableName: 'Users', // Nombre de la tabla en plural
+    tableName: 'Users', 
     timestamps: true,
   });
 

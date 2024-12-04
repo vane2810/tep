@@ -1,21 +1,15 @@
+// Formulario para inserta datos Juego 1 - Trivia
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import {
-  FaPlus,
-  FaTrashAlt,
-  FaArrowRight,
-  FaSave,
-  FaTimes,
-  FaExclamationTriangle,
-  FaInfoCircle,
-  FaCheckCircle,
-} from "react-icons/fa";
+import { FaPlus, FaTrashAlt, FaArrowRight, FaSave, FaTimes, FaExclamationTriangle, FaInfoCircle, FaCheckCircle } from "react-icons/fa";
 
-const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingConfig }) => {
+const SeleccionRapidaForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingConfig }) => {
   const [activeTab, setActiveTab] = useState("general");
-  const [pares, setPares] = useState([]);
+  const [preguntas, setPreguntas] = useState([]);
   const [points, setPoints] = useState(0);
-  const [description, setDescription] = useState("");
+  const [pointsQuestions, setPointsQuestions] = useState(0);
+  const [pointsMin, setPointsMin] = useState(0);
+  const [timePerQuestion, setTimePerQuestion] = useState(30); // Tiempo por pregunta en segundos
   const [errors, setErrors] = useState([]);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -25,40 +19,78 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
     if (isEditing && existingConfig) {
       try {
         const config = typeof existingConfig === "string" ? JSON.parse(existingConfig) : existingConfig;
-        setPares(config.pares || []);
+        setPreguntas(config.preguntas || []);
         setPoints(config.points || 0);
-        setDescription(config.description || "");
+        setPointsQuestions(config.points_questions || 0);
+        setPointsMin(config.points_min || 0);
+        setTimePerQuestion(config.time_per_question || 30);
       } catch (error) {
         console.error("Error al analizar la configuración existente:", error);
       }
     }
   }, [isEditing, existingConfig]);
 
-  const handleAddPair = () => {
-    setPares([...pares, { elemento1: "", elemento2: "" }]);
+  const handleAddQuestion = () => {
+    setPreguntas([
+      ...preguntas,
+      { texto: "", opciones: ["", "", "", ""], respuestaCorrecta: "" },
+    ]);
   };
 
-  const handleRemovePair = (index) => {
-    const updatedPares = pares.filter((_, i) => i !== index);
-    setPares(updatedPares);
+  const handleRemoveQuestion = (index) => {
+    const updatedPreguntas = preguntas.filter((_, i) => i !== index);
+    setPreguntas(updatedPreguntas);
   };
 
-  const handlePairChange = (index, field, value) => {
-    const updatedPares = [...pares];
-    if (field === "elemento1") {
-      updatedPares[index].elemento1 = value;
-    } else if (field === "elemento2") {
-      updatedPares[index].elemento2 = value;
+  const handleQuestionChange = (index, field, value) => {
+    const updatedPreguntas = [...preguntas];
+    if (field === "texto") {
+      updatedPreguntas[index].texto = value;
+    } else if (field === "respuestaCorrecta") {
+      updatedPreguntas[index].respuestaCorrecta = value;
     }
-    setPares(updatedPares);
+    setPreguntas(updatedPreguntas);
+  };
+
+  const handleOptionChange = (questionIndex, optionIndex, value) => {
+    const updatedPreguntas = [...preguntas];
+    updatedPreguntas[questionIndex].opciones[optionIndex] = value;
+    setPreguntas(updatedPreguntas);
+  };
+
+  const handleRemoveOption = (questionIndex, optionIndex) => {
+    const updatedPreguntas = [...preguntas];
+    updatedPreguntas[questionIndex].opciones.splice(optionIndex, 1);
+    setPreguntas(updatedPreguntas);
+  };
+
+  const handleAddOption = (questionIndex) => {
+    const updatedPreguntas = [...preguntas];
+    updatedPreguntas[questionIndex].opciones.push("");
+    setPreguntas(updatedPreguntas);
   };
 
   const validateForm = () => {
     const newErrors = [];
 
     if (points <= 0) newErrors.push("Puntos totales deben ser mayores que 0.");
-    if (pares.length === 0) newErrors.push("Debe agregar al menos un par.");
-    if (!description.trim()) newErrors.push("Debe proporcionar una descripción del juego.");
+    if (pointsQuestions <= 0) newErrors.push("Puntos por pregunta correcta deben ser mayores que 0.");
+    if (pointsMin <= 0) newErrors.push("Puntos mínimos para aprobar deben ser mayores que 0.");
+    if (timePerQuestion <= 0) newErrors.push("El tiempo por pregunta debe ser mayor que 0 segundos.");
+    if (preguntas.length === 0) newErrors.push("Debe agregar al menos una pregunta.");
+
+    const maxQuestions = Math.floor(points / pointsQuestions);
+    if (preguntas.length > maxQuestions) {
+      newErrors.push(`El número máximo de preguntas permitido es ${maxQuestions}, dado el puntaje total y el puntaje por pregunta.`);
+    }
+
+    preguntas.forEach((pregunta, index) => {
+      if (!pregunta.texto) newErrors.push(`La pregunta #${index + 1} no tiene texto.`);
+      if (pregunta.opciones.some((opcion) => opcion.trim() === "")) {
+        newErrors.push(`La pregunta #${index + 1} tiene opciones vacías.`);
+      }
+      if (!pregunta.respuestaCorrecta) newErrors.push(`La pregunta #${index + 1} no tiene respuesta correcta.`);
+    });
 
     setErrors(newErrors);
     setShowErrorModal(newErrors.length > 0);
@@ -68,9 +100,11 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
   const handleSaveConfig = () => {
     if (validateForm()) {
       const configData = {
-        pares,
+        preguntas,
         points,
-        description,
+        points_questions: pointsQuestions,
+        points_min: pointsMin,
+        time_per_question: timePerQuestion,
       };
       console.log("Datos de configuración guardados:", configData);
       onSave(configData);
@@ -79,7 +113,7 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
   };
 
   const isGeneralConfigComplete = () => {
-    return points > 0 && description.trim().length > 0;
+    return points > 0 && pointsQuestions > 0 && pointsMin > 0 && timePerQuestion > 0;
   };
 
   const handleTooltip = (event, message) => {
@@ -100,7 +134,7 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
   return (
     <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 yagora">
       <div className="bg-white shadow-lg p-8 rounded-lg w-full max-w-3xl max-h-screen text-black overflow-auto">
-        <h2 className="mb-4 font-bold text-2xl text-center">{isEditing ? "Editar Emparejar" : "Configurar Emparejar"}</h2>
+        <h2 className="mb-4 font-bold text-2xl text-center">{isEditing ? "Editar Trivia" : "Configurar Trivia"}</h2>
 
         {/* Minimodal para mostrar errores */}
         {showErrorModal && (
@@ -159,14 +193,14 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
           </button>
           <button
             className={`pb-2 ${
-              activeTab === "pares"
+              activeTab === "preguntas"
                 ? "border-b-4 border-purple-500 font-bold text-purple-700"
                 : "text-gray-600 hover:text-purple-500"
             } transition-colors duration-200`}
-            onClick={() => setActiveTab("pares")}
+            onClick={() => setActiveTab("preguntas")}
             disabled={!isGeneralConfigComplete()}
           >
-            Pares
+            Preguntas
           </button>
         </div>
 
@@ -192,18 +226,52 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
 
             <div className="relative mb-4">
               <label className="block mb-1 font-bold">
-                Descripción:
+                Puntos por Pregunta Correcta:
                 <FaInfoCircle
                   className="inline ml-2 text-purple-500 cursor-pointer"
-                  onClick={(e) => handleTooltip(e, "Descripción que explique qué es lo que se debe emparejar")}
+                  onClick={(e) => handleTooltip(e, "La cantidad de preguntas dependerá de los puntos insertados aquí")}
                   onMouseLeave={hideTooltip}
                 />
               </label>
-              <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+              <input
+                type="number"
+                value={pointsQuestions === 0 ? "" : pointsQuestions}
+                onChange={(e) => setPointsQuestions(Number(e.target.value) || 0)}
                 className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
-                rows="3"
+              />
+            </div>
+
+            <div className="relative mb-4">
+              <label className="block mb-1 font-bold">
+                Puntos Mínimos para Aprobar:
+                <FaInfoCircle
+                  className="inline ml-2 text-purple-500 cursor-pointer"
+                  onClick={(e) => handleTooltip(e, "Deben ser la misma cantidad de puntos mínimos configurados en las instrucciones")}
+                  onMouseLeave={hideTooltip}
+                />
+              </label>
+              <input
+                type="number"
+                value={pointsMin === 0 ? "" : pointsMin}
+                onChange={(e) => setPointsMin(Number(e.target.value) || 0)}
+                className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+
+            <div className="relative mb-4">
+              <label className="block mb-1 font-bold">
+                Tiempo por Pregunta (segundos):
+                <FaInfoCircle
+                  className="inline ml-2 text-purple-500 cursor-pointer"
+                  onClick={(e) => handleTooltip(e, "El tiempo disponible para responder cada pregunta")}
+                  onMouseLeave={hideTooltip}
+                />
+              </label>
+              <input
+                type="number"
+                value={timePerQuestion === 0 ? "" : timePerQuestion}
+                onChange={(e) => setTimePerQuestion(Number(e.target.value) || 0)}
+                className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
 
@@ -226,7 +294,7 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
               </button>
               {isGeneralConfigComplete() && (
                 <button
-                  onClick={() => setActiveTab("pares")}
+                  onClick={() => setActiveTab("preguntas")}
                   className="flex items-center bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded font-bold text-white"
                 >
                   <FaArrowRight className="mr-2" />
@@ -237,30 +305,67 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
           </div>
         )}
 
-        {/* Contenido de la pestaña Pares */}
-        {activeTab === "pares" && (
+        {/* Contenido de la pestaña Preguntas */}
+        {activeTab === "preguntas" && (
           <div>
-            <h3 className="mb-4 font-bold">Pares</h3>
-            {pares.map((par, index) => (
-              <div key={index} className="border-gray-300 shadow-sm mb-6 p-4 border rounded-lg">
-                <label className="block mb-1 font-bold">Elemento 1:</label>
+            <h3 className="mb-4 font-bold">Preguntas</h3>
+            {preguntas.map((pregunta, questionIndex) => (
+              <div key={questionIndex} className="border-gray-300 shadow-sm mb-6 p-4 border rounded-lg">
+                <label className="block mb-1 font-bold">Texto de la Pregunta:</label>
                 <input
                   type="text"
-                  value={par.elemento1}
-                  onChange={(e) => handlePairChange(index, "elemento1", e.target.value)}
+                  value={pregunta.texto}
+                  onChange={(e) =>
+                    handleQuestionChange(questionIndex, "texto", e.target.value)
+                  }
                   className="border-gray-300 mb-2 p-2 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
                 />
 
-                <label className="block mb-1 font-bold">Elemento 2:</label>
+                <label className="block mb-1 font-bold">Opciones:</label>
+                {pregunta.opciones.map((opcion, optionIndex) => (
+                  <div key={optionIndex} className="flex items-center mb-2">
+                    <input
+                      type="text"
+                      value={opcion}
+                      onChange={(e) =>
+                        handleOptionChange(questionIndex, optionIndex, e.target.value)
+                      }
+                      className="border-gray-300 p-2 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
+                    />
+                    <button
+                      onClick={() => handleRemoveOption(questionIndex, optionIndex)}
+                      className="bg-red-500 hover:bg-red-600 ml-2 p-2 rounded text-white"
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </div>
+                ))}
+
+                <button
+                  onClick={() => handleAddOption(questionIndex)}
+                  className="flex items-center bg-blue-500 hover:bg-blue-600 mb-4 px-4 py-2 rounded text-white"
+                >
+                  <FaPlus /> Añadir Opción
+                </button>
+
+                <label className="block mb-1 font-bold">
+                  Respuesta Correcta:
+                </label>
                 <input
                   type="text"
-                  value={par.elemento2}
-                  onChange={(e) => handlePairChange(index, "elemento2", e.target.value)}
-                  className="border-gray-300 p-2 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full focus:outline-none"
+                  value={pregunta.respuestaCorrecta}
+                  onChange={(e) =>
+                    handleQuestionChange(
+                      questionIndex,
+                      "respuestaCorrecta",
+                      e.target.value
+                    )
+                  }
+                  className="border-gray-300 p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
 
                 <button
-                  onClick={() => handleRemovePair(index)}
+                  onClick={() => handleRemoveQuestion(questionIndex)}
                   className="bg-red-500 hover:bg-red-600 mt-4 p-2 rounded text-white"
                 >
                   <FaTrashAlt />
@@ -269,14 +374,14 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
             ))}
 
             <button
-              onClick={handleAddPair}
+              onClick={handleAddQuestion}
               className="flex items-center bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded text-white"
             >
               <FaPlus className="mr-2" />
-              Añadir Par
+              Añadir Pregunta
             </button>
 
-            {/* Botón de Guardar solo en la pestaña de Pares */}
+            {/* Botón de Guardar solo en la pestaña de Preguntas */}
             <div className="flex justify-end space-x-4 mt-6">
               <button
                 onClick={onClose}
@@ -300,7 +405,7 @@ const EmparejarForm = ({ isOpen, onClose, gameData, onSave, isEditing, existingC
   );
 };
 
-EmparejarForm.propTypes = {
+SeleccionRapidaForm.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   gameData: PropTypes.shape({
@@ -311,4 +416,4 @@ EmparejarForm.propTypes = {
   existingConfig: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
 
-export default EmparejarForm;
+export default SeleccionRapidaForm;

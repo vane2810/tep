@@ -113,7 +113,7 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, name: user.name, role: user.role, nivel: user.levelId, characterId: user.characterId }, 
+      { id: user.id,  name: user.name, email: user.email, role: user.role, nivel: user.levelId, characterId: user.characterId }, 
       'your_jwt_secret',
       { expiresIn: '5h' }
     );
@@ -121,6 +121,8 @@ router.post('/login', async (req, res) => {
     res.status(200).json({ 
       message: 'Inicio de sesión exitoso', 
       token, 
+      id: user.id,
+      email:user.email,
       role: user.role, 
       nivel: user.levelId, 
       characterId: user.characterId,

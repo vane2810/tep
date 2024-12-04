@@ -2,28 +2,28 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class UserRelationship extends Model {
+  class UserRelation extends Model {
     static associate(models) {
       // Relación con el modelo User para el estudiante
-      UserRelationship.belongsTo(models.User, {
+      UserRelation.belongsTo(models.User, {
         foreignKey: 'studentId',
         as: 'studentInfo'
       });
 
       // Relación con el modelo User para el guardián
-      UserRelationship.belongsTo(models.User, {
+      UserRelation.belongsTo(models.User, {
         foreignKey: 'guardianId',
         as: 'guardianInfo'
       });
     }
   }
 
-  UserRelationship.init({
+  UserRelation.init({
     studentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'User',  // Nombre de la tabla en plural
+        model: 'User',  
         key: 'id',
       },
     },
@@ -31,16 +31,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'User',  // Nombre de la tabla en plural
+        model: 'User',  
         key: 'id',
       },
     },
   }, {
     sequelize,
-    modelName: 'UserRelationship',  // Nombre del modelo en singular
-    tableName: 'UsersRelations',  // Nombre de la tabla en plural como en la migración
+    modelName: 'UserRelation', 
+    tableName: 'UsersRelations',  
     timestamps: true,
   });
 
-  return UserRelationship;
+  return UserRelation;
 };
