@@ -5,20 +5,18 @@ import ModalEliminarUsuario from "@/components/modals/admin/eliminarModal";
 import ModalAgregarUsuario from "@/components/modals/admin/crearModal";
 import Link from "next/link";
 import Volver from "@/components/elements/botonVolver";
-import {
-  FaUserPlus,
-  FaTrash,
-  FaUserEdit,
-  FaExclamationTriangle,
-} from "react-icons/fa";
+import {FaUserPlus, FaTrash, FaUserEdit, FaExclamationTriangle,} from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
 import Loading from "@/components/elements/loading";
+import useSession from '@/hooks/useSession';
 import { SeparadorAzul } from "@/components/separador";
+import MensajePermiso from '@/components/menssages/mensajePermiso';
 
 export default function GestionUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
   const [loading, setLoading] = useState(true);
   const [tabSeleccionada, setTabSeleccionada] = useState("estudiante");
+  const { session } = useSession();
 
   const [modalEliminar, setModalEliminar] = useState(false);
   const [modalAgregar, setModalAgregar] = useState(false);
@@ -86,6 +84,11 @@ export default function GestionUsuarios() {
         <Loading />
       </div>
     );
+  }
+
+  // Verificar si el usuario tiene permiso para acceder
+  if (!session || session.role !== 'admin') {
+    return <MensajePermiso />;
   }
 
   const abrirModalAgregar = () => {

@@ -27,11 +27,6 @@ module.exports = (sequelize, DataTypes) => {
         as: 'students',
       });
 
-      // Relación con la tabla de reportes de problemas (ProblemReport)
-      User.hasMany(models.Report, {
-        foreignKey: 'user_id',  // La clave foránea en la tabla 'ProblemReport'
-        as: 'problemReports',  // Nombre del alias para la relación
-      });
     }
   }
 

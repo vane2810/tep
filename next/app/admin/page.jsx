@@ -96,11 +96,11 @@ export default function AdminPage() {
             title="Administración de Contenido"
           />
           <CardLink
-            href="/admin/feedback"
+            href="/admin/supports"
             Icon={FaComments}
             iconColor="text-yellow-500"
             hoverColor="yellow-700"
-            title="Administración de Feedback"
+            title="Problemas y Sugerencias"
           />
         </div>
       </div>

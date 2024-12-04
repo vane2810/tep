@@ -10,9 +10,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       title: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      type: {
+        type: Sequelize.ENUM('problema', 'sugerencia'),
+        allowNull: false, 
       },
       description: {
         type: Sequelize.TEXT,
@@ -20,17 +28,8 @@ module.exports = {
       },
       status: {
         type: Sequelize.ENUM('pendiente', 'en proceso', 'resuelto'),
-        allowNull: false, // Debería ser obligatorio si el reporte siempre debe tener un estado
-        defaultValue: 'pendiente' // Valor predeterminado 'pendiente' si no se especifica el estado
-      },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users', // Asegúrate de que 'Users' esté correctamente nombrada en plural
-          key: 'id'
-        },
-        allowNull: false,
-        onDelete: 'CASCADE' // Esto elimina los reportes cuando el usuario asociado es eliminado
+        allowNull: false, 
+        defaultValue: 'pendiente' 
       },
       createdAt: {
         allowNull: false,

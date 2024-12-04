@@ -1,10 +1,12 @@
-// Componte de Soporte 
+// Componente de Soporte 
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { FiExternalLink } from "react-icons/fi";
+import ReportCreationModal from "@/components/modals/reportesModal";
 
 const SoporteButton = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const menuRef = useRef();
 
     const handleToggleMenu = () => {
@@ -15,6 +17,14 @@ const SoporteButton = () => {
         if (menuRef.current && !menuRef.current.contains(e.target)) {
             setIsMenuOpen(false);
         }
+    };
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
     };
 
     // Cerrar el menú si se hace clic fuera de él
@@ -59,7 +69,7 @@ const SoporteButton = () => {
                         </button>
                         <button
                             className="flex items-center space-x-2 w-full text-left hover:text-blue-300"
-                            onClick={() => window.location.href = "/help/faq"}
+                            onClick={handleOpenModal}
                         >
                             <FiExternalLink size={20} />
                             <span>Reportar un problema</span>
@@ -78,6 +88,19 @@ const SoporteButton = () => {
                             <FiExternalLink size={20} />
                             <span>Acerca de Nosotros</span>
                         </button>
+                    </div>
+                </div>
+            )}
+
+            {/* Modal de Reporte */}
+            {isModalOpen && (
+                <div className="z-50 fixed inset-0 flex justify-center items-center modal">
+                    <div className="absolute inset-0 bg-black opacity-50 modal-overlay"></div>
+                    <div className="z-50 bg-white shadow-lg mx-auto rounded w-11/12 md:max-w-md overflow-y-auto modal-container">
+                        <div className="top-0 right-0 absolute mt-4 mr-4 modal-close">
+                            <button onClick={handleCloseModal}>&times;</button>
+                        </div>
+                        <ReportCreationModal show={isModalOpen} handleClose={handleCloseModal} />
                     </div>
                 </div>
             )}
