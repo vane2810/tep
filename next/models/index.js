@@ -1,7 +1,8 @@
+// Index de relaciones con los modelos
 'use strict';
 
 const { Sequelize, DataTypes } = require('sequelize');
-require('dotenv').config(); // Cargar las variables de entorno
+require('dotenv').config(); 
 
 // Configurar conexión a la base de datos MySQL usando variables de entorno
 const sequelize = new Sequelize(
@@ -25,10 +26,12 @@ const Subtopic = require('./subtopic')(sequelize, DataTypes);
 const Content = require('./content')(sequelize, DataTypes);
 const Step = require('./step')(sequelize, DataTypes);
 const Game = require('./game')(sequelize, DataTypes);
-const GameDetail = require('./gamedetail')(sequelize, DataTypes); // Modelo actualizado de GameDetail
+const GameDetail = require('./gamedetail')(sequelize, DataTypes); 
 const GameType = require('./gametype')(sequelize, DataTypes);
 const Instruction = require('./instruction')(sequelize, DataTypes);
 const Report = require('./report')(sequelize, DataTypes);
+const StudentProgre = require('./studentProgre')(sequelize, DataTypes);
+
 
 // Definir relaciones entre los modelos
 
@@ -37,6 +40,8 @@ User.belongsTo(Character, { foreignKey: 'characterId', as: 'character' });
 User.belongsTo(Level, { foreignKey: 'levelId', as: 'level' });
 User.hasMany(UserRelation, { foreignKey: 'studentId', as: 'guardians' });
 User.hasMany(UserRelation, { foreignKey: 'guardianId', as: 'students' });
+User.hasMany(StudentProgre, { foreignKey: 'student_id', as: 'progress', onDelete: 'CASCADE' });
+
 
 // Relaciones de UserRelationship
 UserRelation.belongsTo(User, { foreignKey: 'studentId', as: 'studentInfo' });
@@ -74,6 +79,7 @@ Game.belongsTo(Content, { foreignKey: 'contentId', as: 'content' });
 Game.belongsTo(GameType, { foreignKey: 'gametype_id', as: 'gameType', onDelete: 'CASCADE' });
 Game.hasMany(GameDetail, { foreignKey: 'gameId', as: 'details', onDelete: 'CASCADE' });
 Game.hasMany(Instruction, { foreignKey: 'game_id', as: 'instructions', onDelete: 'CASCADE' });
+Game.hasMany(StudentProgre, { foreignKey: 'game_id', as: 'progress', onDelete: 'CASCADE' });
 
 // Relaciones de GameDetail
 GameDetail.belongsTo(Game, { foreignKey: 'gameId', as: 'game', onDelete: 'CASCADE' });
@@ -83,6 +89,10 @@ GameType.hasMany(Game, { foreignKey: 'gametype_id', as: 'games', onDelete: 'SET 
 
 // Relaciones de Instruction
 Instruction.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });
+
+// Relaciones de Progreso
+StudentProgre.belongsTo(User, { foreignKey: 'student_id', as: 'student', onDelete: 'CASCADE' });
+StudentProgre.belongsTo(Game, { foreignKey: 'game_id', as: 'game', onDelete: 'CASCADE' });
 
 // Exportar los modelos y la conexión de Sequelize
 module.exports = {
@@ -101,4 +111,5 @@ module.exports = {
   GameType,
   Instruction,
   Report,
+  StudentProgre,
 };

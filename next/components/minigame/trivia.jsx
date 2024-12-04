@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
 import EmptyContentMessage from "../menssages/mensajeVacio";
-
+import useSession from "@/hooks/useSession"; // Importamos el hook para obtener la sesión del usuario
 
 const Trivia = ({ gameData, config }) => {
+  // Obtener la sesión del usuario
+  const { session } = useSession(); 
+
   // Estado para manejar las preguntas y el progreso del juego
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -15,7 +18,7 @@ const Trivia = ({ gameData, config }) => {
   if (!config || !config.preguntas || config.preguntas.length === 0) {
     return (
       <div className="text-center text-gray-800 text-lg">
-        <EmptyContentMessage/>
+        <EmptyContentMessage />
       </div>
     );
   }
@@ -45,11 +48,44 @@ const Trivia = ({ gameData, config }) => {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       } else {
         setIsGameOver(true);
+        // Guardar el progreso si el usuario es estudiante
+        if (session?.role === "estudiante") {
+          saveProgress(score + (selectedOption === currentQuestion.respuestaCorrecta ? points_questions : 0));
+        }
       }
       setFeedback({ message: "", correctAnswer: "" });
     }, 2000);
   };
 
+  // Función para guardar el progreso en el backend
+  const saveProgress = async (finalScore) => {
+    try {
+      const response = await fetch('http://localhost:3001/api/progreso/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          student_id: session.user, // Extraemos el id del usuario desde la sesión
+          game_id: gameData.id, // Obtenemos el id del juego desde gameData
+          status: finalScore >= points_min ? 'completado' : 'fallido',
+          score: finalScore,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Progreso guardado:', data);
+      } else {
+        console.error('Error al guardar el progreso:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error al conectar con el servidor para guardar el progreso:', error);
+    }
+  };
+
+
+  
   // Reiniciar el juego
   const resetGame = () => {
     setCurrentQuestionIndex(0);

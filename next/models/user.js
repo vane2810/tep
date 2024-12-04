@@ -27,6 +27,13 @@ module.exports = (sequelize, DataTypes) => {
         as: 'students',
       });
 
+      // Relación con la tabla de Progreso
+      User.hasMany(models.StudentProgre, {
+        foreignKey: 'userId',
+        as: 'progresses',
+        onDelete: 'CASCADE', // Elimina los progresos si el usuario es eliminado
+      });
+
     }
   }
 

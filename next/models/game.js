@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 
             // Relación con GameType
             Game.belongsTo(models.GameType, {
-                foreignKey: 'gametype_id', // Nuevo campo para GameType
+                foreignKey: 'gametype_id', 
                 as: 'gameType',
                 onDelete: 'CASCADE',
                 onUpdate: 'CASCADE',
@@ -32,6 +32,13 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: 'game_id',
                 as: 'instructions',
                 onDelete: 'CASCADE',
+            });
+
+            // Relación con la tabla de Progreso
+            Game.hasMany(models.StudentProgre, {
+                foreignKey: 'gameId',
+                as: 'progresses',
+                onDelete: 'CASCADE', 
             });
         }
     }
