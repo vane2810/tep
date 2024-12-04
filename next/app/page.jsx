@@ -1,16 +1,32 @@
 // Página de Inicio
+"use client";
 import React from "react";
 import Carousel from "../components/home/carousel";
 import Typewriter from "../components/typeWriter";
 import dynamic from 'next/dynamic';
 import { SeparadorRosa } from "@/components/separador";
+import MensajePermiso from '@/components/menssages/mensajePermiso';
+import useSession from "@/hooks/useSession"; 
+import Loading from "@/components/elements/loading";
 
 const InicioPage = dynamic(() => import('../components/home/homepage'), { ssr: false });
 
 export default function HomePage() {
+  const { session, loading } = useSession(); 
+
+  // Carga de la página 
+  if (loading) {
+    return <Loading/>
+  }
+
+  // Si hay una sesión activa 
+  if (session?.role === 'estudiante') {
+    return <MensajePermiso/>
+  }
+
+  // Renderizar la página principal si no hay restricciones
   return (
     <main>
-
       {/* Bienvenida de Starly */}
       <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10 px-4 md:px-0">
         <img
@@ -28,7 +44,6 @@ export default function HomePage() {
 
       <SeparadorRosa />
 
-
       <div className="flex justify-center">
         {/* Botones (Planetas) */}
         <InicioPage />
@@ -45,8 +60,8 @@ export default function HomePage() {
           alt="Starly"
           className="md:mr-10 mb-2 md:mb-0 w-16 sm:w-24 md:w-32 lg:w-36 h-16 sm:h-24 md:h-32 lg:h-36 animate-float"
         />
-
       </div>
+
       <div className="flex md:flex-row flex-col justify-center items-center mt-10 mb-10">
         <Carousel />
       </div>

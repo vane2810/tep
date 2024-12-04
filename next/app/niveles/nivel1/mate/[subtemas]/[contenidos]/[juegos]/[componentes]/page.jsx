@@ -10,7 +10,6 @@ import { SeparadorVerde } from "@/components/separador";
 import InstruccionesModal from "@/components/modals/games/instruccionesModal";
 import Carga from "@/components/menssages/mensajeCarga";
 import { FaEdit } from "react-icons/fa";
-import EmptyContentMessage from "@/components/menssages/mensajeVacio";
 
 // Importar dinámicamente los componentes de juegos y formularios
 import { gameComponents, configForms } from "@/utils/gameMappings";
@@ -31,6 +30,7 @@ const GamePage = () => {
     const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
     const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
     const [gameConfig, setGameConfig] = useState(null);
+    const [showGame, setShowGame] = useState(false); // Estado para controlar si el juego se muestra
 
     // Obtener los datos del juego
     useEffect(() => {
@@ -123,6 +123,11 @@ const GamePage = () => {
         setCurrentPoints({ id: null, points_max: "", points_min: "" });
     };
 
+    const handlePlayGame = () => {
+        setIsInstruccionesModalOpen(false);
+        setShowGame(true);
+    };
+
     useEffect(() => {
         const fetchGameConfig = async () => {
             try {
@@ -208,6 +213,8 @@ const GamePage = () => {
 
     const isGameConfigured = adminInstructions.length > 0 && gameConfig;
 
+    const isStudent = session?.role === "estudiante"; // Determinar si es un estudiante
+
     return (
         <PrivateRoute>
             <main className="bg-gray-100">
@@ -219,12 +226,15 @@ const GamePage = () => {
                 />
                 <div className="relative bg-white shadow-md mx-auto my-10 px-12 py-8 rounded-md max-w-5xl container yagora">
                     <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
-                    {isGameConfigured && GameComponent ? (
-                        <GameComponent gameData={gameData} config={gameConfig} />
+                    {/* Mostrar el contenedor del juego basado en la condición de si es estudiante y si se presionó "Jugar" */}
+                    {isGameConfigured && (!isStudent || showGame) ? (
+                        GameComponent && <GameComponent gameData={gameData} config={gameConfig} />
                     ) : (
-                        <div className="text-center text-gray-800 text-lg">
-                            <EmptyContentMessage />
-                        </div>
+                        isStudent && !showGame && (
+                            <div className="text-center text-gray-800 text-lg">
+                                <p>Presiona el botón "Jugar" luego de leer las instrucciones</p>
+                            </div>
+                        )
                     )}
                     {session?.role === "admin" && (
                         <div className="top-4 right-4 absolute flex space-x-4">
@@ -248,6 +258,7 @@ const GamePage = () => {
                     onSave={handleSavePoints}
                     onEdit={handleEditClick}
                     isEditing={isEditing}
+                    onPlay={handlePlayGame} // Agregar el manejador para "Jugar"
                 />
                 {isConfigModalOpen && ConfigFormComponent && (
                     <ConfigFormComponent

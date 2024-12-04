@@ -1,15 +1,15 @@
 // Página de registro - Manejo de backend
 "use client";
-import React, { useState } from 'react';
-import '@/styles/globals.css';
-import '@/styles/animacion.css';
+import React, { useState, useEffect } from 'react';
 import RegistroModal from '@/components/modals/auth/registroModal';
 import RolModal from '@/components/modals/auth/rolesModal';
 import NivelModal from '@/components/modals/auth/nivelModal';
 import PersonajeModal from '@/components/modals/auth/personajeModal';
 import RegisterForm from '@/components/templates/auth/registerForm';
+import MensajePermiso from '@/components/menssages/mensajePermiso';
 
 export default function Register() {
+  const [sessionActive, setSessionActive] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,6 +33,14 @@ export default function Register() {
   const [showPersonajeModal, setShowPersonajeModal] = useState(false);
 
   const validator = require('validator');
+
+  // Hook para verificar si ya hay una sesión activa
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setSessionActive(true);
+    }
+  }, []);
 
   // Maneja los cambios en los campos del formulario
   const handleChange = (e) => {
@@ -181,6 +189,11 @@ export default function Register() {
     }
   };
 
+  // Verificar si hay una sesión activa
+  if (sessionActive) {
+    return <MensajePermiso/>
+  }
+
   return (
     <main
       style={{
@@ -196,10 +209,30 @@ export default function Register() {
         handleSubmit={handleSubmit}
         errors={errors}
       />
-      {showModal && <RegistroModal show={showModal} message={modalMessage} isError={isError} onClose={() => setShowModal(false)} />}
-      <RolModal show={showRolModal} onClose={() => setShowRolModal(false)} onRoleSelected={handleRoleSelected} />
-      <NivelModal show={showNivelModal} onClose={() => setShowNivelModal(false)} onLevelSelected={handleLevelSelected} />
-      <PersonajeModal show={showPersonajeModal} onClose={() => setShowPersonajeModal(false)} onCharacterSelected={handleCharacterSelected} />
+      {showModal && (
+        <RegistroModal
+          show={showModal}
+          message={modalMessage}
+          isError={isError}
+          onClose={() => setShowModal(false)}
+        />
+      )}
+      <RolModal
+        show={showRolModal}
+        onClose={() => setShowRolModal(false)}
+        onRoleSelected={handleRoleSelected}
+      />
+      <NivelModal
+        show={showNivelModal}
+        onClose={() => setShowNivelModal(false)}
+        onLevelSelected={handleLevelSelected}
+      />
+      <PersonajeModal
+        show={showPersonajeModal}
+        onClose={() => setShowPersonajeModal(false)}
+        onCharacterSelected={handleCharacterSelected}
+      />
     </main>
   );
 }
+

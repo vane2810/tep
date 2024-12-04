@@ -26,7 +26,7 @@ export default function RegistroModal({ onClose, message, isError }) {
             </Link>
             <button
               onClick={onClose}
-              className={`${buttonColor} px-4 py-2 rounded text-white transition duration-200`}
+              className={`${buttonColor} px-4 py-2 rounded-full text-white transition duration-200`}
             >
               Cerrar
             </button>

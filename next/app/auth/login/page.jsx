@@ -1,9 +1,10 @@
 // Página de login - Manejo de backend
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import LoginModal from '@/components/modals/auth/loginModal';
 import LoginForm from '@/components/templates/auth/loginForm';
+import MensajePermiso from '@/components/menssages/mensajePermiso'; 
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ export default function Login() {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
   const [redirectTo, setRedirectTo] = useState('');
+  const [sessionActive, setSessionActive] = useState(false); 
+
   const router = useRouter();
 
   const nivelRutas = {
@@ -21,6 +24,14 @@ export default function Login() {
     2: 'niveles/nivel2',
     3: 'niveles/nivel3',
   };
+
+  // Hook para verificar si ya hay una sesión activa
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setSessionActive(true); 
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -77,6 +88,12 @@ export default function Login() {
     }
   };
 
+  // Si hay una sesión activa, mostrar mensaje de permiso
+  if (sessionActive) {
+    return <MensajePermiso/>
+  }
+
+  // Si no hay sesión activa, mostrar el formulario de login
   return (
     <main
       style={{
@@ -97,3 +114,4 @@ export default function Login() {
     </main>
   );
 }
+
