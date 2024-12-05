@@ -27,9 +27,10 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [feedback, setFeedback] = useState({ message: "", correctAnswer: "" });
 
-  // Si hay un progreso existente, iniciar el juego mostrando el resultado
+  // Mostrar el juego si el progreso del estudiante indica que el juego está completado
   useEffect(() => {
     if (userProgress && userProgress.status === "completado") {
+      // Si el juego ya ha sido completado antes, mostrar el juego automáticamente.
       setScore(userProgress.score);
       setIsGameOver(true);
       setShowGame(true);
@@ -157,7 +158,6 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setIsGameOver(false);
-    setFeedback({ message: "", correctAnswer: "" });
     setShowGame(true); // Mantener el juego visible al reiniciar
   };
 
