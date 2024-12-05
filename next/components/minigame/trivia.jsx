@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
 import EmptyContentMessage from "../menssages/mensajeVacio";
-import useSession from "@/hooks/useSession"; // Importamos el hook para obtener la sesión del usuario
+import useSession from "@/hooks/useSession";  // Importar el hook para acceder a la sesión del usuario
 
 const Trivia = ({ gameData, config }) => {
-  // Obtener la sesión del usuario
-  const { session } = useSession(); 
+  const { session } = useSession(); // Obtener la sesión actual
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    // Extraer el userId de la sesión solo si el usuario tiene rol 'estudiante'
+    if (session?.role === 'estudiante') {
+      setUserId(session.user);
+    }
+  }, [session]);
 
   // Estado para manejar las preguntas y el progreso del juego
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -48,17 +55,33 @@ const Trivia = ({ gameData, config }) => {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       } else {
         setIsGameOver(true);
-        // Guardar el progreso si el usuario es estudiante
-        if (session?.role === "estudiante") {
-          saveProgress(score + (selectedOption === currentQuestion.respuestaCorrecta ? points_questions : 0));
-        }
+        saveOrUpdateProgress(score + (selectedOption === currentQuestion.respuestaCorrecta ? points_questions : 0));
       }
       setFeedback({ message: "", correctAnswer: "" });
     }, 2000);
   };
 
-  // Función para guardar el progreso en el backend
-  const saveProgress = async (finalScore) => {
+  // Función para guardar o actualizar el progreso en el backend
+  const saveOrUpdateProgress = async (finalScore) => {
+    if (!userId) {
+      console.error("No se puede guardar el progreso porque no se encontró el userId del estudiante.");
+      return;
+    }
+
+    try {
+      // Primero intentar actualizar el progreso existente
+      const updateResponse = await updateProgress(finalScore);
+      if (updateResponse === 404) {
+        // Si no existe, crear un nuevo progreso
+        await createProgress(finalScore);
+      }
+    } catch (error) {
+      console.error('Error al gestionar el progreso del estudiante:', error);
+    }
+  };
+
+  // Función para crear un nuevo progreso (POST)
+  const createProgress = async (finalScore) => {
     try {
       const response = await fetch('http://localhost:3001/api/progreso/', {
         method: 'POST',
@@ -66,8 +89,8 @@ const Trivia = ({ gameData, config }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          student_id: session.user, // Extraemos el id del usuario desde la sesión
-          game_id: gameData.id, // Obtenemos el id del juego desde gameData
+          student_id: userId,
+          game_id: gameData.id,
           status: finalScore >= points_min ? 'completado' : 'fallido',
           score: finalScore,
         }),
@@ -75,18 +98,46 @@ const Trivia = ({ gameData, config }) => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Progreso guardado:', data);
+        console.log('Progreso creado:', data);
       } else {
-        console.error('Error al guardar el progreso:', await response.text());
+        console.error('Error al crear el progreso:', await response.text());
       }
     } catch (error) {
-      console.error('Error al conectar con el servidor para guardar el progreso:', error);
+      console.error('Error al conectar con el servidor para crear el progreso:', error);
     }
   };
 
+  // Función para actualizar el progreso existente (PUT)
+  const updateProgress = async (finalScore) => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/progreso/${userId}/${gameData.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          score: finalScore,
+          status: finalScore >= points_min ? 'completado' : 'fallido',
+        }),
+      });
 
-  
-  // Reiniciar el juego
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Progreso actualizado:', data);
+        return 200; // OK status
+      } else if (response.status === 404) {
+        console.warn('Progreso no encontrado para actualizar.');
+        return 404; // Not found status
+      } else {
+        console.error('Error al actualizar el progreso:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error al conectar con el servidor para actualizar el progreso:', error);
+    }
+    return null;
+  };
+
+  // Reiniciar el juego sin reiniciar el progreso en la tabla
   const resetGame = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -191,11 +242,7 @@ const Trivia = ({ gameData, config }) => {
         {/* Feedback */}
         {feedback.message && (
           <div className="bg-white shadow-md mt-4 p-6 rounded-lg text-center">
-            <p
-              className={`text-xl font-bold mb-2 ${
-                feedback.message === "¡Respuesta Correcta!" ? "text-green-600" : "text-red-600"
-              }`}
-            >
+            <p className={`text-xl font-bold mb-2 ${feedback.message === "¡Respuesta Correcta!" ? "text-green-600" : "text-red-600"}`}>
               {feedback.message}
             </p>
             <p className="text-lg">{feedback.correctAnswer}</p>

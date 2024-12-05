@@ -3,6 +3,31 @@ const express = require('express');
 const router = express.Router();
 const { StudentProgre, User, Game } = require('../models'); 
 
+
+// Obtener el progreso de un estudiante específico para un juego específico
+router.get('/:student_id/:game_id', async (req, res) => {
+    const { student_id, game_id } = req.params;
+
+    try {
+        // Buscar el registro de progreso para ese estudiante y juego específico
+        const progress = await StudentProgre.findOne({
+            where: {
+                student_id,
+                game_id,
+            },
+        });
+
+        if (progress) {
+            res.status(200).json(progress);
+        } else {
+            res.status(404).json({ message: 'Progreso no encontrado' });
+        }
+    } catch (error) {
+        console.error('Error al obtener el progreso:', error);
+        res.status(500).json({ message: 'Error al obtener el progreso', error });
+    }
+});
+
 // Crear un nuevo registro de progreso
 router.post('/', async (req, res) => {
     const { student_id, game_id, status, score } = req.body;
@@ -30,76 +55,35 @@ router.post('/', async (req, res) => {
 });
 
 
-// Obtener todos los registros de progreso de un usuario específico
-router.get('/byUser/:userId', async (req, res) => {
-    const { userId } = req.params;
+// Actualizar un registro de progreso existente
+router.put('/:student_id/:game_id', async (req, res) => {
+    const { student_id, game_id } = req.params;
+    const { score, status } = req.body;
 
     try {
-        const progressRecords = await StudentProgre.findAll({
-            where: { userId },
-            include: [
-                {
-                    model: Game,
-                    as: 'game',
-                    attributes: ['id', 'title', 'gametype_id'],
-                },
-            ],
-        });
-
-        if (progressRecords.length > 0) {
-            res.status(200).json(progressRecords);
-        } else {
-            res.status(404).json({ message: 'No se encontraron registros de progreso para el usuario especificado' });
-        }
-    } catch (error) {
-        console.error('Error al obtener los registros de progreso:', error);
-        res.status(500).json({ message: 'Error al obtener los registros de progreso', error });
-    }
-});
-
-// Nueva ruta para reiniciar el progreso de un juego para un estudiante
-router.put('/reset', async (req, res) => {
-    const { student_id, game_id } = req.body;
-
-    try {
-        // Verificar si el progreso del estudiante en el juego existe
+        // Buscar el registro de progreso para ese estudiante y juego específico
         const progress = await StudentProgre.findOne({
-            where: { student_id, game_id },
+            where: {
+                student_id,
+                game_id,
+            },
         });
 
         if (!progress) {
-            return res.status(404).json({ message: 'Progreso no encontrado para este estudiante y juego' });
+            return res.status(404).json({ message: 'Progreso no encontrado para actualizar' });
         }
 
-        // Reiniciar el progreso
-        progress.status = 'pendiente'; // El estado puede ser 'pendiente' para reiniciarlo
-        progress.score = 0; // Reiniciamos el puntaje
+        // Actualizar el registro de progreso
+        progress.score = score;
+        progress.status = status;
         await progress.save();
 
-        res.status(200).json({ message: 'Progreso reiniciado correctamente', progress });
+        res.status(200).json(progress);
     } catch (error) {
-        console.error('Error al reiniciar el progreso:', error);
-        res.status(500).json({ message: 'Error al reiniciar el progreso', error });
+        console.error('Error al actualizar el registro de progreso:', error);
+        res.status(500).json({ message: 'Error al actualizar el registro de progreso', error });
     }
 });
 
-// Eliminar un registro de progreso (opcional)
-router.delete('/:progressId', async (req, res) => {
-    const { progressId } = req.params;
-
-    try {
-        const progress = await StudentProgre.findByPk(progressId);
-
-        if (!progress) {
-            return res.status(404).json({ message: 'Registro de progreso no encontrado' });
-        }
-
-        await progress.destroy();
-        res.status(200).json({ message: 'Registro de progreso eliminado correctamente' });
-    } catch (error) {
-        console.error('Error al eliminar el registro de progreso:', error);
-        res.status(500).json({ message: 'Error al eliminar el registro de progreso', error });
-    }
-});
 
 module.exports = router;
