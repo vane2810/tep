@@ -31,6 +31,7 @@ const GamePage = () => {
     const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
     const [gameConfig, setGameConfig] = useState(null);
     const [showGame, setShowGame] = useState(false); // Estado para controlar si el juego se muestra
+    const [userProgress, setUserProgress] = useState(null); // Estado para almacenar el progreso del estudiante
 
     // Obtener los datos del juego
     useEffect(() => {
@@ -54,6 +55,28 @@ const GamePage = () => {
 
         if (gameId) fetchGame();
     }, [gameId]);
+
+    // Obtener el progreso del estudiante si existe
+    useEffect(() => {
+        const fetchUserProgress = async () => {
+            if (session?.role === 'estudiante') {
+                try {
+                    const response = await fetch(`http://localhost:3001/api/progreso/${session.user}/${gameId}`);
+                    if (response.ok) {
+                        const progressData = await response.json();
+                        setUserProgress(progressData);
+                        setShowGame(true); // Mostrar el resultado directamente si hay progreso
+                    }
+                } catch (error) {
+                    console.error('Error al obtener el progreso del juego:', error);
+                }
+            }
+        };
+
+        if (session?.role === 'estudiante' && gameId) {
+            fetchUserProgress();
+        }
+    }, [gameId, session]);
 
     // Obtener las instrucciones predeterminadas
     useEffect(() => {
@@ -226,9 +249,17 @@ const GamePage = () => {
                 />
                 <div className="relative bg-white shadow-md mx-auto my-10 px-12 py-8 rounded-md max-w-5xl container yagora">
                     <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
-                    {/* Mostrar el contenedor del juego basado en la condición de si es estudiante y si se presionó "Jugar" */}
+
+                    {/* Mostrar el contenedor del juego o el resultado dependiendo del progreso */}
                     {isGameConfigured && (!isStudent || showGame) ? (
-                        GameComponent && <GameComponent gameData={gameData} config={gameConfig} />
+                        GameComponent && (
+                            <GameComponent
+                                gameData={gameData}
+                                config={gameConfig}
+                                userProgress={userProgress} // Pasar el progreso al componente del juego
+                                setShowGame={setShowGame} // Para manejar si se muestra el juego
+                            />
+                        )
                     ) : (
                         isStudent && !showGame && (
                             <div className="text-center text-gray-800 text-lg">
@@ -258,7 +289,7 @@ const GamePage = () => {
                     onSave={handleSavePoints}
                     onEdit={handleEditClick}
                     isEditing={isEditing}
-                    onPlay={handlePlayGame} // Agregar el manejador para "Jugar"
+                    onPlay={handlePlayGame}
                 />
                 {isConfigModalOpen && ConfigFormComponent && (
                     <ConfigFormComponent

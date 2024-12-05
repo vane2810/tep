@@ -11,6 +11,7 @@ export default function Custom404() {
                 backgroundImage: 'url("/img/fondos/404.webp")',
                 backgroundSize: 'contain', 
                 backgroundPosition: 'center', 
+                backgroundRepeat: 'no-repeat'
             }}
         >
             {/* Separador superior */}

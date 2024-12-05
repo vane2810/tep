@@ -2,11 +2,17 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
 import EmptyContentMessage from "../menssages/mensajeVacio";
-import useSession from "@/hooks/useSession";  // Importar el hook para acceder a la sesión del usuario
+import useSession from "@/hooks/useSession";
+import { useRouter } from "next/navigation";
 
-const Trivia = ({ gameData, config }) => {
+const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
   const { session } = useSession(); // Obtener la sesión actual
   const [userId, setUserId] = useState(null);
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.back(); 
+  };
 
   useEffect(() => {
     // Extraer el userId de la sesión solo si el usuario tiene rol 'estudiante'
@@ -20,6 +26,15 @@ const Trivia = ({ gameData, config }) => {
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [feedback, setFeedback] = useState({ message: "", correctAnswer: "" });
+
+  // Si hay un progreso existente, iniciar el juego mostrando el resultado
+  useEffect(() => {
+    if (userProgress && userProgress.status === "completado") {
+      setScore(userProgress.score);
+      setIsGameOver(true);
+      setShowGame(true);
+    }
+  }, [userProgress, setShowGame]);
 
   // Asegurarse de que config está definido y tiene preguntas
   if (!config || !config.preguntas || config.preguntas.length === 0) {
@@ -143,11 +158,7 @@ const Trivia = ({ gameData, config }) => {
     setScore(0);
     setIsGameOver(false);
     setFeedback({ message: "", correctAnswer: "" });
-  };
-
-  // Continuar al siguiente nivel
-  const continueGame = () => {
-    console.log("Continuando al siguiente nivel...");
+    setShowGame(true); // Mantener el juego visible al reiniciar
   };
 
   // Mostrar pantalla de finalización
@@ -176,7 +187,7 @@ const Trivia = ({ gameData, config }) => {
                   Reintentar
                 </button>
                 <button
-                  onClick={continueGame}
+                  onClick={handleContinue}
                   className="flex items-center bg-green-500 hover:bg-green-600 px-8 py-4 rounded-lg font-bold text-white transform transition-transform hover:scale-105"
                 >
                   <FaArrowRight className="mr-3" />
@@ -270,6 +281,8 @@ Trivia.propTypes = {
     points_questions: PropTypes.number.isRequired,
     points_min: PropTypes.number.isRequired,
   }).isRequired,
+  userProgress: PropTypes.object, // Progreso del usuario (opcional)
+  setShowGame: PropTypes.func.isRequired, // Función para controlar si se muestra el juego
 };
 
 export default Trivia;
