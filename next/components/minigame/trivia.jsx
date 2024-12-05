@@ -11,7 +11,7 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
   const router = useRouter();
 
   const handleContinue = () => {
-    router.back(); 
+    router.back();
   };
 
   useEffect(() => {
@@ -30,12 +30,13 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
   // Mostrar el juego si el progreso del estudiante indica que el juego está completado
   useEffect(() => {
     if (userProgress && userProgress.status === "completado") {
-      // Si el juego ya ha sido completado antes, mostrar el juego automáticamente.
+      // Si el juego ya fue completado antes por el estudiante
       setScore(userProgress.score);
       setIsGameOver(true);
-      setShowGame(true);
     }
-  }, [userProgress, setShowGame]);
+  }, [userProgress]);
+
+
 
   // Asegurarse de que config está definido y tiene preguntas
   if (!config || !config.preguntas || config.preguntas.length === 0) {

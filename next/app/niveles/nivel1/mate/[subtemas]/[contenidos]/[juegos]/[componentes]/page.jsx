@@ -56,7 +56,6 @@ const GamePage = () => {
         if (gameId) fetchGame();
     }, [gameId]);
 
-    // Obtener el progreso del estudiante si existe
     useEffect(() => {
         const fetchUserProgress = async () => {
             if (session?.role === 'estudiante') {
@@ -65,18 +64,28 @@ const GamePage = () => {
                     if (response.ok) {
                         const progressData = await response.json();
                         setUserProgress(progressData);
-                        setShowGame(true); // Mostrar el resultado directamente si hay progreso
+                        if (progressData.status === "completado") {
+                            setShowGame(true); // Solo mostrar si está completado
+                        }
+                    } else {
+                        // No hay progreso registrado, el juego no se muestra automáticamente
+                        setUserProgress(null);
+                        setShowGame(false);
                     }
                 } catch (error) {
                     console.error('Error al obtener el progreso del juego:', error);
+                    setShowGame(false); // En caso de error, mantener el juego oculto
                 }
             }
         };
 
         if (session?.role === 'estudiante' && gameId) {
             fetchUserProgress();
+        } else {
+            setShowGame(false); // Si no es estudiante, asegurar que el juego no se muestre inicialmente
         }
     }, [gameId, session]);
+
 
     // Obtener las instrucciones predeterminadas
     useEffect(() => {
@@ -251,7 +260,7 @@ const GamePage = () => {
                     <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
 
                     {/* Mostrar el contenedor del juego o el resultado dependiendo del progreso */}
-                    {isGameConfigured && (!isStudent || showGame) ? (
+                    {isGameConfigured && showGame && (
                         GameComponent && (
                             <GameComponent
                                 gameData={gameData}
@@ -260,13 +269,13 @@ const GamePage = () => {
                                 setShowGame={setShowGame} // Para manejar si se muestra el juego
                             />
                         )
-                    ) : (
-                        isStudent && !showGame && (
-                            <div className="text-center text-gray-800 text-lg">
-                                <p>Presiona el botón "Jugar" luego de leer las instrucciones</p>
-                            </div>
-                        )
                     )}
+                    {isStudent && !showGame && (
+                        <div className="text-center text-gray-800 text-lg">
+                            <p>Presiona el botón "Jugar" luego de leer las instrucciones</p>
+                        </div>
+                    )}
+
                     {session?.role === "admin" && (
                         <div className="top-4 right-4 absolute flex space-x-4">
                             <button
