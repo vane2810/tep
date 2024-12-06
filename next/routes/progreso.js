@@ -2,6 +2,31 @@ const express = require('express');
 const router = express.Router();
 const { StudentProgre, User, Game } = require('../models'); 
 
+
+
+// Nueva ruta en el backend para obtener el progreso de un estudiante
+router.get('/user/:student_id', async (req, res) => {
+    const { student_id } = req.params;
+
+    try {
+        const progressRecords = await StudentProgre.findAll({
+            where: {
+                student_id,
+            },
+        });
+
+        // Si no hay progreso, devuelve un array vacío
+        if (progressRecords.length === 0) {
+            return res.status(200).json([]);
+        }
+
+        res.status(200).json(progressRecords);
+    } catch (error) {
+        console.error('Error al obtener el progreso del estudiante:', error);
+        res.status(500).json({ message: 'Error al obtener el progreso del estudiante', error });
+    }
+});
+
 // Obtener el progreso de un estudiante específico para un juego específico
 router.get('/:student_id/:game_id', async (req, res) => {
     const { student_id, game_id } = req.params;
@@ -85,23 +110,8 @@ router.put('/:student_id/:game_id', async (req, res) => {
     }
 });
 
-// Nueva ruta en el backend para obtener  el progreso de un estudiante
-router.get('/user/:student_id', async (req, res) => {
-    const { student_id } = req.params;
 
-    try {
-        const progressRecords = await StudentProgre.findAll({
-            where: {
-                student_id,
-            },
-        });
 
-        res.status(200).json(progressRecords);
-    } catch (error) {
-        console.error('Error al obtener el progreso del estudiante:', error);
-        res.status(500).json({ message: 'Error al obtener el progreso del estudiante', error });
-    }
-});
 
 
 module.exports = router;
