@@ -16,40 +16,27 @@ const StudentProgressPage = () => {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
-  // Verificar si `id` está obteniendo un valor válido
   useEffect(() => {
-    console.log("ID del Estudiante:", id); // Agregar log para verificar el ID
-
     if (id && session?.user) {
-      fetchStudentProgress(id);
+      // Simulación de datos de progreso
+      const simulatedProgressData = {
+        student: {
+          name: "Juan",
+          lastname: "Pérez",
+        },
+        progressPercentage: 75,
+        games: [
+          { id: 1, name: "Juego de Matemáticas", status: "Completado", score: 5 },
+          { id: 2, name: "Juego de Lenguaje", status: "Completado", score: 4 },
+          { id: 3, name: "Juego de Sociales", status: "No Completado", score: 3 },
+          { id: 4, name: "Juego de Inglés", status: "Completado", score: 4 },
+        ],
+      };
+      setProgressData(simulatedProgressData);
+      setLoading(false);
     }
   }, [id, session?.user]);
 
-  // Función para obtener los datos de progreso del estudiante
-  const fetchStudentProgress = async (studentId) => {
-    try {
-      console.log("Obteniendo progreso para el estudiante con ID:", studentId); // Log de verificación
-      const response = await fetch(`http://localhost:3001/api/progreso/user/${studentId}`);
-      
-      console.log("Respuesta de la API:", response); // Log de la respuesta de la API
-
-      if (!response.ok) {
-        throw new Error('Error al obtener el progreso del estudiante');
-      }
-
-      const data = await response.json();
-      console.log("Datos recibidos del progreso:", data); // Log de los datos recibidos
-
-      setProgressData(data);
-    } catch (error) {
-      console.error('Error al obtener el progreso del estudiante:', error);
-      setMessage('Hubo un error al obtener el progreso del estudiante. Por favor, intenta nuevamente.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Mostrar una pantalla de carga si los datos están siendo obtenidos
   if (loading) {
     return <Loading />;
   }
@@ -70,14 +57,12 @@ const StudentProgressPage = () => {
             </h3>
           </div>
 
-          {/* Mostrar mensajes de error si existen */}
           {message && (
             <div className="bg-red-100 mb-6 p-4 border border-red-400 rounded-lg text-center text-red-700">
               {message}
             </div>
           )}
 
-          {/* Mostrar los datos del progreso si existen */}
           {progressData ? (
             <div className="flex flex-col items-center w-full">
               <h3 className="mb-6 font-bold text-3xl text-green-700">Progreso General</h3>
@@ -135,4 +120,5 @@ const StudentProgressPage = () => {
 };
 
 export default StudentProgressPage;
+
   
