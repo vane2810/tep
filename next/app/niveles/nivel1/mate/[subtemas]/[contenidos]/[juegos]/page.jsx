@@ -178,14 +178,9 @@ const JuegosPage = () => {
 
                 <Volver href={volverHref} img="/img/home/regresar/verde.webp" />
 
-                <GameHeader
-                    title={subtemaData.title}
-                    imageSrc="/img/personajes/donkey/donkey.webp"
-                />
+                <GameHeader title={subtemaData.title} imageSrc="/img/personajes/donkey/donkey.webp" />
 
-                {session?.role === "admin" && (
-                    <AddButton text="Agregar Juego" onClick={handleAddGame} />
-                )}
+                {session?.role === "admin" && <AddButton text="Agregar Juego" onClick={handleAddGame} />}
 
                 <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 px-8 py-8">
                     {gamesList.length > 0 ? (
@@ -199,11 +194,12 @@ const JuegosPage = () => {
                                     imageSrc={game.img_url}
                                     href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${game.id}/${game.id}`}
                                     isAdmin={session?.role === "admin"}
+                                    userRole={session?.role} // Pasar el rol del usuario
                                     onEdit={() => handleEditGame(game)}
                                     onDelete={() => openDeleteModal(game.id)}
-                                    studentId={session?.user}  // Pasar el ID del estudiante
-                                    gameId={game.id}  // ID del juego actual
-                                    previousGameId={previousGameId}  // ID del juego anterior (para verificar el progreso)
+                                    studentId={session?.user}
+                                    gameId={game.id}
+                                    previousGameId={previousGameId}
                                 />
                             );
                         })
@@ -211,7 +207,6 @@ const JuegosPage = () => {
                         <EmptyContentMessage />
                     )}
                 </div>
-
 
                 <SeparadorVerde />
 

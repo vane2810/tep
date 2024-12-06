@@ -18,7 +18,8 @@ const GamePage = () => {
     const params = useParams();
     const { subtemas, contenidos, juegos } = params;
     const { session } = useSession();
-
+    const isStudent = session?.role === "estudiante";
+    
     const gameId = Number(juegos);
     const [gameData, setGameData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -58,7 +59,7 @@ const GamePage = () => {
 
     useEffect(() => {
         const fetchUserProgress = async () => {
-            if (session?.role === 'estudiante') {
+            if (isStudent) {
                 try {
                     const response = await fetch(`http://localhost:3001/api/progreso/${session.user}/${gameId}`);
                     if (response.ok) {
@@ -68,23 +69,22 @@ const GamePage = () => {
                             setShowGame(true); // Solo mostrar si está completado
                         }
                     } else {
-                        // No hay progreso registrado, el juego no se muestra automáticamente
                         setUserProgress(null);
                         setShowGame(false);
                     }
                 } catch (error) {
                     console.error('Error al obtener el progreso del juego:', error);
-                    setShowGame(false); // En caso de error, mantener el juego oculto
+                    setShowGame(false);
                 }
+            } else {
+                // Si el rol no es "estudiante", mostrar el juego automáticamente
+                setShowGame(true);
             }
         };
 
-        if (session?.role === 'estudiante' && gameId) {
-            fetchUserProgress();
-        } else {
-            setShowGame(false); // Si no es estudiante, asegurar que el juego no se muestre inicialmente
-        }
-    }, [gameId, session]);
+        fetchUserProgress();
+    }, [gameId, session, isStudent]);
+
 
 
     // Obtener las instrucciones predeterminadas
@@ -245,8 +245,6 @@ const GamePage = () => {
 
     const isGameConfigured = adminInstructions.length > 0 && gameConfig;
 
-    const isStudent = session?.role === "estudiante"; // Determinar si es un estudiante
-
     return (
         <PrivateRoute>
             <main className="bg-gray-100">
@@ -265,8 +263,8 @@ const GamePage = () => {
                             <GameComponent
                                 gameData={gameData}
                                 config={gameConfig}
-                                userProgress={userProgress} // Pasar el progreso al componente del juego
-                                setShowGame={setShowGame} // Para manejar si se muestra el juego
+                                userProgress={userProgress}
+                                setShowGame={setShowGame}
                             />
                         )
                     )}
