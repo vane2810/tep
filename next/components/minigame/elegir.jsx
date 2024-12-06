@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+// Juego elegir imagen
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
 import EmptyContentMessage from "../menssages/mensajeVacio";
+import useSession from "@/hooks/useSession"; // Importar el hook de sesión
+import { useRouter } from "next/navigation";
 
-const ElegirRespuestaImagen = ({ gameData, config }) => {
+const ElegirRespuestaImagen = ({ gameData, config, userProgress, setShowGame }) => {
+  const { session } = useSession();
+  const [userId, setUserId] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Extraer el userId de la sesión solo si el usuario tiene rol 'estudiante'
+    if (session?.role === "estudiante") {
+      setUserId(session.user);
+    }
+  }, [session]);
+
   // Estado para manejar las preguntas y el progreso del juego
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [feedback, setFeedback] = useState({ message: "" });
+
+  // Mostrar el juego si el progreso del estudiante indica que el juego está completado
+  useEffect(() => {
+    if (userProgress && userProgress.status === "completado") {
+      setScore(userProgress.score);
+      setIsGameOver(true);
+    }
+  }, [userProgress]);
 
   // Asegurarse de que config está definido y tiene preguntas
   if (!config || !config.preguntas || config.preguntas.length === 0) {
@@ -42,9 +64,86 @@ const ElegirRespuestaImagen = ({ gameData, config }) => {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       } else {
         setIsGameOver(true);
+        saveOrUpdateProgress(score + (currentQuestion.opciones[selectedOptionIndex].correcta ? points_questions : 0));
       }
       setFeedback({ message: "" });
     }, 3000);
+  };
+
+  // Función para guardar o actualizar el progreso en el backend
+  const saveOrUpdateProgress = async (finalScore) => {
+    if (!userId) {
+      console.error("No se puede guardar el progreso porque no se encontró el userId del estudiante.");
+      return;
+    }
+
+    try {
+      // Primero intentar actualizar el progreso existente
+      const updateResponse = await updateProgress(finalScore);
+      if (updateResponse === 404) {
+        // Si no existe, crear un nuevo progreso
+        await createProgress(finalScore);
+      }
+    } catch (error) {
+      console.error("Error al gestionar el progreso del estudiante:", error);
+    }
+  };
+
+  // Función para crear un nuevo progreso (POST)
+  const createProgress = async (finalScore) => {
+    try {
+      const response = await fetch("http://localhost:3001/api/progreso/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          student_id: userId,
+          game_id: gameData.id,
+          status: finalScore >= points_min ? "completado" : "fallido",
+          score: finalScore,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Progreso creado:", data);
+      } else {
+        console.error("Error al crear el progreso:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error al conectar con el servidor para crear el progreso:", error);
+    }
+  };
+
+  // Función para actualizar el progreso existente (PUT)
+  const updateProgress = async (finalScore) => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/progreso/${userId}/${gameData.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          score: finalScore,
+          status: finalScore >= points_min ? "completado" : "fallido",
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Progreso actualizado:", data);
+        return 200; // OK status
+      } else if (response.status === 404) {
+        console.warn("Progreso no encontrado para actualizar.");
+        return 404; // Not found status
+      } else {
+        console.error("Error al actualizar el progreso:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error al conectar con el servidor para actualizar el progreso:", error);
+    }
+    return null;
   };
 
   // Reiniciar el juego
@@ -53,11 +152,12 @@ const ElegirRespuestaImagen = ({ gameData, config }) => {
     setScore(0);
     setIsGameOver(false);
     setFeedback({ message: "" });
+    setShowGame(true); // Mantener el juego visible al reiniciar
   };
 
   // Continuar al siguiente nivel
   const continueGame = () => {
-    console.log("Continuando al siguiente nivel...");
+    router.back(); // Redirigir al usuario a la página anterior
   };
 
   // Mostrar pantalla de finalización
@@ -186,6 +286,8 @@ ElegirRespuestaImagen.propTypes = {
     points_questions: PropTypes.number.isRequired,
     points_min: PropTypes.number.isRequired,
   }).isRequired,
+  userProgress: PropTypes.object, // Progreso del usuario (opcional)
+  setShowGame: PropTypes.func.isRequired, // Función para controlar si se muestra el juego
 };
 
 export default ElegirRespuestaImagen;

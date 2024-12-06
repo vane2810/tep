@@ -178,28 +178,31 @@ const JuegosPage = () => {
 
                 <Volver href={volverHref} img="/img/home/regresar/verde.webp" />
 
-                <GameHeader
-                    title={subtemaData.title}
-                    imageSrc="/img/personajes/donkey/donkey.webp"
-                />
+                <GameHeader title={subtemaData.title} imageSrc="/img/personajes/donkey/donkey.webp" />
 
-                {session?.role === "admin" && (
-                    <AddButton text="Agregar Juego" onClick={handleAddGame} />
-                )}
+                {session?.role === "admin" && <AddButton text="Agregar Juego" onClick={handleAddGame} />}
 
                 <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 px-8 py-8">
                     {gamesList.length > 0 ? (
-                        gamesList.map((game) => (
-                            <GameCard
-                                key={game.id}
-                                title={game.title}
-                                imageSrc={game.img_url}
-                                href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${game.id}/${game.id}`}
-                                isAdmin={session?.role === "admin"} // Añadir prop isAdmin para mostrar botones de editar/eliminar solo para el admin
-                                onEdit={() => handleEditGame(game)} // Añadir prop onEdit
-                                onDelete={() => openDeleteModal(game.id)} // Añadir prop onDelete
-                            />
-                        ))
+                        gamesList.map((game, index) => {
+                            const previousGameId = index > 0 ? gamesList[index - 1]?.id : null;
+
+                            return (
+                                <GameCard
+                                    key={game.id}
+                                    title={game.title}
+                                    imageSrc={game.img_url}
+                                    href={`/niveles/nivel1/mate/${subtemas}/${contenidos}/${game.id}/${game.id}`}
+                                    isAdmin={session?.role === "admin"}
+                                    userRole={session?.role} // Pasar el rol del usuario
+                                    onEdit={() => handleEditGame(game)}
+                                    onDelete={() => openDeleteModal(game.id)}
+                                    studentId={session?.user}
+                                    gameId={game.id}
+                                    previousGameId={previousGameId}
+                                />
+                            );
+                        })
                     ) : (
                         <EmptyContentMessage />
                     )}

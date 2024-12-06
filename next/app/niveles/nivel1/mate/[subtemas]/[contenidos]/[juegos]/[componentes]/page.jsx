@@ -18,7 +18,8 @@ const GamePage = () => {
     const params = useParams();
     const { subtemas, contenidos, juegos } = params;
     const { session } = useSession();
-
+    const isStudent = session?.role === "estudiante";
+    
     const gameId = Number(juegos);
     const [gameData, setGameData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -56,27 +57,35 @@ const GamePage = () => {
         if (gameId) fetchGame();
     }, [gameId]);
 
-    // Obtener el progreso del estudiante si existe
     useEffect(() => {
         const fetchUserProgress = async () => {
-            if (session?.role === 'estudiante') {
+            if (isStudent) {
                 try {
                     const response = await fetch(`http://localhost:3001/api/progreso/${session.user}/${gameId}`);
                     if (response.ok) {
                         const progressData = await response.json();
                         setUserProgress(progressData);
-                        setShowGame(true); // Mostrar el resultado directamente si hay progreso
+                        if (progressData.status === "completado") {
+                            setShowGame(true); // Solo mostrar si está completado
+                        }
+                    } else {
+                        setUserProgress(null);
+                        setShowGame(false);
                     }
                 } catch (error) {
                     console.error('Error al obtener el progreso del juego:', error);
+                    setShowGame(false);
                 }
+            } else {
+                // Si el rol no es "estudiante", mostrar el juego automáticamente
+                setShowGame(true);
             }
         };
 
-        if (session?.role === 'estudiante' && gameId) {
-            fetchUserProgress();
-        }
-    }, [gameId, session]);
+        fetchUserProgress();
+    }, [gameId, session, isStudent]);
+
+
 
     // Obtener las instrucciones predeterminadas
     useEffect(() => {
@@ -236,8 +245,6 @@ const GamePage = () => {
 
     const isGameConfigured = adminInstructions.length > 0 && gameConfig;
 
-    const isStudent = session?.role === "estudiante"; // Determinar si es un estudiante
-
     return (
         <PrivateRoute>
             <main className="bg-gray-100">
@@ -251,22 +258,22 @@ const GamePage = () => {
                     <h2 className="mb-6 font-bold text-4xl text-center text-purple-800 wonder">{gameData.title}</h2>
 
                     {/* Mostrar el contenedor del juego o el resultado dependiendo del progreso */}
-                    {isGameConfigured && (!isStudent || showGame) ? (
+                    {isGameConfigured && showGame && (
                         GameComponent && (
                             <GameComponent
                                 gameData={gameData}
                                 config={gameConfig}
-                                userProgress={userProgress} // Pasar el progreso al componente del juego
-                                setShowGame={setShowGame} // Para manejar si se muestra el juego
+                                userProgress={userProgress}
+                                setShowGame={setShowGame}
                             />
                         )
-                    ) : (
-                        isStudent && !showGame && (
-                            <div className="text-center text-gray-800 text-lg">
-                                <p>Presiona el botón "Jugar" luego de leer las instrucciones</p>
-                            </div>
-                        )
                     )}
+                    {isStudent && !showGame && (
+                        <div className="text-center text-gray-800 text-lg">
+                            <p>Presiona el botón "Jugar" luego de leer las instrucciones</p>
+                        </div>
+                    )}
+
                     {session?.role === "admin" && (
                         <div className="top-4 right-4 absolute flex space-x-4">
                             <button

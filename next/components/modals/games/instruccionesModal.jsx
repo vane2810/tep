@@ -77,6 +77,7 @@ const InstruccionesModal = ({ isOpen, onClose, instructions, onPlay, isAdmin, on
     }
   };
 
+  
   const parseInstructions = (instructionText) => {
     // Convertir el texto de instrucciones en una lista, separando por comas o nuevas líneas
     if (!instructionText) return [];

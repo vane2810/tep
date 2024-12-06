@@ -1,3 +1,4 @@
+// Juego trivia
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaRedoAlt, FaArrowRight, FaQuestionCircle } from "react-icons/fa";
@@ -11,7 +12,7 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
   const router = useRouter();
 
   const handleContinue = () => {
-    router.back(); 
+    router.back();
   };
 
   useEffect(() => {
@@ -27,14 +28,16 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [feedback, setFeedback] = useState({ message: "", correctAnswer: "" });
 
-  // Si hay un progreso existente, iniciar el juego mostrando el resultado
+  // Mostrar el juego si el progreso del estudiante indica que el juego está completado
   useEffect(() => {
     if (userProgress && userProgress.status === "completado") {
+      // Si el juego ya fue completado antes por el estudiante
       setScore(userProgress.score);
       setIsGameOver(true);
-      setShowGame(true);
     }
-  }, [userProgress, setShowGame]);
+  }, [userProgress]);
+
+
 
   // Asegurarse de que config está definido y tiene preguntas
   if (!config || !config.preguntas || config.preguntas.length === 0) {
@@ -157,7 +160,6 @@ const Trivia = ({ gameData, config, userProgress, setShowGame }) => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setIsGameOver(false);
-    setFeedback({ message: "", correctAnswer: "" });
     setShowGame(true); // Mantener el juego visible al reiniciar
   };
 
