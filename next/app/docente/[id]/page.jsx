@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Volver from "@/components/elements/botonVolver";
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
@@ -16,6 +16,7 @@ export default function EstudiantePage() {
     // Simulación de datos de estudiantes (en un caso real, esto vendría del backend)
     const estudiantesSimulados = [
         { id: '1', nombre: 'Prueba', email: 'prueba1@gmail.com', nivel: 'Nivel 1', asignatura: 'Matemáticas' },
+        { id: '2', nombre: 'Usuario Especial', email: 'prueba01@gmail.com', nivel: 'Nivel Avanzado', asignatura: 'Ciencias' },
     ];
 
     useEffect(() => {
@@ -37,7 +38,11 @@ export default function EstudiantePage() {
         return <p>No se encontró información del estudiante.</p>;
     }
 
-    const asignaturas = ["Matemáticas", "Lenguaje", "Sociales", "Inglés"];
+    // Configuración especial para el correo prueba01@gmail.com
+    const esUsuarioEspecial = estudiante.email === "prueba01@gmail.com";
+    const asignaturas = esUsuarioEspecial 
+        ? ["Ciencias", "Matemáticas Avanzadas", "Física", "Química"]
+        : ["Matemáticas", "Lenguaje", "Sociales", "Inglés"];
 
     // Datos del gráfico de progreso (pueden ser personalizados según cada asignatura)
     const data = {
@@ -45,9 +50,9 @@ export default function EstudiantePage() {
         datasets: [
             {
                 label: 'Progreso (%)',
-                data: [60, 70, 80, 75, 90], // Datos simulados del progreso
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                data: esUsuarioEspecial ? [85, 90, 95, 88, 92] : [60, 70, 80, 75, 90], // Datos simulados del progreso
+                backgroundColor: esUsuarioEspecial ? 'rgba(255, 99, 132, 0.6)' : 'rgba(54, 162, 235, 0.6)',
+                borderColor: esUsuarioEspecial ? 'rgba(255, 99, 132, 1)' : 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
             },
         ],
@@ -111,3 +116,4 @@ export default function EstudiantePage() {
         </main>
     );
 }
+
