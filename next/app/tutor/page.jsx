@@ -1,13 +1,16 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import useSession from '@/hooks/useSession';
 import DeleteModal from '@/components/modals/admin/contenido/deleteModal';
 import Volver from '@/components/elements/botonVolver';
 import { SeparadorMorado } from '@/components/separador';
 import PrivateRoute from '@/components/PrivateRoute';
 import { FiPlus, FiTrash2, FiEye } from "react-icons/fi";
+import Loading from '@/components/elements/loading';
 
 const AddRelationshipForm = () => {
+  const router = useRouter();
   const { session } = useSession(); // Obtener la sesión del tutor/padre autenticado
   const [formData, setFormData] = useState({
     studentEmail: '',
@@ -18,6 +21,7 @@ const AddRelationshipForm = () => {
   const [showMessageModal, setShowMessageModal] = useState(false); // Estado para el minimodal de mensajes
   const [showDeleteModal, setShowDeleteModal] = useState(false); // Estado para el modal de eliminar
   const [selectedStudentId, setSelectedStudentId] = useState(null); // Estado para almacenar el ID del estudiante seleccionado para eliminar
+  const [loading, setLoading] = useState(true); // Estado de carga para mostrar el componente Loading
 
   // Verificar el contenido de la sesión
   useEffect(() => {
@@ -112,6 +116,7 @@ const AddRelationshipForm = () => {
 
   const fetchRelationships = async (guardianId) => {
     try {
+      setLoading(true);
       const response = await fetch(`http://localhost:3001/api/userRelations/${guardianId}`);
       if (!response.ok) {
         throw new Error('Error al obtener las relaciones');
@@ -121,6 +126,8 @@ const AddRelationshipForm = () => {
       setRelationships(data.data); // Asignar las relaciones al estado
     } catch (error) {
       console.error('Error al obtener las relaciones:', error);
+    } finally {
+      setLoading(false); // Finalizar el estado de carga
     }
   };
 
@@ -152,6 +159,14 @@ const AddRelationshipForm = () => {
     }
   };
 
+  const handleViewProgress = (studentId) => {
+    router.push(`/tutor/${studentId}`); // Redirigir a la página de progreso del estudiante
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <PrivateRoute>
       <main>
@@ -162,8 +177,8 @@ const AddRelationshipForm = () => {
               <Volver img='/img/home/regresar/morado.webp' href='/' className="mb-4" />
               <h2 className="flex-grow font-bold text-3xl text-center text-purple-800 super">BIENVENIDO A CONTROLES PARENTALES</h2>
             </div>
-            <img src="/img/personajes/starly/starly_corona.webp" alt="Estudiante" className="mb-4 w-24 h-24 object-contain" />
-            <p className="mb-8 text-cente text-xl">Aquí podrás añadir y ver el progreso de tus estudiantes a cargo</p>
+            <img src="/img/progreso/padre.webp" alt="Estudiante" className="mb-4 w-60 h-60 object-contain" />
+            <p className="mb-8 text-center text-xl">Aquí podrás añadir y ver el progreso de tus estudiantes a cargo</p>
             <button
               onClick={openModal}
               className="flex items-center bg-blue-500 hover:bg-blue-700 mt-4 px-6 py-2 rounded-full font-bold text-lg text-white transition duration-200"
@@ -193,7 +208,9 @@ const AddRelationshipForm = () => {
                     <p className="mb-1"> <span className='font-bold'>Correo:</span> {relationship.studentInfo.email}</p>
                     <p className="mb-4"> <span className='font-bold'>Nivel: </span>{relationship.studentInfo.level?.name || 'No especificado'}</p>
                     <div className="flex space-x-4">
-                      <button className="flex items-center bg-purple-500 hover:bg-purple-600 px-3 py-2 rounded-full text-white transition duration-200">
+                      <button 
+                        onClick={() => handleViewProgress(relationship.studentInfo.id)}
+                        className="flex items-center bg-purple-500 hover:bg-purple-600 px-3 py-2 rounded-full text-white transition duration-200">
                         <FiEye className="text-xl" />
                       </button>
                       <button
