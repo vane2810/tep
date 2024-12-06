@@ -102,13 +102,13 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
           <hr className="border-1 my-6 sm:my-8 border-t border-black w-full" />
           {/* Enlace para recuperar contraseña */}
           <div className="text-base text-black sm:text-lg">
-            <p>Has olvidado tu contraseña? <Link href="/auth/rescontra" className="font-medium text-yellow-400 hover:text-yellow-500">Recuperala</Link></p>
-          </div>
+            <p>¿Has olvidado tu contraseña? <Link href="/auth/rescontra" className="font-medium text-yellow-400 hover:text-yellow-500">Recuperala</Link></p>
+          </div>        
           {/* Enlace para registrarse */}
           <div className="text-base text-black sm:text-lg">
             <p>¿No tienes una cuenta? <Link href="/auth/register" className="font-medium text-yellow-400 hover:text-yellow-500">Regístrate</Link></p>
           </div>
-        </div>
+        </div>  
 
         {/* Imagen decorativa - alineada a la derecha */}
         <div className="lg:flex justify-center items-center hidden bg-transparent p-8 lg:w-1/2">

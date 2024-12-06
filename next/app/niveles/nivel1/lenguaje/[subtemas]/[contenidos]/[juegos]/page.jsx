@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import PrivateRoute from "@/components/PrivateRoute";
 import { SeparadorMorado } from "@/components/separador";
 import Volver from "@/components/elements/botonVolver";
 import useSession from "@/hooks/useSession";
@@ -100,7 +101,8 @@ const JuegosPage = () => {
                     title: gameToSave.title,
                     img_url: gameToSave.imgSrc,
                     contentId: gameToSave.contentId,
-                }),
+                    gametype_id: gameToSave.gametype_id, // Agrega este campo
+                })
             });
 
             if (response.ok) {
@@ -170,54 +172,60 @@ const JuegosPage = () => {
     }
 
     return (
-        <main className="bg-gray-100">
+        <PrivateRoute>
+            <main className="bg-gray-100">
+                <SeparadorMorado />
+
+                <Volver href={volverHref} img="/img/home/regresar/morado.webp" />
+
+                <GameHeader title={subtemaData.title} imageSrc="/img/personajes/donkey/donkey.webp" />
+
+                {session?.role === "admin" && <AddButton text="Agregar Juego" onClick={handleAddGame} />}
+
+                <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 px-8 py-8">
+                    {gamesList.length > 0 ? (
+                        gamesList.map((game, index) => {
+                            const previousGameId = index > 0 ? gamesList[index - 1]?.id : null;
+
+                            return (
+                                <GameCard
+                                    key={game.id}
+                                    title={game.title}
+                                    imageSrc={game.img_url}
+                                    href={`/niveles/nivel1/lenguaje/${subtemas}/${contenidos}/${game.id}/${game.id}`}
+                                    isAdmin={session?.role === "admin"}
+                                    userRole={session?.role} // Pasar el rol del usuario
+                                    onEdit={() => handleEditGame(game)}
+                                    onDelete={() => openDeleteModal(game.id)}
+                                    studentId={session?.user}
+                                    gameId={game.id}
+                                    previousGameId={previousGameId}
+                                />
+                            );
+                        })
+                    ) : (
+                        <EmptyContentMessage />
+                    )}
+                </div>
+
+                <SeparadorVerde />
+
+                <GameModal
+                    isOpen={isModalOpen}
+                    onClose={handleModalClose}
+                    onSave={handleSaveGame}
+                    newGame={newGame}
+                    onInputChange={handleInputChange}
+                />
+
+                <DeleteModal
+                    isOpen={isDeleteModalOpen}
+                    onClose={() => setIsDeleteModalOpen(false)}
+                    onConfirm={confirmDeleteGame}
+                />
+            </main>
             <SeparadorMorado />
-
-            <Volver href={volverHref} img="/img/home/regresar/morado.webp" />
-
-            <GameHeader
-                title={subtemaData.title}
-                imageSrc="/img/personajes/donkey/donkey.webp"
-            />
-
-            {session?.role === "admin" && (
-                <AddButton text="Agregar Juego" onClick={handleAddGame} />
-            )}
-
-            <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 px-8 py-8">
-                {gamesList.length > 0 ? (
-                    gamesList.map((game) => (
-                        <GameCard
-                            key={game.id}
-                            title={game.title}
-                            imageSrc={game.img_url}
-                            href={`/niveles/nivel1/lenguaje/${subtemas}/${contenidos}/${game.id}/${game.id}`} 
-                            isAdmin={session?.role === "admin"} // Añadir prop isAdmin para mostrar botones de editar/eliminar solo para el admin
-                            onEdit={() => handleEditGame(game)} // Añadir prop onEdit
-                            onDelete={() => openDeleteModal(game.id)} // Añadir prop onDelete
-                        />
-                    ))
-                ) : (
-                    <EmptyContentMessage />
-                )}
-            </div>
-
-            <SeparadorMorado />
-
-            <GameModal
-                isOpen={isModalOpen}
-                onClose={handleModalClose}
-                onSave={handleSaveGame}
-                newGame={newGame}
-                onInputChange={handleInputChange}
-            />
-
-            <DeleteModal
-                isOpen={isDeleteModalOpen}
-                onClose={() => setIsDeleteModalOpen(false)}
-                onConfirm={confirmDeleteGame}
-            />
-        </main>
+        </PrivateRoute>
     );
 };
 

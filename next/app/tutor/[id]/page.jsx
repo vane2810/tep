@@ -10,38 +10,33 @@ import PrivateRoute from '@/components/PrivateRoute';
 import EmptyContentMessage from '@/components/menssages/mensajeVacio';
 
 const StudentProgressPage = () => {
-  const { id } = useParams(); // Obtener el ID del estudiante desde la URL (Usando next/navigation)
+  const { id } = useParams(); 
   const { session } = useSession();
   const [progressData, setProgressData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
-  // Hook para obtener el progreso del estudiante cuando se tiene el id y la sesión
   useEffect(() => {
     if (id && session?.user) {
-      fetchStudentProgress(id);
+      // Simulación de datos de progreso
+      const simulatedProgressData = {
+        student: {
+          name: "Prueba",
+          lastname: "-",
+        },
+        progressPercentage: 75,
+        games: [
+          { id: 1, name: "Juego de Matemáticas", status: "Completado", score: 5 },
+          { id: 2, name: "Juego de Lenguaje", status: "Completado", score: 4 },
+          { id: 3, name: "Juego de Sociales", status: "No Completado", score: 3 },
+          { id: 4, name: "Juego de Inglés", status: "Completado", score: 4 },
+        ],
+      };
+      setProgressData(simulatedProgressData);
+      setLoading(false);
     }
   }, [id, session?.user]);
 
-  // Función para obtener los datos de progreso del estudiante
-  const fetchStudentProgress = async (studentId) => {
-    try {
-      const response = await fetch(`http://localhost:3001/api/progreso/user/${studentId}`);
-      if (!response.ok) {
-        throw new Error('Error al obtener el progreso del estudiante');
-      }
-
-      const data = await response.json();
-      setProgressData(data);
-    } catch (error) {
-      console.error('Error al obtener el progreso del estudiante:', error);
-      setMessage('Hubo un error al obtener el progreso del estudiante. Por favor, intenta nuevamente.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Mostrar una pantalla de carga si los datos están siendo obtenidos
   if (loading) {
     return <Loading />;
   }
@@ -49,9 +44,8 @@ const StudentProgressPage = () => {
   return (
     <PrivateRoute>
       <main>
-      <SeparadorVerde />
+        <SeparadorVerde />
         <div className="bg-white shadow-lg mx-auto my-20 mt-8 p-10 rounded-lg w-full max-w-5xl yagora">
-         
           <div className="flex flex-col items-center mb-8">
             <div className="flex justify-between items-center w-full">
               <Volver img='/img/home/regresar/verde.webp' href='/docente' className="mb-4" />
@@ -63,14 +57,12 @@ const StudentProgressPage = () => {
             </h3>
           </div>
 
-          {/* Mostrar mensajes de error si existen */}
           {message && (
             <div className="bg-red-100 mb-6 p-4 border border-red-400 rounded-lg text-center text-red-700">
               {message}
             </div>
           )}
 
-          {/* Mostrar los datos del progreso si existen */}
           {progressData ? (
             <div className="flex flex-col items-center w-full">
               <h3 className="mb-6 font-bold text-3xl text-green-700">Progreso General</h3>
@@ -118,16 +110,15 @@ const StudentProgressPage = () => {
               </div>
             </div>
           ) : (
-            <EmptyContentMessage/>
+            <EmptyContentMessage />
           )}
-
-          
         </div>
         <SeparadorVerde />
       </main>
-      
     </PrivateRoute>
   );
 };
 
 export default StudentProgressPage;
+
+  

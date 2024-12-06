@@ -21,8 +21,8 @@ const StudentProgressPage = () => {
       // Simulación de datos de progreso
       const simulatedProgressData = {
         student: {
-          name: "Juan",
-          lastname: "Pérez",
+          name: "Prueba",
+          lastname: "-",
         },
         progressPercentage: 75,
         games: [

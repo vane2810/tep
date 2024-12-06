@@ -4,17 +4,19 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import SubtemaContent from "@/components/templates/contents/contentHeader";
-import { SeparadorMorado } from "@/components/separador";
+import PrivateRoute from "@/components/PrivateRoute";
+import { SeparadorVerde } from "@/components/separador";
 import useSession from "@/hooks/useSession";
 import AddButton from "@/components/elements/botonAdd";
 import Volver from "@/components/elements/botonVolver";
 import ContentModal from "@/components/modals/admin/contenido/contentModal";
 import DeleteModal from "@/components/modals/admin/contenido/deleteModal";
-import ContentStructure1 from "@/components/templates/contents/contentStructure1"; 
-import ContentStructure2 from "@/components/templates/contents/contentStructure2"; 
+import ContentStructure1 from "@/components/templates/contents/contentStructure1";
+import ContentStructure2 from "@/components/templates/contents/contentStructure2";
 import Loading from "@/components/elements/loading";
 import EmptyContentMessage from "@/components/menssages/mensajeVacio";
-import BotonContent from "@/components/elements/botonContent"; 
+import BotonContent from "@/components/elements/botonContent";
+import Carga from "@/components/menssages/mensajeCarga";
 
 const ContenidoPage = () => {
     const params = useParams();
@@ -226,74 +228,77 @@ const ContenidoPage = () => {
     }
 
     if (!subtemaData) {
-        return <p>No se pudo cargar el contenido.</p>;
+        return <Carga />;
     }
 
-    const volverHref = `/niveles/nivel1/lenguaje/${subtemas}`;
+    const volverHref = `/niveles/nivel1/sociales/${subtemas}`;
 
     return (
-        <main className="bg-gray-100">
-            <SeparadorMorado />
+        <PrivateRoute>
+            <main className="bg-gray-100">
+                <SeparadorVerde />
 
-            <Volver href={volverHref} img="/img/home/regresar/morado.webp" />
+                <Volver href={volverHref} img="/img/home/regresar/verde.webp" />
 
-            <SubtemaContent title={subtemaData.title} imgSrc={subtemaData.img_url} />
+                <SubtemaContent title={subtemaData.title} imgSrc={subtemaData.img_url} />
 
-            {session?.role === "admin" && (
-                <AddButton text="Agregar Contenido" onClick={handleAddContent} />
-            )}
-
-            {isModalOpen && (
-                <ContentModal
-                    isOpen={isModalOpen}
-                    onClose={handleModalClose}
-                    onSave={handleSaveContent}
-                    content={editContentId ? newContent : null}
-                />
-            )}
-
-            {isDeleteModalOpen && (
-                <DeleteModal
-                    isOpen={isDeleteModalOpen}
-                    onClose={handleDeleteModalClose}
-                    onConfirm={handleDeleteConfirm}
-                />
-            )}
-
-            {/* Botones para cambiar la vista */}
-            <BotonContent
-                onListViewClick={() => setViewType('list')}
-                onBookViewClick={() => setViewType('book')}
-            />
-
-            {/* Mostrar los contenidos usando la vista seleccionada */}
-            <div className="mt-6">
-                {contenidoData.length === 0 ? (
-                    <EmptyContentMessage />
-                ) : (
-                    contenidoData.map((content) => (
-                        viewType === 'list' ? (
-                            <ContentStructure1
-                                key={content.id}
-                                content={content}
-                                onEdit={handleEditContent}
-                                onDelete={handleDeleteContent}
-                                isAdmin={session?.role === "admin"}
-                                playLink={`/niveles/nivel1/lenguaje/${subtemas}/${content.id}/${content.id}`}
-                            />
-                        ) : (
-                            <ContentStructure2
-                                key={content.id}
-                                content={content}
-                                playLink={`/niveles/nivel1/lenguaje/${subtemas}/${content.id}/${content.id}`}
-                            />
-                        )
-                    ))
+                {/* Mostrar el botón de "Agregar Contenido" solo si no hay contenido */}
+                {session?.role === "admin" && contenidoData.length === 0 && (
+                    <AddButton text="Agregar Contenido" onClick={handleAddContent} />
                 )}
-            </div>
 
-            <SeparadorMorado />
-        </main>
+                {isModalOpen && (
+                    <ContentModal
+                        isOpen={isModalOpen}
+                        onClose={handleModalClose}
+                        onSave={handleSaveContent}
+                        content={editContentId ? newContent : null}
+                    />
+                )}
+
+                {isDeleteModalOpen && (
+                    <DeleteModal
+                        isOpen={isDeleteModalOpen}
+                        onClose={handleDeleteModalClose}
+                        onConfirm={handleDeleteConfirm}
+                    />
+                )}
+
+                {/* Botones para cambiar la vista */}
+                <BotonContent
+                    onListViewClick={() => setViewType('list')}
+                    onBookViewClick={() => setViewType('book')}
+                />
+
+                {/* Mostrar los contenidos usando la vista seleccionada */}
+                <div className="mt-6">
+                    {contenidoData.length === 0 ? (
+                        <EmptyContentMessage />
+                    ) : (
+                        contenidoData.map((content) => (
+                            viewType === 'list' ? (
+                                <ContentStructure1
+                                    key={content.id}
+                                    content={content}
+                                    onEdit={handleEditContent}
+                                    onDelete={handleDeleteContent}
+                                    isAdmin={session?.role === "admin"}
+                                    playLink={`/niveles/nivel1/sociales/${subtemas}/${content.id}/${content.id}`}
+                                />
+                            ) : (
+                                <ContentStructure2
+                                    key={content.id}
+                                    content={content}
+                                    playLink={`/niveles/nivel1/sociales/${subtemas}/${content.id}/${content.id}`}
+                                />
+                            )
+                        ))
+                    )}
+                </div>
+
+                <SeparadorVerde />
+            </main>
+        </PrivateRoute>
     );
 };
 
