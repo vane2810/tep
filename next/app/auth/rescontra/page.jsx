@@ -2,7 +2,7 @@
 // Componente para solicitar la recuperación de contraseña
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FiMail, FiKey } from "react-icons/fi";
+import { FiMail, FiKey, FiLock } from "react-icons/fi";
 import Volver from "@/components/elements/botonVolver";
 import Image from "next/image";
 
@@ -13,12 +13,8 @@ export default function RecoveryForm({ email, handleChange, handleSubmit }) {
   const [focusedField, setFocusedField] = useState(null);
   const [step, setStep] = useState(1);
   const [token, setToken] = useState("");
-
-  const getStarlyImage = () => {
-    if (focusedField === "email") return "/img/personajes/starly/starly_correo.webp";
-    if (focusedField === "token") return "/img/personajes/starly/starly_token.webp";
-    return "/img/personajes/starly/starly2.webp";
-  };
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleTokenChange = (e) => {
     const value = e.target.value;
@@ -38,7 +34,17 @@ export default function RecoveryForm({ email, handleChange, handleSubmit }) {
       alert("El token debe ser un número de 6 dígitos.");
       return;
     }
-    alert(`Token enviado: ${token}`);
+    setStep(3); // Pasar al formulario de nueva contraseña
+  };
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Las contraseñas no coinciden.");
+      return;
+    }
+    // Aquí podrías enviar la nueva contraseña al servidor
+    alert("Contraseña cambiada con éxito.");
   };
 
   return (
@@ -52,19 +58,26 @@ export default function RecoveryForm({ email, handleChange, handleSubmit }) {
               <Volver href="/auth/login" img="/img/home/regresar/amarillo.webp" title="Volver al Inicio" />
             </div>
             <h1 className="font-bold text-xl text-yellow-600 sm:text-2xl lg:text-3xl" style={{ marginLeft: "-40px" }}>
-              {step === 1 ? "Recuperar Contraseña" : "Ingresa el Token"}
+              {step === 1
+                ? "Recuperar Contraseña"
+                : step === 2
+                ? "Ingresa el Token"
+                : "Nueva Contraseña"}
             </h1>
           </div>
 
-          {/* Imagen Estática con Clase Dinámica */}
+          {/* Imagen Estática */}
           <div className="mb-8 flex justify-center w-full">
             <div className="relative w-32 h-32 sm:w-36 sm:h-36">
               <Image
-                src={getStarlyImage()}
+                src="/img/personajes/starly/starly2.webp"
                 alt="Starly"
                 layout="fill"
                 objectFit="contain"
-                priority={true} // Asegura carga inmediata
+                priority={true}
+                className={`transition-transform duration-300 ${
+                  focusedField ? "scale-110" : "opacity-80"
+                }`}
               />
             </div>
           </div>
@@ -97,7 +110,6 @@ export default function RecoveryForm({ email, handleChange, handleSubmit }) {
                 />
               </div>
 
-              {/* Botón para enviar */}
               <button
                 type="submit"
                 className="flex justify-center items-center bg-yellow-300 hover:bg-yellow-400 px-6 py-3 rounded-full w-full font-bold text-lg text-white sm:text-xl transition duration-300 ease-in-out focus:ring-4 focus:ring-yellow-500"
@@ -105,7 +117,7 @@ export default function RecoveryForm({ email, handleChange, handleSubmit }) {
                 Enviar correo de recuperación
               </button>
             </form>
-          ) : (
+          ) : step === 2 ? (
             <form onSubmit={handleTokenSubmit} className="w-full" aria-labelledby="token-form">
               {/* Campo de token */}
               <div className="relative mb-8 sm:mb-10">
@@ -134,12 +146,70 @@ export default function RecoveryForm({ email, handleChange, handleSubmit }) {
                 />
               </div>
 
-              {/* Botón para enviar */}
               <button
                 type="submit"
                 className="flex justify-center items-center bg-yellow-300 hover:bg-yellow-400 px-6 py-3 rounded-full w-full font-bold text-lg text-white sm:text-xl transition duration-300 ease-in-out focus:ring-4 focus:ring-yellow-500"
               >
                 Verificar Código
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={handlePasswordSubmit} className="w-full" aria-labelledby="password-form">
+              {/* Campo de nueva contraseña */}
+              <div className="relative mb-8 sm:mb-10">
+                <label htmlFor="password" className={labelClasses}>
+                  Nueva Contraseña
+                </label>
+                <FiLock
+                  className="top-12 left-3 absolute text-yellow-400"
+                  size={20}
+                  aria-hidden="true"
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  onFocus={() => setFocusedField("password")}
+                  onBlur={() => setFocusedField(null)}
+                  required
+                  aria-required="true"
+                  placeholder="Ingresa tu nueva contraseña"
+                  className={inputClasses}
+                />
+              </div>
+
+              {/* Campo de confirmar contraseña */}
+              <div className="relative mb-8 sm:mb-10">
+                <label htmlFor="confirmPassword" className={labelClasses}>
+                  Confirmar Contraseña
+                </label>
+                <FiLock
+                  className="top-12 left-3 absolute text-yellow-400"
+                  size={20}
+                  aria-hidden="true"
+                />
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onFocus={() => setFocusedField("confirmPassword")}
+                  onBlur={() => setFocusedField(null)}
+                  required
+                  aria-required="true"
+                  placeholder="Confirma tu nueva contraseña"
+                  className={inputClasses}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="flex justify-center items-center bg-yellow-300 hover:bg-yellow-400 px-6 py-3 rounded-full w-full font-bold text-lg text-white sm:text-xl transition duration-300 ease-in-out focus:ring-4 focus:ring-yellow-500"
+              >
+                Cambiar Contraseña
               </button>
             </form>
           )}

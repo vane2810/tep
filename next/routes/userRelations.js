@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, UserRelation } = require('../models');
+const { User, UserRelation, Level, Character } = require('../models');
 
 // Ruta para crear una nueva relación entre estudiante y tutor mediante el ID del tutor
 router.post('/', async (req, res) => {
@@ -52,9 +52,21 @@ router.get('/:guardianId', async (req, res) => {
       include: [
         {
           model: User,
-          as: 'studentInfo',
-          attributes: ['id', 'name', 'email'], // Incluir solo los campos necesarios del estudiante
-        }
+          as: 'studentInfo', 
+          attributes: ['id', 'name', 'lastname', 'email', 'levelId', 'characterId'], 
+          include: [
+            {
+              model: Character,
+              as: 'character',
+              attributes: ['id', 'img_url'], 
+            },
+            {
+              model: Level,
+              as: 'level', 
+              attributes: ['id', 'name'], 
+            },
+          ],
+        },
       ],
     });
 
@@ -63,11 +75,45 @@ router.get('/:guardianId', async (req, res) => {
       return res.status(404).json({ message: 'No se encontraron relaciones para este tutor.' });
     }
 
+    // Enviar la respuesta con las relaciones encontradas
     res.status(200).json({ message: 'Relaciones encontradas con éxito', data: relationships });
   } catch (error) {
     console.error('Error al obtener las relaciones:', error);
-    res.status(500).json({ message: 'Hubo un error al obtener las relaciones', error });
+    res.status(500).json({ message: 'Hubo un error al obtener las relaciones', error: error.message });
   }
 });
 
+
+
+// Ruta para eliminar una relación entre un estudiante y un tutor
+router.delete('/:guardianId/:studentId', async (req, res) => {
+  const { guardianId, studentId } = req.params;
+
+  try {
+    // Buscar la relación que se desea eliminar
+    const relationship = await UserRelation.findOne({
+      where: {
+        guardianId,
+        studentId,
+      },
+    });
+
+    // Verificar si la relación existe
+    if (!relationship) {
+      return res.status(404).json({ message: 'Relación no encontrada.' });
+    }
+
+    // Eliminar la relación
+    await relationship.destroy();
+
+    res.status(200).json({ message: 'Relación eliminada con éxito' });
+  } catch (error) {
+    console.error('Error al eliminar la relación:', error);
+    res.status(500).json({ message: 'Hubo un error al eliminar la relación', error });
+  }
+});
+
+
+
 module.exports = router;
+

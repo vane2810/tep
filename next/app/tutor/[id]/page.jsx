@@ -10,16 +10,14 @@ import PrivateRoute from '@/components/PrivateRoute';
 import EmptyContentMessage from '@/components/menssages/mensajeVacio';
 
 const StudentProgressPage = () => {
-  const { id } = useParams(); 
+  const { id } = useParams(); // Obtener el ID del estudiante desde la URL (Usando next/navigation)
   const { session } = useSession();
   const [progressData, setProgressData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
-  // Verificar si `id` está obteniendo un valor válido
+  // Hook para obtener el progreso del estudiante cuando se tiene el id y la sesión
   useEffect(() => {
-    console.log("ID del Estudiante:", id); // Agregar log para verificar el ID
-
     if (id && session?.user) {
       fetchStudentProgress(id);
     }
@@ -28,18 +26,12 @@ const StudentProgressPage = () => {
   // Función para obtener los datos de progreso del estudiante
   const fetchStudentProgress = async (studentId) => {
     try {
-      console.log("Obteniendo progreso para el estudiante con ID:", studentId); // Log de verificación
       const response = await fetch(`http://localhost:3001/api/progreso/user/${studentId}`);
-      
-      console.log("Respuesta de la API:", response); // Log de la respuesta de la API
-
       if (!response.ok) {
         throw new Error('Error al obtener el progreso del estudiante');
       }
 
       const data = await response.json();
-      console.log("Datos recibidos del progreso:", data); // Log de los datos recibidos
-
       setProgressData(data);
     } catch (error) {
       console.error('Error al obtener el progreso del estudiante:', error);
@@ -57,8 +49,9 @@ const StudentProgressPage = () => {
   return (
     <PrivateRoute>
       <main>
-        <SeparadorVerde />
+      <SeparadorVerde />
         <div className="bg-white shadow-lg mx-auto my-20 mt-8 p-10 rounded-lg w-full max-w-5xl yagora">
+         
           <div className="flex flex-col items-center mb-8">
             <div className="flex justify-between items-center w-full">
               <Volver img='/img/home/regresar/verde.webp' href='/docente' className="mb-4" />
@@ -125,14 +118,16 @@ const StudentProgressPage = () => {
               </div>
             </div>
           ) : (
-            <EmptyContentMessage />
+            <EmptyContentMessage/>
           )}
+
+          
         </div>
         <SeparadorVerde />
       </main>
+      
     </PrivateRoute>
   );
 };
 
 export default StudentProgressPage;
-  
