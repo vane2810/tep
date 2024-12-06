@@ -68,28 +68,44 @@ const UserManualPage = () => {
         return (
           <div className="text-center mt-4">
             <h3 className="text-2xl font-bold text-black super">¡ROL DE ESTUDIANTE!</h3>
-            <img src="/img/estudiante-image.png" alt="Imagen de estudiante" className="mx-auto mt-4 w-32" />
+            <img
+              src="/img/help/faq/manual/estudiante.webp"
+              alt="Imagen de estudiante"
+              className={`mx-auto mt-4 ${activeComponent === null ? 'w-72' : 'w-32'}`} // Imagen más grande si el rol está activo, pequeña si se entra a un componente
+            />
           </div>
         );
       case "docentes":
         return (
           <div className="text-center mt-4">
             <h3 className="text-2xl font-bold text-black super ">¡ROL DE DOCENTE!</h3>
-            <img src="/img/docente-image.png" alt="Imagen de docente" className="mx-auto mt-4 w-32" />
+            <img
+              src="/img/help/faq/manual/profesor.webp"
+              alt="Imagen de docente"
+              className={`mx-auto mt-4 ${activeComponent === null ? 'w-72' : 'w-32'}`} // Imagen más grande si el rol está activo, pequeña si se entra a un componente
+            />
           </div>
         );
       case "padres":
         return (
           <div className="text-center mt-4">
             <h3 className="text-2xl font-bold text-black super">¡ROL DE PADRES!</h3>
-            <img src="/img/padres-image.png" alt="Imagen de padres" className="mx-auto mt-4 w-32" />
+            <img
+              src="/img/help/faq/manual/padre.webp"
+              alt="Imagen de padres"
+              className={`mx-auto mt-4 ${activeComponent === null ? 'w-72' : 'w-32'}`} // Imagen más grande si el rol está activo, pequeña si se entra a un componente
+            />
           </div>
         );
       case "auth":
         return (
           <div className="text-center mt-4">
-            <h3 className="text-2xl font-bold text-black super ">¡ROL DE ADMINISTRADOR!</h3>
-            <img src="/img/auth-image.png" alt="Imagen de autenticación" className="mx-auto mt-4 w-32" />
+            <h3 className="text-2xl font-bold text-black super ">¡AUTENTICACIÓN!</h3>
+            <img
+              src="/img/help/faq/manual/autenticacion.webp"
+              alt="Imagen de autenticación"
+              className={`mx-auto mt-4 ${activeComponent === null ? 'w-72' : 'w-32'}`} // Imagen más grande si el rol está activo, pequeña si se entra a un componente
+            />
           </div>
         );
       default:
@@ -115,21 +131,21 @@ const UserManualPage = () => {
               onClick={() => selectRole("auth")}
               className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${getRoleColor("auth")}`}
             >
-              Administrador
+              Autenticación
             </button>
             {activeRole === "auth" && (
               <div className="pl-4">
-                <button
-                  onClick={() => selectComponent("login")}
-                  className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${activeComponent === "login" ? getComponentColor() : ""}`}
-                >
-                  Iniciar sesión
-                </button>
                 <button
                   onClick={() => selectComponent("register")}
                   className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${activeComponent === "register" ? getComponentColor() : ""}`}
                 >
                   Registro
+                </button>
+                <button
+                  onClick={() => selectComponent("login")}
+                  className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${activeComponent === "login" ? getComponentColor() : ""}`}
+                >
+                  Iniciar sesión
                 </button>
               </div>
             )}
@@ -151,16 +167,16 @@ const UserManualPage = () => {
                   Navegación
                 </button>
                 <button
-                  onClick={() => selectComponent("progreso")}
-                  className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${activeComponent === "progreso" ? getComponentColor() : ""}`}
-                >
-                  Progreso
-                </button>
-                <button
                   onClick={() => selectComponent("receso")}
                   className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${activeComponent === "receso" ? getComponentColor() : ""}`}
                 >
                   Receso
+                </button>
+                <button
+                  onClick={() => selectComponent("progreso")}
+                  className={`w-full text-center font-bold p-2 mb-2 rounded-lg border-2 border-black hover:border-gray-500 wonder ${activeComponent === "progreso" ? getComponentColor() : ""}`}
+                >
+                  Progreso
                 </button>
               </div>
             )}
@@ -211,8 +227,8 @@ const UserManualPage = () => {
         {/* Mostrar bienvenida según el rol activo */}
         {activeRole === null ? (
           <div className="text-center mt-4">
-            <h3 className="text-2xl font-bold text-black">¡Bienvenido al Manual de Usuario!</h3>
-            <p className="mt-4 text-lg text-black">Por favor selecciona un rol para comenzar.</p>
+            <h3 className="text-2xl font-bold text-black super">¡BIENVENIDO AL MANUAL DE USUARIO!</h3>
+            <p className="mt-4 text-lg text-black wonder">Por favor selecciona un rol para comenzar.</p>
             <img src="/img/help/faq/manual/bienvenida.webp" alt="Imagen de bienvenida" className="mx-auto mb-6" />
           </div>
         ) : (

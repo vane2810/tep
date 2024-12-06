@@ -100,7 +100,10 @@ export default function LoginForm({ formData, handleChange, handleSubmit }) {
 
           {/* Separador visual */}
           <hr className="border-1 my-6 sm:my-8 border-t border-black w-full" />
-
+          {/* Enlace para recuperar contraseña */}
+          <div className="text-base text-black sm:text-lg">
+            <p>Has olvidado tu contraseña? <Link href="/auth/rescontra" className="font-medium text-yellow-400 hover:text-yellow-500">Recuperala</Link></p>
+          </div>
           {/* Enlace para registrarse */}
           <div className="text-base text-black sm:text-lg">
             <p>¿No tienes una cuenta? <Link href="/auth/register" className="font-medium text-yellow-400 hover:text-yellow-500">Regístrate</Link></p>
