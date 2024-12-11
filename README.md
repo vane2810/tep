@@ -25,7 +25,7 @@ Aplicación web de actividades educativas para estudiantes de segundo ciclo de e
 
 ## Documentación Técnica
 
-- [https://www.notion.so/Manual-t-cnico-145901da42b480cd81f4cc219c41fe53?pvs=4](Notion)
+- [TechEduPlanet](https://www.notion.so/Manual-t-cnico-145901da42b480cd81f4cc219c41fe53?pvs=4)
 
 ## Instrucciones para ejecutar el proyecto
 
