@@ -23,6 +23,10 @@ Aplicación web de actividades educativas para estudiantes de segundo ciclo de e
 2. Dependencias de desarrollo:
 - Diseño: tailwindcss: ^3.4.3
 
+## Documentación Técnica
+
+- [Notion](Notion)
+
 ## Instrucciones para ejecutar el proyecto
 
 Tecnologías requeridas: 
