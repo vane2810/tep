@@ -89,7 +89,7 @@ const FAQ = () => {
 
       {/* Imagen decorativa con animación de tambaleo */}
       <img
-        src="/img/help/faq/decoracionpf.webp"
+        src="/img/help/faq/manual/estudiante.webp"
         alt="Decoración"
         className="my-6 w-40 h-40 animate-tambaleo"
       />
