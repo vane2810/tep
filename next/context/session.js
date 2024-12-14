@@ -6,7 +6,7 @@ export const SessionContext = createContext();
 
 export const SessionProvider = ({ children }) => {
   const [session, setSession] = useState(null);
-  const [selectedCharacter, setSelectedCharacter] = useState(null); // Estado para el personaje seleccionado
+  const [selectedCharacter, setSelectedCharacter] = useState(null); 
 
   // Función para verificar la expiración del token
   const checkTokenExpiration = (token) => {

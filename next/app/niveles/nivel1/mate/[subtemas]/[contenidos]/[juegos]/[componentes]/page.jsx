@@ -1,3 +1,4 @@
+// Página del juego 
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -31,8 +32,8 @@ const GamePage = () => {
     const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
     const [currentPoints, setCurrentPoints] = useState({ id: null, points_max: "", points_min: "" });
     const [gameConfig, setGameConfig] = useState(null);
-    const [showGame, setShowGame] = useState(false); // Estado para controlar si el juego se muestra
-    const [userProgress, setUserProgress] = useState(null); // Estado para almacenar el progreso del estudiante
+    const [showGame, setShowGame] = useState(false); 
+    const [userProgress, setUserProgress] = useState(null); 
 
     // Obtener los datos del juego
     useEffect(() => {

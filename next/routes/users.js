@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
 
   try {
     const user = await User.findByPk(id, {
-      attributes: { exclude: ['password'] }, // Excluye la contraseña
+      attributes: { exclude: ['password'] }, 
       include: [
         { model: Character, as: 'character' },
         { model: Level, as: 'level' },
