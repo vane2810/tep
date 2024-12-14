@@ -25,7 +25,7 @@ Aplicación web de actividades educativas para estudiantes de segundo ciclo de e
 
 ## Documentación Técnica
 
-- [TechEduPlanet](https://www.notion.so/Techeduplanet-147901da42b4808f9619d99f9c15bc7c?pvs=4)
+- [TechEduPlanet]([https://www.notion.so/Techeduplanet-147901da42b4808f9619d99f9c15bc7c?pvs=4](https://marvelous-dove-a2f.notion.site/Documento-T-cnico-TechEduPlanet-147901da42b4808f9619d99f9c15bc7c?pvs=4))
 
 ## Instrucciones para ejecutar el proyecto
 
